@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Livekit.Server.Sdk.Dotnet</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>pabloFuente</Authors>
+    <PackageTags>Livekit Server Sdk Dotnet;LiveKit;LiveKit Server;LiveKit Dotnet;LiveKit SDK;</PackageTags>
+    <Description>.NET APIs to manage LiveKit Access Tokens, Rooms, Egress and Ingress. This library
+      is designed to work with livekit-server. Use it with a .NET backend to manage access to
+      LiveKit.
+    </Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/pabloFuente/livekit-server-sdk-dotnet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Livekit.Server.Sdk.Dotnet</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.28.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.2.0" />
+  </ItemGroup>
+
+</Project>
