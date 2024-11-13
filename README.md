@@ -12,7 +12,7 @@ The SDK implements:
 - Access Tokens
 - Webhooks
 
-> It is compatible with [livekit/protocol <= 1.20.0](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.20.0)
+> It is compatible with [livekit/protocol <= 1.20.0](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.20.0). Methods and properties added to livekit/protocol after this version are not available in the SDK.
 
 # For developers of the SDK
 
