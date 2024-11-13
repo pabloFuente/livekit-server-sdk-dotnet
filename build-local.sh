@@ -10,6 +10,8 @@ rm -rf "$SCRIPT_FOLDER"/obj
 
 dotnet nuget locals all --clear
 dotnet restore || exit 1
+dotnet tool restore || exit 1
+dotnet csharpier . || exit 1
 dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg || exit 1
 
 mono /usr/local/bin/nuget.exe delete Livekit.Server.Sdk.Dotnet 1.0.0 -Source ~/.private_nuget/ -np || true
