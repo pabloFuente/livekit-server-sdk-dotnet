@@ -10,8 +10,9 @@ public class BaseService
     {
         this.apiKey = apiKey;
         this.secret = secret;
-        this.httpClient = client ?? new HttpClient();
-        this.httpClient.BaseAddress = new Uri(host);
+        httpClient = client ?? new HttpClient();
+        httpClient.BaseAddress = new Uri(host);
+        httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("LiveKit Dotnet SDK");
     }
 
     protected string AuthHeader(VideoGrants videoGrants)

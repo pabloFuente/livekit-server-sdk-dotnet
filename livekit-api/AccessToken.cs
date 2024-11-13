@@ -1,8 +1,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using System.Text.Json;
-using Google.Protobuf.WellKnownTypes;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 
@@ -10,7 +8,14 @@ namespace Livekit.Server.Sdk.Dotnet;
 
 public class AccessToken
 {
-    public enum ParticipantKind { Standard, Egress, Ingress, Sip, Agent }
+    public enum ParticipantKind
+    {
+        Standard,
+        Egress,
+        Ingress,
+        Sip,
+        Agent,
+    }
 
     private readonly string? _apiKey;
     private readonly string? _apiSecret;
@@ -92,7 +97,10 @@ public class AccessToken
     public string ToJwt()
     {
         var video = Claims.Video;
-        if (video.RoomJoin && (string.IsNullOrEmpty(Claims.Identity) || string.IsNullOrEmpty(video.Room)))
+        if (
+            video.RoomJoin
+            && (string.IsNullOrEmpty(Claims.Identity) || string.IsNullOrEmpty(video.Room))
+        )
         {
             throw new ArgumentException("identity and room must be set when joining a room");
         }
@@ -105,7 +113,7 @@ public class AccessToken
             { "sub", Claims.Identity },
             { "iss", _apiKey },
             { "nbf", now },
-            { "exp", exp }
+            { "exp", exp },
         };
 
         jwtClaims["video"] = ConvertClaimsKeysToCamelCase(Claims.Video);
@@ -142,20 +150,16 @@ public class AccessToken
 
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_apiSecret));
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-        var token = new JwtSecurityToken(
-            claims: claims,
-            signingCredentials: credentials
-        );
+        var token = new JwtSecurityToken(claims: claims, signingCredentials: credentials);
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
     private static Dictionary<string, object?> ConvertClaimsKeysToCamelCase(object obj)
     {
-        return obj.GetType().GetProperties()
-            .ToDictionary(
-                prop => PascalToCamelCase(prop.Name),
-                prop => prop.GetValue(obj));
+        return obj.GetType()
+            .GetProperties()
+            .ToDictionary(prop => PascalToCamelCase(prop.Name), prop => prop.GetValue(obj));
     }
 
     private static string PascalToCamelCase(string str)
@@ -192,7 +196,7 @@ public class TokenVerifier
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_apiSecret)),
             ValidateLifetime = true,
             ValidateAudience = false,
-            ClockSkew = _leeway
+            ClockSkew = _leeway,
         };
 
         var tokenHandler = new JwtSecurityTokenHandler();
@@ -203,11 +207,11 @@ public class TokenVerifier
         var exists = claims.TryGetValue("video", out var videoClaim);
         if (exists && videoClaim != null)
         {
-            video = Newtonsoft.Json.JsonConvert.DeserializeObject<VideoGrants>(videoClaim);
+            video = JsonConvert.DeserializeObject<VideoGrants>(videoClaim);
         }
 
         var sip = claims.TryGetValue("sip", out var sipClaim)
-            ? Newtonsoft.Json.JsonConvert.DeserializeObject<SIPGrants>(sipClaim)
+            ? JsonConvert.DeserializeObject<SIPGrants>(sipClaim)
             : new SIPGrants();
 
         return new ClaimsModel
@@ -218,7 +222,9 @@ public class TokenVerifier
             Sip = sip,
             Metadata = claims.GetValueOrDefault("metadata"),
             Sha256 = claims.GetValueOrDefault("sha256"),
-            Attributes = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(claims.GetValueOrDefault("attributes", "{}"))
+            Attributes = JsonConvert.DeserializeObject<Dictionary<string, string>>(
+                claims.GetValueOrDefault("attributes", "{}")
+            ),
         };
     }
 }
