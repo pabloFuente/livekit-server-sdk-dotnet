@@ -3,10 +3,10 @@ using LiveKit.Proto;
 
 namespace Livekit.Server.Sdk.Dotnet;
 
-public class SipService : BaseService
+public class SipServiceClient : BaseService
 {
-    public SipService(string host, string apiKey, string secret)
-        : base(host, apiKey, secret) { }
+    public SipServiceClient(string host, string apiKey, string apiSecret)
+        : base(host, apiKey, apiSecret) { }
 
     public async Task<SIPTrunkInfo> CreateSIPTrunk(CreateSIPTrunkRequest request)
     {

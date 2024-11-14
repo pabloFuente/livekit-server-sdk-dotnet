@@ -3,10 +3,10 @@ using LiveKit.Proto;
 
 namespace Livekit.Server.Sdk.Dotnet;
 
-public class EgressService : BaseService
+public class EgressServiceClient : BaseService
 {
-    public EgressService(string host, string apiKey, string secret)
-        : base(host, apiKey, secret) { }
+    public EgressServiceClient(string host, string apiKey, string apiSecret)
+        : base(host, apiKey, apiSecret) { }
 
     public async Task<EgressInfo> StartRoomCompositeEgress(RoomCompositeEgressRequest request)
     {

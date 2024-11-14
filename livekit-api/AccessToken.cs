@@ -17,10 +17,10 @@ public class AccessToken
         Agent,
     }
 
-    private readonly string? _apiKey;
-    private readonly string? _apiSecret;
+    private readonly string apiKey;
+    private readonly string apiSecret;
     public ClaimsModel Claims { get; private set; }
-    private TimeSpan _ttl = Constants.DefaultTtl;
+    private TimeSpan ttl = Constants.DefaultTtl;
 
     /// <summary>
     /// Constructs a new AccessToken
@@ -29,12 +29,12 @@ public class AccessToken
     /// <param name="apiSecret">LiveKit API secret</param>
     public AccessToken(string? apiKey = null, string? apiSecret = null)
     {
-        _apiKey = apiKey ?? Environment.GetEnvironmentVariable("LIVEKIT_API_KEY");
-        _apiSecret = apiSecret ?? Environment.GetEnvironmentVariable("LIVEKIT_API_SECRET");
+        this.apiKey = apiKey ?? Environment.GetEnvironmentVariable("LIVEKIT_API_KEY");
+        this.apiSecret = apiSecret ?? Environment.GetEnvironmentVariable("LIVEKIT_API_SECRET");
 
-        if (string.IsNullOrEmpty(_apiKey) || string.IsNullOrEmpty(_apiSecret))
+        if (string.IsNullOrEmpty(apiKey) || string.IsNullOrEmpty(apiSecret))
         {
-            throw new ArgumentException("api_key and secret must be set");
+            throw new ArgumentException("apiKey and apiSecret must be set");
         }
 
         Claims = new ClaimsModel();
@@ -42,7 +42,7 @@ public class AccessToken
 
     public AccessToken WithTtl(TimeSpan ttl)
     {
-        _ttl = ttl;
+        this.ttl = ttl;
         return this;
     }
 
@@ -106,12 +106,12 @@ public class AccessToken
         }
 
         var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-        var exp = now + (long)_ttl.TotalSeconds;
+        var exp = now + (long)ttl.TotalSeconds;
 
         var jwtClaims = new Dictionary<string, object>
         {
             { "sub", Claims.Identity },
-            { "iss", _apiKey },
+            { "iss", apiKey },
             { "nbf", now },
             { "exp", exp },
         };
@@ -148,7 +148,7 @@ public class AccessToken
             }
         }
 
-        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_apiSecret));
+        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(apiSecret));
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
         var token = new JwtSecurityToken(claims: claims, signingCredentials: credentials);
 
@@ -170,17 +170,17 @@ public class AccessToken
 
 public class TokenVerifier
 {
-    private readonly string _apiKey;
-    private readonly string _apiSecret;
-    private readonly TimeSpan _leeway;
+    private readonly string apiKey;
+    private readonly string apiSecret;
+    private readonly TimeSpan leeway;
 
     public TokenVerifier(string apiKey = null, string apiSecret = null, TimeSpan? leeway = null)
     {
-        _apiKey = apiKey ?? Environment.GetEnvironmentVariable("LIVEKIT_API_KEY");
-        _apiSecret = apiSecret ?? Environment.GetEnvironmentVariable("LIVEKIT_API_SECRET");
-        _leeway = leeway ?? Constants.DefaultLeeway;
+        this.apiKey = apiKey ?? Environment.GetEnvironmentVariable("LIVEKIT_API_KEY");
+        this.apiSecret = apiSecret ?? Environment.GetEnvironmentVariable("LIVEKIT_API_SECRET");
+        this.leeway = leeway ?? Constants.DefaultLeeway;
 
-        if (string.IsNullOrEmpty(_apiKey) || string.IsNullOrEmpty(_apiSecret))
+        if (string.IsNullOrEmpty(this.apiKey) || string.IsNullOrEmpty(this.apiSecret))
         {
             throw new ArgumentException("api_key and api_secret must be set");
         }
@@ -192,11 +192,11 @@ public class TokenVerifier
         {
             ValidateIssuer = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = _apiKey,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_apiSecret)),
+            ValidIssuer = apiKey,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(apiSecret)),
             ValidateLifetime = true,
             ValidateAudience = false,
-            ClockSkew = _leeway,
+            ClockSkew = leeway,
         };
 
         var tokenHandler = new JwtSecurityTokenHandler();

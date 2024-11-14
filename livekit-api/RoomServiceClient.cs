@@ -7,14 +7,14 @@ namespace Livekit.Server.Sdk.Dotnet;
 /// A client for interacting managing LiveKit rooms and participants.
 /// <see href="https://docs.livekit.io/realtime/server/managing-rooms/" />
 /// </summary>
-public class RoomService : BaseService
+public class RoomServiceClient : BaseService
 {
     /// <summary>
     /// A client for interacting managing LiveKit rooms and participants.
     /// <see href="https://docs.livekit.io/realtime/server/managing-rooms/" />
     /// </summary>
-    public RoomService(string host, string apiKey, string secret)
-        : base(host, apiKey, secret) { }
+    public RoomServiceClient(string host, string apiKey, string apiSecret)
+        : base(host, apiKey, apiSecret) { }
 
     /// <summary>
     /// Creates a new room. Explicit room creation is not required, since rooms will be automatically

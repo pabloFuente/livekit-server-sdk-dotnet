@@ -3,10 +3,10 @@ using LiveKit.Proto;
 
 namespace Livekit.Server.Sdk.Dotnet;
 
-public class AgentDispatchService : BaseService
+public class AgentDispatchServiceClient : BaseService
 {
-    public AgentDispatchService(string host, string apiKey, string secret)
-        : base(host, apiKey, secret) { }
+    public AgentDispatchServiceClient(string host, string apiKey, string apiSecret)
+        : base(host, apiKey, apiSecret) { }
 
     public async Task<AgentDispatch> CreateDispatch(CreateAgentDispatchRequest request)
     {

@@ -3,10 +3,10 @@ using LiveKit.Proto;
 
 namespace Livekit.Server.Sdk.Dotnet;
 
-public class IngressService : BaseService
+public class IngressServiceClient : BaseService
 {
-    public IngressService(string host, string apiKey, string secret)
-        : base(host, apiKey, secret) { }
+    public IngressServiceClient(string host, string apiKey, string apiSecret)
+        : base(host, apiKey, apiSecret) { }
 
     public async Task<IngressInfo> CreateIngress(CreateIngressRequest request)
     {
