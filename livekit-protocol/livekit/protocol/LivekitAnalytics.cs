@@ -26,89 +26,103 @@ namespace LiveKit.Proto {
           string.Concat(
             "ChdsaXZla2l0X2FuYWx5dGljcy5wcm90bxIHbGl2ZWtpdBofZ29vZ2xlL3By",
             "b3RvYnVmL3RpbWVzdGFtcC5wcm90bxoUbGl2ZWtpdF9tb2RlbHMucHJvdG8a",
-            "FGxpdmVraXRfZWdyZXNzLnByb3RvGhVsaXZla2l0X2luZ3Jlc3MucHJvdG8i",
-            "VAoTQW5hbHl0aWNzVmlkZW9MYXllchINCgVsYXllchgBIAEoBRIPCgdwYWNr",
-            "ZXRzGAIgASgNEg0KBWJ5dGVzGAMgASgEEg4KBmZyYW1lcxgEIAEoDSK1AwoP",
-            "QW5hbHl0aWNzU3RyZWFtEgwKBHNzcmMYASABKA0SFwoPcHJpbWFyeV9wYWNr",
-            "ZXRzGAIgASgNEhUKDXByaW1hcnlfYnl0ZXMYAyABKAQSGgoScmV0cmFuc21p",
-            "dF9wYWNrZXRzGAQgASgNEhgKEHJldHJhbnNtaXRfYnl0ZXMYBSABKAQSFwoP",
-            "cGFkZGluZ19wYWNrZXRzGAYgASgNEhUKDXBhZGRpbmdfYnl0ZXMYByABKAQS",
-            "FAoMcGFja2V0c19sb3N0GAggASgNEg4KBmZyYW1lcxgJIAEoDRILCgNydHQY",
-            "CiABKA0SDgoGaml0dGVyGAsgASgNEg0KBW5hY2tzGAwgASgNEgwKBHBsaXMY",
-            "DSABKA0SDAoEZmlycxgOIAEoDRIyCgx2aWRlb19sYXllcnMYDyADKAsyHC5s",
-            "aXZla2l0LkFuYWx5dGljc1ZpZGVvTGF5ZXISLgoKc3RhcnRfdGltZRgRIAEo",
-            "CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLAoIZW5kX3RpbWUYEiAB",
-            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wItICCg1BbmFseXRpY3NT",
-            "dGF0EgoKAmlkGA4gASgJEhUKDWFuYWx5dGljc19rZXkYASABKAkSIQoEa2lu",
-            "ZBgCIAEoDjITLmxpdmVraXQuU3RyZWFtVHlwZRIuCgp0aW1lX3N0YW1wGAMg",
-            "ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIMCgRub2RlGAQgASgJ",
-            "Eg8KB3Jvb21faWQYBSABKAkSEQoJcm9vbV9uYW1lGAYgASgJEhYKDnBhcnRp",
-            "Y2lwYW50X2lkGAcgASgJEhAKCHRyYWNrX2lkGAggASgJEg0KBXNjb3JlGAkg",
-            "ASgCEikKB3N0cmVhbXMYCiADKAsyGC5saXZla2l0LkFuYWx5dGljc1N0cmVh",
-            "bRIMCgRtaW1lGAsgASgJEhEKCW1pbl9zY29yZRgMIAEoAhIUCgxtZWRpYW5f",
-            "c2NvcmUYDSABKAIiNwoOQW5hbHl0aWNzU3RhdHMSJQoFc3RhdHMYASADKAsy",
-            "Fi5saXZla2l0LkFuYWx5dGljc1N0YXQimgIKE0FuYWx5dGljc0NsaWVudE1l",
-            "dGESDgoGcmVnaW9uGAEgASgJEgwKBG5vZGUYAiABKAkSEwoLY2xpZW50X2Fk",
-            "ZHIYAyABKAkSGwoTY2xpZW50X2Nvbm5lY3RfdGltZRgEIAEoDRIXCg9jb25u",
-            "ZWN0aW9uX3R5cGUYBSABKAkSMgoQcmVjb25uZWN0X3JlYXNvbhgGIAEoDjIY",
-            "LmxpdmVraXQuUmVjb25uZWN0UmVhc29uEhUKCGdlb19oYXNoGAcgASgJSACI",
-            "AQESFAoHY291bnRyeRgIIAEoCUgBiAEBEhQKB2lzcF9hc24YCSABKA1IAogB",
-            "AUILCglfZ2VvX2hhc2hCCgoIX2NvdW50cnlCCgoIX2lzcF9hc24i2gUKDkFu",
-            "YWx5dGljc0V2ZW50EgoKAmlkGBkgASgJEikKBHR5cGUYASABKA4yGy5saXZl",
-            "a2l0LkFuYWx5dGljc0V2ZW50VHlwZRItCgl0aW1lc3RhbXAYAiABKAsyGi5n",
-            "b29nbGUucHJvdG9idWYuVGltZXN0YW1wEg8KB3Jvb21faWQYAyABKAkSGwoE",
-            "cm9vbRgEIAEoCzINLmxpdmVraXQuUm9vbRIWCg5wYXJ0aWNpcGFudF9pZBgF",
-            "IAEoCRItCgtwYXJ0aWNpcGFudBgGIAEoCzIYLmxpdmVraXQuUGFydGljaXBh",
-            "bnRJbmZvEhAKCHRyYWNrX2lkGAcgASgJEiEKBXRyYWNrGAggASgLMhIubGl2",
-            "ZWtpdC5UcmFja0luZm8SFQoNYW5hbHl0aWNzX2tleRgKIAEoCRIoCgtjbGll",
-            "bnRfaW5mbxgLIAEoCzITLmxpdmVraXQuQ2xpZW50SW5mbxIxCgtjbGllbnRf",
-            "bWV0YRgMIAEoCzIcLmxpdmVraXQuQW5hbHl0aWNzQ2xpZW50TWV0YRIRCgll",
-            "Z3Jlc3NfaWQYDSABKAkSEgoKaW5ncmVzc19pZBgTIAEoCRI7ChxtYXhfc3Vi",
-            "c2NyaWJlZF92aWRlb19xdWFsaXR5GA4gASgOMhUubGl2ZWtpdC5WaWRlb1F1",
-            "YWxpdHkSKwoJcHVibGlzaGVyGA8gASgLMhgubGl2ZWtpdC5QYXJ0aWNpcGFu",
-            "dEluZm8SDAoEbWltZRgQIAEoCRIjCgZlZ3Jlc3MYESABKAsyEy5saXZla2l0",
-            "LkVncmVzc0luZm8SJQoHaW5ncmVzcxgSIAEoCzIULmxpdmVraXQuSW5ncmVz",
-            "c0luZm8SDQoFZXJyb3IYFCABKAkSJAoJcnRwX3N0YXRzGBUgASgLMhEubGl2",
-            "ZWtpdC5SVFBTdGF0cxITCgt2aWRlb19sYXllchgWIAEoBRIPCgdub2RlX2lk",
-            "GBggASgJIjoKD0FuYWx5dGljc0V2ZW50cxInCgZldmVudHMYASADKAsyFy5s",
-            "aXZla2l0LkFuYWx5dGljc0V2ZW50IqQBChhBbmFseXRpY3NSb29tUGFydGlj",
-            "aXBhbnQSCgoCaWQYASABKAkSEAoIaWRlbnRpdHkYAiABKAkSDAoEbmFtZRgD",
-            "IAEoCRItCgVzdGF0ZRgEIAEoDjIeLmxpdmVraXQuUGFydGljaXBhbnRJbmZv",
-            "LlN0YXRlEi0KCWpvaW5lZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5U",
-            "aW1lc3RhbXAipgEKDUFuYWx5dGljc1Jvb20SCgoCaWQYASABKAkSDAoEbmFt",
-            "ZRgCIAEoCRISCgpwcm9qZWN0X2lkGAUgASgJEi4KCmNyZWF0ZWRfYXQYAyAB",
-            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjcKDHBhcnRpY2lwYW50",
-            "cxgEIAMoCzIhLmxpdmVraXQuQW5hbHl0aWNzUm9vbVBhcnRpY2lwYW50IpQB",
-            "ChJBbmFseXRpY3NOb2RlUm9vbXMSDwoHbm9kZV9pZBgBIAEoCRIXCg9zZXF1",
-            "ZW5jZV9udW1iZXIYAiABKAQSLQoJdGltZXN0YW1wGAMgASgLMhouZ29vZ2xl",
-            "LnByb3RvYnVmLlRpbWVzdGFtcBIlCgVyb29tcxgEIAMoCzIWLmxpdmVraXQu",
-            "QW5hbHl0aWNzUm9vbSoqCgpTdHJlYW1UeXBlEgwKCFVQU1RSRUFNEAASDgoK",
-            "RE9XTlNUUkVBTRABKpUFChJBbmFseXRpY3NFdmVudFR5cGUSEAoMUk9PTV9D",
-            "UkVBVEVEEAASDgoKUk9PTV9FTkRFRBABEhYKElBBUlRJQ0lQQU5UX0pPSU5F",
-            "RBACEhQKEFBBUlRJQ0lQQU5UX0xFRlQQAxITCg9UUkFDS19QVUJMSVNIRUQQ",
-            "BBIbChdUUkFDS19QVUJMSVNIX1JFUVVFU1RFRBAUEhUKEVRSQUNLX1VOUFVC",
-            "TElTSEVEEAUSFAoQVFJBQ0tfU1VCU0NSSUJFRBAGEh0KGVRSQUNLX1NVQlND",
-            "UklCRV9SRVFVRVNURUQQFRIaChZUUkFDS19TVUJTQ1JJQkVfRkFJTEVEEBkS",
-            "FgoSVFJBQ0tfVU5TVUJTQ1JJQkVEEAcSGgoWVFJBQ0tfUFVCTElTSEVEX1VQ",
-            "REFURRAKEg8KC1RSQUNLX01VVEVEEBcSEQoNVFJBQ0tfVU5NVVRFRBAYEhcK",
-            "E1RSQUNLX1BVQkxJU0hfU1RBVFMQGhIZChVUUkFDS19TVUJTQ1JJQkVfU1RB",
-            "VFMQGxIWChJQQVJUSUNJUEFOVF9BQ1RJVkUQCxIXChNQQVJUSUNJUEFOVF9S",
-            "RVNVTUVEEBYSEgoORUdSRVNTX1NUQVJURUQQDBIQCgxFR1JFU1NfRU5ERUQQ",
-            "DRISCg5FR1JFU1NfVVBEQVRFRBAcEiYKIlRSQUNLX01BWF9TVUJTQ1JJQkVE",
-            "X1ZJREVPX1FVQUxJVFkQDhIPCgtSRUNPTk5FQ1RFRBAPEhMKD0lOR1JFU1Nf",
-            "Q1JFQVRFRBASEhMKD0lOR1JFU1NfREVMRVRFRBATEhMKD0lOR1JFU1NfU1RB",
-            "UlRFRBAQEhEKDUlOR1JFU1NfRU5ERUQQERITCg9JTkdSRVNTX1VQREFURUQQ",
-            "HUJGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdKoCDUxp",
-            "dmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
+            "FGxpdmVraXRfZWdyZXNzLnByb3RvGhVsaXZla2l0X2luZ3Jlc3MucHJvdG8a",
+            "EWxpdmVraXRfc2lwLnByb3RvIlQKE0FuYWx5dGljc1ZpZGVvTGF5ZXISDQoF",
+            "bGF5ZXIYASABKAUSDwoHcGFja2V0cxgCIAEoDRINCgVieXRlcxgDIAEoBBIO",
+            "CgZmcmFtZXMYBCABKA0i0wMKD0FuYWx5dGljc1N0cmVhbRIMCgRzc3JjGAEg",
+            "ASgNEhcKD3ByaW1hcnlfcGFja2V0cxgCIAEoDRIVCg1wcmltYXJ5X2J5dGVz",
+            "GAMgASgEEhoKEnJldHJhbnNtaXRfcGFja2V0cxgEIAEoDRIYChByZXRyYW5z",
+            "bWl0X2J5dGVzGAUgASgEEhcKD3BhZGRpbmdfcGFja2V0cxgGIAEoDRIVCg1w",
+            "YWRkaW5nX2J5dGVzGAcgASgEEhQKDHBhY2tldHNfbG9zdBgIIAEoDRIOCgZm",
+            "cmFtZXMYCSABKA0SCwoDcnR0GAogASgNEg4KBmppdHRlchgLIAEoDRINCgVu",
+            "YWNrcxgMIAEoDRIMCgRwbGlzGA0gASgNEgwKBGZpcnMYDiABKA0SMgoMdmlk",
+            "ZW9fbGF5ZXJzGA8gAygLMhwubGl2ZWtpdC5BbmFseXRpY3NWaWRlb0xheWVy",
+            "Ei4KCnN0YXJ0X3RpbWUYESABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0",
+            "YW1wEiwKCGVuZF90aW1lGBIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
+            "dGFtcBIcChRwYWNrZXRzX291dF9vZl9vcmRlchgTIAEoDSLSAgoNQW5hbHl0",
+            "aWNzU3RhdBIKCgJpZBgOIAEoCRIVCg1hbmFseXRpY3Nfa2V5GAEgASgJEiEK",
+            "BGtpbmQYAiABKA4yEy5saXZla2l0LlN0cmVhbVR5cGUSLgoKdGltZV9zdGFt",
+            "cBgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASDAoEbm9kZRgE",
+            "IAEoCRIPCgdyb29tX2lkGAUgASgJEhEKCXJvb21fbmFtZRgGIAEoCRIWCg5w",
+            "YXJ0aWNpcGFudF9pZBgHIAEoCRIQCgh0cmFja19pZBgIIAEoCRINCgVzY29y",
+            "ZRgJIAEoAhIpCgdzdHJlYW1zGAogAygLMhgubGl2ZWtpdC5BbmFseXRpY3NT",
+            "dHJlYW0SDAoEbWltZRgLIAEoCRIRCgltaW5fc2NvcmUYDCABKAISFAoMbWVk",
+            "aWFuX3Njb3JlGA0gASgCIjcKDkFuYWx5dGljc1N0YXRzEiUKBXN0YXRzGAEg",
+            "AygLMhYubGl2ZWtpdC5BbmFseXRpY3NTdGF0IpoCChNBbmFseXRpY3NDbGll",
+            "bnRNZXRhEg4KBnJlZ2lvbhgBIAEoCRIMCgRub2RlGAIgASgJEhMKC2NsaWVu",
+            "dF9hZGRyGAMgASgJEhsKE2NsaWVudF9jb25uZWN0X3RpbWUYBCABKA0SFwoP",
+            "Y29ubmVjdGlvbl90eXBlGAUgASgJEjIKEHJlY29ubmVjdF9yZWFzb24YBiAB",
+            "KA4yGC5saXZla2l0LlJlY29ubmVjdFJlYXNvbhIVCghnZW9faGFzaBgHIAEo",
+            "CUgAiAEBEhQKB2NvdW50cnkYCCABKAlIAYgBARIUCgdpc3BfYXNuGAkgASgN",
+            "SAKIAQFCCwoJX2dlb19oYXNoQgoKCF9jb3VudHJ5QgoKCF9pc3BfYXNuIvgH",
+            "Cg5BbmFseXRpY3NFdmVudBIKCgJpZBgZIAEoCRIpCgR0eXBlGAEgASgOMhsu",
+            "bGl2ZWtpdC5BbmFseXRpY3NFdmVudFR5cGUSLQoJdGltZXN0YW1wGAIgASgL",
+            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIPCgdyb29tX2lkGAMgASgJ",
+            "EhsKBHJvb20YBCABKAsyDS5saXZla2l0LlJvb20SFgoOcGFydGljaXBhbnRf",
+            "aWQYBSABKAkSLQoLcGFydGljaXBhbnQYBiABKAsyGC5saXZla2l0LlBhcnRp",
+            "Y2lwYW50SW5mbxIQCgh0cmFja19pZBgHIAEoCRIhCgV0cmFjaxgIIAEoCzIS",
+            "LmxpdmVraXQuVHJhY2tJbmZvEhUKDWFuYWx5dGljc19rZXkYCiABKAkSKAoL",
+            "Y2xpZW50X2luZm8YCyABKAsyEy5saXZla2l0LkNsaWVudEluZm8SMQoLY2xp",
+            "ZW50X21ldGEYDCABKAsyHC5saXZla2l0LkFuYWx5dGljc0NsaWVudE1ldGES",
+            "EQoJZWdyZXNzX2lkGA0gASgJEhIKCmluZ3Jlc3NfaWQYEyABKAkSOwocbWF4",
+            "X3N1YnNjcmliZWRfdmlkZW9fcXVhbGl0eRgOIAEoDjIVLmxpdmVraXQuVmlk",
+            "ZW9RdWFsaXR5EisKCXB1Ymxpc2hlchgPIAEoCzIYLmxpdmVraXQuUGFydGlj",
+            "aXBhbnRJbmZvEgwKBG1pbWUYECABKAkSIwoGZWdyZXNzGBEgASgLMhMubGl2",
+            "ZWtpdC5FZ3Jlc3NJbmZvEiUKB2luZ3Jlc3MYEiABKAsyFC5saXZla2l0Lklu",
+            "Z3Jlc3NJbmZvEg0KBWVycm9yGBQgASgJEiQKCXJ0cF9zdGF0cxgVIAEoCzIR",
+            "LmxpdmVraXQuUlRQU3RhdHMSEwoLdmlkZW9fbGF5ZXIYFiABKAUSDwoHbm9k",
+            "ZV9pZBgYIAEoCRITCgtzaXBfY2FsbF9pZBgaIAEoCRImCghzaXBfY2FsbBgb",
+            "IAEoCzIULmxpdmVraXQuU0lQQ2FsbEluZm8SFAoMc2lwX3RydW5rX2lkGBwg",
+            "ASgJEjcKEXNpcF9pbmJvdW5kX3RydW5rGB0gASgLMhwubGl2ZWtpdC5TSVBJ",
+            "bmJvdW5kVHJ1bmtJbmZvEjkKEnNpcF9vdXRib3VuZF90cnVuaxgeIAEoCzId",
+            "LmxpdmVraXQuU0lQT3V0Ym91bmRUcnVua0luZm8SHAoUc2lwX2Rpc3BhdGNo",
+            "X3J1bGVfaWQYHyABKAkSNwoRc2lwX2Rpc3BhdGNoX3J1bGUYICABKAsyHC5s",
+            "aXZla2l0LlNJUERpc3BhdGNoUnVsZUluZm8iOgoPQW5hbHl0aWNzRXZlbnRz",
+            "EicKBmV2ZW50cxgBIAMoCzIXLmxpdmVraXQuQW5hbHl0aWNzRXZlbnQipAEK",
+            "GEFuYWx5dGljc1Jvb21QYXJ0aWNpcGFudBIKCgJpZBgBIAEoCRIQCghpZGVu",
+            "dGl0eRgCIAEoCRIMCgRuYW1lGAMgASgJEi0KBXN0YXRlGAQgASgOMh4ubGl2",
+            "ZWtpdC5QYXJ0aWNpcGFudEluZm8uU3RhdGUSLQoJam9pbmVkX2F0GAUgASgL",
+            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCKmAQoNQW5hbHl0aWNzUm9v",
+            "bRIKCgJpZBgBIAEoCRIMCgRuYW1lGAIgASgJEhIKCnByb2plY3RfaWQYBSAB",
+            "KAkSLgoKY3JlYXRlZF9hdBgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
+            "c3RhbXASNwoMcGFydGljaXBhbnRzGAQgAygLMiEubGl2ZWtpdC5BbmFseXRp",
+            "Y3NSb29tUGFydGljaXBhbnQilAEKEkFuYWx5dGljc05vZGVSb29tcxIPCgdu",
+            "b2RlX2lkGAEgASgJEhcKD3NlcXVlbmNlX251bWJlchgCIAEoBBItCgl0aW1l",
+            "c3RhbXAYAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEiUKBXJv",
+            "b21zGAQgAygLMhYubGl2ZWtpdC5BbmFseXRpY3NSb29tKioKClN0cmVhbVR5",
+            "cGUSDAoIVVBTVFJFQU0QABIOCgpET1dOU1RSRUFNEAEqrwcKEkFuYWx5dGlj",
+            "c0V2ZW50VHlwZRIQCgxST09NX0NSRUFURUQQABIOCgpST09NX0VOREVEEAES",
+            "FgoSUEFSVElDSVBBTlRfSk9JTkVEEAISFAoQUEFSVElDSVBBTlRfTEVGVBAD",
+            "EhMKD1RSQUNLX1BVQkxJU0hFRBAEEhsKF1RSQUNLX1BVQkxJU0hfUkVRVUVT",
+            "VEVEEBQSFQoRVFJBQ0tfVU5QVUJMSVNIRUQQBRIUChBUUkFDS19TVUJTQ1JJ",
+            "QkVEEAYSHQoZVFJBQ0tfU1VCU0NSSUJFX1JFUVVFU1RFRBAVEhoKFlRSQUNL",
+            "X1NVQlNDUklCRV9GQUlMRUQQGRIWChJUUkFDS19VTlNVQlNDUklCRUQQBxIa",
+            "ChZUUkFDS19QVUJMSVNIRURfVVBEQVRFEAoSDwoLVFJBQ0tfTVVURUQQFxIR",
+            "Cg1UUkFDS19VTk1VVEVEEBgSFwoTVFJBQ0tfUFVCTElTSF9TVEFUUxAaEhkK",
+            "FVRSQUNLX1NVQlNDUklCRV9TVEFUUxAbEhYKElBBUlRJQ0lQQU5UX0FDVElW",
+            "RRALEhcKE1BBUlRJQ0lQQU5UX1JFU1VNRUQQFhISCg5FR1JFU1NfU1RBUlRF",
+            "RBAMEhAKDEVHUkVTU19FTkRFRBANEhIKDkVHUkVTU19VUERBVEVEEBwSJgoi",
+            "VFJBQ0tfTUFYX1NVQlNDUklCRURfVklERU9fUVVBTElUWRAOEg8KC1JFQ09O",
+            "TkVDVEVEEA8SEwoPSU5HUkVTU19DUkVBVEVEEBISEwoPSU5HUkVTU19ERUxF",
+            "VEVEEBMSEwoPSU5HUkVTU19TVEFSVEVEEBASEQoNSU5HUkVTU19FTkRFRBAR",
+            "EhMKD0lOR1JFU1NfVVBEQVRFRBAdEh0KGVNJUF9JTkJPVU5EX1RSVU5LX0NS",
+            "RUFURUQQHhIdChlTSVBfSU5CT1VORF9UUlVOS19ERUxFVEVEEB8SHgoaU0lQ",
+            "X09VVEJPVU5EX1RSVU5LX0NSRUFURUQQIBIeChpTSVBfT1VUQk9VTkRfVFJV",
+            "TktfREVMRVRFRBAhEh0KGVNJUF9ESVNQQVRDSF9SVUxFX0NSRUFURUQQIhId",
+            "ChlTSVBfRElTUEFUQ0hfUlVMRV9ERUxFVEVEECMSGwoXU0lQX1BBUlRJQ0lQ",
+            "QU5UX0NSRUFURUQQJBIVChFTSVBfQ0FMTF9JTkNPTUlORxAlEhQKEFNJUF9D",
+            "QUxMX1NUQVJURUQQJhISCg5TSVBfQ0FMTF9FTkRFRBAnQkZaI2dpdGh1Yi5j",
+            "b20vbGl2ZWtpdC9wcm90b2NvbC9saXZla2l0qgINTGl2ZUtpdC5Qcm90b+oC",
+            "DkxpdmVLaXQ6OlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::LiveKit.Proto.LivekitModelsReflection.Descriptor, global::LiveKit.Proto.LivekitEgressReflection.Descriptor, global::LiveKit.Proto.LivekitIngressReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::LiveKit.Proto.LivekitModelsReflection.Descriptor, global::LiveKit.Proto.LivekitEgressReflection.Descriptor, global::LiveKit.Proto.LivekitIngressReflection.Descriptor, global::LiveKit.Proto.LivekitSipReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LiveKit.Proto.StreamType), typeof(global::LiveKit.Proto.AnalyticsEventType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsVideoLayer), global::LiveKit.Proto.AnalyticsVideoLayer.Parser, new[]{ "Layer", "Packets", "Bytes", "Frames" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsStream), global::LiveKit.Proto.AnalyticsStream.Parser, new[]{ "Ssrc", "PrimaryPackets", "PrimaryBytes", "RetransmitPackets", "RetransmitBytes", "PaddingPackets", "PaddingBytes", "PacketsLost", "Frames", "Rtt", "Jitter", "Nacks", "Plis", "Firs", "VideoLayers", "StartTime", "EndTime" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsStream), global::LiveKit.Proto.AnalyticsStream.Parser, new[]{ "Ssrc", "PrimaryPackets", "PrimaryBytes", "RetransmitPackets", "RetransmitBytes", "PaddingPackets", "PaddingBytes", "PacketsLost", "Frames", "Rtt", "Jitter", "Nacks", "Plis", "Firs", "VideoLayers", "StartTime", "EndTime", "PacketsOutOfOrder" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsStat), global::LiveKit.Proto.AnalyticsStat.Parser, new[]{ "Id", "AnalyticsKey", "Kind", "TimeStamp", "Node", "RoomId", "RoomName", "ParticipantId", "TrackId", "Score", "Streams", "Mime", "MinScore", "MedianScore" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsStats), global::LiveKit.Proto.AnalyticsStats.Parser, new[]{ "Stats" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsClientMeta), global::LiveKit.Proto.AnalyticsClientMeta.Parser, new[]{ "Region", "Node", "ClientAddr", "ClientConnectTime", "ConnectionType", "ReconnectReason", "GeoHash", "Country", "IspAsn" }, new[]{ "GeoHash", "Country", "IspAsn" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsEvent), global::LiveKit.Proto.AnalyticsEvent.Parser, new[]{ "Id", "Type", "Timestamp", "RoomId", "Room", "ParticipantId", "Participant", "TrackId", "Track", "AnalyticsKey", "ClientInfo", "ClientMeta", "EgressId", "IngressId", "MaxSubscribedVideoQuality", "Publisher", "Mime", "Egress", "Ingress", "Error", "RtpStats", "VideoLayer", "NodeId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsEvent), global::LiveKit.Proto.AnalyticsEvent.Parser, new[]{ "Id", "Type", "Timestamp", "RoomId", "Room", "ParticipantId", "Participant", "TrackId", "Track", "AnalyticsKey", "ClientInfo", "ClientMeta", "EgressId", "IngressId", "MaxSubscribedVideoQuality", "Publisher", "Mime", "Egress", "Ingress", "Error", "RtpStats", "VideoLayer", "NodeId", "SipCallId", "SipCall", "SipTrunkId", "SipInboundTrunk", "SipOutboundTrunk", "SipDispatchRuleId", "SipDispatchRule" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsEvents), global::LiveKit.Proto.AnalyticsEvents.Parser, new[]{ "Events" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsRoomParticipant), global::LiveKit.Proto.AnalyticsRoomParticipant.Parser, new[]{ "Id", "Identity", "Name", "State", "JoinedAt" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsRoom), global::LiveKit.Proto.AnalyticsRoom.Parser, new[]{ "Id", "Name", "ProjectId", "CreatedAt", "Participants" }, null, null, null, null),
@@ -153,6 +167,16 @@ namespace LiveKit.Proto {
     [pbr::OriginalName("INGRESS_STARTED")] IngressStarted = 16,
     [pbr::OriginalName("INGRESS_ENDED")] IngressEnded = 17,
     [pbr::OriginalName("INGRESS_UPDATED")] IngressUpdated = 29,
+    [pbr::OriginalName("SIP_INBOUND_TRUNK_CREATED")] SipInboundTrunkCreated = 30,
+    [pbr::OriginalName("SIP_INBOUND_TRUNK_DELETED")] SipInboundTrunkDeleted = 31,
+    [pbr::OriginalName("SIP_OUTBOUND_TRUNK_CREATED")] SipOutboundTrunkCreated = 32,
+    [pbr::OriginalName("SIP_OUTBOUND_TRUNK_DELETED")] SipOutboundTrunkDeleted = 33,
+    [pbr::OriginalName("SIP_DISPATCH_RULE_CREATED")] SipDispatchRuleCreated = 34,
+    [pbr::OriginalName("SIP_DISPATCH_RULE_DELETED")] SipDispatchRuleDeleted = 35,
+    [pbr::OriginalName("SIP_PARTICIPANT_CREATED")] SipParticipantCreated = 36,
+    [pbr::OriginalName("SIP_CALL_INCOMING")] SipCallIncoming = 37,
+    [pbr::OriginalName("SIP_CALL_STARTED")] SipCallStarted = 38,
+    [pbr::OriginalName("SIP_CALL_ENDED")] SipCallEnded = 39,
   }
 
   #endregion
@@ -519,6 +543,7 @@ namespace LiveKit.Proto {
       videoLayers_ = other.videoLayers_.Clone();
       startTime_ = other.startTime_ != null ? other.startTime_.Clone() : null;
       endTime_ = other.endTime_ != null ? other.endTime_.Clone() : null;
+      packetsOutOfOrder_ = other.packetsOutOfOrder_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -731,6 +756,18 @@ namespace LiveKit.Proto {
       }
     }
 
+    /// <summary>Field number for the "packets_out_of_order" field.</summary>
+    public const int PacketsOutOfOrderFieldNumber = 19;
+    private uint packetsOutOfOrder_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint PacketsOutOfOrder {
+      get { return packetsOutOfOrder_; }
+      set {
+        packetsOutOfOrder_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -763,6 +800,7 @@ namespace LiveKit.Proto {
       if(!videoLayers_.Equals(other.videoLayers_)) return false;
       if (!object.Equals(StartTime, other.StartTime)) return false;
       if (!object.Equals(EndTime, other.EndTime)) return false;
+      if (PacketsOutOfOrder != other.PacketsOutOfOrder) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -787,6 +825,7 @@ namespace LiveKit.Proto {
       hash ^= videoLayers_.GetHashCode();
       if (startTime_ != null) hash ^= StartTime.GetHashCode();
       if (endTime_ != null) hash ^= EndTime.GetHashCode();
+      if (PacketsOutOfOrder != 0) hash ^= PacketsOutOfOrder.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -870,6 +909,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(146, 1);
         output.WriteMessage(EndTime);
       }
+      if (PacketsOutOfOrder != 0) {
+        output.WriteRawTag(152, 1);
+        output.WriteUInt32(PacketsOutOfOrder);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -945,6 +988,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(146, 1);
         output.WriteMessage(EndTime);
       }
+      if (PacketsOutOfOrder != 0) {
+        output.WriteRawTag(152, 1);
+        output.WriteUInt32(PacketsOutOfOrder);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1003,6 +1050,9 @@ namespace LiveKit.Proto {
       }
       if (endTime_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(EndTime);
+      }
+      if (PacketsOutOfOrder != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(PacketsOutOfOrder);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1070,6 +1120,9 @@ namespace LiveKit.Proto {
           EndTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
         }
         EndTime.MergeFrom(other.EndTime);
+      }
+      if (other.PacketsOutOfOrder != 0) {
+        PacketsOutOfOrder = other.PacketsOutOfOrder;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1164,6 +1217,10 @@ namespace LiveKit.Proto {
             input.ReadMessage(EndTime);
             break;
           }
+          case 152: {
+            PacketsOutOfOrder = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -1255,6 +1312,10 @@ namespace LiveKit.Proto {
               EndTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(EndTime);
+            break;
+          }
+          case 152: {
+            PacketsOutOfOrder = input.ReadUInt32();
             break;
           }
         }
@@ -2734,6 +2795,13 @@ namespace LiveKit.Proto {
       rtpStats_ = other.rtpStats_ != null ? other.rtpStats_.Clone() : null;
       videoLayer_ = other.videoLayer_;
       nodeId_ = other.nodeId_;
+      sipCallId_ = other.sipCallId_;
+      sipCall_ = other.sipCall_ != null ? other.sipCall_.Clone() : null;
+      sipTrunkId_ = other.sipTrunkId_;
+      sipInboundTrunk_ = other.sipInboundTrunk_ != null ? other.sipInboundTrunk_.Clone() : null;
+      sipOutboundTrunk_ = other.sipOutboundTrunk_ != null ? other.sipOutboundTrunk_.Clone() : null;
+      sipDispatchRuleId_ = other.sipDispatchRuleId_;
+      sipDispatchRule_ = other.sipDispatchRule_ != null ? other.sipDispatchRule_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3022,6 +3090,90 @@ namespace LiveKit.Proto {
       }
     }
 
+    /// <summary>Field number for the "sip_call_id" field.</summary>
+    public const int SipCallIdFieldNumber = 26;
+    private string sipCallId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SipCallId {
+      get { return sipCallId_; }
+      set {
+        sipCallId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "sip_call" field.</summary>
+    public const int SipCallFieldNumber = 27;
+    private global::LiveKit.Proto.SIPCallInfo sipCall_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::LiveKit.Proto.SIPCallInfo SipCall {
+      get { return sipCall_; }
+      set {
+        sipCall_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "sip_trunk_id" field.</summary>
+    public const int SipTrunkIdFieldNumber = 28;
+    private string sipTrunkId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SipTrunkId {
+      get { return sipTrunkId_; }
+      set {
+        sipTrunkId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "sip_inbound_trunk" field.</summary>
+    public const int SipInboundTrunkFieldNumber = 29;
+    private global::LiveKit.Proto.SIPInboundTrunkInfo sipInboundTrunk_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::LiveKit.Proto.SIPInboundTrunkInfo SipInboundTrunk {
+      get { return sipInboundTrunk_; }
+      set {
+        sipInboundTrunk_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "sip_outbound_trunk" field.</summary>
+    public const int SipOutboundTrunkFieldNumber = 30;
+    private global::LiveKit.Proto.SIPOutboundTrunkInfo sipOutboundTrunk_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::LiveKit.Proto.SIPOutboundTrunkInfo SipOutboundTrunk {
+      get { return sipOutboundTrunk_; }
+      set {
+        sipOutboundTrunk_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "sip_dispatch_rule_id" field.</summary>
+    public const int SipDispatchRuleIdFieldNumber = 31;
+    private string sipDispatchRuleId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SipDispatchRuleId {
+      get { return sipDispatchRuleId_; }
+      set {
+        sipDispatchRuleId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "sip_dispatch_rule" field.</summary>
+    public const int SipDispatchRuleFieldNumber = 32;
+    private global::LiveKit.Proto.SIPDispatchRuleInfo sipDispatchRule_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::LiveKit.Proto.SIPDispatchRuleInfo SipDispatchRule {
+      get { return sipDispatchRule_; }
+      set {
+        sipDispatchRule_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3060,6 +3212,13 @@ namespace LiveKit.Proto {
       if (!object.Equals(RtpStats, other.RtpStats)) return false;
       if (VideoLayer != other.VideoLayer) return false;
       if (NodeId != other.NodeId) return false;
+      if (SipCallId != other.SipCallId) return false;
+      if (!object.Equals(SipCall, other.SipCall)) return false;
+      if (SipTrunkId != other.SipTrunkId) return false;
+      if (!object.Equals(SipInboundTrunk, other.SipInboundTrunk)) return false;
+      if (!object.Equals(SipOutboundTrunk, other.SipOutboundTrunk)) return false;
+      if (SipDispatchRuleId != other.SipDispatchRuleId) return false;
+      if (!object.Equals(SipDispatchRule, other.SipDispatchRule)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3090,6 +3249,13 @@ namespace LiveKit.Proto {
       if (rtpStats_ != null) hash ^= RtpStats.GetHashCode();
       if (VideoLayer != 0) hash ^= VideoLayer.GetHashCode();
       if (NodeId.Length != 0) hash ^= NodeId.GetHashCode();
+      if (SipCallId.Length != 0) hash ^= SipCallId.GetHashCode();
+      if (sipCall_ != null) hash ^= SipCall.GetHashCode();
+      if (SipTrunkId.Length != 0) hash ^= SipTrunkId.GetHashCode();
+      if (sipInboundTrunk_ != null) hash ^= SipInboundTrunk.GetHashCode();
+      if (sipOutboundTrunk_ != null) hash ^= SipOutboundTrunk.GetHashCode();
+      if (SipDispatchRuleId.Length != 0) hash ^= SipDispatchRuleId.GetHashCode();
+      if (sipDispatchRule_ != null) hash ^= SipDispatchRule.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3200,6 +3366,34 @@ namespace LiveKit.Proto {
         output.WriteRawTag(202, 1);
         output.WriteString(Id);
       }
+      if (SipCallId.Length != 0) {
+        output.WriteRawTag(210, 1);
+        output.WriteString(SipCallId);
+      }
+      if (sipCall_ != null) {
+        output.WriteRawTag(218, 1);
+        output.WriteMessage(SipCall);
+      }
+      if (SipTrunkId.Length != 0) {
+        output.WriteRawTag(226, 1);
+        output.WriteString(SipTrunkId);
+      }
+      if (sipInboundTrunk_ != null) {
+        output.WriteRawTag(234, 1);
+        output.WriteMessage(SipInboundTrunk);
+      }
+      if (sipOutboundTrunk_ != null) {
+        output.WriteRawTag(242, 1);
+        output.WriteMessage(SipOutboundTrunk);
+      }
+      if (SipDispatchRuleId.Length != 0) {
+        output.WriteRawTag(250, 1);
+        output.WriteString(SipDispatchRuleId);
+      }
+      if (sipDispatchRule_ != null) {
+        output.WriteRawTag(130, 2);
+        output.WriteMessage(SipDispatchRule);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3302,6 +3496,34 @@ namespace LiveKit.Proto {
         output.WriteRawTag(202, 1);
         output.WriteString(Id);
       }
+      if (SipCallId.Length != 0) {
+        output.WriteRawTag(210, 1);
+        output.WriteString(SipCallId);
+      }
+      if (sipCall_ != null) {
+        output.WriteRawTag(218, 1);
+        output.WriteMessage(SipCall);
+      }
+      if (SipTrunkId.Length != 0) {
+        output.WriteRawTag(226, 1);
+        output.WriteString(SipTrunkId);
+      }
+      if (sipInboundTrunk_ != null) {
+        output.WriteRawTag(234, 1);
+        output.WriteMessage(SipInboundTrunk);
+      }
+      if (sipOutboundTrunk_ != null) {
+        output.WriteRawTag(242, 1);
+        output.WriteMessage(SipOutboundTrunk);
+      }
+      if (SipDispatchRuleId.Length != 0) {
+        output.WriteRawTag(250, 1);
+        output.WriteString(SipDispatchRuleId);
+      }
+      if (sipDispatchRule_ != null) {
+        output.WriteRawTag(130, 2);
+        output.WriteMessage(SipDispatchRule);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3380,6 +3602,27 @@ namespace LiveKit.Proto {
       }
       if (NodeId.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(NodeId);
+      }
+      if (SipCallId.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SipCallId);
+      }
+      if (sipCall_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SipCall);
+      }
+      if (SipTrunkId.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SipTrunkId);
+      }
+      if (sipInboundTrunk_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SipInboundTrunk);
+      }
+      if (sipOutboundTrunk_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SipOutboundTrunk);
+      }
+      if (SipDispatchRuleId.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SipDispatchRuleId);
+      }
+      if (sipDispatchRule_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(SipDispatchRule);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3491,6 +3734,39 @@ namespace LiveKit.Proto {
       }
       if (other.NodeId.Length != 0) {
         NodeId = other.NodeId;
+      }
+      if (other.SipCallId.Length != 0) {
+        SipCallId = other.SipCallId;
+      }
+      if (other.sipCall_ != null) {
+        if (sipCall_ == null) {
+          SipCall = new global::LiveKit.Proto.SIPCallInfo();
+        }
+        SipCall.MergeFrom(other.SipCall);
+      }
+      if (other.SipTrunkId.Length != 0) {
+        SipTrunkId = other.SipTrunkId;
+      }
+      if (other.sipInboundTrunk_ != null) {
+        if (sipInboundTrunk_ == null) {
+          SipInboundTrunk = new global::LiveKit.Proto.SIPInboundTrunkInfo();
+        }
+        SipInboundTrunk.MergeFrom(other.SipInboundTrunk);
+      }
+      if (other.sipOutboundTrunk_ != null) {
+        if (sipOutboundTrunk_ == null) {
+          SipOutboundTrunk = new global::LiveKit.Proto.SIPOutboundTrunkInfo();
+        }
+        SipOutboundTrunk.MergeFrom(other.SipOutboundTrunk);
+      }
+      if (other.SipDispatchRuleId.Length != 0) {
+        SipDispatchRuleId = other.SipDispatchRuleId;
+      }
+      if (other.sipDispatchRule_ != null) {
+        if (sipDispatchRule_ == null) {
+          SipDispatchRule = new global::LiveKit.Proto.SIPDispatchRuleInfo();
+        }
+        SipDispatchRule.MergeFrom(other.SipDispatchRule);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3633,6 +3909,46 @@ namespace LiveKit.Proto {
             Id = input.ReadString();
             break;
           }
+          case 210: {
+            SipCallId = input.ReadString();
+            break;
+          }
+          case 218: {
+            if (sipCall_ == null) {
+              SipCall = new global::LiveKit.Proto.SIPCallInfo();
+            }
+            input.ReadMessage(SipCall);
+            break;
+          }
+          case 226: {
+            SipTrunkId = input.ReadString();
+            break;
+          }
+          case 234: {
+            if (sipInboundTrunk_ == null) {
+              SipInboundTrunk = new global::LiveKit.Proto.SIPInboundTrunkInfo();
+            }
+            input.ReadMessage(SipInboundTrunk);
+            break;
+          }
+          case 242: {
+            if (sipOutboundTrunk_ == null) {
+              SipOutboundTrunk = new global::LiveKit.Proto.SIPOutboundTrunkInfo();
+            }
+            input.ReadMessage(SipOutboundTrunk);
+            break;
+          }
+          case 250: {
+            SipDispatchRuleId = input.ReadString();
+            break;
+          }
+          case 258: {
+            if (sipDispatchRule_ == null) {
+              SipDispatchRule = new global::LiveKit.Proto.SIPDispatchRuleInfo();
+            }
+            input.ReadMessage(SipDispatchRule);
+            break;
+          }
         }
       }
     #endif
@@ -3772,6 +4088,46 @@ namespace LiveKit.Proto {
           }
           case 202: {
             Id = input.ReadString();
+            break;
+          }
+          case 210: {
+            SipCallId = input.ReadString();
+            break;
+          }
+          case 218: {
+            if (sipCall_ == null) {
+              SipCall = new global::LiveKit.Proto.SIPCallInfo();
+            }
+            input.ReadMessage(SipCall);
+            break;
+          }
+          case 226: {
+            SipTrunkId = input.ReadString();
+            break;
+          }
+          case 234: {
+            if (sipInboundTrunk_ == null) {
+              SipInboundTrunk = new global::LiveKit.Proto.SIPInboundTrunkInfo();
+            }
+            input.ReadMessage(SipInboundTrunk);
+            break;
+          }
+          case 242: {
+            if (sipOutboundTrunk_ == null) {
+              SipOutboundTrunk = new global::LiveKit.Proto.SIPOutboundTrunkInfo();
+            }
+            input.ReadMessage(SipOutboundTrunk);
+            break;
+          }
+          case 250: {
+            SipDispatchRuleId = input.ReadString();
+            break;
+          }
+          case 258: {
+            if (sipDispatchRule_ == null) {
+              SipDispatchRule = new global::LiveKit.Proto.SIPDispatchRuleInfo();
+            }
+            input.ReadMessage(SipDispatchRule);
             break;
           }
         }

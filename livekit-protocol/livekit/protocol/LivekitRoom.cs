@@ -26,77 +26,78 @@ namespace LiveKit.Proto {
           string.Concat(
             "ChJsaXZla2l0X3Jvb20ucHJvdG8SB2xpdmVraXQaFGxpdmVraXRfbW9kZWxz",
             "LnByb3RvGhRsaXZla2l0X2VncmVzcy5wcm90bxocbGl2ZWtpdF9hZ2VudF9k",
-            "aXNwYXRjaC5wcm90byLRAgoRQ3JlYXRlUm9vbVJlcXVlc3QSDAoEbmFtZRgB",
-            "IAEoCRITCgtjb25maWdfbmFtZRgMIAEoCRIVCg1lbXB0eV90aW1lb3V0GAIg",
+            "aXNwYXRjaC5wcm90byLaAgoRQ3JlYXRlUm9vbVJlcXVlc3QSDAoEbmFtZRgB",
+            "IAEoCRITCgtyb29tX3ByZXNldBgMIAEoCRIVCg1lbXB0eV90aW1lb3V0GAIg",
             "ASgNEhkKEWRlcGFydHVyZV90aW1lb3V0GAogASgNEhgKEG1heF9wYXJ0aWNp",
             "cGFudHMYAyABKA0SDwoHbm9kZV9pZBgEIAEoCRIQCghtZXRhZGF0YRgFIAEo",
-            "CRIjCgZlZ3Jlc3MYBiABKAsyEy5saXZla2l0LlJvb21FZ3Jlc3MSIQoFYWdl",
-            "bnQYCyABKAsyEi5saXZla2l0LlJvb21BZ2VudBIZChFtaW5fcGxheW91dF9k",
-            "ZWxheRgHIAEoDRIZChFtYXhfcGxheW91dF9kZWxheRgIIAEoDRIUCgxzeW5j",
-            "X3N0cmVhbXMYCSABKAgSFgoOcmVwbGF5X2VuYWJsZWQYDSABKAgingEKClJv",
-            "b21FZ3Jlc3MSMQoEcm9vbRgBIAEoCzIjLmxpdmVraXQuUm9vbUNvbXBvc2l0",
-            "ZUVncmVzc1JlcXVlc3QSMwoLcGFydGljaXBhbnQYAyABKAsyHi5saXZla2l0",
-            "LkF1dG9QYXJ0aWNpcGFudEVncmVzcxIoCgZ0cmFja3MYAiABKAsyGC5saXZl",
-            "a2l0LkF1dG9UcmFja0VncmVzcyI7CglSb29tQWdlbnQSLgoKZGlzcGF0Y2hl",
-            "cxgBIAMoCzIaLmxpdmVraXQuUm9vbUFnZW50RGlzcGF0Y2giIQoQTGlzdFJv",
-            "b21zUmVxdWVzdBINCgVuYW1lcxgBIAMoCSIxChFMaXN0Um9vbXNSZXNwb25z",
-            "ZRIcCgVyb29tcxgBIAMoCzINLmxpdmVraXQuUm9vbSIhChFEZWxldGVSb29t",
-            "UmVxdWVzdBIMCgRyb29tGAEgASgJIhQKEkRlbGV0ZVJvb21SZXNwb25zZSIn",
-            "ChdMaXN0UGFydGljaXBhbnRzUmVxdWVzdBIMCgRyb29tGAEgASgJIkoKGExp",
-            "c3RQYXJ0aWNpcGFudHNSZXNwb25zZRIuCgxwYXJ0aWNpcGFudHMYASADKAsy",
-            "GC5saXZla2l0LlBhcnRpY2lwYW50SW5mbyI5ChdSb29tUGFydGljaXBhbnRJ",
-            "ZGVudGl0eRIMCgRyb29tGAEgASgJEhAKCGlkZW50aXR5GAIgASgJIhsKGVJl",
-            "bW92ZVBhcnRpY2lwYW50UmVzcG9uc2UiWAoUTXV0ZVJvb21UcmFja1JlcXVl",
-            "c3QSDAoEcm9vbRgBIAEoCRIQCghpZGVudGl0eRgCIAEoCRIRCgl0cmFja19z",
-            "aWQYAyABKAkSDQoFbXV0ZWQYBCABKAgiOgoVTXV0ZVJvb21UcmFja1Jlc3Bv",
-            "bnNlEiEKBXRyYWNrGAEgASgLMhIubGl2ZWtpdC5UcmFja0luZm8iiAIKGFVw",
-            "ZGF0ZVBhcnRpY2lwYW50UmVxdWVzdBIMCgRyb29tGAEgASgJEhAKCGlkZW50",
-            "aXR5GAIgASgJEhAKCG1ldGFkYXRhGAMgASgJEjIKCnBlcm1pc3Npb24YBCAB",
-            "KAsyHi5saXZla2l0LlBhcnRpY2lwYW50UGVybWlzc2lvbhIMCgRuYW1lGAUg",
-            "ASgJEkUKCmF0dHJpYnV0ZXMYBiADKAsyMS5saXZla2l0LlVwZGF0ZVBhcnRp",
-            "Y2lwYW50UmVxdWVzdC5BdHRyaWJ1dGVzRW50cnkaMQoPQXR0cmlidXRlc0Vu",
-            "dHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEimwEKGlVwZGF0",
-            "ZVN1YnNjcmlwdGlvbnNSZXF1ZXN0EgwKBHJvb20YASABKAkSEAoIaWRlbnRp",
-            "dHkYAiABKAkSEgoKdHJhY2tfc2lkcxgDIAMoCRIRCglzdWJzY3JpYmUYBCAB",
-            "KAgSNgoScGFydGljaXBhbnRfdHJhY2tzGAUgAygLMhoubGl2ZWtpdC5QYXJ0",
-            "aWNpcGFudFRyYWNrcyIdChtVcGRhdGVTdWJzY3JpcHRpb25zUmVzcG9uc2Ui",
-            "sQEKD1NlbmREYXRhUmVxdWVzdBIMCgRyb29tGAEgASgJEgwKBGRhdGEYAiAB",
-            "KAwSJgoEa2luZBgDIAEoDjIYLmxpdmVraXQuRGF0YVBhY2tldC5LaW5kEhwK",
-            "EGRlc3RpbmF0aW9uX3NpZHMYBCADKAlCAhgBEh4KFmRlc3RpbmF0aW9uX2lk",
-            "ZW50aXRpZXMYBiADKAkSEgoFdG9waWMYBSABKAlIAIgBAUIICgZfdG9waWMi",
-            "EgoQU2VuZERhdGFSZXNwb25zZSI7ChlVcGRhdGVSb29tTWV0YWRhdGFSZXF1",
-            "ZXN0EgwKBHJvb20YASABKAkSEAoIbWV0YWRhdGEYAiABKAkigQIKEVJvb21D",
-            "b25maWd1cmF0aW9uEgwKBG5hbWUYASABKAkSFQoNZW1wdHlfdGltZW91dBgC",
-            "IAEoDRIZChFkZXBhcnR1cmVfdGltZW91dBgDIAEoDRIYChBtYXhfcGFydGlj",
-            "aXBhbnRzGAQgASgNEiMKBmVncmVzcxgFIAEoCzITLmxpdmVraXQuUm9vbUVn",
-            "cmVzcxIhCgVhZ2VudBgGIAEoCzISLmxpdmVraXQuUm9vbUFnZW50EhkKEW1p",
-            "bl9wbGF5b3V0X2RlbGF5GAcgASgNEhkKEW1heF9wbGF5b3V0X2RlbGF5GAgg",
-            "ASgNEhQKDHN5bmNfc3RyZWFtcxgJIAEoCDLmBgoLUm9vbVNlcnZpY2USNwoK",
-            "Q3JlYXRlUm9vbRIaLmxpdmVraXQuQ3JlYXRlUm9vbVJlcXVlc3QaDS5saXZl",
-            "a2l0LlJvb20SQgoJTGlzdFJvb21zEhkubGl2ZWtpdC5MaXN0Um9vbXNSZXF1",
-            "ZXN0GhoubGl2ZWtpdC5MaXN0Um9vbXNSZXNwb25zZRJFCgpEZWxldGVSb29t",
-            "EhoubGl2ZWtpdC5EZWxldGVSb29tUmVxdWVzdBobLmxpdmVraXQuRGVsZXRl",
-            "Um9vbVJlc3BvbnNlElcKEExpc3RQYXJ0aWNpcGFudHMSIC5saXZla2l0Lkxp",
-            "c3RQYXJ0aWNpcGFudHNSZXF1ZXN0GiEubGl2ZWtpdC5MaXN0UGFydGljaXBh",
-            "bnRzUmVzcG9uc2USTAoOR2V0UGFydGljaXBhbnQSIC5saXZla2l0LlJvb21Q",
-            "YXJ0aWNpcGFudElkZW50aXR5GhgubGl2ZWtpdC5QYXJ0aWNpcGFudEluZm8S",
-            "WQoRUmVtb3ZlUGFydGljaXBhbnQSIC5saXZla2l0LlJvb21QYXJ0aWNpcGFu",
-            "dElkZW50aXR5GiIubGl2ZWtpdC5SZW1vdmVQYXJ0aWNpcGFudFJlc3BvbnNl",
-            "ElMKEk11dGVQdWJsaXNoZWRUcmFjaxIdLmxpdmVraXQuTXV0ZVJvb21UcmFj",
-            "a1JlcXVlc3QaHi5saXZla2l0Lk11dGVSb29tVHJhY2tSZXNwb25zZRJQChFV",
-            "cGRhdGVQYXJ0aWNpcGFudBIhLmxpdmVraXQuVXBkYXRlUGFydGljaXBhbnRS",
-            "ZXF1ZXN0GhgubGl2ZWtpdC5QYXJ0aWNpcGFudEluZm8SYAoTVXBkYXRlU3Vi",
-            "c2NyaXB0aW9ucxIjLmxpdmVraXQuVXBkYXRlU3Vic2NyaXB0aW9uc1JlcXVl",
-            "c3QaJC5saXZla2l0LlVwZGF0ZVN1YnNjcmlwdGlvbnNSZXNwb25zZRI/CghT",
-            "ZW5kRGF0YRIYLmxpdmVraXQuU2VuZERhdGFSZXF1ZXN0GhkubGl2ZWtpdC5T",
-            "ZW5kRGF0YVJlc3BvbnNlEkcKElVwZGF0ZVJvb21NZXRhZGF0YRIiLmxpdmVr",
-            "aXQuVXBkYXRlUm9vbU1ldGFkYXRhUmVxdWVzdBoNLmxpdmVraXQuUm9vbUJG",
-            "WiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdKoCDUxpdmVL",
-            "aXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
+            "CRIjCgZlZ3Jlc3MYBiABKAsyEy5saXZla2l0LlJvb21FZ3Jlc3MSGQoRbWlu",
+            "X3BsYXlvdXRfZGVsYXkYByABKA0SGQoRbWF4X3BsYXlvdXRfZGVsYXkYCCAB",
+            "KA0SFAoMc3luY19zdHJlYW1zGAkgASgIEhYKDnJlcGxheV9lbmFibGVkGA0g",
+            "ASgIEioKBmFnZW50cxgOIAMoCzIaLmxpdmVraXQuUm9vbUFnZW50RGlzcGF0",
+            "Y2gingEKClJvb21FZ3Jlc3MSMQoEcm9vbRgBIAEoCzIjLmxpdmVraXQuUm9v",
+            "bUNvbXBvc2l0ZUVncmVzc1JlcXVlc3QSMwoLcGFydGljaXBhbnQYAyABKAsy",
+            "Hi5saXZla2l0LkF1dG9QYXJ0aWNpcGFudEVncmVzcxIoCgZ0cmFja3MYAiAB",
+            "KAsyGC5saXZla2l0LkF1dG9UcmFja0VncmVzcyI7CglSb29tQWdlbnQSLgoK",
+            "ZGlzcGF0Y2hlcxgBIAMoCzIaLmxpdmVraXQuUm9vbUFnZW50RGlzcGF0Y2gi",
+            "IQoQTGlzdFJvb21zUmVxdWVzdBINCgVuYW1lcxgBIAMoCSIxChFMaXN0Um9v",
+            "bXNSZXNwb25zZRIcCgVyb29tcxgBIAMoCzINLmxpdmVraXQuUm9vbSIhChFE",
+            "ZWxldGVSb29tUmVxdWVzdBIMCgRyb29tGAEgASgJIhQKEkRlbGV0ZVJvb21S",
+            "ZXNwb25zZSInChdMaXN0UGFydGljaXBhbnRzUmVxdWVzdBIMCgRyb29tGAEg",
+            "ASgJIkoKGExpc3RQYXJ0aWNpcGFudHNSZXNwb25zZRIuCgxwYXJ0aWNpcGFu",
+            "dHMYASADKAsyGC5saXZla2l0LlBhcnRpY2lwYW50SW5mbyI5ChdSb29tUGFy",
+            "dGljaXBhbnRJZGVudGl0eRIMCgRyb29tGAEgASgJEhAKCGlkZW50aXR5GAIg",
+            "ASgJIhsKGVJlbW92ZVBhcnRpY2lwYW50UmVzcG9uc2UiWAoUTXV0ZVJvb21U",
+            "cmFja1JlcXVlc3QSDAoEcm9vbRgBIAEoCRIQCghpZGVudGl0eRgCIAEoCRIR",
+            "Cgl0cmFja19zaWQYAyABKAkSDQoFbXV0ZWQYBCABKAgiOgoVTXV0ZVJvb21U",
+            "cmFja1Jlc3BvbnNlEiEKBXRyYWNrGAEgASgLMhIubGl2ZWtpdC5UcmFja0lu",
+            "Zm8iiAIKGFVwZGF0ZVBhcnRpY2lwYW50UmVxdWVzdBIMCgRyb29tGAEgASgJ",
+            "EhAKCGlkZW50aXR5GAIgASgJEhAKCG1ldGFkYXRhGAMgASgJEjIKCnBlcm1p",
+            "c3Npb24YBCABKAsyHi5saXZla2l0LlBhcnRpY2lwYW50UGVybWlzc2lvbhIM",
+            "CgRuYW1lGAUgASgJEkUKCmF0dHJpYnV0ZXMYBiADKAsyMS5saXZla2l0LlVw",
+            "ZGF0ZVBhcnRpY2lwYW50UmVxdWVzdC5BdHRyaWJ1dGVzRW50cnkaMQoPQXR0",
+            "cmlidXRlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEi",
+            "mwEKGlVwZGF0ZVN1YnNjcmlwdGlvbnNSZXF1ZXN0EgwKBHJvb20YASABKAkS",
+            "EAoIaWRlbnRpdHkYAiABKAkSEgoKdHJhY2tfc2lkcxgDIAMoCRIRCglzdWJz",
+            "Y3JpYmUYBCABKAgSNgoScGFydGljaXBhbnRfdHJhY2tzGAUgAygLMhoubGl2",
+            "ZWtpdC5QYXJ0aWNpcGFudFRyYWNrcyIdChtVcGRhdGVTdWJzY3JpcHRpb25z",
+            "UmVzcG9uc2UisQEKD1NlbmREYXRhUmVxdWVzdBIMCgRyb29tGAEgASgJEgwK",
+            "BGRhdGEYAiABKAwSJgoEa2luZBgDIAEoDjIYLmxpdmVraXQuRGF0YVBhY2tl",
+            "dC5LaW5kEhwKEGRlc3RpbmF0aW9uX3NpZHMYBCADKAlCAhgBEh4KFmRlc3Rp",
+            "bmF0aW9uX2lkZW50aXRpZXMYBiADKAkSEgoFdG9waWMYBSABKAlIAIgBAUII",
+            "CgZfdG9waWMiEgoQU2VuZERhdGFSZXNwb25zZSI7ChlVcGRhdGVSb29tTWV0",
+            "YWRhdGFSZXF1ZXN0EgwKBHJvb20YASABKAkSEAoIbWV0YWRhdGEYAiABKAki",
+            "igIKEVJvb21Db25maWd1cmF0aW9uEgwKBG5hbWUYASABKAkSFQoNZW1wdHlf",
+            "dGltZW91dBgCIAEoDRIZChFkZXBhcnR1cmVfdGltZW91dBgDIAEoDRIYChBt",
+            "YXhfcGFydGljaXBhbnRzGAQgASgNEiMKBmVncmVzcxgFIAEoCzITLmxpdmVr",
+            "aXQuUm9vbUVncmVzcxIZChFtaW5fcGxheW91dF9kZWxheRgHIAEoDRIZChFt",
+            "YXhfcGxheW91dF9kZWxheRgIIAEoDRIUCgxzeW5jX3N0cmVhbXMYCSABKAgS",
+            "KgoGYWdlbnRzGAogAygLMhoubGl2ZWtpdC5Sb29tQWdlbnREaXNwYXRjaDLm",
+            "BgoLUm9vbVNlcnZpY2USNwoKQ3JlYXRlUm9vbRIaLmxpdmVraXQuQ3JlYXRl",
+            "Um9vbVJlcXVlc3QaDS5saXZla2l0LlJvb20SQgoJTGlzdFJvb21zEhkubGl2",
+            "ZWtpdC5MaXN0Um9vbXNSZXF1ZXN0GhoubGl2ZWtpdC5MaXN0Um9vbXNSZXNw",
+            "b25zZRJFCgpEZWxldGVSb29tEhoubGl2ZWtpdC5EZWxldGVSb29tUmVxdWVz",
+            "dBobLmxpdmVraXQuRGVsZXRlUm9vbVJlc3BvbnNlElcKEExpc3RQYXJ0aWNp",
+            "cGFudHMSIC5saXZla2l0Lkxpc3RQYXJ0aWNpcGFudHNSZXF1ZXN0GiEubGl2",
+            "ZWtpdC5MaXN0UGFydGljaXBhbnRzUmVzcG9uc2USTAoOR2V0UGFydGljaXBh",
+            "bnQSIC5saXZla2l0LlJvb21QYXJ0aWNpcGFudElkZW50aXR5GhgubGl2ZWtp",
+            "dC5QYXJ0aWNpcGFudEluZm8SWQoRUmVtb3ZlUGFydGljaXBhbnQSIC5saXZl",
+            "a2l0LlJvb21QYXJ0aWNpcGFudElkZW50aXR5GiIubGl2ZWtpdC5SZW1vdmVQ",
+            "YXJ0aWNpcGFudFJlc3BvbnNlElMKEk11dGVQdWJsaXNoZWRUcmFjaxIdLmxp",
+            "dmVraXQuTXV0ZVJvb21UcmFja1JlcXVlc3QaHi5saXZla2l0Lk11dGVSb29t",
+            "VHJhY2tSZXNwb25zZRJQChFVcGRhdGVQYXJ0aWNpcGFudBIhLmxpdmVraXQu",
+            "VXBkYXRlUGFydGljaXBhbnRSZXF1ZXN0GhgubGl2ZWtpdC5QYXJ0aWNpcGFu",
+            "dEluZm8SYAoTVXBkYXRlU3Vic2NyaXB0aW9ucxIjLmxpdmVraXQuVXBkYXRl",
+            "U3Vic2NyaXB0aW9uc1JlcXVlc3QaJC5saXZla2l0LlVwZGF0ZVN1YnNjcmlw",
+            "dGlvbnNSZXNwb25zZRI/CghTZW5kRGF0YRIYLmxpdmVraXQuU2VuZERhdGFS",
+            "ZXF1ZXN0GhkubGl2ZWtpdC5TZW5kRGF0YVJlc3BvbnNlEkcKElVwZGF0ZVJv",
+            "b21NZXRhZGF0YRIiLmxpdmVraXQuVXBkYXRlUm9vbU1ldGFkYXRhUmVxdWVz",
+            "dBoNLmxpdmVraXQuUm9vbUJGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9j",
+            "b2wvbGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::LiveKit.Proto.LivekitModelsReflection.Descriptor, global::LiveKit.Proto.LivekitEgressReflection.Descriptor, global::LiveKit.Proto.LivekitAgentDispatchReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.CreateRoomRequest), global::LiveKit.Proto.CreateRoomRequest.Parser, new[]{ "Name", "ConfigName", "EmptyTimeout", "DepartureTimeout", "MaxParticipants", "NodeId", "Metadata", "Egress", "Agent", "MinPlayoutDelay", "MaxPlayoutDelay", "SyncStreams", "ReplayEnabled" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.CreateRoomRequest), global::LiveKit.Proto.CreateRoomRequest.Parser, new[]{ "Name", "RoomPreset", "EmptyTimeout", "DepartureTimeout", "MaxParticipants", "NodeId", "Metadata", "Egress", "MinPlayoutDelay", "MaxPlayoutDelay", "SyncStreams", "ReplayEnabled", "Agents" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RoomEgress), global::LiveKit.Proto.RoomEgress.Parser, new[]{ "Room", "Participant", "Tracks" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RoomAgent), global::LiveKit.Proto.RoomAgent.Parser, new[]{ "Dispatches" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListRoomsRequest), global::LiveKit.Proto.ListRoomsRequest.Parser, new[]{ "Names" }, null, null, null, null),
@@ -115,7 +116,7 @@ namespace LiveKit.Proto {
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendDataRequest), global::LiveKit.Proto.SendDataRequest.Parser, new[]{ "Room", "Data", "Kind", "DestinationSids", "DestinationIdentities", "Topic" }, new[]{ "Topic" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendDataResponse), global::LiveKit.Proto.SendDataResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.UpdateRoomMetadataRequest), global::LiveKit.Proto.UpdateRoomMetadataRequest.Parser, new[]{ "Room", "Metadata" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RoomConfiguration), global::LiveKit.Proto.RoomConfiguration.Parser, new[]{ "Name", "EmptyTimeout", "DepartureTimeout", "MaxParticipants", "Egress", "Agent", "MinPlayoutDelay", "MaxPlayoutDelay", "SyncStreams" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RoomConfiguration), global::LiveKit.Proto.RoomConfiguration.Parser, new[]{ "Name", "EmptyTimeout", "DepartureTimeout", "MaxParticipants", "Egress", "MinPlayoutDelay", "MaxPlayoutDelay", "SyncStreams", "Agents" }, null, null, null, null)
           }));
     }
     #endregion
@@ -158,18 +159,18 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateRoomRequest(CreateRoomRequest other) : this() {
       name_ = other.name_;
-      configName_ = other.configName_;
+      roomPreset_ = other.roomPreset_;
       emptyTimeout_ = other.emptyTimeout_;
       departureTimeout_ = other.departureTimeout_;
       maxParticipants_ = other.maxParticipants_;
       nodeId_ = other.nodeId_;
       metadata_ = other.metadata_;
       egress_ = other.egress_ != null ? other.egress_.Clone() : null;
-      agent_ = other.agent_ != null ? other.agent_.Clone() : null;
       minPlayoutDelay_ = other.minPlayoutDelay_;
       maxPlayoutDelay_ = other.maxPlayoutDelay_;
       syncStreams_ = other.syncStreams_;
       replayEnabled_ = other.replayEnabled_;
+      agents_ = other.agents_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -194,18 +195,18 @@ namespace LiveKit.Proto {
       }
     }
 
-    /// <summary>Field number for the "config_name" field.</summary>
-    public const int ConfigNameFieldNumber = 12;
-    private string configName_ = "";
+    /// <summary>Field number for the "room_preset" field.</summary>
+    public const int RoomPresetFieldNumber = 12;
+    private string roomPreset_ = "";
     /// <summary>
     /// configuration to use for this room parameters. Setting parameters below override the config defaults.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ConfigName {
-      get { return configName_; }
+    public string RoomPreset {
+      get { return roomPreset_; }
       set {
-        configName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        roomPreset_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -288,7 +289,7 @@ namespace LiveKit.Proto {
     public const int EgressFieldNumber = 6;
     private global::LiveKit.Proto.RoomEgress egress_;
     /// <summary>
-    /// egress
+    /// auto-egress configurations
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -296,21 +297,6 @@ namespace LiveKit.Proto {
       get { return egress_; }
       set {
         egress_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "agent" field.</summary>
-    public const int AgentFieldNumber = 11;
-    private global::LiveKit.Proto.RoomAgent agent_;
-    /// <summary>
-    /// agent
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.RoomAgent Agent {
-      get { return agent_; }
-      set {
-        agent_ = value;
       }
     }
 
@@ -372,6 +358,20 @@ namespace LiveKit.Proto {
       }
     }
 
+    /// <summary>Field number for the "agents" field.</summary>
+    public const int AgentsFieldNumber = 14;
+    private static readonly pb::FieldCodec<global::LiveKit.Proto.RoomAgentDispatch> _repeated_agents_codec
+        = pb::FieldCodec.ForMessage(114, global::LiveKit.Proto.RoomAgentDispatch.Parser);
+    private readonly pbc::RepeatedField<global::LiveKit.Proto.RoomAgentDispatch> agents_ = new pbc::RepeatedField<global::LiveKit.Proto.RoomAgentDispatch>();
+    /// <summary>
+    /// Define agents that should be dispatched to this room
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::LiveKit.Proto.RoomAgentDispatch> Agents {
+      get { return agents_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -388,18 +388,18 @@ namespace LiveKit.Proto {
         return true;
       }
       if (Name != other.Name) return false;
-      if (ConfigName != other.ConfigName) return false;
+      if (RoomPreset != other.RoomPreset) return false;
       if (EmptyTimeout != other.EmptyTimeout) return false;
       if (DepartureTimeout != other.DepartureTimeout) return false;
       if (MaxParticipants != other.MaxParticipants) return false;
       if (NodeId != other.NodeId) return false;
       if (Metadata != other.Metadata) return false;
       if (!object.Equals(Egress, other.Egress)) return false;
-      if (!object.Equals(Agent, other.Agent)) return false;
       if (MinPlayoutDelay != other.MinPlayoutDelay) return false;
       if (MaxPlayoutDelay != other.MaxPlayoutDelay) return false;
       if (SyncStreams != other.SyncStreams) return false;
       if (ReplayEnabled != other.ReplayEnabled) return false;
+      if(!agents_.Equals(other.agents_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -408,18 +408,18 @@ namespace LiveKit.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (ConfigName.Length != 0) hash ^= ConfigName.GetHashCode();
+      if (RoomPreset.Length != 0) hash ^= RoomPreset.GetHashCode();
       if (EmptyTimeout != 0) hash ^= EmptyTimeout.GetHashCode();
       if (DepartureTimeout != 0) hash ^= DepartureTimeout.GetHashCode();
       if (MaxParticipants != 0) hash ^= MaxParticipants.GetHashCode();
       if (NodeId.Length != 0) hash ^= NodeId.GetHashCode();
       if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
       if (egress_ != null) hash ^= Egress.GetHashCode();
-      if (agent_ != null) hash ^= Agent.GetHashCode();
       if (MinPlayoutDelay != 0) hash ^= MinPlayoutDelay.GetHashCode();
       if (MaxPlayoutDelay != 0) hash ^= MaxPlayoutDelay.GetHashCode();
       if (SyncStreams != false) hash ^= SyncStreams.GetHashCode();
       if (ReplayEnabled != false) hash ^= ReplayEnabled.GetHashCode();
+      hash ^= agents_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -478,18 +478,15 @@ namespace LiveKit.Proto {
         output.WriteRawTag(80);
         output.WriteUInt32(DepartureTimeout);
       }
-      if (agent_ != null) {
-        output.WriteRawTag(90);
-        output.WriteMessage(Agent);
-      }
-      if (ConfigName.Length != 0) {
+      if (RoomPreset.Length != 0) {
         output.WriteRawTag(98);
-        output.WriteString(ConfigName);
+        output.WriteString(RoomPreset);
       }
       if (ReplayEnabled != false) {
         output.WriteRawTag(104);
         output.WriteBool(ReplayEnabled);
       }
+      agents_.WriteTo(output, _repeated_agents_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -540,18 +537,15 @@ namespace LiveKit.Proto {
         output.WriteRawTag(80);
         output.WriteUInt32(DepartureTimeout);
       }
-      if (agent_ != null) {
-        output.WriteRawTag(90);
-        output.WriteMessage(Agent);
-      }
-      if (ConfigName.Length != 0) {
+      if (RoomPreset.Length != 0) {
         output.WriteRawTag(98);
-        output.WriteString(ConfigName);
+        output.WriteString(RoomPreset);
       }
       if (ReplayEnabled != false) {
         output.WriteRawTag(104);
         output.WriteBool(ReplayEnabled);
       }
+      agents_.WriteTo(ref output, _repeated_agents_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -565,8 +559,8 @@ namespace LiveKit.Proto {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (ConfigName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ConfigName);
+      if (RoomPreset.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomPreset);
       }
       if (EmptyTimeout != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EmptyTimeout);
@@ -586,9 +580,6 @@ namespace LiveKit.Proto {
       if (egress_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Egress);
       }
-      if (agent_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Agent);
-      }
       if (MinPlayoutDelay != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MinPlayoutDelay);
       }
@@ -601,6 +592,7 @@ namespace LiveKit.Proto {
       if (ReplayEnabled != false) {
         size += 1 + 1;
       }
+      size += agents_.CalculateSize(_repeated_agents_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -616,8 +608,8 @@ namespace LiveKit.Proto {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.ConfigName.Length != 0) {
-        ConfigName = other.ConfigName;
+      if (other.RoomPreset.Length != 0) {
+        RoomPreset = other.RoomPreset;
       }
       if (other.EmptyTimeout != 0) {
         EmptyTimeout = other.EmptyTimeout;
@@ -640,12 +632,6 @@ namespace LiveKit.Proto {
         }
         Egress.MergeFrom(other.Egress);
       }
-      if (other.agent_ != null) {
-        if (agent_ == null) {
-          Agent = new global::LiveKit.Proto.RoomAgent();
-        }
-        Agent.MergeFrom(other.Agent);
-      }
       if (other.MinPlayoutDelay != 0) {
         MinPlayoutDelay = other.MinPlayoutDelay;
       }
@@ -658,6 +644,7 @@ namespace LiveKit.Proto {
       if (other.ReplayEnabled != false) {
         ReplayEnabled = other.ReplayEnabled;
       }
+      agents_.Add(other.agents_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -720,19 +707,16 @@ namespace LiveKit.Proto {
             DepartureTimeout = input.ReadUInt32();
             break;
           }
-          case 90: {
-            if (agent_ == null) {
-              Agent = new global::LiveKit.Proto.RoomAgent();
-            }
-            input.ReadMessage(Agent);
-            break;
-          }
           case 98: {
-            ConfigName = input.ReadString();
+            RoomPreset = input.ReadString();
             break;
           }
           case 104: {
             ReplayEnabled = input.ReadBool();
+            break;
+          }
+          case 114: {
+            agents_.AddEntriesFrom(input, _repeated_agents_codec);
             break;
           }
         }
@@ -797,19 +781,16 @@ namespace LiveKit.Proto {
             DepartureTimeout = input.ReadUInt32();
             break;
           }
-          case 90: {
-            if (agent_ == null) {
-              Agent = new global::LiveKit.Proto.RoomAgent();
-            }
-            input.ReadMessage(Agent);
-            break;
-          }
           case 98: {
-            ConfigName = input.ReadString();
+            RoomPreset = input.ReadString();
             break;
           }
           case 104: {
             ReplayEnabled = input.ReadBool();
+            break;
+          }
+          case 114: {
+            agents_.AddEntriesFrom(ref input, _repeated_agents_codec);
             break;
           }
         }
@@ -5073,10 +5054,10 @@ namespace LiveKit.Proto {
       departureTimeout_ = other.departureTimeout_;
       maxParticipants_ = other.maxParticipants_;
       egress_ = other.egress_ != null ? other.egress_.Clone() : null;
-      agent_ = other.agent_ != null ? other.agent_.Clone() : null;
       minPlayoutDelay_ = other.minPlayoutDelay_;
       maxPlayoutDelay_ = other.maxPlayoutDelay_;
       syncStreams_ = other.syncStreams_;
+      agents_ = other.agents_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -5135,7 +5116,7 @@ namespace LiveKit.Proto {
     public const int MaxParticipantsFieldNumber = 4;
     private uint maxParticipants_;
     /// <summary>
-    /// limit number of participants that can be in a room
+    /// limit number of participants that can be in a room, excluding Egress and Ingress participants
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -5158,21 +5139,6 @@ namespace LiveKit.Proto {
       get { return egress_; }
       set {
         egress_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "agent" field.</summary>
-    public const int AgentFieldNumber = 6;
-    private global::LiveKit.Proto.RoomAgent agent_;
-    /// <summary>
-    /// agent
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.RoomAgent Agent {
-      get { return agent_; }
-      set {
-        agent_ = value;
       }
     }
 
@@ -5219,6 +5185,20 @@ namespace LiveKit.Proto {
       }
     }
 
+    /// <summary>Field number for the "agents" field.</summary>
+    public const int AgentsFieldNumber = 10;
+    private static readonly pb::FieldCodec<global::LiveKit.Proto.RoomAgentDispatch> _repeated_agents_codec
+        = pb::FieldCodec.ForMessage(82, global::LiveKit.Proto.RoomAgentDispatch.Parser);
+    private readonly pbc::RepeatedField<global::LiveKit.Proto.RoomAgentDispatch> agents_ = new pbc::RepeatedField<global::LiveKit.Proto.RoomAgentDispatch>();
+    /// <summary>
+    /// Define agents that should be dispatched to this room
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::LiveKit.Proto.RoomAgentDispatch> Agents {
+      get { return agents_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -5239,10 +5219,10 @@ namespace LiveKit.Proto {
       if (DepartureTimeout != other.DepartureTimeout) return false;
       if (MaxParticipants != other.MaxParticipants) return false;
       if (!object.Equals(Egress, other.Egress)) return false;
-      if (!object.Equals(Agent, other.Agent)) return false;
       if (MinPlayoutDelay != other.MinPlayoutDelay) return false;
       if (MaxPlayoutDelay != other.MaxPlayoutDelay) return false;
       if (SyncStreams != other.SyncStreams) return false;
+      if(!agents_.Equals(other.agents_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5255,10 +5235,10 @@ namespace LiveKit.Proto {
       if (DepartureTimeout != 0) hash ^= DepartureTimeout.GetHashCode();
       if (MaxParticipants != 0) hash ^= MaxParticipants.GetHashCode();
       if (egress_ != null) hash ^= Egress.GetHashCode();
-      if (agent_ != null) hash ^= Agent.GetHashCode();
       if (MinPlayoutDelay != 0) hash ^= MinPlayoutDelay.GetHashCode();
       if (MaxPlayoutDelay != 0) hash ^= MaxPlayoutDelay.GetHashCode();
       if (SyncStreams != false) hash ^= SyncStreams.GetHashCode();
+      hash ^= agents_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5297,10 +5277,6 @@ namespace LiveKit.Proto {
         output.WriteRawTag(42);
         output.WriteMessage(Egress);
       }
-      if (agent_ != null) {
-        output.WriteRawTag(50);
-        output.WriteMessage(Agent);
-      }
       if (MinPlayoutDelay != 0) {
         output.WriteRawTag(56);
         output.WriteUInt32(MinPlayoutDelay);
@@ -5313,6 +5289,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(72);
         output.WriteBool(SyncStreams);
       }
+      agents_.WriteTo(output, _repeated_agents_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5343,10 +5320,6 @@ namespace LiveKit.Proto {
         output.WriteRawTag(42);
         output.WriteMessage(Egress);
       }
-      if (agent_ != null) {
-        output.WriteRawTag(50);
-        output.WriteMessage(Agent);
-      }
       if (MinPlayoutDelay != 0) {
         output.WriteRawTag(56);
         output.WriteUInt32(MinPlayoutDelay);
@@ -5359,6 +5332,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(72);
         output.WriteBool(SyncStreams);
       }
+      agents_.WriteTo(ref output, _repeated_agents_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5384,9 +5358,6 @@ namespace LiveKit.Proto {
       if (egress_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Egress);
       }
-      if (agent_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Agent);
-      }
       if (MinPlayoutDelay != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MinPlayoutDelay);
       }
@@ -5396,6 +5367,7 @@ namespace LiveKit.Proto {
       if (SyncStreams != false) {
         size += 1 + 1;
       }
+      size += agents_.CalculateSize(_repeated_agents_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -5426,12 +5398,6 @@ namespace LiveKit.Proto {
         }
         Egress.MergeFrom(other.Egress);
       }
-      if (other.agent_ != null) {
-        if (agent_ == null) {
-          Agent = new global::LiveKit.Proto.RoomAgent();
-        }
-        Agent.MergeFrom(other.Agent);
-      }
       if (other.MinPlayoutDelay != 0) {
         MinPlayoutDelay = other.MinPlayoutDelay;
       }
@@ -5441,6 +5407,7 @@ namespace LiveKit.Proto {
       if (other.SyncStreams != false) {
         SyncStreams = other.SyncStreams;
       }
+      agents_.Add(other.agents_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -5483,13 +5450,6 @@ namespace LiveKit.Proto {
             input.ReadMessage(Egress);
             break;
           }
-          case 50: {
-            if (agent_ == null) {
-              Agent = new global::LiveKit.Proto.RoomAgent();
-            }
-            input.ReadMessage(Agent);
-            break;
-          }
           case 56: {
             MinPlayoutDelay = input.ReadUInt32();
             break;
@@ -5500,6 +5460,10 @@ namespace LiveKit.Proto {
           }
           case 72: {
             SyncStreams = input.ReadBool();
+            break;
+          }
+          case 82: {
+            agents_.AddEntriesFrom(input, _repeated_agents_codec);
             break;
           }
         }
@@ -5544,13 +5508,6 @@ namespace LiveKit.Proto {
             input.ReadMessage(Egress);
             break;
           }
-          case 50: {
-            if (agent_ == null) {
-              Agent = new global::LiveKit.Proto.RoomAgent();
-            }
-            input.ReadMessage(Agent);
-            break;
-          }
           case 56: {
             MinPlayoutDelay = input.ReadUInt32();
             break;
@@ -5561,6 +5518,10 @@ namespace LiveKit.Proto {
           }
           case 72: {
             SyncStreams = input.ReadBool();
+            break;
+          }
+          case 82: {
+            agents_.AddEntriesFrom(ref input, _repeated_agents_codec);
             break;
           }
         }

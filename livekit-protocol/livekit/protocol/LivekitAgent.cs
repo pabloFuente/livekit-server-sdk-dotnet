@@ -74,7 +74,7 @@ namespace LiveKit.Proto {
             "AiABKA4yEi5saXZla2l0LkpvYlN0YXR1cxINCgVlcnJvchgDIAEoCSJsChJV",
             "cGRhdGVXb3JrZXJTdGF0dXMSKgoGc3RhdHVzGAEgASgOMhUubGl2ZWtpdC5X",
             "b3JrZXJTdGF0dXNIAIgBARIMCgRsb2FkGAMgASgCEhEKCWpvYl9jb3VudBgE",
-            "IAEoBUIJCgdfc3RhdHVzIlMKDUpvYkFzc2lnbm1lbnQSGQoDam9iGAEgASgL",
+            "IAEoDUIJCgdfc3RhdHVzIlMKDUpvYkFzc2lnbm1lbnQSGQoDam9iGAEgASgL",
             "MgwubGl2ZWtpdC5Kb2ISEAoDdXJsGAIgASgJSACIAQESDQoFdG9rZW4YAyAB",
             "KAlCBgoEX3VybCIgCg5Kb2JUZXJtaW5hdGlvbhIOCgZqb2JfaWQYASABKAkq",
             "KAoHSm9iVHlwZRILCgdKVF9ST09NEAASEAoMSlRfUFVCTElTSEVSEAEqLQoM",
@@ -4666,10 +4666,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "job_count" field.</summary>
     public const int JobCountFieldNumber = 4;
-    private int jobCount_;
+    private uint jobCount_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int JobCount {
+    public uint JobCount {
       get { return jobCount_; }
       set {
         jobCount_ = value;
@@ -4732,7 +4732,7 @@ namespace LiveKit.Proto {
       }
       if (JobCount != 0) {
         output.WriteRawTag(32);
-        output.WriteInt32(JobCount);
+        output.WriteUInt32(JobCount);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -4754,7 +4754,7 @@ namespace LiveKit.Proto {
       }
       if (JobCount != 0) {
         output.WriteRawTag(32);
-        output.WriteInt32(JobCount);
+        output.WriteUInt32(JobCount);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -4773,7 +4773,7 @@ namespace LiveKit.Proto {
         size += 1 + 4;
       }
       if (JobCount != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(JobCount);
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(JobCount);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4824,7 +4824,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 32: {
-            JobCount = input.ReadInt32();
+            JobCount = input.ReadUInt32();
             break;
           }
         }
@@ -4855,7 +4855,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 32: {
-            JobCount = input.ReadInt32();
+            JobCount = input.ReadUInt32();
             break;
           }
         }

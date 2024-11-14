@@ -1,4 +1,5 @@
 using System.Net.Http.Headers;
+using Google.Protobuf.WellKnownTypes;
 using LiveKit.Proto;
 
 namespace Livekit.Server.Sdk.Dotnet;
@@ -7,15 +8,6 @@ public class SipServiceClient : BaseService
 {
     public SipServiceClient(string host, string apiKey, string apiSecret)
         : base(host, apiKey, apiSecret) { }
-
-    public async Task<SIPTrunkInfo> CreateSIPTrunk(CreateSIPTrunkRequest request)
-    {
-        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-            "Bearer",
-            AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-        );
-        return await Twirp.CreateSIPTrunk(httpClient, request);
-    }
 
     public async Task<ListSIPTrunkResponse> ListSIPTrunk(ListSIPTrunkRequest request)
     {
@@ -46,6 +38,28 @@ public class SipServiceClient : BaseService
             AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
         );
         return await Twirp.CreateSIPOutboundTrunk(httpClient, request);
+    }
+
+    public async Task<GetSIPInboundTrunkResponse> GetSIPInboundTrunk(
+        GetSIPInboundTrunkRequest request
+    )
+    {
+        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+            "Bearer",
+            AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+        );
+        return await Twirp.GetSIPInboundTrunk(httpClient, request);
+    }
+
+    public async Task<GetSIPOutboundTrunkResponse> GetSIPOutboundTrunk(
+        GetSIPOutboundTrunkRequest request
+    )
+    {
+        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+            "Bearer",
+            AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+        );
+        return await Twirp.GetSIPOutboundTrunk(httpClient, request);
     }
 
     public async Task<ListSIPInboundTrunkResponse> ListSIPInboundTrunk(
@@ -112,12 +126,25 @@ public class SipServiceClient : BaseService
         return await Twirp.DeleteSIPDispatchRule(httpClient, request);
     }
 
-    public async Task<SIPParticipantInfo> CreateSIPParticipant(CreateSIPParticipantRequest request)
+    public async Task<SIPParticipantInfo> CreateSIPParticipant(
+        CreateSIPParticipantRequest request
+    )
     {
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
             "Bearer",
-            AuthHeader(new VideoGrants { }, new SIPGrants { Call = true })
+            AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
         );
         return await Twirp.CreateSIPParticipant(httpClient, request);
+    }
+
+    public async Task<Empty> TransferSIPParticipant(
+        TransferSIPParticipantRequest request
+    )
+    {
+        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+            "Bearer",
+            AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+        );
+        return await Twirp.TransferSIPParticipant(httpClient, request);
     }
 }

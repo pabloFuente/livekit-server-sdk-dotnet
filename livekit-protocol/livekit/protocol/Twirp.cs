@@ -187,10 +187,7 @@ public class Twirp {
     return await DoRequest<global::LiveKit.Proto.DeleteIngressRequest, global::LiveKit.Proto.IngressInfo>(client, "/twirp/livekit.Ingress/DeleteIngress", req, global::LiveKit.Proto.IngressInfo.Parser.ParseFrom);
   }
 
-  public static async Task<global::LiveKit.Proto.SIPTrunkInfo> CreateSIPTrunk(HttpClient client, global::LiveKit.Proto.CreateSIPTrunkRequest req) {
-    return await DoRequest<global::LiveKit.Proto.CreateSIPTrunkRequest, global::LiveKit.Proto.SIPTrunkInfo>(client, "/twirp/livekit.SIP/CreateSIPTrunk", req, global::LiveKit.Proto.SIPTrunkInfo.Parser.ParseFrom);
-  }
-
+  // rpc CreateSIPTrunk(CreateSIPTrunkRequest) returns (SIPTrunkInfo) { option deprecated = true; }; DELETED
   public static async Task<global::LiveKit.Proto.ListSIPTrunkResponse> ListSIPTrunk(HttpClient client, global::LiveKit.Proto.ListSIPTrunkRequest req) {
     return await DoRequest<global::LiveKit.Proto.ListSIPTrunkRequest, global::LiveKit.Proto.ListSIPTrunkResponse>(client, "/twirp/livekit.SIP/ListSIPTrunk", req, global::LiveKit.Proto.ListSIPTrunkResponse.Parser.ParseFrom);
   }
@@ -201,6 +198,14 @@ public class Twirp {
 
   public static async Task<global::LiveKit.Proto.SIPOutboundTrunkInfo> CreateSIPOutboundTrunk(HttpClient client, global::LiveKit.Proto.CreateSIPOutboundTrunkRequest req) {
     return await DoRequest<global::LiveKit.Proto.CreateSIPOutboundTrunkRequest, global::LiveKit.Proto.SIPOutboundTrunkInfo>(client, "/twirp/livekit.SIP/CreateSIPOutboundTrunk", req, global::LiveKit.Proto.SIPOutboundTrunkInfo.Parser.ParseFrom);
+  }
+
+  public static async Task<global::LiveKit.Proto.GetSIPInboundTrunkResponse> GetSIPInboundTrunk(HttpClient client, global::LiveKit.Proto.GetSIPInboundTrunkRequest req) {
+    return await DoRequest<global::LiveKit.Proto.GetSIPInboundTrunkRequest, global::LiveKit.Proto.GetSIPInboundTrunkResponse>(client, "/twirp/livekit.SIP/GetSIPInboundTrunk", req, global::LiveKit.Proto.GetSIPInboundTrunkResponse.Parser.ParseFrom);
+  }
+
+  public static async Task<global::LiveKit.Proto.GetSIPOutboundTrunkResponse> GetSIPOutboundTrunk(HttpClient client, global::LiveKit.Proto.GetSIPOutboundTrunkRequest req) {
+    return await DoRequest<global::LiveKit.Proto.GetSIPOutboundTrunkRequest, global::LiveKit.Proto.GetSIPOutboundTrunkResponse>(client, "/twirp/livekit.SIP/GetSIPOutboundTrunk", req, global::LiveKit.Proto.GetSIPOutboundTrunkResponse.Parser.ParseFrom);
   }
 
   public static async Task<global::LiveKit.Proto.ListSIPInboundTrunkResponse> ListSIPInboundTrunk(HttpClient client, global::LiveKit.Proto.ListSIPInboundTrunkRequest req) {
@@ -229,5 +234,9 @@ public class Twirp {
 
   public static async Task<global::LiveKit.Proto.SIPParticipantInfo> CreateSIPParticipant(HttpClient client, global::LiveKit.Proto.CreateSIPParticipantRequest req) {
     return await DoRequest<global::LiveKit.Proto.CreateSIPParticipantRequest, global::LiveKit.Proto.SIPParticipantInfo>(client, "/twirp/livekit.SIP/CreateSIPParticipant", req, global::LiveKit.Proto.SIPParticipantInfo.Parser.ParseFrom);
+  }
+
+  public static async Task<Google.Protobuf.WellKnownTypes.Empty> TransferSIPParticipant(HttpClient client, global::LiveKit.Proto.TransferSIPParticipantRequest req) {
+    return await DoRequest<global::LiveKit.Proto.TransferSIPParticipantRequest, Google.Protobuf.WellKnownTypes.Empty>(client, "/twirp/livekit.SIP/TransferSIPParticipant", req, Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
   }
 }

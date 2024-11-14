@@ -38,9 +38,11 @@ protoc -I "$API_PROTOCOL" --twirpcs_out="$API_OUT_CSHARP" \
     "$API_PROTOCOL"/livekit_analytics.proto
 
 # Patch the proto stubs
-# 1. Modify the namespace from "Livekit." to "global::LiveKit.Proto."
-# 2. Rename the class name and file from "GeneratedAPI" to "Twirp"
+# 1. Change "Livekit.Empty" to "Google.Protobuf.WellKnownTypes.Empty"
+# 2. Modify the namespace from "Livekit." to "global::LiveKit.Proto."
+# 3. Rename the class name and file from "GeneratedAPI" to "Twirp"
 
+sed -i 's|Livekit.Empty|Google.Protobuf.WellKnownTypes.Empty|g' "$API_OUT_CSHARP"/GeneratedAPI.cs
 sed -i 's|Livekit.|global::LiveKit.Proto.|g' "$API_OUT_CSHARP"/GeneratedAPI.cs
 sed -i 's|GeneratedAPI|Twirp|g' "$API_OUT_CSHARP"/GeneratedAPI.cs
 mv "$API_OUT_CSHARP"/GeneratedAPI.cs "$API_OUT_CSHARP"/Twirp.cs

@@ -134,7 +134,7 @@ namespace LiveKit.Proto {
             "Z3Jlc3NSZXF1ZXN0EhEKCXJvb21fbmFtZRgBIAEoCRIRCgllZ3Jlc3NfaWQY",
             "AiABKAkSDgoGYWN0aXZlGAMgASgIIjgKEkxpc3RFZ3Jlc3NSZXNwb25zZRIi",
             "CgVpdGVtcxgBIAMoCzITLmxpdmVraXQuRWdyZXNzSW5mbyImChFTdG9wRWdy",
-            "ZXNzUmVxdWVzdBIRCgllZ3Jlc3NfaWQYASABKAkitgYKCkVncmVzc0luZm8S",
+            "ZXNzUmVxdWVzdBIRCgllZ3Jlc3NfaWQYASABKAki8QYKCkVncmVzc0luZm8S",
             "EQoJZWdyZXNzX2lkGAEgASgJEg8KB3Jvb21faWQYAiABKAkSEQoJcm9vbV9u",
             "YW1lGA0gASgJEiUKBnN0YXR1cxgDIAEoDjIVLmxpdmVraXQuRWdyZXNzU3Rh",
             "dHVzEhIKCnN0YXJ0ZWRfYXQYCiABKAMSEAoIZW5kZWRfYXQYCyABKAMSEgoK",
@@ -152,65 +152,66 @@ namespace LiveKit.Proto {
             "IAMoCzITLmxpdmVraXQuU3RyZWFtSW5mbxInCgxmaWxlX3Jlc3VsdHMYECAD",
             "KAsyES5saXZla2l0LkZpbGVJbmZvEi4KD3NlZ21lbnRfcmVzdWx0cxgRIAMo",
             "CzIVLmxpdmVraXQuU2VnbWVudHNJbmZvEioKDWltYWdlX3Jlc3VsdHMYFCAD",
-            "KAsyEy5saXZla2l0LkltYWdlc0luZm9CCQoHcmVxdWVzdEIICgZyZXN1bHQi",
-            "NwoOU3RyZWFtSW5mb0xpc3QSIQoEaW5mbxgBIAMoCzITLmxpdmVraXQuU3Ry",
-            "ZWFtSW5mbzoCGAEivAEKClN0cmVhbUluZm8SCwoDdXJsGAEgASgJEhIKCnN0",
-            "YXJ0ZWRfYXQYAiABKAMSEAoIZW5kZWRfYXQYAyABKAMSEAoIZHVyYXRpb24Y",
-            "BCABKAMSKgoGc3RhdHVzGAUgASgOMhoubGl2ZWtpdC5TdHJlYW1JbmZvLlN0",
-            "YXR1cxINCgVlcnJvchgGIAEoCSIuCgZTdGF0dXMSCgoGQUNUSVZFEAASDAoI",
-            "RklOSVNIRUQQARIKCgZGQUlMRUQQAiJ0CghGaWxlSW5mbxIQCghmaWxlbmFt",
-            "ZRgBIAEoCRISCgpzdGFydGVkX2F0GAIgASgDEhAKCGVuZGVkX2F0GAMgASgD",
-            "EhAKCGR1cmF0aW9uGAYgASgDEgwKBHNpemUYBCABKAMSEAoIbG9jYXRpb24Y",
-            "BSABKAki2QEKDFNlZ21lbnRzSW5mbxIVCg1wbGF5bGlzdF9uYW1lGAEgASgJ",
-            "EhoKEmxpdmVfcGxheWxpc3RfbmFtZRgIIAEoCRIQCghkdXJhdGlvbhgCIAEo",
-            "AxIMCgRzaXplGAMgASgDEhkKEXBsYXlsaXN0X2xvY2F0aW9uGAQgASgJEh4K",
-            "FmxpdmVfcGxheWxpc3RfbG9jYXRpb24YCSABKAkSFQoNc2VnbWVudF9jb3Vu",
-            "dBgFIAEoAxISCgpzdGFydGVkX2F0GAYgASgDEhAKCGVuZGVkX2F0GAcgASgD",
-            "ImAKCkltYWdlc0luZm8SFwoPZmlsZW5hbWVfcHJlZml4GAQgASgJEhMKC2lt",
-            "YWdlX2NvdW50GAEgASgDEhIKCnN0YXJ0ZWRfYXQYAiABKAMSEAoIZW5kZWRf",
-            "YXQYAyABKAMi6wEKFUF1dG9QYXJ0aWNpcGFudEVncmVzcxIwCgZwcmVzZXQY",
-            "ASABKA4yHi5saXZla2l0LkVuY29kaW5nT3B0aW9uc1ByZXNldEgAEiwKCGFk",
-            "dmFuY2VkGAIgASgLMhgubGl2ZWtpdC5FbmNvZGluZ09wdGlvbnNIABIwCgxm",
-            "aWxlX291dHB1dHMYAyADKAsyGi5saXZla2l0LkVuY29kZWRGaWxlT3V0cHV0",
-            "EjUKD3NlZ21lbnRfb3V0cHV0cxgEIAMoCzIcLmxpdmVraXQuU2VnbWVudGVk",
-            "RmlsZU91dHB1dEIJCgdvcHRpb25zIt8BCg9BdXRvVHJhY2tFZ3Jlc3MSEAoI",
-            "ZmlsZXBhdGgYASABKAkSGAoQZGlzYWJsZV9tYW5pZmVzdBgFIAEoCBIfCgJz",
-            "MxgCIAEoCzIRLmxpdmVraXQuUzNVcGxvYWRIABIhCgNnY3AYAyABKAsyEi5s",
-            "aXZla2l0LkdDUFVwbG9hZEgAEikKBWF6dXJlGAQgASgLMhgubGl2ZWtpdC5B",
-            "enVyZUJsb2JVcGxvYWRIABInCgZhbGlPU1MYBiABKAsyFS5saXZla2l0LkFs",
-            "aU9TU1VwbG9hZEgAQggKBm91dHB1dCo5Cg9FbmNvZGVkRmlsZVR5cGUSFAoQ",
-            "REVGQVVMVF9GSUxFVFlQRRAAEgcKA01QNBABEgcKA09HRxACKk4KFVNlZ21l",
-            "bnRlZEZpbGVQcm90b2NvbBIjCh9ERUZBVUxUX1NFR01FTlRFRF9GSUxFX1BS",
-            "T1RPQ09MEAASEAoMSExTX1BST1RPQ09MEAEqLwoTU2VnbWVudGVkRmlsZVN1",
-            "ZmZpeBIJCgVJTkRFWBAAEg0KCVRJTUVTVEFNUBABKkUKD0ltYWdlRmlsZVN1",
-            "ZmZpeBIWChJJTUFHRV9TVUZGSVhfSU5ERVgQABIaChZJTUFHRV9TVUZGSVhf",
-            "VElNRVNUQU1QEAEqOQoOU3RyZWFtUHJvdG9jb2wSFAoQREVGQVVMVF9QUk9U",
-            "T0NPTBAAEggKBFJUTVAQARIHCgNTUlQQAirPAQoVRW5jb2RpbmdPcHRpb25z",
-            "UHJlc2V0EhAKDEgyNjRfNzIwUF8zMBAAEhAKDEgyNjRfNzIwUF82MBABEhEK",
-            "DUgyNjRfMTA4MFBfMzAQAhIRCg1IMjY0XzEwODBQXzYwEAMSGQoVUE9SVFJB",
-            "SVRfSDI2NF83MjBQXzMwEAQSGQoVUE9SVFJBSVRfSDI2NF83MjBQXzYwEAUS",
-            "GgoWUE9SVFJBSVRfSDI2NF8xMDgwUF8zMBAGEhoKFlBPUlRSQUlUX0gyNjRf",
-            "MTA4MFBfNjAQByqfAQoMRWdyZXNzU3RhdHVzEhMKD0VHUkVTU19TVEFSVElO",
-            "RxAAEhEKDUVHUkVTU19BQ1RJVkUQARIRCg1FR1JFU1NfRU5ESU5HEAISEwoP",
-            "RUdSRVNTX0NPTVBMRVRFEAMSEQoNRUdSRVNTX0ZBSUxFRBAEEhIKDkVHUkVT",
-            "U19BQk9SVEVEEAUSGAoURUdSRVNTX0xJTUlUX1JFQUNIRUQQBjKcBQoGRWdy",
-            "ZXNzElQKGFN0YXJ0Um9vbUNvbXBvc2l0ZUVncmVzcxIjLmxpdmVraXQuUm9v",
-            "bUNvbXBvc2l0ZUVncmVzc1JlcXVlc3QaEy5saXZla2l0LkVncmVzc0luZm8S",
-            "QAoOU3RhcnRXZWJFZ3Jlc3MSGS5saXZla2l0LldlYkVncmVzc1JlcXVlc3Qa",
-            "Ey5saXZla2l0LkVncmVzc0luZm8SUAoWU3RhcnRQYXJ0aWNpcGFudEVncmVz",
-            "cxIhLmxpdmVraXQuUGFydGljaXBhbnRFZ3Jlc3NSZXF1ZXN0GhMubGl2ZWtp",
-            "dC5FZ3Jlc3NJbmZvElYKGVN0YXJ0VHJhY2tDb21wb3NpdGVFZ3Jlc3MSJC5s",
-            "aXZla2l0LlRyYWNrQ29tcG9zaXRlRWdyZXNzUmVxdWVzdBoTLmxpdmVraXQu",
-            "RWdyZXNzSW5mbxJEChBTdGFydFRyYWNrRWdyZXNzEhsubGl2ZWtpdC5UcmFj",
-            "a0VncmVzc1JlcXVlc3QaEy5saXZla2l0LkVncmVzc0luZm8SQQoMVXBkYXRl",
-            "TGF5b3V0EhwubGl2ZWtpdC5VcGRhdGVMYXlvdXRSZXF1ZXN0GhMubGl2ZWtp",
-            "dC5FZ3Jlc3NJbmZvEkEKDFVwZGF0ZVN0cmVhbRIcLmxpdmVraXQuVXBkYXRl",
-            "U3RyZWFtUmVxdWVzdBoTLmxpdmVraXQuRWdyZXNzSW5mbxJFCgpMaXN0RWdy",
-            "ZXNzEhoubGl2ZWtpdC5MaXN0RWdyZXNzUmVxdWVzdBobLmxpdmVraXQuTGlz",
-            "dEVncmVzc1Jlc3BvbnNlEj0KClN0b3BFZ3Jlc3MSGi5saXZla2l0LlN0b3BF",
-            "Z3Jlc3NSZXF1ZXN0GhMubGl2ZWtpdC5FZ3Jlc3NJbmZvQkZaI2dpdGh1Yi5j",
-            "b20vbGl2ZWtpdC9wcm90b2NvbC9saXZla2l0qgINTGl2ZUtpdC5Qcm90b+oC",
-            "DkxpdmVLaXQ6OlByb3RvYgZwcm90bzM="));
+            "KAsyEy5saXZla2l0LkltYWdlc0luZm8SGQoRbWFuaWZlc3RfbG9jYXRpb24Y",
+            "FyABKAkSHgoWbWFuaWZlc3RfcHJlc2lnbmVkX3VybBgYIAEoCUIJCgdyZXF1",
+            "ZXN0QggKBnJlc3VsdCI3Cg5TdHJlYW1JbmZvTGlzdBIhCgRpbmZvGAEgAygL",
+            "MhMubGl2ZWtpdC5TdHJlYW1JbmZvOgIYASK8AQoKU3RyZWFtSW5mbxILCgN1",
+            "cmwYASABKAkSEgoKc3RhcnRlZF9hdBgCIAEoAxIQCghlbmRlZF9hdBgDIAEo",
+            "AxIQCghkdXJhdGlvbhgEIAEoAxIqCgZzdGF0dXMYBSABKA4yGi5saXZla2l0",
+            "LlN0cmVhbUluZm8uU3RhdHVzEg0KBWVycm9yGAYgASgJIi4KBlN0YXR1cxIK",
+            "CgZBQ1RJVkUQABIMCghGSU5JU0hFRBABEgoKBkZBSUxFRBACInQKCEZpbGVJ",
+            "bmZvEhAKCGZpbGVuYW1lGAEgASgJEhIKCnN0YXJ0ZWRfYXQYAiABKAMSEAoI",
+            "ZW5kZWRfYXQYAyABKAMSEAoIZHVyYXRpb24YBiABKAMSDAoEc2l6ZRgEIAEo",
+            "AxIQCghsb2NhdGlvbhgFIAEoCSLZAQoMU2VnbWVudHNJbmZvEhUKDXBsYXls",
+            "aXN0X25hbWUYASABKAkSGgoSbGl2ZV9wbGF5bGlzdF9uYW1lGAggASgJEhAK",
+            "CGR1cmF0aW9uGAIgASgDEgwKBHNpemUYAyABKAMSGQoRcGxheWxpc3RfbG9j",
+            "YXRpb24YBCABKAkSHgoWbGl2ZV9wbGF5bGlzdF9sb2NhdGlvbhgJIAEoCRIV",
+            "Cg1zZWdtZW50X2NvdW50GAUgASgDEhIKCnN0YXJ0ZWRfYXQYBiABKAMSEAoI",
+            "ZW5kZWRfYXQYByABKAMiYAoKSW1hZ2VzSW5mbxIXCg9maWxlbmFtZV9wcmVm",
+            "aXgYBCABKAkSEwoLaW1hZ2VfY291bnQYASABKAMSEgoKc3RhcnRlZF9hdBgC",
+            "IAEoAxIQCghlbmRlZF9hdBgDIAEoAyLrAQoVQXV0b1BhcnRpY2lwYW50RWdy",
+            "ZXNzEjAKBnByZXNldBgBIAEoDjIeLmxpdmVraXQuRW5jb2RpbmdPcHRpb25z",
+            "UHJlc2V0SAASLAoIYWR2YW5jZWQYAiABKAsyGC5saXZla2l0LkVuY29kaW5n",
+            "T3B0aW9uc0gAEjAKDGZpbGVfb3V0cHV0cxgDIAMoCzIaLmxpdmVraXQuRW5j",
+            "b2RlZEZpbGVPdXRwdXQSNQoPc2VnbWVudF9vdXRwdXRzGAQgAygLMhwubGl2",
+            "ZWtpdC5TZWdtZW50ZWRGaWxlT3V0cHV0QgkKB29wdGlvbnMi3wEKD0F1dG9U",
+            "cmFja0VncmVzcxIQCghmaWxlcGF0aBgBIAEoCRIYChBkaXNhYmxlX21hbmlm",
+            "ZXN0GAUgASgIEh8KAnMzGAIgASgLMhEubGl2ZWtpdC5TM1VwbG9hZEgAEiEK",
+            "A2djcBgDIAEoCzISLmxpdmVraXQuR0NQVXBsb2FkSAASKQoFYXp1cmUYBCAB",
+            "KAsyGC5saXZla2l0LkF6dXJlQmxvYlVwbG9hZEgAEicKBmFsaU9TUxgGIAEo",
+            "CzIVLmxpdmVraXQuQWxpT1NTVXBsb2FkSABCCAoGb3V0cHV0KjkKD0VuY29k",
+            "ZWRGaWxlVHlwZRIUChBERUZBVUxUX0ZJTEVUWVBFEAASBwoDTVA0EAESBwoD",
+            "T0dHEAIqTgoVU2VnbWVudGVkRmlsZVByb3RvY29sEiMKH0RFRkFVTFRfU0VH",
+            "TUVOVEVEX0ZJTEVfUFJPVE9DT0wQABIQCgxITFNfUFJPVE9DT0wQASovChNT",
+            "ZWdtZW50ZWRGaWxlU3VmZml4EgkKBUlOREVYEAASDQoJVElNRVNUQU1QEAEq",
+            "RQoPSW1hZ2VGaWxlU3VmZml4EhYKEklNQUdFX1NVRkZJWF9JTkRFWBAAEhoK",
+            "FklNQUdFX1NVRkZJWF9USU1FU1RBTVAQASo5Cg5TdHJlYW1Qcm90b2NvbBIU",
+            "ChBERUZBVUxUX1BST1RPQ09MEAASCAoEUlRNUBABEgcKA1NSVBACKs8BChVF",
+            "bmNvZGluZ09wdGlvbnNQcmVzZXQSEAoMSDI2NF83MjBQXzMwEAASEAoMSDI2",
+            "NF83MjBQXzYwEAESEQoNSDI2NF8xMDgwUF8zMBACEhEKDUgyNjRfMTA4MFBf",
+            "NjAQAxIZChVQT1JUUkFJVF9IMjY0XzcyMFBfMzAQBBIZChVQT1JUUkFJVF9I",
+            "MjY0XzcyMFBfNjAQBRIaChZQT1JUUkFJVF9IMjY0XzEwODBQXzMwEAYSGgoW",
+            "UE9SVFJBSVRfSDI2NF8xMDgwUF82MBAHKp8BCgxFZ3Jlc3NTdGF0dXMSEwoP",
+            "RUdSRVNTX1NUQVJUSU5HEAASEQoNRUdSRVNTX0FDVElWRRABEhEKDUVHUkVT",
+            "U19FTkRJTkcQAhITCg9FR1JFU1NfQ09NUExFVEUQAxIRCg1FR1JFU1NfRkFJ",
+            "TEVEEAQSEgoORUdSRVNTX0FCT1JURUQQBRIYChRFR1JFU1NfTElNSVRfUkVB",
+            "Q0hFRBAGMpwFCgZFZ3Jlc3MSVAoYU3RhcnRSb29tQ29tcG9zaXRlRWdyZXNz",
+            "EiMubGl2ZWtpdC5Sb29tQ29tcG9zaXRlRWdyZXNzUmVxdWVzdBoTLmxpdmVr",
+            "aXQuRWdyZXNzSW5mbxJACg5TdGFydFdlYkVncmVzcxIZLmxpdmVraXQuV2Vi",
+            "RWdyZXNzUmVxdWVzdBoTLmxpdmVraXQuRWdyZXNzSW5mbxJQChZTdGFydFBh",
+            "cnRpY2lwYW50RWdyZXNzEiEubGl2ZWtpdC5QYXJ0aWNpcGFudEVncmVzc1Jl",
+            "cXVlc3QaEy5saXZla2l0LkVncmVzc0luZm8SVgoZU3RhcnRUcmFja0NvbXBv",
+            "c2l0ZUVncmVzcxIkLmxpdmVraXQuVHJhY2tDb21wb3NpdGVFZ3Jlc3NSZXF1",
+            "ZXN0GhMubGl2ZWtpdC5FZ3Jlc3NJbmZvEkQKEFN0YXJ0VHJhY2tFZ3Jlc3MS",
+            "Gy5saXZla2l0LlRyYWNrRWdyZXNzUmVxdWVzdBoTLmxpdmVraXQuRWdyZXNz",
+            "SW5mbxJBCgxVcGRhdGVMYXlvdXQSHC5saXZla2l0LlVwZGF0ZUxheW91dFJl",
+            "cXVlc3QaEy5saXZla2l0LkVncmVzc0luZm8SQQoMVXBkYXRlU3RyZWFtEhwu",
+            "bGl2ZWtpdC5VcGRhdGVTdHJlYW1SZXF1ZXN0GhMubGl2ZWtpdC5FZ3Jlc3NJ",
+            "bmZvEkUKCkxpc3RFZ3Jlc3MSGi5saXZla2l0Lkxpc3RFZ3Jlc3NSZXF1ZXN0",
+            "GhsubGl2ZWtpdC5MaXN0RWdyZXNzUmVzcG9uc2USPQoKU3RvcEVncmVzcxIa",
+            "LmxpdmVraXQuU3RvcEVncmVzc1JlcXVlc3QaEy5saXZla2l0LkVncmVzc0lu",
+            "Zm9CRlojZ2l0aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1M",
+            "aXZlS2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::LiveKit.Proto.LivekitModelsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LiveKit.Proto.EncodedFileType), typeof(global::LiveKit.Proto.SegmentedFileProtocol), typeof(global::LiveKit.Proto.SegmentedFileSuffix), typeof(global::LiveKit.Proto.ImageFileSuffix), typeof(global::LiveKit.Proto.StreamProtocol), typeof(global::LiveKit.Proto.EncodingOptionsPreset), typeof(global::LiveKit.Proto.EgressStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -235,7 +236,7 @@ namespace LiveKit.Proto {
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListEgressRequest), global::LiveKit.Proto.ListEgressRequest.Parser, new[]{ "RoomName", "EgressId", "Active" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListEgressResponse), global::LiveKit.Proto.ListEgressResponse.Parser, new[]{ "Items" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.StopEgressRequest), global::LiveKit.Proto.StopEgressRequest.Parser, new[]{ "EgressId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.EgressInfo), global::LiveKit.Proto.EgressInfo.Parser, new[]{ "EgressId", "RoomId", "RoomName", "Status", "StartedAt", "EndedAt", "UpdatedAt", "Details", "Error", "ErrorCode", "RoomComposite", "Web", "Participant", "TrackComposite", "Track", "Stream", "File", "Segments", "StreamResults", "FileResults", "SegmentResults", "ImageResults" }, new[]{ "Request", "Result" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.EgressInfo), global::LiveKit.Proto.EgressInfo.Parser, new[]{ "EgressId", "RoomId", "RoomName", "Status", "StartedAt", "EndedAt", "UpdatedAt", "Details", "Error", "ErrorCode", "RoomComposite", "Web", "Participant", "TrackComposite", "Track", "Stream", "File", "Segments", "StreamResults", "FileResults", "SegmentResults", "ImageResults", "ManifestLocation", "ManifestPresignedUrl" }, new[]{ "Request", "Result" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.StreamInfoList), global::LiveKit.Proto.StreamInfoList.Parser, new[]{ "Info" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.StreamInfo), global::LiveKit.Proto.StreamInfo.Parser, new[]{ "Url", "StartedAt", "EndedAt", "Duration", "Status", "Error" }, null, new[]{ typeof(global::LiveKit.Proto.StreamInfo.Types.Status) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.FileInfo), global::LiveKit.Proto.FileInfo.Parser, new[]{ "Filename", "StartedAt", "EndedAt", "Duration", "Size", "Location" }, null, null, null, null),
@@ -9674,6 +9675,8 @@ namespace LiveKit.Proto {
       fileResults_ = other.fileResults_.Clone();
       segmentResults_ = other.segmentResults_.Clone();
       imageResults_ = other.imageResults_.Clone();
+      manifestLocation_ = other.manifestLocation_;
+      manifestPresignedUrl_ = other.manifestPresignedUrl_;
       switch (other.RequestCase) {
         case RequestOneofCase.RoomComposite:
           RoomComposite = other.RoomComposite.Clone();
@@ -9976,6 +9979,33 @@ namespace LiveKit.Proto {
       get { return imageResults_; }
     }
 
+    /// <summary>Field number for the "manifest_location" field.</summary>
+    public const int ManifestLocationFieldNumber = 23;
+    private string manifestLocation_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ManifestLocation {
+      get { return manifestLocation_; }
+      set {
+        manifestLocation_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "manifest_presigned_url" field.</summary>
+    public const int ManifestPresignedUrlFieldNumber = 24;
+    private string manifestPresignedUrl_ = "";
+    /// <summary>
+    /// next ID: 24
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ManifestPresignedUrl {
+      get { return manifestPresignedUrl_; }
+      set {
+        manifestPresignedUrl_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     private object request_;
     /// <summary>Enum of possible cases for the "request" oneof.</summary>
     public enum RequestOneofCase {
@@ -10059,6 +10089,8 @@ namespace LiveKit.Proto {
       if(!fileResults_.Equals(other.fileResults_)) return false;
       if(!segmentResults_.Equals(other.segmentResults_)) return false;
       if(!imageResults_.Equals(other.imageResults_)) return false;
+      if (ManifestLocation != other.ManifestLocation) return false;
+      if (ManifestPresignedUrl != other.ManifestPresignedUrl) return false;
       if (RequestCase != other.RequestCase) return false;
       if (ResultCase != other.ResultCase) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -10090,6 +10122,8 @@ namespace LiveKit.Proto {
       hash ^= fileResults_.GetHashCode();
       hash ^= segmentResults_.GetHashCode();
       hash ^= imageResults_.GetHashCode();
+      if (ManifestLocation.Length != 0) hash ^= ManifestLocation.GetHashCode();
+      if (ManifestPresignedUrl.Length != 0) hash ^= ManifestPresignedUrl.GetHashCode();
       hash ^= (int) requestCase_;
       hash ^= (int) resultCase_;
       if (_unknownFields != null) {
@@ -10186,6 +10220,14 @@ namespace LiveKit.Proto {
         output.WriteRawTag(176, 1);
         output.WriteInt32(ErrorCode);
       }
+      if (ManifestLocation.Length != 0) {
+        output.WriteRawTag(186, 1);
+        output.WriteString(ManifestLocation);
+      }
+      if (ManifestPresignedUrl.Length != 0) {
+        output.WriteRawTag(194, 1);
+        output.WriteString(ManifestPresignedUrl);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -10272,6 +10314,14 @@ namespace LiveKit.Proto {
         output.WriteRawTag(176, 1);
         output.WriteInt32(ErrorCode);
       }
+      if (ManifestLocation.Length != 0) {
+        output.WriteRawTag(186, 1);
+        output.WriteString(ManifestLocation);
+      }
+      if (ManifestPresignedUrl.Length != 0) {
+        output.WriteRawTag(194, 1);
+        output.WriteString(ManifestPresignedUrl);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -10340,6 +10390,12 @@ namespace LiveKit.Proto {
       size += fileResults_.CalculateSize(_repeated_fileResults_codec);
       size += segmentResults_.CalculateSize(_repeated_segmentResults_codec);
       size += imageResults_.CalculateSize(_repeated_imageResults_codec);
+      if (ManifestLocation.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ManifestLocation);
+      }
+      if (ManifestPresignedUrl.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ManifestPresignedUrl);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -10386,6 +10442,12 @@ namespace LiveKit.Proto {
       fileResults_.Add(other.fileResults_);
       segmentResults_.Add(other.segmentResults_);
       imageResults_.Add(other.imageResults_);
+      if (other.ManifestLocation.Length != 0) {
+        ManifestLocation = other.ManifestLocation;
+      }
+      if (other.ManifestPresignedUrl.Length != 0) {
+        ManifestPresignedUrl = other.ManifestPresignedUrl;
+      }
       switch (other.RequestCase) {
         case RequestOneofCase.RoomComposite:
           if (RoomComposite == null) {
@@ -10587,6 +10649,14 @@ namespace LiveKit.Proto {
             ErrorCode = input.ReadInt32();
             break;
           }
+          case 186: {
+            ManifestLocation = input.ReadString();
+            break;
+          }
+          case 194: {
+            ManifestPresignedUrl = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -10732,6 +10802,14 @@ namespace LiveKit.Proto {
           }
           case 176: {
             ErrorCode = input.ReadInt32();
+            break;
+          }
+          case 186: {
+            ManifestLocation = input.ReadString();
+            break;
+          }
+          case 194: {
+            ManifestPresignedUrl = input.ReadString();
             break;
           }
         }
