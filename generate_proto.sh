@@ -6,7 +6,7 @@ SCRIPT_PATH=$(realpath "$0")
 SCRIPT_FOLDER="$(dirname "$SCRIPT_PATH")"
 
 API_PROTOCOL=$SCRIPT_FOLDER/protocol/protobufs
-API_OUT_CSHARP=$SCRIPT_FOLDER/livekit/protocol
+API_OUT_CSHARP=$SCRIPT_FOLDER/LivekitApi/protocol
 
 rm -rf "$API_OUT_CSHARP"
 mkdir -p "$API_OUT_CSHARP"
@@ -22,6 +22,7 @@ protoc \
     "$API_PROTOCOL"/livekit_agent_dispatch.proto \
     "$API_PROTOCOL"/livekit_webhook.proto \
     "$API_PROTOCOL"/livekit_models.proto \
+    "$API_PROTOCOL"/livekit_metrics.proto \
     "$API_PROTOCOL"/livekit_analytics.proto
 
 # Twirp (generated with https://github.com/seanpfeifer/twirp-gen)
@@ -35,6 +36,7 @@ protoc -I "$API_PROTOCOL" --twirpcs_out="$API_OUT_CSHARP" \
     "$API_PROTOCOL"/livekit_agent_dispatch.proto \
     "$API_PROTOCOL"/livekit_webhook.proto \
     "$API_PROTOCOL"/livekit_models.proto \
+    "$API_PROTOCOL"/livekit_metrics.proto \
     "$API_PROTOCOL"/livekit_analytics.proto
 
 # Patch the proto stubs

@@ -113,5 +113,3 @@ You can reset the local repository at any time with these commands:
 dotnet nuget locals all --clear
 dotnet restore
 ```
-
-> **Note**: all this process is automated in the `build-local.sh` script. Tested in Unix systems.

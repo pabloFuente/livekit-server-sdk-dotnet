@@ -1,25 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.002.0
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "livekit-server-sdk-dotnet", "livekit-server-sdk-dotnet.csproj", "{1888650E-BF75-45A5-BD21-1F2EC0760BE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivekitApi", "LivekitApi\LivekitApi.csproj", "{EE96157F-B8FB-43E0-9FE7-0CD3ABC32C6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivekitApi.Tests", "LivekitApi.Tests\LivekitApi.Tests.csproj", "{C253BB65-A42B-4198-B8E1-EA14BF585944}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1888650E-BF75-45A5-BD21-1F2EC0760BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1888650E-BF75-45A5-BD21-1F2EC0760BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1888650E-BF75-45A5-BD21-1F2EC0760BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1888650E-BF75-45A5-BD21-1F2EC0760BE6}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2456CF35-8217-497A-BFEA-A774EE6BDB7B}
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE96157F-B8FB-43E0-9FE7-0CD3ABC32C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE96157F-B8FB-43E0-9FE7-0CD3ABC32C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE96157F-B8FB-43E0-9FE7-0CD3ABC32C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE96157F-B8FB-43E0-9FE7-0CD3ABC32C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C253BB65-A42B-4198-B8E1-EA14BF585944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C253BB65-A42B-4198-B8E1-EA14BF585944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C253BB65-A42B-4198-B8E1-EA14BF585944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C253BB65-A42B-4198-B8E1-EA14BF585944}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

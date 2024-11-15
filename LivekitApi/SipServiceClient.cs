@@ -126,9 +126,7 @@ public class SipServiceClient : BaseService
         return await Twirp.DeleteSIPDispatchRule(httpClient, request);
     }
 
-    public async Task<SIPParticipantInfo> CreateSIPParticipant(
-        CreateSIPParticipantRequest request
-    )
+    public async Task<SIPParticipantInfo> CreateSIPParticipant(CreateSIPParticipantRequest request)
     {
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
             "Bearer",
@@ -137,9 +135,7 @@ public class SipServiceClient : BaseService
         return await Twirp.CreateSIPParticipant(httpClient, request);
     }
 
-    public async Task<Empty> TransferSIPParticipant(
-        TransferSIPParticipantRequest request
-    )
+    public async Task<Empty> TransferSIPParticipant(TransferSIPParticipantRequest request)
     {
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
             "Bearer",
