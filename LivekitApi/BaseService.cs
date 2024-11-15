@@ -1,36 +1,40 @@
-namespace Livekit.Server.Sdk.Dotnet;
+using System;
+using System.Net.Http;
 
-public class BaseService
+namespace Livekit.Server.Sdk.Dotnet
 {
-    private readonly string apiKey;
-    private readonly string apiSecret;
-    protected readonly HttpClient httpClient;
-
-    public BaseService(string host, string apiKey, string apiSecret, HttpClient? client = null)
+    public class BaseService
     {
-        this.apiKey = apiKey;
-        this.apiSecret = apiSecret;
-        httpClient = client ?? new HttpClient();
-        httpClient.BaseAddress = new Uri(host);
-        httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("LiveKit .NET SDK");
-    }
+        private readonly string apiKey;
+        private readonly string apiSecret;
+        protected readonly HttpClient httpClient;
 
-    protected string AuthHeader(VideoGrants videoGrants)
-    {
-        var accessToken = new AccessToken(apiKey, apiSecret);
-        accessToken.WithGrants(videoGrants);
-        accessToken.WithTtl(Constants.DefaultTtl);
+        public BaseService(string host, string apiKey, string apiSecret, HttpClient client = null)
+        {
+            this.apiKey = apiKey;
+            this.apiSecret = apiSecret;
+            httpClient = client ?? new HttpClient();
+            httpClient.BaseAddress = new Uri(host);
+            httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("LiveKit .NET SDK");
+        }
 
-        return accessToken.ToJwt();
-    }
+        protected string AuthHeader(VideoGrants videoGrants)
+        {
+            var accessToken = new AccessToken(apiKey, apiSecret);
+            accessToken.WithGrants(videoGrants);
+            accessToken.WithTtl(Constants.DefaultTtl);
 
-    protected string AuthHeader(VideoGrants videoGrants, SIPGrants sipGrants)
-    {
-        var accessToken = new AccessToken(apiKey, apiSecret);
-        accessToken.WithGrants(videoGrants);
-        accessToken.WithSipGrants(sipGrants);
-        accessToken.WithTtl(Constants.DefaultTtl);
+            return accessToken.ToJwt();
+        }
 
-        return accessToken.ToJwt();
+        protected string AuthHeader(VideoGrants videoGrants, SIPGrants sipGrants)
+        {
+            var accessToken = new AccessToken(apiKey, apiSecret);
+            accessToken.WithGrants(videoGrants);
+            accessToken.WithSipGrants(sipGrants);
+            accessToken.WithTtl(Constants.DefaultTtl);
+
+            return accessToken.ToJwt();
+        }
     }
 }

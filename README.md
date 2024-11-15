@@ -1,6 +1,7 @@
 # livekit-server-sdk-dotnet
 
-.NET APIs to manage LiveKit Server APIs. Use it with a .NET backend to manage access to LiveKit.
+.NET APIs to manage LiveKit Server APIs. Use it with a .NET backend to manage access to LiveKit. It is build with `netstandard2.0` as target framework, so the SDK can be used in all versions of .NET.
+
 
 The SDK implements:
 
