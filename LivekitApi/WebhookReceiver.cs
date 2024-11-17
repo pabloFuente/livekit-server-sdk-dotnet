@@ -58,7 +58,7 @@ namespace Livekit.Server.Sdk.Dotnet
             // Parse the body
             var parser = new MessageParser<WebhookEvent>(() => new WebhookEvent());
             parser.WithDiscardUnknownFields(ignoreUnknownFields);
-            return parser.ParseFrom(Encoding.Default.GetBytes(body));
+            return parser.ParseJson(body);
         }
     }
 }
