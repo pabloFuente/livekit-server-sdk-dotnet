@@ -34,7 +34,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
     }";
 
         [Fact]
-        [Trait("Category","Unit")]
+        [Trait("Category", "Unit")]
         public void Test_WebhookReceiver()
         {
             var receiver = new WebhookReceiver(TEST_API_KEY, TEST_API_SECRET);
@@ -45,7 +45,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         }
 
         [Fact]
-        [Trait("Category","Unit")]
+        [Trait("Category", "Unit")]
         public void Bad_Hash()
         {
             var tokenVerifier = new TokenVerifier(TEST_API_KEY, TEST_API_SECRET);
@@ -58,7 +58,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         }
 
         [Fact]
-        [Trait("Category","Unit")]
+        [Trait("Category", "Unit")]
         public void Invalid_Body()
         {
             var receiver = new WebhookReceiver(TEST_API_KEY, TEST_API_SECRET);
@@ -77,7 +77,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         }
 
         [Fact]
-        [Trait("Category","Unit")]
+        [Trait("Category", "Unit")]
         public void Receive()
         {
             var hash64 = ComputeBase64Sha256(TEST_EVENT);
