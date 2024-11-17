@@ -34,6 +34,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
     }";
 
         [Fact]
+        [Trait("Category","Unit")]
         public void Test_WebhookReceiver()
         {
             var receiver = new WebhookReceiver(TEST_API_KEY, TEST_API_SECRET);
@@ -44,6 +45,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         }
 
         [Fact]
+        [Trait("Category","Unit")]
         public void Bad_Hash()
         {
             var tokenVerifier = new TokenVerifier(TEST_API_KEY, TEST_API_SECRET);
@@ -56,6 +58,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         }
 
         [Fact]
+        [Trait("Category","Unit")]
         public void Invalid_Body()
         {
             var receiver = new WebhookReceiver(TEST_API_KEY, TEST_API_SECRET);
@@ -74,16 +77,14 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         }
 
         [Fact]
+        [Trait("Category","Unit")]
         public void Receive()
         {
-            const string testApiKey = "abcdefg";
-            const string testSecret =
-                "ababababababababababababababababababababababababababababababa";
             var hash64 = ComputeBase64Sha256(TEST_EVENT);
-            var token = new AccessToken(testApiKey, testSecret).WithSha256(hash64);
+            var token = new AccessToken(TEST_API_KEY, TEST_API_SECRET).WithSha256(hash64);
             var jwt = token.ToJwt();
 
-            var receiver = new WebhookReceiver(testApiKey, testSecret);
+            var receiver = new WebhookReceiver(TEST_API_KEY, TEST_API_SECRET);
 
             var eventReceived = receiver.Receive(TEST_EVENT, jwt);
 

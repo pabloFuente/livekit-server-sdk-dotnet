@@ -21,6 +21,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         };
 
         [Fact]
+        [Trait("Category","Unit")]
         public void Generates_Valid_JWT_With_Defaults()
         {
             var token = new AccessToken(TEST_KEY, TEST_SECRET);
@@ -37,6 +38,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         }
 
         [Fact]
+        [Trait("Category","Unit")]
         public void Generates_Valid_Payload_From_Grants()
         {
             var token = new AccessToken(TEST_KEY, TEST_SECRET);
@@ -69,6 +71,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         }
 
         [Fact]
+        [Trait("Category","Unit")]
         public void Create_Token()
         {
             var expirationTime = new DateTime(3023, 10, 15);
@@ -137,6 +140,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         }
 
         [Fact]
+        [Trait("Category","Unit")]
         public void Encodes_Join_Tokens()
         {
             var token = new AccessToken(TEST_KEY, TEST_SECRET)
@@ -174,6 +178,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         }
 
         [Fact]
+        [Trait("Category","Unit")]
         public void HandlesAgentDispatch()
         {
             var token = new AccessToken(TEST_KEY, TEST_SECRET)
@@ -204,6 +209,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         }
 
         [Fact]
+        [Trait("Category","Unit")]
         public void Verify_ValidToken_ReturnsClaimsModel()
         {
             var tokenVerifier = new TokenVerifier(TEST_KEY, TEST_SECRET);
@@ -218,6 +224,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         }
 
         [Fact]
+        [Trait("Category","Unit")]
         public void Verify_InvalidToken_ThrowsException()
         {
             var tokenVerifier = new TokenVerifier(TEST_KEY, TEST_SECRET);
