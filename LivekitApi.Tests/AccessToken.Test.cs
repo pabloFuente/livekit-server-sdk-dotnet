@@ -5,14 +5,11 @@ using LiveKit.Proto;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Xunit.Abstractions;
 
 namespace Livekit.Server.Sdk.Dotnet.Test
 {
     public class AccessTokenTest
     {
-        private readonly ITestOutputHelper output;
-
         const string TEST_KEY = "API87mWmmh7KM3V";
         const string TEST_SECRET = "helOnxxeT71NeOEBcYm3kW0s1pofQAbitubCw7AIsY0A";
         private TokenValidationParameters validationParameters = new TokenValidationParameters
@@ -22,11 +19,6 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             ValidateIssuer = false,
             ValidateAudience = false,
         };
-
-        public AccessTokenTest(ITestOutputHelper output)
-        {
-            this.output = output;
-        }
 
         [Fact]
         public void Generates_Valid_JWT_With_Defaults()
