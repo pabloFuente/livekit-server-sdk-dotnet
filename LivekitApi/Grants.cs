@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using LiveKit.Proto;
 
 namespace Livekit.Server.Sdk.Dotnet
 {
@@ -44,10 +45,12 @@ namespace Livekit.Server.Sdk.Dotnet
         public string Name { get; set; } = "";
         public VideoGrants Video { get; set; } = new VideoGrants();
         public SIPGrants Sip { get; set; } = new SIPGrants();
-        public Dictionary<string, string> Attributes { get; set; } =
-            new Dictionary<string, string>();
         public string Metadata { get; set; } = "";
         public string Sha256 { get; set; } = "";
         public string Kind { get; set; } = "";
+        public Dictionary<string, string> Attributes { get; set; } =
+            new Dictionary<string, string>();
+        public string RoomPreset { get; set; } = "";
+        public RoomConfiguration RoomConfig { get; set; } = new RoomConfiguration();
     }
 }
