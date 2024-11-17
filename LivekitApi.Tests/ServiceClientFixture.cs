@@ -1,5 +1,6 @@
 using Docker.DotNet;
 using DotNet.Testcontainers.Builders;
+using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Containers;
 using DotNet.Testcontainers.Networks;
 using LiveKit.Proto;
@@ -32,7 +33,10 @@ public class ServiceClientFixture : IAsyncLifetime
         return livekitServerContainer.DisposeAsync().AsTask();
     }
 
-    private static async Task runLivekitCliCommand(string[] args)
+    private static async Task runLivekitCliCommand(
+        string[] args,
+        IWaitForContainerOS? waitForContainerOS = null
+    )
     {
         var uri = new UriBuilder(
             "http",
@@ -50,24 +54,32 @@ public class ServiceClientFixture : IAsyncLifetime
             TEST_API_SECRET,
         };
         commands = commands.Concat(args).ToArray();
-        IContainer livekitClientContainer = new ContainerBuilder()
+        var lkContainerBuilder = new ContainerBuilder()
             .WithImage("livekit/livekit-cli:latest")
             .WithAutoRemove(true)
-            .WithCommand(commands)
-            .Build();
+            .WithCommand(commands);
+        if (waitForContainerOS != null)
+        {
+            lkContainerBuilder = lkContainerBuilder.WithWaitStrategy(waitForContainerOS);
+        }
+        var livekitClientContainer = lkContainerBuilder.Build();
         await livekitClientContainer.StartAsync();
         return;
     }
 
     public static async Task JoinParticipant(string roomName, string participantIdentity)
     {
-        await runLivekitCliCommand(["room", "join", "--identity", participantIdentity, roomName]);
+        await runLivekitCliCommand(
+            ["room", "join", "--identity", participantIdentity, roomName],
+            Wait.ForUnixContainer().UntilMessageIsLogged("connected to room")
+        );
     }
 
     public static async Task PublishVideoTrackInRoom(string roomName, string participantIdentity)
     {
         await runLivekitCliCommand(
-            ["room", "join", "--identity", participantIdentity, "--publish-demo", roomName]
+            ["room", "join", "--identity", participantIdentity, "--publish-demo", roomName],
+            Wait.ForUnixContainer().UntilMessageIsLogged("published simulcast track")
         );
     }
 }

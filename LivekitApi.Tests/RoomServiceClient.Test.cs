@@ -4,7 +4,8 @@ using Xunit.Abstractions;
 namespace Livekit.Server.Sdk.Dotnet.Test
 {
     public class RoomServiceClientTest(ServiceClientFixture fixture, ITestOutputHelper output)
-        : IClassFixture<ServiceClientFixture>
+        : IClassFixture<ServiceClientFixture>,
+            IDisposable
     {
         RoomServiceClient client = new RoomServiceClient(
             "http://localhost:7880",
@@ -14,6 +15,21 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         const string ROOM_NAME = "test-room";
         const string ROOM_METADATA = "room-metadata";
         const string PARTICIPANT_IDENTITY = "test-participant";
+
+        // Clean all rooms after each test
+        public void Dispose()
+        {
+            client
+                .ListRooms(new ListRoomsRequest())
+                .ContinueWith(async response =>
+                {
+                    foreach (var room in response.Result.Rooms)
+                    {
+                        await client.DeleteRoom(new DeleteRoomRequest { Room = room.Name });
+                    }
+                })
+                .Wait();
+        }
 
         [Fact]
         [Trait("Category", "Integration")]
@@ -122,6 +138,32 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             Assert.False(participant.Permission.CanPublish);
             Assert.False(participant.Permission.CanSubscribe);
             Assert.True(participant.Permission.CanUpdateMetadata);
+        }
+
+        [Fact]
+        [Trait("Category", "Integration")]
+        public async void Mute_Published_Track()
+        {
+            await client.CreateRoom(new CreateRoomRequest { Name = ROOM_NAME });
+            await ServiceClientFixture.PublishVideoTrackInRoom(ROOM_NAME, PARTICIPANT_IDENTITY);
+            ParticipantInfo participant = await client.GetParticipant(
+                new RoomParticipantIdentity { Room = ROOM_NAME, Identity = PARTICIPANT_IDENTITY }
+            );
+            Assert.NotNull(participant);
+            Assert.Single(participant.Tracks);
+            Assert.False(participant.Tracks[0].Muted);
+            var mutePublishedTrackRequest = new MuteRoomTrackRequest
+            {
+                Room = ROOM_NAME,
+                Identity = PARTICIPANT_IDENTITY,
+                TrackSid = participant.Tracks[0].Sid,
+                Muted = true,
+            };
+            MuteRoomTrackResponse mutedPublishedTrack = await client.MutePublishedTrack(
+                mutePublishedTrackRequest
+            );
+            Assert.NotNull(mutedPublishedTrack);
+            Assert.True(mutedPublishedTrack.Track.Muted);
         }
     }
 }
