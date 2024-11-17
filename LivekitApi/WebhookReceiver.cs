@@ -15,15 +15,7 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <param name="apiSecret">The LiveKit API Secret Key, can be set in env LIVEKIT_API_SECRET.</param>
         /// <exception cref="Exception">Thrown when apiKey or apiSecret are not provided.</exception>
         public WebhookReceiver(string apiKey = null, string apiSecret = null)
-        {
-            apiKey = apiKey ?? Environment.GetEnvironmentVariable("LIVEKIT_API_KEY");
-            apiSecret = apiSecret ?? Environment.GetEnvironmentVariable("LIVEKIT_API_SECRET");
-
-            if (string.IsNullOrEmpty(apiKey) || string.IsNullOrEmpty(apiSecret))
-            {
-                throw new Exception("ApiKey and apiSecret are required.");
-            }
-        }
+            : base(apiKey, apiSecret) { }
 
         /// <summary>
         /// Process a webhook request.

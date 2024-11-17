@@ -41,6 +41,14 @@ namespace Livekit.Server.Sdk.Dotnet
             {
                 throw new ArgumentException("apiKey and apiSecret must be set");
             }
+            if (Encoding.Default.GetBytes(apiSecret).Length < 32)
+            {
+                throw new ArgumentException(
+                    "apiSecret must be at least 256 bits long. Currently it is "
+                        + Encoding.Default.GetBytes(apiSecret).Length * 8
+                        + " bits long"
+                );
+            }
 
             Claims = new ClaimsModel();
         }
@@ -232,9 +240,17 @@ namespace Livekit.Server.Sdk.Dotnet
             this.apiSecret = apiSecret ?? Environment.GetEnvironmentVariable("LIVEKIT_API_SECRET");
             this.leeway = leeway ?? Constants.DefaultLeeway;
 
-            if (string.IsNullOrEmpty(this.apiKey) || string.IsNullOrEmpty(this.apiSecret))
+            if (string.IsNullOrEmpty(apiKey) || string.IsNullOrEmpty(apiSecret))
             {
-                throw new ArgumentException("api_key and api_secret must be set");
+                throw new ArgumentException("apiKey and apiSecret must be set");
+            }
+            if (Encoding.Default.GetBytes(apiSecret).Length < 32)
+            {
+                throw new ArgumentException(
+                    "apiSecret must be at least 256 bits long. Currently it is "
+                        + Encoding.Default.GetBytes(apiSecret).Length * 8
+                        + " bits long"
+                );
             }
         }
 

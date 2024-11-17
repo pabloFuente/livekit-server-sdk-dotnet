@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using System.Text;
 
 namespace Livekit.Server.Sdk.Dotnet
 {
@@ -13,6 +14,20 @@ namespace Livekit.Server.Sdk.Dotnet
         {
             this.apiKey = apiKey;
             this.apiSecret = apiSecret;
+
+            if (string.IsNullOrEmpty(this.apiKey) || string.IsNullOrEmpty(this.apiSecret))
+            {
+                throw new ArgumentException("apiKey and apiSecret must be set");
+            }
+            if (Encoding.Default.GetBytes(apiSecret).Length < 32)
+            {
+                throw new ArgumentException(
+                    "apiSecret must be at least 256 bits long. Currently it is "
+                        + Encoding.Default.GetBytes(apiSecret).Length * 8
+                        + " bits long"
+                );
+            }
+
             httpClient = client ?? new HttpClient();
             httpClient.BaseAddress = new Uri(host);
             httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("LiveKit .NET SDK");
