@@ -1,3 +1,4 @@
+using Google.Protobuf;
 using LiveKit.Proto;
 using Xunit.Abstractions;
 
@@ -107,6 +108,28 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        public async void Remove_Participant()
+        {
+            await client.CreateRoom(new CreateRoomRequest { Name = ROOM_NAME });
+            await ServiceClientFixture.JoinParticipant(ROOM_NAME, PARTICIPANT_IDENTITY);
+            var participants = await client.ListParticipants(
+                new ListParticipantsRequest { Room = ROOM_NAME }
+            );
+            Assert.Single(participants.Participants);
+            var request = new RoomParticipantIdentity
+            {
+                Room = ROOM_NAME,
+                Identity = PARTICIPANT_IDENTITY,
+            };
+            await client.RemoveParticipant(request);
+            participants = await client.ListParticipants(
+                new ListParticipantsRequest { Room = ROOM_NAME }
+            );
+            Assert.Empty(participants.Participants);
+        }
+
+        [Fact]
+        [Trait("Category", "Integration")]
         public async void Update_Participant()
         {
             await client.CreateRoom(new CreateRoomRequest { Name = ROOM_NAME });
@@ -146,9 +169,27 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         {
             await client.CreateRoom(new CreateRoomRequest { Name = ROOM_NAME });
             await ServiceClientFixture.PublishVideoTrackInRoom(ROOM_NAME, PARTICIPANT_IDENTITY);
-            ParticipantInfo participant = await client.GetParticipant(
-                new RoomParticipantIdentity { Room = ROOM_NAME, Identity = PARTICIPANT_IDENTITY }
-            );
+            ParticipantInfo participant = null;
+            // Wait for participant to have tracks
+            var timeout = DateTime.Now.AddSeconds(10);
+            while ((participant == null || participant.Tracks.Count == 0) && DateTime.Now < timeout)
+            {
+                participant = await client.GetParticipant(
+                    new RoomParticipantIdentity
+                    {
+                        Room = ROOM_NAME,
+                        Identity = PARTICIPANT_IDENTITY,
+                    }
+                );
+                if (participant.Tracks.Count == 0)
+                {
+                    await Task.Delay(500);
+                }
+            }
+            if (participant.Tracks.Count == 0)
+            {
+                Assert.Fail("Participant has no tracks");
+            }
             Assert.NotNull(participant);
             Assert.Single(participant.Tracks);
             Assert.False(participant.Tracks[0].Muted);
@@ -164,6 +205,62 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             );
             Assert.NotNull(mutedPublishedTrack);
             Assert.True(mutedPublishedTrack.Track.Muted);
+        }
+
+        [Fact]
+        [Trait("Category", "Integration")]
+        public async void Update_Subscriptions()
+        {
+            string publisherIdentity = PARTICIPANT_IDENTITY + "2";
+            await client.CreateRoom(new CreateRoomRequest { Name = ROOM_NAME });
+            await Task.WhenAll(
+                ServiceClientFixture.JoinParticipant(ROOM_NAME, PARTICIPANT_IDENTITY),
+                ServiceClientFixture.PublishVideoTrackInRoom(ROOM_NAME, publisherIdentity)
+            );
+            var participants = await Task.WhenAll(
+                client.GetParticipant(
+                    new RoomParticipantIdentity
+                    {
+                        Room = ROOM_NAME,
+                        Identity = PARTICIPANT_IDENTITY,
+                    }
+                ),
+                client.GetParticipant(
+                    new RoomParticipantIdentity { Room = ROOM_NAME, Identity = publisherIdentity }
+                )
+            );
+            var subscriber = participants[0];
+            var publisher = participants[1];
+
+            Assert.Single(publisher.Tracks);
+            // Subscribe to track
+            var updateSubscriptionsRequest = new UpdateSubscriptionsRequest
+            {
+                Room = ROOM_NAME,
+                Identity = subscriber.Identity,
+                Subscribe = true,
+            };
+            updateSubscriptionsRequest.TrackSids.Add(publisher.Tracks[0].Sid);
+            await client.UpdateSubscriptions(updateSubscriptionsRequest);
+            // Unsubscribe from track
+            updateSubscriptionsRequest.Subscribe = false;
+            updateSubscriptionsRequest.TrackSids.Add(publisher.Tracks[0].Sid);
+            await client.UpdateSubscriptions(updateSubscriptionsRequest);
+        }
+
+        [Fact]
+        [Trait("Category", "Integration")]
+        public async void Send_Data()
+        {
+            await client.CreateRoom(new CreateRoomRequest { Name = ROOM_NAME });
+            var sendDataRequest = new SendDataRequest
+            {
+                Room = ROOM_NAME,
+                Data = ByteString.CopyFromUtf8("test-data"),
+                Kind = DataPacket.Types.Kind.Reliable,
+            };
+            var response = await client.SendData(sendDataRequest);
+            Assert.NotNull(response);
         }
     }
 }

@@ -1,9 +1,6 @@
-using Docker.DotNet;
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Containers;
-using DotNet.Testcontainers.Networks;
-using LiveKit.Proto;
 
 namespace Livekit.Server.Sdk.Dotnet.Test;
 
@@ -57,6 +54,7 @@ public class ServiceClientFixture : IAsyncLifetime
         var lkContainerBuilder = new ContainerBuilder()
             .WithImage("livekit/livekit-cli:latest")
             .WithAutoRemove(true)
+            .DependsOn(livekitServerContainer)
             .WithCommand(commands);
         if (waitForContainerOS != null)
         {
@@ -71,7 +69,7 @@ public class ServiceClientFixture : IAsyncLifetime
     {
         await runLivekitCliCommand(
             ["room", "join", "--identity", participantIdentity, roomName],
-            Wait.ForUnixContainer().UntilMessageIsLogged("connected to room")
+            Wait.ForUnixContainer().UntilMessageIsLogged(".*connected to room.*" + roomName + ".*")
         );
     }
 
@@ -79,7 +77,8 @@ public class ServiceClientFixture : IAsyncLifetime
     {
         await runLivekitCliCommand(
             ["room", "join", "--identity", participantIdentity, "--publish-demo", roomName],
-            Wait.ForUnixContainer().UntilMessageIsLogged("published simulcast track")
+            Wait.ForUnixContainer().UntilMessageIsLogged(".*published simulcast track.*")
         );
+        Task.Delay(700).Wait();
     }
 }
