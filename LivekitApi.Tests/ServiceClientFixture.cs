@@ -14,6 +14,7 @@ public static class TestConstants
 
 public class ServiceClientFixture : IDisposable
 {
+    public const string TEST_HTTP_URL = "http://localhost:7880";
     public const string TEST_API_KEY = "devkey";
     public const string TEST_API_SECRET = "secretsecretsecretsecretsecretsecretsecret";
 

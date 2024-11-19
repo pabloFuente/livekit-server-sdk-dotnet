@@ -14,7 +14,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         }
 
         private RoomServiceClient client = new RoomServiceClient(
-            "http://localhost:7880",
+            ServiceClientFixture.TEST_HTTP_URL,
             ServiceClientFixture.TEST_API_KEY,
             ServiceClientFixture.TEST_API_SECRET
         );
