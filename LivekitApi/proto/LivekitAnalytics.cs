@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace LiveKit.Proto {
+namespace Livekit.Server.Sdk.Dotnet {
 
   /// <summary>Holder for reflection information generated from livekit_analytics.proto</summary>
   public static partial class LivekitAnalyticsReflection {
@@ -115,18 +115,18 @@ namespace LiveKit.Proto {
             "b20vbGl2ZWtpdC9wcm90b2NvbC9saXZla2l0qgINTGl2ZUtpdC5Qcm90b+oC",
             "DkxpdmVLaXQ6OlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::LiveKit.Proto.LivekitModelsReflection.Descriptor, global::LiveKit.Proto.LivekitEgressReflection.Descriptor, global::LiveKit.Proto.LivekitIngressReflection.Descriptor, global::LiveKit.Proto.LivekitSipReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LiveKit.Proto.StreamType), typeof(global::LiveKit.Proto.AnalyticsEventType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsVideoLayer), global::LiveKit.Proto.AnalyticsVideoLayer.Parser, new[]{ "Layer", "Packets", "Bytes", "Frames" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsStream), global::LiveKit.Proto.AnalyticsStream.Parser, new[]{ "Ssrc", "PrimaryPackets", "PrimaryBytes", "RetransmitPackets", "RetransmitBytes", "PaddingPackets", "PaddingBytes", "PacketsLost", "Frames", "Rtt", "Jitter", "Nacks", "Plis", "Firs", "VideoLayers", "StartTime", "EndTime", "PacketsOutOfOrder" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsStat), global::LiveKit.Proto.AnalyticsStat.Parser, new[]{ "Id", "AnalyticsKey", "Kind", "TimeStamp", "Node", "RoomId", "RoomName", "ParticipantId", "TrackId", "Score", "Streams", "Mime", "MinScore", "MedianScore" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsStats), global::LiveKit.Proto.AnalyticsStats.Parser, new[]{ "Stats" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsClientMeta), global::LiveKit.Proto.AnalyticsClientMeta.Parser, new[]{ "Region", "Node", "ClientAddr", "ClientConnectTime", "ConnectionType", "ReconnectReason", "GeoHash", "Country", "IspAsn" }, new[]{ "GeoHash", "Country", "IspAsn" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsEvent), global::LiveKit.Proto.AnalyticsEvent.Parser, new[]{ "Id", "Type", "Timestamp", "RoomId", "Room", "ParticipantId", "Participant", "TrackId", "Track", "AnalyticsKey", "ClientInfo", "ClientMeta", "EgressId", "IngressId", "MaxSubscribedVideoQuality", "Publisher", "Mime", "Egress", "Ingress", "Error", "RtpStats", "VideoLayer", "NodeId", "SipCallId", "SipCall", "SipTrunkId", "SipInboundTrunk", "SipOutboundTrunk", "SipDispatchRuleId", "SipDispatchRule" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsEvents), global::LiveKit.Proto.AnalyticsEvents.Parser, new[]{ "Events" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsRoomParticipant), global::LiveKit.Proto.AnalyticsRoomParticipant.Parser, new[]{ "Id", "Identity", "Name", "State", "JoinedAt" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsRoom), global::LiveKit.Proto.AnalyticsRoom.Parser, new[]{ "Id", "Name", "ProjectId", "CreatedAt", "Participants" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AnalyticsNodeRooms), global::LiveKit.Proto.AnalyticsNodeRooms.Parser, new[]{ "NodeId", "SequenceNumber", "Timestamp", "Rooms" }, null, null, null, null)
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.StreamType), typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsEventType), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsVideoLayer), global::Livekit.Server.Sdk.Dotnet.AnalyticsVideoLayer.Parser, new[]{ "Layer", "Packets", "Bytes", "Frames" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsStream), global::Livekit.Server.Sdk.Dotnet.AnalyticsStream.Parser, new[]{ "Ssrc", "PrimaryPackets", "PrimaryBytes", "RetransmitPackets", "RetransmitBytes", "PaddingPackets", "PaddingBytes", "PacketsLost", "Frames", "Rtt", "Jitter", "Nacks", "Plis", "Firs", "VideoLayers", "StartTime", "EndTime", "PacketsOutOfOrder" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsStat), global::Livekit.Server.Sdk.Dotnet.AnalyticsStat.Parser, new[]{ "Id", "AnalyticsKey", "Kind", "TimeStamp", "Node", "RoomId", "RoomName", "ParticipantId", "TrackId", "Score", "Streams", "Mime", "MinScore", "MedianScore" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsStats), global::Livekit.Server.Sdk.Dotnet.AnalyticsStats.Parser, new[]{ "Stats" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsClientMeta), global::Livekit.Server.Sdk.Dotnet.AnalyticsClientMeta.Parser, new[]{ "Region", "Node", "ClientAddr", "ClientConnectTime", "ConnectionType", "ReconnectReason", "GeoHash", "Country", "IspAsn" }, new[]{ "GeoHash", "Country", "IspAsn" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsEvent), global::Livekit.Server.Sdk.Dotnet.AnalyticsEvent.Parser, new[]{ "Id", "Type", "Timestamp", "RoomId", "Room", "ParticipantId", "Participant", "TrackId", "Track", "AnalyticsKey", "ClientInfo", "ClientMeta", "EgressId", "IngressId", "MaxSubscribedVideoQuality", "Publisher", "Mime", "Egress", "Ingress", "Error", "RtpStats", "VideoLayer", "NodeId", "SipCallId", "SipCall", "SipTrunkId", "SipInboundTrunk", "SipOutboundTrunk", "SipDispatchRuleId", "SipDispatchRule" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsEvents), global::Livekit.Server.Sdk.Dotnet.AnalyticsEvents.Parser, new[]{ "Events" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsRoomParticipant), global::Livekit.Server.Sdk.Dotnet.AnalyticsRoomParticipant.Parser, new[]{ "Id", "Identity", "Name", "State", "JoinedAt" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsRoom), global::Livekit.Server.Sdk.Dotnet.AnalyticsRoom.Parser, new[]{ "Id", "Name", "ProjectId", "CreatedAt", "Participants" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsNodeRooms), global::Livekit.Server.Sdk.Dotnet.AnalyticsNodeRooms.Parser, new[]{ "NodeId", "SequenceNumber", "Timestamp", "Rooms" }, null, null, null, null)
           }));
     }
     #endregion
@@ -197,7 +197,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAnalyticsReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAnalyticsReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -506,7 +506,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAnalyticsReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAnalyticsReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -723,12 +723,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "video_layers" field.</summary>
     public const int VideoLayersFieldNumber = 15;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.AnalyticsVideoLayer> _repeated_videoLayers_codec
-        = pb::FieldCodec.ForMessage(122, global::LiveKit.Proto.AnalyticsVideoLayer.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.AnalyticsVideoLayer> videoLayers_ = new pbc::RepeatedField<global::LiveKit.Proto.AnalyticsVideoLayer>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.AnalyticsVideoLayer> _repeated_videoLayers_codec
+        = pb::FieldCodec.ForMessage(122, global::Livekit.Server.Sdk.Dotnet.AnalyticsVideoLayer.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsVideoLayer> videoLayers_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsVideoLayer>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.AnalyticsVideoLayer> VideoLayers {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsVideoLayer> VideoLayers {
       get { return videoLayers_; }
     }
 
@@ -1340,7 +1340,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAnalyticsReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAnalyticsReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1412,10 +1412,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "kind" field.</summary>
     public const int KindFieldNumber = 2;
-    private global::LiveKit.Proto.StreamType kind_ = global::LiveKit.Proto.StreamType.Upstream;
+    private global::Livekit.Server.Sdk.Dotnet.StreamType kind_ = global::Livekit.Server.Sdk.Dotnet.StreamType.Upstream;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.StreamType Kind {
+    public global::Livekit.Server.Sdk.Dotnet.StreamType Kind {
       get { return kind_; }
       set {
         kind_ = value;
@@ -1511,12 +1511,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "streams" field.</summary>
     public const int StreamsFieldNumber = 10;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.AnalyticsStream> _repeated_streams_codec
-        = pb::FieldCodec.ForMessage(82, global::LiveKit.Proto.AnalyticsStream.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.AnalyticsStream> streams_ = new pbc::RepeatedField<global::LiveKit.Proto.AnalyticsStream>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.AnalyticsStream> _repeated_streams_codec
+        = pb::FieldCodec.ForMessage(82, global::Livekit.Server.Sdk.Dotnet.AnalyticsStream.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsStream> streams_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsStream>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.AnalyticsStream> Streams {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsStream> Streams {
       get { return streams_; }
     }
 
@@ -1594,7 +1594,7 @@ namespace LiveKit.Proto {
       int hash = 1;
       if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (AnalyticsKey.Length != 0) hash ^= AnalyticsKey.GetHashCode();
-      if (Kind != global::LiveKit.Proto.StreamType.Upstream) hash ^= Kind.GetHashCode();
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.StreamType.Upstream) hash ^= Kind.GetHashCode();
       if (timeStamp_ != null) hash ^= TimeStamp.GetHashCode();
       if (Node.Length != 0) hash ^= Node.GetHashCode();
       if (RoomId.Length != 0) hash ^= RoomId.GetHashCode();
@@ -1628,7 +1628,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(10);
         output.WriteString(AnalyticsKey);
       }
-      if (Kind != global::LiveKit.Proto.StreamType.Upstream) {
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.StreamType.Upstream) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Kind);
       }
@@ -1691,7 +1691,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(10);
         output.WriteString(AnalyticsKey);
       }
-      if (Kind != global::LiveKit.Proto.StreamType.Upstream) {
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.StreamType.Upstream) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Kind);
       }
@@ -1756,7 +1756,7 @@ namespace LiveKit.Proto {
       if (AnalyticsKey.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(AnalyticsKey);
       }
-      if (Kind != global::LiveKit.Proto.StreamType.Upstream) {
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.StreamType.Upstream) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Kind);
       }
       if (timeStamp_ != null) {
@@ -1808,7 +1808,7 @@ namespace LiveKit.Proto {
       if (other.AnalyticsKey.Length != 0) {
         AnalyticsKey = other.AnalyticsKey;
       }
-      if (other.Kind != global::LiveKit.Proto.StreamType.Upstream) {
+      if (other.Kind != global::Livekit.Server.Sdk.Dotnet.StreamType.Upstream) {
         Kind = other.Kind;
       }
       if (other.timeStamp_ != null) {
@@ -1869,7 +1869,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 16: {
-            Kind = (global::LiveKit.Proto.StreamType) input.ReadEnum();
+            Kind = (global::Livekit.Server.Sdk.Dotnet.StreamType) input.ReadEnum();
             break;
           }
           case 26: {
@@ -1947,7 +1947,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 16: {
-            Kind = (global::LiveKit.Proto.StreamType) input.ReadEnum();
+            Kind = (global::Livekit.Server.Sdk.Dotnet.StreamType) input.ReadEnum();
             break;
           }
           case 26: {
@@ -2023,7 +2023,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAnalyticsReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAnalyticsReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2055,12 +2055,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "stats" field.</summary>
     public const int StatsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.AnalyticsStat> _repeated_stats_codec
-        = pb::FieldCodec.ForMessage(10, global::LiveKit.Proto.AnalyticsStat.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.AnalyticsStat> stats_ = new pbc::RepeatedField<global::LiveKit.Proto.AnalyticsStat>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.AnalyticsStat> _repeated_stats_codec
+        = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.AnalyticsStat.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsStat> stats_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsStat>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.AnalyticsStat> Stats {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsStat> Stats {
       get { return stats_; }
     }
 
@@ -2211,7 +2211,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAnalyticsReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAnalyticsReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2315,10 +2315,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "reconnect_reason" field.</summary>
     public const int ReconnectReasonFieldNumber = 6;
-    private global::LiveKit.Proto.ReconnectReason reconnectReason_ = global::LiveKit.Proto.ReconnectReason.RrUnknown;
+    private global::Livekit.Server.Sdk.Dotnet.ReconnectReason reconnectReason_ = global::Livekit.Server.Sdk.Dotnet.ReconnectReason.RrUnknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ReconnectReason ReconnectReason {
+    public global::Livekit.Server.Sdk.Dotnet.ReconnectReason ReconnectReason {
       get { return reconnectReason_; }
       set {
         reconnectReason_ = value;
@@ -2440,7 +2440,7 @@ namespace LiveKit.Proto {
       if (ClientAddr.Length != 0) hash ^= ClientAddr.GetHashCode();
       if (ClientConnectTime != 0) hash ^= ClientConnectTime.GetHashCode();
       if (ConnectionType.Length != 0) hash ^= ConnectionType.GetHashCode();
-      if (ReconnectReason != global::LiveKit.Proto.ReconnectReason.RrUnknown) hash ^= ReconnectReason.GetHashCode();
+      if (ReconnectReason != global::Livekit.Server.Sdk.Dotnet.ReconnectReason.RrUnknown) hash ^= ReconnectReason.GetHashCode();
       if (HasGeoHash) hash ^= GeoHash.GetHashCode();
       if (HasCountry) hash ^= Country.GetHashCode();
       if (HasIspAsn) hash ^= IspAsn.GetHashCode();
@@ -2482,7 +2482,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(42);
         output.WriteString(ConnectionType);
       }
-      if (ReconnectReason != global::LiveKit.Proto.ReconnectReason.RrUnknown) {
+      if (ReconnectReason != global::Livekit.Server.Sdk.Dotnet.ReconnectReason.RrUnknown) {
         output.WriteRawTag(48);
         output.WriteEnum((int) ReconnectReason);
       }
@@ -2528,7 +2528,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(42);
         output.WriteString(ConnectionType);
       }
-      if (ReconnectReason != global::LiveKit.Proto.ReconnectReason.RrUnknown) {
+      if (ReconnectReason != global::Livekit.Server.Sdk.Dotnet.ReconnectReason.RrUnknown) {
         output.WriteRawTag(48);
         output.WriteEnum((int) ReconnectReason);
       }
@@ -2569,7 +2569,7 @@ namespace LiveKit.Proto {
       if (ConnectionType.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ConnectionType);
       }
-      if (ReconnectReason != global::LiveKit.Proto.ReconnectReason.RrUnknown) {
+      if (ReconnectReason != global::Livekit.Server.Sdk.Dotnet.ReconnectReason.RrUnknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ReconnectReason);
       }
       if (HasGeoHash) {
@@ -2608,7 +2608,7 @@ namespace LiveKit.Proto {
       if (other.ConnectionType.Length != 0) {
         ConnectionType = other.ConnectionType;
       }
-      if (other.ReconnectReason != global::LiveKit.Proto.ReconnectReason.RrUnknown) {
+      if (other.ReconnectReason != global::Livekit.Server.Sdk.Dotnet.ReconnectReason.RrUnknown) {
         ReconnectReason = other.ReconnectReason;
       }
       if (other.HasGeoHash) {
@@ -2660,7 +2660,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 48: {
-            ReconnectReason = (global::LiveKit.Proto.ReconnectReason) input.ReadEnum();
+            ReconnectReason = (global::Livekit.Server.Sdk.Dotnet.ReconnectReason) input.ReadEnum();
             break;
           }
           case 58: {
@@ -2715,7 +2715,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 48: {
-            ReconnectReason = (global::LiveKit.Proto.ReconnectReason) input.ReadEnum();
+            ReconnectReason = (global::Livekit.Server.Sdk.Dotnet.ReconnectReason) input.ReadEnum();
             break;
           }
           case 58: {
@@ -2752,7 +2752,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAnalyticsReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAnalyticsReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2828,10 +2828,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 1;
-    private global::LiveKit.Proto.AnalyticsEventType type_ = global::LiveKit.Proto.AnalyticsEventType.RoomCreated;
+    private global::Livekit.Server.Sdk.Dotnet.AnalyticsEventType type_ = global::Livekit.Server.Sdk.Dotnet.AnalyticsEventType.RoomCreated;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.AnalyticsEventType Type {
+    public global::Livekit.Server.Sdk.Dotnet.AnalyticsEventType Type {
       get { return type_; }
       set {
         type_ = value;
@@ -2864,10 +2864,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "room" field.</summary>
     public const int RoomFieldNumber = 4;
-    private global::LiveKit.Proto.Room room_;
+    private global::Livekit.Server.Sdk.Dotnet.Room room_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.Room Room {
+    public global::Livekit.Server.Sdk.Dotnet.Room Room {
       get { return room_; }
       set {
         room_ = value;
@@ -2888,10 +2888,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "participant" field.</summary>
     public const int ParticipantFieldNumber = 6;
-    private global::LiveKit.Proto.ParticipantInfo participant_;
+    private global::Livekit.Server.Sdk.Dotnet.ParticipantInfo participant_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ParticipantInfo Participant {
+    public global::Livekit.Server.Sdk.Dotnet.ParticipantInfo Participant {
       get { return participant_; }
       set {
         participant_ = value;
@@ -2912,10 +2912,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "track" field.</summary>
     public const int TrackFieldNumber = 8;
-    private global::LiveKit.Proto.TrackInfo track_;
+    private global::Livekit.Server.Sdk.Dotnet.TrackInfo track_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.TrackInfo Track {
+    public global::Livekit.Server.Sdk.Dotnet.TrackInfo Track {
       get { return track_; }
       set {
         track_ = value;
@@ -2936,10 +2936,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "client_info" field.</summary>
     public const int ClientInfoFieldNumber = 11;
-    private global::LiveKit.Proto.ClientInfo clientInfo_;
+    private global::Livekit.Server.Sdk.Dotnet.ClientInfo clientInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ClientInfo ClientInfo {
+    public global::Livekit.Server.Sdk.Dotnet.ClientInfo ClientInfo {
       get { return clientInfo_; }
       set {
         clientInfo_ = value;
@@ -2948,10 +2948,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "client_meta" field.</summary>
     public const int ClientMetaFieldNumber = 12;
-    private global::LiveKit.Proto.AnalyticsClientMeta clientMeta_;
+    private global::Livekit.Server.Sdk.Dotnet.AnalyticsClientMeta clientMeta_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.AnalyticsClientMeta ClientMeta {
+    public global::Livekit.Server.Sdk.Dotnet.AnalyticsClientMeta ClientMeta {
       get { return clientMeta_; }
       set {
         clientMeta_ = value;
@@ -2984,10 +2984,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "max_subscribed_video_quality" field.</summary>
     public const int MaxSubscribedVideoQualityFieldNumber = 14;
-    private global::LiveKit.Proto.VideoQuality maxSubscribedVideoQuality_ = global::LiveKit.Proto.VideoQuality.Low;
+    private global::Livekit.Server.Sdk.Dotnet.VideoQuality maxSubscribedVideoQuality_ = global::Livekit.Server.Sdk.Dotnet.VideoQuality.Low;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.VideoQuality MaxSubscribedVideoQuality {
+    public global::Livekit.Server.Sdk.Dotnet.VideoQuality MaxSubscribedVideoQuality {
       get { return maxSubscribedVideoQuality_; }
       set {
         maxSubscribedVideoQuality_ = value;
@@ -2996,10 +2996,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "publisher" field.</summary>
     public const int PublisherFieldNumber = 15;
-    private global::LiveKit.Proto.ParticipantInfo publisher_;
+    private global::Livekit.Server.Sdk.Dotnet.ParticipantInfo publisher_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ParticipantInfo Publisher {
+    public global::Livekit.Server.Sdk.Dotnet.ParticipantInfo Publisher {
       get { return publisher_; }
       set {
         publisher_ = value;
@@ -3020,10 +3020,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "egress" field.</summary>
     public const int EgressFieldNumber = 17;
-    private global::LiveKit.Proto.EgressInfo egress_;
+    private global::Livekit.Server.Sdk.Dotnet.EgressInfo egress_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.EgressInfo Egress {
+    public global::Livekit.Server.Sdk.Dotnet.EgressInfo Egress {
       get { return egress_; }
       set {
         egress_ = value;
@@ -3032,10 +3032,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "ingress" field.</summary>
     public const int IngressFieldNumber = 18;
-    private global::LiveKit.Proto.IngressInfo ingress_;
+    private global::Livekit.Server.Sdk.Dotnet.IngressInfo ingress_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressInfo Ingress {
+    public global::Livekit.Server.Sdk.Dotnet.IngressInfo Ingress {
       get { return ingress_; }
       set {
         ingress_ = value;
@@ -3056,10 +3056,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "rtp_stats" field.</summary>
     public const int RtpStatsFieldNumber = 21;
-    private global::LiveKit.Proto.RTPStats rtpStats_;
+    private global::Livekit.Server.Sdk.Dotnet.RTPStats rtpStats_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.RTPStats RtpStats {
+    public global::Livekit.Server.Sdk.Dotnet.RTPStats RtpStats {
       get { return rtpStats_; }
       set {
         rtpStats_ = value;
@@ -3104,10 +3104,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "sip_call" field.</summary>
     public const int SipCallFieldNumber = 27;
-    private global::LiveKit.Proto.SIPCallInfo sipCall_;
+    private global::Livekit.Server.Sdk.Dotnet.SIPCallInfo sipCall_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPCallInfo SipCall {
+    public global::Livekit.Server.Sdk.Dotnet.SIPCallInfo SipCall {
       get { return sipCall_; }
       set {
         sipCall_ = value;
@@ -3128,10 +3128,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "sip_inbound_trunk" field.</summary>
     public const int SipInboundTrunkFieldNumber = 29;
-    private global::LiveKit.Proto.SIPInboundTrunkInfo sipInboundTrunk_;
+    private global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo sipInboundTrunk_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPInboundTrunkInfo SipInboundTrunk {
+    public global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo SipInboundTrunk {
       get { return sipInboundTrunk_; }
       set {
         sipInboundTrunk_ = value;
@@ -3140,10 +3140,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "sip_outbound_trunk" field.</summary>
     public const int SipOutboundTrunkFieldNumber = 30;
-    private global::LiveKit.Proto.SIPOutboundTrunkInfo sipOutboundTrunk_;
+    private global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo sipOutboundTrunk_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPOutboundTrunkInfo SipOutboundTrunk {
+    public global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo SipOutboundTrunk {
       get { return sipOutboundTrunk_; }
       set {
         sipOutboundTrunk_ = value;
@@ -3164,10 +3164,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "sip_dispatch_rule" field.</summary>
     public const int SipDispatchRuleFieldNumber = 32;
-    private global::LiveKit.Proto.SIPDispatchRuleInfo sipDispatchRule_;
+    private global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo sipDispatchRule_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPDispatchRuleInfo SipDispatchRule {
+    public global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo SipDispatchRule {
       get { return sipDispatchRule_; }
       set {
         sipDispatchRule_ = value;
@@ -3227,7 +3227,7 @@ namespace LiveKit.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (Id.Length != 0) hash ^= Id.GetHashCode();
-      if (Type != global::LiveKit.Proto.AnalyticsEventType.RoomCreated) hash ^= Type.GetHashCode();
+      if (Type != global::Livekit.Server.Sdk.Dotnet.AnalyticsEventType.RoomCreated) hash ^= Type.GetHashCode();
       if (timestamp_ != null) hash ^= Timestamp.GetHashCode();
       if (RoomId.Length != 0) hash ^= RoomId.GetHashCode();
       if (room_ != null) hash ^= Room.GetHashCode();
@@ -3240,7 +3240,7 @@ namespace LiveKit.Proto {
       if (clientMeta_ != null) hash ^= ClientMeta.GetHashCode();
       if (EgressId.Length != 0) hash ^= EgressId.GetHashCode();
       if (IngressId.Length != 0) hash ^= IngressId.GetHashCode();
-      if (MaxSubscribedVideoQuality != global::LiveKit.Proto.VideoQuality.Low) hash ^= MaxSubscribedVideoQuality.GetHashCode();
+      if (MaxSubscribedVideoQuality != global::Livekit.Server.Sdk.Dotnet.VideoQuality.Low) hash ^= MaxSubscribedVideoQuality.GetHashCode();
       if (publisher_ != null) hash ^= Publisher.GetHashCode();
       if (Mime.Length != 0) hash ^= Mime.GetHashCode();
       if (egress_ != null) hash ^= Egress.GetHashCode();
@@ -3274,7 +3274,7 @@ namespace LiveKit.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Type != global::LiveKit.Proto.AnalyticsEventType.RoomCreated) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.AnalyticsEventType.RoomCreated) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
@@ -3322,7 +3322,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(106);
         output.WriteString(EgressId);
       }
-      if (MaxSubscribedVideoQuality != global::LiveKit.Proto.VideoQuality.Low) {
+      if (MaxSubscribedVideoQuality != global::Livekit.Server.Sdk.Dotnet.VideoQuality.Low) {
         output.WriteRawTag(112);
         output.WriteEnum((int) MaxSubscribedVideoQuality);
       }
@@ -3404,7 +3404,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Type != global::LiveKit.Proto.AnalyticsEventType.RoomCreated) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.AnalyticsEventType.RoomCreated) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
@@ -3452,7 +3452,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(106);
         output.WriteString(EgressId);
       }
-      if (MaxSubscribedVideoQuality != global::LiveKit.Proto.VideoQuality.Low) {
+      if (MaxSubscribedVideoQuality != global::Livekit.Server.Sdk.Dotnet.VideoQuality.Low) {
         output.WriteRawTag(112);
         output.WriteEnum((int) MaxSubscribedVideoQuality);
       }
@@ -3537,7 +3537,7 @@ namespace LiveKit.Proto {
       if (Id.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(Id);
       }
-      if (Type != global::LiveKit.Proto.AnalyticsEventType.RoomCreated) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.AnalyticsEventType.RoomCreated) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
       if (timestamp_ != null) {
@@ -3576,7 +3576,7 @@ namespace LiveKit.Proto {
       if (IngressId.Length != 0) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(IngressId);
       }
-      if (MaxSubscribedVideoQuality != global::LiveKit.Proto.VideoQuality.Low) {
+      if (MaxSubscribedVideoQuality != global::Livekit.Server.Sdk.Dotnet.VideoQuality.Low) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) MaxSubscribedVideoQuality);
       }
       if (publisher_ != null) {
@@ -3639,7 +3639,7 @@ namespace LiveKit.Proto {
       if (other.Id.Length != 0) {
         Id = other.Id;
       }
-      if (other.Type != global::LiveKit.Proto.AnalyticsEventType.RoomCreated) {
+      if (other.Type != global::Livekit.Server.Sdk.Dotnet.AnalyticsEventType.RoomCreated) {
         Type = other.Type;
       }
       if (other.timestamp_ != null) {
@@ -3653,7 +3653,7 @@ namespace LiveKit.Proto {
       }
       if (other.room_ != null) {
         if (room_ == null) {
-          Room = new global::LiveKit.Proto.Room();
+          Room = new global::Livekit.Server.Sdk.Dotnet.Room();
         }
         Room.MergeFrom(other.Room);
       }
@@ -3662,7 +3662,7 @@ namespace LiveKit.Proto {
       }
       if (other.participant_ != null) {
         if (participant_ == null) {
-          Participant = new global::LiveKit.Proto.ParticipantInfo();
+          Participant = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
         }
         Participant.MergeFrom(other.Participant);
       }
@@ -3671,7 +3671,7 @@ namespace LiveKit.Proto {
       }
       if (other.track_ != null) {
         if (track_ == null) {
-          Track = new global::LiveKit.Proto.TrackInfo();
+          Track = new global::Livekit.Server.Sdk.Dotnet.TrackInfo();
         }
         Track.MergeFrom(other.Track);
       }
@@ -3680,13 +3680,13 @@ namespace LiveKit.Proto {
       }
       if (other.clientInfo_ != null) {
         if (clientInfo_ == null) {
-          ClientInfo = new global::LiveKit.Proto.ClientInfo();
+          ClientInfo = new global::Livekit.Server.Sdk.Dotnet.ClientInfo();
         }
         ClientInfo.MergeFrom(other.ClientInfo);
       }
       if (other.clientMeta_ != null) {
         if (clientMeta_ == null) {
-          ClientMeta = new global::LiveKit.Proto.AnalyticsClientMeta();
+          ClientMeta = new global::Livekit.Server.Sdk.Dotnet.AnalyticsClientMeta();
         }
         ClientMeta.MergeFrom(other.ClientMeta);
       }
@@ -3696,12 +3696,12 @@ namespace LiveKit.Proto {
       if (other.IngressId.Length != 0) {
         IngressId = other.IngressId;
       }
-      if (other.MaxSubscribedVideoQuality != global::LiveKit.Proto.VideoQuality.Low) {
+      if (other.MaxSubscribedVideoQuality != global::Livekit.Server.Sdk.Dotnet.VideoQuality.Low) {
         MaxSubscribedVideoQuality = other.MaxSubscribedVideoQuality;
       }
       if (other.publisher_ != null) {
         if (publisher_ == null) {
-          Publisher = new global::LiveKit.Proto.ParticipantInfo();
+          Publisher = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
         }
         Publisher.MergeFrom(other.Publisher);
       }
@@ -3710,13 +3710,13 @@ namespace LiveKit.Proto {
       }
       if (other.egress_ != null) {
         if (egress_ == null) {
-          Egress = new global::LiveKit.Proto.EgressInfo();
+          Egress = new global::Livekit.Server.Sdk.Dotnet.EgressInfo();
         }
         Egress.MergeFrom(other.Egress);
       }
       if (other.ingress_ != null) {
         if (ingress_ == null) {
-          Ingress = new global::LiveKit.Proto.IngressInfo();
+          Ingress = new global::Livekit.Server.Sdk.Dotnet.IngressInfo();
         }
         Ingress.MergeFrom(other.Ingress);
       }
@@ -3725,7 +3725,7 @@ namespace LiveKit.Proto {
       }
       if (other.rtpStats_ != null) {
         if (rtpStats_ == null) {
-          RtpStats = new global::LiveKit.Proto.RTPStats();
+          RtpStats = new global::Livekit.Server.Sdk.Dotnet.RTPStats();
         }
         RtpStats.MergeFrom(other.RtpStats);
       }
@@ -3740,7 +3740,7 @@ namespace LiveKit.Proto {
       }
       if (other.sipCall_ != null) {
         if (sipCall_ == null) {
-          SipCall = new global::LiveKit.Proto.SIPCallInfo();
+          SipCall = new global::Livekit.Server.Sdk.Dotnet.SIPCallInfo();
         }
         SipCall.MergeFrom(other.SipCall);
       }
@@ -3749,13 +3749,13 @@ namespace LiveKit.Proto {
       }
       if (other.sipInboundTrunk_ != null) {
         if (sipInboundTrunk_ == null) {
-          SipInboundTrunk = new global::LiveKit.Proto.SIPInboundTrunkInfo();
+          SipInboundTrunk = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo();
         }
         SipInboundTrunk.MergeFrom(other.SipInboundTrunk);
       }
       if (other.sipOutboundTrunk_ != null) {
         if (sipOutboundTrunk_ == null) {
-          SipOutboundTrunk = new global::LiveKit.Proto.SIPOutboundTrunkInfo();
+          SipOutboundTrunk = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo();
         }
         SipOutboundTrunk.MergeFrom(other.SipOutboundTrunk);
       }
@@ -3764,7 +3764,7 @@ namespace LiveKit.Proto {
       }
       if (other.sipDispatchRule_ != null) {
         if (sipDispatchRule_ == null) {
-          SipDispatchRule = new global::LiveKit.Proto.SIPDispatchRuleInfo();
+          SipDispatchRule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo();
         }
         SipDispatchRule.MergeFrom(other.SipDispatchRule);
       }
@@ -3788,7 +3788,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Type = (global::LiveKit.Proto.AnalyticsEventType) input.ReadEnum();
+            Type = (global::Livekit.Server.Sdk.Dotnet.AnalyticsEventType) input.ReadEnum();
             break;
           }
           case 18: {
@@ -3804,7 +3804,7 @@ namespace LiveKit.Proto {
           }
           case 34: {
             if (room_ == null) {
-              Room = new global::LiveKit.Proto.Room();
+              Room = new global::Livekit.Server.Sdk.Dotnet.Room();
             }
             input.ReadMessage(Room);
             break;
@@ -3815,7 +3815,7 @@ namespace LiveKit.Proto {
           }
           case 50: {
             if (participant_ == null) {
-              Participant = new global::LiveKit.Proto.ParticipantInfo();
+              Participant = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
             }
             input.ReadMessage(Participant);
             break;
@@ -3826,7 +3826,7 @@ namespace LiveKit.Proto {
           }
           case 66: {
             if (track_ == null) {
-              Track = new global::LiveKit.Proto.TrackInfo();
+              Track = new global::Livekit.Server.Sdk.Dotnet.TrackInfo();
             }
             input.ReadMessage(Track);
             break;
@@ -3837,14 +3837,14 @@ namespace LiveKit.Proto {
           }
           case 90: {
             if (clientInfo_ == null) {
-              ClientInfo = new global::LiveKit.Proto.ClientInfo();
+              ClientInfo = new global::Livekit.Server.Sdk.Dotnet.ClientInfo();
             }
             input.ReadMessage(ClientInfo);
             break;
           }
           case 98: {
             if (clientMeta_ == null) {
-              ClientMeta = new global::LiveKit.Proto.AnalyticsClientMeta();
+              ClientMeta = new global::Livekit.Server.Sdk.Dotnet.AnalyticsClientMeta();
             }
             input.ReadMessage(ClientMeta);
             break;
@@ -3854,12 +3854,12 @@ namespace LiveKit.Proto {
             break;
           }
           case 112: {
-            MaxSubscribedVideoQuality = (global::LiveKit.Proto.VideoQuality) input.ReadEnum();
+            MaxSubscribedVideoQuality = (global::Livekit.Server.Sdk.Dotnet.VideoQuality) input.ReadEnum();
             break;
           }
           case 122: {
             if (publisher_ == null) {
-              Publisher = new global::LiveKit.Proto.ParticipantInfo();
+              Publisher = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
             }
             input.ReadMessage(Publisher);
             break;
@@ -3870,14 +3870,14 @@ namespace LiveKit.Proto {
           }
           case 138: {
             if (egress_ == null) {
-              Egress = new global::LiveKit.Proto.EgressInfo();
+              Egress = new global::Livekit.Server.Sdk.Dotnet.EgressInfo();
             }
             input.ReadMessage(Egress);
             break;
           }
           case 146: {
             if (ingress_ == null) {
-              Ingress = new global::LiveKit.Proto.IngressInfo();
+              Ingress = new global::Livekit.Server.Sdk.Dotnet.IngressInfo();
             }
             input.ReadMessage(Ingress);
             break;
@@ -3892,7 +3892,7 @@ namespace LiveKit.Proto {
           }
           case 170: {
             if (rtpStats_ == null) {
-              RtpStats = new global::LiveKit.Proto.RTPStats();
+              RtpStats = new global::Livekit.Server.Sdk.Dotnet.RTPStats();
             }
             input.ReadMessage(RtpStats);
             break;
@@ -3915,7 +3915,7 @@ namespace LiveKit.Proto {
           }
           case 218: {
             if (sipCall_ == null) {
-              SipCall = new global::LiveKit.Proto.SIPCallInfo();
+              SipCall = new global::Livekit.Server.Sdk.Dotnet.SIPCallInfo();
             }
             input.ReadMessage(SipCall);
             break;
@@ -3926,14 +3926,14 @@ namespace LiveKit.Proto {
           }
           case 234: {
             if (sipInboundTrunk_ == null) {
-              SipInboundTrunk = new global::LiveKit.Proto.SIPInboundTrunkInfo();
+              SipInboundTrunk = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo();
             }
             input.ReadMessage(SipInboundTrunk);
             break;
           }
           case 242: {
             if (sipOutboundTrunk_ == null) {
-              SipOutboundTrunk = new global::LiveKit.Proto.SIPOutboundTrunkInfo();
+              SipOutboundTrunk = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo();
             }
             input.ReadMessage(SipOutboundTrunk);
             break;
@@ -3944,7 +3944,7 @@ namespace LiveKit.Proto {
           }
           case 258: {
             if (sipDispatchRule_ == null) {
-              SipDispatchRule = new global::LiveKit.Proto.SIPDispatchRuleInfo();
+              SipDispatchRule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo();
             }
             input.ReadMessage(SipDispatchRule);
             break;
@@ -3969,7 +3969,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Type = (global::LiveKit.Proto.AnalyticsEventType) input.ReadEnum();
+            Type = (global::Livekit.Server.Sdk.Dotnet.AnalyticsEventType) input.ReadEnum();
             break;
           }
           case 18: {
@@ -3985,7 +3985,7 @@ namespace LiveKit.Proto {
           }
           case 34: {
             if (room_ == null) {
-              Room = new global::LiveKit.Proto.Room();
+              Room = new global::Livekit.Server.Sdk.Dotnet.Room();
             }
             input.ReadMessage(Room);
             break;
@@ -3996,7 +3996,7 @@ namespace LiveKit.Proto {
           }
           case 50: {
             if (participant_ == null) {
-              Participant = new global::LiveKit.Proto.ParticipantInfo();
+              Participant = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
             }
             input.ReadMessage(Participant);
             break;
@@ -4007,7 +4007,7 @@ namespace LiveKit.Proto {
           }
           case 66: {
             if (track_ == null) {
-              Track = new global::LiveKit.Proto.TrackInfo();
+              Track = new global::Livekit.Server.Sdk.Dotnet.TrackInfo();
             }
             input.ReadMessage(Track);
             break;
@@ -4018,14 +4018,14 @@ namespace LiveKit.Proto {
           }
           case 90: {
             if (clientInfo_ == null) {
-              ClientInfo = new global::LiveKit.Proto.ClientInfo();
+              ClientInfo = new global::Livekit.Server.Sdk.Dotnet.ClientInfo();
             }
             input.ReadMessage(ClientInfo);
             break;
           }
           case 98: {
             if (clientMeta_ == null) {
-              ClientMeta = new global::LiveKit.Proto.AnalyticsClientMeta();
+              ClientMeta = new global::Livekit.Server.Sdk.Dotnet.AnalyticsClientMeta();
             }
             input.ReadMessage(ClientMeta);
             break;
@@ -4035,12 +4035,12 @@ namespace LiveKit.Proto {
             break;
           }
           case 112: {
-            MaxSubscribedVideoQuality = (global::LiveKit.Proto.VideoQuality) input.ReadEnum();
+            MaxSubscribedVideoQuality = (global::Livekit.Server.Sdk.Dotnet.VideoQuality) input.ReadEnum();
             break;
           }
           case 122: {
             if (publisher_ == null) {
-              Publisher = new global::LiveKit.Proto.ParticipantInfo();
+              Publisher = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
             }
             input.ReadMessage(Publisher);
             break;
@@ -4051,14 +4051,14 @@ namespace LiveKit.Proto {
           }
           case 138: {
             if (egress_ == null) {
-              Egress = new global::LiveKit.Proto.EgressInfo();
+              Egress = new global::Livekit.Server.Sdk.Dotnet.EgressInfo();
             }
             input.ReadMessage(Egress);
             break;
           }
           case 146: {
             if (ingress_ == null) {
-              Ingress = new global::LiveKit.Proto.IngressInfo();
+              Ingress = new global::Livekit.Server.Sdk.Dotnet.IngressInfo();
             }
             input.ReadMessage(Ingress);
             break;
@@ -4073,7 +4073,7 @@ namespace LiveKit.Proto {
           }
           case 170: {
             if (rtpStats_ == null) {
-              RtpStats = new global::LiveKit.Proto.RTPStats();
+              RtpStats = new global::Livekit.Server.Sdk.Dotnet.RTPStats();
             }
             input.ReadMessage(RtpStats);
             break;
@@ -4096,7 +4096,7 @@ namespace LiveKit.Proto {
           }
           case 218: {
             if (sipCall_ == null) {
-              SipCall = new global::LiveKit.Proto.SIPCallInfo();
+              SipCall = new global::Livekit.Server.Sdk.Dotnet.SIPCallInfo();
             }
             input.ReadMessage(SipCall);
             break;
@@ -4107,14 +4107,14 @@ namespace LiveKit.Proto {
           }
           case 234: {
             if (sipInboundTrunk_ == null) {
-              SipInboundTrunk = new global::LiveKit.Proto.SIPInboundTrunkInfo();
+              SipInboundTrunk = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo();
             }
             input.ReadMessage(SipInboundTrunk);
             break;
           }
           case 242: {
             if (sipOutboundTrunk_ == null) {
-              SipOutboundTrunk = new global::LiveKit.Proto.SIPOutboundTrunkInfo();
+              SipOutboundTrunk = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo();
             }
             input.ReadMessage(SipOutboundTrunk);
             break;
@@ -4125,7 +4125,7 @@ namespace LiveKit.Proto {
           }
           case 258: {
             if (sipDispatchRule_ == null) {
-              SipDispatchRule = new global::LiveKit.Proto.SIPDispatchRuleInfo();
+              SipDispatchRule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo();
             }
             input.ReadMessage(SipDispatchRule);
             break;
@@ -4152,7 +4152,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAnalyticsReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAnalyticsReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4184,12 +4184,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "events" field.</summary>
     public const int EventsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.AnalyticsEvent> _repeated_events_codec
-        = pb::FieldCodec.ForMessage(10, global::LiveKit.Proto.AnalyticsEvent.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.AnalyticsEvent> events_ = new pbc::RepeatedField<global::LiveKit.Proto.AnalyticsEvent>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.AnalyticsEvent> _repeated_events_codec
+        = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.AnalyticsEvent.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsEvent> events_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsEvent>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.AnalyticsEvent> Events {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsEvent> Events {
       get { return events_; }
     }
 
@@ -4339,7 +4339,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAnalyticsReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAnalyticsReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4411,10 +4411,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "state" field.</summary>
     public const int StateFieldNumber = 4;
-    private global::LiveKit.Proto.ParticipantInfo.Types.State state_ = global::LiveKit.Proto.ParticipantInfo.Types.State.Joining;
+    private global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State state_ = global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State.Joining;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ParticipantInfo.Types.State State {
+    public global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State State {
       get { return state_; }
       set {
         state_ = value;
@@ -4463,7 +4463,7 @@ namespace LiveKit.Proto {
       if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (Identity.Length != 0) hash ^= Identity.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (State != global::LiveKit.Proto.ParticipantInfo.Types.State.Joining) hash ^= State.GetHashCode();
+      if (State != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State.Joining) hash ^= State.GetHashCode();
       if (joinedAt_ != null) hash ^= JoinedAt.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -4495,7 +4495,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(26);
         output.WriteString(Name);
       }
-      if (State != global::LiveKit.Proto.ParticipantInfo.Types.State.Joining) {
+      if (State != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State.Joining) {
         output.WriteRawTag(32);
         output.WriteEnum((int) State);
       }
@@ -4525,7 +4525,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(26);
         output.WriteString(Name);
       }
-      if (State != global::LiveKit.Proto.ParticipantInfo.Types.State.Joining) {
+      if (State != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State.Joining) {
         output.WriteRawTag(32);
         output.WriteEnum((int) State);
       }
@@ -4552,7 +4552,7 @@ namespace LiveKit.Proto {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (State != global::LiveKit.Proto.ParticipantInfo.Types.State.Joining) {
+      if (State != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State.Joining) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) State);
       }
       if (joinedAt_ != null) {
@@ -4579,7 +4579,7 @@ namespace LiveKit.Proto {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.State != global::LiveKit.Proto.ParticipantInfo.Types.State.Joining) {
+      if (other.State != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State.Joining) {
         State = other.State;
       }
       if (other.joinedAt_ != null) {
@@ -4620,7 +4620,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 32: {
-            State = (global::LiveKit.Proto.ParticipantInfo.Types.State) input.ReadEnum();
+            State = (global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State) input.ReadEnum();
             break;
           }
           case 42: {
@@ -4662,7 +4662,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 32: {
-            State = (global::LiveKit.Proto.ParticipantInfo.Types.State) input.ReadEnum();
+            State = (global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State) input.ReadEnum();
             break;
           }
           case 42: {
@@ -4694,7 +4694,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAnalyticsReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAnalyticsReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4778,12 +4778,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "participants" field.</summary>
     public const int ParticipantsFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.AnalyticsRoomParticipant> _repeated_participants_codec
-        = pb::FieldCodec.ForMessage(34, global::LiveKit.Proto.AnalyticsRoomParticipant.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.AnalyticsRoomParticipant> participants_ = new pbc::RepeatedField<global::LiveKit.Proto.AnalyticsRoomParticipant>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.AnalyticsRoomParticipant> _repeated_participants_codec
+        = pb::FieldCodec.ForMessage(34, global::Livekit.Server.Sdk.Dotnet.AnalyticsRoomParticipant.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsRoomParticipant> participants_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsRoomParticipant>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.AnalyticsRoomParticipant> Participants {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsRoomParticipant> Participants {
       get { return participants_; }
     }
 
@@ -5038,7 +5038,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAnalyticsReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAnalyticsReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5109,12 +5109,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "rooms" field.</summary>
     public const int RoomsFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.AnalyticsRoom> _repeated_rooms_codec
-        = pb::FieldCodec.ForMessage(34, global::LiveKit.Proto.AnalyticsRoom.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.AnalyticsRoom> rooms_ = new pbc::RepeatedField<global::LiveKit.Proto.AnalyticsRoom>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.AnalyticsRoom> _repeated_rooms_codec
+        = pb::FieldCodec.ForMessage(34, global::Livekit.Server.Sdk.Dotnet.AnalyticsRoom.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsRoom> rooms_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsRoom>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.AnalyticsRoom> Rooms {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AnalyticsRoom> Rooms {
       get { return rooms_; }
     }
 

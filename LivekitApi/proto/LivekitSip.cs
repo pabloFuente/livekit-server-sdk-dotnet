@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace LiveKit.Proto {
+namespace Livekit.Server.Sdk.Dotnet {
 
   /// <summary>Holder for reflection information generated from livekit_sip.proto</summary>
   public static partial class LivekitSipReflection {
@@ -174,39 +174,39 @@ namespace LiveKit.Proto {
             "aXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdKoCDUxpdmVLaXQu",
             "UHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::LiveKit.Proto.LivekitModelsReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LiveKit.Proto.SIPTransport), typeof(global::LiveKit.Proto.SIPCallStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.CreateSIPTrunkRequest), global::LiveKit.Proto.CreateSIPTrunkRequest.Parser, new[]{ "InboundAddresses", "OutboundAddress", "OutboundNumber", "InboundNumbersRegex", "InboundNumbers", "InboundUsername", "InboundPassword", "OutboundUsername", "OutboundPassword", "Name", "Metadata" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SIPTrunkInfo), global::LiveKit.Proto.SIPTrunkInfo.Parser, new[]{ "SipTrunkId", "Kind", "InboundAddresses", "OutboundAddress", "OutboundNumber", "Transport", "InboundNumbersRegex", "InboundNumbers", "InboundUsername", "InboundPassword", "OutboundUsername", "OutboundPassword", "Name", "Metadata" }, null, new[]{ typeof(global::LiveKit.Proto.SIPTrunkInfo.Types.TrunkKind) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.CreateSIPInboundTrunkRequest), global::LiveKit.Proto.CreateSIPInboundTrunkRequest.Parser, new[]{ "Trunk" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SIPInboundTrunkInfo), global::LiveKit.Proto.SIPInboundTrunkInfo.Parser, new[]{ "SipTrunkId", "Name", "Metadata", "Numbers", "AllowedAddresses", "AllowedNumbers", "AuthUsername", "AuthPassword", "Headers", "HeadersToAttributes", "RingingTimeout", "MaxCallDuration", "KrispEnabled" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.CreateSIPOutboundTrunkRequest), global::LiveKit.Proto.CreateSIPOutboundTrunkRequest.Parser, new[]{ "Trunk" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SIPOutboundTrunkInfo), global::LiveKit.Proto.SIPOutboundTrunkInfo.Parser, new[]{ "SipTrunkId", "Name", "Metadata", "Address", "Transport", "Numbers", "AuthUsername", "AuthPassword", "Headers", "HeadersToAttributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.GetSIPInboundTrunkRequest), global::LiveKit.Proto.GetSIPInboundTrunkRequest.Parser, new[]{ "SipTrunkId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.GetSIPInboundTrunkResponse), global::LiveKit.Proto.GetSIPInboundTrunkResponse.Parser, new[]{ "Trunk" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.GetSIPOutboundTrunkRequest), global::LiveKit.Proto.GetSIPOutboundTrunkRequest.Parser, new[]{ "SipTrunkId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.GetSIPOutboundTrunkResponse), global::LiveKit.Proto.GetSIPOutboundTrunkResponse.Parser, new[]{ "Trunk" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListSIPTrunkRequest), global::LiveKit.Proto.ListSIPTrunkRequest.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListSIPTrunkResponse), global::LiveKit.Proto.ListSIPTrunkResponse.Parser, new[]{ "Items" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListSIPInboundTrunkRequest), global::LiveKit.Proto.ListSIPInboundTrunkRequest.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListSIPInboundTrunkResponse), global::LiveKit.Proto.ListSIPInboundTrunkResponse.Parser, new[]{ "Items" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListSIPOutboundTrunkRequest), global::LiveKit.Proto.ListSIPOutboundTrunkRequest.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListSIPOutboundTrunkResponse), global::LiveKit.Proto.ListSIPOutboundTrunkResponse.Parser, new[]{ "Items" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.DeleteSIPTrunkRequest), global::LiveKit.Proto.DeleteSIPTrunkRequest.Parser, new[]{ "SipTrunkId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SIPDispatchRuleDirect), global::LiveKit.Proto.SIPDispatchRuleDirect.Parser, new[]{ "RoomName", "Pin" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SIPDispatchRuleIndividual), global::LiveKit.Proto.SIPDispatchRuleIndividual.Parser, new[]{ "RoomPrefix", "Pin" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SIPDispatchRuleCallee), global::LiveKit.Proto.SIPDispatchRuleCallee.Parser, new[]{ "RoomPrefix", "Pin", "Randomize" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SIPDispatchRule), global::LiveKit.Proto.SIPDispatchRule.Parser, new[]{ "DispatchRuleDirect", "DispatchRuleIndividual", "DispatchRuleCallee" }, new[]{ "Rule" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.CreateSIPDispatchRuleRequest), global::LiveKit.Proto.CreateSIPDispatchRuleRequest.Parser, new[]{ "Rule", "TrunkIds", "HidePhoneNumber", "InboundNumbers", "Name", "Metadata", "Attributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SIPDispatchRuleInfo), global::LiveKit.Proto.SIPDispatchRuleInfo.Parser, new[]{ "SipDispatchRuleId", "Rule", "TrunkIds", "HidePhoneNumber", "InboundNumbers", "Name", "Metadata", "Attributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListSIPDispatchRuleRequest), global::LiveKit.Proto.ListSIPDispatchRuleRequest.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListSIPDispatchRuleResponse), global::LiveKit.Proto.ListSIPDispatchRuleResponse.Parser, new[]{ "Items" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.DeleteSIPDispatchRuleRequest), global::LiveKit.Proto.DeleteSIPDispatchRuleRequest.Parser, new[]{ "SipDispatchRuleId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.CreateSIPParticipantRequest), global::LiveKit.Proto.CreateSIPParticipantRequest.Parser, new[]{ "SipTrunkId", "SipCallTo", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "ParticipantAttributes", "Dtmf", "PlayRingtone", "PlayDialtone", "HidePhoneNumber", "RingingTimeout", "MaxCallDuration", "EnableKrisp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SIPParticipantInfo), global::LiveKit.Proto.SIPParticipantInfo.Parser, new[]{ "ParticipantId", "ParticipantIdentity", "RoomName", "SipCallId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.TransferSIPParticipantRequest), global::LiveKit.Proto.TransferSIPParticipantRequest.Parser, new[]{ "ParticipantIdentity", "RoomName", "TransferTo", "PlayDialtone" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SIPCallInfo), global::LiveKit.Proto.SIPCallInfo.Parser, new[]{ "CallId", "TrunkId", "RoomName", "RoomId", "ParticipantIdentity", "FromUri", "ToUri", "CallStatus", "CreatedAt", "StartedAt", "EndedAt", "DisconnectReason", "Error" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SIPUri), global::LiveKit.Proto.SIPUri.Parser, new[]{ "User", "Host", "Ip", "Port", "Transport" }, null, null, null, null)
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.SIPTransport), typeof(global::Livekit.Server.Sdk.Dotnet.SIPCallStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateSIPTrunkRequest), global::Livekit.Server.Sdk.Dotnet.CreateSIPTrunkRequest.Parser, new[]{ "InboundAddresses", "OutboundAddress", "OutboundNumber", "InboundNumbersRegex", "InboundNumbers", "InboundUsername", "InboundPassword", "OutboundUsername", "OutboundPassword", "Name", "Metadata" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo), global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Parser, new[]{ "SipTrunkId", "Kind", "InboundAddresses", "OutboundAddress", "OutboundNumber", "Transport", "InboundNumbersRegex", "InboundNumbers", "InboundUsername", "InboundPassword", "OutboundUsername", "OutboundPassword", "Name", "Metadata" }, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types.TrunkKind) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateSIPInboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.CreateSIPInboundTrunkRequest.Parser, new[]{ "Trunk" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo), global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo.Parser, new[]{ "SipTrunkId", "Name", "Metadata", "Numbers", "AllowedAddresses", "AllowedNumbers", "AuthUsername", "AuthPassword", "Headers", "HeadersToAttributes", "RingingTimeout", "MaxCallDuration", "KrispEnabled" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateSIPOutboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.CreateSIPOutboundTrunkRequest.Parser, new[]{ "Trunk" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo), global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo.Parser, new[]{ "SipTrunkId", "Name", "Metadata", "Address", "Transport", "Numbers", "AuthUsername", "AuthPassword", "Headers", "HeadersToAttributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkRequest.Parser, new[]{ "SipTrunkId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkResponse), global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkResponse.Parser, new[]{ "Trunk" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkRequest.Parser, new[]{ "SipTrunkId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkResponse), global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkResponse.Parser, new[]{ "Trunk" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkRequest), global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkRequest.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkResponse), global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkResponse.Parser, new[]{ "Items" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListSIPInboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.ListSIPInboundTrunkRequest.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListSIPInboundTrunkResponse), global::Livekit.Server.Sdk.Dotnet.ListSIPInboundTrunkResponse.Parser, new[]{ "Items" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListSIPOutboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.ListSIPOutboundTrunkRequest.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListSIPOutboundTrunkResponse), global::Livekit.Server.Sdk.Dotnet.ListSIPOutboundTrunkResponse.Parser, new[]{ "Items" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DeleteSIPTrunkRequest), global::Livekit.Server.Sdk.Dotnet.DeleteSIPTrunkRequest.Parser, new[]{ "SipTrunkId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleDirect), global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleDirect.Parser, new[]{ "RoomName", "Pin" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleIndividual), global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleIndividual.Parser, new[]{ "RoomPrefix", "Pin" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleCallee), global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleCallee.Parser, new[]{ "RoomPrefix", "Pin", "Randomize" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule), global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule.Parser, new[]{ "DispatchRuleDirect", "DispatchRuleIndividual", "DispatchRuleCallee" }, new[]{ "Rule" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateSIPDispatchRuleRequest), global::Livekit.Server.Sdk.Dotnet.CreateSIPDispatchRuleRequest.Parser, new[]{ "Rule", "TrunkIds", "HidePhoneNumber", "InboundNumbers", "Name", "Metadata", "Attributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo), global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo.Parser, new[]{ "SipDispatchRuleId", "Rule", "TrunkIds", "HidePhoneNumber", "InboundNumbers", "Name", "Metadata", "Attributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleRequest), global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleRequest.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleResponse), global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleResponse.Parser, new[]{ "Items" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DeleteSIPDispatchRuleRequest), global::Livekit.Server.Sdk.Dotnet.DeleteSIPDispatchRuleRequest.Parser, new[]{ "SipDispatchRuleId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateSIPParticipantRequest), global::Livekit.Server.Sdk.Dotnet.CreateSIPParticipantRequest.Parser, new[]{ "SipTrunkId", "SipCallTo", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "ParticipantAttributes", "Dtmf", "PlayRingtone", "PlayDialtone", "HidePhoneNumber", "RingingTimeout", "MaxCallDuration", "EnableKrisp" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPParticipantInfo), global::Livekit.Server.Sdk.Dotnet.SIPParticipantInfo.Parser, new[]{ "ParticipantId", "ParticipantIdentity", "RoomName", "SipCallId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest), global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest.Parser, new[]{ "ParticipantIdentity", "RoomName", "TransferTo", "PlayDialtone" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPCallInfo), global::Livekit.Server.Sdk.Dotnet.SIPCallInfo.Parser, new[]{ "CallId", "TrunkId", "RoomName", "RoomId", "ParticipantIdentity", "FromUri", "ToUri", "CallStatus", "CreatedAt", "StartedAt", "EndedAt", "DisconnectReason", "Error" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPUri), global::Livekit.Server.Sdk.Dotnet.SIPUri.Parser, new[]{ "User", "Host", "Ip", "Port", "Transport" }, null, null, null, null)
           }));
     }
     #endregion
@@ -262,7 +262,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -824,7 +824,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -881,10 +881,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "kind" field.</summary>
     public const int KindFieldNumber = 14;
-    private global::LiveKit.Proto.SIPTrunkInfo.Types.TrunkKind kind_ = global::LiveKit.Proto.SIPTrunkInfo.Types.TrunkKind.TrunkLegacy;
+    private global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types.TrunkKind kind_ = global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types.TrunkKind.TrunkLegacy;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPTrunkInfo.Types.TrunkKind Kind {
+    public global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types.TrunkKind Kind {
       get { return kind_; }
       set {
         kind_ = value;
@@ -938,13 +938,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "transport" field.</summary>
     public const int TransportFieldNumber = 13;
-    private global::LiveKit.Proto.SIPTransport transport_ = global::LiveKit.Proto.SIPTransport.Auto;
+    private global::Livekit.Server.Sdk.Dotnet.SIPTransport transport_ = global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto;
     /// <summary>
     /// Transport used for inbound and outbound calls.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPTransport Transport {
+    public global::Livekit.Server.Sdk.Dotnet.SIPTransport Transport {
       get { return transport_; }
       set {
         transport_ = value;
@@ -1098,11 +1098,11 @@ namespace LiveKit.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (SipTrunkId.Length != 0) hash ^= SipTrunkId.GetHashCode();
-      if (Kind != global::LiveKit.Proto.SIPTrunkInfo.Types.TrunkKind.TrunkLegacy) hash ^= Kind.GetHashCode();
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types.TrunkKind.TrunkLegacy) hash ^= Kind.GetHashCode();
       hash ^= inboundAddresses_.GetHashCode();
       if (OutboundAddress.Length != 0) hash ^= OutboundAddress.GetHashCode();
       if (OutboundNumber.Length != 0) hash ^= OutboundNumber.GetHashCode();
-      if (Transport != global::LiveKit.Proto.SIPTransport.Auto) hash ^= Transport.GetHashCode();
+      if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) hash ^= Transport.GetHashCode();
       hash ^= inboundNumbersRegex_.GetHashCode();
       hash ^= inboundNumbers_.GetHashCode();
       if (InboundUsername.Length != 0) hash ^= InboundUsername.GetHashCode();
@@ -1168,11 +1168,11 @@ namespace LiveKit.Proto {
         output.WriteRawTag(98);
         output.WriteString(Metadata);
       }
-      if (Transport != global::LiveKit.Proto.SIPTransport.Auto) {
+      if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         output.WriteRawTag(104);
         output.WriteEnum((int) Transport);
       }
-      if (Kind != global::LiveKit.Proto.SIPTrunkInfo.Types.TrunkKind.TrunkLegacy) {
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types.TrunkKind.TrunkLegacy) {
         output.WriteRawTag(112);
         output.WriteEnum((int) Kind);
       }
@@ -1225,11 +1225,11 @@ namespace LiveKit.Proto {
         output.WriteRawTag(98);
         output.WriteString(Metadata);
       }
-      if (Transport != global::LiveKit.Proto.SIPTransport.Auto) {
+      if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         output.WriteRawTag(104);
         output.WriteEnum((int) Transport);
       }
-      if (Kind != global::LiveKit.Proto.SIPTrunkInfo.Types.TrunkKind.TrunkLegacy) {
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types.TrunkKind.TrunkLegacy) {
         output.WriteRawTag(112);
         output.WriteEnum((int) Kind);
       }
@@ -1246,7 +1246,7 @@ namespace LiveKit.Proto {
       if (SipTrunkId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(SipTrunkId);
       }
-      if (Kind != global::LiveKit.Proto.SIPTrunkInfo.Types.TrunkKind.TrunkLegacy) {
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types.TrunkKind.TrunkLegacy) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Kind);
       }
       size += inboundAddresses_.CalculateSize(_repeated_inboundAddresses_codec);
@@ -1256,7 +1256,7 @@ namespace LiveKit.Proto {
       if (OutboundNumber.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(OutboundNumber);
       }
-      if (Transport != global::LiveKit.Proto.SIPTransport.Auto) {
+      if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Transport);
       }
       size += inboundNumbersRegex_.CalculateSize(_repeated_inboundNumbersRegex_codec);
@@ -1294,7 +1294,7 @@ namespace LiveKit.Proto {
       if (other.SipTrunkId.Length != 0) {
         SipTrunkId = other.SipTrunkId;
       }
-      if (other.Kind != global::LiveKit.Proto.SIPTrunkInfo.Types.TrunkKind.TrunkLegacy) {
+      if (other.Kind != global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types.TrunkKind.TrunkLegacy) {
         Kind = other.Kind;
       }
       inboundAddresses_.Add(other.inboundAddresses_);
@@ -1304,7 +1304,7 @@ namespace LiveKit.Proto {
       if (other.OutboundNumber.Length != 0) {
         OutboundNumber = other.OutboundNumber;
       }
-      if (other.Transport != global::LiveKit.Proto.SIPTransport.Auto) {
+      if (other.Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         Transport = other.Transport;
       }
       inboundNumbersRegex_.Add(other.inboundNumbersRegex_);
@@ -1395,11 +1395,11 @@ namespace LiveKit.Proto {
             break;
           }
           case 104: {
-            Transport = (global::LiveKit.Proto.SIPTransport) input.ReadEnum();
+            Transport = (global::Livekit.Server.Sdk.Dotnet.SIPTransport) input.ReadEnum();
             break;
           }
           case 112: {
-            Kind = (global::LiveKit.Proto.SIPTrunkInfo.Types.TrunkKind) input.ReadEnum();
+            Kind = (global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types.TrunkKind) input.ReadEnum();
             break;
           }
         }
@@ -1470,11 +1470,11 @@ namespace LiveKit.Proto {
             break;
           }
           case 104: {
-            Transport = (global::LiveKit.Proto.SIPTransport) input.ReadEnum();
+            Transport = (global::Livekit.Server.Sdk.Dotnet.SIPTransport) input.ReadEnum();
             break;
           }
           case 112: {
-            Kind = (global::LiveKit.Proto.SIPTrunkInfo.Types.TrunkKind) input.ReadEnum();
+            Kind = (global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types.TrunkKind) input.ReadEnum();
             break;
           }
         }
@@ -1513,7 +1513,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1545,13 +1545,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "trunk" field.</summary>
     public const int TrunkFieldNumber = 1;
-    private global::LiveKit.Proto.SIPInboundTrunkInfo trunk_;
+    private global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo trunk_;
     /// <summary>
     /// Trunk ID is ignored
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPInboundTrunkInfo Trunk {
+    public global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo Trunk {
       get { return trunk_; }
       set {
         trunk_ = value;
@@ -1645,7 +1645,7 @@ namespace LiveKit.Proto {
       }
       if (other.trunk_ != null) {
         if (trunk_ == null) {
-          Trunk = new global::LiveKit.Proto.SIPInboundTrunkInfo();
+          Trunk = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo();
         }
         Trunk.MergeFrom(other.Trunk);
       }
@@ -1670,7 +1670,7 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (trunk_ == null) {
-              Trunk = new global::LiveKit.Proto.SIPInboundTrunkInfo();
+              Trunk = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo();
             }
             input.ReadMessage(Trunk);
             break;
@@ -1696,7 +1696,7 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (trunk_ == null) {
-              Trunk = new global::LiveKit.Proto.SIPInboundTrunkInfo();
+              Trunk = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo();
             }
             input.ReadMessage(Trunk);
             break;
@@ -1723,7 +1723,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2362,7 +2362,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2394,13 +2394,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "trunk" field.</summary>
     public const int TrunkFieldNumber = 1;
-    private global::LiveKit.Proto.SIPOutboundTrunkInfo trunk_;
+    private global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo trunk_;
     /// <summary>
     /// Trunk ID is ignored
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPOutboundTrunkInfo Trunk {
+    public global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo Trunk {
       get { return trunk_; }
       set {
         trunk_ = value;
@@ -2494,7 +2494,7 @@ namespace LiveKit.Proto {
       }
       if (other.trunk_ != null) {
         if (trunk_ == null) {
-          Trunk = new global::LiveKit.Proto.SIPOutboundTrunkInfo();
+          Trunk = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo();
         }
         Trunk.MergeFrom(other.Trunk);
       }
@@ -2519,7 +2519,7 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (trunk_ == null) {
-              Trunk = new global::LiveKit.Proto.SIPOutboundTrunkInfo();
+              Trunk = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo();
             }
             input.ReadMessage(Trunk);
             break;
@@ -2545,7 +2545,7 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (trunk_ == null) {
-              Trunk = new global::LiveKit.Proto.SIPOutboundTrunkInfo();
+              Trunk = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo();
             }
             input.ReadMessage(Trunk);
             break;
@@ -2572,7 +2572,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2671,13 +2671,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "transport" field.</summary>
     public const int TransportFieldNumber = 5;
-    private global::LiveKit.Proto.SIPTransport transport_ = global::LiveKit.Proto.SIPTransport.Auto;
+    private global::Livekit.Server.Sdk.Dotnet.SIPTransport transport_ = global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto;
     /// <summary>
     /// SIP Transport used for outbound call.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPTransport Transport {
+    public global::Livekit.Server.Sdk.Dotnet.SIPTransport Transport {
       get { return transport_; }
       set {
         transport_ = value;
@@ -2792,7 +2792,7 @@ namespace LiveKit.Proto {
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
       if (Address.Length != 0) hash ^= Address.GetHashCode();
-      if (Transport != global::LiveKit.Proto.SIPTransport.Auto) hash ^= Transport.GetHashCode();
+      if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) hash ^= Transport.GetHashCode();
       hash ^= numbers_.GetHashCode();
       if (AuthUsername.Length != 0) hash ^= AuthUsername.GetHashCode();
       if (AuthPassword.Length != 0) hash ^= AuthPassword.GetHashCode();
@@ -2832,7 +2832,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteString(Address);
       }
-      if (Transport != global::LiveKit.Proto.SIPTransport.Auto) {
+      if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         output.WriteRawTag(40);
         output.WriteEnum((int) Transport);
       }
@@ -2873,7 +2873,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteString(Address);
       }
-      if (Transport != global::LiveKit.Proto.SIPTransport.Auto) {
+      if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         output.WriteRawTag(40);
         output.WriteEnum((int) Transport);
       }
@@ -2910,7 +2910,7 @@ namespace LiveKit.Proto {
       if (Address.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Address);
       }
-      if (Transport != global::LiveKit.Proto.SIPTransport.Auto) {
+      if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Transport);
       }
       size += numbers_.CalculateSize(_repeated_numbers_codec);
@@ -2946,7 +2946,7 @@ namespace LiveKit.Proto {
       if (other.Address.Length != 0) {
         Address = other.Address;
       }
-      if (other.Transport != global::LiveKit.Proto.SIPTransport.Auto) {
+      if (other.Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         Transport = other.Transport;
       }
       numbers_.Add(other.numbers_);
@@ -2994,7 +2994,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 40: {
-            Transport = (global::LiveKit.Proto.SIPTransport) input.ReadEnum();
+            Transport = (global::Livekit.Server.Sdk.Dotnet.SIPTransport) input.ReadEnum();
             break;
           }
           case 50: {
@@ -3053,7 +3053,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 40: {
-            Transport = (global::LiveKit.Proto.SIPTransport) input.ReadEnum();
+            Transport = (global::Livekit.Server.Sdk.Dotnet.SIPTransport) input.ReadEnum();
             break;
           }
           case 50: {
@@ -3098,7 +3098,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3296,7 +3296,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3328,10 +3328,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "trunk" field.</summary>
     public const int TrunkFieldNumber = 1;
-    private global::LiveKit.Proto.SIPInboundTrunkInfo trunk_;
+    private global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo trunk_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPInboundTrunkInfo Trunk {
+    public global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo Trunk {
       get { return trunk_; }
       set {
         trunk_ = value;
@@ -3425,7 +3425,7 @@ namespace LiveKit.Proto {
       }
       if (other.trunk_ != null) {
         if (trunk_ == null) {
-          Trunk = new global::LiveKit.Proto.SIPInboundTrunkInfo();
+          Trunk = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo();
         }
         Trunk.MergeFrom(other.Trunk);
       }
@@ -3450,7 +3450,7 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (trunk_ == null) {
-              Trunk = new global::LiveKit.Proto.SIPInboundTrunkInfo();
+              Trunk = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo();
             }
             input.ReadMessage(Trunk);
             break;
@@ -3476,7 +3476,7 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (trunk_ == null) {
-              Trunk = new global::LiveKit.Proto.SIPInboundTrunkInfo();
+              Trunk = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo();
             }
             input.ReadMessage(Trunk);
             break;
@@ -3503,7 +3503,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3701,7 +3701,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3733,10 +3733,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "trunk" field.</summary>
     public const int TrunkFieldNumber = 1;
-    private global::LiveKit.Proto.SIPOutboundTrunkInfo trunk_;
+    private global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo trunk_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPOutboundTrunkInfo Trunk {
+    public global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo Trunk {
       get { return trunk_; }
       set {
         trunk_ = value;
@@ -3830,7 +3830,7 @@ namespace LiveKit.Proto {
       }
       if (other.trunk_ != null) {
         if (trunk_ == null) {
-          Trunk = new global::LiveKit.Proto.SIPOutboundTrunkInfo();
+          Trunk = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo();
         }
         Trunk.MergeFrom(other.Trunk);
       }
@@ -3855,7 +3855,7 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (trunk_ == null) {
-              Trunk = new global::LiveKit.Proto.SIPOutboundTrunkInfo();
+              Trunk = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo();
             }
             input.ReadMessage(Trunk);
             break;
@@ -3881,7 +3881,7 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (trunk_ == null) {
-              Trunk = new global::LiveKit.Proto.SIPOutboundTrunkInfo();
+              Trunk = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo();
             }
             input.ReadMessage(Trunk);
             break;
@@ -3909,7 +3909,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4071,7 +4071,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4103,13 +4103,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "items" field.</summary>
     public const int ItemsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.SIPTrunkInfo> _repeated_items_codec
-        = pb::FieldCodec.ForMessage(10, global::LiveKit.Proto.SIPTrunkInfo.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.SIPTrunkInfo> items_ = new pbc::RepeatedField<global::LiveKit.Proto.SIPTrunkInfo>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo> _repeated_items_codec
+        = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo> items_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo>();
     [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.SIPTrunkInfo> Items {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo> Items {
       get { return items_; }
     }
 
@@ -4259,7 +4259,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4420,7 +4420,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4452,12 +4452,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "items" field.</summary>
     public const int ItemsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.SIPInboundTrunkInfo> _repeated_items_codec
-        = pb::FieldCodec.ForMessage(10, global::LiveKit.Proto.SIPInboundTrunkInfo.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.SIPInboundTrunkInfo> items_ = new pbc::RepeatedField<global::LiveKit.Proto.SIPInboundTrunkInfo>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo> _repeated_items_codec
+        = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo> items_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.SIPInboundTrunkInfo> Items {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo> Items {
       get { return items_; }
     }
 
@@ -4607,7 +4607,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4768,7 +4768,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4800,12 +4800,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "items" field.</summary>
     public const int ItemsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.SIPOutboundTrunkInfo> _repeated_items_codec
-        = pb::FieldCodec.ForMessage(10, global::LiveKit.Proto.SIPOutboundTrunkInfo.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.SIPOutboundTrunkInfo> items_ = new pbc::RepeatedField<global::LiveKit.Proto.SIPOutboundTrunkInfo>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo> _repeated_items_codec
+        = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo> items_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.SIPOutboundTrunkInfo> Items {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo> Items {
       get { return items_; }
     }
 
@@ -4955,7 +4955,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5153,7 +5153,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5394,7 +5394,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5635,7 +5635,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[19]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5916,7 +5916,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[20]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5966,8 +5966,8 @@ namespace LiveKit.Proto {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPDispatchRuleDirect DispatchRuleDirect {
-      get { return ruleCase_ == RuleOneofCase.DispatchRuleDirect ? (global::LiveKit.Proto.SIPDispatchRuleDirect) rule_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleDirect DispatchRuleDirect {
+      get { return ruleCase_ == RuleOneofCase.DispatchRuleDirect ? (global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleDirect) rule_ : null; }
       set {
         rule_ = value;
         ruleCase_ = value == null ? RuleOneofCase.None : RuleOneofCase.DispatchRuleDirect;
@@ -5981,8 +5981,8 @@ namespace LiveKit.Proto {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPDispatchRuleIndividual DispatchRuleIndividual {
-      get { return ruleCase_ == RuleOneofCase.DispatchRuleIndividual ? (global::LiveKit.Proto.SIPDispatchRuleIndividual) rule_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleIndividual DispatchRuleIndividual {
+      get { return ruleCase_ == RuleOneofCase.DispatchRuleIndividual ? (global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleIndividual) rule_ : null; }
       set {
         rule_ = value;
         ruleCase_ = value == null ? RuleOneofCase.None : RuleOneofCase.DispatchRuleIndividual;
@@ -5996,8 +5996,8 @@ namespace LiveKit.Proto {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPDispatchRuleCallee DispatchRuleCallee {
-      get { return ruleCase_ == RuleOneofCase.DispatchRuleCallee ? (global::LiveKit.Proto.SIPDispatchRuleCallee) rule_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleCallee DispatchRuleCallee {
+      get { return ruleCase_ == RuleOneofCase.DispatchRuleCallee ? (global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleCallee) rule_ : null; }
       set {
         rule_ = value;
         ruleCase_ = value == null ? RuleOneofCase.None : RuleOneofCase.DispatchRuleCallee;
@@ -6142,19 +6142,19 @@ namespace LiveKit.Proto {
       switch (other.RuleCase) {
         case RuleOneofCase.DispatchRuleDirect:
           if (DispatchRuleDirect == null) {
-            DispatchRuleDirect = new global::LiveKit.Proto.SIPDispatchRuleDirect();
+            DispatchRuleDirect = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleDirect();
           }
           DispatchRuleDirect.MergeFrom(other.DispatchRuleDirect);
           break;
         case RuleOneofCase.DispatchRuleIndividual:
           if (DispatchRuleIndividual == null) {
-            DispatchRuleIndividual = new global::LiveKit.Proto.SIPDispatchRuleIndividual();
+            DispatchRuleIndividual = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleIndividual();
           }
           DispatchRuleIndividual.MergeFrom(other.DispatchRuleIndividual);
           break;
         case RuleOneofCase.DispatchRuleCallee:
           if (DispatchRuleCallee == null) {
-            DispatchRuleCallee = new global::LiveKit.Proto.SIPDispatchRuleCallee();
+            DispatchRuleCallee = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleCallee();
           }
           DispatchRuleCallee.MergeFrom(other.DispatchRuleCallee);
           break;
@@ -6180,7 +6180,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            global::LiveKit.Proto.SIPDispatchRuleDirect subBuilder = new global::LiveKit.Proto.SIPDispatchRuleDirect();
+            global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleDirect subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleDirect();
             if (ruleCase_ == RuleOneofCase.DispatchRuleDirect) {
               subBuilder.MergeFrom(DispatchRuleDirect);
             }
@@ -6189,7 +6189,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 18: {
-            global::LiveKit.Proto.SIPDispatchRuleIndividual subBuilder = new global::LiveKit.Proto.SIPDispatchRuleIndividual();
+            global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleIndividual subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleIndividual();
             if (ruleCase_ == RuleOneofCase.DispatchRuleIndividual) {
               subBuilder.MergeFrom(DispatchRuleIndividual);
             }
@@ -6198,7 +6198,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 26: {
-            global::LiveKit.Proto.SIPDispatchRuleCallee subBuilder = new global::LiveKit.Proto.SIPDispatchRuleCallee();
+            global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleCallee subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleCallee();
             if (ruleCase_ == RuleOneofCase.DispatchRuleCallee) {
               subBuilder.MergeFrom(DispatchRuleCallee);
             }
@@ -6226,7 +6226,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            global::LiveKit.Proto.SIPDispatchRuleDirect subBuilder = new global::LiveKit.Proto.SIPDispatchRuleDirect();
+            global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleDirect subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleDirect();
             if (ruleCase_ == RuleOneofCase.DispatchRuleDirect) {
               subBuilder.MergeFrom(DispatchRuleDirect);
             }
@@ -6235,7 +6235,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 18: {
-            global::LiveKit.Proto.SIPDispatchRuleIndividual subBuilder = new global::LiveKit.Proto.SIPDispatchRuleIndividual();
+            global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleIndividual subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleIndividual();
             if (ruleCase_ == RuleOneofCase.DispatchRuleIndividual) {
               subBuilder.MergeFrom(DispatchRuleIndividual);
             }
@@ -6244,7 +6244,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 26: {
-            global::LiveKit.Proto.SIPDispatchRuleCallee subBuilder = new global::LiveKit.Proto.SIPDispatchRuleCallee();
+            global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleCallee subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleCallee();
             if (ruleCase_ == RuleOneofCase.DispatchRuleCallee) {
               subBuilder.MergeFrom(DispatchRuleCallee);
             }
@@ -6274,7 +6274,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[21]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6312,10 +6312,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "rule" field.</summary>
     public const int RuleFieldNumber = 1;
-    private global::LiveKit.Proto.SIPDispatchRule rule_;
+    private global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule rule_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPDispatchRule Rule {
+    public global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule Rule {
       get { return rule_; }
       set {
         rule_ = value;
@@ -6554,7 +6554,7 @@ namespace LiveKit.Proto {
       }
       if (other.rule_ != null) {
         if (rule_ == null) {
-          Rule = new global::LiveKit.Proto.SIPDispatchRule();
+          Rule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule();
         }
         Rule.MergeFrom(other.Rule);
       }
@@ -6591,7 +6591,7 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (rule_ == null) {
-              Rule = new global::LiveKit.Proto.SIPDispatchRule();
+              Rule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule();
             }
             input.ReadMessage(Rule);
             break;
@@ -6641,7 +6641,7 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (rule_ == null) {
-              Rule = new global::LiveKit.Proto.SIPDispatchRule();
+              Rule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule();
             }
             input.ReadMessage(Rule);
             break;
@@ -6692,7 +6692,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[22]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6743,10 +6743,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "rule" field.</summary>
     public const int RuleFieldNumber = 2;
-    private global::LiveKit.Proto.SIPDispatchRule rule_;
+    private global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule rule_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPDispatchRule Rule {
+    public global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule Rule {
       get { return rule_; }
       set {
         rule_ = value;
@@ -6993,7 +6993,7 @@ namespace LiveKit.Proto {
       }
       if (other.rule_ != null) {
         if (rule_ == null) {
-          Rule = new global::LiveKit.Proto.SIPDispatchRule();
+          Rule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule();
         }
         Rule.MergeFrom(other.Rule);
       }
@@ -7034,7 +7034,7 @@ namespace LiveKit.Proto {
           }
           case 18: {
             if (rule_ == null) {
-              Rule = new global::LiveKit.Proto.SIPDispatchRule();
+              Rule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule();
             }
             input.ReadMessage(Rule);
             break;
@@ -7088,7 +7088,7 @@ namespace LiveKit.Proto {
           }
           case 18: {
             if (rule_ == null) {
-              Rule = new global::LiveKit.Proto.SIPDispatchRule();
+              Rule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule();
             }
             input.ReadMessage(Rule);
             break;
@@ -7139,7 +7139,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[23]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7300,7 +7300,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[24]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7332,12 +7332,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "items" field.</summary>
     public const int ItemsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.SIPDispatchRuleInfo> _repeated_items_codec
-        = pb::FieldCodec.ForMessage(10, global::LiveKit.Proto.SIPDispatchRuleInfo.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.SIPDispatchRuleInfo> items_ = new pbc::RepeatedField<global::LiveKit.Proto.SIPDispatchRuleInfo>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo> _repeated_items_codec
+        = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo> items_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.SIPDispatchRuleInfo> Items {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo> Items {
       get { return items_; }
     }
 
@@ -7487,7 +7487,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[25]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7689,7 +7689,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[26]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8417,7 +8417,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[27]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[27]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8726,7 +8726,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[28]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[28]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9038,7 +9038,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[29]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[29]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9145,10 +9145,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "from_uri" field.</summary>
     public const int FromUriFieldNumber = 6;
-    private global::LiveKit.Proto.SIPUri fromUri_;
+    private global::Livekit.Server.Sdk.Dotnet.SIPUri fromUri_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPUri FromUri {
+    public global::Livekit.Server.Sdk.Dotnet.SIPUri FromUri {
       get { return fromUri_; }
       set {
         fromUri_ = value;
@@ -9157,10 +9157,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "to_uri" field.</summary>
     public const int ToUriFieldNumber = 7;
-    private global::LiveKit.Proto.SIPUri toUri_;
+    private global::Livekit.Server.Sdk.Dotnet.SIPUri toUri_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPUri ToUri {
+    public global::Livekit.Server.Sdk.Dotnet.SIPUri ToUri {
       get { return toUri_; }
       set {
         toUri_ = value;
@@ -9169,10 +9169,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "call_status" field.</summary>
     public const int CallStatusFieldNumber = 8;
-    private global::LiveKit.Proto.SIPCallStatus callStatus_ = global::LiveKit.Proto.SIPCallStatus.ScsCallIncoming;
+    private global::Livekit.Server.Sdk.Dotnet.SIPCallStatus callStatus_ = global::Livekit.Server.Sdk.Dotnet.SIPCallStatus.ScsCallIncoming;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPCallStatus CallStatus {
+    public global::Livekit.Server.Sdk.Dotnet.SIPCallStatus CallStatus {
       get { return callStatus_; }
       set {
         callStatus_ = value;
@@ -9217,10 +9217,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "disconnect_reason" field.</summary>
     public const int DisconnectReasonFieldNumber = 12;
-    private global::LiveKit.Proto.DisconnectReason disconnectReason_ = global::LiveKit.Proto.DisconnectReason.UnknownReason;
+    private global::Livekit.Server.Sdk.Dotnet.DisconnectReason disconnectReason_ = global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.DisconnectReason DisconnectReason {
+    public global::Livekit.Server.Sdk.Dotnet.DisconnectReason DisconnectReason {
       get { return disconnectReason_; }
       set {
         disconnectReason_ = value;
@@ -9281,11 +9281,11 @@ namespace LiveKit.Proto {
       if (ParticipantIdentity.Length != 0) hash ^= ParticipantIdentity.GetHashCode();
       if (fromUri_ != null) hash ^= FromUri.GetHashCode();
       if (toUri_ != null) hash ^= ToUri.GetHashCode();
-      if (CallStatus != global::LiveKit.Proto.SIPCallStatus.ScsCallIncoming) hash ^= CallStatus.GetHashCode();
+      if (CallStatus != global::Livekit.Server.Sdk.Dotnet.SIPCallStatus.ScsCallIncoming) hash ^= CallStatus.GetHashCode();
       if (CreatedAt != 0L) hash ^= CreatedAt.GetHashCode();
       if (StartedAt != 0L) hash ^= StartedAt.GetHashCode();
       if (EndedAt != 0L) hash ^= EndedAt.GetHashCode();
-      if (DisconnectReason != global::LiveKit.Proto.DisconnectReason.UnknownReason) hash ^= DisconnectReason.GetHashCode();
+      if (DisconnectReason != global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason) hash ^= DisconnectReason.GetHashCode();
       if (Error.Length != 0) hash ^= Error.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -9333,7 +9333,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(58);
         output.WriteMessage(ToUri);
       }
-      if (CallStatus != global::LiveKit.Proto.SIPCallStatus.ScsCallIncoming) {
+      if (CallStatus != global::Livekit.Server.Sdk.Dotnet.SIPCallStatus.ScsCallIncoming) {
         output.WriteRawTag(64);
         output.WriteEnum((int) CallStatus);
       }
@@ -9349,7 +9349,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(88);
         output.WriteInt64(EndedAt);
       }
-      if (DisconnectReason != global::LiveKit.Proto.DisconnectReason.UnknownReason) {
+      if (DisconnectReason != global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason) {
         output.WriteRawTag(96);
         output.WriteEnum((int) DisconnectReason);
       }
@@ -9395,7 +9395,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(58);
         output.WriteMessage(ToUri);
       }
-      if (CallStatus != global::LiveKit.Proto.SIPCallStatus.ScsCallIncoming) {
+      if (CallStatus != global::Livekit.Server.Sdk.Dotnet.SIPCallStatus.ScsCallIncoming) {
         output.WriteRawTag(64);
         output.WriteEnum((int) CallStatus);
       }
@@ -9411,7 +9411,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(88);
         output.WriteInt64(EndedAt);
       }
-      if (DisconnectReason != global::LiveKit.Proto.DisconnectReason.UnknownReason) {
+      if (DisconnectReason != global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason) {
         output.WriteRawTag(96);
         output.WriteEnum((int) DisconnectReason);
       }
@@ -9450,7 +9450,7 @@ namespace LiveKit.Proto {
       if (toUri_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ToUri);
       }
-      if (CallStatus != global::LiveKit.Proto.SIPCallStatus.ScsCallIncoming) {
+      if (CallStatus != global::Livekit.Server.Sdk.Dotnet.SIPCallStatus.ScsCallIncoming) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CallStatus);
       }
       if (CreatedAt != 0L) {
@@ -9462,7 +9462,7 @@ namespace LiveKit.Proto {
       if (EndedAt != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(EndedAt);
       }
-      if (DisconnectReason != global::LiveKit.Proto.DisconnectReason.UnknownReason) {
+      if (DisconnectReason != global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DisconnectReason);
       }
       if (Error.Length != 0) {
@@ -9497,17 +9497,17 @@ namespace LiveKit.Proto {
       }
       if (other.fromUri_ != null) {
         if (fromUri_ == null) {
-          FromUri = new global::LiveKit.Proto.SIPUri();
+          FromUri = new global::Livekit.Server.Sdk.Dotnet.SIPUri();
         }
         FromUri.MergeFrom(other.FromUri);
       }
       if (other.toUri_ != null) {
         if (toUri_ == null) {
-          ToUri = new global::LiveKit.Proto.SIPUri();
+          ToUri = new global::Livekit.Server.Sdk.Dotnet.SIPUri();
         }
         ToUri.MergeFrom(other.ToUri);
       }
-      if (other.CallStatus != global::LiveKit.Proto.SIPCallStatus.ScsCallIncoming) {
+      if (other.CallStatus != global::Livekit.Server.Sdk.Dotnet.SIPCallStatus.ScsCallIncoming) {
         CallStatus = other.CallStatus;
       }
       if (other.CreatedAt != 0L) {
@@ -9519,7 +9519,7 @@ namespace LiveKit.Proto {
       if (other.EndedAt != 0L) {
         EndedAt = other.EndedAt;
       }
-      if (other.DisconnectReason != global::LiveKit.Proto.DisconnectReason.UnknownReason) {
+      if (other.DisconnectReason != global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason) {
         DisconnectReason = other.DisconnectReason;
       }
       if (other.Error.Length != 0) {
@@ -9566,20 +9566,20 @@ namespace LiveKit.Proto {
           }
           case 50: {
             if (fromUri_ == null) {
-              FromUri = new global::LiveKit.Proto.SIPUri();
+              FromUri = new global::Livekit.Server.Sdk.Dotnet.SIPUri();
             }
             input.ReadMessage(FromUri);
             break;
           }
           case 58: {
             if (toUri_ == null) {
-              ToUri = new global::LiveKit.Proto.SIPUri();
+              ToUri = new global::Livekit.Server.Sdk.Dotnet.SIPUri();
             }
             input.ReadMessage(ToUri);
             break;
           }
           case 64: {
-            CallStatus = (global::LiveKit.Proto.SIPCallStatus) input.ReadEnum();
+            CallStatus = (global::Livekit.Server.Sdk.Dotnet.SIPCallStatus) input.ReadEnum();
             break;
           }
           case 72: {
@@ -9595,7 +9595,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 96: {
-            DisconnectReason = (global::LiveKit.Proto.DisconnectReason) input.ReadEnum();
+            DisconnectReason = (global::Livekit.Server.Sdk.Dotnet.DisconnectReason) input.ReadEnum();
             break;
           }
           case 106: {
@@ -9643,20 +9643,20 @@ namespace LiveKit.Proto {
           }
           case 50: {
             if (fromUri_ == null) {
-              FromUri = new global::LiveKit.Proto.SIPUri();
+              FromUri = new global::Livekit.Server.Sdk.Dotnet.SIPUri();
             }
             input.ReadMessage(FromUri);
             break;
           }
           case 58: {
             if (toUri_ == null) {
-              ToUri = new global::LiveKit.Proto.SIPUri();
+              ToUri = new global::Livekit.Server.Sdk.Dotnet.SIPUri();
             }
             input.ReadMessage(ToUri);
             break;
           }
           case 64: {
-            CallStatus = (global::LiveKit.Proto.SIPCallStatus) input.ReadEnum();
+            CallStatus = (global::Livekit.Server.Sdk.Dotnet.SIPCallStatus) input.ReadEnum();
             break;
           }
           case 72: {
@@ -9672,7 +9672,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 96: {
-            DisconnectReason = (global::LiveKit.Proto.DisconnectReason) input.ReadEnum();
+            DisconnectReason = (global::Livekit.Server.Sdk.Dotnet.DisconnectReason) input.ReadEnum();
             break;
           }
           case 106: {
@@ -9701,7 +9701,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitSipReflection.Descriptor.MessageTypes[30]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[30]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9785,10 +9785,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "transport" field.</summary>
     public const int TransportFieldNumber = 5;
-    private global::LiveKit.Proto.SIPTransport transport_ = global::LiveKit.Proto.SIPTransport.Auto;
+    private global::Livekit.Server.Sdk.Dotnet.SIPTransport transport_ = global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SIPTransport Transport {
+    public global::Livekit.Server.Sdk.Dotnet.SIPTransport Transport {
       get { return transport_; }
       set {
         transport_ = value;
@@ -9826,7 +9826,7 @@ namespace LiveKit.Proto {
       if (Host.Length != 0) hash ^= Host.GetHashCode();
       if (Ip.Length != 0) hash ^= Ip.GetHashCode();
       if (Port.Length != 0) hash ^= Port.GetHashCode();
-      if (Transport != global::LiveKit.Proto.SIPTransport.Auto) hash ^= Transport.GetHashCode();
+      if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) hash ^= Transport.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -9861,7 +9861,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteString(Port);
       }
-      if (Transport != global::LiveKit.Proto.SIPTransport.Auto) {
+      if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         output.WriteRawTag(40);
         output.WriteEnum((int) Transport);
       }
@@ -9891,7 +9891,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteString(Port);
       }
-      if (Transport != global::LiveKit.Proto.SIPTransport.Auto) {
+      if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         output.WriteRawTag(40);
         output.WriteEnum((int) Transport);
       }
@@ -9917,7 +9917,7 @@ namespace LiveKit.Proto {
       if (Port.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Port);
       }
-      if (Transport != global::LiveKit.Proto.SIPTransport.Auto) {
+      if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Transport);
       }
       if (_unknownFields != null) {
@@ -9944,7 +9944,7 @@ namespace LiveKit.Proto {
       if (other.Port.Length != 0) {
         Port = other.Port;
       }
-      if (other.Transport != global::LiveKit.Proto.SIPTransport.Auto) {
+      if (other.Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         Transport = other.Transport;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -9983,7 +9983,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 40: {
-            Transport = (global::LiveKit.Proto.SIPTransport) input.ReadEnum();
+            Transport = (global::Livekit.Server.Sdk.Dotnet.SIPTransport) input.ReadEnum();
             break;
           }
         }
@@ -10022,7 +10022,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 40: {
-            Transport = (global::LiveKit.Proto.SIPTransport) input.ReadEnum();
+            Transport = (global::Livekit.Server.Sdk.Dotnet.SIPTransport) input.ReadEnum();
             break;
           }
         }

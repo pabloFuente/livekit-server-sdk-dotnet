@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace LiveKit.Proto {
+namespace Livekit.Server.Sdk.Dotnet {
 
   /// <summary>Holder for reflection information generated from livekit_agent_dispatch.proto</summary>
   public static partial class LivekitAgentDispatchReflection {
@@ -47,15 +47,15 @@ namespace LiveKit.Proto {
             "aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1MaXZlS2l0LlBy",
             "b3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::LiveKit.Proto.LivekitAgentReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.CreateAgentDispatchRequest), global::LiveKit.Proto.CreateAgentDispatchRequest.Parser, new[]{ "AgentName", "Room", "Metadata" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RoomAgentDispatch), global::LiveKit.Proto.RoomAgentDispatch.Parser, new[]{ "AgentName", "Metadata" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.DeleteAgentDispatchRequest), global::LiveKit.Proto.DeleteAgentDispatchRequest.Parser, new[]{ "DispatchId", "Room" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListAgentDispatchRequest), global::LiveKit.Proto.ListAgentDispatchRequest.Parser, new[]{ "DispatchId", "Room" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListAgentDispatchResponse), global::LiveKit.Proto.ListAgentDispatchResponse.Parser, new[]{ "AgentDispatches" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AgentDispatch), global::LiveKit.Proto.AgentDispatch.Parser, new[]{ "Id", "AgentName", "Room", "Metadata", "State" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AgentDispatchState), global::LiveKit.Proto.AgentDispatchState.Parser, new[]{ "Jobs", "CreatedAt", "DeletedAt" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest.Parser, new[]{ "AgentName", "Room", "Metadata" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomAgentDispatch), global::Livekit.Server.Sdk.Dotnet.RoomAgentDispatch.Parser, new[]{ "AgentName", "Metadata" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DeleteAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.DeleteAgentDispatchRequest.Parser, new[]{ "DispatchId", "Room" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchRequest.Parser, new[]{ "DispatchId", "Room" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchResponse), global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchResponse.Parser, new[]{ "AgentDispatches" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AgentDispatch), global::Livekit.Server.Sdk.Dotnet.AgentDispatch.Parser, new[]{ "Id", "AgentName", "Room", "Metadata", "State" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AgentDispatchState), global::Livekit.Server.Sdk.Dotnet.AgentDispatchState.Parser, new[]{ "Jobs", "CreatedAt", "DeletedAt" }, null, null, null, null)
           }));
     }
     #endregion
@@ -77,7 +77,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentDispatchReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentDispatchReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -349,7 +349,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentDispatchReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentDispatchReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -584,7 +584,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentDispatchReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentDispatchReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -819,7 +819,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentDispatchReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentDispatchReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1060,7 +1060,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentDispatchReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentDispatchReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1092,12 +1092,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "agent_dispatches" field.</summary>
     public const int AgentDispatchesFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.AgentDispatch> _repeated_agentDispatches_codec
-        = pb::FieldCodec.ForMessage(10, global::LiveKit.Proto.AgentDispatch.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.AgentDispatch> agentDispatches_ = new pbc::RepeatedField<global::LiveKit.Proto.AgentDispatch>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.AgentDispatch> _repeated_agentDispatches_codec
+        = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.AgentDispatch.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AgentDispatch> agentDispatches_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AgentDispatch>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.AgentDispatch> AgentDispatches {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AgentDispatch> AgentDispatches {
       get { return agentDispatches_; }
     }
 
@@ -1247,7 +1247,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentDispatchReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentDispatchReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1331,10 +1331,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "state" field.</summary>
     public const int StateFieldNumber = 5;
-    private global::LiveKit.Proto.AgentDispatchState state_;
+    private global::Livekit.Server.Sdk.Dotnet.AgentDispatchState state_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.AgentDispatchState State {
+    public global::Livekit.Server.Sdk.Dotnet.AgentDispatchState State {
       get { return state_; }
       set {
         state_ = value;
@@ -1492,7 +1492,7 @@ namespace LiveKit.Proto {
       }
       if (other.state_ != null) {
         if (state_ == null) {
-          State = new global::LiveKit.Proto.AgentDispatchState();
+          State = new global::Livekit.Server.Sdk.Dotnet.AgentDispatchState();
         }
         State.MergeFrom(other.State);
       }
@@ -1533,7 +1533,7 @@ namespace LiveKit.Proto {
           }
           case 42: {
             if (state_ == null) {
-              State = new global::LiveKit.Proto.AgentDispatchState();
+              State = new global::Livekit.Server.Sdk.Dotnet.AgentDispatchState();
             }
             input.ReadMessage(State);
             break;
@@ -1575,7 +1575,7 @@ namespace LiveKit.Proto {
           }
           case 42: {
             if (state_ == null) {
-              State = new global::LiveKit.Proto.AgentDispatchState();
+              State = new global::Livekit.Server.Sdk.Dotnet.AgentDispatchState();
             }
             input.ReadMessage(State);
             break;
@@ -1602,7 +1602,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentDispatchReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentDispatchReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1636,16 +1636,16 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "jobs" field.</summary>
     public const int JobsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.Job> _repeated_jobs_codec
-        = pb::FieldCodec.ForMessage(10, global::LiveKit.Proto.Job.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.Job> jobs_ = new pbc::RepeatedField<global::LiveKit.Proto.Job>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.Job> _repeated_jobs_codec
+        = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.Job.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.Job> jobs_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.Job>();
     /// <summary>
     /// For dispatches of tyoe JT_ROOM, there will be at most 1 job. 
     /// For dispatches of type JT_PUBLISHER, there will be 1 per publisher.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.Job> Jobs {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.Job> Jobs {
       get { return jobs_; }
     }
 

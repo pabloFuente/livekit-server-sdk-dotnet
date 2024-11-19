@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace LiveKit.Proto {
+namespace Livekit.Server.Sdk.Dotnet {
 
   /// <summary>Holder for reflection information generated from livekit_metrics.proto</summary>
   public static partial class LivekitMetricsReflection {
@@ -66,11 +66,11 @@ namespace LiveKit.Proto {
             "LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LiveKit.Proto.MetricLabel), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.MetricsBatch), global::LiveKit.Proto.MetricsBatch.Parser, new[]{ "TimestampMs", "NormalizedTimestamp", "StrData", "TimeSeries", "Events" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.TimeSeriesMetric), global::LiveKit.Proto.TimeSeriesMetric.Parser, new[]{ "Label", "ParticipantIdentity", "TrackSid", "Samples", "Rid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.MetricSample), global::LiveKit.Proto.MetricSample.Parser, new[]{ "TimestampMs", "NormalizedTimestamp", "Value" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.EventMetric), global::LiveKit.Proto.EventMetric.Parser, new[]{ "Label", "ParticipantIdentity", "TrackSid", "StartTimestampMs", "EndTimestampMs", "NormalizedStartTimestamp", "NormalizedEndTimestamp", "Metadata", "Rid" }, new[]{ "EndTimestampMs", "NormalizedEndTimestamp" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.MetricLabel), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.MetricsBatch), global::Livekit.Server.Sdk.Dotnet.MetricsBatch.Parser, new[]{ "TimestampMs", "NormalizedTimestamp", "StrData", "TimeSeries", "Events" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TimeSeriesMetric), global::Livekit.Server.Sdk.Dotnet.TimeSeriesMetric.Parser, new[]{ "Label", "ParticipantIdentity", "TrackSid", "Samples", "Rid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.MetricSample), global::Livekit.Server.Sdk.Dotnet.MetricSample.Parser, new[]{ "TimestampMs", "NormalizedTimestamp", "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.EventMetric), global::Livekit.Server.Sdk.Dotnet.EventMetric.Parser, new[]{ "Label", "ParticipantIdentity", "TrackSid", "StartTimestampMs", "EndTimestampMs", "NormalizedStartTimestamp", "NormalizedEndTimestamp", "Metadata", "Rid" }, new[]{ "EndTimestampMs", "NormalizedEndTimestamp" }, null, null, null)
           }));
     }
     #endregion
@@ -170,7 +170,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitMetricsReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitMetricsReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -252,23 +252,23 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "time_series" field.</summary>
     public const int TimeSeriesFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.TimeSeriesMetric> _repeated_timeSeries_codec
-        = pb::FieldCodec.ForMessage(34, global::LiveKit.Proto.TimeSeriesMetric.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.TimeSeriesMetric> timeSeries_ = new pbc::RepeatedField<global::LiveKit.Proto.TimeSeriesMetric>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.TimeSeriesMetric> _repeated_timeSeries_codec
+        = pb::FieldCodec.ForMessage(34, global::Livekit.Server.Sdk.Dotnet.TimeSeriesMetric.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TimeSeriesMetric> timeSeries_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TimeSeriesMetric>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.TimeSeriesMetric> TimeSeries {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TimeSeriesMetric> TimeSeries {
       get { return timeSeries_; }
     }
 
     /// <summary>Field number for the "events" field.</summary>
     public const int EventsFieldNumber = 5;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.EventMetric> _repeated_events_codec
-        = pb::FieldCodec.ForMessage(42, global::LiveKit.Proto.EventMetric.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.EventMetric> events_ = new pbc::RepeatedField<global::LiveKit.Proto.EventMetric>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.EventMetric> _repeated_events_codec
+        = pb::FieldCodec.ForMessage(42, global::Livekit.Server.Sdk.Dotnet.EventMetric.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.EventMetric> events_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.EventMetric>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.EventMetric> Events {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.EventMetric> Events {
       get { return events_; }
     }
 
@@ -503,7 +503,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitMetricsReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitMetricsReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -585,12 +585,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "samples" field.</summary>
     public const int SamplesFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.MetricSample> _repeated_samples_codec
-        = pb::FieldCodec.ForMessage(34, global::LiveKit.Proto.MetricSample.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.MetricSample> samples_ = new pbc::RepeatedField<global::LiveKit.Proto.MetricSample>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.MetricSample> _repeated_samples_codec
+        = pb::FieldCodec.ForMessage(34, global::Livekit.Server.Sdk.Dotnet.MetricSample.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.MetricSample> samples_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.MetricSample>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.MetricSample> Samples {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.MetricSample> Samples {
       get { return samples_; }
     }
 
@@ -851,7 +851,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitMetricsReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitMetricsReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1136,7 +1136,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitMetricsReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitMetricsReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

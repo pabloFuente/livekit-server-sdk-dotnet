@@ -1,7 +1,6 @@
 using System.Security.Cryptography;
 using System.Text;
 using Google.Protobuf;
-using LiveKit.Proto;
 
 namespace Livekit.Server.Sdk.Dotnet.Test
 {

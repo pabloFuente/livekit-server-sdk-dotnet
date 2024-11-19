@@ -1,7 +1,6 @@
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Google.Protobuf.WellKnownTypes;
-using LiveKit.Proto;
 
 namespace Livekit.Server.Sdk.Dotnet
 {

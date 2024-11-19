@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace LiveKit.Proto {
+namespace Livekit.Server.Sdk.Dotnet {
 
   /// <summary>Holder for reflection information generated from livekit_models.proto</summary>
   public static partial class LivekitModelsReflection {
@@ -221,42 +221,42 @@ namespace LiveKit.Proto {
             "RUxMQVRJT04QBUJGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wvbGl2",
             "ZWtpdKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::LiveKit.Proto.LivekitMetricsReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LiveKit.Proto.AudioCodec), typeof(global::LiveKit.Proto.VideoCodec), typeof(global::LiveKit.Proto.ImageCodec), typeof(global::LiveKit.Proto.TrackType), typeof(global::LiveKit.Proto.TrackSource), typeof(global::LiveKit.Proto.VideoQuality), typeof(global::LiveKit.Proto.ConnectionQuality), typeof(global::LiveKit.Proto.ClientConfigSetting), typeof(global::LiveKit.Proto.DisconnectReason), typeof(global::LiveKit.Proto.ReconnectReason), typeof(global::LiveKit.Proto.SubscriptionError), typeof(global::LiveKit.Proto.AudioTrackFeature), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.Room), global::LiveKit.Proto.Room.Parser, new[]{ "Sid", "Name", "EmptyTimeout", "DepartureTimeout", "MaxParticipants", "CreationTime", "TurnPassword", "EnabledCodecs", "Metadata", "NumParticipants", "NumPublishers", "ActiveRecording", "Version" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.Codec), global::LiveKit.Proto.Codec.Parser, new[]{ "Mime", "FmtpLine" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PlayoutDelay), global::LiveKit.Proto.PlayoutDelay.Parser, new[]{ "Enabled", "Min", "Max" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ParticipantPermission), global::LiveKit.Proto.ParticipantPermission.Parser, new[]{ "CanSubscribe", "CanPublish", "CanPublishData", "CanPublishSources", "Hidden", "Recorder", "CanUpdateMetadata", "Agent", "CanSubscribeMetrics" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ParticipantInfo), global::LiveKit.Proto.ParticipantInfo.Parser, new[]{ "Sid", "Identity", "State", "Tracks", "Metadata", "JoinedAt", "Name", "Version", "Permission", "Region", "IsPublisher", "Kind", "Attributes", "DisconnectReason" }, null, new[]{ typeof(global::LiveKit.Proto.ParticipantInfo.Types.State), typeof(global::LiveKit.Proto.ParticipantInfo.Types.Kind) }, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.Encryption), global::LiveKit.Proto.Encryption.Parser, null, null, new[]{ typeof(global::LiveKit.Proto.Encryption.Types.Type) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SimulcastCodecInfo), global::LiveKit.Proto.SimulcastCodecInfo.Parser, new[]{ "MimeType", "Mid", "Cid", "Layers" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.TrackInfo), global::LiveKit.Proto.TrackInfo.Parser, new[]{ "Sid", "Type", "Name", "Muted", "Width", "Height", "Simulcast", "DisableDtx", "Source", "Layers", "MimeType", "Mid", "Codecs", "Stereo", "DisableRed", "Encryption", "Stream", "Version", "AudioFeatures" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoLayer), global::LiveKit.Proto.VideoLayer.Parser, new[]{ "Quality", "Width", "Height", "Bitrate", "Ssrc" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.DataPacket), global::LiveKit.Proto.DataPacket.Parser, new[]{ "Kind", "ParticipantIdentity", "DestinationIdentities", "User", "Speaker", "SipDtmf", "Transcription", "Metrics", "ChatMessage", "RpcRequest", "RpcAck", "RpcResponse" }, new[]{ "Value" }, new[]{ typeof(global::LiveKit.Proto.DataPacket.Types.Kind) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ActiveSpeakerUpdate), global::LiveKit.Proto.ActiveSpeakerUpdate.Parser, new[]{ "Speakers" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SpeakerInfo), global::LiveKit.Proto.SpeakerInfo.Parser, new[]{ "Sid", "Level", "Active" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.UserPacket), global::LiveKit.Proto.UserPacket.Parser, new[]{ "ParticipantSid", "ParticipantIdentity", "Payload", "DestinationSids", "DestinationIdentities", "Topic", "Id", "StartTime", "EndTime" }, new[]{ "Topic", "Id", "StartTime", "EndTime" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SipDTMF), global::LiveKit.Proto.SipDTMF.Parser, new[]{ "Code", "Digit" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.Transcription), global::LiveKit.Proto.Transcription.Parser, new[]{ "TranscribedParticipantIdentity", "TrackId", "Segments" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.TranscriptionSegment), global::LiveKit.Proto.TranscriptionSegment.Parser, new[]{ "Id", "Text", "StartTime", "EndTime", "Final", "Language" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ChatMessage), global::LiveKit.Proto.ChatMessage.Parser, new[]{ "Id", "Timestamp", "EditTimestamp", "Message", "Deleted", "Generated" }, new[]{ "EditTimestamp" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RpcRequest), global::LiveKit.Proto.RpcRequest.Parser, new[]{ "Id", "Method", "Payload", "ResponseTimeoutMs", "Version" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RpcAck), global::LiveKit.Proto.RpcAck.Parser, new[]{ "RequestId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RpcResponse), global::LiveKit.Proto.RpcResponse.Parser, new[]{ "RequestId", "Payload", "Error" }, new[]{ "Value" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RpcError), global::LiveKit.Proto.RpcError.Parser, new[]{ "Code", "Message", "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ParticipantTracks), global::LiveKit.Proto.ParticipantTracks.Parser, new[]{ "ParticipantSid", "TrackSids" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ServerInfo), global::LiveKit.Proto.ServerInfo.Parser, new[]{ "Edition", "Version", "Protocol", "Region", "NodeId", "DebugInfo", "AgentProtocol" }, null, new[]{ typeof(global::LiveKit.Proto.ServerInfo.Types.Edition) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ClientInfo), global::LiveKit.Proto.ClientInfo.Parser, new[]{ "Sdk", "Version", "Protocol", "Os", "OsVersion", "DeviceModel", "Browser", "BrowserVersion", "Address", "Network", "OtherSdks" }, null, new[]{ typeof(global::LiveKit.Proto.ClientInfo.Types.SDK) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ClientConfiguration), global::LiveKit.Proto.ClientConfiguration.Parser, new[]{ "Video", "Screen", "ResumeConnection", "DisabledCodecs", "ForceRelay" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoConfiguration), global::LiveKit.Proto.VideoConfiguration.Parser, new[]{ "HardwareEncoder" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.DisabledCodecs), global::LiveKit.Proto.DisabledCodecs.Parser, new[]{ "Codecs", "Publish" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RTPDrift), global::LiveKit.Proto.RTPDrift.Parser, new[]{ "StartTime", "EndTime", "Duration", "StartTimestamp", "EndTimestamp", "RtpClockTicks", "DriftSamples", "DriftMs", "ClockRate" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RTPStats), global::LiveKit.Proto.RTPStats.Parser, new[]{ "StartTime", "EndTime", "Duration", "Packets", "PacketRate", "Bytes", "HeaderBytes", "Bitrate", "PacketsLost", "PacketLossRate", "PacketLossPercentage", "PacketsDuplicate", "PacketDuplicateRate", "BytesDuplicate", "HeaderBytesDuplicate", "BitrateDuplicate", "PacketsPadding", "PacketPaddingRate", "BytesPadding", "HeaderBytesPadding", "BitratePadding", "PacketsOutOfOrder", "Frames", "FrameRate", "JitterCurrent", "JitterMax", "GapHistogram", "Nacks", "NackAcks", "NackMisses", "NackRepeated", "Plis", "LastPli", "Firs", "LastFir", "RttCurrent", "RttMax", "KeyFrames", "LastKeyFrame", "LayerLockPlis", "LastLayerLockPli", "PacketDrift", "NtpReportDrift", "RebasedReportDrift", "ReceivedReportDrift" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RTCPSenderReportState), global::LiveKit.Proto.RTCPSenderReportState.Parser, new[]{ "RtpTimestamp", "RtpTimestampExt", "NtpTimestamp", "At", "AtAdjusted", "Packets", "Octets" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RTPForwarderState), global::LiveKit.Proto.RTPForwarderState.Parser, new[]{ "Started", "ReferenceLayerSpatial", "PreStartTime", "ExtFirstTimestamp", "DummyStartTimestampOffset", "RtpMunger", "Vp8Munger", "SenderReportState" }, new[]{ "CodecMunger" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RTPMungerState), global::LiveKit.Proto.RTPMungerState.Parser, new[]{ "ExtLastSequenceNumber", "ExtSecondLastSequenceNumber", "ExtLastTimestamp", "ExtSecondLastTimestamp", "LastMarker", "SecondLastMarker" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VP8MungerState), global::LiveKit.Proto.VP8MungerState.Parser, new[]{ "ExtLastPictureId", "PictureIdUsed", "LastTl0PicIdx", "Tl0PicIdxUsed", "TidUsed", "LastKeyIdx", "KeyIdxUsed" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.TimedVersion), global::LiveKit.Proto.TimedVersion.Parser, new[]{ "UnixMicro", "Ticks" }, null, null, null, null)
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitMetricsReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.AudioCodec), typeof(global::Livekit.Server.Sdk.Dotnet.VideoCodec), typeof(global::Livekit.Server.Sdk.Dotnet.ImageCodec), typeof(global::Livekit.Server.Sdk.Dotnet.TrackType), typeof(global::Livekit.Server.Sdk.Dotnet.TrackSource), typeof(global::Livekit.Server.Sdk.Dotnet.VideoQuality), typeof(global::Livekit.Server.Sdk.Dotnet.ConnectionQuality), typeof(global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting), typeof(global::Livekit.Server.Sdk.Dotnet.DisconnectReason), typeof(global::Livekit.Server.Sdk.Dotnet.ReconnectReason), typeof(global::Livekit.Server.Sdk.Dotnet.SubscriptionError), typeof(global::Livekit.Server.Sdk.Dotnet.AudioTrackFeature), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.Room), global::Livekit.Server.Sdk.Dotnet.Room.Parser, new[]{ "Sid", "Name", "EmptyTimeout", "DepartureTimeout", "MaxParticipants", "CreationTime", "TurnPassword", "EnabledCodecs", "Metadata", "NumParticipants", "NumPublishers", "ActiveRecording", "Version" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.Codec), global::Livekit.Server.Sdk.Dotnet.Codec.Parser, new[]{ "Mime", "FmtpLine" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.PlayoutDelay), global::Livekit.Server.Sdk.Dotnet.PlayoutDelay.Parser, new[]{ "Enabled", "Min", "Max" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ParticipantPermission), global::Livekit.Server.Sdk.Dotnet.ParticipantPermission.Parser, new[]{ "CanSubscribe", "CanPublish", "CanPublishData", "CanPublishSources", "Hidden", "Recorder", "CanUpdateMetadata", "Agent", "CanSubscribeMetrics" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ParticipantInfo), global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Parser, new[]{ "Sid", "Identity", "State", "Tracks", "Metadata", "JoinedAt", "Name", "Version", "Permission", "Region", "IsPublisher", "Kind", "Attributes", "DisconnectReason" }, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State), typeof(global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind) }, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.Encryption), global::Livekit.Server.Sdk.Dotnet.Encryption.Parser, null, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.Encryption.Types.Type) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SimulcastCodecInfo), global::Livekit.Server.Sdk.Dotnet.SimulcastCodecInfo.Parser, new[]{ "MimeType", "Mid", "Cid", "Layers" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TrackInfo), global::Livekit.Server.Sdk.Dotnet.TrackInfo.Parser, new[]{ "Sid", "Type", "Name", "Muted", "Width", "Height", "Simulcast", "DisableDtx", "Source", "Layers", "MimeType", "Mid", "Codecs", "Stereo", "DisableRed", "Encryption", "Stream", "Version", "AudioFeatures" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.VideoLayer), global::Livekit.Server.Sdk.Dotnet.VideoLayer.Parser, new[]{ "Quality", "Width", "Height", "Bitrate", "Ssrc" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DataPacket), global::Livekit.Server.Sdk.Dotnet.DataPacket.Parser, new[]{ "Kind", "ParticipantIdentity", "DestinationIdentities", "User", "Speaker", "SipDtmf", "Transcription", "Metrics", "ChatMessage", "RpcRequest", "RpcAck", "RpcResponse" }, new[]{ "Value" }, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.DataPacket.Types.Kind) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ActiveSpeakerUpdate), global::Livekit.Server.Sdk.Dotnet.ActiveSpeakerUpdate.Parser, new[]{ "Speakers" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SpeakerInfo), global::Livekit.Server.Sdk.Dotnet.SpeakerInfo.Parser, new[]{ "Sid", "Level", "Active" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UserPacket), global::Livekit.Server.Sdk.Dotnet.UserPacket.Parser, new[]{ "ParticipantSid", "ParticipantIdentity", "Payload", "DestinationSids", "DestinationIdentities", "Topic", "Id", "StartTime", "EndTime" }, new[]{ "Topic", "Id", "StartTime", "EndTime" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SipDTMF), global::Livekit.Server.Sdk.Dotnet.SipDTMF.Parser, new[]{ "Code", "Digit" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.Transcription), global::Livekit.Server.Sdk.Dotnet.Transcription.Parser, new[]{ "TranscribedParticipantIdentity", "TrackId", "Segments" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TranscriptionSegment), global::Livekit.Server.Sdk.Dotnet.TranscriptionSegment.Parser, new[]{ "Id", "Text", "StartTime", "EndTime", "Final", "Language" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ChatMessage), global::Livekit.Server.Sdk.Dotnet.ChatMessage.Parser, new[]{ "Id", "Timestamp", "EditTimestamp", "Message", "Deleted", "Generated" }, new[]{ "EditTimestamp" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RpcRequest), global::Livekit.Server.Sdk.Dotnet.RpcRequest.Parser, new[]{ "Id", "Method", "Payload", "ResponseTimeoutMs", "Version" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RpcAck), global::Livekit.Server.Sdk.Dotnet.RpcAck.Parser, new[]{ "RequestId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RpcResponse), global::Livekit.Server.Sdk.Dotnet.RpcResponse.Parser, new[]{ "RequestId", "Payload", "Error" }, new[]{ "Value" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RpcError), global::Livekit.Server.Sdk.Dotnet.RpcError.Parser, new[]{ "Code", "Message", "Data" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ParticipantTracks), global::Livekit.Server.Sdk.Dotnet.ParticipantTracks.Parser, new[]{ "ParticipantSid", "TrackSids" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ServerInfo), global::Livekit.Server.Sdk.Dotnet.ServerInfo.Parser, new[]{ "Edition", "Version", "Protocol", "Region", "NodeId", "DebugInfo", "AgentProtocol" }, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.ServerInfo.Types.Edition) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ClientInfo), global::Livekit.Server.Sdk.Dotnet.ClientInfo.Parser, new[]{ "Sdk", "Version", "Protocol", "Os", "OsVersion", "DeviceModel", "Browser", "BrowserVersion", "Address", "Network", "OtherSdks" }, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.ClientInfo.Types.SDK) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ClientConfiguration), global::Livekit.Server.Sdk.Dotnet.ClientConfiguration.Parser, new[]{ "Video", "Screen", "ResumeConnection", "DisabledCodecs", "ForceRelay" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.VideoConfiguration), global::Livekit.Server.Sdk.Dotnet.VideoConfiguration.Parser, new[]{ "HardwareEncoder" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DisabledCodecs), global::Livekit.Server.Sdk.Dotnet.DisabledCodecs.Parser, new[]{ "Codecs", "Publish" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RTPDrift), global::Livekit.Server.Sdk.Dotnet.RTPDrift.Parser, new[]{ "StartTime", "EndTime", "Duration", "StartTimestamp", "EndTimestamp", "RtpClockTicks", "DriftSamples", "DriftMs", "ClockRate" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RTPStats), global::Livekit.Server.Sdk.Dotnet.RTPStats.Parser, new[]{ "StartTime", "EndTime", "Duration", "Packets", "PacketRate", "Bytes", "HeaderBytes", "Bitrate", "PacketsLost", "PacketLossRate", "PacketLossPercentage", "PacketsDuplicate", "PacketDuplicateRate", "BytesDuplicate", "HeaderBytesDuplicate", "BitrateDuplicate", "PacketsPadding", "PacketPaddingRate", "BytesPadding", "HeaderBytesPadding", "BitratePadding", "PacketsOutOfOrder", "Frames", "FrameRate", "JitterCurrent", "JitterMax", "GapHistogram", "Nacks", "NackAcks", "NackMisses", "NackRepeated", "Plis", "LastPli", "Firs", "LastFir", "RttCurrent", "RttMax", "KeyFrames", "LastKeyFrame", "LayerLockPlis", "LastLayerLockPli", "PacketDrift", "NtpReportDrift", "RebasedReportDrift", "ReceivedReportDrift" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RTCPSenderReportState), global::Livekit.Server.Sdk.Dotnet.RTCPSenderReportState.Parser, new[]{ "RtpTimestamp", "RtpTimestampExt", "NtpTimestamp", "At", "AtAdjusted", "Packets", "Octets" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RTPForwarderState), global::Livekit.Server.Sdk.Dotnet.RTPForwarderState.Parser, new[]{ "Started", "ReferenceLayerSpatial", "PreStartTime", "ExtFirstTimestamp", "DummyStartTimestampOffset", "RtpMunger", "Vp8Munger", "SenderReportState" }, new[]{ "CodecMunger" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RTPMungerState), global::Livekit.Server.Sdk.Dotnet.RTPMungerState.Parser, new[]{ "ExtLastSequenceNumber", "ExtSecondLastSequenceNumber", "ExtLastTimestamp", "ExtSecondLastTimestamp", "LastMarker", "SecondLastMarker" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.VP8MungerState), global::Livekit.Server.Sdk.Dotnet.VP8MungerState.Parser, new[]{ "ExtLastPictureId", "PictureIdUsed", "LastTl0PicIdx", "Tl0PicIdxUsed", "TidUsed", "LastKeyIdx", "KeyIdxUsed" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TimedVersion), global::Livekit.Server.Sdk.Dotnet.TimedVersion.Parser, new[]{ "UnixMicro", "Ticks" }, null, null, null, null)
           }));
     }
     #endregion
@@ -409,7 +409,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -537,12 +537,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "enabled_codecs" field.</summary>
     public const int EnabledCodecsFieldNumber = 7;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.Codec> _repeated_enabledCodecs_codec
-        = pb::FieldCodec.ForMessage(58, global::LiveKit.Proto.Codec.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.Codec> enabledCodecs_ = new pbc::RepeatedField<global::LiveKit.Proto.Codec>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.Codec> _repeated_enabledCodecs_codec
+        = pb::FieldCodec.ForMessage(58, global::Livekit.Server.Sdk.Dotnet.Codec.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.Codec> enabledCodecs_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.Codec>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.Codec> EnabledCodecs {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.Codec> EnabledCodecs {
       get { return enabledCodecs_; }
     }
 
@@ -596,10 +596,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "version" field.</summary>
     public const int VersionFieldNumber = 13;
-    private global::LiveKit.Proto.TimedVersion version_;
+    private global::Livekit.Server.Sdk.Dotnet.TimedVersion version_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.TimedVersion Version {
+    public global::Livekit.Server.Sdk.Dotnet.TimedVersion Version {
       get { return version_; }
       set {
         version_ = value;
@@ -875,7 +875,7 @@ namespace LiveKit.Proto {
       }
       if (other.version_ != null) {
         if (version_ == null) {
-          Version = new global::LiveKit.Proto.TimedVersion();
+          Version = new global::Livekit.Server.Sdk.Dotnet.TimedVersion();
         }
         Version.MergeFrom(other.Version);
       }
@@ -944,7 +944,7 @@ namespace LiveKit.Proto {
           }
           case 106: {
             if (version_ == null) {
-              Version = new global::LiveKit.Proto.TimedVersion();
+              Version = new global::Livekit.Server.Sdk.Dotnet.TimedVersion();
             }
             input.ReadMessage(Version);
             break;
@@ -1018,7 +1018,7 @@ namespace LiveKit.Proto {
           }
           case 106: {
             if (version_ == null) {
-              Version = new global::LiveKit.Proto.TimedVersion();
+              Version = new global::Livekit.Server.Sdk.Dotnet.TimedVersion();
             }
             input.ReadMessage(Version);
             break;
@@ -1049,7 +1049,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1284,7 +1284,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1556,7 +1556,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1641,15 +1641,15 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "can_publish_sources" field.</summary>
     public const int CanPublishSourcesFieldNumber = 9;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.TrackSource> _repeated_canPublishSources_codec
-        = pb::FieldCodec.ForEnum(74, x => (int) x, x => (global::LiveKit.Proto.TrackSource) x);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.TrackSource> canPublishSources_ = new pbc::RepeatedField<global::LiveKit.Proto.TrackSource>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.TrackSource> _repeated_canPublishSources_codec
+        = pb::FieldCodec.ForEnum(74, x => (int) x, x => (global::Livekit.Server.Sdk.Dotnet.TrackSource) x);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TrackSource> canPublishSources_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TrackSource>();
     /// <summary>
     /// sources that are allowed to be published
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.TrackSource> CanPublishSources {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TrackSource> CanPublishSources {
       get { return canPublishSources_; }
     }
 
@@ -2072,7 +2072,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2141,10 +2141,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "state" field.</summary>
     public const int StateFieldNumber = 3;
-    private global::LiveKit.Proto.ParticipantInfo.Types.State state_ = global::LiveKit.Proto.ParticipantInfo.Types.State.Joining;
+    private global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State state_ = global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State.Joining;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ParticipantInfo.Types.State State {
+    public global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State State {
       get { return state_; }
       set {
         state_ = value;
@@ -2153,12 +2153,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "tracks" field.</summary>
     public const int TracksFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.TrackInfo> _repeated_tracks_codec
-        = pb::FieldCodec.ForMessage(34, global::LiveKit.Proto.TrackInfo.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.TrackInfo> tracks_ = new pbc::RepeatedField<global::LiveKit.Proto.TrackInfo>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.TrackInfo> _repeated_tracks_codec
+        = pb::FieldCodec.ForMessage(34, global::Livekit.Server.Sdk.Dotnet.TrackInfo.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TrackInfo> tracks_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TrackInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.TrackInfo> Tracks {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TrackInfo> Tracks {
       get { return tracks_; }
     }
 
@@ -2215,10 +2215,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "permission" field.</summary>
     public const int PermissionFieldNumber = 11;
-    private global::LiveKit.Proto.ParticipantPermission permission_;
+    private global::Livekit.Server.Sdk.Dotnet.ParticipantPermission permission_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ParticipantPermission Permission {
+    public global::Livekit.Server.Sdk.Dotnet.ParticipantPermission Permission {
       get { return permission_; }
       set {
         permission_ = value;
@@ -2255,10 +2255,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "kind" field.</summary>
     public const int KindFieldNumber = 14;
-    private global::LiveKit.Proto.ParticipantInfo.Types.Kind kind_ = global::LiveKit.Proto.ParticipantInfo.Types.Kind.Standard;
+    private global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind kind_ = global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind.Standard;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ParticipantInfo.Types.Kind Kind {
+    public global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind Kind {
       get { return kind_; }
       set {
         kind_ = value;
@@ -2278,10 +2278,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "disconnect_reason" field.</summary>
     public const int DisconnectReasonFieldNumber = 16;
-    private global::LiveKit.Proto.DisconnectReason disconnectReason_ = global::LiveKit.Proto.DisconnectReason.UnknownReason;
+    private global::Livekit.Server.Sdk.Dotnet.DisconnectReason disconnectReason_ = global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.DisconnectReason DisconnectReason {
+    public global::Livekit.Server.Sdk.Dotnet.DisconnectReason DisconnectReason {
       get { return disconnectReason_; }
       set {
         disconnectReason_ = value;
@@ -2326,7 +2326,7 @@ namespace LiveKit.Proto {
       int hash = 1;
       if (Sid.Length != 0) hash ^= Sid.GetHashCode();
       if (Identity.Length != 0) hash ^= Identity.GetHashCode();
-      if (State != global::LiveKit.Proto.ParticipantInfo.Types.State.Joining) hash ^= State.GetHashCode();
+      if (State != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State.Joining) hash ^= State.GetHashCode();
       hash ^= tracks_.GetHashCode();
       if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
       if (JoinedAt != 0L) hash ^= JoinedAt.GetHashCode();
@@ -2335,9 +2335,9 @@ namespace LiveKit.Proto {
       if (permission_ != null) hash ^= Permission.GetHashCode();
       if (Region.Length != 0) hash ^= Region.GetHashCode();
       if (IsPublisher != false) hash ^= IsPublisher.GetHashCode();
-      if (Kind != global::LiveKit.Proto.ParticipantInfo.Types.Kind.Standard) hash ^= Kind.GetHashCode();
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind.Standard) hash ^= Kind.GetHashCode();
       hash ^= Attributes.GetHashCode();
-      if (DisconnectReason != global::LiveKit.Proto.DisconnectReason.UnknownReason) hash ^= DisconnectReason.GetHashCode();
+      if (DisconnectReason != global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason) hash ^= DisconnectReason.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2364,7 +2364,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(18);
         output.WriteString(Identity);
       }
-      if (State != global::LiveKit.Proto.ParticipantInfo.Types.State.Joining) {
+      if (State != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State.Joining) {
         output.WriteRawTag(24);
         output.WriteEnum((int) State);
       }
@@ -2397,12 +2397,12 @@ namespace LiveKit.Proto {
         output.WriteRawTag(104);
         output.WriteBool(IsPublisher);
       }
-      if (Kind != global::LiveKit.Proto.ParticipantInfo.Types.Kind.Standard) {
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind.Standard) {
         output.WriteRawTag(112);
         output.WriteEnum((int) Kind);
       }
       attributes_.WriteTo(output, _map_attributes_codec);
-      if (DisconnectReason != global::LiveKit.Proto.DisconnectReason.UnknownReason) {
+      if (DisconnectReason != global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason) {
         output.WriteRawTag(128, 1);
         output.WriteEnum((int) DisconnectReason);
       }
@@ -2424,7 +2424,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(18);
         output.WriteString(Identity);
       }
-      if (State != global::LiveKit.Proto.ParticipantInfo.Types.State.Joining) {
+      if (State != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State.Joining) {
         output.WriteRawTag(24);
         output.WriteEnum((int) State);
       }
@@ -2457,12 +2457,12 @@ namespace LiveKit.Proto {
         output.WriteRawTag(104);
         output.WriteBool(IsPublisher);
       }
-      if (Kind != global::LiveKit.Proto.ParticipantInfo.Types.Kind.Standard) {
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind.Standard) {
         output.WriteRawTag(112);
         output.WriteEnum((int) Kind);
       }
       attributes_.WriteTo(ref output, _map_attributes_codec);
-      if (DisconnectReason != global::LiveKit.Proto.DisconnectReason.UnknownReason) {
+      if (DisconnectReason != global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason) {
         output.WriteRawTag(128, 1);
         output.WriteEnum((int) DisconnectReason);
       }
@@ -2482,7 +2482,7 @@ namespace LiveKit.Proto {
       if (Identity.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Identity);
       }
-      if (State != global::LiveKit.Proto.ParticipantInfo.Types.State.Joining) {
+      if (State != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State.Joining) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) State);
       }
       size += tracks_.CalculateSize(_repeated_tracks_codec);
@@ -2507,11 +2507,11 @@ namespace LiveKit.Proto {
       if (IsPublisher != false) {
         size += 1 + 1;
       }
-      if (Kind != global::LiveKit.Proto.ParticipantInfo.Types.Kind.Standard) {
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind.Standard) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Kind);
       }
       size += attributes_.CalculateSize(_map_attributes_codec);
-      if (DisconnectReason != global::LiveKit.Proto.DisconnectReason.UnknownReason) {
+      if (DisconnectReason != global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) DisconnectReason);
       }
       if (_unknownFields != null) {
@@ -2532,7 +2532,7 @@ namespace LiveKit.Proto {
       if (other.Identity.Length != 0) {
         Identity = other.Identity;
       }
-      if (other.State != global::LiveKit.Proto.ParticipantInfo.Types.State.Joining) {
+      if (other.State != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State.Joining) {
         State = other.State;
       }
       tracks_.Add(other.tracks_);
@@ -2550,7 +2550,7 @@ namespace LiveKit.Proto {
       }
       if (other.permission_ != null) {
         if (permission_ == null) {
-          Permission = new global::LiveKit.Proto.ParticipantPermission();
+          Permission = new global::Livekit.Server.Sdk.Dotnet.ParticipantPermission();
         }
         Permission.MergeFrom(other.Permission);
       }
@@ -2560,11 +2560,11 @@ namespace LiveKit.Proto {
       if (other.IsPublisher != false) {
         IsPublisher = other.IsPublisher;
       }
-      if (other.Kind != global::LiveKit.Proto.ParticipantInfo.Types.Kind.Standard) {
+      if (other.Kind != global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind.Standard) {
         Kind = other.Kind;
       }
       attributes_.MergeFrom(other.attributes_);
-      if (other.DisconnectReason != global::LiveKit.Proto.DisconnectReason.UnknownReason) {
+      if (other.DisconnectReason != global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason) {
         DisconnectReason = other.DisconnectReason;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -2595,7 +2595,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 24: {
-            State = (global::LiveKit.Proto.ParticipantInfo.Types.State) input.ReadEnum();
+            State = (global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State) input.ReadEnum();
             break;
           }
           case 34: {
@@ -2620,7 +2620,7 @@ namespace LiveKit.Proto {
           }
           case 90: {
             if (permission_ == null) {
-              Permission = new global::LiveKit.Proto.ParticipantPermission();
+              Permission = new global::Livekit.Server.Sdk.Dotnet.ParticipantPermission();
             }
             input.ReadMessage(Permission);
             break;
@@ -2634,7 +2634,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 112: {
-            Kind = (global::LiveKit.Proto.ParticipantInfo.Types.Kind) input.ReadEnum();
+            Kind = (global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind) input.ReadEnum();
             break;
           }
           case 122: {
@@ -2642,7 +2642,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 128: {
-            DisconnectReason = (global::LiveKit.Proto.DisconnectReason) input.ReadEnum();
+            DisconnectReason = (global::Livekit.Server.Sdk.Dotnet.DisconnectReason) input.ReadEnum();
             break;
           }
         }
@@ -2673,7 +2673,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 24: {
-            State = (global::LiveKit.Proto.ParticipantInfo.Types.State) input.ReadEnum();
+            State = (global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State) input.ReadEnum();
             break;
           }
           case 34: {
@@ -2698,7 +2698,7 @@ namespace LiveKit.Proto {
           }
           case 90: {
             if (permission_ == null) {
-              Permission = new global::LiveKit.Proto.ParticipantPermission();
+              Permission = new global::Livekit.Server.Sdk.Dotnet.ParticipantPermission();
             }
             input.ReadMessage(Permission);
             break;
@@ -2712,7 +2712,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 112: {
-            Kind = (global::LiveKit.Proto.ParticipantInfo.Types.Kind) input.ReadEnum();
+            Kind = (global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind) input.ReadEnum();
             break;
           }
           case 122: {
@@ -2720,7 +2720,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 128: {
-            DisconnectReason = (global::LiveKit.Proto.DisconnectReason) input.ReadEnum();
+            DisconnectReason = (global::Livekit.Server.Sdk.Dotnet.DisconnectReason) input.ReadEnum();
             break;
           }
         }
@@ -2795,7 +2795,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2970,7 +2970,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3041,12 +3041,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "layers" field.</summary>
     public const int LayersFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.VideoLayer> _repeated_layers_codec
-        = pb::FieldCodec.ForMessage(34, global::LiveKit.Proto.VideoLayer.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.VideoLayer> layers_ = new pbc::RepeatedField<global::LiveKit.Proto.VideoLayer>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.VideoLayer> _repeated_layers_codec
+        = pb::FieldCodec.ForMessage(34, global::Livekit.Server.Sdk.Dotnet.VideoLayer.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.VideoLayer> layers_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.VideoLayer>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.VideoLayer> Layers {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.VideoLayer> Layers {
       get { return layers_; }
     }
 
@@ -3268,7 +3268,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3330,10 +3330,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 2;
-    private global::LiveKit.Proto.TrackType type_ = global::LiveKit.Proto.TrackType.Audio;
+    private global::Livekit.Server.Sdk.Dotnet.TrackType type_ = global::Livekit.Server.Sdk.Dotnet.TrackType.Audio;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.TrackType Type {
+    public global::Livekit.Server.Sdk.Dotnet.TrackType Type {
       get { return type_; }
       set {
         type_ = value;
@@ -3427,13 +3427,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "source" field.</summary>
     public const int SourceFieldNumber = 9;
-    private global::LiveKit.Proto.TrackSource source_ = global::LiveKit.Proto.TrackSource.Unknown;
+    private global::Livekit.Server.Sdk.Dotnet.TrackSource source_ = global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown;
     /// <summary>
     /// source of media
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.TrackSource Source {
+    public global::Livekit.Server.Sdk.Dotnet.TrackSource Source {
       get { return source_; }
       set {
         source_ = value;
@@ -3442,12 +3442,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "layers" field.</summary>
     public const int LayersFieldNumber = 10;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.VideoLayer> _repeated_layers_codec
-        = pb::FieldCodec.ForMessage(82, global::LiveKit.Proto.VideoLayer.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.VideoLayer> layers_ = new pbc::RepeatedField<global::LiveKit.Proto.VideoLayer>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.VideoLayer> _repeated_layers_codec
+        = pb::FieldCodec.ForMessage(82, global::Livekit.Server.Sdk.Dotnet.VideoLayer.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.VideoLayer> layers_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.VideoLayer>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.VideoLayer> Layers {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.VideoLayer> Layers {
       get { return layers_; }
     }
 
@@ -3480,12 +3480,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "codecs" field.</summary>
     public const int CodecsFieldNumber = 13;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.SimulcastCodecInfo> _repeated_codecs_codec
-        = pb::FieldCodec.ForMessage(106, global::LiveKit.Proto.SimulcastCodecInfo.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.SimulcastCodecInfo> codecs_ = new pbc::RepeatedField<global::LiveKit.Proto.SimulcastCodecInfo>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.SimulcastCodecInfo> _repeated_codecs_codec
+        = pb::FieldCodec.ForMessage(106, global::Livekit.Server.Sdk.Dotnet.SimulcastCodecInfo.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SimulcastCodecInfo> codecs_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SimulcastCodecInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.SimulcastCodecInfo> Codecs {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SimulcastCodecInfo> Codecs {
       get { return codecs_; }
     }
 
@@ -3518,10 +3518,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "encryption" field.</summary>
     public const int EncryptionFieldNumber = 16;
-    private global::LiveKit.Proto.Encryption.Types.Type encryption_ = global::LiveKit.Proto.Encryption.Types.Type.None;
+    private global::Livekit.Server.Sdk.Dotnet.Encryption.Types.Type encryption_ = global::Livekit.Server.Sdk.Dotnet.Encryption.Types.Type.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.Encryption.Types.Type Encryption {
+    public global::Livekit.Server.Sdk.Dotnet.Encryption.Types.Type Encryption {
       get { return encryption_; }
       set {
         encryption_ = value;
@@ -3542,10 +3542,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "version" field.</summary>
     public const int VersionFieldNumber = 18;
-    private global::LiveKit.Proto.TimedVersion version_;
+    private global::Livekit.Server.Sdk.Dotnet.TimedVersion version_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.TimedVersion Version {
+    public global::Livekit.Server.Sdk.Dotnet.TimedVersion Version {
       get { return version_; }
       set {
         version_ = value;
@@ -3554,12 +3554,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "audio_features" field.</summary>
     public const int AudioFeaturesFieldNumber = 19;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.AudioTrackFeature> _repeated_audioFeatures_codec
-        = pb::FieldCodec.ForEnum(154, x => (int) x, x => (global::LiveKit.Proto.AudioTrackFeature) x);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.AudioTrackFeature> audioFeatures_ = new pbc::RepeatedField<global::LiveKit.Proto.AudioTrackFeature>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.AudioTrackFeature> _repeated_audioFeatures_codec
+        = pb::FieldCodec.ForEnum(154, x => (int) x, x => (global::Livekit.Server.Sdk.Dotnet.AudioTrackFeature) x);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AudioTrackFeature> audioFeatures_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AudioTrackFeature>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.AudioTrackFeature> AudioFeatures {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.AudioTrackFeature> AudioFeatures {
       get { return audioFeatures_; }
     }
 
@@ -3605,21 +3605,21 @@ namespace LiveKit.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (Sid.Length != 0) hash ^= Sid.GetHashCode();
-      if (Type != global::LiveKit.Proto.TrackType.Audio) hash ^= Type.GetHashCode();
+      if (Type != global::Livekit.Server.Sdk.Dotnet.TrackType.Audio) hash ^= Type.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Muted != false) hash ^= Muted.GetHashCode();
       if (Width != 0) hash ^= Width.GetHashCode();
       if (Height != 0) hash ^= Height.GetHashCode();
       if (Simulcast != false) hash ^= Simulcast.GetHashCode();
       if (DisableDtx != false) hash ^= DisableDtx.GetHashCode();
-      if (Source != global::LiveKit.Proto.TrackSource.Unknown) hash ^= Source.GetHashCode();
+      if (Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) hash ^= Source.GetHashCode();
       hash ^= layers_.GetHashCode();
       if (MimeType.Length != 0) hash ^= MimeType.GetHashCode();
       if (Mid.Length != 0) hash ^= Mid.GetHashCode();
       hash ^= codecs_.GetHashCode();
       if (Stereo != false) hash ^= Stereo.GetHashCode();
       if (DisableRed != false) hash ^= DisableRed.GetHashCode();
-      if (Encryption != global::LiveKit.Proto.Encryption.Types.Type.None) hash ^= Encryption.GetHashCode();
+      if (Encryption != global::Livekit.Server.Sdk.Dotnet.Encryption.Types.Type.None) hash ^= Encryption.GetHashCode();
       if (Stream.Length != 0) hash ^= Stream.GetHashCode();
       if (version_ != null) hash ^= Version.GetHashCode();
       hash ^= audioFeatures_.GetHashCode();
@@ -3645,7 +3645,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(10);
         output.WriteString(Sid);
       }
-      if (Type != global::LiveKit.Proto.TrackType.Audio) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.TrackType.Audio) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Type);
       }
@@ -3673,7 +3673,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(64);
         output.WriteBool(DisableDtx);
       }
-      if (Source != global::LiveKit.Proto.TrackSource.Unknown) {
+      if (Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) {
         output.WriteRawTag(72);
         output.WriteEnum((int) Source);
       }
@@ -3695,7 +3695,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(120);
         output.WriteBool(DisableRed);
       }
-      if (Encryption != global::LiveKit.Proto.Encryption.Types.Type.None) {
+      if (Encryption != global::Livekit.Server.Sdk.Dotnet.Encryption.Types.Type.None) {
         output.WriteRawTag(128, 1);
         output.WriteEnum((int) Encryption);
       }
@@ -3722,7 +3722,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(10);
         output.WriteString(Sid);
       }
-      if (Type != global::LiveKit.Proto.TrackType.Audio) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.TrackType.Audio) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Type);
       }
@@ -3750,7 +3750,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(64);
         output.WriteBool(DisableDtx);
       }
-      if (Source != global::LiveKit.Proto.TrackSource.Unknown) {
+      if (Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) {
         output.WriteRawTag(72);
         output.WriteEnum((int) Source);
       }
@@ -3772,7 +3772,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(120);
         output.WriteBool(DisableRed);
       }
-      if (Encryption != global::LiveKit.Proto.Encryption.Types.Type.None) {
+      if (Encryption != global::Livekit.Server.Sdk.Dotnet.Encryption.Types.Type.None) {
         output.WriteRawTag(128, 1);
         output.WriteEnum((int) Encryption);
       }
@@ -3798,7 +3798,7 @@ namespace LiveKit.Proto {
       if (Sid.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Sid);
       }
-      if (Type != global::LiveKit.Proto.TrackType.Audio) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.TrackType.Audio) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
       if (Name.Length != 0) {
@@ -3819,7 +3819,7 @@ namespace LiveKit.Proto {
       if (DisableDtx != false) {
         size += 1 + 1;
       }
-      if (Source != global::LiveKit.Proto.TrackSource.Unknown) {
+      if (Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Source);
       }
       size += layers_.CalculateSize(_repeated_layers_codec);
@@ -3836,7 +3836,7 @@ namespace LiveKit.Proto {
       if (DisableRed != false) {
         size += 1 + 1;
       }
-      if (Encryption != global::LiveKit.Proto.Encryption.Types.Type.None) {
+      if (Encryption != global::Livekit.Server.Sdk.Dotnet.Encryption.Types.Type.None) {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) Encryption);
       }
       if (Stream.Length != 0) {
@@ -3861,7 +3861,7 @@ namespace LiveKit.Proto {
       if (other.Sid.Length != 0) {
         Sid = other.Sid;
       }
-      if (other.Type != global::LiveKit.Proto.TrackType.Audio) {
+      if (other.Type != global::Livekit.Server.Sdk.Dotnet.TrackType.Audio) {
         Type = other.Type;
       }
       if (other.Name.Length != 0) {
@@ -3882,7 +3882,7 @@ namespace LiveKit.Proto {
       if (other.DisableDtx != false) {
         DisableDtx = other.DisableDtx;
       }
-      if (other.Source != global::LiveKit.Proto.TrackSource.Unknown) {
+      if (other.Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) {
         Source = other.Source;
       }
       layers_.Add(other.layers_);
@@ -3899,7 +3899,7 @@ namespace LiveKit.Proto {
       if (other.DisableRed != false) {
         DisableRed = other.DisableRed;
       }
-      if (other.Encryption != global::LiveKit.Proto.Encryption.Types.Type.None) {
+      if (other.Encryption != global::Livekit.Server.Sdk.Dotnet.Encryption.Types.Type.None) {
         Encryption = other.Encryption;
       }
       if (other.Stream.Length != 0) {
@@ -3907,7 +3907,7 @@ namespace LiveKit.Proto {
       }
       if (other.version_ != null) {
         if (version_ == null) {
-          Version = new global::LiveKit.Proto.TimedVersion();
+          Version = new global::Livekit.Server.Sdk.Dotnet.TimedVersion();
         }
         Version.MergeFrom(other.Version);
       }
@@ -3936,7 +3936,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 16: {
-            Type = (global::LiveKit.Proto.TrackType) input.ReadEnum();
+            Type = (global::Livekit.Server.Sdk.Dotnet.TrackType) input.ReadEnum();
             break;
           }
           case 26: {
@@ -3964,7 +3964,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 72: {
-            Source = (global::LiveKit.Proto.TrackSource) input.ReadEnum();
+            Source = (global::Livekit.Server.Sdk.Dotnet.TrackSource) input.ReadEnum();
             break;
           }
           case 82: {
@@ -3992,7 +3992,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 128: {
-            Encryption = (global::LiveKit.Proto.Encryption.Types.Type) input.ReadEnum();
+            Encryption = (global::Livekit.Server.Sdk.Dotnet.Encryption.Types.Type) input.ReadEnum();
             break;
           }
           case 138: {
@@ -4001,7 +4001,7 @@ namespace LiveKit.Proto {
           }
           case 146: {
             if (version_ == null) {
-              Version = new global::LiveKit.Proto.TimedVersion();
+              Version = new global::Livekit.Server.Sdk.Dotnet.TimedVersion();
             }
             input.ReadMessage(Version);
             break;
@@ -4035,7 +4035,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 16: {
-            Type = (global::LiveKit.Proto.TrackType) input.ReadEnum();
+            Type = (global::Livekit.Server.Sdk.Dotnet.TrackType) input.ReadEnum();
             break;
           }
           case 26: {
@@ -4063,7 +4063,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 72: {
-            Source = (global::LiveKit.Proto.TrackSource) input.ReadEnum();
+            Source = (global::Livekit.Server.Sdk.Dotnet.TrackSource) input.ReadEnum();
             break;
           }
           case 82: {
@@ -4091,7 +4091,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 128: {
-            Encryption = (global::LiveKit.Proto.Encryption.Types.Type) input.ReadEnum();
+            Encryption = (global::Livekit.Server.Sdk.Dotnet.Encryption.Types.Type) input.ReadEnum();
             break;
           }
           case 138: {
@@ -4100,7 +4100,7 @@ namespace LiveKit.Proto {
           }
           case 146: {
             if (version_ == null) {
-              Version = new global::LiveKit.Proto.TimedVersion();
+              Version = new global::Livekit.Server.Sdk.Dotnet.TimedVersion();
             }
             input.ReadMessage(Version);
             break;
@@ -4135,7 +4135,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4171,13 +4171,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "quality" field.</summary>
     public const int QualityFieldNumber = 1;
-    private global::LiveKit.Proto.VideoQuality quality_ = global::LiveKit.Proto.VideoQuality.Low;
+    private global::Livekit.Server.Sdk.Dotnet.VideoQuality quality_ = global::Livekit.Server.Sdk.Dotnet.VideoQuality.Low;
     /// <summary>
     /// for tracks with a single layer, this should be HIGH
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.VideoQuality Quality {
+    public global::Livekit.Server.Sdk.Dotnet.VideoQuality Quality {
       get { return quality_; }
       set {
         quality_ = value;
@@ -4262,7 +4262,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Quality != global::LiveKit.Proto.VideoQuality.Low) hash ^= Quality.GetHashCode();
+      if (Quality != global::Livekit.Server.Sdk.Dotnet.VideoQuality.Low) hash ^= Quality.GetHashCode();
       if (Width != 0) hash ^= Width.GetHashCode();
       if (Height != 0) hash ^= Height.GetHashCode();
       if (Bitrate != 0) hash ^= Bitrate.GetHashCode();
@@ -4285,7 +4285,7 @@ namespace LiveKit.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Quality != global::LiveKit.Proto.VideoQuality.Low) {
+      if (Quality != global::Livekit.Server.Sdk.Dotnet.VideoQuality.Low) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Quality);
       }
@@ -4315,7 +4315,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Quality != global::LiveKit.Proto.VideoQuality.Low) {
+      if (Quality != global::Livekit.Server.Sdk.Dotnet.VideoQuality.Low) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Quality);
       }
@@ -4345,7 +4345,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Quality != global::LiveKit.Proto.VideoQuality.Low) {
+      if (Quality != global::Livekit.Server.Sdk.Dotnet.VideoQuality.Low) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Quality);
       }
       if (Width != 0) {
@@ -4372,7 +4372,7 @@ namespace LiveKit.Proto {
       if (other == null) {
         return;
       }
-      if (other.Quality != global::LiveKit.Proto.VideoQuality.Low) {
+      if (other.Quality != global::Livekit.Server.Sdk.Dotnet.VideoQuality.Low) {
         Quality = other.Quality;
       }
       if (other.Width != 0) {
@@ -4407,7 +4407,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Quality = (global::LiveKit.Proto.VideoQuality) input.ReadEnum();
+            Quality = (global::Livekit.Server.Sdk.Dotnet.VideoQuality) input.ReadEnum();
             break;
           }
           case 16: {
@@ -4446,7 +4446,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Quality = (global::LiveKit.Proto.VideoQuality) input.ReadEnum();
+            Quality = (global::Livekit.Server.Sdk.Dotnet.VideoQuality) input.ReadEnum();
             break;
           }
           case 16: {
@@ -4490,7 +4490,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4554,11 +4554,11 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "kind" field.</summary>
     public const int KindFieldNumber = 1;
-    private global::LiveKit.Proto.DataPacket.Types.Kind kind_ = global::LiveKit.Proto.DataPacket.Types.Kind.Reliable;
+    private global::Livekit.Server.Sdk.Dotnet.DataPacket.Types.Kind kind_ = global::Livekit.Server.Sdk.Dotnet.DataPacket.Types.Kind.Reliable;
     [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.DataPacket.Types.Kind Kind {
+    public global::Livekit.Server.Sdk.Dotnet.DataPacket.Types.Kind Kind {
       get { return kind_; }
       set {
         kind_ = value;
@@ -4598,8 +4598,8 @@ namespace LiveKit.Proto {
     public const int UserFieldNumber = 2;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.UserPacket User {
-      get { return valueCase_ == ValueOneofCase.User ? (global::LiveKit.Proto.UserPacket) value_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.UserPacket User {
+      get { return valueCase_ == ValueOneofCase.User ? (global::Livekit.Server.Sdk.Dotnet.UserPacket) value_ : null; }
       set {
         value_ = value;
         valueCase_ = value == null ? ValueOneofCase.None : ValueOneofCase.User;
@@ -4611,8 +4611,8 @@ namespace LiveKit.Proto {
     [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ActiveSpeakerUpdate Speaker {
-      get { return valueCase_ == ValueOneofCase.Speaker ? (global::LiveKit.Proto.ActiveSpeakerUpdate) value_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.ActiveSpeakerUpdate Speaker {
+      get { return valueCase_ == ValueOneofCase.Speaker ? (global::Livekit.Server.Sdk.Dotnet.ActiveSpeakerUpdate) value_ : null; }
       set {
         value_ = value;
         valueCase_ = value == null ? ValueOneofCase.None : ValueOneofCase.Speaker;
@@ -4623,8 +4623,8 @@ namespace LiveKit.Proto {
     public const int SipDtmfFieldNumber = 6;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SipDTMF SipDtmf {
-      get { return valueCase_ == ValueOneofCase.SipDtmf ? (global::LiveKit.Proto.SipDTMF) value_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.SipDTMF SipDtmf {
+      get { return valueCase_ == ValueOneofCase.SipDtmf ? (global::Livekit.Server.Sdk.Dotnet.SipDTMF) value_ : null; }
       set {
         value_ = value;
         valueCase_ = value == null ? ValueOneofCase.None : ValueOneofCase.SipDtmf;
@@ -4635,8 +4635,8 @@ namespace LiveKit.Proto {
     public const int TranscriptionFieldNumber = 7;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.Transcription Transcription {
-      get { return valueCase_ == ValueOneofCase.Transcription ? (global::LiveKit.Proto.Transcription) value_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.Transcription Transcription {
+      get { return valueCase_ == ValueOneofCase.Transcription ? (global::Livekit.Server.Sdk.Dotnet.Transcription) value_ : null; }
       set {
         value_ = value;
         valueCase_ = value == null ? ValueOneofCase.None : ValueOneofCase.Transcription;
@@ -4647,8 +4647,8 @@ namespace LiveKit.Proto {
     public const int MetricsFieldNumber = 8;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.MetricsBatch Metrics {
-      get { return valueCase_ == ValueOneofCase.Metrics ? (global::LiveKit.Proto.MetricsBatch) value_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.MetricsBatch Metrics {
+      get { return valueCase_ == ValueOneofCase.Metrics ? (global::Livekit.Server.Sdk.Dotnet.MetricsBatch) value_ : null; }
       set {
         value_ = value;
         valueCase_ = value == null ? ValueOneofCase.None : ValueOneofCase.Metrics;
@@ -4659,8 +4659,8 @@ namespace LiveKit.Proto {
     public const int ChatMessageFieldNumber = 9;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ChatMessage ChatMessage {
-      get { return valueCase_ == ValueOneofCase.ChatMessage ? (global::LiveKit.Proto.ChatMessage) value_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.ChatMessage ChatMessage {
+      get { return valueCase_ == ValueOneofCase.ChatMessage ? (global::Livekit.Server.Sdk.Dotnet.ChatMessage) value_ : null; }
       set {
         value_ = value;
         valueCase_ = value == null ? ValueOneofCase.None : ValueOneofCase.ChatMessage;
@@ -4671,8 +4671,8 @@ namespace LiveKit.Proto {
     public const int RpcRequestFieldNumber = 10;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.RpcRequest RpcRequest {
-      get { return valueCase_ == ValueOneofCase.RpcRequest ? (global::LiveKit.Proto.RpcRequest) value_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.RpcRequest RpcRequest {
+      get { return valueCase_ == ValueOneofCase.RpcRequest ? (global::Livekit.Server.Sdk.Dotnet.RpcRequest) value_ : null; }
       set {
         value_ = value;
         valueCase_ = value == null ? ValueOneofCase.None : ValueOneofCase.RpcRequest;
@@ -4683,8 +4683,8 @@ namespace LiveKit.Proto {
     public const int RpcAckFieldNumber = 11;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.RpcAck RpcAck {
-      get { return valueCase_ == ValueOneofCase.RpcAck ? (global::LiveKit.Proto.RpcAck) value_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.RpcAck RpcAck {
+      get { return valueCase_ == ValueOneofCase.RpcAck ? (global::Livekit.Server.Sdk.Dotnet.RpcAck) value_ : null; }
       set {
         value_ = value;
         valueCase_ = value == null ? ValueOneofCase.None : ValueOneofCase.RpcAck;
@@ -4695,8 +4695,8 @@ namespace LiveKit.Proto {
     public const int RpcResponseFieldNumber = 12;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.RpcResponse RpcResponse {
-      get { return valueCase_ == ValueOneofCase.RpcResponse ? (global::LiveKit.Proto.RpcResponse) value_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.RpcResponse RpcResponse {
+      get { return valueCase_ == ValueOneofCase.RpcResponse ? (global::Livekit.Server.Sdk.Dotnet.RpcResponse) value_ : null; }
       set {
         value_ = value;
         valueCase_ = value == null ? ValueOneofCase.None : ValueOneofCase.RpcResponse;
@@ -4766,7 +4766,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Kind != global::LiveKit.Proto.DataPacket.Types.Kind.Reliable) hash ^= Kind.GetHashCode();
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.DataPacket.Types.Kind.Reliable) hash ^= Kind.GetHashCode();
       if (ParticipantIdentity.Length != 0) hash ^= ParticipantIdentity.GetHashCode();
       hash ^= destinationIdentities_.GetHashCode();
       if (valueCase_ == ValueOneofCase.User) hash ^= User.GetHashCode();
@@ -4797,7 +4797,7 @@ namespace LiveKit.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Kind != global::LiveKit.Proto.DataPacket.Types.Kind.Reliable) {
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.DataPacket.Types.Kind.Reliable) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Kind);
       }
@@ -4852,7 +4852,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Kind != global::LiveKit.Proto.DataPacket.Types.Kind.Reliable) {
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.DataPacket.Types.Kind.Reliable) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Kind);
       }
@@ -4907,7 +4907,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Kind != global::LiveKit.Proto.DataPacket.Types.Kind.Reliable) {
+      if (Kind != global::Livekit.Server.Sdk.Dotnet.DataPacket.Types.Kind.Reliable) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Kind);
       }
       if (ParticipantIdentity.Length != 0) {
@@ -4953,7 +4953,7 @@ namespace LiveKit.Proto {
       if (other == null) {
         return;
       }
-      if (other.Kind != global::LiveKit.Proto.DataPacket.Types.Kind.Reliable) {
+      if (other.Kind != global::Livekit.Server.Sdk.Dotnet.DataPacket.Types.Kind.Reliable) {
         Kind = other.Kind;
       }
       if (other.ParticipantIdentity.Length != 0) {
@@ -4963,55 +4963,55 @@ namespace LiveKit.Proto {
       switch (other.ValueCase) {
         case ValueOneofCase.User:
           if (User == null) {
-            User = new global::LiveKit.Proto.UserPacket();
+            User = new global::Livekit.Server.Sdk.Dotnet.UserPacket();
           }
           User.MergeFrom(other.User);
           break;
         case ValueOneofCase.Speaker:
           if (Speaker == null) {
-            Speaker = new global::LiveKit.Proto.ActiveSpeakerUpdate();
+            Speaker = new global::Livekit.Server.Sdk.Dotnet.ActiveSpeakerUpdate();
           }
           Speaker.MergeFrom(other.Speaker);
           break;
         case ValueOneofCase.SipDtmf:
           if (SipDtmf == null) {
-            SipDtmf = new global::LiveKit.Proto.SipDTMF();
+            SipDtmf = new global::Livekit.Server.Sdk.Dotnet.SipDTMF();
           }
           SipDtmf.MergeFrom(other.SipDtmf);
           break;
         case ValueOneofCase.Transcription:
           if (Transcription == null) {
-            Transcription = new global::LiveKit.Proto.Transcription();
+            Transcription = new global::Livekit.Server.Sdk.Dotnet.Transcription();
           }
           Transcription.MergeFrom(other.Transcription);
           break;
         case ValueOneofCase.Metrics:
           if (Metrics == null) {
-            Metrics = new global::LiveKit.Proto.MetricsBatch();
+            Metrics = new global::Livekit.Server.Sdk.Dotnet.MetricsBatch();
           }
           Metrics.MergeFrom(other.Metrics);
           break;
         case ValueOneofCase.ChatMessage:
           if (ChatMessage == null) {
-            ChatMessage = new global::LiveKit.Proto.ChatMessage();
+            ChatMessage = new global::Livekit.Server.Sdk.Dotnet.ChatMessage();
           }
           ChatMessage.MergeFrom(other.ChatMessage);
           break;
         case ValueOneofCase.RpcRequest:
           if (RpcRequest == null) {
-            RpcRequest = new global::LiveKit.Proto.RpcRequest();
+            RpcRequest = new global::Livekit.Server.Sdk.Dotnet.RpcRequest();
           }
           RpcRequest.MergeFrom(other.RpcRequest);
           break;
         case ValueOneofCase.RpcAck:
           if (RpcAck == null) {
-            RpcAck = new global::LiveKit.Proto.RpcAck();
+            RpcAck = new global::Livekit.Server.Sdk.Dotnet.RpcAck();
           }
           RpcAck.MergeFrom(other.RpcAck);
           break;
         case ValueOneofCase.RpcResponse:
           if (RpcResponse == null) {
-            RpcResponse = new global::LiveKit.Proto.RpcResponse();
+            RpcResponse = new global::Livekit.Server.Sdk.Dotnet.RpcResponse();
           }
           RpcResponse.MergeFrom(other.RpcResponse);
           break;
@@ -5037,11 +5037,11 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Kind = (global::LiveKit.Proto.DataPacket.Types.Kind) input.ReadEnum();
+            Kind = (global::Livekit.Server.Sdk.Dotnet.DataPacket.Types.Kind) input.ReadEnum();
             break;
           }
           case 18: {
-            global::LiveKit.Proto.UserPacket subBuilder = new global::LiveKit.Proto.UserPacket();
+            global::Livekit.Server.Sdk.Dotnet.UserPacket subBuilder = new global::Livekit.Server.Sdk.Dotnet.UserPacket();
             if (valueCase_ == ValueOneofCase.User) {
               subBuilder.MergeFrom(User);
             }
@@ -5050,7 +5050,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 26: {
-            global::LiveKit.Proto.ActiveSpeakerUpdate subBuilder = new global::LiveKit.Proto.ActiveSpeakerUpdate();
+            global::Livekit.Server.Sdk.Dotnet.ActiveSpeakerUpdate subBuilder = new global::Livekit.Server.Sdk.Dotnet.ActiveSpeakerUpdate();
             if (valueCase_ == ValueOneofCase.Speaker) {
               subBuilder.MergeFrom(Speaker);
             }
@@ -5067,7 +5067,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 50: {
-            global::LiveKit.Proto.SipDTMF subBuilder = new global::LiveKit.Proto.SipDTMF();
+            global::Livekit.Server.Sdk.Dotnet.SipDTMF subBuilder = new global::Livekit.Server.Sdk.Dotnet.SipDTMF();
             if (valueCase_ == ValueOneofCase.SipDtmf) {
               subBuilder.MergeFrom(SipDtmf);
             }
@@ -5076,7 +5076,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 58: {
-            global::LiveKit.Proto.Transcription subBuilder = new global::LiveKit.Proto.Transcription();
+            global::Livekit.Server.Sdk.Dotnet.Transcription subBuilder = new global::Livekit.Server.Sdk.Dotnet.Transcription();
             if (valueCase_ == ValueOneofCase.Transcription) {
               subBuilder.MergeFrom(Transcription);
             }
@@ -5085,7 +5085,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 66: {
-            global::LiveKit.Proto.MetricsBatch subBuilder = new global::LiveKit.Proto.MetricsBatch();
+            global::Livekit.Server.Sdk.Dotnet.MetricsBatch subBuilder = new global::Livekit.Server.Sdk.Dotnet.MetricsBatch();
             if (valueCase_ == ValueOneofCase.Metrics) {
               subBuilder.MergeFrom(Metrics);
             }
@@ -5094,7 +5094,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 74: {
-            global::LiveKit.Proto.ChatMessage subBuilder = new global::LiveKit.Proto.ChatMessage();
+            global::Livekit.Server.Sdk.Dotnet.ChatMessage subBuilder = new global::Livekit.Server.Sdk.Dotnet.ChatMessage();
             if (valueCase_ == ValueOneofCase.ChatMessage) {
               subBuilder.MergeFrom(ChatMessage);
             }
@@ -5103,7 +5103,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 82: {
-            global::LiveKit.Proto.RpcRequest subBuilder = new global::LiveKit.Proto.RpcRequest();
+            global::Livekit.Server.Sdk.Dotnet.RpcRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.RpcRequest();
             if (valueCase_ == ValueOneofCase.RpcRequest) {
               subBuilder.MergeFrom(RpcRequest);
             }
@@ -5112,7 +5112,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 90: {
-            global::LiveKit.Proto.RpcAck subBuilder = new global::LiveKit.Proto.RpcAck();
+            global::Livekit.Server.Sdk.Dotnet.RpcAck subBuilder = new global::Livekit.Server.Sdk.Dotnet.RpcAck();
             if (valueCase_ == ValueOneofCase.RpcAck) {
               subBuilder.MergeFrom(RpcAck);
             }
@@ -5121,7 +5121,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 98: {
-            global::LiveKit.Proto.RpcResponse subBuilder = new global::LiveKit.Proto.RpcResponse();
+            global::Livekit.Server.Sdk.Dotnet.RpcResponse subBuilder = new global::Livekit.Server.Sdk.Dotnet.RpcResponse();
             if (valueCase_ == ValueOneofCase.RpcResponse) {
               subBuilder.MergeFrom(RpcResponse);
             }
@@ -5149,11 +5149,11 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Kind = (global::LiveKit.Proto.DataPacket.Types.Kind) input.ReadEnum();
+            Kind = (global::Livekit.Server.Sdk.Dotnet.DataPacket.Types.Kind) input.ReadEnum();
             break;
           }
           case 18: {
-            global::LiveKit.Proto.UserPacket subBuilder = new global::LiveKit.Proto.UserPacket();
+            global::Livekit.Server.Sdk.Dotnet.UserPacket subBuilder = new global::Livekit.Server.Sdk.Dotnet.UserPacket();
             if (valueCase_ == ValueOneofCase.User) {
               subBuilder.MergeFrom(User);
             }
@@ -5162,7 +5162,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 26: {
-            global::LiveKit.Proto.ActiveSpeakerUpdate subBuilder = new global::LiveKit.Proto.ActiveSpeakerUpdate();
+            global::Livekit.Server.Sdk.Dotnet.ActiveSpeakerUpdate subBuilder = new global::Livekit.Server.Sdk.Dotnet.ActiveSpeakerUpdate();
             if (valueCase_ == ValueOneofCase.Speaker) {
               subBuilder.MergeFrom(Speaker);
             }
@@ -5179,7 +5179,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 50: {
-            global::LiveKit.Proto.SipDTMF subBuilder = new global::LiveKit.Proto.SipDTMF();
+            global::Livekit.Server.Sdk.Dotnet.SipDTMF subBuilder = new global::Livekit.Server.Sdk.Dotnet.SipDTMF();
             if (valueCase_ == ValueOneofCase.SipDtmf) {
               subBuilder.MergeFrom(SipDtmf);
             }
@@ -5188,7 +5188,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 58: {
-            global::LiveKit.Proto.Transcription subBuilder = new global::LiveKit.Proto.Transcription();
+            global::Livekit.Server.Sdk.Dotnet.Transcription subBuilder = new global::Livekit.Server.Sdk.Dotnet.Transcription();
             if (valueCase_ == ValueOneofCase.Transcription) {
               subBuilder.MergeFrom(Transcription);
             }
@@ -5197,7 +5197,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 66: {
-            global::LiveKit.Proto.MetricsBatch subBuilder = new global::LiveKit.Proto.MetricsBatch();
+            global::Livekit.Server.Sdk.Dotnet.MetricsBatch subBuilder = new global::Livekit.Server.Sdk.Dotnet.MetricsBatch();
             if (valueCase_ == ValueOneofCase.Metrics) {
               subBuilder.MergeFrom(Metrics);
             }
@@ -5206,7 +5206,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 74: {
-            global::LiveKit.Proto.ChatMessage subBuilder = new global::LiveKit.Proto.ChatMessage();
+            global::Livekit.Server.Sdk.Dotnet.ChatMessage subBuilder = new global::Livekit.Server.Sdk.Dotnet.ChatMessage();
             if (valueCase_ == ValueOneofCase.ChatMessage) {
               subBuilder.MergeFrom(ChatMessage);
             }
@@ -5215,7 +5215,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 82: {
-            global::LiveKit.Proto.RpcRequest subBuilder = new global::LiveKit.Proto.RpcRequest();
+            global::Livekit.Server.Sdk.Dotnet.RpcRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.RpcRequest();
             if (valueCase_ == ValueOneofCase.RpcRequest) {
               subBuilder.MergeFrom(RpcRequest);
             }
@@ -5224,7 +5224,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 90: {
-            global::LiveKit.Proto.RpcAck subBuilder = new global::LiveKit.Proto.RpcAck();
+            global::Livekit.Server.Sdk.Dotnet.RpcAck subBuilder = new global::Livekit.Server.Sdk.Dotnet.RpcAck();
             if (valueCase_ == ValueOneofCase.RpcAck) {
               subBuilder.MergeFrom(RpcAck);
             }
@@ -5233,7 +5233,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 98: {
-            global::LiveKit.Proto.RpcResponse subBuilder = new global::LiveKit.Proto.RpcResponse();
+            global::Livekit.Server.Sdk.Dotnet.RpcResponse subBuilder = new global::Livekit.Server.Sdk.Dotnet.RpcResponse();
             if (valueCase_ == ValueOneofCase.RpcResponse) {
               subBuilder.MergeFrom(RpcResponse);
             }
@@ -5276,7 +5276,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5308,12 +5308,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "speakers" field.</summary>
     public const int SpeakersFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.SpeakerInfo> _repeated_speakers_codec
-        = pb::FieldCodec.ForMessage(10, global::LiveKit.Proto.SpeakerInfo.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.SpeakerInfo> speakers_ = new pbc::RepeatedField<global::LiveKit.Proto.SpeakerInfo>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.SpeakerInfo> _repeated_speakers_codec
+        = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.SpeakerInfo.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SpeakerInfo> speakers_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SpeakerInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.SpeakerInfo> Speakers {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.SpeakerInfo> Speakers {
       get { return speakers_; }
     }
 
@@ -5463,7 +5463,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5742,7 +5742,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6298,7 +6298,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6533,7 +6533,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6594,12 +6594,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "segments" field.</summary>
     public const int SegmentsFieldNumber = 4;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.TranscriptionSegment> _repeated_segments_codec
-        = pb::FieldCodec.ForMessage(34, global::LiveKit.Proto.TranscriptionSegment.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.TranscriptionSegment> segments_ = new pbc::RepeatedField<global::LiveKit.Proto.TranscriptionSegment>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.TranscriptionSegment> _repeated_segments_codec
+        = pb::FieldCodec.ForMessage(34, global::Livekit.Server.Sdk.Dotnet.TranscriptionSegment.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TranscriptionSegment> segments_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TranscriptionSegment>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.TranscriptionSegment> Segments {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TranscriptionSegment> Segments {
       get { return segments_; }
     }
 
@@ -6797,7 +6797,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7181,7 +7181,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7592,7 +7592,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7938,7 +7938,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8136,7 +8136,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[19]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8217,8 +8217,8 @@ namespace LiveKit.Proto {
     public const int ErrorFieldNumber = 3;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.RpcError Error {
-      get { return valueCase_ == ValueOneofCase.Error ? (global::LiveKit.Proto.RpcError) value_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.RpcError Error {
+      get { return valueCase_ == ValueOneofCase.Error ? (global::Livekit.Server.Sdk.Dotnet.RpcError) value_ : null; }
       set {
         value_ = value;
         valueCase_ = value == null ? ValueOneofCase.None : ValueOneofCase.Error;
@@ -8368,7 +8368,7 @@ namespace LiveKit.Proto {
           break;
         case ValueOneofCase.Error:
           if (Error == null) {
-            Error = new global::LiveKit.Proto.RpcError();
+            Error = new global::Livekit.Server.Sdk.Dotnet.RpcError();
           }
           Error.MergeFrom(other.Error);
           break;
@@ -8402,7 +8402,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 26: {
-            global::LiveKit.Proto.RpcError subBuilder = new global::LiveKit.Proto.RpcError();
+            global::Livekit.Server.Sdk.Dotnet.RpcError subBuilder = new global::Livekit.Server.Sdk.Dotnet.RpcError();
             if (valueCase_ == ValueOneofCase.Error) {
               subBuilder.MergeFrom(Error);
             }
@@ -8438,7 +8438,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 26: {
-            global::LiveKit.Proto.RpcError subBuilder = new global::LiveKit.Proto.RpcError();
+            global::Livekit.Server.Sdk.Dotnet.RpcError subBuilder = new global::Livekit.Server.Sdk.Dotnet.RpcError();
             if (valueCase_ == ValueOneofCase.Error) {
               subBuilder.MergeFrom(Error);
             }
@@ -8468,7 +8468,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[20]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8740,7 +8740,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[21]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8970,7 +8970,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[22]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9008,10 +9008,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "edition" field.</summary>
     public const int EditionFieldNumber = 1;
-    private global::LiveKit.Proto.ServerInfo.Types.Edition edition_ = global::LiveKit.Proto.ServerInfo.Types.Edition.Standard;
+    private global::Livekit.Server.Sdk.Dotnet.ServerInfo.Types.Edition edition_ = global::Livekit.Server.Sdk.Dotnet.ServerInfo.Types.Edition.Standard;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ServerInfo.Types.Edition Edition {
+    public global::Livekit.Server.Sdk.Dotnet.ServerInfo.Types.Edition Edition {
       get { return edition_; }
       set {
         edition_ = value;
@@ -9122,7 +9122,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Edition != global::LiveKit.Proto.ServerInfo.Types.Edition.Standard) hash ^= Edition.GetHashCode();
+      if (Edition != global::Livekit.Server.Sdk.Dotnet.ServerInfo.Types.Edition.Standard) hash ^= Edition.GetHashCode();
       if (Version.Length != 0) hash ^= Version.GetHashCode();
       if (Protocol != 0) hash ^= Protocol.GetHashCode();
       if (Region.Length != 0) hash ^= Region.GetHashCode();
@@ -9147,7 +9147,7 @@ namespace LiveKit.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Edition != global::LiveKit.Proto.ServerInfo.Types.Edition.Standard) {
+      if (Edition != global::Livekit.Server.Sdk.Dotnet.ServerInfo.Types.Edition.Standard) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Edition);
       }
@@ -9185,7 +9185,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Edition != global::LiveKit.Proto.ServerInfo.Types.Edition.Standard) {
+      if (Edition != global::Livekit.Server.Sdk.Dotnet.ServerInfo.Types.Edition.Standard) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Edition);
       }
@@ -9223,7 +9223,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Edition != global::LiveKit.Proto.ServerInfo.Types.Edition.Standard) {
+      if (Edition != global::Livekit.Server.Sdk.Dotnet.ServerInfo.Types.Edition.Standard) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Edition);
       }
       if (Version.Length != 0) {
@@ -9256,7 +9256,7 @@ namespace LiveKit.Proto {
       if (other == null) {
         return;
       }
-      if (other.Edition != global::LiveKit.Proto.ServerInfo.Types.Edition.Standard) {
+      if (other.Edition != global::Livekit.Server.Sdk.Dotnet.ServerInfo.Types.Edition.Standard) {
         Edition = other.Edition;
       }
       if (other.Version.Length != 0) {
@@ -9297,7 +9297,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Edition = (global::LiveKit.Proto.ServerInfo.Types.Edition) input.ReadEnum();
+            Edition = (global::Livekit.Server.Sdk.Dotnet.ServerInfo.Types.Edition) input.ReadEnum();
             break;
           }
           case 18: {
@@ -9344,7 +9344,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Edition = (global::LiveKit.Proto.ServerInfo.Types.Edition) input.ReadEnum();
+            Edition = (global::Livekit.Server.Sdk.Dotnet.ServerInfo.Types.Edition) input.ReadEnum();
             break;
           }
           case 18: {
@@ -9409,7 +9409,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[23]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9451,10 +9451,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "sdk" field.</summary>
     public const int SdkFieldNumber = 1;
-    private global::LiveKit.Proto.ClientInfo.Types.SDK sdk_ = global::LiveKit.Proto.ClientInfo.Types.SDK.Unknown;
+    private global::Livekit.Server.Sdk.Dotnet.ClientInfo.Types.SDK sdk_ = global::Livekit.Server.Sdk.Dotnet.ClientInfo.Types.SDK.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ClientInfo.Types.SDK Sdk {
+    public global::Livekit.Server.Sdk.Dotnet.ClientInfo.Types.SDK Sdk {
       get { return sdk_; }
       set {
         sdk_ = value;
@@ -9621,7 +9621,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Sdk != global::LiveKit.Proto.ClientInfo.Types.SDK.Unknown) hash ^= Sdk.GetHashCode();
+      if (Sdk != global::Livekit.Server.Sdk.Dotnet.ClientInfo.Types.SDK.Unknown) hash ^= Sdk.GetHashCode();
       if (Version.Length != 0) hash ^= Version.GetHashCode();
       if (Protocol != 0) hash ^= Protocol.GetHashCode();
       if (Os.Length != 0) hash ^= Os.GetHashCode();
@@ -9650,7 +9650,7 @@ namespace LiveKit.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Sdk != global::LiveKit.Proto.ClientInfo.Types.SDK.Unknown) {
+      if (Sdk != global::Livekit.Server.Sdk.Dotnet.ClientInfo.Types.SDK.Unknown) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Sdk);
       }
@@ -9704,7 +9704,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Sdk != global::LiveKit.Proto.ClientInfo.Types.SDK.Unknown) {
+      if (Sdk != global::Livekit.Server.Sdk.Dotnet.ClientInfo.Types.SDK.Unknown) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Sdk);
       }
@@ -9758,7 +9758,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Sdk != global::LiveKit.Proto.ClientInfo.Types.SDK.Unknown) {
+      if (Sdk != global::Livekit.Server.Sdk.Dotnet.ClientInfo.Types.SDK.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Sdk);
       }
       if (Version.Length != 0) {
@@ -9803,7 +9803,7 @@ namespace LiveKit.Proto {
       if (other == null) {
         return;
       }
-      if (other.Sdk != global::LiveKit.Proto.ClientInfo.Types.SDK.Unknown) {
+      if (other.Sdk != global::Livekit.Server.Sdk.Dotnet.ClientInfo.Types.SDK.Unknown) {
         Sdk = other.Sdk;
       }
       if (other.Version.Length != 0) {
@@ -9856,7 +9856,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Sdk = (global::LiveKit.Proto.ClientInfo.Types.SDK) input.ReadEnum();
+            Sdk = (global::Livekit.Server.Sdk.Dotnet.ClientInfo.Types.SDK) input.ReadEnum();
             break;
           }
           case 18: {
@@ -9919,7 +9919,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Sdk = (global::LiveKit.Proto.ClientInfo.Types.SDK) input.ReadEnum();
+            Sdk = (global::Livekit.Server.Sdk.Dotnet.ClientInfo.Types.SDK) input.ReadEnum();
             break;
           }
           case 18: {
@@ -10011,7 +10011,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[24]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10047,10 +10047,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "video" field.</summary>
     public const int VideoFieldNumber = 1;
-    private global::LiveKit.Proto.VideoConfiguration video_;
+    private global::Livekit.Server.Sdk.Dotnet.VideoConfiguration video_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.VideoConfiguration Video {
+    public global::Livekit.Server.Sdk.Dotnet.VideoConfiguration Video {
       get { return video_; }
       set {
         video_ = value;
@@ -10059,10 +10059,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "screen" field.</summary>
     public const int ScreenFieldNumber = 2;
-    private global::LiveKit.Proto.VideoConfiguration screen_;
+    private global::Livekit.Server.Sdk.Dotnet.VideoConfiguration screen_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.VideoConfiguration Screen {
+    public global::Livekit.Server.Sdk.Dotnet.VideoConfiguration Screen {
       get { return screen_; }
       set {
         screen_ = value;
@@ -10071,10 +10071,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "resume_connection" field.</summary>
     public const int ResumeConnectionFieldNumber = 3;
-    private global::LiveKit.Proto.ClientConfigSetting resumeConnection_ = global::LiveKit.Proto.ClientConfigSetting.Unset;
+    private global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting resumeConnection_ = global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ClientConfigSetting ResumeConnection {
+    public global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting ResumeConnection {
       get { return resumeConnection_; }
       set {
         resumeConnection_ = value;
@@ -10083,10 +10083,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "disabled_codecs" field.</summary>
     public const int DisabledCodecsFieldNumber = 4;
-    private global::LiveKit.Proto.DisabledCodecs disabledCodecs_;
+    private global::Livekit.Server.Sdk.Dotnet.DisabledCodecs disabledCodecs_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.DisabledCodecs DisabledCodecs {
+    public global::Livekit.Server.Sdk.Dotnet.DisabledCodecs DisabledCodecs {
       get { return disabledCodecs_; }
       set {
         disabledCodecs_ = value;
@@ -10095,10 +10095,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "force_relay" field.</summary>
     public const int ForceRelayFieldNumber = 5;
-    private global::LiveKit.Proto.ClientConfigSetting forceRelay_ = global::LiveKit.Proto.ClientConfigSetting.Unset;
+    private global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting forceRelay_ = global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ClientConfigSetting ForceRelay {
+    public global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting ForceRelay {
       get { return forceRelay_; }
       set {
         forceRelay_ = value;
@@ -10134,9 +10134,9 @@ namespace LiveKit.Proto {
       int hash = 1;
       if (video_ != null) hash ^= Video.GetHashCode();
       if (screen_ != null) hash ^= Screen.GetHashCode();
-      if (ResumeConnection != global::LiveKit.Proto.ClientConfigSetting.Unset) hash ^= ResumeConnection.GetHashCode();
+      if (ResumeConnection != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) hash ^= ResumeConnection.GetHashCode();
       if (disabledCodecs_ != null) hash ^= DisabledCodecs.GetHashCode();
-      if (ForceRelay != global::LiveKit.Proto.ClientConfigSetting.Unset) hash ^= ForceRelay.GetHashCode();
+      if (ForceRelay != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) hash ^= ForceRelay.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -10163,7 +10163,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(18);
         output.WriteMessage(Screen);
       }
-      if (ResumeConnection != global::LiveKit.Proto.ClientConfigSetting.Unset) {
+      if (ResumeConnection != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) {
         output.WriteRawTag(24);
         output.WriteEnum((int) ResumeConnection);
       }
@@ -10171,7 +10171,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteMessage(DisabledCodecs);
       }
-      if (ForceRelay != global::LiveKit.Proto.ClientConfigSetting.Unset) {
+      if (ForceRelay != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) {
         output.WriteRawTag(40);
         output.WriteEnum((int) ForceRelay);
       }
@@ -10193,7 +10193,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(18);
         output.WriteMessage(Screen);
       }
-      if (ResumeConnection != global::LiveKit.Proto.ClientConfigSetting.Unset) {
+      if (ResumeConnection != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) {
         output.WriteRawTag(24);
         output.WriteEnum((int) ResumeConnection);
       }
@@ -10201,7 +10201,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteMessage(DisabledCodecs);
       }
-      if (ForceRelay != global::LiveKit.Proto.ClientConfigSetting.Unset) {
+      if (ForceRelay != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) {
         output.WriteRawTag(40);
         output.WriteEnum((int) ForceRelay);
       }
@@ -10221,13 +10221,13 @@ namespace LiveKit.Proto {
       if (screen_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Screen);
       }
-      if (ResumeConnection != global::LiveKit.Proto.ClientConfigSetting.Unset) {
+      if (ResumeConnection != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ResumeConnection);
       }
       if (disabledCodecs_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(DisabledCodecs);
       }
-      if (ForceRelay != global::LiveKit.Proto.ClientConfigSetting.Unset) {
+      if (ForceRelay != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ForceRelay);
       }
       if (_unknownFields != null) {
@@ -10244,26 +10244,26 @@ namespace LiveKit.Proto {
       }
       if (other.video_ != null) {
         if (video_ == null) {
-          Video = new global::LiveKit.Proto.VideoConfiguration();
+          Video = new global::Livekit.Server.Sdk.Dotnet.VideoConfiguration();
         }
         Video.MergeFrom(other.Video);
       }
       if (other.screen_ != null) {
         if (screen_ == null) {
-          Screen = new global::LiveKit.Proto.VideoConfiguration();
+          Screen = new global::Livekit.Server.Sdk.Dotnet.VideoConfiguration();
         }
         Screen.MergeFrom(other.Screen);
       }
-      if (other.ResumeConnection != global::LiveKit.Proto.ClientConfigSetting.Unset) {
+      if (other.ResumeConnection != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) {
         ResumeConnection = other.ResumeConnection;
       }
       if (other.disabledCodecs_ != null) {
         if (disabledCodecs_ == null) {
-          DisabledCodecs = new global::LiveKit.Proto.DisabledCodecs();
+          DisabledCodecs = new global::Livekit.Server.Sdk.Dotnet.DisabledCodecs();
         }
         DisabledCodecs.MergeFrom(other.DisabledCodecs);
       }
-      if (other.ForceRelay != global::LiveKit.Proto.ClientConfigSetting.Unset) {
+      if (other.ForceRelay != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) {
         ForceRelay = other.ForceRelay;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -10287,31 +10287,31 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (video_ == null) {
-              Video = new global::LiveKit.Proto.VideoConfiguration();
+              Video = new global::Livekit.Server.Sdk.Dotnet.VideoConfiguration();
             }
             input.ReadMessage(Video);
             break;
           }
           case 18: {
             if (screen_ == null) {
-              Screen = new global::LiveKit.Proto.VideoConfiguration();
+              Screen = new global::Livekit.Server.Sdk.Dotnet.VideoConfiguration();
             }
             input.ReadMessage(Screen);
             break;
           }
           case 24: {
-            ResumeConnection = (global::LiveKit.Proto.ClientConfigSetting) input.ReadEnum();
+            ResumeConnection = (global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting) input.ReadEnum();
             break;
           }
           case 34: {
             if (disabledCodecs_ == null) {
-              DisabledCodecs = new global::LiveKit.Proto.DisabledCodecs();
+              DisabledCodecs = new global::Livekit.Server.Sdk.Dotnet.DisabledCodecs();
             }
             input.ReadMessage(DisabledCodecs);
             break;
           }
           case 40: {
-            ForceRelay = (global::LiveKit.Proto.ClientConfigSetting) input.ReadEnum();
+            ForceRelay = (global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting) input.ReadEnum();
             break;
           }
         }
@@ -10335,31 +10335,31 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (video_ == null) {
-              Video = new global::LiveKit.Proto.VideoConfiguration();
+              Video = new global::Livekit.Server.Sdk.Dotnet.VideoConfiguration();
             }
             input.ReadMessage(Video);
             break;
           }
           case 18: {
             if (screen_ == null) {
-              Screen = new global::LiveKit.Proto.VideoConfiguration();
+              Screen = new global::Livekit.Server.Sdk.Dotnet.VideoConfiguration();
             }
             input.ReadMessage(Screen);
             break;
           }
           case 24: {
-            ResumeConnection = (global::LiveKit.Proto.ClientConfigSetting) input.ReadEnum();
+            ResumeConnection = (global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting) input.ReadEnum();
             break;
           }
           case 34: {
             if (disabledCodecs_ == null) {
-              DisabledCodecs = new global::LiveKit.Proto.DisabledCodecs();
+              DisabledCodecs = new global::Livekit.Server.Sdk.Dotnet.DisabledCodecs();
             }
             input.ReadMessage(DisabledCodecs);
             break;
           }
           case 40: {
-            ForceRelay = (global::LiveKit.Proto.ClientConfigSetting) input.ReadEnum();
+            ForceRelay = (global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting) input.ReadEnum();
             break;
           }
         }
@@ -10384,7 +10384,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[25]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10416,10 +10416,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "hardware_encoder" field.</summary>
     public const int HardwareEncoderFieldNumber = 1;
-    private global::LiveKit.Proto.ClientConfigSetting hardwareEncoder_ = global::LiveKit.Proto.ClientConfigSetting.Unset;
+    private global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting hardwareEncoder_ = global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ClientConfigSetting HardwareEncoder {
+    public global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting HardwareEncoder {
       get { return hardwareEncoder_; }
       set {
         hardwareEncoder_ = value;
@@ -10449,7 +10449,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (HardwareEncoder != global::LiveKit.Proto.ClientConfigSetting.Unset) hash ^= HardwareEncoder.GetHashCode();
+      if (HardwareEncoder != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) hash ^= HardwareEncoder.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -10468,7 +10468,7 @@ namespace LiveKit.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (HardwareEncoder != global::LiveKit.Proto.ClientConfigSetting.Unset) {
+      if (HardwareEncoder != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) {
         output.WriteRawTag(8);
         output.WriteEnum((int) HardwareEncoder);
       }
@@ -10482,7 +10482,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HardwareEncoder != global::LiveKit.Proto.ClientConfigSetting.Unset) {
+      if (HardwareEncoder != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) {
         output.WriteRawTag(8);
         output.WriteEnum((int) HardwareEncoder);
       }
@@ -10496,7 +10496,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (HardwareEncoder != global::LiveKit.Proto.ClientConfigSetting.Unset) {
+      if (HardwareEncoder != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) HardwareEncoder);
       }
       if (_unknownFields != null) {
@@ -10511,7 +10511,7 @@ namespace LiveKit.Proto {
       if (other == null) {
         return;
       }
-      if (other.HardwareEncoder != global::LiveKit.Proto.ClientConfigSetting.Unset) {
+      if (other.HardwareEncoder != global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting.Unset) {
         HardwareEncoder = other.HardwareEncoder;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -10534,7 +10534,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            HardwareEncoder = (global::LiveKit.Proto.ClientConfigSetting) input.ReadEnum();
+            HardwareEncoder = (global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting) input.ReadEnum();
             break;
           }
         }
@@ -10557,7 +10557,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            HardwareEncoder = (global::LiveKit.Proto.ClientConfigSetting) input.ReadEnum();
+            HardwareEncoder = (global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting) input.ReadEnum();
             break;
           }
         }
@@ -10582,7 +10582,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[26]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10615,29 +10615,29 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "codecs" field.</summary>
     public const int CodecsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.Codec> _repeated_codecs_codec
-        = pb::FieldCodec.ForMessage(10, global::LiveKit.Proto.Codec.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.Codec> codecs_ = new pbc::RepeatedField<global::LiveKit.Proto.Codec>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.Codec> _repeated_codecs_codec
+        = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.Codec.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.Codec> codecs_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.Codec>();
     /// <summary>
     /// disabled for both publish and subscribe
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.Codec> Codecs {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.Codec> Codecs {
       get { return codecs_; }
     }
 
     /// <summary>Field number for the "publish" field.</summary>
     public const int PublishFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.Codec> _repeated_publish_codec
-        = pb::FieldCodec.ForMessage(18, global::LiveKit.Proto.Codec.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.Codec> publish_ = new pbc::RepeatedField<global::LiveKit.Proto.Codec>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.Codec> _repeated_publish_codec
+        = pb::FieldCodec.ForMessage(18, global::Livekit.Server.Sdk.Dotnet.Codec.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.Codec> publish_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.Codec>();
     /// <summary>
     /// only disable for publish
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.Codec> Publish {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.Codec> Publish {
       get { return publish_; }
     }
 
@@ -10801,7 +10801,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[27]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[27]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11313,7 +11313,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[28]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[28]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11880,10 +11880,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "packet_drift" field.</summary>
     public const int PacketDriftFieldNumber = 44;
-    private global::LiveKit.Proto.RTPDrift packetDrift_;
+    private global::Livekit.Server.Sdk.Dotnet.RTPDrift packetDrift_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.RTPDrift PacketDrift {
+    public global::Livekit.Server.Sdk.Dotnet.RTPDrift PacketDrift {
       get { return packetDrift_; }
       set {
         packetDrift_ = value;
@@ -11892,10 +11892,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "ntp_report_drift" field.</summary>
     public const int NtpReportDriftFieldNumber = 45;
-    private global::LiveKit.Proto.RTPDrift ntpReportDrift_;
+    private global::Livekit.Server.Sdk.Dotnet.RTPDrift ntpReportDrift_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.RTPDrift NtpReportDrift {
+    public global::Livekit.Server.Sdk.Dotnet.RTPDrift NtpReportDrift {
       get { return ntpReportDrift_; }
       set {
         ntpReportDrift_ = value;
@@ -11904,10 +11904,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "rebased_report_drift" field.</summary>
     public const int RebasedReportDriftFieldNumber = 46;
-    private global::LiveKit.Proto.RTPDrift rebasedReportDrift_;
+    private global::Livekit.Server.Sdk.Dotnet.RTPDrift rebasedReportDrift_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.RTPDrift RebasedReportDrift {
+    public global::Livekit.Server.Sdk.Dotnet.RTPDrift RebasedReportDrift {
       get { return rebasedReportDrift_; }
       set {
         rebasedReportDrift_ = value;
@@ -11916,13 +11916,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "received_report_drift" field.</summary>
     public const int ReceivedReportDriftFieldNumber = 47;
-    private global::LiveKit.Proto.RTPDrift receivedReportDrift_;
+    private global::Livekit.Server.Sdk.Dotnet.RTPDrift receivedReportDrift_;
     /// <summary>
     /// NEXT_ID: 48
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.RTPDrift ReceivedReportDrift {
+    public global::Livekit.Server.Sdk.Dotnet.RTPDrift ReceivedReportDrift {
       get { return receivedReportDrift_; }
       set {
         receivedReportDrift_ = value;
@@ -12719,25 +12719,25 @@ namespace LiveKit.Proto {
       }
       if (other.packetDrift_ != null) {
         if (packetDrift_ == null) {
-          PacketDrift = new global::LiveKit.Proto.RTPDrift();
+          PacketDrift = new global::Livekit.Server.Sdk.Dotnet.RTPDrift();
         }
         PacketDrift.MergeFrom(other.PacketDrift);
       }
       if (other.ntpReportDrift_ != null) {
         if (ntpReportDrift_ == null) {
-          NtpReportDrift = new global::LiveKit.Proto.RTPDrift();
+          NtpReportDrift = new global::Livekit.Server.Sdk.Dotnet.RTPDrift();
         }
         NtpReportDrift.MergeFrom(other.NtpReportDrift);
       }
       if (other.rebasedReportDrift_ != null) {
         if (rebasedReportDrift_ == null) {
-          RebasedReportDrift = new global::LiveKit.Proto.RTPDrift();
+          RebasedReportDrift = new global::Livekit.Server.Sdk.Dotnet.RTPDrift();
         }
         RebasedReportDrift.MergeFrom(other.RebasedReportDrift);
       }
       if (other.receivedReportDrift_ != null) {
         if (receivedReportDrift_ == null) {
-          ReceivedReportDrift = new global::LiveKit.Proto.RTPDrift();
+          ReceivedReportDrift = new global::Livekit.Server.Sdk.Dotnet.RTPDrift();
         }
         ReceivedReportDrift.MergeFrom(other.ReceivedReportDrift);
       }
@@ -12944,28 +12944,28 @@ namespace LiveKit.Proto {
           }
           case 354: {
             if (packetDrift_ == null) {
-              PacketDrift = new global::LiveKit.Proto.RTPDrift();
+              PacketDrift = new global::Livekit.Server.Sdk.Dotnet.RTPDrift();
             }
             input.ReadMessage(PacketDrift);
             break;
           }
           case 362: {
             if (ntpReportDrift_ == null) {
-              NtpReportDrift = new global::LiveKit.Proto.RTPDrift();
+              NtpReportDrift = new global::Livekit.Server.Sdk.Dotnet.RTPDrift();
             }
             input.ReadMessage(NtpReportDrift);
             break;
           }
           case 370: {
             if (rebasedReportDrift_ == null) {
-              RebasedReportDrift = new global::LiveKit.Proto.RTPDrift();
+              RebasedReportDrift = new global::Livekit.Server.Sdk.Dotnet.RTPDrift();
             }
             input.ReadMessage(RebasedReportDrift);
             break;
           }
           case 378: {
             if (receivedReportDrift_ == null) {
-              ReceivedReportDrift = new global::LiveKit.Proto.RTPDrift();
+              ReceivedReportDrift = new global::Livekit.Server.Sdk.Dotnet.RTPDrift();
             }
             input.ReadMessage(ReceivedReportDrift);
             break;
@@ -13173,28 +13173,28 @@ namespace LiveKit.Proto {
           }
           case 354: {
             if (packetDrift_ == null) {
-              PacketDrift = new global::LiveKit.Proto.RTPDrift();
+              PacketDrift = new global::Livekit.Server.Sdk.Dotnet.RTPDrift();
             }
             input.ReadMessage(PacketDrift);
             break;
           }
           case 362: {
             if (ntpReportDrift_ == null) {
-              NtpReportDrift = new global::LiveKit.Proto.RTPDrift();
+              NtpReportDrift = new global::Livekit.Server.Sdk.Dotnet.RTPDrift();
             }
             input.ReadMessage(NtpReportDrift);
             break;
           }
           case 370: {
             if (rebasedReportDrift_ == null) {
-              RebasedReportDrift = new global::LiveKit.Proto.RTPDrift();
+              RebasedReportDrift = new global::Livekit.Server.Sdk.Dotnet.RTPDrift();
             }
             input.ReadMessage(RebasedReportDrift);
             break;
           }
           case 378: {
             if (receivedReportDrift_ == null) {
-              ReceivedReportDrift = new global::LiveKit.Proto.RTPDrift();
+              ReceivedReportDrift = new global::Livekit.Server.Sdk.Dotnet.RTPDrift();
             }
             input.ReadMessage(ReceivedReportDrift);
             break;
@@ -13221,7 +13221,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[29]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[29]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13644,7 +13644,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[30]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[30]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -13748,10 +13748,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "rtp_munger" field.</summary>
     public const int RtpMungerFieldNumber = 6;
-    private global::LiveKit.Proto.RTPMungerState rtpMunger_;
+    private global::Livekit.Server.Sdk.Dotnet.RTPMungerState rtpMunger_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.RTPMungerState RtpMunger {
+    public global::Livekit.Server.Sdk.Dotnet.RTPMungerState RtpMunger {
       get { return rtpMunger_; }
       set {
         rtpMunger_ = value;
@@ -13762,8 +13762,8 @@ namespace LiveKit.Proto {
     public const int Vp8MungerFieldNumber = 7;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.VP8MungerState Vp8Munger {
-      get { return codecMungerCase_ == CodecMungerOneofCase.Vp8Munger ? (global::LiveKit.Proto.VP8MungerState) codecMunger_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.VP8MungerState Vp8Munger {
+      get { return codecMungerCase_ == CodecMungerOneofCase.Vp8Munger ? (global::Livekit.Server.Sdk.Dotnet.VP8MungerState) codecMunger_ : null; }
       set {
         codecMunger_ = value;
         codecMungerCase_ = value == null ? CodecMungerOneofCase.None : CodecMungerOneofCase.Vp8Munger;
@@ -13772,12 +13772,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "sender_report_state" field.</summary>
     public const int SenderReportStateFieldNumber = 8;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.RTCPSenderReportState> _repeated_senderReportState_codec
-        = pb::FieldCodec.ForMessage(66, global::LiveKit.Proto.RTCPSenderReportState.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.RTCPSenderReportState> senderReportState_ = new pbc::RepeatedField<global::LiveKit.Proto.RTCPSenderReportState>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.RTCPSenderReportState> _repeated_senderReportState_codec
+        = pb::FieldCodec.ForMessage(66, global::Livekit.Server.Sdk.Dotnet.RTCPSenderReportState.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.RTCPSenderReportState> senderReportState_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.RTCPSenderReportState>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.RTCPSenderReportState> SenderReportState {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.RTCPSenderReportState> SenderReportState {
       get { return senderReportState_; }
     }
 
@@ -13988,7 +13988,7 @@ namespace LiveKit.Proto {
       }
       if (other.rtpMunger_ != null) {
         if (rtpMunger_ == null) {
-          RtpMunger = new global::LiveKit.Proto.RTPMungerState();
+          RtpMunger = new global::Livekit.Server.Sdk.Dotnet.RTPMungerState();
         }
         RtpMunger.MergeFrom(other.RtpMunger);
       }
@@ -13996,7 +13996,7 @@ namespace LiveKit.Proto {
       switch (other.CodecMungerCase) {
         case CodecMungerOneofCase.Vp8Munger:
           if (Vp8Munger == null) {
-            Vp8Munger = new global::LiveKit.Proto.VP8MungerState();
+            Vp8Munger = new global::Livekit.Server.Sdk.Dotnet.VP8MungerState();
           }
           Vp8Munger.MergeFrom(other.Vp8Munger);
           break;
@@ -14043,13 +14043,13 @@ namespace LiveKit.Proto {
           }
           case 50: {
             if (rtpMunger_ == null) {
-              RtpMunger = new global::LiveKit.Proto.RTPMungerState();
+              RtpMunger = new global::Livekit.Server.Sdk.Dotnet.RTPMungerState();
             }
             input.ReadMessage(RtpMunger);
             break;
           }
           case 58: {
-            global::LiveKit.Proto.VP8MungerState subBuilder = new global::LiveKit.Proto.VP8MungerState();
+            global::Livekit.Server.Sdk.Dotnet.VP8MungerState subBuilder = new global::Livekit.Server.Sdk.Dotnet.VP8MungerState();
             if (codecMungerCase_ == CodecMungerOneofCase.Vp8Munger) {
               subBuilder.MergeFrom(Vp8Munger);
             }
@@ -14102,13 +14102,13 @@ namespace LiveKit.Proto {
           }
           case 50: {
             if (rtpMunger_ == null) {
-              RtpMunger = new global::LiveKit.Proto.RTPMungerState();
+              RtpMunger = new global::Livekit.Server.Sdk.Dotnet.RTPMungerState();
             }
             input.ReadMessage(RtpMunger);
             break;
           }
           case 58: {
-            global::LiveKit.Proto.VP8MungerState subBuilder = new global::LiveKit.Proto.VP8MungerState();
+            global::Livekit.Server.Sdk.Dotnet.VP8MungerState subBuilder = new global::Livekit.Server.Sdk.Dotnet.VP8MungerState();
             if (codecMungerCase_ == CodecMungerOneofCase.Vp8Munger) {
               subBuilder.MergeFrom(Vp8Munger);
             }
@@ -14142,7 +14142,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[31]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[31]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14525,7 +14525,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[32]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[32]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14945,7 +14945,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitModelsReflection.Descriptor.MessageTypes[33]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor.MessageTypes[33]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

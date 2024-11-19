@@ -1,5 +1,4 @@
-﻿using LiveKit.Proto;
-using Livekit.Server.Sdk.Dotnet;
+﻿using Livekit.Server.Sdk.Dotnet;
 
 var builder = WebApplication.CreateBuilder(args);
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -80,6 +79,7 @@ app.MapGet(
                     CanUpdateOwnMetadata = true,
                 }
             )
+            .WithTtl(TimeSpan.FromHours(1))
             .WithIdentity(user)
             .WithName(user)
             .WithAttributes(new Dictionary<string, string> { { "mykey", "myvalue" } });

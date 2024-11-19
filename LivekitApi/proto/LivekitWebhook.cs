@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace LiveKit.Proto {
+namespace Livekit.Server.Sdk.Dotnet {
 
   /// <summary>Holder for reflection information generated from livekit_webhook.proto</summary>
   public static partial class LivekitWebhookReflection {
@@ -36,9 +36,9 @@ namespace LiveKit.Proto {
             "cm90b2NvbC9saXZla2l0qgINTGl2ZUtpdC5Qcm90b+oCDkxpdmVLaXQ6OlBy",
             "b3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::LiveKit.Proto.LivekitModelsReflection.Descriptor, global::LiveKit.Proto.LivekitEgressReflection.Descriptor, global::LiveKit.Proto.LivekitIngressReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.WebhookEvent), global::LiveKit.Proto.WebhookEvent.Parser, new[]{ "Event", "Room", "Participant", "EgressInfo", "IngressInfo", "Track", "Id", "CreatedAt", "NumDropped" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WebhookEvent), global::Livekit.Server.Sdk.Dotnet.WebhookEvent.Parser, new[]{ "Event", "Room", "Participant", "EgressInfo", "IngressInfo", "Track", "Id", "CreatedAt", "NumDropped" }, null, null, null, null)
           }));
     }
     #endregion
@@ -60,7 +60,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitWebhookReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitWebhookReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -117,10 +117,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "room" field.</summary>
     public const int RoomFieldNumber = 2;
-    private global::LiveKit.Proto.Room room_;
+    private global::Livekit.Server.Sdk.Dotnet.Room room_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.Room Room {
+    public global::Livekit.Server.Sdk.Dotnet.Room Room {
       get { return room_; }
       set {
         room_ = value;
@@ -129,13 +129,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "participant" field.</summary>
     public const int ParticipantFieldNumber = 3;
-    private global::LiveKit.Proto.ParticipantInfo participant_;
+    private global::Livekit.Server.Sdk.Dotnet.ParticipantInfo participant_;
     /// <summary>
     /// set when event is participant_* or track_*
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ParticipantInfo Participant {
+    public global::Livekit.Server.Sdk.Dotnet.ParticipantInfo Participant {
       get { return participant_; }
       set {
         participant_ = value;
@@ -144,13 +144,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "egress_info" field.</summary>
     public const int EgressInfoFieldNumber = 9;
-    private global::LiveKit.Proto.EgressInfo egressInfo_;
+    private global::Livekit.Server.Sdk.Dotnet.EgressInfo egressInfo_;
     /// <summary>
     /// set when event is egress_*
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.EgressInfo EgressInfo {
+    public global::Livekit.Server.Sdk.Dotnet.EgressInfo EgressInfo {
       get { return egressInfo_; }
       set {
         egressInfo_ = value;
@@ -159,13 +159,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "ingress_info" field.</summary>
     public const int IngressInfoFieldNumber = 10;
-    private global::LiveKit.Proto.IngressInfo ingressInfo_;
+    private global::Livekit.Server.Sdk.Dotnet.IngressInfo ingressInfo_;
     /// <summary>
     /// set when event is ingress_*
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressInfo IngressInfo {
+    public global::Livekit.Server.Sdk.Dotnet.IngressInfo IngressInfo {
       get { return ingressInfo_; }
       set {
         ingressInfo_ = value;
@@ -174,13 +174,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "track" field.</summary>
     public const int TrackFieldNumber = 8;
-    private global::LiveKit.Proto.TrackInfo track_;
+    private global::Livekit.Server.Sdk.Dotnet.TrackInfo track_;
     /// <summary>
     /// set when event is track_*
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.TrackInfo Track {
+    public global::Livekit.Server.Sdk.Dotnet.TrackInfo Track {
       get { return track_; }
       set {
         track_ = value;
@@ -423,31 +423,31 @@ namespace LiveKit.Proto {
       }
       if (other.room_ != null) {
         if (room_ == null) {
-          Room = new global::LiveKit.Proto.Room();
+          Room = new global::Livekit.Server.Sdk.Dotnet.Room();
         }
         Room.MergeFrom(other.Room);
       }
       if (other.participant_ != null) {
         if (participant_ == null) {
-          Participant = new global::LiveKit.Proto.ParticipantInfo();
+          Participant = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
         }
         Participant.MergeFrom(other.Participant);
       }
       if (other.egressInfo_ != null) {
         if (egressInfo_ == null) {
-          EgressInfo = new global::LiveKit.Proto.EgressInfo();
+          EgressInfo = new global::Livekit.Server.Sdk.Dotnet.EgressInfo();
         }
         EgressInfo.MergeFrom(other.EgressInfo);
       }
       if (other.ingressInfo_ != null) {
         if (ingressInfo_ == null) {
-          IngressInfo = new global::LiveKit.Proto.IngressInfo();
+          IngressInfo = new global::Livekit.Server.Sdk.Dotnet.IngressInfo();
         }
         IngressInfo.MergeFrom(other.IngressInfo);
       }
       if (other.track_ != null) {
         if (track_ == null) {
-          Track = new global::LiveKit.Proto.TrackInfo();
+          Track = new global::Livekit.Server.Sdk.Dotnet.TrackInfo();
         }
         Track.MergeFrom(other.Track);
       }
@@ -485,14 +485,14 @@ namespace LiveKit.Proto {
           }
           case 18: {
             if (room_ == null) {
-              Room = new global::LiveKit.Proto.Room();
+              Room = new global::Livekit.Server.Sdk.Dotnet.Room();
             }
             input.ReadMessage(Room);
             break;
           }
           case 26: {
             if (participant_ == null) {
-              Participant = new global::LiveKit.Proto.ParticipantInfo();
+              Participant = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
             }
             input.ReadMessage(Participant);
             break;
@@ -507,21 +507,21 @@ namespace LiveKit.Proto {
           }
           case 66: {
             if (track_ == null) {
-              Track = new global::LiveKit.Proto.TrackInfo();
+              Track = new global::Livekit.Server.Sdk.Dotnet.TrackInfo();
             }
             input.ReadMessage(Track);
             break;
           }
           case 74: {
             if (egressInfo_ == null) {
-              EgressInfo = new global::LiveKit.Proto.EgressInfo();
+              EgressInfo = new global::Livekit.Server.Sdk.Dotnet.EgressInfo();
             }
             input.ReadMessage(EgressInfo);
             break;
           }
           case 82: {
             if (ingressInfo_ == null) {
-              IngressInfo = new global::LiveKit.Proto.IngressInfo();
+              IngressInfo = new global::Livekit.Server.Sdk.Dotnet.IngressInfo();
             }
             input.ReadMessage(IngressInfo);
             break;
@@ -555,14 +555,14 @@ namespace LiveKit.Proto {
           }
           case 18: {
             if (room_ == null) {
-              Room = new global::LiveKit.Proto.Room();
+              Room = new global::Livekit.Server.Sdk.Dotnet.Room();
             }
             input.ReadMessage(Room);
             break;
           }
           case 26: {
             if (participant_ == null) {
-              Participant = new global::LiveKit.Proto.ParticipantInfo();
+              Participant = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
             }
             input.ReadMessage(Participant);
             break;
@@ -577,21 +577,21 @@ namespace LiveKit.Proto {
           }
           case 66: {
             if (track_ == null) {
-              Track = new global::LiveKit.Proto.TrackInfo();
+              Track = new global::Livekit.Server.Sdk.Dotnet.TrackInfo();
             }
             input.ReadMessage(Track);
             break;
           }
           case 74: {
             if (egressInfo_ == null) {
-              EgressInfo = new global::LiveKit.Proto.EgressInfo();
+              EgressInfo = new global::Livekit.Server.Sdk.Dotnet.EgressInfo();
             }
             input.ReadMessage(EgressInfo);
             break;
           }
           case 82: {
             if (ingressInfo_ == null) {
-              IngressInfo = new global::LiveKit.Proto.IngressInfo();
+              IngressInfo = new global::Livekit.Server.Sdk.Dotnet.IngressInfo();
             }
             input.ReadMessage(IngressInfo);
             break;

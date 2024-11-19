@@ -1,5 +1,3 @@
-using LiveKit.Proto;
-
 namespace Livekit.Server.Sdk.Dotnet.Test
 {
     [Collection("Integration tests")]

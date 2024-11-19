@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace LiveKit.Proto {
+namespace Livekit.Server.Sdk.Dotnet {
 
   /// <summary>Holder for reflection information generated from livekit_ingress.proto</summary>
   public static partial class LivekitIngressReflection {
@@ -106,21 +106,21 @@ namespace LiveKit.Proto {
             "bmdyZXNzSW5mb0JGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wvbGl2",
             "ZWtpdKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::LiveKit.Proto.LivekitModelsReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LiveKit.Proto.IngressInput), typeof(global::LiveKit.Proto.IngressAudioEncodingPreset), typeof(global::LiveKit.Proto.IngressVideoEncodingPreset), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.CreateIngressRequest), global::LiveKit.Proto.CreateIngressRequest.Parser, new[]{ "InputType", "Url", "Name", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "BypassTranscoding", "EnableTranscoding", "Audio", "Video" }, new[]{ "EnableTranscoding" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.IngressAudioOptions), global::LiveKit.Proto.IngressAudioOptions.Parser, new[]{ "Name", "Source", "Preset", "Options" }, new[]{ "EncodingOptions" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.IngressVideoOptions), global::LiveKit.Proto.IngressVideoOptions.Parser, new[]{ "Name", "Source", "Preset", "Options" }, new[]{ "EncodingOptions" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.IngressAudioEncodingOptions), global::LiveKit.Proto.IngressAudioEncodingOptions.Parser, new[]{ "AudioCodec", "Bitrate", "DisableDtx", "Channels" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.IngressVideoEncodingOptions), global::LiveKit.Proto.IngressVideoEncodingOptions.Parser, new[]{ "VideoCodec", "FrameRate", "Layers" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.IngressInfo), global::LiveKit.Proto.IngressInfo.Parser, new[]{ "IngressId", "Name", "StreamKey", "Url", "InputType", "BypassTranscoding", "EnableTranscoding", "Audio", "Video", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "Reusable", "State" }, new[]{ "EnableTranscoding" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.IngressState), global::LiveKit.Proto.IngressState.Parser, new[]{ "Status", "Error", "Video", "Audio", "RoomId", "StartedAt", "EndedAt", "UpdatedAt", "ResourceId", "Tracks" }, null, new[]{ typeof(global::LiveKit.Proto.IngressState.Types.Status) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.InputVideoState), global::LiveKit.Proto.InputVideoState.Parser, new[]{ "MimeType", "AverageBitrate", "Width", "Height", "Framerate" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.InputAudioState), global::LiveKit.Proto.InputAudioState.Parser, new[]{ "MimeType", "AverageBitrate", "Channels", "SampleRate" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.UpdateIngressRequest), global::LiveKit.Proto.UpdateIngressRequest.Parser, new[]{ "IngressId", "Name", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "BypassTranscoding", "EnableTranscoding", "Audio", "Video" }, new[]{ "BypassTranscoding", "EnableTranscoding" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListIngressRequest), global::LiveKit.Proto.ListIngressRequest.Parser, new[]{ "RoomName", "IngressId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ListIngressResponse), global::LiveKit.Proto.ListIngressResponse.Parser, new[]{ "Items" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.DeleteIngressRequest), global::LiveKit.Proto.DeleteIngressRequest.Parser, new[]{ "IngressId" }, null, null, null, null)
+          new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.IngressInput), typeof(global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingPreset), typeof(global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingPreset), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateIngressRequest), global::Livekit.Server.Sdk.Dotnet.CreateIngressRequest.Parser, new[]{ "InputType", "Url", "Name", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "BypassTranscoding", "EnableTranscoding", "Audio", "Video" }, new[]{ "EnableTranscoding" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions), global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions.Parser, new[]{ "Name", "Source", "Preset", "Options" }, new[]{ "EncodingOptions" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions), global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions.Parser, new[]{ "Name", "Source", "Preset", "Options" }, new[]{ "EncodingOptions" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingOptions), global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingOptions.Parser, new[]{ "AudioCodec", "Bitrate", "DisableDtx", "Channels" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingOptions), global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingOptions.Parser, new[]{ "VideoCodec", "FrameRate", "Layers" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.IngressInfo), global::Livekit.Server.Sdk.Dotnet.IngressInfo.Parser, new[]{ "IngressId", "Name", "StreamKey", "Url", "InputType", "BypassTranscoding", "EnableTranscoding", "Audio", "Video", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "Reusable", "State" }, new[]{ "EnableTranscoding" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.IngressState), global::Livekit.Server.Sdk.Dotnet.IngressState.Parser, new[]{ "Status", "Error", "Video", "Audio", "RoomId", "StartedAt", "EndedAt", "UpdatedAt", "ResourceId", "Tracks" }, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.IngressState.Types.Status) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.InputVideoState), global::Livekit.Server.Sdk.Dotnet.InputVideoState.Parser, new[]{ "MimeType", "AverageBitrate", "Width", "Height", "Framerate" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.InputAudioState), global::Livekit.Server.Sdk.Dotnet.InputAudioState.Parser, new[]{ "MimeType", "AverageBitrate", "Channels", "SampleRate" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateIngressRequest), global::Livekit.Server.Sdk.Dotnet.UpdateIngressRequest.Parser, new[]{ "IngressId", "Name", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "BypassTranscoding", "EnableTranscoding", "Audio", "Video" }, new[]{ "BypassTranscoding", "EnableTranscoding" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListIngressRequest), global::Livekit.Server.Sdk.Dotnet.ListIngressRequest.Parser, new[]{ "RoomName", "IngressId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListIngressResponse), global::Livekit.Server.Sdk.Dotnet.ListIngressResponse.Parser, new[]{ "Items" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DeleteIngressRequest), global::Livekit.Server.Sdk.Dotnet.DeleteIngressRequest.Parser, new[]{ "IngressId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -209,7 +209,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitIngressReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -252,10 +252,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "input_type" field.</summary>
     public const int InputTypeFieldNumber = 1;
-    private global::LiveKit.Proto.IngressInput inputType_ = global::LiveKit.Proto.IngressInput.RtmpInput;
+    private global::Livekit.Server.Sdk.Dotnet.IngressInput inputType_ = global::Livekit.Server.Sdk.Dotnet.IngressInput.RtmpInput;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressInput InputType {
+    public global::Livekit.Server.Sdk.Dotnet.IngressInput InputType {
       get { return inputType_; }
       set {
         inputType_ = value;
@@ -400,10 +400,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "audio" field.</summary>
     public const int AudioFieldNumber = 6;
-    private global::LiveKit.Proto.IngressAudioOptions audio_;
+    private global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions audio_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressAudioOptions Audio {
+    public global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions Audio {
       get { return audio_; }
       set {
         audio_ = value;
@@ -412,10 +412,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "video" field.</summary>
     public const int VideoFieldNumber = 7;
-    private global::LiveKit.Proto.IngressVideoOptions video_;
+    private global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions video_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressVideoOptions Video {
+    public global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions Video {
       get { return video_; }
       set {
         video_ = value;
@@ -455,7 +455,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (InputType != global::LiveKit.Proto.IngressInput.RtmpInput) hash ^= InputType.GetHashCode();
+      if (InputType != global::Livekit.Server.Sdk.Dotnet.IngressInput.RtmpInput) hash ^= InputType.GetHashCode();
       if (Url.Length != 0) hash ^= Url.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (RoomName.Length != 0) hash ^= RoomName.GetHashCode();
@@ -484,7 +484,7 @@ namespace LiveKit.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (InputType != global::LiveKit.Proto.IngressInput.RtmpInput) {
+      if (InputType != global::Livekit.Server.Sdk.Dotnet.IngressInput.RtmpInput) {
         output.WriteRawTag(8);
         output.WriteEnum((int) InputType);
       }
@@ -538,7 +538,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (InputType != global::LiveKit.Proto.IngressInput.RtmpInput) {
+      if (InputType != global::Livekit.Server.Sdk.Dotnet.IngressInput.RtmpInput) {
         output.WriteRawTag(8);
         output.WriteEnum((int) InputType);
       }
@@ -592,7 +592,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (InputType != global::LiveKit.Proto.IngressInput.RtmpInput) {
+      if (InputType != global::Livekit.Server.Sdk.Dotnet.IngressInput.RtmpInput) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) InputType);
       }
       if (Url.Length != 0) {
@@ -637,7 +637,7 @@ namespace LiveKit.Proto {
       if (other == null) {
         return;
       }
-      if (other.InputType != global::LiveKit.Proto.IngressInput.RtmpInput) {
+      if (other.InputType != global::Livekit.Server.Sdk.Dotnet.IngressInput.RtmpInput) {
         InputType = other.InputType;
       }
       if (other.Url.Length != 0) {
@@ -666,13 +666,13 @@ namespace LiveKit.Proto {
       }
       if (other.audio_ != null) {
         if (audio_ == null) {
-          Audio = new global::LiveKit.Proto.IngressAudioOptions();
+          Audio = new global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions();
         }
         Audio.MergeFrom(other.Audio);
       }
       if (other.video_ != null) {
         if (video_ == null) {
-          Video = new global::LiveKit.Proto.IngressVideoOptions();
+          Video = new global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions();
         }
         Video.MergeFrom(other.Video);
       }
@@ -696,7 +696,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            InputType = (global::LiveKit.Proto.IngressInput) input.ReadEnum();
+            InputType = (global::Livekit.Server.Sdk.Dotnet.IngressInput) input.ReadEnum();
             break;
           }
           case 18: {
@@ -717,14 +717,14 @@ namespace LiveKit.Proto {
           }
           case 50: {
             if (audio_ == null) {
-              Audio = new global::LiveKit.Proto.IngressAudioOptions();
+              Audio = new global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions();
             }
             input.ReadMessage(Audio);
             break;
           }
           case 58: {
             if (video_ == null) {
-              Video = new global::LiveKit.Proto.IngressVideoOptions();
+              Video = new global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions();
             }
             input.ReadMessage(Video);
             break;
@@ -765,7 +765,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            InputType = (global::LiveKit.Proto.IngressInput) input.ReadEnum();
+            InputType = (global::Livekit.Server.Sdk.Dotnet.IngressInput) input.ReadEnum();
             break;
           }
           case 18: {
@@ -786,14 +786,14 @@ namespace LiveKit.Proto {
           }
           case 50: {
             if (audio_ == null) {
-              Audio = new global::LiveKit.Proto.IngressAudioOptions();
+              Audio = new global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions();
             }
             input.ReadMessage(Audio);
             break;
           }
           case 58: {
             if (video_ == null) {
-              Video = new global::LiveKit.Proto.IngressVideoOptions();
+              Video = new global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions();
             }
             input.ReadMessage(Video);
             break;
@@ -836,7 +836,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitIngressReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -890,10 +890,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "source" field.</summary>
     public const int SourceFieldNumber = 2;
-    private global::LiveKit.Proto.TrackSource source_ = global::LiveKit.Proto.TrackSource.Unknown;
+    private global::Livekit.Server.Sdk.Dotnet.TrackSource source_ = global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.TrackSource Source {
+    public global::Livekit.Server.Sdk.Dotnet.TrackSource Source {
       get { return source_; }
       set {
         source_ = value;
@@ -904,8 +904,8 @@ namespace LiveKit.Proto {
     public const int PresetFieldNumber = 3;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressAudioEncodingPreset Preset {
-      get { return HasPreset ? (global::LiveKit.Proto.IngressAudioEncodingPreset) encodingOptions_ : global::LiveKit.Proto.IngressAudioEncodingPreset.OpusStereo96Kbps; }
+    public global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingPreset Preset {
+      get { return HasPreset ? (global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingPreset) encodingOptions_ : global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingPreset.OpusStereo96Kbps; }
       set {
         encodingOptions_ = value;
         encodingOptionsCase_ = EncodingOptionsOneofCase.Preset;
@@ -930,8 +930,8 @@ namespace LiveKit.Proto {
     public const int OptionsFieldNumber = 4;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressAudioEncodingOptions Options {
-      get { return encodingOptionsCase_ == EncodingOptionsOneofCase.Options ? (global::LiveKit.Proto.IngressAudioEncodingOptions) encodingOptions_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingOptions Options {
+      get { return encodingOptionsCase_ == EncodingOptionsOneofCase.Options ? (global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingOptions) encodingOptions_ : null; }
       set {
         encodingOptions_ = value;
         encodingOptionsCase_ = value == null ? EncodingOptionsOneofCase.None : EncodingOptionsOneofCase.Options;
@@ -987,7 +987,7 @@ namespace LiveKit.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Source != global::LiveKit.Proto.TrackSource.Unknown) hash ^= Source.GetHashCode();
+      if (Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) hash ^= Source.GetHashCode();
       if (HasPreset) hash ^= Preset.GetHashCode();
       if (encodingOptionsCase_ == EncodingOptionsOneofCase.Options) hash ^= Options.GetHashCode();
       hash ^= (int) encodingOptionsCase_;
@@ -1013,7 +1013,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Source != global::LiveKit.Proto.TrackSource.Unknown) {
+      if (Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Source);
       }
@@ -1039,7 +1039,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Source != global::LiveKit.Proto.TrackSource.Unknown) {
+      if (Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Source);
       }
@@ -1064,7 +1064,7 @@ namespace LiveKit.Proto {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (Source != global::LiveKit.Proto.TrackSource.Unknown) {
+      if (Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Source);
       }
       if (HasPreset) {
@@ -1088,7 +1088,7 @@ namespace LiveKit.Proto {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.Source != global::LiveKit.Proto.TrackSource.Unknown) {
+      if (other.Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) {
         Source = other.Source;
       }
       switch (other.EncodingOptionsCase) {
@@ -1097,7 +1097,7 @@ namespace LiveKit.Proto {
           break;
         case EncodingOptionsOneofCase.Options:
           if (Options == null) {
-            Options = new global::LiveKit.Proto.IngressAudioEncodingOptions();
+            Options = new global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingOptions();
           }
           Options.MergeFrom(other.Options);
           break;
@@ -1127,7 +1127,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 16: {
-            Source = (global::LiveKit.Proto.TrackSource) input.ReadEnum();
+            Source = (global::Livekit.Server.Sdk.Dotnet.TrackSource) input.ReadEnum();
             break;
           }
           case 24: {
@@ -1136,7 +1136,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 34: {
-            global::LiveKit.Proto.IngressAudioEncodingOptions subBuilder = new global::LiveKit.Proto.IngressAudioEncodingOptions();
+            global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingOptions subBuilder = new global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingOptions();
             if (encodingOptionsCase_ == EncodingOptionsOneofCase.Options) {
               subBuilder.MergeFrom(Options);
             }
@@ -1168,7 +1168,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 16: {
-            Source = (global::LiveKit.Proto.TrackSource) input.ReadEnum();
+            Source = (global::Livekit.Server.Sdk.Dotnet.TrackSource) input.ReadEnum();
             break;
           }
           case 24: {
@@ -1177,7 +1177,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 34: {
-            global::LiveKit.Proto.IngressAudioEncodingOptions subBuilder = new global::LiveKit.Proto.IngressAudioEncodingOptions();
+            global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingOptions subBuilder = new global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingOptions();
             if (encodingOptionsCase_ == EncodingOptionsOneofCase.Options) {
               subBuilder.MergeFrom(Options);
             }
@@ -1207,7 +1207,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitIngressReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1261,10 +1261,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "source" field.</summary>
     public const int SourceFieldNumber = 2;
-    private global::LiveKit.Proto.TrackSource source_ = global::LiveKit.Proto.TrackSource.Unknown;
+    private global::Livekit.Server.Sdk.Dotnet.TrackSource source_ = global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.TrackSource Source {
+    public global::Livekit.Server.Sdk.Dotnet.TrackSource Source {
       get { return source_; }
       set {
         source_ = value;
@@ -1275,8 +1275,8 @@ namespace LiveKit.Proto {
     public const int PresetFieldNumber = 3;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressVideoEncodingPreset Preset {
-      get { return HasPreset ? (global::LiveKit.Proto.IngressVideoEncodingPreset) encodingOptions_ : global::LiveKit.Proto.IngressVideoEncodingPreset.H264720P30Fps3Layers; }
+    public global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingPreset Preset {
+      get { return HasPreset ? (global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingPreset) encodingOptions_ : global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingPreset.H264720P30Fps3Layers; }
       set {
         encodingOptions_ = value;
         encodingOptionsCase_ = EncodingOptionsOneofCase.Preset;
@@ -1301,8 +1301,8 @@ namespace LiveKit.Proto {
     public const int OptionsFieldNumber = 4;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressVideoEncodingOptions Options {
-      get { return encodingOptionsCase_ == EncodingOptionsOneofCase.Options ? (global::LiveKit.Proto.IngressVideoEncodingOptions) encodingOptions_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingOptions Options {
+      get { return encodingOptionsCase_ == EncodingOptionsOneofCase.Options ? (global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingOptions) encodingOptions_ : null; }
       set {
         encodingOptions_ = value;
         encodingOptionsCase_ = value == null ? EncodingOptionsOneofCase.None : EncodingOptionsOneofCase.Options;
@@ -1358,7 +1358,7 @@ namespace LiveKit.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Source != global::LiveKit.Proto.TrackSource.Unknown) hash ^= Source.GetHashCode();
+      if (Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) hash ^= Source.GetHashCode();
       if (HasPreset) hash ^= Preset.GetHashCode();
       if (encodingOptionsCase_ == EncodingOptionsOneofCase.Options) hash ^= Options.GetHashCode();
       hash ^= (int) encodingOptionsCase_;
@@ -1384,7 +1384,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Source != global::LiveKit.Proto.TrackSource.Unknown) {
+      if (Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Source);
       }
@@ -1410,7 +1410,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
-      if (Source != global::LiveKit.Proto.TrackSource.Unknown) {
+      if (Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Source);
       }
@@ -1435,7 +1435,7 @@ namespace LiveKit.Proto {
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
-      if (Source != global::LiveKit.Proto.TrackSource.Unknown) {
+      if (Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Source);
       }
       if (HasPreset) {
@@ -1459,7 +1459,7 @@ namespace LiveKit.Proto {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
-      if (other.Source != global::LiveKit.Proto.TrackSource.Unknown) {
+      if (other.Source != global::Livekit.Server.Sdk.Dotnet.TrackSource.Unknown) {
         Source = other.Source;
       }
       switch (other.EncodingOptionsCase) {
@@ -1468,7 +1468,7 @@ namespace LiveKit.Proto {
           break;
         case EncodingOptionsOneofCase.Options:
           if (Options == null) {
-            Options = new global::LiveKit.Proto.IngressVideoEncodingOptions();
+            Options = new global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingOptions();
           }
           Options.MergeFrom(other.Options);
           break;
@@ -1498,7 +1498,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 16: {
-            Source = (global::LiveKit.Proto.TrackSource) input.ReadEnum();
+            Source = (global::Livekit.Server.Sdk.Dotnet.TrackSource) input.ReadEnum();
             break;
           }
           case 24: {
@@ -1507,7 +1507,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 34: {
-            global::LiveKit.Proto.IngressVideoEncodingOptions subBuilder = new global::LiveKit.Proto.IngressVideoEncodingOptions();
+            global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingOptions subBuilder = new global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingOptions();
             if (encodingOptionsCase_ == EncodingOptionsOneofCase.Options) {
               subBuilder.MergeFrom(Options);
             }
@@ -1539,7 +1539,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 16: {
-            Source = (global::LiveKit.Proto.TrackSource) input.ReadEnum();
+            Source = (global::Livekit.Server.Sdk.Dotnet.TrackSource) input.ReadEnum();
             break;
           }
           case 24: {
@@ -1548,7 +1548,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 34: {
-            global::LiveKit.Proto.IngressVideoEncodingOptions subBuilder = new global::LiveKit.Proto.IngressVideoEncodingOptions();
+            global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingOptions subBuilder = new global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingOptions();
             if (encodingOptionsCase_ == EncodingOptionsOneofCase.Options) {
               subBuilder.MergeFrom(Options);
             }
@@ -1578,7 +1578,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitIngressReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1613,13 +1613,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "audio_codec" field.</summary>
     public const int AudioCodecFieldNumber = 1;
-    private global::LiveKit.Proto.AudioCodec audioCodec_ = global::LiveKit.Proto.AudioCodec.DefaultAc;
+    private global::Livekit.Server.Sdk.Dotnet.AudioCodec audioCodec_ = global::Livekit.Server.Sdk.Dotnet.AudioCodec.DefaultAc;
     /// <summary>
     /// desired audio codec to publish to room
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.AudioCodec AudioCodec {
+    public global::Livekit.Server.Sdk.Dotnet.AudioCodec AudioCodec {
       get { return audioCodec_; }
       set {
         audioCodec_ = value;
@@ -1688,7 +1688,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (AudioCodec != global::LiveKit.Proto.AudioCodec.DefaultAc) hash ^= AudioCodec.GetHashCode();
+      if (AudioCodec != global::Livekit.Server.Sdk.Dotnet.AudioCodec.DefaultAc) hash ^= AudioCodec.GetHashCode();
       if (Bitrate != 0) hash ^= Bitrate.GetHashCode();
       if (DisableDtx != false) hash ^= DisableDtx.GetHashCode();
       if (Channels != 0) hash ^= Channels.GetHashCode();
@@ -1710,7 +1710,7 @@ namespace LiveKit.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (AudioCodec != global::LiveKit.Proto.AudioCodec.DefaultAc) {
+      if (AudioCodec != global::Livekit.Server.Sdk.Dotnet.AudioCodec.DefaultAc) {
         output.WriteRawTag(8);
         output.WriteEnum((int) AudioCodec);
       }
@@ -1736,7 +1736,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (AudioCodec != global::LiveKit.Proto.AudioCodec.DefaultAc) {
+      if (AudioCodec != global::Livekit.Server.Sdk.Dotnet.AudioCodec.DefaultAc) {
         output.WriteRawTag(8);
         output.WriteEnum((int) AudioCodec);
       }
@@ -1762,7 +1762,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (AudioCodec != global::LiveKit.Proto.AudioCodec.DefaultAc) {
+      if (AudioCodec != global::Livekit.Server.Sdk.Dotnet.AudioCodec.DefaultAc) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AudioCodec);
       }
       if (Bitrate != 0) {
@@ -1786,7 +1786,7 @@ namespace LiveKit.Proto {
       if (other == null) {
         return;
       }
-      if (other.AudioCodec != global::LiveKit.Proto.AudioCodec.DefaultAc) {
+      if (other.AudioCodec != global::Livekit.Server.Sdk.Dotnet.AudioCodec.DefaultAc) {
         AudioCodec = other.AudioCodec;
       }
       if (other.Bitrate != 0) {
@@ -1818,7 +1818,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            AudioCodec = (global::LiveKit.Proto.AudioCodec) input.ReadEnum();
+            AudioCodec = (global::Livekit.Server.Sdk.Dotnet.AudioCodec) input.ReadEnum();
             break;
           }
           case 16: {
@@ -1853,7 +1853,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            AudioCodec = (global::LiveKit.Proto.AudioCodec) input.ReadEnum();
+            AudioCodec = (global::Livekit.Server.Sdk.Dotnet.AudioCodec) input.ReadEnum();
             break;
           }
           case 16: {
@@ -1890,7 +1890,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitIngressReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1924,13 +1924,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "video_codec" field.</summary>
     public const int VideoCodecFieldNumber = 1;
-    private global::LiveKit.Proto.VideoCodec videoCodec_ = global::LiveKit.Proto.VideoCodec.DefaultVc;
+    private global::Livekit.Server.Sdk.Dotnet.VideoCodec videoCodec_ = global::Livekit.Server.Sdk.Dotnet.VideoCodec.DefaultVc;
     /// <summary>
     /// desired codec to publish to room
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.VideoCodec VideoCodec {
+    public global::Livekit.Server.Sdk.Dotnet.VideoCodec VideoCodec {
       get { return videoCodec_; }
       set {
         videoCodec_ = value;
@@ -1951,15 +1951,15 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "layers" field.</summary>
     public const int LayersFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.VideoLayer> _repeated_layers_codec
-        = pb::FieldCodec.ForMessage(26, global::LiveKit.Proto.VideoLayer.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.VideoLayer> layers_ = new pbc::RepeatedField<global::LiveKit.Proto.VideoLayer>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.VideoLayer> _repeated_layers_codec
+        = pb::FieldCodec.ForMessage(26, global::Livekit.Server.Sdk.Dotnet.VideoLayer.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.VideoLayer> layers_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.VideoLayer>();
     /// <summary>
     /// simulcast layers to publish, when empty, should usually be set to layers at 1/2 and 1/4 of the dimensions
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.VideoLayer> Layers {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.VideoLayer> Layers {
       get { return layers_; }
     }
 
@@ -1988,7 +1988,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (VideoCodec != global::LiveKit.Proto.VideoCodec.DefaultVc) hash ^= VideoCodec.GetHashCode();
+      if (VideoCodec != global::Livekit.Server.Sdk.Dotnet.VideoCodec.DefaultVc) hash ^= VideoCodec.GetHashCode();
       if (FrameRate != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(FrameRate);
       hash ^= layers_.GetHashCode();
       if (_unknownFields != null) {
@@ -2009,7 +2009,7 @@ namespace LiveKit.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (VideoCodec != global::LiveKit.Proto.VideoCodec.DefaultVc) {
+      if (VideoCodec != global::Livekit.Server.Sdk.Dotnet.VideoCodec.DefaultVc) {
         output.WriteRawTag(8);
         output.WriteEnum((int) VideoCodec);
       }
@@ -2028,7 +2028,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (VideoCodec != global::LiveKit.Proto.VideoCodec.DefaultVc) {
+      if (VideoCodec != global::Livekit.Server.Sdk.Dotnet.VideoCodec.DefaultVc) {
         output.WriteRawTag(8);
         output.WriteEnum((int) VideoCodec);
       }
@@ -2047,7 +2047,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (VideoCodec != global::LiveKit.Proto.VideoCodec.DefaultVc) {
+      if (VideoCodec != global::Livekit.Server.Sdk.Dotnet.VideoCodec.DefaultVc) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) VideoCodec);
       }
       if (FrameRate != 0D) {
@@ -2066,7 +2066,7 @@ namespace LiveKit.Proto {
       if (other == null) {
         return;
       }
-      if (other.VideoCodec != global::LiveKit.Proto.VideoCodec.DefaultVc) {
+      if (other.VideoCodec != global::Livekit.Server.Sdk.Dotnet.VideoCodec.DefaultVc) {
         VideoCodec = other.VideoCodec;
       }
       if (other.FrameRate != 0D) {
@@ -2093,7 +2093,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            VideoCodec = (global::LiveKit.Proto.VideoCodec) input.ReadEnum();
+            VideoCodec = (global::Livekit.Server.Sdk.Dotnet.VideoCodec) input.ReadEnum();
             break;
           }
           case 17: {
@@ -2124,7 +2124,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            VideoCodec = (global::LiveKit.Proto.VideoCodec) input.ReadEnum();
+            VideoCodec = (global::Livekit.Server.Sdk.Dotnet.VideoCodec) input.ReadEnum();
             break;
           }
           case 17: {
@@ -2158,7 +2158,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitIngressReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2256,7 +2256,7 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "input_type" field.</summary>
     public const int InputTypeFieldNumber = 5;
-    private global::LiveKit.Proto.IngressInput inputType_ = global::LiveKit.Proto.IngressInput.RtmpInput;
+    private global::Livekit.Server.Sdk.Dotnet.IngressInput inputType_ = global::Livekit.Server.Sdk.Dotnet.IngressInput.RtmpInput;
     /// <summary>
     /// for RTMP input, it'll be a rtmp:// URL
     /// for FILE input, it'll be a http:// URL
@@ -2264,7 +2264,7 @@ namespace LiveKit.Proto {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressInput InputType {
+    public global::Livekit.Server.Sdk.Dotnet.IngressInput InputType {
       get { return inputType_; }
       set {
         inputType_ = value;
@@ -2313,10 +2313,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "audio" field.</summary>
     public const int AudioFieldNumber = 6;
-    private global::LiveKit.Proto.IngressAudioOptions audio_;
+    private global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions audio_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressAudioOptions Audio {
+    public global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions Audio {
       get { return audio_; }
       set {
         audio_ = value;
@@ -2325,10 +2325,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "video" field.</summary>
     public const int VideoFieldNumber = 7;
-    private global::LiveKit.Proto.IngressVideoOptions video_;
+    private global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions video_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressVideoOptions Video {
+    public global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions Video {
       get { return video_; }
       set {
         video_ = value;
@@ -2397,13 +2397,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "state" field.</summary>
     public const int StateFieldNumber = 12;
-    private global::LiveKit.Proto.IngressState state_;
+    private global::Livekit.Server.Sdk.Dotnet.IngressState state_;
     /// <summary>
     /// Description of error/stream non compliance and debug info for publisher otherwise (received bitrate, resolution, bandwidth)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressState State {
+    public global::Livekit.Server.Sdk.Dotnet.IngressState State {
       get { return state_; }
       set {
         state_ = value;
@@ -2451,7 +2451,7 @@ namespace LiveKit.Proto {
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (StreamKey.Length != 0) hash ^= StreamKey.GetHashCode();
       if (Url.Length != 0) hash ^= Url.GetHashCode();
-      if (InputType != global::LiveKit.Proto.IngressInput.RtmpInput) hash ^= InputType.GetHashCode();
+      if (InputType != global::Livekit.Server.Sdk.Dotnet.IngressInput.RtmpInput) hash ^= InputType.GetHashCode();
       if (BypassTranscoding != false) hash ^= BypassTranscoding.GetHashCode();
       if (HasEnableTranscoding) hash ^= EnableTranscoding.GetHashCode();
       if (audio_ != null) hash ^= Audio.GetHashCode();
@@ -2496,7 +2496,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteString(Url);
       }
-      if (InputType != global::LiveKit.Proto.IngressInput.RtmpInput) {
+      if (InputType != global::Livekit.Server.Sdk.Dotnet.IngressInput.RtmpInput) {
         output.WriteRawTag(40);
         output.WriteEnum((int) InputType);
       }
@@ -2566,7 +2566,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteString(Url);
       }
-      if (InputType != global::LiveKit.Proto.IngressInput.RtmpInput) {
+      if (InputType != global::Livekit.Server.Sdk.Dotnet.IngressInput.RtmpInput) {
         output.WriteRawTag(40);
         output.WriteEnum((int) InputType);
       }
@@ -2632,7 +2632,7 @@ namespace LiveKit.Proto {
       if (Url.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Url);
       }
-      if (InputType != global::LiveKit.Proto.IngressInput.RtmpInput) {
+      if (InputType != global::Livekit.Server.Sdk.Dotnet.IngressInput.RtmpInput) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) InputType);
       }
       if (BypassTranscoding != false) {
@@ -2689,7 +2689,7 @@ namespace LiveKit.Proto {
       if (other.Url.Length != 0) {
         Url = other.Url;
       }
-      if (other.InputType != global::LiveKit.Proto.IngressInput.RtmpInput) {
+      if (other.InputType != global::Livekit.Server.Sdk.Dotnet.IngressInput.RtmpInput) {
         InputType = other.InputType;
       }
       if (other.BypassTranscoding != false) {
@@ -2700,13 +2700,13 @@ namespace LiveKit.Proto {
       }
       if (other.audio_ != null) {
         if (audio_ == null) {
-          Audio = new global::LiveKit.Proto.IngressAudioOptions();
+          Audio = new global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions();
         }
         Audio.MergeFrom(other.Audio);
       }
       if (other.video_ != null) {
         if (video_ == null) {
-          Video = new global::LiveKit.Proto.IngressVideoOptions();
+          Video = new global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions();
         }
         Video.MergeFrom(other.Video);
       }
@@ -2727,7 +2727,7 @@ namespace LiveKit.Proto {
       }
       if (other.state_ != null) {
         if (state_ == null) {
-          State = new global::LiveKit.Proto.IngressState();
+          State = new global::Livekit.Server.Sdk.Dotnet.IngressState();
         }
         State.MergeFrom(other.State);
       }
@@ -2767,19 +2767,19 @@ namespace LiveKit.Proto {
             break;
           }
           case 40: {
-            InputType = (global::LiveKit.Proto.IngressInput) input.ReadEnum();
+            InputType = (global::Livekit.Server.Sdk.Dotnet.IngressInput) input.ReadEnum();
             break;
           }
           case 50: {
             if (audio_ == null) {
-              Audio = new global::LiveKit.Proto.IngressAudioOptions();
+              Audio = new global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions();
             }
             input.ReadMessage(Audio);
             break;
           }
           case 58: {
             if (video_ == null) {
-              Video = new global::LiveKit.Proto.IngressVideoOptions();
+              Video = new global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions();
             }
             input.ReadMessage(Video);
             break;
@@ -2802,7 +2802,7 @@ namespace LiveKit.Proto {
           }
           case 98: {
             if (state_ == null) {
-              State = new global::LiveKit.Proto.IngressState();
+              State = new global::Livekit.Server.Sdk.Dotnet.IngressState();
             }
             input.ReadMessage(State);
             break;
@@ -2855,19 +2855,19 @@ namespace LiveKit.Proto {
             break;
           }
           case 40: {
-            InputType = (global::LiveKit.Proto.IngressInput) input.ReadEnum();
+            InputType = (global::Livekit.Server.Sdk.Dotnet.IngressInput) input.ReadEnum();
             break;
           }
           case 50: {
             if (audio_ == null) {
-              Audio = new global::LiveKit.Proto.IngressAudioOptions();
+              Audio = new global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions();
             }
             input.ReadMessage(Audio);
             break;
           }
           case 58: {
             if (video_ == null) {
-              Video = new global::LiveKit.Proto.IngressVideoOptions();
+              Video = new global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions();
             }
             input.ReadMessage(Video);
             break;
@@ -2890,7 +2890,7 @@ namespace LiveKit.Proto {
           }
           case 98: {
             if (state_ == null) {
-              State = new global::LiveKit.Proto.IngressState();
+              State = new global::Livekit.Server.Sdk.Dotnet.IngressState();
             }
             input.ReadMessage(State);
             break;
@@ -2929,7 +2929,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitIngressReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2970,10 +2970,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "status" field.</summary>
     public const int StatusFieldNumber = 1;
-    private global::LiveKit.Proto.IngressState.Types.Status status_ = global::LiveKit.Proto.IngressState.Types.Status.EndpointInactive;
+    private global::Livekit.Server.Sdk.Dotnet.IngressState.Types.Status status_ = global::Livekit.Server.Sdk.Dotnet.IngressState.Types.Status.EndpointInactive;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressState.Types.Status Status {
+    public global::Livekit.Server.Sdk.Dotnet.IngressState.Types.Status Status {
       get { return status_; }
       set {
         status_ = value;
@@ -2997,10 +2997,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "video" field.</summary>
     public const int VideoFieldNumber = 3;
-    private global::LiveKit.Proto.InputVideoState video_;
+    private global::Livekit.Server.Sdk.Dotnet.InputVideoState video_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.InputVideoState Video {
+    public global::Livekit.Server.Sdk.Dotnet.InputVideoState Video {
       get { return video_; }
       set {
         video_ = value;
@@ -3009,10 +3009,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "audio" field.</summary>
     public const int AudioFieldNumber = 4;
-    private global::LiveKit.Proto.InputAudioState audio_;
+    private global::Livekit.Server.Sdk.Dotnet.InputAudioState audio_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.InputAudioState Audio {
+    public global::Livekit.Server.Sdk.Dotnet.InputAudioState Audio {
       get { return audio_; }
       set {
         audio_ = value;
@@ -3084,12 +3084,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "tracks" field.</summary>
     public const int TracksFieldNumber = 6;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.TrackInfo> _repeated_tracks_codec
-        = pb::FieldCodec.ForMessage(50, global::LiveKit.Proto.TrackInfo.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.TrackInfo> tracks_ = new pbc::RepeatedField<global::LiveKit.Proto.TrackInfo>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.TrackInfo> _repeated_tracks_codec
+        = pb::FieldCodec.ForMessage(50, global::Livekit.Server.Sdk.Dotnet.TrackInfo.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TrackInfo> tracks_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TrackInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.TrackInfo> Tracks {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.TrackInfo> Tracks {
       get { return tracks_; }
     }
 
@@ -3125,7 +3125,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Status != global::LiveKit.Proto.IngressState.Types.Status.EndpointInactive) hash ^= Status.GetHashCode();
+      if (Status != global::Livekit.Server.Sdk.Dotnet.IngressState.Types.Status.EndpointInactive) hash ^= Status.GetHashCode();
       if (Error.Length != 0) hash ^= Error.GetHashCode();
       if (video_ != null) hash ^= Video.GetHashCode();
       if (audio_ != null) hash ^= Audio.GetHashCode();
@@ -3153,7 +3153,7 @@ namespace LiveKit.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Status != global::LiveKit.Proto.IngressState.Types.Status.EndpointInactive) {
+      if (Status != global::Livekit.Server.Sdk.Dotnet.IngressState.Types.Status.EndpointInactive) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Status);
       }
@@ -3200,7 +3200,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Status != global::LiveKit.Proto.IngressState.Types.Status.EndpointInactive) {
+      if (Status != global::Livekit.Server.Sdk.Dotnet.IngressState.Types.Status.EndpointInactive) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Status);
       }
@@ -3247,7 +3247,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Status != global::LiveKit.Proto.IngressState.Types.Status.EndpointInactive) {
+      if (Status != global::Livekit.Server.Sdk.Dotnet.IngressState.Types.Status.EndpointInactive) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
       }
       if (Error.Length != 0) {
@@ -3287,7 +3287,7 @@ namespace LiveKit.Proto {
       if (other == null) {
         return;
       }
-      if (other.Status != global::LiveKit.Proto.IngressState.Types.Status.EndpointInactive) {
+      if (other.Status != global::Livekit.Server.Sdk.Dotnet.IngressState.Types.Status.EndpointInactive) {
         Status = other.Status;
       }
       if (other.Error.Length != 0) {
@@ -3295,13 +3295,13 @@ namespace LiveKit.Proto {
       }
       if (other.video_ != null) {
         if (video_ == null) {
-          Video = new global::LiveKit.Proto.InputVideoState();
+          Video = new global::Livekit.Server.Sdk.Dotnet.InputVideoState();
         }
         Video.MergeFrom(other.Video);
       }
       if (other.audio_ != null) {
         if (audio_ == null) {
-          Audio = new global::LiveKit.Proto.InputAudioState();
+          Audio = new global::Livekit.Server.Sdk.Dotnet.InputAudioState();
         }
         Audio.MergeFrom(other.Audio);
       }
@@ -3341,7 +3341,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Status = (global::LiveKit.Proto.IngressState.Types.Status) input.ReadEnum();
+            Status = (global::Livekit.Server.Sdk.Dotnet.IngressState.Types.Status) input.ReadEnum();
             break;
           }
           case 18: {
@@ -3350,14 +3350,14 @@ namespace LiveKit.Proto {
           }
           case 26: {
             if (video_ == null) {
-              Video = new global::LiveKit.Proto.InputVideoState();
+              Video = new global::Livekit.Server.Sdk.Dotnet.InputVideoState();
             }
             input.ReadMessage(Video);
             break;
           }
           case 34: {
             if (audio_ == null) {
-              Audio = new global::LiveKit.Proto.InputAudioState();
+              Audio = new global::Livekit.Server.Sdk.Dotnet.InputAudioState();
             }
             input.ReadMessage(Audio);
             break;
@@ -3406,7 +3406,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Status = (global::LiveKit.Proto.IngressState.Types.Status) input.ReadEnum();
+            Status = (global::Livekit.Server.Sdk.Dotnet.IngressState.Types.Status) input.ReadEnum();
             break;
           }
           case 18: {
@@ -3415,14 +3415,14 @@ namespace LiveKit.Proto {
           }
           case 26: {
             if (video_ == null) {
-              Video = new global::LiveKit.Proto.InputVideoState();
+              Video = new global::Livekit.Server.Sdk.Dotnet.InputVideoState();
             }
             input.ReadMessage(Video);
             break;
           }
           case 34: {
             if (audio_ == null) {
-              Audio = new global::LiveKit.Proto.InputAudioState();
+              Audio = new global::Livekit.Server.Sdk.Dotnet.InputAudioState();
             }
             input.ReadMessage(Audio);
             break;
@@ -3489,7 +3489,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitIngressReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3835,7 +3835,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitIngressReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4145,7 +4145,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitIngressReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4316,10 +4316,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "audio" field.</summary>
     public const int AudioFieldNumber = 6;
-    private global::LiveKit.Proto.IngressAudioOptions audio_;
+    private global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions audio_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressAudioOptions Audio {
+    public global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions Audio {
       get { return audio_; }
       set {
         audio_ = value;
@@ -4328,10 +4328,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "video" field.</summary>
     public const int VideoFieldNumber = 7;
-    private global::LiveKit.Proto.IngressVideoOptions video_;
+    private global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions video_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.IngressVideoOptions Video {
+    public global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions Video {
       get { return video_; }
       set {
         video_ = value;
@@ -4566,13 +4566,13 @@ namespace LiveKit.Proto {
       }
       if (other.audio_ != null) {
         if (audio_ == null) {
-          Audio = new global::LiveKit.Proto.IngressAudioOptions();
+          Audio = new global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions();
         }
         Audio.MergeFrom(other.Audio);
       }
       if (other.video_ != null) {
         if (video_ == null) {
-          Video = new global::LiveKit.Proto.IngressVideoOptions();
+          Video = new global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions();
         }
         Video.MergeFrom(other.Video);
       }
@@ -4617,14 +4617,14 @@ namespace LiveKit.Proto {
           }
           case 50: {
             if (audio_ == null) {
-              Audio = new global::LiveKit.Proto.IngressAudioOptions();
+              Audio = new global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions();
             }
             input.ReadMessage(Audio);
             break;
           }
           case 58: {
             if (video_ == null) {
-              Video = new global::LiveKit.Proto.IngressVideoOptions();
+              Video = new global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions();
             }
             input.ReadMessage(Video);
             break;
@@ -4682,14 +4682,14 @@ namespace LiveKit.Proto {
           }
           case 50: {
             if (audio_ == null) {
-              Audio = new global::LiveKit.Proto.IngressAudioOptions();
+              Audio = new global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions();
             }
             input.ReadMessage(Audio);
             break;
           }
           case 58: {
             if (video_ == null) {
-              Video = new global::LiveKit.Proto.IngressVideoOptions();
+              Video = new global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions();
             }
             input.ReadMessage(Video);
             break;
@@ -4728,7 +4728,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitIngressReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4969,7 +4969,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitIngressReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5001,12 +5001,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "items" field.</summary>
     public const int ItemsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::LiveKit.Proto.IngressInfo> _repeated_items_codec
-        = pb::FieldCodec.ForMessage(10, global::LiveKit.Proto.IngressInfo.Parser);
-    private readonly pbc::RepeatedField<global::LiveKit.Proto.IngressInfo> items_ = new pbc::RepeatedField<global::LiveKit.Proto.IngressInfo>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.IngressInfo> _repeated_items_codec
+        = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.IngressInfo.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.IngressInfo> items_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.IngressInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::LiveKit.Proto.IngressInfo> Items {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.IngressInfo> Items {
       get { return items_; }
     }
 
@@ -5156,7 +5156,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitIngressReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace LiveKit.Proto {
+namespace Livekit.Server.Sdk.Dotnet {
 
   /// <summary>Holder for reflection information generated from livekit_agent.proto</summary>
   public static partial class LivekitAgentReflection {
@@ -84,24 +84,24 @@ namespace LiveKit.Proto {
             "aXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1MaXZlS2l0LlByb3Rv6gIOTGl2",
             "ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::LiveKit.Proto.LivekitModelsReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LiveKit.Proto.JobType), typeof(global::LiveKit.Proto.WorkerStatus), typeof(global::LiveKit.Proto.JobStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.Job), global::LiveKit.Proto.Job.Parser, new[]{ "Id", "DispatchId", "Type", "Room", "Participant", "Namespace", "Metadata", "AgentName", "State" }, new[]{ "Participant" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.JobState), global::LiveKit.Proto.JobState.Parser, new[]{ "Status", "Error", "StartedAt", "EndedAt", "UpdatedAt", "ParticipantIdentity" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.WorkerMessage), global::LiveKit.Proto.WorkerMessage.Parser, new[]{ "Register", "Availability", "UpdateWorker", "UpdateJob", "Ping", "SimulateJob", "MigrateJob" }, new[]{ "Message" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ServerMessage), global::LiveKit.Proto.ServerMessage.Parser, new[]{ "Register", "Availability", "Assignment", "Termination", "Pong" }, new[]{ "Message" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SimulateJobRequest), global::LiveKit.Proto.SimulateJobRequest.Parser, new[]{ "Type", "Room", "Participant" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.WorkerPing), global::LiveKit.Proto.WorkerPing.Parser, new[]{ "Timestamp" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.WorkerPong), global::LiveKit.Proto.WorkerPong.Parser, new[]{ "LastTimestamp", "Timestamp" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RegisterWorkerRequest), global::LiveKit.Proto.RegisterWorkerRequest.Parser, new[]{ "Type", "AgentName", "Version", "PingInterval", "Namespace", "AllowedPermissions" }, new[]{ "Namespace" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RegisterWorkerResponse), global::LiveKit.Proto.RegisterWorkerResponse.Parser, new[]{ "WorkerId", "ServerInfo" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.MigrateJobRequest), global::LiveKit.Proto.MigrateJobRequest.Parser, new[]{ "JobIds" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AvailabilityRequest), global::LiveKit.Proto.AvailabilityRequest.Parser, new[]{ "Job", "Resuming" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AvailabilityResponse), global::LiveKit.Proto.AvailabilityResponse.Parser, new[]{ "JobId", "Available", "SupportsResume", "ParticipantName", "ParticipantIdentity", "ParticipantMetadata", "ParticipantAttributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.UpdateJobStatus), global::LiveKit.Proto.UpdateJobStatus.Parser, new[]{ "JobId", "Status", "Error" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.UpdateWorkerStatus), global::LiveKit.Proto.UpdateWorkerStatus.Parser, new[]{ "Status", "Load", "JobCount" }, new[]{ "Status" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.JobAssignment), global::LiveKit.Proto.JobAssignment.Parser, new[]{ "Job", "Url", "Token" }, new[]{ "Url" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.JobTermination), global::LiveKit.Proto.JobTermination.Parser, new[]{ "JobId" }, null, null, null, null)
+          new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.JobType), typeof(global::Livekit.Server.Sdk.Dotnet.WorkerStatus), typeof(global::Livekit.Server.Sdk.Dotnet.JobStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.Job), global::Livekit.Server.Sdk.Dotnet.Job.Parser, new[]{ "Id", "DispatchId", "Type", "Room", "Participant", "Namespace", "Metadata", "AgentName", "State" }, new[]{ "Participant" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.JobState), global::Livekit.Server.Sdk.Dotnet.JobState.Parser, new[]{ "Status", "Error", "StartedAt", "EndedAt", "UpdatedAt", "ParticipantIdentity" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WorkerMessage), global::Livekit.Server.Sdk.Dotnet.WorkerMessage.Parser, new[]{ "Register", "Availability", "UpdateWorker", "UpdateJob", "Ping", "SimulateJob", "MigrateJob" }, new[]{ "Message" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ServerMessage), global::Livekit.Server.Sdk.Dotnet.ServerMessage.Parser, new[]{ "Register", "Availability", "Assignment", "Termination", "Pong" }, new[]{ "Message" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SimulateJobRequest), global::Livekit.Server.Sdk.Dotnet.SimulateJobRequest.Parser, new[]{ "Type", "Room", "Participant" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WorkerPing), global::Livekit.Server.Sdk.Dotnet.WorkerPing.Parser, new[]{ "Timestamp" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WorkerPong), global::Livekit.Server.Sdk.Dotnet.WorkerPong.Parser, new[]{ "LastTimestamp", "Timestamp" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RegisterWorkerRequest), global::Livekit.Server.Sdk.Dotnet.RegisterWorkerRequest.Parser, new[]{ "Type", "AgentName", "Version", "PingInterval", "Namespace", "AllowedPermissions" }, new[]{ "Namespace" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RegisterWorkerResponse), global::Livekit.Server.Sdk.Dotnet.RegisterWorkerResponse.Parser, new[]{ "WorkerId", "ServerInfo" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.MigrateJobRequest), global::Livekit.Server.Sdk.Dotnet.MigrateJobRequest.Parser, new[]{ "JobIds" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AvailabilityRequest), global::Livekit.Server.Sdk.Dotnet.AvailabilityRequest.Parser, new[]{ "Job", "Resuming" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AvailabilityResponse), global::Livekit.Server.Sdk.Dotnet.AvailabilityResponse.Parser, new[]{ "JobId", "Available", "SupportsResume", "ParticipantName", "ParticipantIdentity", "ParticipantMetadata", "ParticipantAttributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateJobStatus), global::Livekit.Server.Sdk.Dotnet.UpdateJobStatus.Parser, new[]{ "JobId", "Status", "Error" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateWorkerStatus), global::Livekit.Server.Sdk.Dotnet.UpdateWorkerStatus.Parser, new[]{ "Status", "Load", "JobCount" }, new[]{ "Status" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.JobAssignment), global::Livekit.Server.Sdk.Dotnet.JobAssignment.Parser, new[]{ "Job", "Url", "Token" }, new[]{ "Url" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.JobTermination), global::Livekit.Server.Sdk.Dotnet.JobTermination.Parser, new[]{ "JobId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -143,7 +143,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -207,10 +207,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 2;
-    private global::LiveKit.Proto.JobType type_ = global::LiveKit.Proto.JobType.JtRoom;
+    private global::Livekit.Server.Sdk.Dotnet.JobType type_ = global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.JobType Type {
+    public global::Livekit.Server.Sdk.Dotnet.JobType Type {
       get { return type_; }
       set {
         type_ = value;
@@ -219,10 +219,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "room" field.</summary>
     public const int RoomFieldNumber = 3;
-    private global::LiveKit.Proto.Room room_;
+    private global::Livekit.Server.Sdk.Dotnet.Room room_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.Room Room {
+    public global::Livekit.Server.Sdk.Dotnet.Room Room {
       get { return room_; }
       set {
         room_ = value;
@@ -231,10 +231,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "participant" field.</summary>
     public const int ParticipantFieldNumber = 4;
-    private global::LiveKit.Proto.ParticipantInfo participant_;
+    private global::Livekit.Server.Sdk.Dotnet.ParticipantInfo participant_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ParticipantInfo Participant {
+    public global::Livekit.Server.Sdk.Dotnet.ParticipantInfo Participant {
       get { return participant_; }
       set {
         participant_ = value;
@@ -280,10 +280,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "state" field.</summary>
     public const int StateFieldNumber = 8;
-    private global::LiveKit.Proto.JobState state_;
+    private global::Livekit.Server.Sdk.Dotnet.JobState state_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.JobState State {
+    public global::Livekit.Server.Sdk.Dotnet.JobState State {
       get { return state_; }
       set {
         state_ = value;
@@ -323,7 +323,7 @@ namespace LiveKit.Proto {
       int hash = 1;
       if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (DispatchId.Length != 0) hash ^= DispatchId.GetHashCode();
-      if (Type != global::LiveKit.Proto.JobType.JtRoom) hash ^= Type.GetHashCode();
+      if (Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) hash ^= Type.GetHashCode();
       if (room_ != null) hash ^= Room.GetHashCode();
       if (participant_ != null) hash ^= Participant.GetHashCode();
       if (Namespace.Length != 0) hash ^= Namespace.GetHashCode();
@@ -352,7 +352,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(10);
         output.WriteString(Id);
       }
-      if (Type != global::LiveKit.Proto.JobType.JtRoom) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Type);
       }
@@ -398,7 +398,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(10);
         output.WriteString(Id);
       }
-      if (Type != global::LiveKit.Proto.JobType.JtRoom) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Type);
       }
@@ -446,7 +446,7 @@ namespace LiveKit.Proto {
       if (DispatchId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(DispatchId);
       }
-      if (Type != global::LiveKit.Proto.JobType.JtRoom) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
       if (room_ != null) {
@@ -485,18 +485,18 @@ namespace LiveKit.Proto {
       if (other.DispatchId.Length != 0) {
         DispatchId = other.DispatchId;
       }
-      if (other.Type != global::LiveKit.Proto.JobType.JtRoom) {
+      if (other.Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) {
         Type = other.Type;
       }
       if (other.room_ != null) {
         if (room_ == null) {
-          Room = new global::LiveKit.Proto.Room();
+          Room = new global::Livekit.Server.Sdk.Dotnet.Room();
         }
         Room.MergeFrom(other.Room);
       }
       if (other.participant_ != null) {
         if (participant_ == null) {
-          Participant = new global::LiveKit.Proto.ParticipantInfo();
+          Participant = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
         }
         Participant.MergeFrom(other.Participant);
       }
@@ -511,7 +511,7 @@ namespace LiveKit.Proto {
       }
       if (other.state_ != null) {
         if (state_ == null) {
-          State = new global::LiveKit.Proto.JobState();
+          State = new global::Livekit.Server.Sdk.Dotnet.JobState();
         }
         State.MergeFrom(other.State);
       }
@@ -539,19 +539,19 @@ namespace LiveKit.Proto {
             break;
           }
           case 16: {
-            Type = (global::LiveKit.Proto.JobType) input.ReadEnum();
+            Type = (global::Livekit.Server.Sdk.Dotnet.JobType) input.ReadEnum();
             break;
           }
           case 26: {
             if (room_ == null) {
-              Room = new global::LiveKit.Proto.Room();
+              Room = new global::Livekit.Server.Sdk.Dotnet.Room();
             }
             input.ReadMessage(Room);
             break;
           }
           case 34: {
             if (participant_ == null) {
-              Participant = new global::LiveKit.Proto.ParticipantInfo();
+              Participant = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
             }
             input.ReadMessage(Participant);
             break;
@@ -570,7 +570,7 @@ namespace LiveKit.Proto {
           }
           case 66: {
             if (state_ == null) {
-              State = new global::LiveKit.Proto.JobState();
+              State = new global::Livekit.Server.Sdk.Dotnet.JobState();
             }
             input.ReadMessage(State);
             break;
@@ -603,19 +603,19 @@ namespace LiveKit.Proto {
             break;
           }
           case 16: {
-            Type = (global::LiveKit.Proto.JobType) input.ReadEnum();
+            Type = (global::Livekit.Server.Sdk.Dotnet.JobType) input.ReadEnum();
             break;
           }
           case 26: {
             if (room_ == null) {
-              Room = new global::LiveKit.Proto.Room();
+              Room = new global::Livekit.Server.Sdk.Dotnet.Room();
             }
             input.ReadMessage(Room);
             break;
           }
           case 34: {
             if (participant_ == null) {
-              Participant = new global::LiveKit.Proto.ParticipantInfo();
+              Participant = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
             }
             input.ReadMessage(Participant);
             break;
@@ -634,7 +634,7 @@ namespace LiveKit.Proto {
           }
           case 66: {
             if (state_ == null) {
-              State = new global::LiveKit.Proto.JobState();
+              State = new global::Livekit.Server.Sdk.Dotnet.JobState();
             }
             input.ReadMessage(State);
             break;
@@ -665,7 +665,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -702,10 +702,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "status" field.</summary>
     public const int StatusFieldNumber = 1;
-    private global::LiveKit.Proto.JobStatus status_ = global::LiveKit.Proto.JobStatus.JsPending;
+    private global::Livekit.Server.Sdk.Dotnet.JobStatus status_ = global::Livekit.Server.Sdk.Dotnet.JobStatus.JsPending;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.JobStatus Status {
+    public global::Livekit.Server.Sdk.Dotnet.JobStatus Status {
       get { return status_; }
       set {
         status_ = value;
@@ -800,7 +800,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Status != global::LiveKit.Proto.JobStatus.JsPending) hash ^= Status.GetHashCode();
+      if (Status != global::Livekit.Server.Sdk.Dotnet.JobStatus.JsPending) hash ^= Status.GetHashCode();
       if (Error.Length != 0) hash ^= Error.GetHashCode();
       if (StartedAt != 0L) hash ^= StartedAt.GetHashCode();
       if (EndedAt != 0L) hash ^= EndedAt.GetHashCode();
@@ -824,7 +824,7 @@ namespace LiveKit.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Status != global::LiveKit.Proto.JobStatus.JsPending) {
+      if (Status != global::Livekit.Server.Sdk.Dotnet.JobStatus.JsPending) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Status);
       }
@@ -858,7 +858,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Status != global::LiveKit.Proto.JobStatus.JsPending) {
+      if (Status != global::Livekit.Server.Sdk.Dotnet.JobStatus.JsPending) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Status);
       }
@@ -892,7 +892,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Status != global::LiveKit.Proto.JobStatus.JsPending) {
+      if (Status != global::Livekit.Server.Sdk.Dotnet.JobStatus.JsPending) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
       }
       if (Error.Length != 0) {
@@ -922,7 +922,7 @@ namespace LiveKit.Proto {
       if (other == null) {
         return;
       }
-      if (other.Status != global::LiveKit.Proto.JobStatus.JsPending) {
+      if (other.Status != global::Livekit.Server.Sdk.Dotnet.JobStatus.JsPending) {
         Status = other.Status;
       }
       if (other.Error.Length != 0) {
@@ -960,7 +960,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Status = (global::LiveKit.Proto.JobStatus) input.ReadEnum();
+            Status = (global::Livekit.Server.Sdk.Dotnet.JobStatus) input.ReadEnum();
             break;
           }
           case 18: {
@@ -1003,7 +1003,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Status = (global::LiveKit.Proto.JobStatus) input.ReadEnum();
+            Status = (global::Livekit.Server.Sdk.Dotnet.JobStatus) input.ReadEnum();
             break;
           }
           case 18: {
@@ -1051,7 +1051,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1111,8 +1111,8 @@ namespace LiveKit.Proto {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.RegisterWorkerRequest Register {
-      get { return messageCase_ == MessageOneofCase.Register ? (global::LiveKit.Proto.RegisterWorkerRequest) message_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.RegisterWorkerRequest Register {
+      get { return messageCase_ == MessageOneofCase.Register ? (global::Livekit.Server.Sdk.Dotnet.RegisterWorkerRequest) message_ : null; }
       set {
         message_ = value;
         messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.Register;
@@ -1126,8 +1126,8 @@ namespace LiveKit.Proto {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.AvailabilityResponse Availability {
-      get { return messageCase_ == MessageOneofCase.Availability ? (global::LiveKit.Proto.AvailabilityResponse) message_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.AvailabilityResponse Availability {
+      get { return messageCase_ == MessageOneofCase.Availability ? (global::Livekit.Server.Sdk.Dotnet.AvailabilityResponse) message_ : null; }
       set {
         message_ = value;
         messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.Availability;
@@ -1141,8 +1141,8 @@ namespace LiveKit.Proto {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.UpdateWorkerStatus UpdateWorker {
-      get { return messageCase_ == MessageOneofCase.UpdateWorker ? (global::LiveKit.Proto.UpdateWorkerStatus) message_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.UpdateWorkerStatus UpdateWorker {
+      get { return messageCase_ == MessageOneofCase.UpdateWorker ? (global::Livekit.Server.Sdk.Dotnet.UpdateWorkerStatus) message_ : null; }
       set {
         message_ = value;
         messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.UpdateWorker;
@@ -1156,8 +1156,8 @@ namespace LiveKit.Proto {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.UpdateJobStatus UpdateJob {
-      get { return messageCase_ == MessageOneofCase.UpdateJob ? (global::LiveKit.Proto.UpdateJobStatus) message_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.UpdateJobStatus UpdateJob {
+      get { return messageCase_ == MessageOneofCase.UpdateJob ? (global::Livekit.Server.Sdk.Dotnet.UpdateJobStatus) message_ : null; }
       set {
         message_ = value;
         messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.UpdateJob;
@@ -1168,8 +1168,8 @@ namespace LiveKit.Proto {
     public const int PingFieldNumber = 5;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.WorkerPing Ping {
-      get { return messageCase_ == MessageOneofCase.Ping ? (global::LiveKit.Proto.WorkerPing) message_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.WorkerPing Ping {
+      get { return messageCase_ == MessageOneofCase.Ping ? (global::Livekit.Server.Sdk.Dotnet.WorkerPing) message_ : null; }
       set {
         message_ = value;
         messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.Ping;
@@ -1180,8 +1180,8 @@ namespace LiveKit.Proto {
     public const int SimulateJobFieldNumber = 6;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.SimulateJobRequest SimulateJob {
-      get { return messageCase_ == MessageOneofCase.SimulateJob ? (global::LiveKit.Proto.SimulateJobRequest) message_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.SimulateJobRequest SimulateJob {
+      get { return messageCase_ == MessageOneofCase.SimulateJob ? (global::Livekit.Server.Sdk.Dotnet.SimulateJobRequest) message_ : null; }
       set {
         message_ = value;
         messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.SimulateJob;
@@ -1192,8 +1192,8 @@ namespace LiveKit.Proto {
     public const int MigrateJobFieldNumber = 7;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.MigrateJobRequest MigrateJob {
-      get { return messageCase_ == MessageOneofCase.MigrateJob ? (global::LiveKit.Proto.MigrateJobRequest) message_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.MigrateJobRequest MigrateJob {
+      get { return messageCase_ == MessageOneofCase.MigrateJob ? (global::Livekit.Server.Sdk.Dotnet.MigrateJobRequest) message_ : null; }
       set {
         message_ = value;
         messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.MigrateJob;
@@ -1394,43 +1394,43 @@ namespace LiveKit.Proto {
       switch (other.MessageCase) {
         case MessageOneofCase.Register:
           if (Register == null) {
-            Register = new global::LiveKit.Proto.RegisterWorkerRequest();
+            Register = new global::Livekit.Server.Sdk.Dotnet.RegisterWorkerRequest();
           }
           Register.MergeFrom(other.Register);
           break;
         case MessageOneofCase.Availability:
           if (Availability == null) {
-            Availability = new global::LiveKit.Proto.AvailabilityResponse();
+            Availability = new global::Livekit.Server.Sdk.Dotnet.AvailabilityResponse();
           }
           Availability.MergeFrom(other.Availability);
           break;
         case MessageOneofCase.UpdateWorker:
           if (UpdateWorker == null) {
-            UpdateWorker = new global::LiveKit.Proto.UpdateWorkerStatus();
+            UpdateWorker = new global::Livekit.Server.Sdk.Dotnet.UpdateWorkerStatus();
           }
           UpdateWorker.MergeFrom(other.UpdateWorker);
           break;
         case MessageOneofCase.UpdateJob:
           if (UpdateJob == null) {
-            UpdateJob = new global::LiveKit.Proto.UpdateJobStatus();
+            UpdateJob = new global::Livekit.Server.Sdk.Dotnet.UpdateJobStatus();
           }
           UpdateJob.MergeFrom(other.UpdateJob);
           break;
         case MessageOneofCase.Ping:
           if (Ping == null) {
-            Ping = new global::LiveKit.Proto.WorkerPing();
+            Ping = new global::Livekit.Server.Sdk.Dotnet.WorkerPing();
           }
           Ping.MergeFrom(other.Ping);
           break;
         case MessageOneofCase.SimulateJob:
           if (SimulateJob == null) {
-            SimulateJob = new global::LiveKit.Proto.SimulateJobRequest();
+            SimulateJob = new global::Livekit.Server.Sdk.Dotnet.SimulateJobRequest();
           }
           SimulateJob.MergeFrom(other.SimulateJob);
           break;
         case MessageOneofCase.MigrateJob:
           if (MigrateJob == null) {
-            MigrateJob = new global::LiveKit.Proto.MigrateJobRequest();
+            MigrateJob = new global::Livekit.Server.Sdk.Dotnet.MigrateJobRequest();
           }
           MigrateJob.MergeFrom(other.MigrateJob);
           break;
@@ -1456,7 +1456,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            global::LiveKit.Proto.RegisterWorkerRequest subBuilder = new global::LiveKit.Proto.RegisterWorkerRequest();
+            global::Livekit.Server.Sdk.Dotnet.RegisterWorkerRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.RegisterWorkerRequest();
             if (messageCase_ == MessageOneofCase.Register) {
               subBuilder.MergeFrom(Register);
             }
@@ -1465,7 +1465,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 18: {
-            global::LiveKit.Proto.AvailabilityResponse subBuilder = new global::LiveKit.Proto.AvailabilityResponse();
+            global::Livekit.Server.Sdk.Dotnet.AvailabilityResponse subBuilder = new global::Livekit.Server.Sdk.Dotnet.AvailabilityResponse();
             if (messageCase_ == MessageOneofCase.Availability) {
               subBuilder.MergeFrom(Availability);
             }
@@ -1474,7 +1474,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 26: {
-            global::LiveKit.Proto.UpdateWorkerStatus subBuilder = new global::LiveKit.Proto.UpdateWorkerStatus();
+            global::Livekit.Server.Sdk.Dotnet.UpdateWorkerStatus subBuilder = new global::Livekit.Server.Sdk.Dotnet.UpdateWorkerStatus();
             if (messageCase_ == MessageOneofCase.UpdateWorker) {
               subBuilder.MergeFrom(UpdateWorker);
             }
@@ -1483,7 +1483,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 34: {
-            global::LiveKit.Proto.UpdateJobStatus subBuilder = new global::LiveKit.Proto.UpdateJobStatus();
+            global::Livekit.Server.Sdk.Dotnet.UpdateJobStatus subBuilder = new global::Livekit.Server.Sdk.Dotnet.UpdateJobStatus();
             if (messageCase_ == MessageOneofCase.UpdateJob) {
               subBuilder.MergeFrom(UpdateJob);
             }
@@ -1492,7 +1492,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 42: {
-            global::LiveKit.Proto.WorkerPing subBuilder = new global::LiveKit.Proto.WorkerPing();
+            global::Livekit.Server.Sdk.Dotnet.WorkerPing subBuilder = new global::Livekit.Server.Sdk.Dotnet.WorkerPing();
             if (messageCase_ == MessageOneofCase.Ping) {
               subBuilder.MergeFrom(Ping);
             }
@@ -1501,7 +1501,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 50: {
-            global::LiveKit.Proto.SimulateJobRequest subBuilder = new global::LiveKit.Proto.SimulateJobRequest();
+            global::Livekit.Server.Sdk.Dotnet.SimulateJobRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.SimulateJobRequest();
             if (messageCase_ == MessageOneofCase.SimulateJob) {
               subBuilder.MergeFrom(SimulateJob);
             }
@@ -1510,7 +1510,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 58: {
-            global::LiveKit.Proto.MigrateJobRequest subBuilder = new global::LiveKit.Proto.MigrateJobRequest();
+            global::Livekit.Server.Sdk.Dotnet.MigrateJobRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.MigrateJobRequest();
             if (messageCase_ == MessageOneofCase.MigrateJob) {
               subBuilder.MergeFrom(MigrateJob);
             }
@@ -1538,7 +1538,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            global::LiveKit.Proto.RegisterWorkerRequest subBuilder = new global::LiveKit.Proto.RegisterWorkerRequest();
+            global::Livekit.Server.Sdk.Dotnet.RegisterWorkerRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.RegisterWorkerRequest();
             if (messageCase_ == MessageOneofCase.Register) {
               subBuilder.MergeFrom(Register);
             }
@@ -1547,7 +1547,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 18: {
-            global::LiveKit.Proto.AvailabilityResponse subBuilder = new global::LiveKit.Proto.AvailabilityResponse();
+            global::Livekit.Server.Sdk.Dotnet.AvailabilityResponse subBuilder = new global::Livekit.Server.Sdk.Dotnet.AvailabilityResponse();
             if (messageCase_ == MessageOneofCase.Availability) {
               subBuilder.MergeFrom(Availability);
             }
@@ -1556,7 +1556,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 26: {
-            global::LiveKit.Proto.UpdateWorkerStatus subBuilder = new global::LiveKit.Proto.UpdateWorkerStatus();
+            global::Livekit.Server.Sdk.Dotnet.UpdateWorkerStatus subBuilder = new global::Livekit.Server.Sdk.Dotnet.UpdateWorkerStatus();
             if (messageCase_ == MessageOneofCase.UpdateWorker) {
               subBuilder.MergeFrom(UpdateWorker);
             }
@@ -1565,7 +1565,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 34: {
-            global::LiveKit.Proto.UpdateJobStatus subBuilder = new global::LiveKit.Proto.UpdateJobStatus();
+            global::Livekit.Server.Sdk.Dotnet.UpdateJobStatus subBuilder = new global::Livekit.Server.Sdk.Dotnet.UpdateJobStatus();
             if (messageCase_ == MessageOneofCase.UpdateJob) {
               subBuilder.MergeFrom(UpdateJob);
             }
@@ -1574,7 +1574,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 42: {
-            global::LiveKit.Proto.WorkerPing subBuilder = new global::LiveKit.Proto.WorkerPing();
+            global::Livekit.Server.Sdk.Dotnet.WorkerPing subBuilder = new global::Livekit.Server.Sdk.Dotnet.WorkerPing();
             if (messageCase_ == MessageOneofCase.Ping) {
               subBuilder.MergeFrom(Ping);
             }
@@ -1583,7 +1583,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 50: {
-            global::LiveKit.Proto.SimulateJobRequest subBuilder = new global::LiveKit.Proto.SimulateJobRequest();
+            global::Livekit.Server.Sdk.Dotnet.SimulateJobRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.SimulateJobRequest();
             if (messageCase_ == MessageOneofCase.SimulateJob) {
               subBuilder.MergeFrom(SimulateJob);
             }
@@ -1592,7 +1592,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 58: {
-            global::LiveKit.Proto.MigrateJobRequest subBuilder = new global::LiveKit.Proto.MigrateJobRequest();
+            global::Livekit.Server.Sdk.Dotnet.MigrateJobRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.MigrateJobRequest();
             if (messageCase_ == MessageOneofCase.MigrateJob) {
               subBuilder.MergeFrom(MigrateJob);
             }
@@ -1625,7 +1625,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1679,8 +1679,8 @@ namespace LiveKit.Proto {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.RegisterWorkerResponse Register {
-      get { return messageCase_ == MessageOneofCase.Register ? (global::LiveKit.Proto.RegisterWorkerResponse) message_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.RegisterWorkerResponse Register {
+      get { return messageCase_ == MessageOneofCase.Register ? (global::Livekit.Server.Sdk.Dotnet.RegisterWorkerResponse) message_ : null; }
       set {
         message_ = value;
         messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.Register;
@@ -1694,8 +1694,8 @@ namespace LiveKit.Proto {
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.AvailabilityRequest Availability {
-      get { return messageCase_ == MessageOneofCase.Availability ? (global::LiveKit.Proto.AvailabilityRequest) message_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.AvailabilityRequest Availability {
+      get { return messageCase_ == MessageOneofCase.Availability ? (global::Livekit.Server.Sdk.Dotnet.AvailabilityRequest) message_ : null; }
       set {
         message_ = value;
         messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.Availability;
@@ -1706,8 +1706,8 @@ namespace LiveKit.Proto {
     public const int AssignmentFieldNumber = 3;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.JobAssignment Assignment {
-      get { return messageCase_ == MessageOneofCase.Assignment ? (global::LiveKit.Proto.JobAssignment) message_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.JobAssignment Assignment {
+      get { return messageCase_ == MessageOneofCase.Assignment ? (global::Livekit.Server.Sdk.Dotnet.JobAssignment) message_ : null; }
       set {
         message_ = value;
         messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.Assignment;
@@ -1718,8 +1718,8 @@ namespace LiveKit.Proto {
     public const int TerminationFieldNumber = 5;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.JobTermination Termination {
-      get { return messageCase_ == MessageOneofCase.Termination ? (global::LiveKit.Proto.JobTermination) message_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.JobTermination Termination {
+      get { return messageCase_ == MessageOneofCase.Termination ? (global::Livekit.Server.Sdk.Dotnet.JobTermination) message_ : null; }
       set {
         message_ = value;
         messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.Termination;
@@ -1730,8 +1730,8 @@ namespace LiveKit.Proto {
     public const int PongFieldNumber = 4;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.WorkerPong Pong {
-      get { return messageCase_ == MessageOneofCase.Pong ? (global::LiveKit.Proto.WorkerPong) message_ : null; }
+    public global::Livekit.Server.Sdk.Dotnet.WorkerPong Pong {
+      get { return messageCase_ == MessageOneofCase.Pong ? (global::Livekit.Server.Sdk.Dotnet.WorkerPong) message_ : null; }
       set {
         message_ = value;
         messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.Pong;
@@ -1904,31 +1904,31 @@ namespace LiveKit.Proto {
       switch (other.MessageCase) {
         case MessageOneofCase.Register:
           if (Register == null) {
-            Register = new global::LiveKit.Proto.RegisterWorkerResponse();
+            Register = new global::Livekit.Server.Sdk.Dotnet.RegisterWorkerResponse();
           }
           Register.MergeFrom(other.Register);
           break;
         case MessageOneofCase.Availability:
           if (Availability == null) {
-            Availability = new global::LiveKit.Proto.AvailabilityRequest();
+            Availability = new global::Livekit.Server.Sdk.Dotnet.AvailabilityRequest();
           }
           Availability.MergeFrom(other.Availability);
           break;
         case MessageOneofCase.Assignment:
           if (Assignment == null) {
-            Assignment = new global::LiveKit.Proto.JobAssignment();
+            Assignment = new global::Livekit.Server.Sdk.Dotnet.JobAssignment();
           }
           Assignment.MergeFrom(other.Assignment);
           break;
         case MessageOneofCase.Termination:
           if (Termination == null) {
-            Termination = new global::LiveKit.Proto.JobTermination();
+            Termination = new global::Livekit.Server.Sdk.Dotnet.JobTermination();
           }
           Termination.MergeFrom(other.Termination);
           break;
         case MessageOneofCase.Pong:
           if (Pong == null) {
-            Pong = new global::LiveKit.Proto.WorkerPong();
+            Pong = new global::Livekit.Server.Sdk.Dotnet.WorkerPong();
           }
           Pong.MergeFrom(other.Pong);
           break;
@@ -1954,7 +1954,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            global::LiveKit.Proto.RegisterWorkerResponse subBuilder = new global::LiveKit.Proto.RegisterWorkerResponse();
+            global::Livekit.Server.Sdk.Dotnet.RegisterWorkerResponse subBuilder = new global::Livekit.Server.Sdk.Dotnet.RegisterWorkerResponse();
             if (messageCase_ == MessageOneofCase.Register) {
               subBuilder.MergeFrom(Register);
             }
@@ -1963,7 +1963,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 18: {
-            global::LiveKit.Proto.AvailabilityRequest subBuilder = new global::LiveKit.Proto.AvailabilityRequest();
+            global::Livekit.Server.Sdk.Dotnet.AvailabilityRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.AvailabilityRequest();
             if (messageCase_ == MessageOneofCase.Availability) {
               subBuilder.MergeFrom(Availability);
             }
@@ -1972,7 +1972,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 26: {
-            global::LiveKit.Proto.JobAssignment subBuilder = new global::LiveKit.Proto.JobAssignment();
+            global::Livekit.Server.Sdk.Dotnet.JobAssignment subBuilder = new global::Livekit.Server.Sdk.Dotnet.JobAssignment();
             if (messageCase_ == MessageOneofCase.Assignment) {
               subBuilder.MergeFrom(Assignment);
             }
@@ -1981,7 +1981,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 34: {
-            global::LiveKit.Proto.WorkerPong subBuilder = new global::LiveKit.Proto.WorkerPong();
+            global::Livekit.Server.Sdk.Dotnet.WorkerPong subBuilder = new global::Livekit.Server.Sdk.Dotnet.WorkerPong();
             if (messageCase_ == MessageOneofCase.Pong) {
               subBuilder.MergeFrom(Pong);
             }
@@ -1990,7 +1990,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 42: {
-            global::LiveKit.Proto.JobTermination subBuilder = new global::LiveKit.Proto.JobTermination();
+            global::Livekit.Server.Sdk.Dotnet.JobTermination subBuilder = new global::Livekit.Server.Sdk.Dotnet.JobTermination();
             if (messageCase_ == MessageOneofCase.Termination) {
               subBuilder.MergeFrom(Termination);
             }
@@ -2018,7 +2018,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            global::LiveKit.Proto.RegisterWorkerResponse subBuilder = new global::LiveKit.Proto.RegisterWorkerResponse();
+            global::Livekit.Server.Sdk.Dotnet.RegisterWorkerResponse subBuilder = new global::Livekit.Server.Sdk.Dotnet.RegisterWorkerResponse();
             if (messageCase_ == MessageOneofCase.Register) {
               subBuilder.MergeFrom(Register);
             }
@@ -2027,7 +2027,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 18: {
-            global::LiveKit.Proto.AvailabilityRequest subBuilder = new global::LiveKit.Proto.AvailabilityRequest();
+            global::Livekit.Server.Sdk.Dotnet.AvailabilityRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.AvailabilityRequest();
             if (messageCase_ == MessageOneofCase.Availability) {
               subBuilder.MergeFrom(Availability);
             }
@@ -2036,7 +2036,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 26: {
-            global::LiveKit.Proto.JobAssignment subBuilder = new global::LiveKit.Proto.JobAssignment();
+            global::Livekit.Server.Sdk.Dotnet.JobAssignment subBuilder = new global::Livekit.Server.Sdk.Dotnet.JobAssignment();
             if (messageCase_ == MessageOneofCase.Assignment) {
               subBuilder.MergeFrom(Assignment);
             }
@@ -2045,7 +2045,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 34: {
-            global::LiveKit.Proto.WorkerPong subBuilder = new global::LiveKit.Proto.WorkerPong();
+            global::Livekit.Server.Sdk.Dotnet.WorkerPong subBuilder = new global::Livekit.Server.Sdk.Dotnet.WorkerPong();
             if (messageCase_ == MessageOneofCase.Pong) {
               subBuilder.MergeFrom(Pong);
             }
@@ -2054,7 +2054,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 42: {
-            global::LiveKit.Proto.JobTermination subBuilder = new global::LiveKit.Proto.JobTermination();
+            global::Livekit.Server.Sdk.Dotnet.JobTermination subBuilder = new global::Livekit.Server.Sdk.Dotnet.JobTermination();
             if (messageCase_ == MessageOneofCase.Termination) {
               subBuilder.MergeFrom(Termination);
             }
@@ -2084,7 +2084,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2118,10 +2118,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 1;
-    private global::LiveKit.Proto.JobType type_ = global::LiveKit.Proto.JobType.JtRoom;
+    private global::Livekit.Server.Sdk.Dotnet.JobType type_ = global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.JobType Type {
+    public global::Livekit.Server.Sdk.Dotnet.JobType Type {
       get { return type_; }
       set {
         type_ = value;
@@ -2130,10 +2130,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "room" field.</summary>
     public const int RoomFieldNumber = 2;
-    private global::LiveKit.Proto.Room room_;
+    private global::Livekit.Server.Sdk.Dotnet.Room room_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.Room Room {
+    public global::Livekit.Server.Sdk.Dotnet.Room Room {
       get { return room_; }
       set {
         room_ = value;
@@ -2142,10 +2142,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "participant" field.</summary>
     public const int ParticipantFieldNumber = 3;
-    private global::LiveKit.Proto.ParticipantInfo participant_;
+    private global::Livekit.Server.Sdk.Dotnet.ParticipantInfo participant_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ParticipantInfo Participant {
+    public global::Livekit.Server.Sdk.Dotnet.ParticipantInfo Participant {
       get { return participant_; }
       set {
         participant_ = value;
@@ -2177,7 +2177,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Type != global::LiveKit.Proto.JobType.JtRoom) hash ^= Type.GetHashCode();
+      if (Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) hash ^= Type.GetHashCode();
       if (room_ != null) hash ^= Room.GetHashCode();
       if (participant_ != null) hash ^= Participant.GetHashCode();
       if (_unknownFields != null) {
@@ -2198,7 +2198,7 @@ namespace LiveKit.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Type != global::LiveKit.Proto.JobType.JtRoom) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
@@ -2220,7 +2220,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Type != global::LiveKit.Proto.JobType.JtRoom) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
@@ -2242,7 +2242,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Type != global::LiveKit.Proto.JobType.JtRoom) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
       if (room_ != null) {
@@ -2263,18 +2263,18 @@ namespace LiveKit.Proto {
       if (other == null) {
         return;
       }
-      if (other.Type != global::LiveKit.Proto.JobType.JtRoom) {
+      if (other.Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) {
         Type = other.Type;
       }
       if (other.room_ != null) {
         if (room_ == null) {
-          Room = new global::LiveKit.Proto.Room();
+          Room = new global::Livekit.Server.Sdk.Dotnet.Room();
         }
         Room.MergeFrom(other.Room);
       }
       if (other.participant_ != null) {
         if (participant_ == null) {
-          Participant = new global::LiveKit.Proto.ParticipantInfo();
+          Participant = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
         }
         Participant.MergeFrom(other.Participant);
       }
@@ -2298,19 +2298,19 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Type = (global::LiveKit.Proto.JobType) input.ReadEnum();
+            Type = (global::Livekit.Server.Sdk.Dotnet.JobType) input.ReadEnum();
             break;
           }
           case 18: {
             if (room_ == null) {
-              Room = new global::LiveKit.Proto.Room();
+              Room = new global::Livekit.Server.Sdk.Dotnet.Room();
             }
             input.ReadMessage(Room);
             break;
           }
           case 26: {
             if (participant_ == null) {
-              Participant = new global::LiveKit.Proto.ParticipantInfo();
+              Participant = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
             }
             input.ReadMessage(Participant);
             break;
@@ -2335,19 +2335,19 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Type = (global::LiveKit.Proto.JobType) input.ReadEnum();
+            Type = (global::Livekit.Server.Sdk.Dotnet.JobType) input.ReadEnum();
             break;
           }
           case 18: {
             if (room_ == null) {
-              Room = new global::LiveKit.Proto.Room();
+              Room = new global::Livekit.Server.Sdk.Dotnet.Room();
             }
             input.ReadMessage(Room);
             break;
           }
           case 26: {
             if (participant_ == null) {
-              Participant = new global::LiveKit.Proto.ParticipantInfo();
+              Participant = new global::Livekit.Server.Sdk.Dotnet.ParticipantInfo();
             }
             input.ReadMessage(Participant);
             break;
@@ -2374,7 +2374,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2572,7 +2572,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2807,7 +2807,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2844,10 +2844,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 1;
-    private global::LiveKit.Proto.JobType type_ = global::LiveKit.Proto.JobType.JtRoom;
+    private global::Livekit.Server.Sdk.Dotnet.JobType type_ = global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.JobType Type {
+    public global::Livekit.Server.Sdk.Dotnet.JobType Type {
       get { return type_; }
       set {
         type_ = value;
@@ -2924,10 +2924,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "allowed_permissions" field.</summary>
     public const int AllowedPermissionsFieldNumber = 7;
-    private global::LiveKit.Proto.ParticipantPermission allowedPermissions_;
+    private global::Livekit.Server.Sdk.Dotnet.ParticipantPermission allowedPermissions_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ParticipantPermission AllowedPermissions {
+    public global::Livekit.Server.Sdk.Dotnet.ParticipantPermission AllowedPermissions {
       get { return allowedPermissions_; }
       set {
         allowedPermissions_ = value;
@@ -2962,7 +2962,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Type != global::LiveKit.Proto.JobType.JtRoom) hash ^= Type.GetHashCode();
+      if (Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) hash ^= Type.GetHashCode();
       if (AgentName.Length != 0) hash ^= AgentName.GetHashCode();
       if (Version.Length != 0) hash ^= Version.GetHashCode();
       if (PingInterval != 0) hash ^= PingInterval.GetHashCode();
@@ -2986,7 +2986,7 @@ namespace LiveKit.Proto {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Type != global::LiveKit.Proto.JobType.JtRoom) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
@@ -3020,7 +3020,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Type != global::LiveKit.Proto.JobType.JtRoom) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
@@ -3054,7 +3054,7 @@ namespace LiveKit.Proto {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Type != global::LiveKit.Proto.JobType.JtRoom) {
+      if (Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
       if (AgentName.Length != 0) {
@@ -3084,7 +3084,7 @@ namespace LiveKit.Proto {
       if (other == null) {
         return;
       }
-      if (other.Type != global::LiveKit.Proto.JobType.JtRoom) {
+      if (other.Type != global::Livekit.Server.Sdk.Dotnet.JobType.JtRoom) {
         Type = other.Type;
       }
       if (other.AgentName.Length != 0) {
@@ -3101,7 +3101,7 @@ namespace LiveKit.Proto {
       }
       if (other.allowedPermissions_ != null) {
         if (allowedPermissions_ == null) {
-          AllowedPermissions = new global::LiveKit.Proto.ParticipantPermission();
+          AllowedPermissions = new global::Livekit.Server.Sdk.Dotnet.ParticipantPermission();
         }
         AllowedPermissions.MergeFrom(other.AllowedPermissions);
       }
@@ -3125,7 +3125,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Type = (global::LiveKit.Proto.JobType) input.ReadEnum();
+            Type = (global::Livekit.Server.Sdk.Dotnet.JobType) input.ReadEnum();
             break;
           }
           case 26: {
@@ -3142,7 +3142,7 @@ namespace LiveKit.Proto {
           }
           case 58: {
             if (allowedPermissions_ == null) {
-              AllowedPermissions = new global::LiveKit.Proto.ParticipantPermission();
+              AllowedPermissions = new global::Livekit.Server.Sdk.Dotnet.ParticipantPermission();
             }
             input.ReadMessage(AllowedPermissions);
             break;
@@ -3171,7 +3171,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Type = (global::LiveKit.Proto.JobType) input.ReadEnum();
+            Type = (global::Livekit.Server.Sdk.Dotnet.JobType) input.ReadEnum();
             break;
           }
           case 26: {
@@ -3188,7 +3188,7 @@ namespace LiveKit.Proto {
           }
           case 58: {
             if (allowedPermissions_ == null) {
-              AllowedPermissions = new global::LiveKit.Proto.ParticipantPermission();
+              AllowedPermissions = new global::Livekit.Server.Sdk.Dotnet.ParticipantPermission();
             }
             input.ReadMessage(AllowedPermissions);
             break;
@@ -3219,7 +3219,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3264,10 +3264,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "server_info" field.</summary>
     public const int ServerInfoFieldNumber = 3;
-    private global::LiveKit.Proto.ServerInfo serverInfo_;
+    private global::Livekit.Server.Sdk.Dotnet.ServerInfo serverInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.ServerInfo ServerInfo {
+    public global::Livekit.Server.Sdk.Dotnet.ServerInfo ServerInfo {
       get { return serverInfo_; }
       set {
         serverInfo_ = value;
@@ -3377,7 +3377,7 @@ namespace LiveKit.Proto {
       }
       if (other.serverInfo_ != null) {
         if (serverInfo_ == null) {
-          ServerInfo = new global::LiveKit.Proto.ServerInfo();
+          ServerInfo = new global::Livekit.Server.Sdk.Dotnet.ServerInfo();
         }
         ServerInfo.MergeFrom(other.ServerInfo);
       }
@@ -3406,7 +3406,7 @@ namespace LiveKit.Proto {
           }
           case 26: {
             if (serverInfo_ == null) {
-              ServerInfo = new global::LiveKit.Proto.ServerInfo();
+              ServerInfo = new global::Livekit.Server.Sdk.Dotnet.ServerInfo();
             }
             input.ReadMessage(ServerInfo);
             break;
@@ -3436,7 +3436,7 @@ namespace LiveKit.Proto {
           }
           case 26: {
             if (serverInfo_ == null) {
-              ServerInfo = new global::LiveKit.Proto.ServerInfo();
+              ServerInfo = new global::Livekit.Server.Sdk.Dotnet.ServerInfo();
             }
             input.ReadMessage(ServerInfo);
             break;
@@ -3463,7 +3463,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3653,7 +3653,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3686,10 +3686,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "job" field.</summary>
     public const int JobFieldNumber = 1;
-    private global::LiveKit.Proto.Job job_;
+    private global::Livekit.Server.Sdk.Dotnet.Job job_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.Job Job {
+    public global::Livekit.Server.Sdk.Dotnet.Job Job {
       get { return job_; }
       set {
         job_ = value;
@@ -3812,7 +3812,7 @@ namespace LiveKit.Proto {
       }
       if (other.job_ != null) {
         if (job_ == null) {
-          Job = new global::LiveKit.Proto.Job();
+          Job = new global::Livekit.Server.Sdk.Dotnet.Job();
         }
         Job.MergeFrom(other.Job);
       }
@@ -3840,7 +3840,7 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (job_ == null) {
-              Job = new global::LiveKit.Proto.Job();
+              Job = new global::Livekit.Server.Sdk.Dotnet.Job();
             }
             input.ReadMessage(Job);
             break;
@@ -3870,7 +3870,7 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (job_ == null) {
-              Job = new global::LiveKit.Proto.Job();
+              Job = new global::Livekit.Server.Sdk.Dotnet.Job();
             }
             input.ReadMessage(Job);
             break;
@@ -3901,7 +3901,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4310,7 +4310,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4356,13 +4356,13 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "status" field.</summary>
     public const int StatusFieldNumber = 2;
-    private global::LiveKit.Proto.JobStatus status_ = global::LiveKit.Proto.JobStatus.JsPending;
+    private global::Livekit.Server.Sdk.Dotnet.JobStatus status_ = global::Livekit.Server.Sdk.Dotnet.JobStatus.JsPending;
     /// <summary>
     /// The worker can indicate the job end by either specifying SUCCESS or FAILED
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.JobStatus Status {
+    public global::Livekit.Server.Sdk.Dotnet.JobStatus Status {
       get { return status_; }
       set {
         status_ = value;
@@ -4410,7 +4410,7 @@ namespace LiveKit.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (JobId.Length != 0) hash ^= JobId.GetHashCode();
-      if (Status != global::LiveKit.Proto.JobStatus.JsPending) hash ^= Status.GetHashCode();
+      if (Status != global::Livekit.Server.Sdk.Dotnet.JobStatus.JsPending) hash ^= Status.GetHashCode();
       if (Error.Length != 0) hash ^= Error.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -4434,7 +4434,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(10);
         output.WriteString(JobId);
       }
-      if (Status != global::LiveKit.Proto.JobStatus.JsPending) {
+      if (Status != global::Livekit.Server.Sdk.Dotnet.JobStatus.JsPending) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Status);
       }
@@ -4456,7 +4456,7 @@ namespace LiveKit.Proto {
         output.WriteRawTag(10);
         output.WriteString(JobId);
       }
-      if (Status != global::LiveKit.Proto.JobStatus.JsPending) {
+      if (Status != global::Livekit.Server.Sdk.Dotnet.JobStatus.JsPending) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Status);
       }
@@ -4477,7 +4477,7 @@ namespace LiveKit.Proto {
       if (JobId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(JobId);
       }
-      if (Status != global::LiveKit.Proto.JobStatus.JsPending) {
+      if (Status != global::Livekit.Server.Sdk.Dotnet.JobStatus.JsPending) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
       }
       if (Error.Length != 0) {
@@ -4498,7 +4498,7 @@ namespace LiveKit.Proto {
       if (other.JobId.Length != 0) {
         JobId = other.JobId;
       }
-      if (other.Status != global::LiveKit.Proto.JobStatus.JsPending) {
+      if (other.Status != global::Livekit.Server.Sdk.Dotnet.JobStatus.JsPending) {
         Status = other.Status;
       }
       if (other.Error.Length != 0) {
@@ -4528,7 +4528,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 16: {
-            Status = (global::LiveKit.Proto.JobStatus) input.ReadEnum();
+            Status = (global::Livekit.Server.Sdk.Dotnet.JobStatus) input.ReadEnum();
             break;
           }
           case 26: {
@@ -4559,7 +4559,7 @@ namespace LiveKit.Proto {
             break;
           }
           case 16: {
-            Status = (global::LiveKit.Proto.JobStatus) input.ReadEnum();
+            Status = (global::Livekit.Server.Sdk.Dotnet.JobStatus) input.ReadEnum();
             break;
           }
           case 26: {
@@ -4589,7 +4589,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4624,12 +4624,12 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "status" field.</summary>
     public const int StatusFieldNumber = 1;
-    private readonly static global::LiveKit.Proto.WorkerStatus StatusDefaultValue = global::LiveKit.Proto.WorkerStatus.WsAvailable;
+    private readonly static global::Livekit.Server.Sdk.Dotnet.WorkerStatus StatusDefaultValue = global::Livekit.Server.Sdk.Dotnet.WorkerStatus.WsAvailable;
 
-    private global::LiveKit.Proto.WorkerStatus status_;
+    private global::Livekit.Server.Sdk.Dotnet.WorkerStatus status_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.WorkerStatus Status {
+    public global::Livekit.Server.Sdk.Dotnet.WorkerStatus Status {
       get { if ((_hasBits0 & 1) != 0) { return status_; } else { return StatusDefaultValue; } }
       set {
         _hasBits0 |= 1;
@@ -4816,7 +4816,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Status = (global::LiveKit.Proto.WorkerStatus) input.ReadEnum();
+            Status = (global::Livekit.Server.Sdk.Dotnet.WorkerStatus) input.ReadEnum();
             break;
           }
           case 29: {
@@ -4847,7 +4847,7 @@ namespace LiveKit.Proto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            Status = (global::LiveKit.Proto.WorkerStatus) input.ReadEnum();
+            Status = (global::Livekit.Server.Sdk.Dotnet.WorkerStatus) input.ReadEnum();
             break;
           }
           case 29: {
@@ -4880,7 +4880,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4914,10 +4914,10 @@ namespace LiveKit.Proto {
 
     /// <summary>Field number for the "job" field.</summary>
     public const int JobFieldNumber = 1;
-    private global::LiveKit.Proto.Job job_;
+    private global::Livekit.Server.Sdk.Dotnet.Job job_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::LiveKit.Proto.Job Job {
+    public global::Livekit.Server.Sdk.Dotnet.Job Job {
       get { return job_; }
       set {
         job_ = value;
@@ -5075,7 +5075,7 @@ namespace LiveKit.Proto {
       }
       if (other.job_ != null) {
         if (job_ == null) {
-          Job = new global::LiveKit.Proto.Job();
+          Job = new global::Livekit.Server.Sdk.Dotnet.Job();
         }
         Job.MergeFrom(other.Job);
       }
@@ -5106,7 +5106,7 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (job_ == null) {
-              Job = new global::LiveKit.Proto.Job();
+              Job = new global::Livekit.Server.Sdk.Dotnet.Job();
             }
             input.ReadMessage(Job);
             break;
@@ -5140,7 +5140,7 @@ namespace LiveKit.Proto {
             break;
           case 10: {
             if (job_ == null) {
-              Job = new global::LiveKit.Proto.Job();
+              Job = new global::Livekit.Server.Sdk.Dotnet.Job();
             }
             input.ReadMessage(Job);
             break;
@@ -5175,7 +5175,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.LivekitAgentReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

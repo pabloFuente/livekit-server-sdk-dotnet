@@ -5,7 +5,6 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using Google.Protobuf;
-using LiveKit.Proto;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 

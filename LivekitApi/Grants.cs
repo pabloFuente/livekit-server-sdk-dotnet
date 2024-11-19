@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using LiveKit.Proto;
 
 namespace Livekit.Server.Sdk.Dotnet
 {
