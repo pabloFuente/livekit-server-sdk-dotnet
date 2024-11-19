@@ -10,6 +10,11 @@ using Newtonsoft.Json;
 
 namespace Livekit.Server.Sdk.Dotnet
 {
+    /// <summary>
+    /// Access tokens are required to connect to the server.
+    /// Once information is filled out, create the token string with <see cref="ToJwt"/>.
+    /// <see href="https://docs.livekit.io/guides/access-tokens"/>
+    /// </summary>
     public class AccessToken
     {
         public enum ParticipantKind
@@ -25,6 +30,8 @@ namespace Livekit.Server.Sdk.Dotnet
         private readonly string apiSecret;
         public ClaimsModel Claims { get; private set; }
         private TimeSpan ttl = Constants.DefaultTtl;
+        private DateTime expiration;
+        private DateTime notBefore;
 
         /// <summary>
         /// Constructs a new AccessToken
@@ -52,18 +59,49 @@ namespace Livekit.Server.Sdk.Dotnet
             Claims = new ClaimsModel();
         }
 
+        /// <summary>
+        /// Amount of time the created token is valid for.
+        /// Defaults to 6 hours.
+        /// </summary>
         public AccessToken WithTtl(TimeSpan ttl)
         {
             this.ttl = ttl;
             return this;
         }
 
+        /// <summary>
+        /// Used to specify an expiration time.
+        /// If set, takes preference over the value set with <see cref="WithTtl"/>.
+        /// </summary>
+        public AccessToken WithExpiration(DateTime expiration)
+        {
+            this.expiration = expiration;
+            return this;
+        }
+
+        /// <summary>
+        /// Date specifying the time before which this token is invalid.
+        /// If not set, the token is valid immediately after creation.
+        /// <see href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.5"/>
+        /// </summary>
+        public AccessToken WithNotBefore(DateTime notBefore)
+        {
+            this.notBefore = notBefore;
+            return this;
+        }
+
+        /// <summary>
+        /// Adds <see cref="VideoGrants"/> to this token.
+        /// </summary>
         public AccessToken WithGrants(VideoGrants grants)
         {
             Claims.Video = grants;
             return this;
         }
 
+        /// <summary>
+        /// Adds <see cref="SIPGrants"/> to this token.
+        /// </summary>
         public AccessToken WithSipGrants(SIPGrants grants)
         {
             Claims.Sip = grants;
@@ -82,6 +120,9 @@ namespace Livekit.Server.Sdk.Dotnet
             return this;
         }
 
+        /// <summary>
+        /// Display name for the participant, available as `Participant.name`.
+        /// </summary>
         public AccessToken WithName(string name)
         {
             Claims.Name = name;
@@ -118,6 +159,9 @@ namespace Livekit.Server.Sdk.Dotnet
             return this;
         }
 
+        /// <summary>
+        /// Generates the JWT token as a string.
+        /// </summary>
         public string ToJwt()
         {
             var video = Claims.Video;
@@ -130,14 +174,24 @@ namespace Livekit.Server.Sdk.Dotnet
             }
 
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-            var exp = now + (long)ttl.TotalSeconds;
+            var initUtc = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+            var exp =
+                expiration == DateTime.MinValue
+                    ? now + ttl.TotalSeconds
+                    : expiration.ToUniversalTime().Subtract(initUtc).TotalSeconds;
+
+            var nbf =
+                notBefore == DateTime.MinValue
+                    ? now
+                    : notBefore.ToUniversalTime().Subtract(initUtc).TotalSeconds;
 
             var jwtClaims = new Dictionary<string, object>
             {
                 { "sub", Claims.Identity },
                 { "jti", Claims.Identity },
                 { "iss", apiKey },
-                { "nbf", now },
+                { "nbf", nbf },
                 { "iat", now },
                 { "exp", exp },
             };

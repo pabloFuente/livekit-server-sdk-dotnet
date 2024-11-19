@@ -73,9 +73,9 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Trait("Category", "Unit")]
         public void Create_Token()
         {
-            var expirationTime = new DateTime(3023, 10, 15);
+            var expirationTime = new DateTime(3023, 10, 15).ToUniversalTime();
             var token = new AccessToken(TEST_KEY, TEST_SECRET)
-                .WithTtl(expirationTime - DateTime.UtcNow)
+                .WithTtl(expirationTime - DateTime.UtcNow.ToUniversalTime())
                 .WithName("name")
                 .WithIdentity("identity")
                 .WithMetadata("metadata")
@@ -92,7 +92,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
             var jwt = token.ToJwt();
 
-            var principal = new JwtSecurityTokenHandler().ValidateToken(
+            new JwtSecurityTokenHandler().ValidateToken(
                 jwt,
                 validationParameters,
                 out var validatedToken
@@ -136,6 +136,41 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             var sipGrants = claims.FirstOrDefault(c => c.Type == "sip")?.Value;
             Assert.NotNull(sipGrants);
             Assert.Contains("admin", sipGrants);
+        }
+
+        [Fact]
+        [Trait("Category", "Unit")]
+        public void NotBefore_Exception()
+        {
+            var exp = new DateTime(3023, 10, 15);
+            var nbf = new DateTime(3000, 10, 15);
+            var token = new AccessToken(TEST_KEY, TEST_SECRET).WithNotBefore(nbf);
+
+            var tokenVerifier = new TokenVerifier(TEST_KEY, TEST_SECRET);
+            var jwt = token.ToJwt();
+            Assert.Throws<SecurityTokenInvalidLifetimeException>(() => tokenVerifier.Verify(jwt));
+        }
+
+        [Fact]
+        [Trait("Category", "Unit")]
+        public void Expiration_Overrides_Ttl()
+        {
+            var exp = new DateTime(3023, 10, 15).ToUniversalTime();
+            var token = new AccessToken(TEST_KEY, TEST_SECRET)
+                .WithTtl(TimeSpan.FromHours(1))
+                .WithExpiration(exp);
+            var tokenVerifier = new TokenVerifier(TEST_KEY, TEST_SECRET);
+            var jwt = token.ToJwt();
+            tokenVerifier.Verify(jwt);
+
+            new JwtSecurityTokenHandler().ValidateToken(
+                jwt,
+                validationParameters,
+                out var validatedToken
+            );
+            var jwtToken = (JwtSecurityToken)validatedToken;
+
+            Assert.Equal(exp, jwtToken.ValidTo);
         }
 
         [Fact]
