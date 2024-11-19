@@ -177,13 +177,29 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Trait("Category", "Integration")]
         public async void Update_Layout()
         {
-            await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
+            await fixture.PublishVideoTrackInRoom(
+                roomClient,
+                TestConstants.ROOM_NAME,
+                TestConstants.PARTICIPANT_IDENTITY
+            );
             var request = new RoomCompositeEgressRequest { RoomName = TestConstants.ROOM_NAME };
             request.FileOutputs.Add(
                 new EncodedFileOutput { FileType = EncodedFileType.Mp4, Filepath = "/tmp/test.mp4" }
             );
             var egress = await egressClient.StartRoomCompositeEgress(request);
             Assert.Equal("", egress.RoomComposite.Layout);
+            // Wait until room composite egress is active
+            var timeout = DateTime.Now.AddSeconds(10);
+            while (egress.Status != EgressStatus.EgressActive && DateTime.Now < timeout)
+            {
+                await Task.Delay(250);
+                var egresses = await egressClient.ListEgress(
+                    new ListEgressRequest { RoomName = TestConstants.ROOM_NAME }
+                );
+                egress = egresses.Items.Where(e => e.EgressId == egress.EgressId).FirstOrDefault();
+            }
+            Assert.Equal(EgressStatus.EgressActive, egress.Status);
+
             var newLayout = "single-speaker-light";
             var updateRequest = new UpdateLayoutRequest
             {
