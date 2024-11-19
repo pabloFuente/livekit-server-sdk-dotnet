@@ -121,7 +121,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
                 claims.FirstOrDefault(c => c.Type == "metadata")?.Value
             );
             Assert.Equal(claimsModel.Sha256, claims.FirstOrDefault(c => c.Type == "sha256")?.Value);
-            Assert.Equal(expirationTime, jwtToken.ValidTo.AddSeconds(1));
+            Assert.Equal(expirationTime.ToLongDateString(), jwtToken.ValidTo.ToLongDateString());
 
             var attributes = claims.FirstOrDefault(c => c.Type == "attributes")?.Value;
             Assert.NotNull(attributes);

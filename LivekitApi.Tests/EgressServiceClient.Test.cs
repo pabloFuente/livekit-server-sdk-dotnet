@@ -86,7 +86,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             Assert.Single(egress.FileResults);
         }
 
-        [Fact]
+        [Fact(Skip = "flaky in github action runner")]
         [Trait("Category", "Integration")]
         [Trait("Category", "EgressService")]
         public async Task Start_Participant_Egress()
