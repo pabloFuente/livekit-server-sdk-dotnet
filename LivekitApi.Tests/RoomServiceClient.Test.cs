@@ -4,7 +4,7 @@ using LiveKit.Proto;
 namespace Livekit.Server.Sdk.Dotnet.Test
 {
     [Collection("Integration tests")]
-    public class RoomServiceClientTest : IAsyncLifetime
+    public class RoomServiceClientTest
     {
         private ServiceClientFixture fixture;
 
@@ -271,25 +271,6 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             };
             var response = await client.SendData(sendDataRequest);
             Assert.NotNull(response);
-        }
-
-        public Task InitializeAsync()
-        {
-            return Task.CompletedTask;
-        }
-
-        // After each test close all rooms and stop all egresses
-        public async Task DisposeAsync()
-        {
-            await client
-                .ListRooms(new ListRoomsRequest())
-                .ContinueWith(async response =>
-                {
-                    foreach (var room in response.Result.Rooms)
-                    {
-                        await client.DeleteRoom(new DeleteRoomRequest { Room = room.Name });
-                    }
-                });
         }
     }
 }
