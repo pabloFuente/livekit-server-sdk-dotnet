@@ -25,6 +25,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "EgressService")]
         public async void List_Egress()
         {
             var response = await egressClient.ListEgress(new ListEgressRequest());
@@ -33,6 +34,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "EgressService")]
         public async void Start_RoomComposite_Egress()
         {
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
@@ -48,6 +50,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "EgressService")]
         public async void Start_TrackComposite_Egress()
         {
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
@@ -87,6 +90,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "EgressService")]
         public async void Start_Participant_Egress()
         {
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
@@ -118,6 +122,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "EgressService")]
         public async void Start_Track_Egress()
         {
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
@@ -153,6 +158,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "EgressService")]
         public async void Start_Web_Egress()
         {
             var request = new WebEgressRequest
@@ -175,6 +181,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "EgressService")]
         public async void Update_Layout()
         {
             await fixture.PublishVideoTrackInRoom(
@@ -212,6 +219,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "EgressService")]
         public async void Stop_Egress()
         {
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });

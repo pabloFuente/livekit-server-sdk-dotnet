@@ -26,6 +26,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "IngressService")]
         public async void List_Ingress()
         {
             var response = await ingressClient.ListIngress(new ListIngressRequest());
@@ -34,6 +35,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "IngressService")]
         public async void Create_Ingress_Url()
         {
             var url =
@@ -60,6 +62,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "IngressService")]
         public async void Create_Ingress_Rtmp()
         {
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
@@ -90,6 +93,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "IngressService")]
         public async void Create_Ingress_Whip()
         {
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
@@ -111,6 +115,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "IngressService")]
         public async void Update_Ingress()
         {
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
@@ -142,6 +147,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "IngressService")]
         public async void Delete_Ingress()
         {
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });

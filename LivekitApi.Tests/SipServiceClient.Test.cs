@@ -21,6 +21,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "SipService")]
         public async void List_Sip_Inbound_Trunks()
         {
             var response = await sipClient.ListSIPInboundTrunk(new ListSIPInboundTrunkRequest());
@@ -29,6 +30,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "SipService")]
         public async void List_Sip_Outbound_Trunks()
         {
             var response = await sipClient.ListSIPOutboundTrunk(new ListSIPOutboundTrunkRequest());
@@ -37,6 +39,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "SipService")]
         public async void List_Sip_Dispatch_Rules()
         {
             var response = await sipClient.ListSIPDispatchRule(new ListSIPDispatchRuleRequest());
@@ -45,6 +48,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "SipService")]
         public async void Create_Sip_Inbound_Trunk()
         {
             var request = new CreateSIPInboundTrunkRequest
@@ -66,6 +70,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "SipService")]
         public async void Create_Sip_Outbound_Trunk()
         {
             var request = new CreateSIPOutboundTrunkRequest
@@ -90,6 +95,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "SipService")]
         public async void Get_Sip_Inbound_Trunk()
         {
             var inboundTrunk = await sipClient.CreateSIPInboundTrunk(
@@ -103,6 +109,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "SipService")]
         public async void Get_Sip_Outound_Trunk()
         {
             var outboundTrunk = await sipClient.CreateSIPOutboundTrunk(
@@ -119,6 +126,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "SipService")]
         public async void Delete_Sip_Trunk()
         {
             var trunk = await sipClient.CreateSIPInboundTrunk(
@@ -134,6 +142,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
         [Fact]
         [Trait("Category", "Integration")]
+        [Trait("Category", "SipService")]
         public async void Dispatch_Rule()
         {
             var request = new CreateSIPDispatchRuleRequest
