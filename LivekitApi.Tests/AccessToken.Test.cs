@@ -181,7 +181,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
                 .WithIdentity("test_identity")
                 .WithTtl(TimeSpan.FromMinutes(1))
                 .WithName("myname")
-                .WithKind(AccessToken.ParticipantKind.Standard)
+                .WithKind(ParticipantInfo.Types.Kind.Standard)
                 .WithGrants(
                     new VideoGrants
                     {

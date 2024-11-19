@@ -17,15 +17,6 @@ namespace Livekit.Server.Sdk.Dotnet
     /// </summary>
     public class AccessToken
     {
-        public enum ParticipantKind
-        {
-            Standard,
-            Egress,
-            Ingress,
-            Sip,
-            Agent,
-        }
-
         private readonly string apiKey;
         private readonly string apiSecret;
         public ClaimsModel Claims { get; private set; }
@@ -108,20 +99,27 @@ namespace Livekit.Server.Sdk.Dotnet
             return this;
         }
 
+        /// <summary>
+        /// Unique identity of the user, required for room join tokens.
+        /// </summary>
         public AccessToken WithIdentity(string identity)
         {
             Claims.Identity = identity;
             return this;
         }
 
-        public AccessToken WithKind(ParticipantKind kind)
+        /// <summary>
+        /// Kind of participant (standard, egress, ingress, agent, sip)
+        /// Allows further identifying participants of custom services.
+        /// </summary>
+        public AccessToken WithKind(ParticipantInfo.Types.Kind kind)
         {
             Claims.Kind = kind.ToString().ToLower();
             return this;
         }
 
         /// <summary>
-        /// Display name for the participant, available as `Participant.name`.
+        /// Display name for the participant, available as <code>Participant.name</code>.
         /// </summary>
         public AccessToken WithName(string name)
         {
@@ -129,18 +127,27 @@ namespace Livekit.Server.Sdk.Dotnet
             return this;
         }
 
+        /// <summary>
+        /// Custom metadata to be passed to participants.
+        /// </summary>
         public AccessToken WithMetadata(string metadata)
         {
             Claims.Metadata = metadata;
             return this;
         }
 
+        /// <summary>
+        /// Key/value attributes to attach to the participant.
+        /// </summary>
         public AccessToken WithAttributes(Dictionary<string, string> attributes)
         {
             Claims.Attributes = attributes;
             return this;
         }
 
+        /// <summary>
+        /// For verifying the integrity of the message body.
+        /// </summary>
         public AccessToken WithSha256(string sha256)
         {
             Claims.Sha256 = sha256;
@@ -281,6 +288,9 @@ namespace Livekit.Server.Sdk.Dotnet
         }
     }
 
+    /// <summary>
+    /// Helper to verify the integrity of a token.
+    /// </summary>
     public class TokenVerifier
     {
         private readonly string apiKey;

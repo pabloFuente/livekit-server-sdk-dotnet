@@ -3,11 +3,22 @@ using System.Threading.Tasks;
 
 namespace Livekit.Server.Sdk.Dotnet
 {
+    /// <summary>
+    /// A client for interacting with the Ingress service.
+    /// See: <see href="https://docs.livekit.io/realtime/ingress/overview/">Ingress</see>
+    /// </summary>
     public class IngressServiceClient : BaseService
     {
+        /// <summary>
+        /// A client for interacting with the Ingress service.
+        /// See: <see href="https://docs.livekit.io/realtime/ingress/overview/">Ingress</see>
+        /// </summary>
         public IngressServiceClient(string host, string apiKey, string apiSecret)
             : base(host, apiKey, apiSecret) { }
 
+        /// <summary>
+        /// Creates a new ingress. Default audio and video options will be used if none is provided.
+        /// </summary>
         public async Task<IngressInfo> CreateIngress(CreateIngressRequest request)
         {
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
@@ -17,6 +28,9 @@ namespace Livekit.Server.Sdk.Dotnet
             return await Twirp.CreateIngress(httpClient, request);
         }
 
+        /// <summary>
+        /// Updates the existing ingress with the given ingressID. Only inactive ingress can be updated
+        /// </summary>
         public async Task<IngressInfo> UpdateIngress(UpdateIngressRequest request)
         {
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
