@@ -214,18 +214,9 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             return Task.CompletedTask;
         }
 
-        // After each test close all rooms
+        // After each test stop all egresses
         public async Task DisposeAsync()
         {
-            await roomClient
-                .ListRooms(new ListRoomsRequest())
-                .ContinueWith(async response =>
-                {
-                    foreach (var room in response.Result.Rooms)
-                    {
-                        await roomClient.DeleteRoom(new DeleteRoomRequest { Room = room.Name });
-                    }
-                });
             await egressClient
                 .ListEgress(new ListEgressRequest())
                 .ContinueWith(async response =>

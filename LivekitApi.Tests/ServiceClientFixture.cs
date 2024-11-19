@@ -19,10 +19,11 @@ public class ServiceClientFixture : IDisposable
 
     private const string LIVEKIT_SERVER_IMAGE = "livekit/livekit-server:latest";
     private const string LIVEKIT_EGRESS_IMAGE = "livekit/egress:latest";
+    private const string LIVEKIT_INGRESS_IMAGE = "livekit/ingress:latest";
     private const string LIVEKIT_CLI_IMAGE = "livekit/livekit-cli:latest";
     private const string REDIS_IMAGE = "redis:latest";
 
-    private string egressYamlContent =
+    private string egressYaml =
         @"api_key: "
         + TEST_API_KEY
         + @"
@@ -34,21 +35,41 @@ insecure: true
 redis:
     address: {REDIS_ADDRESS}";
 
+    private string ingressYaml =
+        @"api_key: "
+        + TEST_API_KEY
+        + @"
+api_secret: "
+        + TEST_API_SECRET
+        + @"
+ws_url: {WS_URL}
+redis:
+    address: {REDIS_ADDRESS}
+rtmp_port: 1935
+whip_port: 8085
+http_relay_port: 9090
+health_port: 9091";
+
+    private IContainer redisContainer;
     private IContainer livekitServerContainer;
     private IContainer egressContainer;
-    private IContainer redisContainer;
+    private IContainer ingressContainer;
 
     public ServiceClientFixture()
     {
+        // Redis
         redisContainer = new ContainerBuilder()
             .WithImage(REDIS_IMAGE)
+            .WithName("redis")
             .WithPortBinding(6379, 6379)
             .WithAutoRemove(true)
             .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(6379))
             .Build();
         redisContainer.StartAsync().Wait();
+        // Livekit server
         livekitServerContainer = new ContainerBuilder()
             .WithImage(LIVEKIT_SERVER_IMAGE)
+            .WithName("livekit-server")
             .WithAutoRemove(true)
             .WithEnvironment("LIVEKIT_KEYS", TEST_API_KEY + ": " + TEST_API_SECRET)
             .WithEnvironment("LIVEKIT_REDIS_ADDRESS", redisContainer.IpAddress + ":6379")
@@ -59,38 +80,61 @@ redis:
             )
             .Build();
         livekitServerContainer.StartAsync().Wait();
-        var configPath = GetTempFilePathWithExtension(".yaml");
+        // Egress
+        var egressConfigPath = GetTempFilePathWithExtension(".yaml");
         File.WriteAllText(
-            configPath,
-            egressYamlContent
+            egressConfigPath,
+            egressYaml
                 .Replace("{WS_URL}", "ws://" + livekitServerContainer.IpAddress + ":7880")
                 .Replace("{REDIS_ADDRESS}", redisContainer.IpAddress + ":6379")
         );
         egressContainer = new ContainerBuilder()
             .WithImage(LIVEKIT_EGRESS_IMAGE)
+            .WithName("egress")
             .WithAutoRemove(true)
-            .WithBindMount(configPath, "/config.yaml")
+            .WithBindMount(egressConfigPath, "/config.yaml")
             .WithEnvironment("EGRESS_CONFIG_FILE", "/config.yaml")
             .DependsOn(redisContainer)
             .DependsOn(livekitServerContainer)
             .Build();
-        egressContainer.StartAsync().Wait();
+        // Ingress
+        var ingressConfigPath = GetTempFilePathWithExtension(".yaml");
+        File.WriteAllText(
+            ingressConfigPath,
+            ingressYaml
+                .Replace("{WS_URL}", "ws://" + livekitServerContainer.IpAddress + ":7880")
+                .Replace("{REDIS_ADDRESS}", redisContainer.IpAddress + ":6379")
+        );
+        ingressContainer = new ContainerBuilder()
+            .WithImage(LIVEKIT_INGRESS_IMAGE)
+            .WithName("ingress")
+            .WithAutoRemove(true)
+            .WithBindMount(ingressConfigPath, "/config.yaml")
+            .WithEnvironment("INGRESS_CONFIG_FILE", "/config.yaml")
+            .DependsOn(redisContainer)
+            .DependsOn(livekitServerContainer)
+            .Build();
+        Task.WaitAll(egressContainer.StartAsync(), ingressContainer.StartAsync());
     }
 
     public void Dispose()
     {
         var tasks = new List<Task>();
-        if (livekitServerContainer != null)
-        {
-            tasks.Add(livekitServerContainer.DisposeAsync().AsTask());
-        }
         if (redisContainer != null)
         {
             tasks.Add(redisContainer.DisposeAsync().AsTask());
         }
+        if (livekitServerContainer != null)
+        {
+            tasks.Add(livekitServerContainer.DisposeAsync().AsTask());
+        }
         if (egressContainer != null)
         {
             tasks.Add(egressContainer.DisposeAsync().AsTask());
+        }
+        if (ingressContainer != null)
+        {
+            tasks.Add(ingressContainer.DisposeAsync().AsTask());
         }
         Task.WhenAll(tasks).Wait();
     }
