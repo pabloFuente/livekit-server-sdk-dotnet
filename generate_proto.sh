@@ -6,7 +6,7 @@ SCRIPT_PATH=$(realpath "$0")
 SCRIPT_FOLDER="$(dirname "$SCRIPT_PATH")"
 
 API_PROTOCOL=$SCRIPT_FOLDER/protocol/protobufs
-API_OUT_CSHARP=$SCRIPT_FOLDER/LivekitApi/protocol
+API_OUT_CSHARP=$SCRIPT_FOLDER/LivekitApi/proto
 
 rm -rf "$API_OUT_CSHARP"
 mkdir -p "$API_OUT_CSHARP"
