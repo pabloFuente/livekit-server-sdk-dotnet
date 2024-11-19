@@ -24,7 +24,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "IngressService")]
-        public async void List_Ingress()
+        public async Task List_Ingress()
         {
             var response = await ingressClient.ListIngress(new ListIngressRequest());
             Assert.NotNull(response.Items);
@@ -33,7 +33,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "IngressService")]
-        public async void Create_Ingress_Url()
+        public async Task Create_Ingress_Url()
         {
             var url =
                 "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
@@ -60,7 +60,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "IngressService")]
-        public async void Create_Ingress_Rtmp()
+        public async Task Create_Ingress_Rtmp()
         {
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
             IngressInfo ingress = await ingressClient.CreateIngress(
@@ -91,7 +91,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "IngressService")]
-        public async void Create_Ingress_Whip()
+        public async Task Create_Ingress_Whip()
         {
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
             IngressInfo ingress = await ingressClient.CreateIngress(
@@ -113,7 +113,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "IngressService")]
-        public async void Update_Ingress()
+        public async Task Update_Ingress()
         {
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
             IngressInfo ingress = await ingressClient.CreateIngress(
@@ -145,7 +145,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "IngressService")]
-        public async void Delete_Ingress()
+        public async Task Delete_Ingress()
         {
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
             IngressInfo ingress = await ingressClient.CreateIngress(

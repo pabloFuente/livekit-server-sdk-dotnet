@@ -21,7 +21,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "RoomService")]
-        public async void Create_Room()
+        public async Task Create_Room()
         {
             var request = new CreateRoomRequest
             {
@@ -38,7 +38,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "RoomService")]
-        public async void List_Rooms()
+        public async Task List_Rooms()
         {
             await client.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
             var request = new ListRoomsRequest();
@@ -51,7 +51,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "RoomService")]
-        public async void Delete_Room()
+        public async Task Delete_Room()
         {
             await client.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
             await client.DeleteRoom(new DeleteRoomRequest { Room = TestConstants.ROOM_NAME });
@@ -63,7 +63,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "RoomService")]
-        public async void Update_RoomMetadata()
+        public async Task Update_RoomMetadata()
         {
             await client.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
             var request = new UpdateRoomMetadataRequest
@@ -79,7 +79,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "RoomService")]
-        public async void List_Participants()
+        public async Task List_Participants()
         {
             await client.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
             var request = new ListParticipantsRequest { Room = TestConstants.ROOM_NAME };
@@ -90,7 +90,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "RoomService")]
-        public async void Get_Participant()
+        public async Task Get_Participant()
         {
             await client.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
             await fixture.JoinParticipant(
@@ -111,7 +111,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "RoomService")]
-        public async void Remove_Participant()
+        public async Task Remove_Participant()
         {
             await client.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
             await fixture.JoinParticipant(
@@ -143,7 +143,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "RoomService")]
-        public async void Update_Participant()
+        public async Task Update_Participant()
         {
             await client.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
             await fixture.JoinParticipant(
@@ -186,7 +186,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "RoomService")]
-        public async void Mute_Published_Track()
+        public async Task Mute_Published_Track()
         {
             await client.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
             await fixture.PublishVideoTrackInRoom(
@@ -221,7 +221,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "RoomService")]
-        public async void Update_Subscriptions()
+        public async Task Update_Subscriptions()
         {
             string publisherIdentity = TestConstants.PARTICIPANT_IDENTITY + "2";
             await client.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
@@ -270,7 +270,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "RoomService")]
-        public async void Send_Data()
+        public async Task Send_Data()
         {
             await client.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
             var sendDataRequest = new SendDataRequest
