@@ -1,7 +1,7 @@
 namespace Livekit.Server.Sdk.Dotnet.Test
 {
     [Collection("Integration tests")]
-    public class EgressServiceClientTest : IAsyncLifetime
+    public class EgressServiceClientTest
     {
         private ServiceClientFixture fixture;
 
@@ -86,7 +86,6 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             Assert.Single(egress.FileResults);
         }
 
-        [Fact(Skip = "flaky in github action runner")]
         [Trait("Category", "Integration")]
         [Trait("Category", "EgressService")]
         public async Task Start_Participant_Egress()
@@ -229,27 +228,6 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             var stopRequest = new StopEgressRequest { EgressId = egress.EgressId };
             var response = await egressClient.StopEgress(stopRequest);
             Assert.NotNull(response);
-        }
-
-        public Task InitializeAsync()
-        {
-            return Task.CompletedTask;
-        }
-
-        // After each test stop all egresses
-        public async Task DisposeAsync()
-        {
-            await egressClient
-                .ListEgress(new ListEgressRequest())
-                .ContinueWith(async response =>
-                {
-                    foreach (var egress in response.Result.Items)
-                    {
-                        await egressClient.StopEgress(
-                            new StopEgressRequest { EgressId = egress.EgressId }
-                        );
-                    }
-                });
         }
     }
 }
