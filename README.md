@@ -293,7 +293,6 @@ Pre-requisites:
 Generate proto files:
 
 ```bash
-cd livekit-protocol
 ./generate_proto.sh
 ```
 
