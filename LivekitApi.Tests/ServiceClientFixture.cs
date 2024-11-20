@@ -180,7 +180,7 @@ health_port: 9091";
             Wait.ForUnixContainer().UntilMessageIsLogged(".*published simulcast track.*")
         );
         // Wait for participant to have tracks up to 10 seconds
-        ParticipantInfo participant = null;
+        ParticipantInfo? participant = null;
         var timeout = DateTime.Now.AddSeconds(10);
         while ((participant == null || participant.Tracks.Count == 0) && DateTime.Now < timeout)
         {
@@ -192,6 +192,7 @@ health_port: 9091";
                 await Task.Delay(500);
             }
         }
+        Assert.NotNull(participant);
         if (participant.Tracks.Count == 0)
         {
             Assert.Fail("Participant has no tracks");

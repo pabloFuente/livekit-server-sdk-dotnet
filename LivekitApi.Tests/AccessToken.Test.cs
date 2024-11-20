@@ -60,13 +60,26 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             );
             var decoded = (JwtSecurityToken)validatedToken;
 
-            var videoGrant = JObject.Parse(decoded.Payload["video"].ToString());
-            Assert.True(videoGrant.SelectToken("roomCreate").Value<bool>());
-            Assert.True(videoGrant.SelectToken("roomRecord").Value<bool>());
-            Assert.False(videoGrant.SelectToken("canUpdateOwnMetadata").Value<bool>());
-            var sipGrant = JObject.Parse(decoded.Payload["sip"].ToString());
-            Assert.True(sipGrant.SelectToken("call").Value<bool>());
-            Assert.False(sipGrant.SelectToken("admin").Value<bool>());
+            var videoPayload = decoded.Payload["video"]?.ToString();
+            Assert.NotNull(videoPayload);
+            var videoGrant = JObject.Parse(videoPayload);
+            var roomCreateToken = videoGrant.SelectToken("roomCreate");
+            Assert.NotNull(roomCreateToken);
+            Assert.True(roomCreateToken.Value<bool>());
+            var roomRecordToken = videoGrant.SelectToken("roomRecord");
+            Assert.NotNull(roomRecordToken);
+            Assert.True(roomRecordToken.Value<bool>());
+            var canUpdateOwnMetadataToken = videoGrant.SelectToken("canUpdateOwnMetadata");
+            Assert.NotNull(canUpdateOwnMetadataToken);
+            Assert.False(canUpdateOwnMetadataToken.Value<bool>());
+            var sipPayload = decoded.Payload["sip"]?.ToString();
+            Assert.NotNull(sipPayload);
+            var sipGrant = JObject.Parse(sipPayload);
+            var callToken = sipGrant.SelectToken("call");
+            Assert.NotNull(callToken);
+            Assert.True(callToken.Value<bool>());
+            var adminToken = sipGrant.SelectToken("admin");
+            Assert.False(adminToken != null && adminToken.Value<bool>());
         }
 
         [Fact]
@@ -203,9 +216,12 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             Assert.Equal("test_identity", decoded.Id);
             Assert.Equal("myname", decoded.Payload["name"]);
             Assert.Equal("standard", decoded.Payload["kind"]);
+            var videoPayload = decoded.Payload["video"]?.ToString();
+            Assert.NotNull(videoPayload);
             var videoGrant = JsonConvert.DeserializeObject<Dictionary<string, object>>(
-                decoded.Payload["video"].ToString()
+                videoPayload
             );
+            Assert.NotNull(videoGrant);
             Assert.True((bool)videoGrant["roomJoin"]);
             Assert.Equal("myroom", videoGrant["room"]);
             Assert.False((bool)videoGrant["canPublish"]);

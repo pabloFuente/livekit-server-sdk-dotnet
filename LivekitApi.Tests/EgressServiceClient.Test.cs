@@ -67,6 +67,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             var videoTrack = participant
                 .Tracks.Where(t => t.Type == TrackType.Video)
                 .FirstOrDefault();
+            Assert.NotNull(videoTrack);
             var request = new TrackCompositeEgressRequest
             {
                 RoomName = TestConstants.ROOM_NAME,
@@ -139,6 +140,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             var videoTrack = participant
                 .Tracks.Where(t => t.Type == TrackType.Video)
                 .FirstOrDefault();
+            Assert.NotNull(videoTrack);
             var request = new TrackEgressRequest
             {
                 RoomName = TestConstants.ROOM_NAME,
@@ -195,7 +197,11 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             Assert.Equal("", egress.RoomComposite.Layout);
             // Wait until room composite egress is active
             var timeout = DateTime.Now.AddSeconds(10);
-            while (egress.Status != EgressStatus.EgressActive && DateTime.Now < timeout)
+            while (
+                egress != null
+                && egress.Status != EgressStatus.EgressActive
+                && DateTime.Now < timeout
+            )
             {
                 await Task.Delay(250);
                 var egresses = await egressClient.ListEgress(
@@ -203,6 +209,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
                 );
                 egress = egresses.Items.Where(e => e.EgressId == egress.EgressId).FirstOrDefault();
             }
+            Assert.NotNull(egress);
             Assert.Equal(EgressStatus.EgressActive, egress.Status);
 
             var newLayout = "single-speaker-light";
