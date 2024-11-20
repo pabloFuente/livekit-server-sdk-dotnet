@@ -10,9 +10,10 @@
       This library is designed to work with livekit-server. Use it with a .NET backend to manage
       access to LiveKit.
     </Description>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <RepositoryUrl>https://github.com/pabloFuente/livekit-server-sdk-dotnet</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RootNamespace>Livekit.Server.Sdk.Dotnet</RootNamespace>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
@@ -23,7 +24,7 @@
     <DebugSymbols>true</DebugSymbols>
     <EmbedAllSources>true</EmbedAllSources>
     <EnablePackageValidation>true</EnablePackageValidation>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageValidationBaselineVersion>1.0.0</PackageValidationBaselineVersion>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
   </PropertyGroup>
 
