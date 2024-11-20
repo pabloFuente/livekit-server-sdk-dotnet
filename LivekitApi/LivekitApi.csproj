@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>Livekit.Server.Sdk.Dotnet</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>pabloFuente</Authors>
     <MaintainerEmail>pablofuenteperez@gmail.com</MaintainerEmail>
     <PackageTags>Livekit Server Sdk Dotnet;LiveKit;LiveKit Server;LiveKit Dotnet;LiveKit SDK;</PackageTags>
