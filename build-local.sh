@@ -26,8 +26,13 @@ dotnet tool restore || exit 1
 dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg || exit 1
 
 # Install
-mono /usr/local/bin/nuget.exe delete Livekit.Server.Sdk.Dotnet 1.0.0 -Source ~/.private_nuget/ -np || true
-mono /usr/local/bin/nuget.exe add "$SCRIPT_FOLDER"/LivekitApi/bin/Debug/Livekit.Server.Sdk.Dotnet.1.0.0.nupkg -Source ~/.private_nuget/ || exit 1
+VERSION=$(grep -oPm1 "(?<=<Version>)[^<]+" LivekitApi.csproj)
+if [ -z "$VERSION" ]; then
+    echo "Could not find version"
+    exit 1
+fi
+mono /usr/local/bin/nuget.exe delete Livekit.Server.Sdk.Dotnet "$VERSION" -Source ~/.private_nuget/ -np || true
+mono /usr/local/bin/nuget.exe add "$SCRIPT_FOLDER"/LivekitApi/bin/Debug/Livekit.Server.Sdk.Dotnet."$VERSION".nupkg -Source ~/.private_nuget/ || exit 1
 
 # At this point, it is possible to install the package in a local .NET project and run it with:
 # $ dotnet add package Livekit.Server.Sdk.Dotnet && dotnet restore && dotnet run

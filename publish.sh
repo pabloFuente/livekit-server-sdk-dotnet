@@ -12,7 +12,8 @@ SCRIPT_FOLDER="$(dirname "$SCRIPT_PATH")"
 source "$SCRIPT_FOLDER"/build-local.sh || exit 1
 
 pushd "$SCRIPT_FOLDER"/LivekitApi || exit 1
-dotnet pack -c Release || exit 1
+dotnet build -c Release /p:ContinuousIntegrationBuild=true || exit 1
+dotnet pack -c Release --no-build || exit 1
 
 pushd "$SCRIPT_FOLDER"/LivekitApi/bin/Release || exit 1
 
