@@ -77,11 +77,11 @@ health_port: 9091";
             .WithEnvironment("LIVEKIT_REDIS_ADDRESS", redisContainer.IpAddress + ":6379")
             .WithPortBinding(7880, 7880)
             .DependsOn(redisContainer)
-            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(9091))
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(7880))
             .WithWaitStrategy(
                 Wait.ForUnixContainer()
-                    .UntilHttpRequestIsSucceeded(request =>
-                        request.ForPort(9091).ForPath("/").ForStatusCode(HttpStatusCode.OK)
+                    .UntilHttpRequestIsSucceeded(r =>
+                        r.ForPort(7880).ForPath("/").ForStatusCode(HttpStatusCode.OK)
                     )
             )
             .Build();
@@ -100,6 +100,7 @@ health_port: 9091";
             .WithAutoRemove(true)
             .WithBindMount(egressConfigPath, "/config.yaml")
             .WithEnvironment("EGRESS_CONFIG_FILE", "/config.yaml")
+            .WithPortBinding(9091, true)
             .DependsOn(redisContainer)
             .DependsOn(livekitServerContainer)
             .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(9091))
@@ -124,9 +125,16 @@ health_port: 9091";
             .WithAutoRemove(true)
             .WithBindMount(ingressConfigPath, "/config.yaml")
             .WithEnvironment("INGRESS_CONFIG_FILE", "/config.yaml")
+            .WithPortBinding(9091, true)
             .DependsOn(redisContainer)
             .DependsOn(livekitServerContainer)
             .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(9091))
+            .WithWaitStrategy(
+                Wait.ForUnixContainer()
+                    .UntilHttpRequestIsSucceeded(request =>
+                        request.ForPort(9091).ForPath("/").ForStatusCode(HttpStatusCode.OK)
+                    )
+            )
             .Build();
         Task.WaitAll(egressContainer.StartAsync(), ingressContainer.StartAsync());
     }
