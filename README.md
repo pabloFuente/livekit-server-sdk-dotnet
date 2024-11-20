@@ -362,4 +362,4 @@ dotnet nuget locals all --clear
 dotnet restore
 ```
 
-> **Note**: all this process is automated in the `build-local.sh` script. Tested in Unix systems.
+> **Note**: all this process is automated in the `build_local.sh` script. Tested in Unix systems.
