@@ -5,6 +5,7 @@ SCRIPT_PATH=$(realpath "$0")
 SCRIPT_FOLDER="$(dirname "$SCRIPT_PATH")"
 
 # Format
+dotnet tool restore || exit 1
 dotnet csharpier LivekitApi || exit 1
 dotnet csharpier LivekitApi.Tests || exit 1
 dotnet csharpier LivekitApi.Example || exit 1
@@ -20,7 +21,6 @@ rm -rf obj
 # Clean
 dotnet nuget locals all --clear
 dotnet restore || exit 1
-dotnet tool restore || exit 1
 
 # Build
 dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg || exit 1
