@@ -17,6 +17,11 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <DebugType>embedded</DebugType>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <DebugSymbols>true</DebugSymbols>
+    <EmbedAllSources>true</EmbedAllSources>
     <EnablePackageValidation>true</EnablePackageValidation>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
