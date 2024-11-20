@@ -1,7 +1,7 @@
 namespace Livekit.Server.Sdk.Dotnet.Test
 {
     [Collection("Integration tests")]
-    public class EgressServiceClientTest
+    public class EgressServiceClientTest : IAsyncLifetime
     {
         private ServiceClientFixture fixture;
 
@@ -36,12 +36,21 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         public async Task Start_RoomComposite_Egress()
         {
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
+            await fixture.PublishVideoTrackInRoom(
+                roomClient,
+                TestConstants.ROOM_NAME,
+                TestConstants.PARTICIPANT_IDENTITY
+            );
             var request = new RoomCompositeEgressRequest { RoomName = TestConstants.ROOM_NAME };
             request.FileOutputs.Add(
-                new EncodedFileOutput { FileType = EncodedFileType.Mp4, Filepath = "/tmp/test.mp4" }
+                new EncodedFileOutput
+                {
+                    FileType = EncodedFileType.Mp4,
+                    Filepath = "/home/egress/" + new Random().Next(0, int.MaxValue) + "-test.mp4",
+                }
             );
             var egress = await egressClient.StartRoomCompositeEgress(request);
-            Assert.NotNull(egress);
+            await WaitUntilEgressIsActive(egress);
             Assert.Equal(TestConstants.ROOM_NAME, egress.RoomName);
             Assert.Single(egress.FileResults);
         }
@@ -77,12 +86,13 @@ namespace Livekit.Server.Sdk.Dotnet.Test
                     new EncodedFileOutput
                     {
                         FileType = EncodedFileType.Mp4,
-                        Filepath = "/tmp/test.mp4",
+                        Filepath =
+                            "/home/egress/" + new Random().Next(0, int.MaxValue) + "-test.mp4",
                     },
                 },
             };
             var egress = await egressClient.StartTrackCompositeEgress(request);
-            Assert.NotNull(egress);
+            await WaitUntilEgressIsActive(egress);
             Assert.Equal(TestConstants.ROOM_NAME, egress.RoomName);
             Assert.Single(egress.FileResults);
         }
@@ -107,12 +117,13 @@ namespace Livekit.Server.Sdk.Dotnet.Test
                     new EncodedFileOutput
                     {
                         FileType = EncodedFileType.Mp4,
-                        Filepath = "/tmp/test.mp4",
+                        Filepath =
+                            "/home/egress/" + new Random().Next(0, int.MaxValue) + "-test.mp4",
                     },
                 },
             };
             var egress = await egressClient.StartParticipantEgress(request);
-            Assert.NotNull(egress);
+            await WaitUntilEgressIsActive(egress);
             Assert.Equal(TestConstants.ROOM_NAME, egress.RoomName);
             Assert.Single(egress.FileResults);
             Assert.Equal(TestConstants.PARTICIPANT_IDENTITY, egress.Participant.Identity);
@@ -145,15 +156,21 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             {
                 RoomName = TestConstants.ROOM_NAME,
                 TrackId = videoTrack.Sid,
-                File = new DirectFileOutput { Filepath = "{room_name}/{track_id}" },
+                File = new DirectFileOutput
+                {
+                    Filepath =
+                        "/home/egress/"
+                        + new Random().Next(0, int.MaxValue)
+                        + "-{room_name}/{track_id}",
+                },
             };
             var egress = await egressClient.StartTrackEgress(request);
-            Assert.NotNull(egress);
+            await WaitUntilEgressIsActive(egress);
             Assert.Equal(egress.Track.TrackId, videoTrack.Sid);
             Assert.Equal(TestConstants.ROOM_NAME, egress.Track.RoomName);
             Assert.Equal(TestConstants.ROOM_NAME, egress.RoomName);
             Assert.Single(egress.FileResults);
-            Assert.Equal("{room_name}/{track_id}", egress.Track.File.Filepath);
+            Assert.Contains("{room_name}/{track_id}", egress.Track.File.Filepath);
         }
 
         [Fact]
@@ -170,12 +187,13 @@ namespace Livekit.Server.Sdk.Dotnet.Test
                     new EncodedFileOutput
                     {
                         FileType = EncodedFileType.Mp4,
-                        Filepath = "/tmp/test.mp4",
+                        Filepath =
+                            "/home/egress/" + new Random().Next(0, int.MaxValue) + "-test.mp4",
                     },
                 },
             };
             var egress = await egressClient.StartWebEgress(request);
-            Assert.NotNull(egress);
+            await WaitUntilEgressIsActive(egress);
             Assert.Single(egress.FileResults);
         }
 
@@ -191,27 +209,15 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             );
             var request = new RoomCompositeEgressRequest { RoomName = TestConstants.ROOM_NAME };
             request.FileOutputs.Add(
-                new EncodedFileOutput { FileType = EncodedFileType.Mp4, Filepath = "/tmp/test.mp4" }
+                new EncodedFileOutput
+                {
+                    FileType = EncodedFileType.Mp4,
+                    Filepath = "/home/egress/" + new Random().Next(0, int.MaxValue) + "-test.mp4",
+                }
             );
             var egress = await egressClient.StartRoomCompositeEgress(request);
             Assert.Equal("", egress.RoomComposite.Layout);
-            // Wait until room composite egress is active
-            var timeout = DateTime.Now.AddSeconds(10);
-            while (
-                egress != null
-                && egress.Status != EgressStatus.EgressActive
-                && DateTime.Now < timeout
-            )
-            {
-                await Task.Delay(250);
-                var egresses = await egressClient.ListEgress(
-                    new ListEgressRequest { RoomName = TestConstants.ROOM_NAME }
-                );
-                egress = egresses.Items.Where(e => e.EgressId == egress.EgressId).FirstOrDefault();
-            }
-            Assert.NotNull(egress);
-            Assert.Equal(EgressStatus.EgressActive, egress.Status);
-
+            await WaitUntilEgressIsActive(egress);
             var newLayout = "single-speaker-light";
             var updateRequest = new UpdateLayoutRequest
             {
@@ -230,12 +236,97 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
             var request = new RoomCompositeEgressRequest { RoomName = TestConstants.ROOM_NAME };
             request.FileOutputs.Add(
-                new EncodedFileOutput { FileType = EncodedFileType.Mp4, Filepath = "/tmp/test.mp4" }
+                new EncodedFileOutput
+                {
+                    FileType = EncodedFileType.Mp4,
+                    Filepath = "/home/egress/" + new Random().Next(0, int.MaxValue) + "-test.mp4",
+                }
             );
             var egress = await egressClient.StartRoomCompositeEgress(request);
             var stopRequest = new StopEgressRequest { EgressId = egress.EgressId };
             var response = await egressClient.StopEgress(stopRequest);
             Assert.NotNull(response);
+        }
+
+        private async Task WaitUntilEgressIsActive(EgressInfo egress)
+        {
+            var timeout = DateTime.Now.AddSeconds(100);
+            while (
+                egress != null
+                && egress.Status != EgressStatus.EgressActive
+                && DateTime.Now < timeout
+            )
+            {
+                var egresses = await egressClient.ListEgress(
+                    new ListEgressRequest
+                    {
+                        RoomName = TestConstants.ROOM_NAME,
+                        EgressId = egress.EgressId,
+                    }
+                );
+                egress = egresses.Items.FirstOrDefault();
+                await Task.Delay(700);
+            }
+            Assert.NotNull(egress);
+            Assert.Equal(EgressStatus.EgressActive, egress.Status);
+        }
+
+        public Task InitializeAsync()
+        {
+            return Task.CompletedTask;
+        }
+
+        // After each test delete all rooms and stop all egresses
+        public async Task DisposeAsync()
+        {
+            var timeout = DateTime.Now.AddSeconds(60);
+            var activeRooms = (await roomClient.ListRooms(new ListRoomsRequest())).Rooms;
+            while (activeRooms.Count > 0 && DateTime.Now < timeout)
+            {
+                foreach (var room in activeRooms)
+                {
+                    await roomClient.DeleteRoom(new DeleteRoomRequest { Room = room.Name });
+                }
+                await Task.Delay(700);
+                activeRooms = (await roomClient.ListRooms(new ListRoomsRequest())).Rooms;
+            }
+            if (DateTime.Now >= timeout)
+            {
+                Assert.Fail("Timeout waiting for rooms to be deleted");
+            }
+            timeout = DateTime.Now.AddSeconds(60);
+            var activeEgresses = (await egressClient.ListEgress(new ListEgressRequest())).Items;
+            while (
+                activeEgresses.Any(eg =>
+                    eg.Status == EgressStatus.EgressStarting
+                    || eg.Status == EgressStatus.EgressActive
+                )
+                && DateTime.Now < timeout
+            )
+            {
+                foreach (var egress in activeEgresses)
+                {
+                    if (
+                        egress.Status == EgressStatus.EgressStarting
+                        || egress.Status == EgressStatus.EgressActive
+                    )
+                    {
+                        try
+                        {
+                            await egressClient.StopEgress(
+                                new StopEgressRequest { EgressId = egress.EgressId }
+                            );
+                        }
+                        catch (Exception) { }
+                    }
+                }
+                await Task.Delay(700);
+                activeEgresses = (await egressClient.ListEgress(new ListEgressRequest())).Items;
+            }
+            if (DateTime.Now >= timeout)
+            {
+                Assert.Fail("Timeout waiting for egresses to stop");
+            }
         }
     }
 }

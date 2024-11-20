@@ -167,20 +167,48 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             return Task.CompletedTask;
         }
 
-        // After each test stop all ingresses
+        // After each test delete all rooms and stop all ingresses
         public async Task DisposeAsync()
         {
-            await ingressClient
-                .ListIngress(new ListIngressRequest())
-                .ContinueWith(async response =>
+            var timeout = DateTime.Now.AddSeconds(60);
+            var activeRooms = (await roomClient.ListRooms(new ListRoomsRequest())).Rooms;
+            while (activeRooms.Count > 0 && DateTime.Now < timeout)
+            {
+                foreach (var room in activeRooms)
                 {
-                    foreach (var ingress in response.Result.Items)
-                    {
-                        await ingressClient.DeleteIngress(
-                            new DeleteIngressRequest { IngressId = ingress.IngressId }
-                        );
-                    }
-                });
+                    await roomClient.DeleteRoom(new DeleteRoomRequest { Room = room.Name });
+                }
+                await Task.Delay(700);
+                activeRooms = (await roomClient.ListRooms(new ListRoomsRequest())).Rooms;
+            }
+            if (DateTime.Now >= timeout)
+            {
+                Assert.Fail("Timeout waiting for rooms to be deleted");
+            }
+            timeout = DateTime.Now.AddSeconds(60);
+            var activeIngresses = (await ingressClient.ListIngress(new ListIngressRequest())).Items;
+            while (
+                activeIngresses.Any(ing =>
+                    ing.State.Status == IngressState.Types.Status.EndpointBuffering
+                    || ing.State.Status == IngressState.Types.Status.EndpointPublishing
+                    || ing.State.Status == IngressState.Types.Status.EndpointInactive
+                )
+                && DateTime.Now < timeout
+            )
+            {
+                foreach (var ingress in activeIngresses)
+                {
+                    await ingressClient.DeleteIngress(
+                        new DeleteIngressRequest { IngressId = ingress.IngressId }
+                    );
+                }
+                await Task.Delay(700);
+                activeIngresses = (await ingressClient.ListIngress(new ListIngressRequest())).Items;
+            }
+            if (DateTime.Now >= timeout)
+            {
+                Assert.Fail("Timeout waiting for ingresses to be deleted");
+            }
         }
     }
 }

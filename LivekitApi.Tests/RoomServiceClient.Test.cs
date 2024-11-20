@@ -3,7 +3,7 @@ using Google.Protobuf;
 namespace Livekit.Server.Sdk.Dotnet.Test
 {
     [Collection("Integration tests")]
-    public class RoomServiceClientTest
+    public class RoomServiceClientTest : IAsyncLifetime
     {
         private ServiceClientFixture fixture;
 
@@ -281,6 +281,31 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             };
             var response = await client.SendData(sendDataRequest);
             Assert.NotNull(response);
+        }
+
+        public Task InitializeAsync()
+        {
+            return Task.CompletedTask;
+        }
+
+        // After each test delete all rooms
+        public async Task DisposeAsync()
+        {
+            var timeout = DateTime.Now.AddSeconds(60);
+            var activeRooms = (await client.ListRooms(new ListRoomsRequest())).Rooms;
+            while (activeRooms.Count > 0 && DateTime.Now < timeout)
+            {
+                foreach (var room in activeRooms)
+                {
+                    await client.DeleteRoom(new DeleteRoomRequest { Room = room.Name });
+                }
+                await Task.Delay(700);
+                activeRooms = (await client.ListRooms(new ListRoomsRequest())).Rooms;
+            }
+            if (DateTime.Now >= timeout)
+            {
+                Assert.Fail("Timeout waiting for rooms to be deleted");
+            }
         }
     }
 }
