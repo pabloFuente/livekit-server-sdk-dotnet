@@ -1,3 +1,4 @@
+using System.Net;
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Containers;
@@ -32,6 +33,7 @@ api_secret: "
         + @"
 ws_url: {WS_URL}
 insecure: true
+health_port: 9091
 redis:
     address: {REDIS_ADDRESS}";
 
@@ -75,8 +77,12 @@ health_port: 9091";
             .WithEnvironment("LIVEKIT_REDIS_ADDRESS", redisContainer.IpAddress + ":6379")
             .WithPortBinding(7880, 7880)
             .DependsOn(redisContainer)
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(9091))
             .WithWaitStrategy(
-                Wait.ForUnixContainer().UntilHttpRequestIsSucceeded(r => r.ForPort(7880))
+                Wait.ForUnixContainer()
+                    .UntilHttpRequestIsSucceeded(request =>
+                        request.ForPort(9091).ForPath("/").ForStatusCode(HttpStatusCode.OK)
+                    )
             )
             .Build();
         livekitServerContainer.StartAsync().Wait();
@@ -96,6 +102,13 @@ health_port: 9091";
             .WithEnvironment("EGRESS_CONFIG_FILE", "/config.yaml")
             .DependsOn(redisContainer)
             .DependsOn(livekitServerContainer)
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(9091))
+            .WithWaitStrategy(
+                Wait.ForUnixContainer()
+                    .UntilHttpRequestIsSucceeded(request =>
+                        request.ForPort(9091).ForPath("/").ForStatusCode(HttpStatusCode.OK)
+                    )
+            )
             .Build();
         // Ingress
         var ingressConfigPath = GetTempFilePathWithExtension(".yaml");
@@ -113,6 +126,7 @@ health_port: 9091";
             .WithEnvironment("INGRESS_CONFIG_FILE", "/config.yaml")
             .DependsOn(redisContainer)
             .DependsOn(livekitServerContainer)
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(9091))
             .Build();
         Task.WaitAll(egressContainer.StartAsync(), ingressContainer.StartAsync());
     }

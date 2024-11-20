@@ -86,6 +86,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             Assert.Single(egress.FileResults);
         }
 
+        [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "EgressService")]
         public async Task Start_Participant_Egress()
