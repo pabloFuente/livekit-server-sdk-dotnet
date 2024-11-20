@@ -86,7 +86,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Trait("Category", "Unit")]
         public void Create_Token()
         {
-            var expirationTime = new DateTime(3023, 10, 15).ToUniversalTime();
+            var expirationTime = new DateTime(3023, 10, 15, 10, 10, 10).ToUniversalTime();
             var token = new AccessToken(TEST_KEY, TEST_SECRET)
                 .WithTtl(expirationTime - DateTime.UtcNow.ToUniversalTime())
                 .WithName("name")
