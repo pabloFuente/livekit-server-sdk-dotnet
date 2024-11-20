@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <PackageId>Livekit.Server.Sdk.Dotnet</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>pabloFuente</Authors>
+    <MaintainerEmail>pablofuenteperez@gmail.com</MaintainerEmail>
     <PackageTags>Livekit Server Sdk Dotnet;LiveKit;LiveKit Server;LiveKit Dotnet;LiveKit SDK;</PackageTags>
     <Description>.NET APIs to manage LiveKit Access Tokens, Rooms, Egress, Ingress, SIP and Agents.
       This library is designed to work with livekit-server. Use it with a .NET backend to manage
@@ -17,8 +18,12 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <EnablePackageValidation>true</EnablePackageValidation>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
   <ItemGroup>
