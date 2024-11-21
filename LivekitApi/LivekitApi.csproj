@@ -9,9 +9,10 @@
     <Version>1.0.2</Version>
     <Authors>pabloFuente</Authors>
     <MaintainerEmail>pablofuenteperez@gmail.com</MaintainerEmail>
+    <PackageProjectUrl>https://github.com/pabloFuente/livekit-server-sdk-dotnet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pabloFuente/livekit-server-sdk-dotnet</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Livekit Server Sdk Dotnet;LiveKit;LiveKit Server;LiveKit Dotnet;LiveKit SDK;</PackageTags>
+    <PackageTags>Livekit;LiveKit;livekit;SDK;WebRTC;VoIP;Dotnet;realtime</PackageTags>
     <Description>
       .NET APIs to manage LiveKit Access Tokens, Rooms, Egress, Ingress, SIP and Agents.
       This library is designed to work with livekit-server. Use it with a .NET backend to manage
