@@ -1,23 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <PackageId>Livekit.Server.Sdk.Dotnet</PackageId>
     <Version>1.0.2</Version>
     <Authors>pabloFuente</Authors>
     <MaintainerEmail>pablofuenteperez@gmail.com</MaintainerEmail>
+    <RepositoryUrl>https://github.com/pabloFuente/livekit-server-sdk-dotnet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
     <PackageTags>Livekit Server Sdk Dotnet;LiveKit;LiveKit Server;LiveKit Dotnet;LiveKit SDK;</PackageTags>
-    <Description>.NET APIs to manage LiveKit Access Tokens, Rooms, Egress, Ingress, SIP and Agents.
+    <Description>
+      .NET APIs to manage LiveKit Access Tokens, Rooms, Egress, Ingress, SIP and Agents.
       This library is designed to work with livekit-server. Use it with a .NET backend to manage
       access to LiveKit.
     </Description>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RepositoryUrl>https://github.com/pabloFuente/livekit-server-sdk-dotnet</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <RootNamespace>Livekit.Server.Sdk.Dotnet</RootNamespace>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <DebugType>embedded</DebugType>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
