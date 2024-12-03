@@ -43,7 +43,7 @@ namespace Livekit.Server.Sdk.Dotnet {
             "Chhub3JtYWxpemVkX2VuZF90aW1lc3RhbXAYByABKAsyGi5nb29nbGUucHJv",
             "dG9idWYuVGltZXN0YW1wSAGIAQESEAoIbWV0YWRhdGEYCCABKAkSCwoDcmlk",
             "GAkgASgNQhMKEV9lbmRfdGltZXN0YW1wX21zQhsKGV9ub3JtYWxpemVkX2Vu",
-            "ZF90aW1lc3RhbXAqxQYKC01ldHJpY0xhYmVsEhMKD0FHRU5UU19MTE1fVFRG",
+            "ZF90aW1lc3RhbXAqgQcKC01ldHJpY0xhYmVsEhMKD0FHRU5UU19MTE1fVFRG",
             "VBAAEhMKD0FHRU5UU19TVFRfVFRGVBABEhMKD0FHRU5UU19UVFNfVFRGQhAC",
             "EigKJENMSUVOVF9WSURFT19TVUJTQ1JJQkVSX0ZSRUVaRV9DT1VOVBADEjEK",
             "LUNMSUVOVF9WSURFT19TVUJTQ1JJQkVSX1RPVEFMX0ZSRUVaRV9EVVJBVElP",
@@ -61,9 +61,11 @@ namespace Livekit.Server.Sdk.Dotnet {
             "T05fQkFORFdJRFRIEA4SOgo2Q0xJRU5UX1ZJREVPX1BVQkxJU0hFUl9RVUFM",
             "SVRZX0xJTUlUQVRJT05fRFVSQVRJT05fQ1BVEA8SPAo4Q0xJRU5UX1ZJREVP",
             "X1BVQkxJU0hFUl9RVUFMSVRZX0xJTUlUQVRJT05fRFVSQVRJT05fT1RIRVIQ",
-            "EBImCiFNRVRSSUNfTEFCRUxfUFJFREVGSU5FRF9NQVhfVkFMVUUQgCBCRloj",
-            "Z2l0aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1MaXZlS2l0",
-            "LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
+            "EBIRCg1QVUJMSVNIRVJfUlRUEBESEwoPU0VSVkVSX01FU0hfUlRUEBISEgoO",
+            "U1VCU0NSSUJFUl9SVFQQExImCiFNRVRSSUNfTEFCRUxfUFJFREVGSU5FRF9N",
+            "QVhfVkFMVUUQgCBCRlojZ2l0aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xp",
+            "dmVraXSqAg1MaXZlS2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.MetricLabel), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -149,6 +151,18 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// total duration spent in other quality limitation
     /// </summary>
     [pbr::OriginalName("CLIENT_VIDEO_PUBLISHER_QUALITY_LIMITATION_DURATION_OTHER")] ClientVideoPublisherQualityLimitationDurationOther = 16,
+    /// <summary>
+    /// Publisher RTT (participant -> server)
+    /// </summary>
+    [pbr::OriginalName("PUBLISHER_RTT")] PublisherRtt = 17,
+    /// <summary>
+    /// RTT between publisher node and subscriber node (could involve intermedia node(s))
+    /// </summary>
+    [pbr::OriginalName("SERVER_MESH_RTT")] ServerMeshRtt = 18,
+    /// <summary>
+    /// Subscribe RTT (server -> participant)
+    /// </summary>
+    [pbr::OriginalName("SUBSCRIBER_RTT")] SubscriberRtt = 19,
     [pbr::OriginalName("METRIC_LABEL_PREDEFINED_MAX_VALUE")] PredefinedMaxValue = 4096,
   }
 
