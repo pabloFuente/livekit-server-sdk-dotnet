@@ -340,7 +340,7 @@ First of all, configure the local NuGet repository in the NuGet configuration fi
 
 In this way we are configuring our local NuGet repository in the `~/.private_nuget` directory.
 
-Then pack and install the package in the local repository. Run this commands at the root of the project `livekit-server-sdk-dotnet`:
+Then pack and install the package in the local repository. Run these commands at the root of the project `livekit-server-sdk-dotnet`:
 
 ```bash
 dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
@@ -366,3 +366,36 @@ dotnet restore
 ```
 
 > **Note**: all this process is automated in the `build_local.sh` script. Tested in Unix systems.
+
+## Upgrade version of `livekit/protocol`
+
+To upgrade the version of the `livekit/protocol` Git submodule:
+
+```bash
+cd protocol
+git checkout COMMIT_HASH/TAG/BRANCH
+cd ..
+git add protocol
+git commit "Update livekit/protocol version"
+git push
+```
+
+Then it may be necessary to re-generate the proto files to actually reflect the changes in livekit/protocol:
+
+```bash
+./generate_proto.sh
+```
+
+Then try packaging the SDK to test the validity of the changes in the protocol:
+
+```bash
+dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+```
+
+This commnd my throw an error if there are breaking changes in the protocol, as the SDK is configured in strict mode for [package validation](https://learn.microsoft.com/en-us/dotnet/fundamentals/apicompat/package-validation/overview). The way to overcome these breaking changes is running the package command with option `-p:GenerateCompatibilitySuppressionFile=true` to generate file `CompatibilitySuppressions.xml`:
+
+```bash
+dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:GenerateCompatibilitySuppressionFile=true
+```
+
+This compatibility suppression file will allow packaging and publishing the SDK even with breaking changes. Once the new version is available in NuGet, the only thing left is to update in file `LivekitApi.csproj` property `<PackageValidationBaselineVersion>X.Y.Z</PackageValidationBaselineVersion>` to the new version (so the new reference for breaking changes is this new version), and delete `CompatibilitySuppressions.xml` (as it is no longer needed).
