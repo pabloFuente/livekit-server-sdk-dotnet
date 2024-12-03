@@ -322,6 +322,11 @@ Run integration tests (they automatically launch necessary services as Docker co
 dotnet test --filter "Category=Integration"
 ```
 
+## GitHub Actions
+
+- Tests are automatically run in GitHub Actions after each commit, thanks to [this workflow](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/dotnet.yml).
+- A new version is published to NuGet after a new release is created in GitHub, thanks to [this workflow](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/publish.yml).
+
 ## Install as a local NuGet package
 
 It is necessary the [NuGet tool](https://learn.microsoft.com/en-us/nuget/install-nuget-client-tools?tabs=macos).
