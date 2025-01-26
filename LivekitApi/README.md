@@ -283,6 +283,14 @@ At [LivekitApi.Example](https://github.com/pabloFuente/livekit-server-sdk-dotnet
 
 # For developers of the SDK
 
+## Clone repository
+
+Make sure to clone with submodule option:
+
+```bash
+git clone --recurse-submodules https://github.com/pabloFuente/livekit-server-sdk-dotnet.git
+```
+
 ## Compile
 
 Pre-requisites:
@@ -381,7 +389,7 @@ cd protocol
 git checkout COMMIT_HASH/TAG/BRANCH
 cd ..
 git add protocol
-git commit "Update livekit/protocol version"
+git commit -m "Update livekit/protocol version"
 git push
 ```
 
@@ -397,7 +405,7 @@ Then try packaging the SDK to test the validity of the changes in the protocol:
 dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 ```
 
-This command may throw throw an error if there are breaking changes in the protocol, as the SDK is configured in strict mode for [package validation](https://learn.microsoft.com/en-us/dotnet/fundamentals/apicompat/package-validation/overview). The way to overcome these breaking changes is running the package command with option `-p:GenerateCompatibilitySuppressionFile=true` to generate file `CompatibilitySuppressions.xml`:
+This command may throw an error if there are breaking changes in the protocol, as the SDK is configured in strict mode for [package validation](https://learn.microsoft.com/en-us/dotnet/fundamentals/apicompat/package-validation/overview). The way to overcome these breaking changes is running the package command with option `-p:GenerateCompatibilitySuppressionFile=true` to generate file `CompatibilitySuppressions.xml`:
 
 ```bash
 dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:GenerateCompatibilitySuppressionFile=true
