@@ -283,6 +283,14 @@ At [LivekitApi.Example](https://github.com/pabloFuente/livekit-server-sdk-dotnet
 
 # For developers of the SDK
 
+## Clone repository
+
+Make sure to clone with submodule option:
+
+```bash
+git clone --recurse-submodules https://github.com/pabloFuente/livekit-server-sdk-dotnet.git
+```
+
 ## Compile
 
 Pre-requisites:
@@ -381,7 +389,7 @@ cd protocol
 git checkout COMMIT_HASH/TAG/BRANCH
 cd ..
 git add protocol
-git commit "Update livekit/protocol version"
+git commit -m "Update livekit/protocol version"
 git push
 ```
 
