@@ -134,87 +134,90 @@ namespace Livekit.Server.Sdk.Dotnet {
             "Z3Jlc3NSZXF1ZXN0EhEKCXJvb21fbmFtZRgBIAEoCRIRCgllZ3Jlc3NfaWQY",
             "AiABKAkSDgoGYWN0aXZlGAMgASgIIjgKEkxpc3RFZ3Jlc3NSZXNwb25zZRIi",
             "CgVpdGVtcxgBIAMoCzITLmxpdmVraXQuRWdyZXNzSW5mbyImChFTdG9wRWdy",
-            "ZXNzUmVxdWVzdBIRCgllZ3Jlc3NfaWQYASABKAki7gYKCkVncmVzc0luZm8S",
+            "ZXNzUmVxdWVzdBIRCgllZ3Jlc3NfaWQYASABKAkingcKCkVncmVzc0luZm8S",
             "EQoJZWdyZXNzX2lkGAEgASgJEg8KB3Jvb21faWQYAiABKAkSEQoJcm9vbV9u",
-            "YW1lGA0gASgJEiUKBnN0YXR1cxgDIAEoDjIVLmxpdmVraXQuRWdyZXNzU3Rh",
-            "dHVzEhIKCnN0YXJ0ZWRfYXQYCiABKAMSEAoIZW5kZWRfYXQYCyABKAMSEgoK",
-            "dXBkYXRlZF9hdBgSIAEoAxIPCgdkZXRhaWxzGBUgASgJEg0KBWVycm9yGAkg",
-            "ASgJEhIKCmVycm9yX2NvZGUYFiABKAUSPQoOcm9vbV9jb21wb3NpdGUYBCAB",
-            "KAsyIy5saXZla2l0LlJvb21Db21wb3NpdGVFZ3Jlc3NSZXF1ZXN0SAASKAoD",
-            "d2ViGA4gASgLMhkubGl2ZWtpdC5XZWJFZ3Jlc3NSZXF1ZXN0SAASOAoLcGFy",
-            "dGljaXBhbnQYEyABKAsyIS5saXZla2l0LlBhcnRpY2lwYW50RWdyZXNzUmVx",
-            "dWVzdEgAEj8KD3RyYWNrX2NvbXBvc2l0ZRgFIAEoCzIkLmxpdmVraXQuVHJh",
-            "Y2tDb21wb3NpdGVFZ3Jlc3NSZXF1ZXN0SAASLAoFdHJhY2sYBiABKAsyGy5s",
-            "aXZla2l0LlRyYWNrRWdyZXNzUmVxdWVzdEgAEi0KBnN0cmVhbRgHIAEoCzIX",
-            "LmxpdmVraXQuU3RyZWFtSW5mb0xpc3RCAhgBSAESJQoEZmlsZRgIIAEoCzIR",
-            "LmxpdmVraXQuRmlsZUluZm9CAhgBSAESLQoIc2VnbWVudHMYDCABKAsyFS5s",
-            "aXZla2l0LlNlZ21lbnRzSW5mb0ICGAFIARIrCg5zdHJlYW1fcmVzdWx0cxgP",
-            "IAMoCzITLmxpdmVraXQuU3RyZWFtSW5mbxInCgxmaWxlX3Jlc3VsdHMYECAD",
-            "KAsyES5saXZla2l0LkZpbGVJbmZvEi4KD3NlZ21lbnRfcmVzdWx0cxgRIAMo",
-            "CzIVLmxpdmVraXQuU2VnbWVudHNJbmZvEioKDWltYWdlX3Jlc3VsdHMYFCAD",
-            "KAsyEy5saXZla2l0LkltYWdlc0luZm8SGQoRbWFuaWZlc3RfbG9jYXRpb24Y",
-            "FyABKAkSGwoTYmFja3VwX3N0b3JhZ2VfdXNlZBgZIAEoCEIJCgdyZXF1ZXN0",
-            "QggKBnJlc3VsdCI3Cg5TdHJlYW1JbmZvTGlzdBIhCgRpbmZvGAEgAygLMhMu",
-            "bGl2ZWtpdC5TdHJlYW1JbmZvOgIYASK8AQoKU3RyZWFtSW5mbxILCgN1cmwY",
-            "ASABKAkSEgoKc3RhcnRlZF9hdBgCIAEoAxIQCghlbmRlZF9hdBgDIAEoAxIQ",
-            "CghkdXJhdGlvbhgEIAEoAxIqCgZzdGF0dXMYBSABKA4yGi5saXZla2l0LlN0",
-            "cmVhbUluZm8uU3RhdHVzEg0KBWVycm9yGAYgASgJIi4KBlN0YXR1cxIKCgZB",
-            "Q1RJVkUQABIMCghGSU5JU0hFRBABEgoKBkZBSUxFRBACInQKCEZpbGVJbmZv",
-            "EhAKCGZpbGVuYW1lGAEgASgJEhIKCnN0YXJ0ZWRfYXQYAiABKAMSEAoIZW5k",
-            "ZWRfYXQYAyABKAMSEAoIZHVyYXRpb24YBiABKAMSDAoEc2l6ZRgEIAEoAxIQ",
-            "Cghsb2NhdGlvbhgFIAEoCSLZAQoMU2VnbWVudHNJbmZvEhUKDXBsYXlsaXN0",
-            "X25hbWUYASABKAkSGgoSbGl2ZV9wbGF5bGlzdF9uYW1lGAggASgJEhAKCGR1",
-            "cmF0aW9uGAIgASgDEgwKBHNpemUYAyABKAMSGQoRcGxheWxpc3RfbG9jYXRp",
-            "b24YBCABKAkSHgoWbGl2ZV9wbGF5bGlzdF9sb2NhdGlvbhgJIAEoCRIVCg1z",
-            "ZWdtZW50X2NvdW50GAUgASgDEhIKCnN0YXJ0ZWRfYXQYBiABKAMSEAoIZW5k",
-            "ZWRfYXQYByABKAMiYAoKSW1hZ2VzSW5mbxIXCg9maWxlbmFtZV9wcmVmaXgY",
-            "BCABKAkSEwoLaW1hZ2VfY291bnQYASABKAMSEgoKc3RhcnRlZF9hdBgCIAEo",
-            "AxIQCghlbmRlZF9hdBgDIAEoAyLrAQoVQXV0b1BhcnRpY2lwYW50RWdyZXNz",
-            "EjAKBnByZXNldBgBIAEoDjIeLmxpdmVraXQuRW5jb2RpbmdPcHRpb25zUHJl",
-            "c2V0SAASLAoIYWR2YW5jZWQYAiABKAsyGC5saXZla2l0LkVuY29kaW5nT3B0",
-            "aW9uc0gAEjAKDGZpbGVfb3V0cHV0cxgDIAMoCzIaLmxpdmVraXQuRW5jb2Rl",
-            "ZEZpbGVPdXRwdXQSNQoPc2VnbWVudF9vdXRwdXRzGAQgAygLMhwubGl2ZWtp",
-            "dC5TZWdtZW50ZWRGaWxlT3V0cHV0QgkKB29wdGlvbnMi3wEKD0F1dG9UcmFj",
-            "a0VncmVzcxIQCghmaWxlcGF0aBgBIAEoCRIYChBkaXNhYmxlX21hbmlmZXN0",
-            "GAUgASgIEh8KAnMzGAIgASgLMhEubGl2ZWtpdC5TM1VwbG9hZEgAEiEKA2dj",
-            "cBgDIAEoCzISLmxpdmVraXQuR0NQVXBsb2FkSAASKQoFYXp1cmUYBCABKAsy",
-            "GC5saXZla2l0LkF6dXJlQmxvYlVwbG9hZEgAEicKBmFsaU9TUxgGIAEoCzIV",
-            "LmxpdmVraXQuQWxpT1NTVXBsb2FkSABCCAoGb3V0cHV0KjkKD0VuY29kZWRG",
-            "aWxlVHlwZRIUChBERUZBVUxUX0ZJTEVUWVBFEAASBwoDTVA0EAESBwoDT0dH",
-            "EAIqTgoVU2VnbWVudGVkRmlsZVByb3RvY29sEiMKH0RFRkFVTFRfU0VHTUVO",
-            "VEVEX0ZJTEVfUFJPVE9DT0wQABIQCgxITFNfUFJPVE9DT0wQASovChNTZWdt",
-            "ZW50ZWRGaWxlU3VmZml4EgkKBUlOREVYEAASDQoJVElNRVNUQU1QEAEqRQoP",
-            "SW1hZ2VGaWxlU3VmZml4EhYKEklNQUdFX1NVRkZJWF9JTkRFWBAAEhoKFklN",
-            "QUdFX1NVRkZJWF9USU1FU1RBTVAQASo5Cg5TdHJlYW1Qcm90b2NvbBIUChBE",
-            "RUZBVUxUX1BST1RPQ09MEAASCAoEUlRNUBABEgcKA1NSVBACKs8BChVFbmNv",
-            "ZGluZ09wdGlvbnNQcmVzZXQSEAoMSDI2NF83MjBQXzMwEAASEAoMSDI2NF83",
-            "MjBQXzYwEAESEQoNSDI2NF8xMDgwUF8zMBACEhEKDUgyNjRfMTA4MFBfNjAQ",
-            "AxIZChVQT1JUUkFJVF9IMjY0XzcyMFBfMzAQBBIZChVQT1JUUkFJVF9IMjY0",
-            "XzcyMFBfNjAQBRIaChZQT1JUUkFJVF9IMjY0XzEwODBQXzMwEAYSGgoWUE9S",
-            "VFJBSVRfSDI2NF8xMDgwUF82MBAHKp8BCgxFZ3Jlc3NTdGF0dXMSEwoPRUdS",
-            "RVNTX1NUQVJUSU5HEAASEQoNRUdSRVNTX0FDVElWRRABEhEKDUVHUkVTU19F",
-            "TkRJTkcQAhITCg9FR1JFU1NfQ09NUExFVEUQAxIRCg1FR1JFU1NfRkFJTEVE",
-            "EAQSEgoORUdSRVNTX0FCT1JURUQQBRIYChRFR1JFU1NfTElNSVRfUkVBQ0hF",
-            "RBAGMpwFCgZFZ3Jlc3MSVAoYU3RhcnRSb29tQ29tcG9zaXRlRWdyZXNzEiMu",
-            "bGl2ZWtpdC5Sb29tQ29tcG9zaXRlRWdyZXNzUmVxdWVzdBoTLmxpdmVraXQu",
-            "RWdyZXNzSW5mbxJACg5TdGFydFdlYkVncmVzcxIZLmxpdmVraXQuV2ViRWdy",
-            "ZXNzUmVxdWVzdBoTLmxpdmVraXQuRWdyZXNzSW5mbxJQChZTdGFydFBhcnRp",
-            "Y2lwYW50RWdyZXNzEiEubGl2ZWtpdC5QYXJ0aWNpcGFudEVncmVzc1JlcXVl",
-            "c3QaEy5saXZla2l0LkVncmVzc0luZm8SVgoZU3RhcnRUcmFja0NvbXBvc2l0",
-            "ZUVncmVzcxIkLmxpdmVraXQuVHJhY2tDb21wb3NpdGVFZ3Jlc3NSZXF1ZXN0",
-            "GhMubGl2ZWtpdC5FZ3Jlc3NJbmZvEkQKEFN0YXJ0VHJhY2tFZ3Jlc3MSGy5s",
-            "aXZla2l0LlRyYWNrRWdyZXNzUmVxdWVzdBoTLmxpdmVraXQuRWdyZXNzSW5m",
-            "bxJBCgxVcGRhdGVMYXlvdXQSHC5saXZla2l0LlVwZGF0ZUxheW91dFJlcXVl",
-            "c3QaEy5saXZla2l0LkVncmVzc0luZm8SQQoMVXBkYXRlU3RyZWFtEhwubGl2",
-            "ZWtpdC5VcGRhdGVTdHJlYW1SZXF1ZXN0GhMubGl2ZWtpdC5FZ3Jlc3NJbmZv",
-            "EkUKCkxpc3RFZ3Jlc3MSGi5saXZla2l0Lkxpc3RFZ3Jlc3NSZXF1ZXN0Ghsu",
-            "bGl2ZWtpdC5MaXN0RWdyZXNzUmVzcG9uc2USPQoKU3RvcEVncmVzcxIaLmxp",
-            "dmVraXQuU3RvcEVncmVzc1JlcXVlc3QaEy5saXZla2l0LkVncmVzc0luZm9C",
-            "RlojZ2l0aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1MaXZl",
-            "S2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
+            "YW1lGA0gASgJEi4KC3NvdXJjZV90eXBlGBogASgOMhkubGl2ZWtpdC5FZ3Jl",
+            "c3NTb3VyY2VUeXBlEiUKBnN0YXR1cxgDIAEoDjIVLmxpdmVraXQuRWdyZXNz",
+            "U3RhdHVzEhIKCnN0YXJ0ZWRfYXQYCiABKAMSEAoIZW5kZWRfYXQYCyABKAMS",
+            "EgoKdXBkYXRlZF9hdBgSIAEoAxIPCgdkZXRhaWxzGBUgASgJEg0KBWVycm9y",
+            "GAkgASgJEhIKCmVycm9yX2NvZGUYFiABKAUSPQoOcm9vbV9jb21wb3NpdGUY",
+            "BCABKAsyIy5saXZla2l0LlJvb21Db21wb3NpdGVFZ3Jlc3NSZXF1ZXN0SAAS",
+            "KAoDd2ViGA4gASgLMhkubGl2ZWtpdC5XZWJFZ3Jlc3NSZXF1ZXN0SAASOAoL",
+            "cGFydGljaXBhbnQYEyABKAsyIS5saXZla2l0LlBhcnRpY2lwYW50RWdyZXNz",
+            "UmVxdWVzdEgAEj8KD3RyYWNrX2NvbXBvc2l0ZRgFIAEoCzIkLmxpdmVraXQu",
+            "VHJhY2tDb21wb3NpdGVFZ3Jlc3NSZXF1ZXN0SAASLAoFdHJhY2sYBiABKAsy",
+            "Gy5saXZla2l0LlRyYWNrRWdyZXNzUmVxdWVzdEgAEi0KBnN0cmVhbRgHIAEo",
+            "CzIXLmxpdmVraXQuU3RyZWFtSW5mb0xpc3RCAhgBSAESJQoEZmlsZRgIIAEo",
+            "CzIRLmxpdmVraXQuRmlsZUluZm9CAhgBSAESLQoIc2VnbWVudHMYDCABKAsy",
+            "FS5saXZla2l0LlNlZ21lbnRzSW5mb0ICGAFIARIrCg5zdHJlYW1fcmVzdWx0",
+            "cxgPIAMoCzITLmxpdmVraXQuU3RyZWFtSW5mbxInCgxmaWxlX3Jlc3VsdHMY",
+            "ECADKAsyES5saXZla2l0LkZpbGVJbmZvEi4KD3NlZ21lbnRfcmVzdWx0cxgR",
+            "IAMoCzIVLmxpdmVraXQuU2VnbWVudHNJbmZvEioKDWltYWdlX3Jlc3VsdHMY",
+            "FCADKAsyEy5saXZla2l0LkltYWdlc0luZm8SGQoRbWFuaWZlc3RfbG9jYXRp",
+            "b24YFyABKAkSGwoTYmFja3VwX3N0b3JhZ2VfdXNlZBgZIAEoCEIJCgdyZXF1",
+            "ZXN0QggKBnJlc3VsdCI3Cg5TdHJlYW1JbmZvTGlzdBIhCgRpbmZvGAEgAygL",
+            "MhMubGl2ZWtpdC5TdHJlYW1JbmZvOgIYASK8AQoKU3RyZWFtSW5mbxILCgN1",
+            "cmwYASABKAkSEgoKc3RhcnRlZF9hdBgCIAEoAxIQCghlbmRlZF9hdBgDIAEo",
+            "AxIQCghkdXJhdGlvbhgEIAEoAxIqCgZzdGF0dXMYBSABKA4yGi5saXZla2l0",
+            "LlN0cmVhbUluZm8uU3RhdHVzEg0KBWVycm9yGAYgASgJIi4KBlN0YXR1cxIK",
+            "CgZBQ1RJVkUQABIMCghGSU5JU0hFRBABEgoKBkZBSUxFRBACInQKCEZpbGVJ",
+            "bmZvEhAKCGZpbGVuYW1lGAEgASgJEhIKCnN0YXJ0ZWRfYXQYAiABKAMSEAoI",
+            "ZW5kZWRfYXQYAyABKAMSEAoIZHVyYXRpb24YBiABKAMSDAoEc2l6ZRgEIAEo",
+            "AxIQCghsb2NhdGlvbhgFIAEoCSLZAQoMU2VnbWVudHNJbmZvEhUKDXBsYXls",
+            "aXN0X25hbWUYASABKAkSGgoSbGl2ZV9wbGF5bGlzdF9uYW1lGAggASgJEhAK",
+            "CGR1cmF0aW9uGAIgASgDEgwKBHNpemUYAyABKAMSGQoRcGxheWxpc3RfbG9j",
+            "YXRpb24YBCABKAkSHgoWbGl2ZV9wbGF5bGlzdF9sb2NhdGlvbhgJIAEoCRIV",
+            "Cg1zZWdtZW50X2NvdW50GAUgASgDEhIKCnN0YXJ0ZWRfYXQYBiABKAMSEAoI",
+            "ZW5kZWRfYXQYByABKAMiYAoKSW1hZ2VzSW5mbxIXCg9maWxlbmFtZV9wcmVm",
+            "aXgYBCABKAkSEwoLaW1hZ2VfY291bnQYASABKAMSEgoKc3RhcnRlZF9hdBgC",
+            "IAEoAxIQCghlbmRlZF9hdBgDIAEoAyLrAQoVQXV0b1BhcnRpY2lwYW50RWdy",
+            "ZXNzEjAKBnByZXNldBgBIAEoDjIeLmxpdmVraXQuRW5jb2RpbmdPcHRpb25z",
+            "UHJlc2V0SAASLAoIYWR2YW5jZWQYAiABKAsyGC5saXZla2l0LkVuY29kaW5n",
+            "T3B0aW9uc0gAEjAKDGZpbGVfb3V0cHV0cxgDIAMoCzIaLmxpdmVraXQuRW5j",
+            "b2RlZEZpbGVPdXRwdXQSNQoPc2VnbWVudF9vdXRwdXRzGAQgAygLMhwubGl2",
+            "ZWtpdC5TZWdtZW50ZWRGaWxlT3V0cHV0QgkKB29wdGlvbnMi3wEKD0F1dG9U",
+            "cmFja0VncmVzcxIQCghmaWxlcGF0aBgBIAEoCRIYChBkaXNhYmxlX21hbmlm",
+            "ZXN0GAUgASgIEh8KAnMzGAIgASgLMhEubGl2ZWtpdC5TM1VwbG9hZEgAEiEK",
+            "A2djcBgDIAEoCzISLmxpdmVraXQuR0NQVXBsb2FkSAASKQoFYXp1cmUYBCAB",
+            "KAsyGC5saXZla2l0LkF6dXJlQmxvYlVwbG9hZEgAEicKBmFsaU9TUxgGIAEo",
+            "CzIVLmxpdmVraXQuQWxpT1NTVXBsb2FkSABCCAoGb3V0cHV0KjkKD0VuY29k",
+            "ZWRGaWxlVHlwZRIUChBERUZBVUxUX0ZJTEVUWVBFEAASBwoDTVA0EAESBwoD",
+            "T0dHEAIqTgoVU2VnbWVudGVkRmlsZVByb3RvY29sEiMKH0RFRkFVTFRfU0VH",
+            "TUVOVEVEX0ZJTEVfUFJPVE9DT0wQABIQCgxITFNfUFJPVE9DT0wQASovChNT",
+            "ZWdtZW50ZWRGaWxlU3VmZml4EgkKBUlOREVYEAASDQoJVElNRVNUQU1QEAEq",
+            "RQoPSW1hZ2VGaWxlU3VmZml4EhYKEklNQUdFX1NVRkZJWF9JTkRFWBAAEhoK",
+            "FklNQUdFX1NVRkZJWF9USU1FU1RBTVAQASo5Cg5TdHJlYW1Qcm90b2NvbBIU",
+            "ChBERUZBVUxUX1BST1RPQ09MEAASCAoEUlRNUBABEgcKA1NSVBACKs8BChVF",
+            "bmNvZGluZ09wdGlvbnNQcmVzZXQSEAoMSDI2NF83MjBQXzMwEAASEAoMSDI2",
+            "NF83MjBQXzYwEAESEQoNSDI2NF8xMDgwUF8zMBACEhEKDUgyNjRfMTA4MFBf",
+            "NjAQAxIZChVQT1JUUkFJVF9IMjY0XzcyMFBfMzAQBBIZChVQT1JUUkFJVF9I",
+            "MjY0XzcyMFBfNjAQBRIaChZQT1JUUkFJVF9IMjY0XzEwODBQXzMwEAYSGgoW",
+            "UE9SVFJBSVRfSDI2NF8xMDgwUF82MBAHKp8BCgxFZ3Jlc3NTdGF0dXMSEwoP",
+            "RUdSRVNTX1NUQVJUSU5HEAASEQoNRUdSRVNTX0FDVElWRRABEhEKDUVHUkVT",
+            "U19FTkRJTkcQAhITCg9FR1JFU1NfQ09NUExFVEUQAxIRCg1FR1JFU1NfRkFJ",
+            "TEVEEAQSEgoORUdSRVNTX0FCT1JURUQQBRIYChRFR1JFU1NfTElNSVRfUkVB",
+            "Q0hFRBAGKkoKEEVncmVzc1NvdXJjZVR5cGUSGgoWRUdSRVNTX1NPVVJDRV9U",
+            "WVBFX1dFQhAAEhoKFkVHUkVTU19TT1VSQ0VfVFlQRV9TREsQATKcBQoGRWdy",
+            "ZXNzElQKGFN0YXJ0Um9vbUNvbXBvc2l0ZUVncmVzcxIjLmxpdmVraXQuUm9v",
+            "bUNvbXBvc2l0ZUVncmVzc1JlcXVlc3QaEy5saXZla2l0LkVncmVzc0luZm8S",
+            "QAoOU3RhcnRXZWJFZ3Jlc3MSGS5saXZla2l0LldlYkVncmVzc1JlcXVlc3Qa",
+            "Ey5saXZla2l0LkVncmVzc0luZm8SUAoWU3RhcnRQYXJ0aWNpcGFudEVncmVz",
+            "cxIhLmxpdmVraXQuUGFydGljaXBhbnRFZ3Jlc3NSZXF1ZXN0GhMubGl2ZWtp",
+            "dC5FZ3Jlc3NJbmZvElYKGVN0YXJ0VHJhY2tDb21wb3NpdGVFZ3Jlc3MSJC5s",
+            "aXZla2l0LlRyYWNrQ29tcG9zaXRlRWdyZXNzUmVxdWVzdBoTLmxpdmVraXQu",
+            "RWdyZXNzSW5mbxJEChBTdGFydFRyYWNrRWdyZXNzEhsubGl2ZWtpdC5UcmFj",
+            "a0VncmVzc1JlcXVlc3QaEy5saXZla2l0LkVncmVzc0luZm8SQQoMVXBkYXRl",
+            "TGF5b3V0EhwubGl2ZWtpdC5VcGRhdGVMYXlvdXRSZXF1ZXN0GhMubGl2ZWtp",
+            "dC5FZ3Jlc3NJbmZvEkEKDFVwZGF0ZVN0cmVhbRIcLmxpdmVraXQuVXBkYXRl",
+            "U3RyZWFtUmVxdWVzdBoTLmxpdmVraXQuRWdyZXNzSW5mbxJFCgpMaXN0RWdy",
+            "ZXNzEhoubGl2ZWtpdC5MaXN0RWdyZXNzUmVxdWVzdBobLmxpdmVraXQuTGlz",
+            "dEVncmVzc1Jlc3BvbnNlEj0KClN0b3BFZ3Jlc3MSGi5saXZla2l0LlN0b3BF",
+            "Z3Jlc3NSZXF1ZXN0GhMubGl2ZWtpdC5FZ3Jlc3NJbmZvQkZaI2dpdGh1Yi5j",
+            "b20vbGl2ZWtpdC9wcm90b2NvbC9saXZla2l0qgINTGl2ZUtpdC5Qcm90b+oC",
+            "DkxpdmVLaXQ6OlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.EncodedFileType), typeof(global::Livekit.Server.Sdk.Dotnet.SegmentedFileProtocol), typeof(global::Livekit.Server.Sdk.Dotnet.SegmentedFileSuffix), typeof(global::Livekit.Server.Sdk.Dotnet.ImageFileSuffix), typeof(global::Livekit.Server.Sdk.Dotnet.StreamProtocol), typeof(global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset), typeof(global::Livekit.Server.Sdk.Dotnet.EgressStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.EncodedFileType), typeof(global::Livekit.Server.Sdk.Dotnet.SegmentedFileProtocol), typeof(global::Livekit.Server.Sdk.Dotnet.SegmentedFileSuffix), typeof(global::Livekit.Server.Sdk.Dotnet.ImageFileSuffix), typeof(global::Livekit.Server.Sdk.Dotnet.StreamProtocol), typeof(global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset), typeof(global::Livekit.Server.Sdk.Dotnet.EgressStatus), typeof(global::Livekit.Server.Sdk.Dotnet.EgressSourceType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest), global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest.Parser, new[]{ "RoomName", "Layout", "AudioOnly", "VideoOnly", "CustomBaseUrl", "File", "Stream", "Segments", "Preset", "Advanced", "FileOutputs", "StreamOutputs", "SegmentOutputs", "ImageOutputs" }, new[]{ "Output", "Options" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WebEgressRequest), global::Livekit.Server.Sdk.Dotnet.WebEgressRequest.Parser, new[]{ "Url", "AudioOnly", "VideoOnly", "AwaitStartSignal", "File", "Stream", "Segments", "Preset", "Advanced", "FileOutputs", "StreamOutputs", "SegmentOutputs", "ImageOutputs" }, new[]{ "Output", "Options" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest), global::Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest.Parser, new[]{ "RoomName", "Identity", "ScreenShare", "Preset", "Advanced", "FileOutputs", "StreamOutputs", "SegmentOutputs", "ImageOutputs" }, new[]{ "Options" }, null, null, null),
@@ -236,7 +239,7 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListEgressRequest), global::Livekit.Server.Sdk.Dotnet.ListEgressRequest.Parser, new[]{ "RoomName", "EgressId", "Active" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListEgressResponse), global::Livekit.Server.Sdk.Dotnet.ListEgressResponse.Parser, new[]{ "Items" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.StopEgressRequest), global::Livekit.Server.Sdk.Dotnet.StopEgressRequest.Parser, new[]{ "EgressId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.EgressInfo), global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser, new[]{ "EgressId", "RoomId", "RoomName", "Status", "StartedAt", "EndedAt", "UpdatedAt", "Details", "Error", "ErrorCode", "RoomComposite", "Web", "Participant", "TrackComposite", "Track", "Stream", "File", "Segments", "StreamResults", "FileResults", "SegmentResults", "ImageResults", "ManifestLocation", "BackupStorageUsed" }, new[]{ "Request", "Result" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.EgressInfo), global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser, new[]{ "EgressId", "RoomId", "RoomName", "SourceType", "Status", "StartedAt", "EndedAt", "UpdatedAt", "Details", "Error", "ErrorCode", "RoomComposite", "Web", "Participant", "TrackComposite", "Track", "Stream", "File", "Segments", "StreamResults", "FileResults", "SegmentResults", "ImageResults", "ManifestLocation", "BackupStorageUsed" }, new[]{ "Request", "Result" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.StreamInfoList), global::Livekit.Server.Sdk.Dotnet.StreamInfoList.Parser, new[]{ "Info" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.StreamInfo), global::Livekit.Server.Sdk.Dotnet.StreamInfo.Parser, new[]{ "Url", "StartedAt", "EndedAt", "Duration", "Status", "Error" }, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.StreamInfo.Types.Status) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.FileInfo), global::Livekit.Server.Sdk.Dotnet.FileInfo.Parser, new[]{ "Filename", "StartedAt", "EndedAt", "Duration", "Size", "Location" }, null, null, null, null),
@@ -326,6 +329,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     [pbr::OriginalName("EGRESS_FAILED")] EgressFailed = 4,
     [pbr::OriginalName("EGRESS_ABORTED")] EgressAborted = 5,
     [pbr::OriginalName("EGRESS_LIMIT_REACHED")] EgressLimitReached = 6,
+  }
+
+  public enum EgressSourceType {
+    [pbr::OriginalName("EGRESS_SOURCE_TYPE_WEB")] Web = 0,
+    [pbr::OriginalName("EGRESS_SOURCE_TYPE_SDK")] Sdk = 1,
   }
 
   #endregion
@@ -9664,6 +9672,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       egressId_ = other.egressId_;
       roomId_ = other.roomId_;
       roomName_ = other.roomName_;
+      sourceType_ = other.sourceType_;
       status_ = other.status_;
       startedAt_ = other.startedAt_;
       endedAt_ = other.endedAt_;
@@ -9749,6 +9758,18 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return roomName_; }
       set {
         roomName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "source_type" field.</summary>
+    public const int SourceTypeFieldNumber = 26;
+    private global::Livekit.Server.Sdk.Dotnet.EgressSourceType sourceType_ = global::Livekit.Server.Sdk.Dotnet.EgressSourceType.Web;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.EgressSourceType SourceType {
+      get { return sourceType_; }
+      set {
+        sourceType_ = value;
       }
     }
 
@@ -9995,7 +10016,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     public const int BackupStorageUsedFieldNumber = 25;
     private bool backupStorageUsed_;
     /// <summary>
-    /// next ID: 26
+    /// next ID: 27
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -10070,6 +10091,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (EgressId != other.EgressId) return false;
       if (RoomId != other.RoomId) return false;
       if (RoomName != other.RoomName) return false;
+      if (SourceType != other.SourceType) return false;
       if (Status != other.Status) return false;
       if (StartedAt != other.StartedAt) return false;
       if (EndedAt != other.EndedAt) return false;
@@ -10103,6 +10125,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (EgressId.Length != 0) hash ^= EgressId.GetHashCode();
       if (RoomId.Length != 0) hash ^= RoomId.GetHashCode();
       if (RoomName.Length != 0) hash ^= RoomName.GetHashCode();
+      if (SourceType != global::Livekit.Server.Sdk.Dotnet.EgressSourceType.Web) hash ^= SourceType.GetHashCode();
       if (Status != global::Livekit.Server.Sdk.Dotnet.EgressStatus.EgressStarting) hash ^= Status.GetHashCode();
       if (StartedAt != 0L) hash ^= StartedAt.GetHashCode();
       if (EndedAt != 0L) hash ^= EndedAt.GetHashCode();
@@ -10228,6 +10251,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(200, 1);
         output.WriteBool(BackupStorageUsed);
       }
+      if (SourceType != global::Livekit.Server.Sdk.Dotnet.EgressSourceType.Web) {
+        output.WriteRawTag(208, 1);
+        output.WriteEnum((int) SourceType);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -10322,6 +10349,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(200, 1);
         output.WriteBool(BackupStorageUsed);
       }
+      if (SourceType != global::Livekit.Server.Sdk.Dotnet.EgressSourceType.Web) {
+        output.WriteRawTag(208, 1);
+        output.WriteEnum((int) SourceType);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -10340,6 +10371,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (RoomName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomName);
+      }
+      if (SourceType != global::Livekit.Server.Sdk.Dotnet.EgressSourceType.Web) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) SourceType);
       }
       if (Status != global::Livekit.Server.Sdk.Dotnet.EgressStatus.EgressStarting) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
@@ -10416,6 +10450,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (other.RoomName.Length != 0) {
         RoomName = other.RoomName;
+      }
+      if (other.SourceType != global::Livekit.Server.Sdk.Dotnet.EgressSourceType.Web) {
+        SourceType = other.SourceType;
       }
       if (other.Status != global::Livekit.Server.Sdk.Dotnet.EgressStatus.EgressStarting) {
         Status = other.Status;
@@ -10657,6 +10694,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             BackupStorageUsed = input.ReadBool();
             break;
           }
+          case 208: {
+            SourceType = (global::Livekit.Server.Sdk.Dotnet.EgressSourceType) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -10810,6 +10851,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 200: {
             BackupStorageUsed = input.ReadBool();
+            break;
+          }
+          case 208: {
+            SourceType = (global::Livekit.Server.Sdk.Dotnet.EgressSourceType) input.ReadEnum();
             break;
           }
         }

@@ -25,7 +25,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChVsaXZla2l0X2luZ3Jlc3MucHJvdG8SB2xpdmVraXQaFGxpdmVraXRfbW9k",
-            "ZWxzLnByb3RvIvcCChRDcmVhdGVJbmdyZXNzUmVxdWVzdBIpCgppbnB1dF90",
+            "ZWxzLnByb3RvIpkDChRDcmVhdGVJbmdyZXNzUmVxdWVzdBIpCgppbnB1dF90",
             "eXBlGAEgASgOMhUubGl2ZWtpdC5JbmdyZXNzSW5wdXQSCwoDdXJsGAkgASgJ",
             "EgwKBG5hbWUYAiABKAkSEQoJcm9vbV9uYW1lGAMgASgJEhwKFHBhcnRpY2lw",
             "YW50X2lkZW50aXR5GAQgASgJEhgKEHBhcnRpY2lwYW50X25hbWUYBSABKAkS",
@@ -33,91 +33,94 @@ namespace Livekit.Server.Sdk.Dotnet {
             "Y29kaW5nGAggASgIQgIYARIfChJlbmFibGVfdHJhbnNjb2RpbmcYCyABKAhI",
             "AIgBARIrCgVhdWRpbxgGIAEoCzIcLmxpdmVraXQuSW5ncmVzc0F1ZGlvT3B0",
             "aW9ucxIrCgV2aWRlbxgHIAEoCzIcLmxpdmVraXQuSW5ncmVzc1ZpZGVvT3B0",
-            "aW9uc0IVChNfZW5hYmxlX3RyYW5zY29kaW5nIs0BChNJbmdyZXNzQXVkaW9P",
-            "cHRpb25zEgwKBG5hbWUYASABKAkSJAoGc291cmNlGAIgASgOMhQubGl2ZWtp",
-            "dC5UcmFja1NvdXJjZRI1CgZwcmVzZXQYAyABKA4yIy5saXZla2l0LkluZ3Jl",
-            "c3NBdWRpb0VuY29kaW5nUHJlc2V0SAASNwoHb3B0aW9ucxgEIAEoCzIkLmxp",
-            "dmVraXQuSW5ncmVzc0F1ZGlvRW5jb2RpbmdPcHRpb25zSABCEgoQZW5jb2Rp",
-            "bmdfb3B0aW9ucyLNAQoTSW5ncmVzc1ZpZGVvT3B0aW9ucxIMCgRuYW1lGAEg",
-            "ASgJEiQKBnNvdXJjZRgCIAEoDjIULmxpdmVraXQuVHJhY2tTb3VyY2USNQoG",
-            "cHJlc2V0GAMgASgOMiMubGl2ZWtpdC5JbmdyZXNzVmlkZW9FbmNvZGluZ1By",
-            "ZXNldEgAEjcKB29wdGlvbnMYBCABKAsyJC5saXZla2l0LkluZ3Jlc3NWaWRl",
-            "b0VuY29kaW5nT3B0aW9uc0gAQhIKEGVuY29kaW5nX29wdGlvbnMifwobSW5n",
-            "cmVzc0F1ZGlvRW5jb2RpbmdPcHRpb25zEigKC2F1ZGlvX2NvZGVjGAEgASgO",
-            "MhMubGl2ZWtpdC5BdWRpb0NvZGVjEg8KB2JpdHJhdGUYAiABKA0SEwoLZGlz",
-            "YWJsZV9kdHgYAyABKAgSEAoIY2hhbm5lbHMYBCABKA0igAEKG0luZ3Jlc3NW",
-            "aWRlb0VuY29kaW5nT3B0aW9ucxIoCgt2aWRlb19jb2RlYxgBIAEoDjITLmxp",
-            "dmVraXQuVmlkZW9Db2RlYxISCgpmcmFtZV9yYXRlGAIgASgBEiMKBmxheWVy",
-            "cxgDIAMoCzITLmxpdmVraXQuVmlkZW9MYXllciLOAwoLSW5ncmVzc0luZm8S",
-            "EgoKaW5ncmVzc19pZBgBIAEoCRIMCgRuYW1lGAIgASgJEhIKCnN0cmVhbV9r",
-            "ZXkYAyABKAkSCwoDdXJsGAQgASgJEikKCmlucHV0X3R5cGUYBSABKA4yFS5s",
-            "aXZla2l0LkluZ3Jlc3NJbnB1dBIeChJieXBhc3NfdHJhbnNjb2RpbmcYDSAB",
-            "KAhCAhgBEh8KEmVuYWJsZV90cmFuc2NvZGluZxgPIAEoCEgAiAEBEisKBWF1",
-            "ZGlvGAYgASgLMhwubGl2ZWtpdC5JbmdyZXNzQXVkaW9PcHRpb25zEisKBXZp",
-            "ZGVvGAcgASgLMhwubGl2ZWtpdC5JbmdyZXNzVmlkZW9PcHRpb25zEhEKCXJv",
-            "b21fbmFtZRgIIAEoCRIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgJIAEoCRIY",
-            "ChBwYXJ0aWNpcGFudF9uYW1lGAogASgJEhwKFHBhcnRpY2lwYW50X21ldGFk",
-            "YXRhGA4gASgJEhAKCHJldXNhYmxlGAsgASgIEiQKBXN0YXRlGAwgASgLMhUu",
-            "bGl2ZWtpdC5JbmdyZXNzU3RhdGVCFQoTX2VuYWJsZV90cmFuc2NvZGluZyKe",
-            "AwoMSW5ncmVzc1N0YXRlEiwKBnN0YXR1cxgBIAEoDjIcLmxpdmVraXQuSW5n",
-            "cmVzc1N0YXRlLlN0YXR1cxINCgVlcnJvchgCIAEoCRInCgV2aWRlbxgDIAEo",
-            "CzIYLmxpdmVraXQuSW5wdXRWaWRlb1N0YXRlEicKBWF1ZGlvGAQgASgLMhgu",
-            "bGl2ZWtpdC5JbnB1dEF1ZGlvU3RhdGUSDwoHcm9vbV9pZBgFIAEoCRISCgpz",
-            "dGFydGVkX2F0GAcgASgDEhAKCGVuZGVkX2F0GAggASgDEhIKCnVwZGF0ZWRf",
-            "YXQYCiABKAMSEwoLcmVzb3VyY2VfaWQYCSABKAkSIgoGdHJhY2tzGAYgAygL",
-            "MhIubGl2ZWtpdC5UcmFja0luZm8iewoGU3RhdHVzEhUKEUVORFBPSU5UX0lO",
-            "QUNUSVZFEAASFgoSRU5EUE9JTlRfQlVGRkVSSU5HEAESFwoTRU5EUE9JTlRf",
-            "UFVCTElTSElORxACEhIKDkVORFBPSU5UX0VSUk9SEAMSFQoRRU5EUE9JTlRf",
-            "Q09NUExFVEUQBCJvCg9JbnB1dFZpZGVvU3RhdGUSEQoJbWltZV90eXBlGAEg",
-            "ASgJEhcKD2F2ZXJhZ2VfYml0cmF0ZRgCIAEoDRINCgV3aWR0aBgDIAEoDRIO",
-            "CgZoZWlnaHQYBCABKA0SEQoJZnJhbWVyYXRlGAUgASgBImQKD0lucHV0QXVk",
-            "aW9TdGF0ZRIRCgltaW1lX3R5cGUYASABKAkSFwoPYXZlcmFnZV9iaXRyYXRl",
-            "GAIgASgNEhAKCGNoYW5uZWxzGAMgASgNEhMKC3NhbXBsZV9yYXRlGAQgASgN",
-            "Iu8CChRVcGRhdGVJbmdyZXNzUmVxdWVzdBISCgppbmdyZXNzX2lkGAEgASgJ",
-            "EgwKBG5hbWUYAiABKAkSEQoJcm9vbV9uYW1lGAMgASgJEhwKFHBhcnRpY2lw",
-            "YW50X2lkZW50aXR5GAQgASgJEhgKEHBhcnRpY2lwYW50X25hbWUYBSABKAkS",
-            "HAoUcGFydGljaXBhbnRfbWV0YWRhdGEYCSABKAkSIwoSYnlwYXNzX3RyYW5z",
-            "Y29kaW5nGAggASgIQgIYAUgAiAEBEh8KEmVuYWJsZV90cmFuc2NvZGluZxgK",
-            "IAEoCEgBiAEBEisKBWF1ZGlvGAYgASgLMhwubGl2ZWtpdC5JbmdyZXNzQXVk",
-            "aW9PcHRpb25zEisKBXZpZGVvGAcgASgLMhwubGl2ZWtpdC5JbmdyZXNzVmlk",
-            "ZW9PcHRpb25zQhUKE19ieXBhc3NfdHJhbnNjb2RpbmdCFQoTX2VuYWJsZV90",
-            "cmFuc2NvZGluZyI7ChJMaXN0SW5ncmVzc1JlcXVlc3QSEQoJcm9vbV9uYW1l",
-            "GAEgASgJEhIKCmluZ3Jlc3NfaWQYAiABKAkiOgoTTGlzdEluZ3Jlc3NSZXNw",
-            "b25zZRIjCgVpdGVtcxgBIAMoCzIULmxpdmVraXQuSW5ncmVzc0luZm8iKgoU",
-            "RGVsZXRlSW5ncmVzc1JlcXVlc3QSEgoKaW5ncmVzc19pZBgBIAEoCSo9CgxJ",
-            "bmdyZXNzSW5wdXQSDgoKUlRNUF9JTlBVVBAAEg4KCldISVBfSU5QVVQQARIN",
-            "CglVUkxfSU5QVVQQAipJChpJbmdyZXNzQXVkaW9FbmNvZGluZ1ByZXNldBIW",
-            "ChJPUFVTX1NURVJFT185NktCUFMQABITCg9PUFVTX01PTk9fNjRLQlMQASqE",
-            "AwoaSW5ncmVzc1ZpZGVvRW5jb2RpbmdQcmVzZXQSHAoYSDI2NF83MjBQXzMw",
-            "RlBTXzNfTEFZRVJTEAASHQoZSDI2NF8xMDgwUF8zMEZQU18zX0xBWUVSUxAB",
-            "EhwKGEgyNjRfNTQwUF8yNUZQU18yX0xBWUVSUxACEhsKF0gyNjRfNzIwUF8z",
-            "MEZQU18xX0xBWUVSEAMSHAoYSDI2NF8xMDgwUF8zMEZQU18xX0xBWUVSEAQS",
-            "KAokSDI2NF83MjBQXzMwRlBTXzNfTEFZRVJTX0hJR0hfTU9USU9OEAUSKQol",
-            "SDI2NF8xMDgwUF8zMEZQU18zX0xBWUVSU19ISUdIX01PVElPThAGEigKJEgy",
-            "NjRfNTQwUF8yNUZQU18yX0xBWUVSU19ISUdIX01PVElPThAHEicKI0gyNjRf",
-            "NzIwUF8zMEZQU18xX0xBWUVSX0hJR0hfTU9USU9OEAgSKAokSDI2NF8xMDgw",
-            "UF8zMEZQU18xX0xBWUVSX0hJR0hfTU9USU9OEAkypQIKB0luZ3Jlc3MSRAoN",
-            "Q3JlYXRlSW5ncmVzcxIdLmxpdmVraXQuQ3JlYXRlSW5ncmVzc1JlcXVlc3Qa",
-            "FC5saXZla2l0LkluZ3Jlc3NJbmZvEkQKDVVwZGF0ZUluZ3Jlc3MSHS5saXZl",
-            "a2l0LlVwZGF0ZUluZ3Jlc3NSZXF1ZXN0GhQubGl2ZWtpdC5JbmdyZXNzSW5m",
-            "bxJICgtMaXN0SW5ncmVzcxIbLmxpdmVraXQuTGlzdEluZ3Jlc3NSZXF1ZXN0",
-            "GhwubGl2ZWtpdC5MaXN0SW5ncmVzc1Jlc3BvbnNlEkQKDURlbGV0ZUluZ3Jl",
-            "c3MSHS5saXZla2l0LkRlbGV0ZUluZ3Jlc3NSZXF1ZXN0GhQubGl2ZWtpdC5J",
-            "bmdyZXNzSW5mb0JGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wvbGl2",
-            "ZWtpdKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
+            "aW9ucxIUCgdlbmFibGVkGAwgASgISAGIAQFCFQoTX2VuYWJsZV90cmFuc2Nv",
+            "ZGluZ0IKCghfZW5hYmxlZCLNAQoTSW5ncmVzc0F1ZGlvT3B0aW9ucxIMCgRu",
+            "YW1lGAEgASgJEiQKBnNvdXJjZRgCIAEoDjIULmxpdmVraXQuVHJhY2tTb3Vy",
+            "Y2USNQoGcHJlc2V0GAMgASgOMiMubGl2ZWtpdC5JbmdyZXNzQXVkaW9FbmNv",
+            "ZGluZ1ByZXNldEgAEjcKB29wdGlvbnMYBCABKAsyJC5saXZla2l0LkluZ3Jl",
+            "c3NBdWRpb0VuY29kaW5nT3B0aW9uc0gAQhIKEGVuY29kaW5nX29wdGlvbnMi",
+            "zQEKE0luZ3Jlc3NWaWRlb09wdGlvbnMSDAoEbmFtZRgBIAEoCRIkCgZzb3Vy",
+            "Y2UYAiABKA4yFC5saXZla2l0LlRyYWNrU291cmNlEjUKBnByZXNldBgDIAEo",
+            "DjIjLmxpdmVraXQuSW5ncmVzc1ZpZGVvRW5jb2RpbmdQcmVzZXRIABI3Cgdv",
+            "cHRpb25zGAQgASgLMiQubGl2ZWtpdC5JbmdyZXNzVmlkZW9FbmNvZGluZ09w",
+            "dGlvbnNIAEISChBlbmNvZGluZ19vcHRpb25zIn8KG0luZ3Jlc3NBdWRpb0Vu",
+            "Y29kaW5nT3B0aW9ucxIoCgthdWRpb19jb2RlYxgBIAEoDjITLmxpdmVraXQu",
+            "QXVkaW9Db2RlYxIPCgdiaXRyYXRlGAIgASgNEhMKC2Rpc2FibGVfZHR4GAMg",
+            "ASgIEhAKCGNoYW5uZWxzGAQgASgNIoABChtJbmdyZXNzVmlkZW9FbmNvZGlu",
+            "Z09wdGlvbnMSKAoLdmlkZW9fY29kZWMYASABKA4yEy5saXZla2l0LlZpZGVv",
+            "Q29kZWMSEgoKZnJhbWVfcmF0ZRgCIAEoARIjCgZsYXllcnMYAyADKAsyEy5s",
+            "aXZla2l0LlZpZGVvTGF5ZXIi8AMKC0luZ3Jlc3NJbmZvEhIKCmluZ3Jlc3Nf",
+            "aWQYASABKAkSDAoEbmFtZRgCIAEoCRISCgpzdHJlYW1fa2V5GAMgASgJEgsK",
+            "A3VybBgEIAEoCRIpCgppbnB1dF90eXBlGAUgASgOMhUubGl2ZWtpdC5Jbmdy",
+            "ZXNzSW5wdXQSHgoSYnlwYXNzX3RyYW5zY29kaW5nGA0gASgIQgIYARIfChJl",
+            "bmFibGVfdHJhbnNjb2RpbmcYDyABKAhIAIgBARIrCgVhdWRpbxgGIAEoCzIc",
+            "LmxpdmVraXQuSW5ncmVzc0F1ZGlvT3B0aW9ucxIrCgV2aWRlbxgHIAEoCzIc",
+            "LmxpdmVraXQuSW5ncmVzc1ZpZGVvT3B0aW9ucxIRCglyb29tX25hbWUYCCAB",
+            "KAkSHAoUcGFydGljaXBhbnRfaWRlbnRpdHkYCSABKAkSGAoQcGFydGljaXBh",
+            "bnRfbmFtZRgKIAEoCRIcChRwYXJ0aWNpcGFudF9tZXRhZGF0YRgOIAEoCRIQ",
+            "CghyZXVzYWJsZRgLIAEoCBIkCgVzdGF0ZRgMIAEoCzIVLmxpdmVraXQuSW5n",
+            "cmVzc1N0YXRlEhQKB2VuYWJsZWQYECABKAhIAYgBAUIVChNfZW5hYmxlX3Ry",
+            "YW5zY29kaW5nQgoKCF9lbmFibGVkIp4DCgxJbmdyZXNzU3RhdGUSLAoGc3Rh",
+            "dHVzGAEgASgOMhwubGl2ZWtpdC5JbmdyZXNzU3RhdGUuU3RhdHVzEg0KBWVy",
+            "cm9yGAIgASgJEicKBXZpZGVvGAMgASgLMhgubGl2ZWtpdC5JbnB1dFZpZGVv",
+            "U3RhdGUSJwoFYXVkaW8YBCABKAsyGC5saXZla2l0LklucHV0QXVkaW9TdGF0",
+            "ZRIPCgdyb29tX2lkGAUgASgJEhIKCnN0YXJ0ZWRfYXQYByABKAMSEAoIZW5k",
+            "ZWRfYXQYCCABKAMSEgoKdXBkYXRlZF9hdBgKIAEoAxITCgtyZXNvdXJjZV9p",
+            "ZBgJIAEoCRIiCgZ0cmFja3MYBiADKAsyEi5saXZla2l0LlRyYWNrSW5mbyJ7",
+            "CgZTdGF0dXMSFQoRRU5EUE9JTlRfSU5BQ1RJVkUQABIWChJFTkRQT0lOVF9C",
+            "VUZGRVJJTkcQARIXChNFTkRQT0lOVF9QVUJMSVNISU5HEAISEgoORU5EUE9J",
+            "TlRfRVJST1IQAxIVChFFTkRQT0lOVF9DT01QTEVURRAEIm8KD0lucHV0Vmlk",
+            "ZW9TdGF0ZRIRCgltaW1lX3R5cGUYASABKAkSFwoPYXZlcmFnZV9iaXRyYXRl",
+            "GAIgASgNEg0KBXdpZHRoGAMgASgNEg4KBmhlaWdodBgEIAEoDRIRCglmcmFt",
+            "ZXJhdGUYBSABKAEiZAoPSW5wdXRBdWRpb1N0YXRlEhEKCW1pbWVfdHlwZRgB",
+            "IAEoCRIXCg9hdmVyYWdlX2JpdHJhdGUYAiABKA0SEAoIY2hhbm5lbHMYAyAB",
+            "KA0SEwoLc2FtcGxlX3JhdGUYBCABKA0ikQMKFFVwZGF0ZUluZ3Jlc3NSZXF1",
+            "ZXN0EhIKCmluZ3Jlc3NfaWQYASABKAkSDAoEbmFtZRgCIAEoCRIRCglyb29t",
+            "X25hbWUYAyABKAkSHAoUcGFydGljaXBhbnRfaWRlbnRpdHkYBCABKAkSGAoQ",
+            "cGFydGljaXBhbnRfbmFtZRgFIAEoCRIcChRwYXJ0aWNpcGFudF9tZXRhZGF0",
+            "YRgJIAEoCRIjChJieXBhc3NfdHJhbnNjb2RpbmcYCCABKAhCAhgBSACIAQES",
+            "HwoSZW5hYmxlX3RyYW5zY29kaW5nGAogASgISAGIAQESKwoFYXVkaW8YBiAB",
+            "KAsyHC5saXZla2l0LkluZ3Jlc3NBdWRpb09wdGlvbnMSKwoFdmlkZW8YByAB",
+            "KAsyHC5saXZla2l0LkluZ3Jlc3NWaWRlb09wdGlvbnMSFAoHZW5hYmxlZBgL",
+            "IAEoCEgCiAEBQhUKE19ieXBhc3NfdHJhbnNjb2RpbmdCFQoTX2VuYWJsZV90",
+            "cmFuc2NvZGluZ0IKCghfZW5hYmxlZCI7ChJMaXN0SW5ncmVzc1JlcXVlc3QS",
+            "EQoJcm9vbV9uYW1lGAEgASgJEhIKCmluZ3Jlc3NfaWQYAiABKAkiOgoTTGlz",
+            "dEluZ3Jlc3NSZXNwb25zZRIjCgVpdGVtcxgBIAMoCzIULmxpdmVraXQuSW5n",
+            "cmVzc0luZm8iKgoURGVsZXRlSW5ncmVzc1JlcXVlc3QSEgoKaW5ncmVzc19p",
+            "ZBgBIAEoCSo9CgxJbmdyZXNzSW5wdXQSDgoKUlRNUF9JTlBVVBAAEg4KCldI",
+            "SVBfSU5QVVQQARINCglVUkxfSU5QVVQQAipJChpJbmdyZXNzQXVkaW9FbmNv",
+            "ZGluZ1ByZXNldBIWChJPUFVTX1NURVJFT185NktCUFMQABITCg9PUFVTX01P",
+            "Tk9fNjRLQlMQASqEAwoaSW5ncmVzc1ZpZGVvRW5jb2RpbmdQcmVzZXQSHAoY",
+            "SDI2NF83MjBQXzMwRlBTXzNfTEFZRVJTEAASHQoZSDI2NF8xMDgwUF8zMEZQ",
+            "U18zX0xBWUVSUxABEhwKGEgyNjRfNTQwUF8yNUZQU18yX0xBWUVSUxACEhsK",
+            "F0gyNjRfNzIwUF8zMEZQU18xX0xBWUVSEAMSHAoYSDI2NF8xMDgwUF8zMEZQ",
+            "U18xX0xBWUVSEAQSKAokSDI2NF83MjBQXzMwRlBTXzNfTEFZRVJTX0hJR0hf",
+            "TU9USU9OEAUSKQolSDI2NF8xMDgwUF8zMEZQU18zX0xBWUVSU19ISUdIX01P",
+            "VElPThAGEigKJEgyNjRfNTQwUF8yNUZQU18yX0xBWUVSU19ISUdIX01PVElP",
+            "ThAHEicKI0gyNjRfNzIwUF8zMEZQU18xX0xBWUVSX0hJR0hfTU9USU9OEAgS",
+            "KAokSDI2NF8xMDgwUF8zMEZQU18xX0xBWUVSX0hJR0hfTU9USU9OEAkypQIK",
+            "B0luZ3Jlc3MSRAoNQ3JlYXRlSW5ncmVzcxIdLmxpdmVraXQuQ3JlYXRlSW5n",
+            "cmVzc1JlcXVlc3QaFC5saXZla2l0LkluZ3Jlc3NJbmZvEkQKDVVwZGF0ZUlu",
+            "Z3Jlc3MSHS5saXZla2l0LlVwZGF0ZUluZ3Jlc3NSZXF1ZXN0GhQubGl2ZWtp",
+            "dC5JbmdyZXNzSW5mbxJICgtMaXN0SW5ncmVzcxIbLmxpdmVraXQuTGlzdElu",
+            "Z3Jlc3NSZXF1ZXN0GhwubGl2ZWtpdC5MaXN0SW5ncmVzc1Jlc3BvbnNlEkQK",
+            "DURlbGV0ZUluZ3Jlc3MSHS5saXZla2l0LkRlbGV0ZUluZ3Jlc3NSZXF1ZXN0",
+            "GhQubGl2ZWtpdC5JbmdyZXNzSW5mb0JGWiNnaXRodWIuY29tL2xpdmVraXQv",
+            "cHJvdG9jb2wvbGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQ",
+            "cm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.IngressInput), typeof(global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingPreset), typeof(global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingPreset), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateIngressRequest), global::Livekit.Server.Sdk.Dotnet.CreateIngressRequest.Parser, new[]{ "InputType", "Url", "Name", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "BypassTranscoding", "EnableTranscoding", "Audio", "Video" }, new[]{ "EnableTranscoding" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateIngressRequest), global::Livekit.Server.Sdk.Dotnet.CreateIngressRequest.Parser, new[]{ "InputType", "Url", "Name", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "BypassTranscoding", "EnableTranscoding", "Audio", "Video", "Enabled" }, new[]{ "EnableTranscoding", "Enabled" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions), global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions.Parser, new[]{ "Name", "Source", "Preset", "Options" }, new[]{ "EncodingOptions" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions), global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions.Parser, new[]{ "Name", "Source", "Preset", "Options" }, new[]{ "EncodingOptions" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingOptions), global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingOptions.Parser, new[]{ "AudioCodec", "Bitrate", "DisableDtx", "Channels" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingOptions), global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingOptions.Parser, new[]{ "VideoCodec", "FrameRate", "Layers" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.IngressInfo), global::Livekit.Server.Sdk.Dotnet.IngressInfo.Parser, new[]{ "IngressId", "Name", "StreamKey", "Url", "InputType", "BypassTranscoding", "EnableTranscoding", "Audio", "Video", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "Reusable", "State" }, new[]{ "EnableTranscoding" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.IngressInfo), global::Livekit.Server.Sdk.Dotnet.IngressInfo.Parser, new[]{ "IngressId", "Name", "StreamKey", "Url", "InputType", "BypassTranscoding", "EnableTranscoding", "Audio", "Video", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "Reusable", "State", "Enabled" }, new[]{ "EnableTranscoding", "Enabled" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.IngressState), global::Livekit.Server.Sdk.Dotnet.IngressState.Parser, new[]{ "Status", "Error", "Video", "Audio", "RoomId", "StartedAt", "EndedAt", "UpdatedAt", "ResourceId", "Tracks" }, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.IngressState.Types.Status) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.InputVideoState), global::Livekit.Server.Sdk.Dotnet.InputVideoState.Parser, new[]{ "MimeType", "AverageBitrate", "Width", "Height", "Framerate" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.InputAudioState), global::Livekit.Server.Sdk.Dotnet.InputAudioState.Parser, new[]{ "MimeType", "AverageBitrate", "Channels", "SampleRate" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateIngressRequest), global::Livekit.Server.Sdk.Dotnet.UpdateIngressRequest.Parser, new[]{ "IngressId", "Name", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "BypassTranscoding", "EnableTranscoding", "Audio", "Video" }, new[]{ "BypassTranscoding", "EnableTranscoding" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateIngressRequest), global::Livekit.Server.Sdk.Dotnet.UpdateIngressRequest.Parser, new[]{ "IngressId", "Name", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "BypassTranscoding", "EnableTranscoding", "Audio", "Video", "Enabled" }, new[]{ "BypassTranscoding", "EnableTranscoding", "Enabled" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListIngressRequest), global::Livekit.Server.Sdk.Dotnet.ListIngressRequest.Parser, new[]{ "RoomName", "IngressId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListIngressResponse), global::Livekit.Server.Sdk.Dotnet.ListIngressResponse.Parser, new[]{ "Items" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DeleteIngressRequest), global::Livekit.Server.Sdk.Dotnet.DeleteIngressRequest.Parser, new[]{ "IngressId" }, null, null, null, null)
@@ -241,6 +244,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       enableTranscoding_ = other.enableTranscoding_;
       audio_ = other.audio_ != null ? other.audio_.Clone() : null;
       video_ = other.video_ != null ? other.video_.Clone() : null;
+      enabled_ = other.enabled_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -422,6 +426,36 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "enabled" field.</summary>
+    public const int EnabledFieldNumber = 12;
+    private readonly static bool EnabledDefaultValue = false;
+
+    private bool enabled_;
+    /// <summary>
+    /// The default value is true and when set to false, the new connection attempts will be rejected
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Enabled {
+      get { if ((_hasBits0 & 2) != 0) { return enabled_; } else { return EnabledDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        enabled_ = value;
+      }
+    }
+    /// <summary>Gets whether the "enabled" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasEnabled {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "enabled" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearEnabled() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -448,6 +482,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (EnableTranscoding != other.EnableTranscoding) return false;
       if (!object.Equals(Audio, other.Audio)) return false;
       if (!object.Equals(Video, other.Video)) return false;
+      if (Enabled != other.Enabled) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -466,6 +501,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (HasEnableTranscoding) hash ^= EnableTranscoding.GetHashCode();
       if (audio_ != null) hash ^= Audio.GetHashCode();
       if (video_ != null) hash ^= Video.GetHashCode();
+      if (HasEnabled) hash ^= Enabled.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -528,6 +564,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(88);
         output.WriteBool(EnableTranscoding);
       }
+      if (HasEnabled) {
+        output.WriteRawTag(96);
+        output.WriteBool(Enabled);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -582,6 +622,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(88);
         output.WriteBool(EnableTranscoding);
       }
+      if (HasEnabled) {
+        output.WriteRawTag(96);
+        output.WriteBool(Enabled);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -624,6 +668,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (video_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Video);
+      }
+      if (HasEnabled) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -675,6 +722,9 @@ namespace Livekit.Server.Sdk.Dotnet {
           Video = new global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions();
         }
         Video.MergeFrom(other.Video);
+      }
+      if (other.HasEnabled) {
+        Enabled = other.Enabled;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -745,6 +795,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             EnableTranscoding = input.ReadBool();
             break;
           }
+          case 96: {
+            Enabled = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -812,6 +866,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 88: {
             EnableTranscoding = input.ReadBool();
+            break;
+          }
+          case 96: {
+            Enabled = input.ReadBool();
             break;
           }
         }
@@ -2194,6 +2252,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       participantMetadata_ = other.participantMetadata_;
       reusable_ = other.reusable_;
       state_ = other.state_ != null ? other.state_.Clone() : null;
+      enabled_ = other.enabled_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2410,6 +2469,36 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "enabled" field.</summary>
+    public const int EnabledFieldNumber = 16;
+    private readonly static bool EnabledDefaultValue = false;
+
+    private bool enabled_;
+    /// <summary>
+    /// The default value is true and when set to false, the new connection attempts will be rejected
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Enabled {
+      get { if ((_hasBits0 & 2) != 0) { return enabled_; } else { return EnabledDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        enabled_ = value;
+      }
+    }
+    /// <summary>Gets whether the "enabled" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasEnabled {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "enabled" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearEnabled() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2440,6 +2529,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (ParticipantMetadata != other.ParticipantMetadata) return false;
       if (Reusable != other.Reusable) return false;
       if (!object.Equals(State, other.State)) return false;
+      if (Enabled != other.Enabled) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2462,6 +2552,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (ParticipantMetadata.Length != 0) hash ^= ParticipantMetadata.GetHashCode();
       if (Reusable != false) hash ^= Reusable.GetHashCode();
       if (state_ != null) hash ^= State.GetHashCode();
+      if (HasEnabled) hash ^= Enabled.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2540,6 +2631,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(120);
         output.WriteBool(EnableTranscoding);
       }
+      if (HasEnabled) {
+        output.WriteRawTag(128, 1);
+        output.WriteBool(Enabled);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2610,6 +2705,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(120);
         output.WriteBool(EnableTranscoding);
       }
+      if (HasEnabled) {
+        output.WriteRawTag(128, 1);
+        output.WriteBool(Enabled);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2664,6 +2763,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (state_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(State);
+      }
+      if (HasEnabled) {
+        size += 2 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2730,6 +2832,9 @@ namespace Livekit.Server.Sdk.Dotnet {
           State = new global::Livekit.Server.Sdk.Dotnet.IngressState();
         }
         State.MergeFrom(other.State);
+      }
+      if (other.HasEnabled) {
+        Enabled = other.Enabled;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2819,6 +2924,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             EnableTranscoding = input.ReadBool();
             break;
           }
+          case 128: {
+            Enabled = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -2905,6 +3014,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 120: {
             EnableTranscoding = input.ReadBool();
+            break;
+          }
+          case 128: {
+            Enabled = input.ReadBool();
             break;
           }
         }
@@ -4176,6 +4289,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       enableTranscoding_ = other.enableTranscoding_;
       audio_ = other.audio_ != null ? other.audio_.Clone() : null;
       video_ = other.video_ != null ? other.video_.Clone() : null;
+      enabled_ = other.enabled_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4338,6 +4452,36 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "enabled" field.</summary>
+    public const int EnabledFieldNumber = 11;
+    private readonly static bool EnabledDefaultValue = false;
+
+    private bool enabled_;
+    /// <summary>
+    /// The default value is true and when set to false, the new connection attempts will be rejected
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Enabled {
+      get { if ((_hasBits0 & 4) != 0) { return enabled_; } else { return EnabledDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        enabled_ = value;
+      }
+    }
+    /// <summary>Gets whether the "enabled" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasEnabled {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "enabled" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearEnabled() {
+      _hasBits0 &= ~4;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -4363,6 +4507,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (EnableTranscoding != other.EnableTranscoding) return false;
       if (!object.Equals(Audio, other.Audio)) return false;
       if (!object.Equals(Video, other.Video)) return false;
+      if (Enabled != other.Enabled) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4380,6 +4525,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (HasEnableTranscoding) hash ^= EnableTranscoding.GetHashCode();
       if (audio_ != null) hash ^= Audio.GetHashCode();
       if (video_ != null) hash ^= Video.GetHashCode();
+      if (HasEnabled) hash ^= Enabled.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4438,6 +4584,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(80);
         output.WriteBool(EnableTranscoding);
       }
+      if (HasEnabled) {
+        output.WriteRawTag(88);
+        output.WriteBool(Enabled);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4488,6 +4638,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(80);
         output.WriteBool(EnableTranscoding);
       }
+      if (HasEnabled) {
+        output.WriteRawTag(88);
+        output.WriteBool(Enabled);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4527,6 +4681,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (video_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Video);
+      }
+      if (HasEnabled) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4575,6 +4732,9 @@ namespace Livekit.Server.Sdk.Dotnet {
           Video = new global::Livekit.Server.Sdk.Dotnet.IngressVideoOptions();
         }
         Video.MergeFrom(other.Video);
+      }
+      if (other.HasEnabled) {
+        Enabled = other.Enabled;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4641,6 +4801,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             EnableTranscoding = input.ReadBool();
             break;
           }
+          case 88: {
+            Enabled = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -4704,6 +4868,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 80: {
             EnableTranscoding = input.ReadBool();
+            break;
+          }
+          case 88: {
+            Enabled = input.ReadBool();
             break;
           }
         }

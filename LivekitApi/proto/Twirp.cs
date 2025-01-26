@@ -187,7 +187,6 @@ public class Twirp {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.DeleteIngressRequest, global::Livekit.Server.Sdk.Dotnet.IngressInfo>(client, "/twirp/livekit.Ingress/DeleteIngress", req, global::Livekit.Server.Sdk.Dotnet.IngressInfo.Parser.ParseFrom);
   }
 
-  // rpc CreateSIPTrunk(CreateSIPTrunkRequest) returns (SIPTrunkInfo) { option deprecated = true; }; DELETED
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkResponse> ListSIPTrunk(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkRequest req) {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkRequest, global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkResponse>(client, "/twirp/livekit.SIP/ListSIPTrunk", req, global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkResponse.Parser.ParseFrom);
   }
