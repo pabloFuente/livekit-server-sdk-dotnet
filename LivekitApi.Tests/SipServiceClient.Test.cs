@@ -412,7 +412,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             Assert.Equal("can't transfer non established call", ex.Message);
 
             ex = await Assert.ThrowsAsync<Twirp.Exception>(
-              async () => await sipClient.TransferSIPParticipant(transferRequest)
+                async () => await sipClient.TransferSIPParticipant(transferRequest)
             );
             Assert.Equal("participant does not exist", ex.Message);
         }
