@@ -47,6 +47,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
                     ParticipantName = "ingress-name",
                     InputType = IngressInput.UrlInput,
                     Url = url,
+                    Enabled = true,
                 }
             );
             Assert.NotNull(ingress.IngressId);

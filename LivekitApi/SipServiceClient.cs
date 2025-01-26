@@ -132,7 +132,7 @@ namespace Livekit.Server.Sdk.Dotnet
         {
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                AuthHeader(new VideoGrants { }, new SIPGrants { Call = true })
             );
             return await Twirp.CreateSIPParticipant(httpClient, request);
         }
@@ -141,7 +141,10 @@ namespace Livekit.Server.Sdk.Dotnet
         {
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                AuthHeader(
+                    new VideoGrants { RoomAdmin = true, Room = request.RoomName },
+                    new SIPGrants { Call = true }
+                )
             );
             return await Twirp.TransferSIPParticipant(httpClient, request);
         }

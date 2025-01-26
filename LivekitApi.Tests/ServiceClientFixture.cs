@@ -21,6 +21,7 @@ public class ServiceClientFixture : IDisposable
     private const string LIVEKIT_SERVER_IMAGE = "livekit/livekit-server:latest";
     private const string LIVEKIT_EGRESS_IMAGE = "livekit/egress:latest";
     private const string LIVEKIT_INGRESS_IMAGE = "livekit/ingress:latest";
+    private const string LIVEKIT_SIP_IMAGE = "livekit/sip:latest";
     private const string LIVEKIT_CLI_IMAGE = "livekit/livekit-cli:latest";
     private const string REDIS_IMAGE = "redis:latest";
 
@@ -52,10 +53,24 @@ whip_port: 8085
 http_relay_port: 9090
 health_port: 9091";
 
+    private string sipYaml =
+        @"api_key: "
+        + TEST_API_KEY
+        + @"
+api_secret: "
+        + TEST_API_SECRET
+        + @"
+ws_url: {WS_URL}
+redis:
+    address: {REDIS_ADDRESS}
+sip_port: 5060
+rtp_port: 10000-20000";
+
     private IContainer redisContainer;
     private IContainer livekitServerContainer;
     private IContainer egressContainer;
     private IContainer ingressContainer;
+    private IContainer sipContainer;
 
     public ServiceClientFixture()
     {
@@ -136,7 +151,28 @@ health_port: 9091";
                     )
             )
             .Build();
-        Task.WaitAll(egressContainer.StartAsync(), ingressContainer.StartAsync());
+        // Sip
+        sipYaml = sipYaml
+            .Replace("{WS_URL}", "ws://" + livekitServerContainer.IpAddress + ":7880")
+            .Replace("{REDIS_ADDRESS}", redisContainer.IpAddress + ":6379");
+        sipContainer = new ContainerBuilder()
+            .WithImage(LIVEKIT_SIP_IMAGE)
+            .WithName("sip")
+            .WithAutoRemove(true)
+            .WithEnvironment("SIP_CONFIG_BODY", sipYaml)
+            .WithPortBinding(5060, true)
+            .DependsOn(redisContainer)
+            .DependsOn(livekitServerContainer)
+            .WithWaitStrategy(
+                Wait.ForUnixContainer().UntilMessageIsLogged(".*sip signaling listening on.*")
+            )
+            .Build();
+
+        Task.WaitAll(
+            egressContainer.StartAsync(),
+            ingressContainer.StartAsync(),
+            sipContainer.StartAsync()
+        );
     }
 
     public void Dispose()
@@ -157,6 +193,10 @@ health_port: 9091";
         if (ingressContainer != null)
         {
             tasks.Add(ingressContainer.DisposeAsync().AsTask());
+        }
+        if (sipContainer != null)
+        {
+            tasks.Add(sipContainer.DisposeAsync().AsTask());
         }
         Task.WhenAll(tasks).Wait();
     }
