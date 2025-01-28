@@ -1,5 +1,6 @@
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Google.Protobuf;
 
 namespace Livekit.Server.Sdk.Dotnet
 {
@@ -140,6 +141,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public async Task<SendDataResponse> SendData(SendDataRequest request)
         {
+            // Add random nonce to request
+            request.Nonce = ByteString.CopyFrom(System.Guid.NewGuid().ToByteArray());
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Bearer",
                 AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })

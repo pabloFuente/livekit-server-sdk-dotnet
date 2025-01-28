@@ -60,40 +60,40 @@ namespace Livekit.Server.Sdk.Dotnet {
             "EAoIaWRlbnRpdHkYAiABKAkSEgoKdHJhY2tfc2lkcxgDIAMoCRIRCglzdWJz",
             "Y3JpYmUYBCABKAgSNgoScGFydGljaXBhbnRfdHJhY2tzGAUgAygLMhoubGl2",
             "ZWtpdC5QYXJ0aWNpcGFudFRyYWNrcyIdChtVcGRhdGVTdWJzY3JpcHRpb25z",
-            "UmVzcG9uc2UisQEKD1NlbmREYXRhUmVxdWVzdBIMCgRyb29tGAEgASgJEgwK",
+            "UmVzcG9uc2UiwAEKD1NlbmREYXRhUmVxdWVzdBIMCgRyb29tGAEgASgJEgwK",
             "BGRhdGEYAiABKAwSJgoEa2luZBgDIAEoDjIYLmxpdmVraXQuRGF0YVBhY2tl",
             "dC5LaW5kEhwKEGRlc3RpbmF0aW9uX3NpZHMYBCADKAlCAhgBEh4KFmRlc3Rp",
-            "bmF0aW9uX2lkZW50aXRpZXMYBiADKAkSEgoFdG9waWMYBSABKAlIAIgBAUII",
-            "CgZfdG9waWMiEgoQU2VuZERhdGFSZXNwb25zZSI7ChlVcGRhdGVSb29tTWV0",
-            "YWRhdGFSZXF1ZXN0EgwKBHJvb20YASABKAkSEAoIbWV0YWRhdGEYAiABKAki",
-            "igIKEVJvb21Db25maWd1cmF0aW9uEgwKBG5hbWUYASABKAkSFQoNZW1wdHlf",
-            "dGltZW91dBgCIAEoDRIZChFkZXBhcnR1cmVfdGltZW91dBgDIAEoDRIYChBt",
-            "YXhfcGFydGljaXBhbnRzGAQgASgNEiMKBmVncmVzcxgFIAEoCzITLmxpdmVr",
-            "aXQuUm9vbUVncmVzcxIZChFtaW5fcGxheW91dF9kZWxheRgHIAEoDRIZChFt",
-            "YXhfcGxheW91dF9kZWxheRgIIAEoDRIUCgxzeW5jX3N0cmVhbXMYCSABKAgS",
-            "KgoGYWdlbnRzGAogAygLMhoubGl2ZWtpdC5Sb29tQWdlbnREaXNwYXRjaDLm",
-            "BgoLUm9vbVNlcnZpY2USNwoKQ3JlYXRlUm9vbRIaLmxpdmVraXQuQ3JlYXRl",
-            "Um9vbVJlcXVlc3QaDS5saXZla2l0LlJvb20SQgoJTGlzdFJvb21zEhkubGl2",
-            "ZWtpdC5MaXN0Um9vbXNSZXF1ZXN0GhoubGl2ZWtpdC5MaXN0Um9vbXNSZXNw",
-            "b25zZRJFCgpEZWxldGVSb29tEhoubGl2ZWtpdC5EZWxldGVSb29tUmVxdWVz",
-            "dBobLmxpdmVraXQuRGVsZXRlUm9vbVJlc3BvbnNlElcKEExpc3RQYXJ0aWNp",
-            "cGFudHMSIC5saXZla2l0Lkxpc3RQYXJ0aWNpcGFudHNSZXF1ZXN0GiEubGl2",
-            "ZWtpdC5MaXN0UGFydGljaXBhbnRzUmVzcG9uc2USTAoOR2V0UGFydGljaXBh",
-            "bnQSIC5saXZla2l0LlJvb21QYXJ0aWNpcGFudElkZW50aXR5GhgubGl2ZWtp",
-            "dC5QYXJ0aWNpcGFudEluZm8SWQoRUmVtb3ZlUGFydGljaXBhbnQSIC5saXZl",
-            "a2l0LlJvb21QYXJ0aWNpcGFudElkZW50aXR5GiIubGl2ZWtpdC5SZW1vdmVQ",
-            "YXJ0aWNpcGFudFJlc3BvbnNlElMKEk11dGVQdWJsaXNoZWRUcmFjaxIdLmxp",
-            "dmVraXQuTXV0ZVJvb21UcmFja1JlcXVlc3QaHi5saXZla2l0Lk11dGVSb29t",
-            "VHJhY2tSZXNwb25zZRJQChFVcGRhdGVQYXJ0aWNpcGFudBIhLmxpdmVraXQu",
-            "VXBkYXRlUGFydGljaXBhbnRSZXF1ZXN0GhgubGl2ZWtpdC5QYXJ0aWNpcGFu",
-            "dEluZm8SYAoTVXBkYXRlU3Vic2NyaXB0aW9ucxIjLmxpdmVraXQuVXBkYXRl",
-            "U3Vic2NyaXB0aW9uc1JlcXVlc3QaJC5saXZla2l0LlVwZGF0ZVN1YnNjcmlw",
-            "dGlvbnNSZXNwb25zZRI/CghTZW5kRGF0YRIYLmxpdmVraXQuU2VuZERhdGFS",
-            "ZXF1ZXN0GhkubGl2ZWtpdC5TZW5kRGF0YVJlc3BvbnNlEkcKElVwZGF0ZVJv",
-            "b21NZXRhZGF0YRIiLmxpdmVraXQuVXBkYXRlUm9vbU1ldGFkYXRhUmVxdWVz",
-            "dBoNLmxpdmVraXQuUm9vbUJGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9j",
-            "b2wvbGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IG",
-            "cHJvdG8z"));
+            "bmF0aW9uX2lkZW50aXRpZXMYBiADKAkSEgoFdG9waWMYBSABKAlIAIgBARIN",
+            "CgVub25jZRgHIAEoDEIICgZfdG9waWMiEgoQU2VuZERhdGFSZXNwb25zZSI7",
+            "ChlVcGRhdGVSb29tTWV0YWRhdGFSZXF1ZXN0EgwKBHJvb20YASABKAkSEAoI",
+            "bWV0YWRhdGEYAiABKAkiigIKEVJvb21Db25maWd1cmF0aW9uEgwKBG5hbWUY",
+            "ASABKAkSFQoNZW1wdHlfdGltZW91dBgCIAEoDRIZChFkZXBhcnR1cmVfdGlt",
+            "ZW91dBgDIAEoDRIYChBtYXhfcGFydGljaXBhbnRzGAQgASgNEiMKBmVncmVz",
+            "cxgFIAEoCzITLmxpdmVraXQuUm9vbUVncmVzcxIZChFtaW5fcGxheW91dF9k",
+            "ZWxheRgHIAEoDRIZChFtYXhfcGxheW91dF9kZWxheRgIIAEoDRIUCgxzeW5j",
+            "X3N0cmVhbXMYCSABKAgSKgoGYWdlbnRzGAogAygLMhoubGl2ZWtpdC5Sb29t",
+            "QWdlbnREaXNwYXRjaDLmBgoLUm9vbVNlcnZpY2USNwoKQ3JlYXRlUm9vbRIa",
+            "LmxpdmVraXQuQ3JlYXRlUm9vbVJlcXVlc3QaDS5saXZla2l0LlJvb20SQgoJ",
+            "TGlzdFJvb21zEhkubGl2ZWtpdC5MaXN0Um9vbXNSZXF1ZXN0GhoubGl2ZWtp",
+            "dC5MaXN0Um9vbXNSZXNwb25zZRJFCgpEZWxldGVSb29tEhoubGl2ZWtpdC5E",
+            "ZWxldGVSb29tUmVxdWVzdBobLmxpdmVraXQuRGVsZXRlUm9vbVJlc3BvbnNl",
+            "ElcKEExpc3RQYXJ0aWNpcGFudHMSIC5saXZla2l0Lkxpc3RQYXJ0aWNpcGFu",
+            "dHNSZXF1ZXN0GiEubGl2ZWtpdC5MaXN0UGFydGljaXBhbnRzUmVzcG9uc2US",
+            "TAoOR2V0UGFydGljaXBhbnQSIC5saXZla2l0LlJvb21QYXJ0aWNpcGFudElk",
+            "ZW50aXR5GhgubGl2ZWtpdC5QYXJ0aWNpcGFudEluZm8SWQoRUmVtb3ZlUGFy",
+            "dGljaXBhbnQSIC5saXZla2l0LlJvb21QYXJ0aWNpcGFudElkZW50aXR5GiIu",
+            "bGl2ZWtpdC5SZW1vdmVQYXJ0aWNpcGFudFJlc3BvbnNlElMKEk11dGVQdWJs",
+            "aXNoZWRUcmFjaxIdLmxpdmVraXQuTXV0ZVJvb21UcmFja1JlcXVlc3QaHi5s",
+            "aXZla2l0Lk11dGVSb29tVHJhY2tSZXNwb25zZRJQChFVcGRhdGVQYXJ0aWNp",
+            "cGFudBIhLmxpdmVraXQuVXBkYXRlUGFydGljaXBhbnRSZXF1ZXN0GhgubGl2",
+            "ZWtpdC5QYXJ0aWNpcGFudEluZm8SYAoTVXBkYXRlU3Vic2NyaXB0aW9ucxIj",
+            "LmxpdmVraXQuVXBkYXRlU3Vic2NyaXB0aW9uc1JlcXVlc3QaJC5saXZla2l0",
+            "LlVwZGF0ZVN1YnNjcmlwdGlvbnNSZXNwb25zZRI/CghTZW5kRGF0YRIYLmxp",
+            "dmVraXQuU2VuZERhdGFSZXF1ZXN0GhkubGl2ZWtpdC5TZW5kRGF0YVJlc3Bv",
+            "bnNlEkcKElVwZGF0ZVJvb21NZXRhZGF0YRIiLmxpdmVraXQuVXBkYXRlUm9v",
+            "bU1ldGFkYXRhUmVxdWVzdBoNLmxpdmVraXQuUm9vbUJGWiNnaXRodWIuY29t",
+            "L2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/qAg5M",
+            "aXZlS2l0OjpQcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitAgentDispatchReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -113,7 +113,7 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateParticipantRequest), global::Livekit.Server.Sdk.Dotnet.UpdateParticipantRequest.Parser, new[]{ "Room", "Identity", "Metadata", "Permission", "Name", "Attributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsRequest), global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsRequest.Parser, new[]{ "Room", "Identity", "TrackSids", "Subscribe", "ParticipantTracks" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsResponse), global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsResponse.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SendDataRequest), global::Livekit.Server.Sdk.Dotnet.SendDataRequest.Parser, new[]{ "Room", "Data", "Kind", "DestinationSids", "DestinationIdentities", "Topic" }, new[]{ "Topic" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SendDataRequest), global::Livekit.Server.Sdk.Dotnet.SendDataRequest.Parser, new[]{ "Room", "Data", "Kind", "DestinationSids", "DestinationIdentities", "Topic", "Nonce" }, new[]{ "Topic" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SendDataResponse), global::Livekit.Server.Sdk.Dotnet.SendDataResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest), global::Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest.Parser, new[]{ "Room", "Metadata" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomConfiguration), global::Livekit.Server.Sdk.Dotnet.RoomConfiguration.Parser, new[]{ "Name", "EmptyTimeout", "DepartureTimeout", "MaxParticipants", "Egress", "MinPlayoutDelay", "MaxPlayoutDelay", "SyncStreams", "Agents" }, null, null, null, null)
@@ -4272,6 +4272,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       destinationSids_ = other.destinationSids_.Clone();
       destinationIdentities_ = other.destinationIdentities_.Clone();
       topic_ = other.topic_;
+      nonce_ = other.nonce_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4372,6 +4373,21 @@ namespace Livekit.Server.Sdk.Dotnet {
       topic_ = null;
     }
 
+    /// <summary>Field number for the "nonce" field.</summary>
+    public const int NonceFieldNumber = 7;
+    private pb::ByteString nonce_ = pb::ByteString.Empty;
+    /// <summary>
+    /// added by SDK to enable de-duping of messages, for INTERNAL USE ONLY
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Nonce {
+      get { return nonce_; }
+      set {
+        nonce_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -4393,6 +4409,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if(!destinationSids_.Equals(other.destinationSids_)) return false;
       if(!destinationIdentities_.Equals(other.destinationIdentities_)) return false;
       if (Topic != other.Topic) return false;
+      if (Nonce != other.Nonce) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4406,6 +4423,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       hash ^= destinationSids_.GetHashCode();
       hash ^= destinationIdentities_.GetHashCode();
       if (HasTopic) hash ^= Topic.GetHashCode();
+      if (Nonce.Length != 0) hash ^= Nonce.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4442,6 +4460,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteString(Topic);
       }
       destinationIdentities_.WriteTo(output, _repeated_destinationIdentities_codec);
+      if (Nonce.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteBytes(Nonce);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4470,6 +4492,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteString(Topic);
       }
       destinationIdentities_.WriteTo(ref output, _repeated_destinationIdentities_codec);
+      if (Nonce.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteBytes(Nonce);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4493,6 +4519,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       size += destinationIdentities_.CalculateSize(_repeated_destinationIdentities_codec);
       if (HasTopic) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Topic);
+      }
+      if (Nonce.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Nonce);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4519,6 +4548,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       destinationIdentities_.Add(other.destinationIdentities_);
       if (other.HasTopic) {
         Topic = other.Topic;
+      }
+      if (other.Nonce.Length != 0) {
+        Nonce = other.Nonce;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4563,6 +4595,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             destinationIdentities_.AddEntriesFrom(input, _repeated_destinationIdentities_codec);
             break;
           }
+          case 58: {
+            Nonce = input.ReadBytes();
+            break;
+          }
         }
       }
     #endif
@@ -4604,6 +4640,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 50: {
             destinationIdentities_.AddEntriesFrom(ref input, _repeated_destinationIdentities_codec);
+            break;
+          }
+          case 58: {
+            Nonce = input.ReadBytes();
             break;
           }
         }
