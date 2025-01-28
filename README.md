@@ -87,6 +87,15 @@ await client.RemoveParticipant(removeParticipantRequest);
 // Delete room
 var deleteRoomRequest = new DeleteRoomRequest { Room = "room-name" };
 await client.DeleteRoom(deleteRoomRequest);
+
+// Send data to room
+var sendDataRequest = new SendDataRequest
+{
+    Room = "room-name",
+    Data = ByteString.CopyFromUtf8("test-data"),
+    Kind = DataPacket.Types.Kind.Reliable,
+};
+await client.SendData(sendDataRequest);
 ```
 
 ## Egress Service
