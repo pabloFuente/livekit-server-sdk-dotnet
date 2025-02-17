@@ -99,6 +99,7 @@ jobs:
               dotnet nuget push $file --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
           }
 
+      - uses: actions/checkout@v4
       - name: Post release steps
         run: |
           # Update property <PackageValidationBaselineVersion> to the new release version
