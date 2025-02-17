@@ -33,7 +33,7 @@
     <DebugSymbols>true</DebugSymbols>
     <EmbedAllSources>true</EmbedAllSources>
     <EnablePackageValidation>true</EnablePackageValidation>
-    <PackageValidationBaselineVersion>1.0.5</PackageValidationBaselineVersion>
+    <PackageValidationBaselineVersion>1.0.6</PackageValidationBaselineVersion>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
   </PropertyGroup>
 
