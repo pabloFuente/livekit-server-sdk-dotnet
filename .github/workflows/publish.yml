@@ -98,3 +98,16 @@ jobs:
           foreach($file in (Get-ChildItem "${{ env.NuGetDirectory }}" -Recurse -Include *.nupkg)) {
               dotnet nuget push $file --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
           }
+
+      - name: Post release steps
+        run: |
+          # Update property <PackageValidationBaselineVersion> to the new release version
+          sed -i "s/<PackageValidationBaselineVersion>.*<\/PackageValidationBaselineVersion>/<PackageValidationBaselineVersion>${{ github.event.release.tag_name }}<\/PackageValidationBaselineVersion>/" LivekitApi/LivekitApi.csproj
+          # Delete file LivekitApi/CompatibilitySupressions.xml if exists
+          rm -f LivekitApi/CompatibilitySupressions.xml
+
+      - name: Push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Post steps release ${{ github.event.release.tag_name }}"
+          file_pattern: "*.csproj *.xml"
