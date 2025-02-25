@@ -2,19 +2,28 @@
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/pabloFuente/livekit-server-sdk-dotnet/dotnet.yml)](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/dotnet.yml)
 [![License badge](https://img.shields.io/badge/license-Apache2-orange.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
-# livekit-server-sdk-dotnet
+# livekit-server-sdk-dotnet <!-- omit in toc -->
 
 .NET APIs to manage LiveKit Access Tokens, Webhook and Server APIs. Use it with a .NET backend. It is build with **`netstandard2.0`** as target framework, so the SDK can be used in all versions of .NET.
 
-The SDK implements:
-
-- Access Tokens
-- Webhooks
-- Room Service
-- Egress Service
-- Ingress Service
-- SIP Service
-- Agent Service
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Creating Access Tokens](#creating-access-tokens)
+  - [Room Service](#room-service)
+  - [Egress Service](#egress-service)
+  - [Ingress Service](#ingress-service)
+  - [SIP Service](#sip-service)
+  - [Agent Dispatch Service](#agent-dispatch-service)
+  - [Receiving Webhooks](#receiving-webhooks)
+  - [Environment Variables](#environment-variables)
+- [Example app](#example-app)
+- [For developers of the SDK](#for-developers-of-the-sdk)
+  - [Clone repository](#clone-repository)
+  - [Compile](#compile)
+  - [Run tests](#run-tests)
+  - [GitHub Actions](#github-actions)
+  - [Install as a local NuGet package](#install-as-a-local-nuget-package)
+  - [Upgrade version of `livekit/protocol`](#upgrade-version-of-livekitprotocol)
 
 # Installation
 
