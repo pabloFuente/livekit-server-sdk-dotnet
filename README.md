@@ -248,6 +248,41 @@ var ruleRequest = new CreateSIPDispatchRuleRequest
 SIPDispatchRuleInfo dispatchRule = await client.CreateSIPDispatchRule(ruleRequest);
 ```
 
+## Agent Dispatch Service
+
+`AgentDispatchServiceClient` is a .NET client to AgentDispatchService. Refer to [docs](https://docs.livekit.io/agents/build/dispatch/#explicit-agent-dispatch) for more usage examples.
+
+```csharp
+using Livekit.Server.Sdk.Dotnet;
+
+AgentDispatchServiceClient agentDispatchClient = new AgentDispatchServiceClient(
+    "https://my.livekit.instance",
+    "yourkey",
+    "yoursecret"
+);
+
+// Dispatch an agent
+var dispatchAgentRequest = new CreateAgentDispatchRequest
+{
+    AgentName = "agent-name",
+    Room = "toom-name",
+    Metadata = "my-job-metadata",
+};
+AgentDispatch agentDispatch = await agentDispatchClient.CreateDispatch(dispatchAgentRequest);
+
+// List agent dispatches
+var listAgentDispatchesRequest = new ListAgentDispatchRequest { Room = "room-name" };
+ListAgentDispatchResponse agentDispatches = await agentDispatchClient.ListDispatch(listAgentDispatchesRequest);
+
+// Delete an agent dispatch
+var deleteAgentDispatchRequest = new DeleteAgentDispatchRequest
+{
+    DispatchId = agentDispatch.Id,
+    Room = "room-name",
+};
+AgentDispatch deletedAgentDispatch = await agentDispatchClient.DeleteDispatch(deleteAgentDispatchRequest);
+```
+
 ## Receiving Webhooks
 
 The .NET SDK also provides helper functions to decode and verify webhook callbacks. While verification is optional, it ensures the authenticity of the message. See [webhooks guide](https://docs.livekit.io/home/server/webhooks/) for details.
