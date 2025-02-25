@@ -77,12 +77,12 @@ namespace Livekit.Server.Sdk.Dotnet {
             "IAEoDUIJCgdfc3RhdHVzIlMKDUpvYkFzc2lnbm1lbnQSGQoDam9iGAEgASgL",
             "MgwubGl2ZWtpdC5Kb2ISEAoDdXJsGAIgASgJSACIAQESDQoFdG9rZW4YAyAB",
             "KAlCBgoEX3VybCIgCg5Kb2JUZXJtaW5hdGlvbhIOCgZqb2JfaWQYASABKAkq",
-            "KAoHSm9iVHlwZRILCgdKVF9ST09NEAASEAoMSlRfUFVCTElTSEVSEAEqLQoM",
-            "V29ya2VyU3RhdHVzEhAKDFdTX0FWQUlMQUJMRRAAEgsKB1dTX0ZVTEwQASpK",
-            "CglKb2JTdGF0dXMSDgoKSlNfUEVORElORxAAEg4KCkpTX1JVTk5JTkcQARIO",
-            "CgpKU19TVUNDRVNTEAISDQoJSlNfRkFJTEVEEANCRlojZ2l0aHViLmNvbS9s",
-            "aXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1MaXZlS2l0LlByb3Rv6gIOTGl2",
-            "ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
+            "PAoHSm9iVHlwZRILCgdKVF9ST09NEAASEAoMSlRfUFVCTElTSEVSEAESEgoO",
+            "SlRfUEFSVElDSVBBTlQQAiotCgxXb3JrZXJTdGF0dXMSEAoMV1NfQVZBSUxB",
+            "QkxFEAASCwoHV1NfRlVMTBABKkoKCUpvYlN0YXR1cxIOCgpKU19QRU5ESU5H",
+            "EAASDgoKSlNfUlVOTklORxABEg4KCkpTX1NVQ0NFU1MQAhINCglKU19GQUlM",
+            "RUQQA0JGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdKoC",
+            "DUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.JobType), typeof(global::Livekit.Server.Sdk.Dotnet.WorkerStatus), typeof(global::Livekit.Server.Sdk.Dotnet.JobStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -111,6 +111,7 @@ namespace Livekit.Server.Sdk.Dotnet {
   public enum JobType {
     [pbr::OriginalName("JT_ROOM")] JtRoom = 0,
     [pbr::OriginalName("JT_PUBLISHER")] JtPublisher = 1,
+    [pbr::OriginalName("JT_PARTICIPANT")] JtParticipant = 2,
   }
 
   public enum WorkerStatus {

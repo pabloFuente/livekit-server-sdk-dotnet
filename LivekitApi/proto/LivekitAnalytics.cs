@@ -27,121 +27,163 @@ namespace Livekit.Server.Sdk.Dotnet {
             "ChdsaXZla2l0X2FuYWx5dGljcy5wcm90bxIHbGl2ZWtpdBofZ29vZ2xlL3By",
             "b3RvYnVmL3RpbWVzdGFtcC5wcm90bxoUbGl2ZWtpdF9tb2RlbHMucHJvdG8a",
             "FGxpdmVraXRfZWdyZXNzLnByb3RvGhVsaXZla2l0X2luZ3Jlc3MucHJvdG8a",
-            "EWxpdmVraXRfc2lwLnByb3RvIlQKE0FuYWx5dGljc1ZpZGVvTGF5ZXISDQoF",
-            "bGF5ZXIYASABKAUSDwoHcGFja2V0cxgCIAEoDRINCgVieXRlcxgDIAEoBBIO",
-            "CgZmcmFtZXMYBCABKA0i0wMKD0FuYWx5dGljc1N0cmVhbRIMCgRzc3JjGAEg",
-            "ASgNEhcKD3ByaW1hcnlfcGFja2V0cxgCIAEoDRIVCg1wcmltYXJ5X2J5dGVz",
-            "GAMgASgEEhoKEnJldHJhbnNtaXRfcGFja2V0cxgEIAEoDRIYChByZXRyYW5z",
-            "bWl0X2J5dGVzGAUgASgEEhcKD3BhZGRpbmdfcGFja2V0cxgGIAEoDRIVCg1w",
-            "YWRkaW5nX2J5dGVzGAcgASgEEhQKDHBhY2tldHNfbG9zdBgIIAEoDRIOCgZm",
-            "cmFtZXMYCSABKA0SCwoDcnR0GAogASgNEg4KBmppdHRlchgLIAEoDRINCgVu",
-            "YWNrcxgMIAEoDRIMCgRwbGlzGA0gASgNEgwKBGZpcnMYDiABKA0SMgoMdmlk",
-            "ZW9fbGF5ZXJzGA8gAygLMhwubGl2ZWtpdC5BbmFseXRpY3NWaWRlb0xheWVy",
-            "Ei4KCnN0YXJ0X3RpbWUYESABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0",
-            "YW1wEiwKCGVuZF90aW1lGBIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
-            "dGFtcBIcChRwYWNrZXRzX291dF9vZl9vcmRlchgTIAEoDSLSAgoNQW5hbHl0",
-            "aWNzU3RhdBIKCgJpZBgOIAEoCRIVCg1hbmFseXRpY3Nfa2V5GAEgASgJEiEK",
-            "BGtpbmQYAiABKA4yEy5saXZla2l0LlN0cmVhbVR5cGUSLgoKdGltZV9zdGFt",
-            "cBgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASDAoEbm9kZRgE",
-            "IAEoCRIPCgdyb29tX2lkGAUgASgJEhEKCXJvb21fbmFtZRgGIAEoCRIWCg5w",
-            "YXJ0aWNpcGFudF9pZBgHIAEoCRIQCgh0cmFja19pZBgIIAEoCRINCgVzY29y",
-            "ZRgJIAEoAhIpCgdzdHJlYW1zGAogAygLMhgubGl2ZWtpdC5BbmFseXRpY3NT",
-            "dHJlYW0SDAoEbWltZRgLIAEoCRIRCgltaW5fc2NvcmUYDCABKAISFAoMbWVk",
-            "aWFuX3Njb3JlGA0gASgCIjcKDkFuYWx5dGljc1N0YXRzEiUKBXN0YXRzGAEg",
-            "AygLMhYubGl2ZWtpdC5BbmFseXRpY3NTdGF0IpoCChNBbmFseXRpY3NDbGll",
-            "bnRNZXRhEg4KBnJlZ2lvbhgBIAEoCRIMCgRub2RlGAIgASgJEhMKC2NsaWVu",
-            "dF9hZGRyGAMgASgJEhsKE2NsaWVudF9jb25uZWN0X3RpbWUYBCABKA0SFwoP",
-            "Y29ubmVjdGlvbl90eXBlGAUgASgJEjIKEHJlY29ubmVjdF9yZWFzb24YBiAB",
-            "KA4yGC5saXZla2l0LlJlY29ubmVjdFJlYXNvbhIVCghnZW9faGFzaBgHIAEo",
-            "CUgAiAEBEhQKB2NvdW50cnkYCCABKAlIAYgBARIUCgdpc3BfYXNuGAkgASgN",
-            "SAKIAQFCCwoJX2dlb19oYXNoQgoKCF9jb3VudHJ5QgoKCF9pc3BfYXNuIp0I",
-            "Cg5BbmFseXRpY3NFdmVudBIKCgJpZBgZIAEoCRIpCgR0eXBlGAEgASgOMhsu",
-            "bGl2ZWtpdC5BbmFseXRpY3NFdmVudFR5cGUSLQoJdGltZXN0YW1wGAIgASgL",
-            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIPCgdyb29tX2lkGAMgASgJ",
-            "EhsKBHJvb20YBCABKAsyDS5saXZla2l0LlJvb20SFgoOcGFydGljaXBhbnRf",
-            "aWQYBSABKAkSLQoLcGFydGljaXBhbnQYBiABKAsyGC5saXZla2l0LlBhcnRp",
-            "Y2lwYW50SW5mbxIQCgh0cmFja19pZBgHIAEoCRIhCgV0cmFjaxgIIAEoCzIS",
-            "LmxpdmVraXQuVHJhY2tJbmZvEhUKDWFuYWx5dGljc19rZXkYCiABKAkSKAoL",
-            "Y2xpZW50X2luZm8YCyABKAsyEy5saXZla2l0LkNsaWVudEluZm8SMQoLY2xp",
-            "ZW50X21ldGEYDCABKAsyHC5saXZla2l0LkFuYWx5dGljc0NsaWVudE1ldGES",
-            "EQoJZWdyZXNzX2lkGA0gASgJEhIKCmluZ3Jlc3NfaWQYEyABKAkSOwocbWF4",
-            "X3N1YnNjcmliZWRfdmlkZW9fcXVhbGl0eRgOIAEoDjIVLmxpdmVraXQuVmlk",
-            "ZW9RdWFsaXR5EisKCXB1Ymxpc2hlchgPIAEoCzIYLmxpdmVraXQuUGFydGlj",
-            "aXBhbnRJbmZvEgwKBG1pbWUYECABKAkSIwoGZWdyZXNzGBEgASgLMhMubGl2",
-            "ZWtpdC5FZ3Jlc3NJbmZvEiUKB2luZ3Jlc3MYEiABKAsyFC5saXZla2l0Lklu",
-            "Z3Jlc3NJbmZvEg0KBWVycm9yGBQgASgJEiQKCXJ0cF9zdGF0cxgVIAEoCzIR",
-            "LmxpdmVraXQuUlRQU3RhdHMSEwoLdmlkZW9fbGF5ZXIYFiABKAUSDwoHbm9k",
-            "ZV9pZBgYIAEoCRITCgtzaXBfY2FsbF9pZBgaIAEoCRImCghzaXBfY2FsbBgb",
-            "IAEoCzIULmxpdmVraXQuU0lQQ2FsbEluZm8SFAoMc2lwX3RydW5rX2lkGBwg",
-            "ASgJEjcKEXNpcF9pbmJvdW5kX3RydW5rGB0gASgLMhwubGl2ZWtpdC5TSVBJ",
-            "bmJvdW5kVHJ1bmtJbmZvEjkKEnNpcF9vdXRib3VuZF90cnVuaxgeIAEoCzId",
-            "LmxpdmVraXQuU0lQT3V0Ym91bmRUcnVua0luZm8SHAoUc2lwX2Rpc3BhdGNo",
-            "X3J1bGVfaWQYHyABKAkSNwoRc2lwX2Rpc3BhdGNoX3J1bGUYICABKAsyHC5s",
-            "aXZla2l0LlNJUERpc3BhdGNoUnVsZUluZm8SIwoGcmVwb3J0GCEgASgLMhMu",
-            "bGl2ZWtpdC5SZXBvcnRJbmZvIjoKD0FuYWx5dGljc0V2ZW50cxInCgZldmVu",
-            "dHMYASADKAsyFy5saXZla2l0LkFuYWx5dGljc0V2ZW50IqQBChhBbmFseXRp",
-            "Y3NSb29tUGFydGljaXBhbnQSCgoCaWQYASABKAkSEAoIaWRlbnRpdHkYAiAB",
-            "KAkSDAoEbmFtZRgDIAEoCRItCgVzdGF0ZRgEIAEoDjIeLmxpdmVraXQuUGFy",
-            "dGljaXBhbnRJbmZvLlN0YXRlEi0KCWpvaW5lZF9hdBgFIAEoCzIaLmdvb2ds",
-            "ZS5wcm90b2J1Zi5UaW1lc3RhbXAipgEKDUFuYWx5dGljc1Jvb20SCgoCaWQY",
-            "ASABKAkSDAoEbmFtZRgCIAEoCRISCgpwcm9qZWN0X2lkGAUgASgJEi4KCmNy",
-            "ZWF0ZWRfYXQYAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEjcK",
-            "DHBhcnRpY2lwYW50cxgEIAMoCzIhLmxpdmVraXQuQW5hbHl0aWNzUm9vbVBh",
-            "cnRpY2lwYW50IpQBChJBbmFseXRpY3NOb2RlUm9vbXMSDwoHbm9kZV9pZBgB",
-            "IAEoCRIXCg9zZXF1ZW5jZV9udW1iZXIYAiABKAQSLQoJdGltZXN0YW1wGAMg",
-            "ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIlCgVyb29tcxgEIAMo",
-            "CzIWLmxpdmVraXQuQW5hbHl0aWNzUm9vbSJLCgpSZXBvcnRJbmZvEjIKDWZl",
-            "YXR1cmVfdXNhZ2UYASABKAsyGS5saXZla2l0LkZlYXR1cmVVc2FnZUluZm9I",
-            "AEIJCgdtZXNzYWdlImkKCVRpbWVSYW5nZRIuCgpzdGFydGVkX2F0GAEgASgL",
-            "MhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIsCghlbmRlZF9hdBgCIAEo",
-            "CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAiwQIKEEZlYXR1cmVVc2Fn",
-            "ZUluZm8SMgoHZmVhdHVyZRgBIAEoDjIhLmxpdmVraXQuRmVhdHVyZVVzYWdl",
-            "SW5mby5GZWF0dXJlEhIKCnByb2plY3RfaWQYAiABKAkSEQoJcm9vbV9uYW1l",
-            "GAMgASgJEg8KB3Jvb21faWQYBCABKAkSHAoUcGFydGljaXBhbnRfaWRlbnRp",
-            "dHkYBSABKAkSFgoOcGFydGljaXBhbnRfaWQYBiABKAkSEAoIdHJhY2tfaWQY",
-            "ByABKAkSJwoLdGltZV9yYW5nZXMYCCADKAsyEi5saXZla2l0LlRpbWVSYW5n",
-            "ZSJQCgdGZWF0dXJlEhwKGEtSSVNQX05PSVNFX0NBTkNFTExBVElPThAAEicK",
-            "I0tSSVNQX0JBQ0tHUk9VTkRfVk9JQ0VfQ0FOQ0VMTEFUSU9OEAEqKgoKU3Ry",
-            "ZWFtVHlwZRIMCghVUFNUUkVBTRAAEg4KCkRPV05TVFJFQU0QASq7BwoSQW5h",
-            "bHl0aWNzRXZlbnRUeXBlEhAKDFJPT01fQ1JFQVRFRBAAEg4KClJPT01fRU5E",
-            "RUQQARIWChJQQVJUSUNJUEFOVF9KT0lORUQQAhIUChBQQVJUSUNJUEFOVF9M",
-            "RUZUEAMSEwoPVFJBQ0tfUFVCTElTSEVEEAQSGwoXVFJBQ0tfUFVCTElTSF9S",
-            "RVFVRVNURUQQFBIVChFUUkFDS19VTlBVQkxJU0hFRBAFEhQKEFRSQUNLX1NV",
-            "QlNDUklCRUQQBhIdChlUUkFDS19TVUJTQ1JJQkVfUkVRVUVTVEVEEBUSGgoW",
-            "VFJBQ0tfU1VCU0NSSUJFX0ZBSUxFRBAZEhYKElRSQUNLX1VOU1VCU0NSSUJF",
-            "RBAHEhoKFlRSQUNLX1BVQkxJU0hFRF9VUERBVEUQChIPCgtUUkFDS19NVVRF",
-            "RBAXEhEKDVRSQUNLX1VOTVVURUQQGBIXChNUUkFDS19QVUJMSVNIX1NUQVRT",
-            "EBoSGQoVVFJBQ0tfU1VCU0NSSUJFX1NUQVRTEBsSFgoSUEFSVElDSVBBTlRf",
-            "QUNUSVZFEAsSFwoTUEFSVElDSVBBTlRfUkVTVU1FRBAWEhIKDkVHUkVTU19T",
-            "VEFSVEVEEAwSEAoMRUdSRVNTX0VOREVEEA0SEgoORUdSRVNTX1VQREFURUQQ",
-            "HBImCiJUUkFDS19NQVhfU1VCU0NSSUJFRF9WSURFT19RVUFMSVRZEA4SDwoL",
-            "UkVDT05ORUNURUQQDxITCg9JTkdSRVNTX0NSRUFURUQQEhITCg9JTkdSRVNT",
-            "X0RFTEVURUQQExITCg9JTkdSRVNTX1NUQVJURUQQEBIRCg1JTkdSRVNTX0VO",
-            "REVEEBESEwoPSU5HUkVTU19VUERBVEVEEB0SHQoZU0lQX0lOQk9VTkRfVFJV",
-            "TktfQ1JFQVRFRBAeEh0KGVNJUF9JTkJPVU5EX1RSVU5LX0RFTEVURUQQHxIe",
-            "ChpTSVBfT1VUQk9VTkRfVFJVTktfQ1JFQVRFRBAgEh4KGlNJUF9PVVRCT1VO",
-            "RF9UUlVOS19ERUxFVEVEECESHQoZU0lQX0RJU1BBVENIX1JVTEVfQ1JFQVRF",
-            "RBAiEh0KGVNJUF9ESVNQQVRDSF9SVUxFX0RFTEVURUQQIxIbChdTSVBfUEFS",
-            "VElDSVBBTlRfQ1JFQVRFRBAkEhUKEVNJUF9DQUxMX0lOQ09NSU5HECUSFAoQ",
-            "U0lQX0NBTExfU1RBUlRFRBAmEhIKDlNJUF9DQUxMX0VOREVEECcSCgoGUkVQ",
-            "T1JUEChCRlojZ2l0aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVraXSq",
-            "Ag1MaXZlS2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
+            "EWxpdmVraXRfc2lwLnByb3RvGhJsaXZla2l0X3Jvb20ucHJvdG8iVAoTQW5h",
+            "bHl0aWNzVmlkZW9MYXllchINCgVsYXllchgBIAEoBRIPCgdwYWNrZXRzGAIg",
+            "ASgNEg0KBWJ5dGVzGAMgASgEEg4KBmZyYW1lcxgEIAEoDSLTAwoPQW5hbHl0",
+            "aWNzU3RyZWFtEgwKBHNzcmMYASABKA0SFwoPcHJpbWFyeV9wYWNrZXRzGAIg",
+            "ASgNEhUKDXByaW1hcnlfYnl0ZXMYAyABKAQSGgoScmV0cmFuc21pdF9wYWNr",
+            "ZXRzGAQgASgNEhgKEHJldHJhbnNtaXRfYnl0ZXMYBSABKAQSFwoPcGFkZGlu",
+            "Z19wYWNrZXRzGAYgASgNEhUKDXBhZGRpbmdfYnl0ZXMYByABKAQSFAoMcGFj",
+            "a2V0c19sb3N0GAggASgNEg4KBmZyYW1lcxgJIAEoDRILCgNydHQYCiABKA0S",
+            "DgoGaml0dGVyGAsgASgNEg0KBW5hY2tzGAwgASgNEgwKBHBsaXMYDSABKA0S",
+            "DAoEZmlycxgOIAEoDRIyCgx2aWRlb19sYXllcnMYDyADKAsyHC5saXZla2l0",
+            "LkFuYWx5dGljc1ZpZGVvTGF5ZXISLgoKc3RhcnRfdGltZRgRIAEoCzIaLmdv",
+            "b2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLAoIZW5kX3RpbWUYEiABKAsyGi5n",
+            "b29nbGUucHJvdG9idWYuVGltZXN0YW1wEhwKFHBhY2tldHNfb3V0X29mX29y",
+            "ZGVyGBMgASgNItICCg1BbmFseXRpY3NTdGF0EgoKAmlkGA4gASgJEhUKDWFu",
+            "YWx5dGljc19rZXkYASABKAkSIQoEa2luZBgCIAEoDjITLmxpdmVraXQuU3Ry",
+            "ZWFtVHlwZRIuCgp0aW1lX3N0YW1wGAMgASgLMhouZ29vZ2xlLnByb3RvYnVm",
+            "LlRpbWVzdGFtcBIMCgRub2RlGAQgASgJEg8KB3Jvb21faWQYBSABKAkSEQoJ",
+            "cm9vbV9uYW1lGAYgASgJEhYKDnBhcnRpY2lwYW50X2lkGAcgASgJEhAKCHRy",
+            "YWNrX2lkGAggASgJEg0KBXNjb3JlGAkgASgCEikKB3N0cmVhbXMYCiADKAsy",
+            "GC5saXZla2l0LkFuYWx5dGljc1N0cmVhbRIMCgRtaW1lGAsgASgJEhEKCW1p",
+            "bl9zY29yZRgMIAEoAhIUCgxtZWRpYW5fc2NvcmUYDSABKAIiNwoOQW5hbHl0",
+            "aWNzU3RhdHMSJQoFc3RhdHMYASADKAsyFi5saXZla2l0LkFuYWx5dGljc1N0",
+            "YXQimgIKE0FuYWx5dGljc0NsaWVudE1ldGESDgoGcmVnaW9uGAEgASgJEgwK",
+            "BG5vZGUYAiABKAkSEwoLY2xpZW50X2FkZHIYAyABKAkSGwoTY2xpZW50X2Nv",
+            "bm5lY3RfdGltZRgEIAEoDRIXCg9jb25uZWN0aW9uX3R5cGUYBSABKAkSMgoQ",
+            "cmVjb25uZWN0X3JlYXNvbhgGIAEoDjIYLmxpdmVraXQuUmVjb25uZWN0UmVh",
+            "c29uEhUKCGdlb19oYXNoGAcgASgJSACIAQESFAoHY291bnRyeRgIIAEoCUgB",
+            "iAEBEhQKB2lzcF9hc24YCSABKA1IAogBAUILCglfZ2VvX2hhc2hCCgoIX2Nv",
+            "dW50cnlCCgoIX2lzcF9hc24i7AgKDkFuYWx5dGljc0V2ZW50EgoKAmlkGBkg",
+            "ASgJEikKBHR5cGUYASABKA4yGy5saXZla2l0LkFuYWx5dGljc0V2ZW50VHlw",
+            "ZRItCgl0aW1lc3RhbXAYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0",
+            "YW1wEg8KB3Jvb21faWQYAyABKAkSGwoEcm9vbRgEIAEoCzINLmxpdmVraXQu",
+            "Um9vbRIWCg5wYXJ0aWNpcGFudF9pZBgFIAEoCRItCgtwYXJ0aWNpcGFudBgG",
+            "IAEoCzIYLmxpdmVraXQuUGFydGljaXBhbnRJbmZvEhAKCHRyYWNrX2lkGAcg",
+            "ASgJEiEKBXRyYWNrGAggASgLMhIubGl2ZWtpdC5UcmFja0luZm8SFQoNYW5h",
+            "bHl0aWNzX2tleRgKIAEoCRIoCgtjbGllbnRfaW5mbxgLIAEoCzITLmxpdmVr",
+            "aXQuQ2xpZW50SW5mbxIxCgtjbGllbnRfbWV0YRgMIAEoCzIcLmxpdmVraXQu",
+            "QW5hbHl0aWNzQ2xpZW50TWV0YRIRCgllZ3Jlc3NfaWQYDSABKAkSEgoKaW5n",
+            "cmVzc19pZBgTIAEoCRI7ChxtYXhfc3Vic2NyaWJlZF92aWRlb19xdWFsaXR5",
+            "GA4gASgOMhUubGl2ZWtpdC5WaWRlb1F1YWxpdHkSKwoJcHVibGlzaGVyGA8g",
+            "ASgLMhgubGl2ZWtpdC5QYXJ0aWNpcGFudEluZm8SDAoEbWltZRgQIAEoCRIj",
+            "CgZlZ3Jlc3MYESABKAsyEy5saXZla2l0LkVncmVzc0luZm8SJQoHaW5ncmVz",
+            "cxgSIAEoCzIULmxpdmVraXQuSW5ncmVzc0luZm8SDQoFZXJyb3IYFCABKAkS",
+            "JAoJcnRwX3N0YXRzGBUgASgLMhEubGl2ZWtpdC5SVFBTdGF0cxITCgt2aWRl",
+            "b19sYXllchgWIAEoBRIPCgdub2RlX2lkGBggASgJEhMKC3NpcF9jYWxsX2lk",
+            "GBogASgJEiYKCHNpcF9jYWxsGBsgASgLMhQubGl2ZWtpdC5TSVBDYWxsSW5m",
+            "bxIUCgxzaXBfdHJ1bmtfaWQYHCABKAkSNwoRc2lwX2luYm91bmRfdHJ1bmsY",
+            "HSABKAsyHC5saXZla2l0LlNJUEluYm91bmRUcnVua0luZm8SOQoSc2lwX291",
+            "dGJvdW5kX3RydW5rGB4gASgLMh0ubGl2ZWtpdC5TSVBPdXRib3VuZFRydW5r",
+            "SW5mbxIcChRzaXBfZGlzcGF0Y2hfcnVsZV9pZBgfIAEoCRI3ChFzaXBfZGlz",
+            "cGF0Y2hfcnVsZRggIAEoCzIcLmxpdmVraXQuU0lQRGlzcGF0Y2hSdWxlSW5m",
+            "bxIjCgZyZXBvcnQYISABKAsyEy5saXZla2l0LlJlcG9ydEluZm8SJgoIYXBp",
+            "X2NhbGwYIiABKAsyFC5saXZla2l0LkFQSUNhbGxJbmZvEiUKB3dlYmhvb2sY",
+            "IyABKAsyFC5saXZla2l0LldlYmhvb2tJbmZvIjoKD0FuYWx5dGljc0V2ZW50",
+            "cxInCgZldmVudHMYASADKAsyFy5saXZla2l0LkFuYWx5dGljc0V2ZW50IqQB",
+            "ChhBbmFseXRpY3NSb29tUGFydGljaXBhbnQSCgoCaWQYASABKAkSEAoIaWRl",
+            "bnRpdHkYAiABKAkSDAoEbmFtZRgDIAEoCRItCgVzdGF0ZRgEIAEoDjIeLmxp",
+            "dmVraXQuUGFydGljaXBhbnRJbmZvLlN0YXRlEi0KCWpvaW5lZF9hdBgFIAEo",
+            "CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAipgEKDUFuYWx5dGljc1Jv",
+            "b20SCgoCaWQYASABKAkSDAoEbmFtZRgCIAEoCRISCgpwcm9qZWN0X2lkGAUg",
+            "ASgJEi4KCmNyZWF0ZWRfYXQYAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
+            "ZXN0YW1wEjcKDHBhcnRpY2lwYW50cxgEIAMoCzIhLmxpdmVraXQuQW5hbHl0",
+            "aWNzUm9vbVBhcnRpY2lwYW50IpQBChJBbmFseXRpY3NOb2RlUm9vbXMSDwoH",
+            "bm9kZV9pZBgBIAEoCRIXCg9zZXF1ZW5jZV9udW1iZXIYAiABKAQSLQoJdGlt",
+            "ZXN0YW1wGAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIlCgVy",
+            "b29tcxgEIAMoCzIWLmxpdmVraXQuQW5hbHl0aWNzUm9vbSJLCgpSZXBvcnRJ",
+            "bmZvEjIKDWZlYXR1cmVfdXNhZ2UYASABKAsyGS5saXZla2l0LkZlYXR1cmVV",
+            "c2FnZUluZm9IAEIJCgdtZXNzYWdlImkKCVRpbWVSYW5nZRIuCgpzdGFydGVk",
+            "X2F0GAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIsCghlbmRl",
+            "ZF9hdBgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAiwQIKEEZl",
+            "YXR1cmVVc2FnZUluZm8SMgoHZmVhdHVyZRgBIAEoDjIhLmxpdmVraXQuRmVh",
+            "dHVyZVVzYWdlSW5mby5GZWF0dXJlEhIKCnByb2plY3RfaWQYAiABKAkSEQoJ",
+            "cm9vbV9uYW1lGAMgASgJEg8KB3Jvb21faWQYBCABKAkSHAoUcGFydGljaXBh",
+            "bnRfaWRlbnRpdHkYBSABKAkSFgoOcGFydGljaXBhbnRfaWQYBiABKAkSEAoI",
+            "dHJhY2tfaWQYByABKAkSJwoLdGltZV9yYW5nZXMYCCADKAsyEi5saXZla2l0",
+            "LlRpbWVSYW5nZSJQCgdGZWF0dXJlEhwKGEtSSVNQX05PSVNFX0NBTkNFTExB",
+            "VElPThAAEicKI0tSSVNQX0JBQ0tHUk9VTkRfVk9JQ0VfQ0FOQ0VMTEFUSU9O",
+            "EAEiswUKDkFQSUNhbGxSZXF1ZXN0EjkKE2NyZWF0ZV9yb29tX3JlcXVlc3QY",
+            "ASABKAsyGi5saXZla2l0LkNyZWF0ZVJvb21SZXF1ZXN0SAASNwoSbGlzdF9y",
+            "b29tc19yZXF1ZXN0GAIgASgLMhkubGl2ZWtpdC5MaXN0Um9vbXNSZXF1ZXN0",
+            "SAASOQoTZGVsZXRlX3Jvb21fcmVxdWVzdBgDIAEoCzIaLmxpdmVraXQuRGVs",
+            "ZXRlUm9vbVJlcXVlc3RIABJFChlsaXN0X3BhcnRpY2lwYW50c19yZXF1ZXN0",
+            "GAQgASgLMiAubGl2ZWtpdC5MaXN0UGFydGljaXBhbnRzUmVxdWVzdEgAEkUK",
+            "GXJvb21fcGFydGljaXBhbnRfaWRlbnRpdHkYBSABKAsyIC5saXZla2l0LlJv",
+            "b21QYXJ0aWNpcGFudElkZW50aXR5SAASQAoXbXV0ZV9yb29tX3RyYWNrX3Jl",
+            "cXVlc3QYBiABKAsyHS5saXZla2l0Lk11dGVSb29tVHJhY2tSZXF1ZXN0SAAS",
+            "RwoadXBkYXRlX3BhcnRpY2lwYW50X3JlcXVlc3QYByABKAsyIS5saXZla2l0",
+            "LlVwZGF0ZVBhcnRpY2lwYW50UmVxdWVzdEgAEksKHHVwZGF0ZV9zdWJzY3Jp",
+            "cHRpb25zX3JlcXVlc3QYCCABKAsyIy5saXZla2l0LlVwZGF0ZVN1YnNjcmlw",
+            "dGlvbnNSZXF1ZXN0SAASNQoRc2VuZF9kYXRhX3JlcXVlc3QYCSABKAsyGC5s",
+            "aXZla2l0LlNlbmREYXRhUmVxdWVzdEgAEkoKHHVwZGF0ZV9yb29tX21ldGFk",
+            "YXRhX3JlcXVlc3QYCiABKAsyIi5saXZla2l0LlVwZGF0ZVJvb21NZXRhZGF0",
+            "YVJlcXVlc3RIAEIJCgdtZXNzYWdlIvUCCgtBUElDYWxsSW5mbxISCgpwcm9q",
+            "ZWN0X2lkGAEgASgJEigKB3JlcXVlc3QYAiABKAsyFy5saXZla2l0LkFQSUNh",
+            "bGxSZXF1ZXN0Eg8KB3NlcnZpY2UYAyABKAkSDgoGbWV0aG9kGAQgASgJEg8K",
+            "B25vZGVfaWQYBSABKAkSDgoGc3RhdHVzGAYgASgFEhgKEHR3aXJwX2Vycm9y",
+            "X2NvZGUYByABKAkSGwoTdHdpcnBfZXJyb3JfbWVzc2FnZRgIIAEoCRIRCgly",
+            "b29tX25hbWUYCSABKAkSDwoHcm9vbV9pZBgKIAEoCRIcChRwYXJ0aWNpcGFu",
+            "dF9pZGVudGl0eRgLIAEoCRIWCg5wYXJ0aWNpcGFudF9pZBgMIAEoCRIQCgh0",
+            "cmFja19pZBgNIAEoCRIuCgpzdGFydGVkX2F0GA4gASgLMhouZ29vZ2xlLnBy",
+            "b3RvYnVmLlRpbWVzdGFtcBITCgtkdXJhdGlvbl9ucxgPIAEoAyKrBAoLV2Vi",
+            "aG9va0luZm8SEAoIZXZlbnRfaWQYASABKAkSDQoFZXZlbnQYAiABKAkSEgoK",
+            "cHJvamVjdF9pZBgDIAEoCRIRCglyb29tX25hbWUYBCABKAkSDwoHcm9vbV9p",
+            "ZBgFIAEoCRIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgGIAEoCRIWCg5wYXJ0",
+            "aWNpcGFudF9pZBgHIAEoCRIQCgh0cmFja19pZBgIIAEoCRIRCgllZ3Jlc3Nf",
+            "aWQYCSABKAkSEgoKaW5ncmVzc19pZBgKIAEoCRIuCgpjcmVhdGVkX2F0GAsg",
+            "ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBItCglxdWV1ZWRfYXQY",
+            "DCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhkKEXF1ZXVlX2R1",
+            "cmF0aW9uX25zGA0gASgDEisKB3NlbnRfYXQYDiABKAsyGi5nb29nbGUucHJv",
+            "dG9idWYuVGltZXN0YW1wEhgKEHNlbmRfZHVyYXRpb25fbnMYDyABKAMSCwoD",
+            "dXJsGBAgASgJEhMKC251bV9kcm9wcGVkGBEgASgFEhIKCmlzX2Ryb3BwZWQY",
+            "EiABKAgSFgoOc2VydmljZV9zdGF0dXMYEyABKAkSGgoSc2VydmljZV9lcnJv",
+            "cl9jb2RlGBQgASgFEhUKDXNlcnZpY2VfZXJyb3IYFSABKAkSEgoKc2VuZF9l",
+            "cnJvchgWIAEoCSoqCgpTdHJlYW1UeXBlEgwKCFVQU1RSRUFNEAASDgoKRE9X",
+            "TlNUUkVBTRABKtYHChJBbmFseXRpY3NFdmVudFR5cGUSEAoMUk9PTV9DUkVB",
+            "VEVEEAASDgoKUk9PTV9FTkRFRBABEhYKElBBUlRJQ0lQQU5UX0pPSU5FRBAC",
+            "EhQKEFBBUlRJQ0lQQU5UX0xFRlQQAxITCg9UUkFDS19QVUJMSVNIRUQQBBIb",
+            "ChdUUkFDS19QVUJMSVNIX1JFUVVFU1RFRBAUEhUKEVRSQUNLX1VOUFVCTElT",
+            "SEVEEAUSFAoQVFJBQ0tfU1VCU0NSSUJFRBAGEh0KGVRSQUNLX1NVQlNDUklC",
+            "RV9SRVFVRVNURUQQFRIaChZUUkFDS19TVUJTQ1JJQkVfRkFJTEVEEBkSFgoS",
+            "VFJBQ0tfVU5TVUJTQ1JJQkVEEAcSGgoWVFJBQ0tfUFVCTElTSEVEX1VQREFU",
+            "RRAKEg8KC1RSQUNLX01VVEVEEBcSEQoNVFJBQ0tfVU5NVVRFRBAYEhcKE1RS",
+            "QUNLX1BVQkxJU0hfU1RBVFMQGhIZChVUUkFDS19TVUJTQ1JJQkVfU1RBVFMQ",
+            "GxIWChJQQVJUSUNJUEFOVF9BQ1RJVkUQCxIXChNQQVJUSUNJUEFOVF9SRVNV",
+            "TUVEEBYSEgoORUdSRVNTX1NUQVJURUQQDBIQCgxFR1JFU1NfRU5ERUQQDRIS",
+            "Cg5FR1JFU1NfVVBEQVRFRBAcEiYKIlRSQUNLX01BWF9TVUJTQ1JJQkVEX1ZJ",
+            "REVPX1FVQUxJVFkQDhIPCgtSRUNPTk5FQ1RFRBAPEhMKD0lOR1JFU1NfQ1JF",
+            "QVRFRBASEhMKD0lOR1JFU1NfREVMRVRFRBATEhMKD0lOR1JFU1NfU1RBUlRF",
+            "RBAQEhEKDUlOR1JFU1NfRU5ERUQQERITCg9JTkdSRVNTX1VQREFURUQQHRId",
+            "ChlTSVBfSU5CT1VORF9UUlVOS19DUkVBVEVEEB4SHQoZU0lQX0lOQk9VTkRf",
+            "VFJVTktfREVMRVRFRBAfEh4KGlNJUF9PVVRCT1VORF9UUlVOS19DUkVBVEVE",
+            "ECASHgoaU0lQX09VVEJPVU5EX1RSVU5LX0RFTEVURUQQIRIdChlTSVBfRElT",
+            "UEFUQ0hfUlVMRV9DUkVBVEVEECISHQoZU0lQX0RJU1BBVENIX1JVTEVfREVM",
+            "RVRFRBAjEhsKF1NJUF9QQVJUSUNJUEFOVF9DUkVBVEVEECQSFQoRU0lQX0NB",
+            "TExfSU5DT01JTkcQJRIUChBTSVBfQ0FMTF9TVEFSVEVEECYSEgoOU0lQX0NB",
+            "TExfRU5ERUQQJxIKCgZSRVBPUlQQKBIMCghBUElfQ0FMTBApEgsKB1dFQkhP",
+            "T0sQKkJGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdKoC",
+            "DUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitRoomReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.StreamType), typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsEventType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsVideoLayer), global::Livekit.Server.Sdk.Dotnet.AnalyticsVideoLayer.Parser, new[]{ "Layer", "Packets", "Bytes", "Frames" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsStream), global::Livekit.Server.Sdk.Dotnet.AnalyticsStream.Parser, new[]{ "Ssrc", "PrimaryPackets", "PrimaryBytes", "RetransmitPackets", "RetransmitBytes", "PaddingPackets", "PaddingBytes", "PacketsLost", "Frames", "Rtt", "Jitter", "Nacks", "Plis", "Firs", "VideoLayers", "StartTime", "EndTime", "PacketsOutOfOrder" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsStat), global::Livekit.Server.Sdk.Dotnet.AnalyticsStat.Parser, new[]{ "Id", "AnalyticsKey", "Kind", "TimeStamp", "Node", "RoomId", "RoomName", "ParticipantId", "TrackId", "Score", "Streams", "Mime", "MinScore", "MedianScore" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsStats), global::Livekit.Server.Sdk.Dotnet.AnalyticsStats.Parser, new[]{ "Stats" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsClientMeta), global::Livekit.Server.Sdk.Dotnet.AnalyticsClientMeta.Parser, new[]{ "Region", "Node", "ClientAddr", "ClientConnectTime", "ConnectionType", "ReconnectReason", "GeoHash", "Country", "IspAsn" }, new[]{ "GeoHash", "Country", "IspAsn" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsEvent), global::Livekit.Server.Sdk.Dotnet.AnalyticsEvent.Parser, new[]{ "Id", "Type", "Timestamp", "RoomId", "Room", "ParticipantId", "Participant", "TrackId", "Track", "AnalyticsKey", "ClientInfo", "ClientMeta", "EgressId", "IngressId", "MaxSubscribedVideoQuality", "Publisher", "Mime", "Egress", "Ingress", "Error", "RtpStats", "VideoLayer", "NodeId", "SipCallId", "SipCall", "SipTrunkId", "SipInboundTrunk", "SipOutboundTrunk", "SipDispatchRuleId", "SipDispatchRule", "Report" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsEvent), global::Livekit.Server.Sdk.Dotnet.AnalyticsEvent.Parser, new[]{ "Id", "Type", "Timestamp", "RoomId", "Room", "ParticipantId", "Participant", "TrackId", "Track", "AnalyticsKey", "ClientInfo", "ClientMeta", "EgressId", "IngressId", "MaxSubscribedVideoQuality", "Publisher", "Mime", "Egress", "Ingress", "Error", "RtpStats", "VideoLayer", "NodeId", "SipCallId", "SipCall", "SipTrunkId", "SipInboundTrunk", "SipOutboundTrunk", "SipDispatchRuleId", "SipDispatchRule", "Report", "ApiCall", "Webhook" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsEvents), global::Livekit.Server.Sdk.Dotnet.AnalyticsEvents.Parser, new[]{ "Events" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsRoomParticipant), global::Livekit.Server.Sdk.Dotnet.AnalyticsRoomParticipant.Parser, new[]{ "Id", "Identity", "Name", "State", "JoinedAt" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsRoom), global::Livekit.Server.Sdk.Dotnet.AnalyticsRoom.Parser, new[]{ "Id", "Name", "ProjectId", "CreatedAt", "Participants" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsNodeRooms), global::Livekit.Server.Sdk.Dotnet.AnalyticsNodeRooms.Parser, new[]{ "NodeId", "SequenceNumber", "Timestamp", "Rooms" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ReportInfo), global::Livekit.Server.Sdk.Dotnet.ReportInfo.Parser, new[]{ "FeatureUsage" }, new[]{ "Message" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TimeRange), global::Livekit.Server.Sdk.Dotnet.TimeRange.Parser, new[]{ "StartedAt", "EndedAt" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.FeatureUsageInfo), global::Livekit.Server.Sdk.Dotnet.FeatureUsageInfo.Parser, new[]{ "Feature", "ProjectId", "RoomName", "RoomId", "ParticipantIdentity", "ParticipantId", "TrackId", "TimeRanges" }, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.FeatureUsageInfo.Types.Feature) }, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.FeatureUsageInfo), global::Livekit.Server.Sdk.Dotnet.FeatureUsageInfo.Parser, new[]{ "Feature", "ProjectId", "RoomName", "RoomId", "ParticipantIdentity", "ParticipantId", "TrackId", "TimeRanges" }, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.FeatureUsageInfo.Types.Feature) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.APICallRequest), global::Livekit.Server.Sdk.Dotnet.APICallRequest.Parser, new[]{ "CreateRoomRequest", "ListRoomsRequest", "DeleteRoomRequest", "ListParticipantsRequest", "RoomParticipantIdentity", "MuteRoomTrackRequest", "UpdateParticipantRequest", "UpdateSubscriptionsRequest", "SendDataRequest", "UpdateRoomMetadataRequest" }, new[]{ "Message" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.APICallInfo), global::Livekit.Server.Sdk.Dotnet.APICallInfo.Parser, new[]{ "ProjectId", "Request", "Service", "Method", "NodeId", "Status", "TwirpErrorCode", "TwirpErrorMessage", "RoomName", "RoomId", "ParticipantIdentity", "ParticipantId", "TrackId", "StartedAt", "DurationNs" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WebhookInfo), global::Livekit.Server.Sdk.Dotnet.WebhookInfo.Parser, new[]{ "EventId", "Event", "ProjectId", "RoomName", "RoomId", "ParticipantIdentity", "ParticipantId", "TrackId", "EgressId", "IngressId", "CreatedAt", "QueuedAt", "QueueDurationNs", "SentAt", "SendDurationNs", "Url", "NumDropped", "IsDropped", "ServiceStatus", "ServiceErrorCode", "ServiceError", "SendError" }, null, null, null, null)
           }));
     }
     #endregion
@@ -193,6 +235,8 @@ namespace Livekit.Server.Sdk.Dotnet {
     [pbr::OriginalName("SIP_CALL_STARTED")] SipCallStarted = 38,
     [pbr::OriginalName("SIP_CALL_ENDED")] SipCallEnded = 39,
     [pbr::OriginalName("REPORT")] Report = 40,
+    [pbr::OriginalName("API_CALL")] ApiCall = 41,
+    [pbr::OriginalName("WEBHOOK")] Webhook = 42,
   }
 
   #endregion
@@ -2819,6 +2863,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       sipDispatchRuleId_ = other.sipDispatchRuleId_;
       sipDispatchRule_ = other.sipDispatchRule_ != null ? other.sipDispatchRule_.Clone() : null;
       report_ = other.report_ != null ? other.report_.Clone() : null;
+      apiCall_ = other.apiCall_ != null ? other.apiCall_.Clone() : null;
+      webhook_ = other.webhook_ != null ? other.webhook_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3203,6 +3249,30 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "api_call" field.</summary>
+    public const int ApiCallFieldNumber = 34;
+    private global::Livekit.Server.Sdk.Dotnet.APICallInfo apiCall_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.APICallInfo ApiCall {
+      get { return apiCall_; }
+      set {
+        apiCall_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "webhook" field.</summary>
+    public const int WebhookFieldNumber = 35;
+    private global::Livekit.Server.Sdk.Dotnet.WebhookInfo webhook_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.WebhookInfo Webhook {
+      get { return webhook_; }
+      set {
+        webhook_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3249,6 +3319,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (SipDispatchRuleId != other.SipDispatchRuleId) return false;
       if (!object.Equals(SipDispatchRule, other.SipDispatchRule)) return false;
       if (!object.Equals(Report, other.Report)) return false;
+      if (!object.Equals(ApiCall, other.ApiCall)) return false;
+      if (!object.Equals(Webhook, other.Webhook)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3287,6 +3359,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (SipDispatchRuleId.Length != 0) hash ^= SipDispatchRuleId.GetHashCode();
       if (sipDispatchRule_ != null) hash ^= SipDispatchRule.GetHashCode();
       if (report_ != null) hash ^= Report.GetHashCode();
+      if (apiCall_ != null) hash ^= ApiCall.GetHashCode();
+      if (webhook_ != null) hash ^= Webhook.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3429,6 +3503,14 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(138, 2);
         output.WriteMessage(Report);
       }
+      if (apiCall_ != null) {
+        output.WriteRawTag(146, 2);
+        output.WriteMessage(ApiCall);
+      }
+      if (webhook_ != null) {
+        output.WriteRawTag(154, 2);
+        output.WriteMessage(Webhook);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3563,6 +3645,14 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(138, 2);
         output.WriteMessage(Report);
       }
+      if (apiCall_ != null) {
+        output.WriteRawTag(146, 2);
+        output.WriteMessage(ApiCall);
+      }
+      if (webhook_ != null) {
+        output.WriteRawTag(154, 2);
+        output.WriteMessage(Webhook);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3665,6 +3755,12 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (report_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(Report);
+      }
+      if (apiCall_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ApiCall);
+      }
+      if (webhook_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(Webhook);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3815,6 +3911,18 @@ namespace Livekit.Server.Sdk.Dotnet {
           Report = new global::Livekit.Server.Sdk.Dotnet.ReportInfo();
         }
         Report.MergeFrom(other.Report);
+      }
+      if (other.apiCall_ != null) {
+        if (apiCall_ == null) {
+          ApiCall = new global::Livekit.Server.Sdk.Dotnet.APICallInfo();
+        }
+        ApiCall.MergeFrom(other.ApiCall);
+      }
+      if (other.webhook_ != null) {
+        if (webhook_ == null) {
+          Webhook = new global::Livekit.Server.Sdk.Dotnet.WebhookInfo();
+        }
+        Webhook.MergeFrom(other.Webhook);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4004,6 +4112,20 @@ namespace Livekit.Server.Sdk.Dotnet {
             input.ReadMessage(Report);
             break;
           }
+          case 274: {
+            if (apiCall_ == null) {
+              ApiCall = new global::Livekit.Server.Sdk.Dotnet.APICallInfo();
+            }
+            input.ReadMessage(ApiCall);
+            break;
+          }
+          case 282: {
+            if (webhook_ == null) {
+              Webhook = new global::Livekit.Server.Sdk.Dotnet.WebhookInfo();
+            }
+            input.ReadMessage(Webhook);
+            break;
+          }
         }
       }
     #endif
@@ -4190,6 +4312,20 @@ namespace Livekit.Server.Sdk.Dotnet {
               Report = new global::Livekit.Server.Sdk.Dotnet.ReportInfo();
             }
             input.ReadMessage(Report);
+            break;
+          }
+          case 274: {
+            if (apiCall_ == null) {
+              ApiCall = new global::Livekit.Server.Sdk.Dotnet.APICallInfo();
+            }
+            input.ReadMessage(ApiCall);
+            break;
+          }
+          case 282: {
+            if (webhook_ == null) {
+              Webhook = new global::Livekit.Server.Sdk.Dotnet.WebhookInfo();
+            }
+            input.ReadMessage(Webhook);
             break;
           }
         }
@@ -6347,6 +6483,2460 @@ namespace Livekit.Server.Sdk.Dotnet {
 
     }
     #endregion
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class APICallRequest : pb::IMessage<APICallRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<APICallRequest> _parser = new pb::MessageParser<APICallRequest>(() => new APICallRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<APICallRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAnalyticsReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public APICallRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public APICallRequest(APICallRequest other) : this() {
+      switch (other.MessageCase) {
+        case MessageOneofCase.CreateRoomRequest:
+          CreateRoomRequest = other.CreateRoomRequest.Clone();
+          break;
+        case MessageOneofCase.ListRoomsRequest:
+          ListRoomsRequest = other.ListRoomsRequest.Clone();
+          break;
+        case MessageOneofCase.DeleteRoomRequest:
+          DeleteRoomRequest = other.DeleteRoomRequest.Clone();
+          break;
+        case MessageOneofCase.ListParticipantsRequest:
+          ListParticipantsRequest = other.ListParticipantsRequest.Clone();
+          break;
+        case MessageOneofCase.RoomParticipantIdentity:
+          RoomParticipantIdentity = other.RoomParticipantIdentity.Clone();
+          break;
+        case MessageOneofCase.MuteRoomTrackRequest:
+          MuteRoomTrackRequest = other.MuteRoomTrackRequest.Clone();
+          break;
+        case MessageOneofCase.UpdateParticipantRequest:
+          UpdateParticipantRequest = other.UpdateParticipantRequest.Clone();
+          break;
+        case MessageOneofCase.UpdateSubscriptionsRequest:
+          UpdateSubscriptionsRequest = other.UpdateSubscriptionsRequest.Clone();
+          break;
+        case MessageOneofCase.SendDataRequest:
+          SendDataRequest = other.SendDataRequest.Clone();
+          break;
+        case MessageOneofCase.UpdateRoomMetadataRequest:
+          UpdateRoomMetadataRequest = other.UpdateRoomMetadataRequest.Clone();
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public APICallRequest Clone() {
+      return new APICallRequest(this);
+    }
+
+    /// <summary>Field number for the "create_room_request" field.</summary>
+    public const int CreateRoomRequestFieldNumber = 1;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.CreateRoomRequest CreateRoomRequest {
+      get { return messageCase_ == MessageOneofCase.CreateRoomRequest ? (global::Livekit.Server.Sdk.Dotnet.CreateRoomRequest) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.CreateRoomRequest;
+      }
+    }
+
+    /// <summary>Field number for the "list_rooms_request" field.</summary>
+    public const int ListRoomsRequestFieldNumber = 2;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.ListRoomsRequest ListRoomsRequest {
+      get { return messageCase_ == MessageOneofCase.ListRoomsRequest ? (global::Livekit.Server.Sdk.Dotnet.ListRoomsRequest) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.ListRoomsRequest;
+      }
+    }
+
+    /// <summary>Field number for the "delete_room_request" field.</summary>
+    public const int DeleteRoomRequestFieldNumber = 3;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.DeleteRoomRequest DeleteRoomRequest {
+      get { return messageCase_ == MessageOneofCase.DeleteRoomRequest ? (global::Livekit.Server.Sdk.Dotnet.DeleteRoomRequest) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.DeleteRoomRequest;
+      }
+    }
+
+    /// <summary>Field number for the "list_participants_request" field.</summary>
+    public const int ListParticipantsRequestFieldNumber = 4;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.ListParticipantsRequest ListParticipantsRequest {
+      get { return messageCase_ == MessageOneofCase.ListParticipantsRequest ? (global::Livekit.Server.Sdk.Dotnet.ListParticipantsRequest) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.ListParticipantsRequest;
+      }
+    }
+
+    /// <summary>Field number for the "room_participant_identity" field.</summary>
+    public const int RoomParticipantIdentityFieldNumber = 5;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.RoomParticipantIdentity RoomParticipantIdentity {
+      get { return messageCase_ == MessageOneofCase.RoomParticipantIdentity ? (global::Livekit.Server.Sdk.Dotnet.RoomParticipantIdentity) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.RoomParticipantIdentity;
+      }
+    }
+
+    /// <summary>Field number for the "mute_room_track_request" field.</summary>
+    public const int MuteRoomTrackRequestFieldNumber = 6;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackRequest MuteRoomTrackRequest {
+      get { return messageCase_ == MessageOneofCase.MuteRoomTrackRequest ? (global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackRequest) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.MuteRoomTrackRequest;
+      }
+    }
+
+    /// <summary>Field number for the "update_participant_request" field.</summary>
+    public const int UpdateParticipantRequestFieldNumber = 7;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.UpdateParticipantRequest UpdateParticipantRequest {
+      get { return messageCase_ == MessageOneofCase.UpdateParticipantRequest ? (global::Livekit.Server.Sdk.Dotnet.UpdateParticipantRequest) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.UpdateParticipantRequest;
+      }
+    }
+
+    /// <summary>Field number for the "update_subscriptions_request" field.</summary>
+    public const int UpdateSubscriptionsRequestFieldNumber = 8;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsRequest UpdateSubscriptionsRequest {
+      get { return messageCase_ == MessageOneofCase.UpdateSubscriptionsRequest ? (global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsRequest) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.UpdateSubscriptionsRequest;
+      }
+    }
+
+    /// <summary>Field number for the "send_data_request" field.</summary>
+    public const int SendDataRequestFieldNumber = 9;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SendDataRequest SendDataRequest {
+      get { return messageCase_ == MessageOneofCase.SendDataRequest ? (global::Livekit.Server.Sdk.Dotnet.SendDataRequest) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.SendDataRequest;
+      }
+    }
+
+    /// <summary>Field number for the "update_room_metadata_request" field.</summary>
+    public const int UpdateRoomMetadataRequestFieldNumber = 10;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest UpdateRoomMetadataRequest {
+      get { return messageCase_ == MessageOneofCase.UpdateRoomMetadataRequest ? (global::Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.UpdateRoomMetadataRequest;
+      }
+    }
+
+    private object message_;
+    /// <summary>Enum of possible cases for the "message" oneof.</summary>
+    public enum MessageOneofCase {
+      None = 0,
+      CreateRoomRequest = 1,
+      ListRoomsRequest = 2,
+      DeleteRoomRequest = 3,
+      ListParticipantsRequest = 4,
+      RoomParticipantIdentity = 5,
+      MuteRoomTrackRequest = 6,
+      UpdateParticipantRequest = 7,
+      UpdateSubscriptionsRequest = 8,
+      SendDataRequest = 9,
+      UpdateRoomMetadataRequest = 10,
+    }
+    private MessageOneofCase messageCase_ = MessageOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public MessageOneofCase MessageCase {
+      get { return messageCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMessage() {
+      messageCase_ = MessageOneofCase.None;
+      message_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as APICallRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(APICallRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(CreateRoomRequest, other.CreateRoomRequest)) return false;
+      if (!object.Equals(ListRoomsRequest, other.ListRoomsRequest)) return false;
+      if (!object.Equals(DeleteRoomRequest, other.DeleteRoomRequest)) return false;
+      if (!object.Equals(ListParticipantsRequest, other.ListParticipantsRequest)) return false;
+      if (!object.Equals(RoomParticipantIdentity, other.RoomParticipantIdentity)) return false;
+      if (!object.Equals(MuteRoomTrackRequest, other.MuteRoomTrackRequest)) return false;
+      if (!object.Equals(UpdateParticipantRequest, other.UpdateParticipantRequest)) return false;
+      if (!object.Equals(UpdateSubscriptionsRequest, other.UpdateSubscriptionsRequest)) return false;
+      if (!object.Equals(SendDataRequest, other.SendDataRequest)) return false;
+      if (!object.Equals(UpdateRoomMetadataRequest, other.UpdateRoomMetadataRequest)) return false;
+      if (MessageCase != other.MessageCase) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (messageCase_ == MessageOneofCase.CreateRoomRequest) hash ^= CreateRoomRequest.GetHashCode();
+      if (messageCase_ == MessageOneofCase.ListRoomsRequest) hash ^= ListRoomsRequest.GetHashCode();
+      if (messageCase_ == MessageOneofCase.DeleteRoomRequest) hash ^= DeleteRoomRequest.GetHashCode();
+      if (messageCase_ == MessageOneofCase.ListParticipantsRequest) hash ^= ListParticipantsRequest.GetHashCode();
+      if (messageCase_ == MessageOneofCase.RoomParticipantIdentity) hash ^= RoomParticipantIdentity.GetHashCode();
+      if (messageCase_ == MessageOneofCase.MuteRoomTrackRequest) hash ^= MuteRoomTrackRequest.GetHashCode();
+      if (messageCase_ == MessageOneofCase.UpdateParticipantRequest) hash ^= UpdateParticipantRequest.GetHashCode();
+      if (messageCase_ == MessageOneofCase.UpdateSubscriptionsRequest) hash ^= UpdateSubscriptionsRequest.GetHashCode();
+      if (messageCase_ == MessageOneofCase.SendDataRequest) hash ^= SendDataRequest.GetHashCode();
+      if (messageCase_ == MessageOneofCase.UpdateRoomMetadataRequest) hash ^= UpdateRoomMetadataRequest.GetHashCode();
+      hash ^= (int) messageCase_;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (messageCase_ == MessageOneofCase.CreateRoomRequest) {
+        output.WriteRawTag(10);
+        output.WriteMessage(CreateRoomRequest);
+      }
+      if (messageCase_ == MessageOneofCase.ListRoomsRequest) {
+        output.WriteRawTag(18);
+        output.WriteMessage(ListRoomsRequest);
+      }
+      if (messageCase_ == MessageOneofCase.DeleteRoomRequest) {
+        output.WriteRawTag(26);
+        output.WriteMessage(DeleteRoomRequest);
+      }
+      if (messageCase_ == MessageOneofCase.ListParticipantsRequest) {
+        output.WriteRawTag(34);
+        output.WriteMessage(ListParticipantsRequest);
+      }
+      if (messageCase_ == MessageOneofCase.RoomParticipantIdentity) {
+        output.WriteRawTag(42);
+        output.WriteMessage(RoomParticipantIdentity);
+      }
+      if (messageCase_ == MessageOneofCase.MuteRoomTrackRequest) {
+        output.WriteRawTag(50);
+        output.WriteMessage(MuteRoomTrackRequest);
+      }
+      if (messageCase_ == MessageOneofCase.UpdateParticipantRequest) {
+        output.WriteRawTag(58);
+        output.WriteMessage(UpdateParticipantRequest);
+      }
+      if (messageCase_ == MessageOneofCase.UpdateSubscriptionsRequest) {
+        output.WriteRawTag(66);
+        output.WriteMessage(UpdateSubscriptionsRequest);
+      }
+      if (messageCase_ == MessageOneofCase.SendDataRequest) {
+        output.WriteRawTag(74);
+        output.WriteMessage(SendDataRequest);
+      }
+      if (messageCase_ == MessageOneofCase.UpdateRoomMetadataRequest) {
+        output.WriteRawTag(82);
+        output.WriteMessage(UpdateRoomMetadataRequest);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (messageCase_ == MessageOneofCase.CreateRoomRequest) {
+        output.WriteRawTag(10);
+        output.WriteMessage(CreateRoomRequest);
+      }
+      if (messageCase_ == MessageOneofCase.ListRoomsRequest) {
+        output.WriteRawTag(18);
+        output.WriteMessage(ListRoomsRequest);
+      }
+      if (messageCase_ == MessageOneofCase.DeleteRoomRequest) {
+        output.WriteRawTag(26);
+        output.WriteMessage(DeleteRoomRequest);
+      }
+      if (messageCase_ == MessageOneofCase.ListParticipantsRequest) {
+        output.WriteRawTag(34);
+        output.WriteMessage(ListParticipantsRequest);
+      }
+      if (messageCase_ == MessageOneofCase.RoomParticipantIdentity) {
+        output.WriteRawTag(42);
+        output.WriteMessage(RoomParticipantIdentity);
+      }
+      if (messageCase_ == MessageOneofCase.MuteRoomTrackRequest) {
+        output.WriteRawTag(50);
+        output.WriteMessage(MuteRoomTrackRequest);
+      }
+      if (messageCase_ == MessageOneofCase.UpdateParticipantRequest) {
+        output.WriteRawTag(58);
+        output.WriteMessage(UpdateParticipantRequest);
+      }
+      if (messageCase_ == MessageOneofCase.UpdateSubscriptionsRequest) {
+        output.WriteRawTag(66);
+        output.WriteMessage(UpdateSubscriptionsRequest);
+      }
+      if (messageCase_ == MessageOneofCase.SendDataRequest) {
+        output.WriteRawTag(74);
+        output.WriteMessage(SendDataRequest);
+      }
+      if (messageCase_ == MessageOneofCase.UpdateRoomMetadataRequest) {
+        output.WriteRawTag(82);
+        output.WriteMessage(UpdateRoomMetadataRequest);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (messageCase_ == MessageOneofCase.CreateRoomRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CreateRoomRequest);
+      }
+      if (messageCase_ == MessageOneofCase.ListRoomsRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ListRoomsRequest);
+      }
+      if (messageCase_ == MessageOneofCase.DeleteRoomRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DeleteRoomRequest);
+      }
+      if (messageCase_ == MessageOneofCase.ListParticipantsRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ListParticipantsRequest);
+      }
+      if (messageCase_ == MessageOneofCase.RoomParticipantIdentity) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RoomParticipantIdentity);
+      }
+      if (messageCase_ == MessageOneofCase.MuteRoomTrackRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(MuteRoomTrackRequest);
+      }
+      if (messageCase_ == MessageOneofCase.UpdateParticipantRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(UpdateParticipantRequest);
+      }
+      if (messageCase_ == MessageOneofCase.UpdateSubscriptionsRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(UpdateSubscriptionsRequest);
+      }
+      if (messageCase_ == MessageOneofCase.SendDataRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SendDataRequest);
+      }
+      if (messageCase_ == MessageOneofCase.UpdateRoomMetadataRequest) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(UpdateRoomMetadataRequest);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(APICallRequest other) {
+      if (other == null) {
+        return;
+      }
+      switch (other.MessageCase) {
+        case MessageOneofCase.CreateRoomRequest:
+          if (CreateRoomRequest == null) {
+            CreateRoomRequest = new global::Livekit.Server.Sdk.Dotnet.CreateRoomRequest();
+          }
+          CreateRoomRequest.MergeFrom(other.CreateRoomRequest);
+          break;
+        case MessageOneofCase.ListRoomsRequest:
+          if (ListRoomsRequest == null) {
+            ListRoomsRequest = new global::Livekit.Server.Sdk.Dotnet.ListRoomsRequest();
+          }
+          ListRoomsRequest.MergeFrom(other.ListRoomsRequest);
+          break;
+        case MessageOneofCase.DeleteRoomRequest:
+          if (DeleteRoomRequest == null) {
+            DeleteRoomRequest = new global::Livekit.Server.Sdk.Dotnet.DeleteRoomRequest();
+          }
+          DeleteRoomRequest.MergeFrom(other.DeleteRoomRequest);
+          break;
+        case MessageOneofCase.ListParticipantsRequest:
+          if (ListParticipantsRequest == null) {
+            ListParticipantsRequest = new global::Livekit.Server.Sdk.Dotnet.ListParticipantsRequest();
+          }
+          ListParticipantsRequest.MergeFrom(other.ListParticipantsRequest);
+          break;
+        case MessageOneofCase.RoomParticipantIdentity:
+          if (RoomParticipantIdentity == null) {
+            RoomParticipantIdentity = new global::Livekit.Server.Sdk.Dotnet.RoomParticipantIdentity();
+          }
+          RoomParticipantIdentity.MergeFrom(other.RoomParticipantIdentity);
+          break;
+        case MessageOneofCase.MuteRoomTrackRequest:
+          if (MuteRoomTrackRequest == null) {
+            MuteRoomTrackRequest = new global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackRequest();
+          }
+          MuteRoomTrackRequest.MergeFrom(other.MuteRoomTrackRequest);
+          break;
+        case MessageOneofCase.UpdateParticipantRequest:
+          if (UpdateParticipantRequest == null) {
+            UpdateParticipantRequest = new global::Livekit.Server.Sdk.Dotnet.UpdateParticipantRequest();
+          }
+          UpdateParticipantRequest.MergeFrom(other.UpdateParticipantRequest);
+          break;
+        case MessageOneofCase.UpdateSubscriptionsRequest:
+          if (UpdateSubscriptionsRequest == null) {
+            UpdateSubscriptionsRequest = new global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsRequest();
+          }
+          UpdateSubscriptionsRequest.MergeFrom(other.UpdateSubscriptionsRequest);
+          break;
+        case MessageOneofCase.SendDataRequest:
+          if (SendDataRequest == null) {
+            SendDataRequest = new global::Livekit.Server.Sdk.Dotnet.SendDataRequest();
+          }
+          SendDataRequest.MergeFrom(other.SendDataRequest);
+          break;
+        case MessageOneofCase.UpdateRoomMetadataRequest:
+          if (UpdateRoomMetadataRequest == null) {
+            UpdateRoomMetadataRequest = new global::Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest();
+          }
+          UpdateRoomMetadataRequest.MergeFrom(other.UpdateRoomMetadataRequest);
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            global::Livekit.Server.Sdk.Dotnet.CreateRoomRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.CreateRoomRequest();
+            if (messageCase_ == MessageOneofCase.CreateRoomRequest) {
+              subBuilder.MergeFrom(CreateRoomRequest);
+            }
+            input.ReadMessage(subBuilder);
+            CreateRoomRequest = subBuilder;
+            break;
+          }
+          case 18: {
+            global::Livekit.Server.Sdk.Dotnet.ListRoomsRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.ListRoomsRequest();
+            if (messageCase_ == MessageOneofCase.ListRoomsRequest) {
+              subBuilder.MergeFrom(ListRoomsRequest);
+            }
+            input.ReadMessage(subBuilder);
+            ListRoomsRequest = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Livekit.Server.Sdk.Dotnet.DeleteRoomRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.DeleteRoomRequest();
+            if (messageCase_ == MessageOneofCase.DeleteRoomRequest) {
+              subBuilder.MergeFrom(DeleteRoomRequest);
+            }
+            input.ReadMessage(subBuilder);
+            DeleteRoomRequest = subBuilder;
+            break;
+          }
+          case 34: {
+            global::Livekit.Server.Sdk.Dotnet.ListParticipantsRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.ListParticipantsRequest();
+            if (messageCase_ == MessageOneofCase.ListParticipantsRequest) {
+              subBuilder.MergeFrom(ListParticipantsRequest);
+            }
+            input.ReadMessage(subBuilder);
+            ListParticipantsRequest = subBuilder;
+            break;
+          }
+          case 42: {
+            global::Livekit.Server.Sdk.Dotnet.RoomParticipantIdentity subBuilder = new global::Livekit.Server.Sdk.Dotnet.RoomParticipantIdentity();
+            if (messageCase_ == MessageOneofCase.RoomParticipantIdentity) {
+              subBuilder.MergeFrom(RoomParticipantIdentity);
+            }
+            input.ReadMessage(subBuilder);
+            RoomParticipantIdentity = subBuilder;
+            break;
+          }
+          case 50: {
+            global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackRequest();
+            if (messageCase_ == MessageOneofCase.MuteRoomTrackRequest) {
+              subBuilder.MergeFrom(MuteRoomTrackRequest);
+            }
+            input.ReadMessage(subBuilder);
+            MuteRoomTrackRequest = subBuilder;
+            break;
+          }
+          case 58: {
+            global::Livekit.Server.Sdk.Dotnet.UpdateParticipantRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.UpdateParticipantRequest();
+            if (messageCase_ == MessageOneofCase.UpdateParticipantRequest) {
+              subBuilder.MergeFrom(UpdateParticipantRequest);
+            }
+            input.ReadMessage(subBuilder);
+            UpdateParticipantRequest = subBuilder;
+            break;
+          }
+          case 66: {
+            global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsRequest();
+            if (messageCase_ == MessageOneofCase.UpdateSubscriptionsRequest) {
+              subBuilder.MergeFrom(UpdateSubscriptionsRequest);
+            }
+            input.ReadMessage(subBuilder);
+            UpdateSubscriptionsRequest = subBuilder;
+            break;
+          }
+          case 74: {
+            global::Livekit.Server.Sdk.Dotnet.SendDataRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.SendDataRequest();
+            if (messageCase_ == MessageOneofCase.SendDataRequest) {
+              subBuilder.MergeFrom(SendDataRequest);
+            }
+            input.ReadMessage(subBuilder);
+            SendDataRequest = subBuilder;
+            break;
+          }
+          case 82: {
+            global::Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest();
+            if (messageCase_ == MessageOneofCase.UpdateRoomMetadataRequest) {
+              subBuilder.MergeFrom(UpdateRoomMetadataRequest);
+            }
+            input.ReadMessage(subBuilder);
+            UpdateRoomMetadataRequest = subBuilder;
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            global::Livekit.Server.Sdk.Dotnet.CreateRoomRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.CreateRoomRequest();
+            if (messageCase_ == MessageOneofCase.CreateRoomRequest) {
+              subBuilder.MergeFrom(CreateRoomRequest);
+            }
+            input.ReadMessage(subBuilder);
+            CreateRoomRequest = subBuilder;
+            break;
+          }
+          case 18: {
+            global::Livekit.Server.Sdk.Dotnet.ListRoomsRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.ListRoomsRequest();
+            if (messageCase_ == MessageOneofCase.ListRoomsRequest) {
+              subBuilder.MergeFrom(ListRoomsRequest);
+            }
+            input.ReadMessage(subBuilder);
+            ListRoomsRequest = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Livekit.Server.Sdk.Dotnet.DeleteRoomRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.DeleteRoomRequest();
+            if (messageCase_ == MessageOneofCase.DeleteRoomRequest) {
+              subBuilder.MergeFrom(DeleteRoomRequest);
+            }
+            input.ReadMessage(subBuilder);
+            DeleteRoomRequest = subBuilder;
+            break;
+          }
+          case 34: {
+            global::Livekit.Server.Sdk.Dotnet.ListParticipantsRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.ListParticipantsRequest();
+            if (messageCase_ == MessageOneofCase.ListParticipantsRequest) {
+              subBuilder.MergeFrom(ListParticipantsRequest);
+            }
+            input.ReadMessage(subBuilder);
+            ListParticipantsRequest = subBuilder;
+            break;
+          }
+          case 42: {
+            global::Livekit.Server.Sdk.Dotnet.RoomParticipantIdentity subBuilder = new global::Livekit.Server.Sdk.Dotnet.RoomParticipantIdentity();
+            if (messageCase_ == MessageOneofCase.RoomParticipantIdentity) {
+              subBuilder.MergeFrom(RoomParticipantIdentity);
+            }
+            input.ReadMessage(subBuilder);
+            RoomParticipantIdentity = subBuilder;
+            break;
+          }
+          case 50: {
+            global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackRequest();
+            if (messageCase_ == MessageOneofCase.MuteRoomTrackRequest) {
+              subBuilder.MergeFrom(MuteRoomTrackRequest);
+            }
+            input.ReadMessage(subBuilder);
+            MuteRoomTrackRequest = subBuilder;
+            break;
+          }
+          case 58: {
+            global::Livekit.Server.Sdk.Dotnet.UpdateParticipantRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.UpdateParticipantRequest();
+            if (messageCase_ == MessageOneofCase.UpdateParticipantRequest) {
+              subBuilder.MergeFrom(UpdateParticipantRequest);
+            }
+            input.ReadMessage(subBuilder);
+            UpdateParticipantRequest = subBuilder;
+            break;
+          }
+          case 66: {
+            global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsRequest();
+            if (messageCase_ == MessageOneofCase.UpdateSubscriptionsRequest) {
+              subBuilder.MergeFrom(UpdateSubscriptionsRequest);
+            }
+            input.ReadMessage(subBuilder);
+            UpdateSubscriptionsRequest = subBuilder;
+            break;
+          }
+          case 74: {
+            global::Livekit.Server.Sdk.Dotnet.SendDataRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.SendDataRequest();
+            if (messageCase_ == MessageOneofCase.SendDataRequest) {
+              subBuilder.MergeFrom(SendDataRequest);
+            }
+            input.ReadMessage(subBuilder);
+            SendDataRequest = subBuilder;
+            break;
+          }
+          case 82: {
+            global::Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest();
+            if (messageCase_ == MessageOneofCase.UpdateRoomMetadataRequest) {
+              subBuilder.MergeFrom(UpdateRoomMetadataRequest);
+            }
+            input.ReadMessage(subBuilder);
+            UpdateRoomMetadataRequest = subBuilder;
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class APICallInfo : pb::IMessage<APICallInfo>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<APICallInfo> _parser = new pb::MessageParser<APICallInfo>(() => new APICallInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<APICallInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAnalyticsReflection.Descriptor.MessageTypes[14]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public APICallInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public APICallInfo(APICallInfo other) : this() {
+      projectId_ = other.projectId_;
+      request_ = other.request_ != null ? other.request_.Clone() : null;
+      service_ = other.service_;
+      method_ = other.method_;
+      nodeId_ = other.nodeId_;
+      status_ = other.status_;
+      twirpErrorCode_ = other.twirpErrorCode_;
+      twirpErrorMessage_ = other.twirpErrorMessage_;
+      roomName_ = other.roomName_;
+      roomId_ = other.roomId_;
+      participantIdentity_ = other.participantIdentity_;
+      participantId_ = other.participantId_;
+      trackId_ = other.trackId_;
+      startedAt_ = other.startedAt_ != null ? other.startedAt_.Clone() : null;
+      durationNs_ = other.durationNs_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public APICallInfo Clone() {
+      return new APICallInfo(this);
+    }
+
+    /// <summary>Field number for the "project_id" field.</summary>
+    public const int ProjectIdFieldNumber = 1;
+    private string projectId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ProjectId {
+      get { return projectId_; }
+      set {
+        projectId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "request" field.</summary>
+    public const int RequestFieldNumber = 2;
+    private global::Livekit.Server.Sdk.Dotnet.APICallRequest request_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.APICallRequest Request {
+      get { return request_; }
+      set {
+        request_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "service" field.</summary>
+    public const int ServiceFieldNumber = 3;
+    private string service_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Service {
+      get { return service_; }
+      set {
+        service_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "method" field.</summary>
+    public const int MethodFieldNumber = 4;
+    private string method_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Method {
+      get { return method_; }
+      set {
+        method_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "node_id" field.</summary>
+    public const int NodeIdFieldNumber = 5;
+    private string nodeId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string NodeId {
+      get { return nodeId_; }
+      set {
+        nodeId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "status" field.</summary>
+    public const int StatusFieldNumber = 6;
+    private int status_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int Status {
+      get { return status_; }
+      set {
+        status_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "twirp_error_code" field.</summary>
+    public const int TwirpErrorCodeFieldNumber = 7;
+    private string twirpErrorCode_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string TwirpErrorCode {
+      get { return twirpErrorCode_; }
+      set {
+        twirpErrorCode_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "twirp_error_message" field.</summary>
+    public const int TwirpErrorMessageFieldNumber = 8;
+    private string twirpErrorMessage_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string TwirpErrorMessage {
+      get { return twirpErrorMessage_; }
+      set {
+        twirpErrorMessage_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "room_name" field.</summary>
+    public const int RoomNameFieldNumber = 9;
+    private string roomName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RoomName {
+      get { return roomName_; }
+      set {
+        roomName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "room_id" field.</summary>
+    public const int RoomIdFieldNumber = 10;
+    private string roomId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RoomId {
+      get { return roomId_; }
+      set {
+        roomId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "participant_identity" field.</summary>
+    public const int ParticipantIdentityFieldNumber = 11;
+    private string participantIdentity_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ParticipantIdentity {
+      get { return participantIdentity_; }
+      set {
+        participantIdentity_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "participant_id" field.</summary>
+    public const int ParticipantIdFieldNumber = 12;
+    private string participantId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ParticipantId {
+      get { return participantId_; }
+      set {
+        participantId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "track_id" field.</summary>
+    public const int TrackIdFieldNumber = 13;
+    private string trackId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string TrackId {
+      get { return trackId_; }
+      set {
+        trackId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "started_at" field.</summary>
+    public const int StartedAtFieldNumber = 14;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp startedAt_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp StartedAt {
+      get { return startedAt_; }
+      set {
+        startedAt_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "duration_ns" field.</summary>
+    public const int DurationNsFieldNumber = 15;
+    private long durationNs_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long DurationNs {
+      get { return durationNs_; }
+      set {
+        durationNs_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as APICallInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(APICallInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ProjectId != other.ProjectId) return false;
+      if (!object.Equals(Request, other.Request)) return false;
+      if (Service != other.Service) return false;
+      if (Method != other.Method) return false;
+      if (NodeId != other.NodeId) return false;
+      if (Status != other.Status) return false;
+      if (TwirpErrorCode != other.TwirpErrorCode) return false;
+      if (TwirpErrorMessage != other.TwirpErrorMessage) return false;
+      if (RoomName != other.RoomName) return false;
+      if (RoomId != other.RoomId) return false;
+      if (ParticipantIdentity != other.ParticipantIdentity) return false;
+      if (ParticipantId != other.ParticipantId) return false;
+      if (TrackId != other.TrackId) return false;
+      if (!object.Equals(StartedAt, other.StartedAt)) return false;
+      if (DurationNs != other.DurationNs) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ProjectId.Length != 0) hash ^= ProjectId.GetHashCode();
+      if (request_ != null) hash ^= Request.GetHashCode();
+      if (Service.Length != 0) hash ^= Service.GetHashCode();
+      if (Method.Length != 0) hash ^= Method.GetHashCode();
+      if (NodeId.Length != 0) hash ^= NodeId.GetHashCode();
+      if (Status != 0) hash ^= Status.GetHashCode();
+      if (TwirpErrorCode.Length != 0) hash ^= TwirpErrorCode.GetHashCode();
+      if (TwirpErrorMessage.Length != 0) hash ^= TwirpErrorMessage.GetHashCode();
+      if (RoomName.Length != 0) hash ^= RoomName.GetHashCode();
+      if (RoomId.Length != 0) hash ^= RoomId.GetHashCode();
+      if (ParticipantIdentity.Length != 0) hash ^= ParticipantIdentity.GetHashCode();
+      if (ParticipantId.Length != 0) hash ^= ParticipantId.GetHashCode();
+      if (TrackId.Length != 0) hash ^= TrackId.GetHashCode();
+      if (startedAt_ != null) hash ^= StartedAt.GetHashCode();
+      if (DurationNs != 0L) hash ^= DurationNs.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ProjectId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ProjectId);
+      }
+      if (request_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Request);
+      }
+      if (Service.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Service);
+      }
+      if (Method.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Method);
+      }
+      if (NodeId.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(NodeId);
+      }
+      if (Status != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(Status);
+      }
+      if (TwirpErrorCode.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(TwirpErrorCode);
+      }
+      if (TwirpErrorMessage.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(TwirpErrorMessage);
+      }
+      if (RoomName.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(RoomName);
+      }
+      if (RoomId.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(RoomId);
+      }
+      if (ParticipantIdentity.Length != 0) {
+        output.WriteRawTag(90);
+        output.WriteString(ParticipantIdentity);
+      }
+      if (ParticipantId.Length != 0) {
+        output.WriteRawTag(98);
+        output.WriteString(ParticipantId);
+      }
+      if (TrackId.Length != 0) {
+        output.WriteRawTag(106);
+        output.WriteString(TrackId);
+      }
+      if (startedAt_ != null) {
+        output.WriteRawTag(114);
+        output.WriteMessage(StartedAt);
+      }
+      if (DurationNs != 0L) {
+        output.WriteRawTag(120);
+        output.WriteInt64(DurationNs);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ProjectId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ProjectId);
+      }
+      if (request_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Request);
+      }
+      if (Service.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Service);
+      }
+      if (Method.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Method);
+      }
+      if (NodeId.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(NodeId);
+      }
+      if (Status != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(Status);
+      }
+      if (TwirpErrorCode.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(TwirpErrorCode);
+      }
+      if (TwirpErrorMessage.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(TwirpErrorMessage);
+      }
+      if (RoomName.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(RoomName);
+      }
+      if (RoomId.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(RoomId);
+      }
+      if (ParticipantIdentity.Length != 0) {
+        output.WriteRawTag(90);
+        output.WriteString(ParticipantIdentity);
+      }
+      if (ParticipantId.Length != 0) {
+        output.WriteRawTag(98);
+        output.WriteString(ParticipantId);
+      }
+      if (TrackId.Length != 0) {
+        output.WriteRawTag(106);
+        output.WriteString(TrackId);
+      }
+      if (startedAt_ != null) {
+        output.WriteRawTag(114);
+        output.WriteMessage(StartedAt);
+      }
+      if (DurationNs != 0L) {
+        output.WriteRawTag(120);
+        output.WriteInt64(DurationNs);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (ProjectId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ProjectId);
+      }
+      if (request_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Request);
+      }
+      if (Service.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Service);
+      }
+      if (Method.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Method);
+      }
+      if (NodeId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(NodeId);
+      }
+      if (Status != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Status);
+      }
+      if (TwirpErrorCode.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(TwirpErrorCode);
+      }
+      if (TwirpErrorMessage.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(TwirpErrorMessage);
+      }
+      if (RoomName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomName);
+      }
+      if (RoomId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomId);
+      }
+      if (ParticipantIdentity.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ParticipantIdentity);
+      }
+      if (ParticipantId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ParticipantId);
+      }
+      if (TrackId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(TrackId);
+      }
+      if (startedAt_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(StartedAt);
+      }
+      if (DurationNs != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(DurationNs);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(APICallInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ProjectId.Length != 0) {
+        ProjectId = other.ProjectId;
+      }
+      if (other.request_ != null) {
+        if (request_ == null) {
+          Request = new global::Livekit.Server.Sdk.Dotnet.APICallRequest();
+        }
+        Request.MergeFrom(other.Request);
+      }
+      if (other.Service.Length != 0) {
+        Service = other.Service;
+      }
+      if (other.Method.Length != 0) {
+        Method = other.Method;
+      }
+      if (other.NodeId.Length != 0) {
+        NodeId = other.NodeId;
+      }
+      if (other.Status != 0) {
+        Status = other.Status;
+      }
+      if (other.TwirpErrorCode.Length != 0) {
+        TwirpErrorCode = other.TwirpErrorCode;
+      }
+      if (other.TwirpErrorMessage.Length != 0) {
+        TwirpErrorMessage = other.TwirpErrorMessage;
+      }
+      if (other.RoomName.Length != 0) {
+        RoomName = other.RoomName;
+      }
+      if (other.RoomId.Length != 0) {
+        RoomId = other.RoomId;
+      }
+      if (other.ParticipantIdentity.Length != 0) {
+        ParticipantIdentity = other.ParticipantIdentity;
+      }
+      if (other.ParticipantId.Length != 0) {
+        ParticipantId = other.ParticipantId;
+      }
+      if (other.TrackId.Length != 0) {
+        TrackId = other.TrackId;
+      }
+      if (other.startedAt_ != null) {
+        if (startedAt_ == null) {
+          StartedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        StartedAt.MergeFrom(other.StartedAt);
+      }
+      if (other.DurationNs != 0L) {
+        DurationNs = other.DurationNs;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            ProjectId = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (request_ == null) {
+              Request = new global::Livekit.Server.Sdk.Dotnet.APICallRequest();
+            }
+            input.ReadMessage(Request);
+            break;
+          }
+          case 26: {
+            Service = input.ReadString();
+            break;
+          }
+          case 34: {
+            Method = input.ReadString();
+            break;
+          }
+          case 42: {
+            NodeId = input.ReadString();
+            break;
+          }
+          case 48: {
+            Status = input.ReadInt32();
+            break;
+          }
+          case 58: {
+            TwirpErrorCode = input.ReadString();
+            break;
+          }
+          case 66: {
+            TwirpErrorMessage = input.ReadString();
+            break;
+          }
+          case 74: {
+            RoomName = input.ReadString();
+            break;
+          }
+          case 82: {
+            RoomId = input.ReadString();
+            break;
+          }
+          case 90: {
+            ParticipantIdentity = input.ReadString();
+            break;
+          }
+          case 98: {
+            ParticipantId = input.ReadString();
+            break;
+          }
+          case 106: {
+            TrackId = input.ReadString();
+            break;
+          }
+          case 114: {
+            if (startedAt_ == null) {
+              StartedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(StartedAt);
+            break;
+          }
+          case 120: {
+            DurationNs = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            ProjectId = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (request_ == null) {
+              Request = new global::Livekit.Server.Sdk.Dotnet.APICallRequest();
+            }
+            input.ReadMessage(Request);
+            break;
+          }
+          case 26: {
+            Service = input.ReadString();
+            break;
+          }
+          case 34: {
+            Method = input.ReadString();
+            break;
+          }
+          case 42: {
+            NodeId = input.ReadString();
+            break;
+          }
+          case 48: {
+            Status = input.ReadInt32();
+            break;
+          }
+          case 58: {
+            TwirpErrorCode = input.ReadString();
+            break;
+          }
+          case 66: {
+            TwirpErrorMessage = input.ReadString();
+            break;
+          }
+          case 74: {
+            RoomName = input.ReadString();
+            break;
+          }
+          case 82: {
+            RoomId = input.ReadString();
+            break;
+          }
+          case 90: {
+            ParticipantIdentity = input.ReadString();
+            break;
+          }
+          case 98: {
+            ParticipantId = input.ReadString();
+            break;
+          }
+          case 106: {
+            TrackId = input.ReadString();
+            break;
+          }
+          case 114: {
+            if (startedAt_ == null) {
+              StartedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(StartedAt);
+            break;
+          }
+          case 120: {
+            DurationNs = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class WebhookInfo : pb::IMessage<WebhookInfo>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<WebhookInfo> _parser = new pb::MessageParser<WebhookInfo>(() => new WebhookInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<WebhookInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAnalyticsReflection.Descriptor.MessageTypes[15]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public WebhookInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public WebhookInfo(WebhookInfo other) : this() {
+      eventId_ = other.eventId_;
+      event_ = other.event_;
+      projectId_ = other.projectId_;
+      roomName_ = other.roomName_;
+      roomId_ = other.roomId_;
+      participantIdentity_ = other.participantIdentity_;
+      participantId_ = other.participantId_;
+      trackId_ = other.trackId_;
+      egressId_ = other.egressId_;
+      ingressId_ = other.ingressId_;
+      createdAt_ = other.createdAt_ != null ? other.createdAt_.Clone() : null;
+      queuedAt_ = other.queuedAt_ != null ? other.queuedAt_.Clone() : null;
+      queueDurationNs_ = other.queueDurationNs_;
+      sentAt_ = other.sentAt_ != null ? other.sentAt_.Clone() : null;
+      sendDurationNs_ = other.sendDurationNs_;
+      url_ = other.url_;
+      numDropped_ = other.numDropped_;
+      isDropped_ = other.isDropped_;
+      serviceStatus_ = other.serviceStatus_;
+      serviceErrorCode_ = other.serviceErrorCode_;
+      serviceError_ = other.serviceError_;
+      sendError_ = other.sendError_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public WebhookInfo Clone() {
+      return new WebhookInfo(this);
+    }
+
+    /// <summary>Field number for the "event_id" field.</summary>
+    public const int EventIdFieldNumber = 1;
+    private string eventId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string EventId {
+      get { return eventId_; }
+      set {
+        eventId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "event" field.</summary>
+    public const int EventFieldNumber = 2;
+    private string event_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Event {
+      get { return event_; }
+      set {
+        event_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "project_id" field.</summary>
+    public const int ProjectIdFieldNumber = 3;
+    private string projectId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ProjectId {
+      get { return projectId_; }
+      set {
+        projectId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "room_name" field.</summary>
+    public const int RoomNameFieldNumber = 4;
+    private string roomName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RoomName {
+      get { return roomName_; }
+      set {
+        roomName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "room_id" field.</summary>
+    public const int RoomIdFieldNumber = 5;
+    private string roomId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RoomId {
+      get { return roomId_; }
+      set {
+        roomId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "participant_identity" field.</summary>
+    public const int ParticipantIdentityFieldNumber = 6;
+    private string participantIdentity_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ParticipantIdentity {
+      get { return participantIdentity_; }
+      set {
+        participantIdentity_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "participant_id" field.</summary>
+    public const int ParticipantIdFieldNumber = 7;
+    private string participantId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ParticipantId {
+      get { return participantId_; }
+      set {
+        participantId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "track_id" field.</summary>
+    public const int TrackIdFieldNumber = 8;
+    private string trackId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string TrackId {
+      get { return trackId_; }
+      set {
+        trackId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "egress_id" field.</summary>
+    public const int EgressIdFieldNumber = 9;
+    private string egressId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string EgressId {
+      get { return egressId_; }
+      set {
+        egressId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "ingress_id" field.</summary>
+    public const int IngressIdFieldNumber = 10;
+    private string ingressId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string IngressId {
+      get { return ingressId_; }
+      set {
+        ingressId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "created_at" field.</summary>
+    public const int CreatedAtFieldNumber = 11;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp createdAt_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp CreatedAt {
+      get { return createdAt_; }
+      set {
+        createdAt_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "queued_at" field.</summary>
+    public const int QueuedAtFieldNumber = 12;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp queuedAt_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp QueuedAt {
+      get { return queuedAt_; }
+      set {
+        queuedAt_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "queue_duration_ns" field.</summary>
+    public const int QueueDurationNsFieldNumber = 13;
+    private long queueDurationNs_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long QueueDurationNs {
+      get { return queueDurationNs_; }
+      set {
+        queueDurationNs_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "sent_at" field.</summary>
+    public const int SentAtFieldNumber = 14;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp sentAt_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp SentAt {
+      get { return sentAt_; }
+      set {
+        sentAt_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "send_duration_ns" field.</summary>
+    public const int SendDurationNsFieldNumber = 15;
+    private long sendDurationNs_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long SendDurationNs {
+      get { return sendDurationNs_; }
+      set {
+        sendDurationNs_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "url" field.</summary>
+    public const int UrlFieldNumber = 16;
+    private string url_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Url {
+      get { return url_; }
+      set {
+        url_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "num_dropped" field.</summary>
+    public const int NumDroppedFieldNumber = 17;
+    private int numDropped_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int NumDropped {
+      get { return numDropped_; }
+      set {
+        numDropped_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_dropped" field.</summary>
+    public const int IsDroppedFieldNumber = 18;
+    private bool isDropped_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsDropped {
+      get { return isDropped_; }
+      set {
+        isDropped_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "service_status" field.</summary>
+    public const int ServiceStatusFieldNumber = 19;
+    private string serviceStatus_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ServiceStatus {
+      get { return serviceStatus_; }
+      set {
+        serviceStatus_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "service_error_code" field.</summary>
+    public const int ServiceErrorCodeFieldNumber = 20;
+    private int serviceErrorCode_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int ServiceErrorCode {
+      get { return serviceErrorCode_; }
+      set {
+        serviceErrorCode_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "service_error" field.</summary>
+    public const int ServiceErrorFieldNumber = 21;
+    private string serviceError_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ServiceError {
+      get { return serviceError_; }
+      set {
+        serviceError_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "send_error" field.</summary>
+    public const int SendErrorFieldNumber = 22;
+    private string sendError_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SendError {
+      get { return sendError_; }
+      set {
+        sendError_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as WebhookInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(WebhookInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (EventId != other.EventId) return false;
+      if (Event != other.Event) return false;
+      if (ProjectId != other.ProjectId) return false;
+      if (RoomName != other.RoomName) return false;
+      if (RoomId != other.RoomId) return false;
+      if (ParticipantIdentity != other.ParticipantIdentity) return false;
+      if (ParticipantId != other.ParticipantId) return false;
+      if (TrackId != other.TrackId) return false;
+      if (EgressId != other.EgressId) return false;
+      if (IngressId != other.IngressId) return false;
+      if (!object.Equals(CreatedAt, other.CreatedAt)) return false;
+      if (!object.Equals(QueuedAt, other.QueuedAt)) return false;
+      if (QueueDurationNs != other.QueueDurationNs) return false;
+      if (!object.Equals(SentAt, other.SentAt)) return false;
+      if (SendDurationNs != other.SendDurationNs) return false;
+      if (Url != other.Url) return false;
+      if (NumDropped != other.NumDropped) return false;
+      if (IsDropped != other.IsDropped) return false;
+      if (ServiceStatus != other.ServiceStatus) return false;
+      if (ServiceErrorCode != other.ServiceErrorCode) return false;
+      if (ServiceError != other.ServiceError) return false;
+      if (SendError != other.SendError) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (EventId.Length != 0) hash ^= EventId.GetHashCode();
+      if (Event.Length != 0) hash ^= Event.GetHashCode();
+      if (ProjectId.Length != 0) hash ^= ProjectId.GetHashCode();
+      if (RoomName.Length != 0) hash ^= RoomName.GetHashCode();
+      if (RoomId.Length != 0) hash ^= RoomId.GetHashCode();
+      if (ParticipantIdentity.Length != 0) hash ^= ParticipantIdentity.GetHashCode();
+      if (ParticipantId.Length != 0) hash ^= ParticipantId.GetHashCode();
+      if (TrackId.Length != 0) hash ^= TrackId.GetHashCode();
+      if (EgressId.Length != 0) hash ^= EgressId.GetHashCode();
+      if (IngressId.Length != 0) hash ^= IngressId.GetHashCode();
+      if (createdAt_ != null) hash ^= CreatedAt.GetHashCode();
+      if (queuedAt_ != null) hash ^= QueuedAt.GetHashCode();
+      if (QueueDurationNs != 0L) hash ^= QueueDurationNs.GetHashCode();
+      if (sentAt_ != null) hash ^= SentAt.GetHashCode();
+      if (SendDurationNs != 0L) hash ^= SendDurationNs.GetHashCode();
+      if (Url.Length != 0) hash ^= Url.GetHashCode();
+      if (NumDropped != 0) hash ^= NumDropped.GetHashCode();
+      if (IsDropped != false) hash ^= IsDropped.GetHashCode();
+      if (ServiceStatus.Length != 0) hash ^= ServiceStatus.GetHashCode();
+      if (ServiceErrorCode != 0) hash ^= ServiceErrorCode.GetHashCode();
+      if (ServiceError.Length != 0) hash ^= ServiceError.GetHashCode();
+      if (SendError.Length != 0) hash ^= SendError.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (EventId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(EventId);
+      }
+      if (Event.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Event);
+      }
+      if (ProjectId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(ProjectId);
+      }
+      if (RoomName.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(RoomName);
+      }
+      if (RoomId.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(RoomId);
+      }
+      if (ParticipantIdentity.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(ParticipantIdentity);
+      }
+      if (ParticipantId.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(ParticipantId);
+      }
+      if (TrackId.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(TrackId);
+      }
+      if (EgressId.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(EgressId);
+      }
+      if (IngressId.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(IngressId);
+      }
+      if (createdAt_ != null) {
+        output.WriteRawTag(90);
+        output.WriteMessage(CreatedAt);
+      }
+      if (queuedAt_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(QueuedAt);
+      }
+      if (QueueDurationNs != 0L) {
+        output.WriteRawTag(104);
+        output.WriteInt64(QueueDurationNs);
+      }
+      if (sentAt_ != null) {
+        output.WriteRawTag(114);
+        output.WriteMessage(SentAt);
+      }
+      if (SendDurationNs != 0L) {
+        output.WriteRawTag(120);
+        output.WriteInt64(SendDurationNs);
+      }
+      if (Url.Length != 0) {
+        output.WriteRawTag(130, 1);
+        output.WriteString(Url);
+      }
+      if (NumDropped != 0) {
+        output.WriteRawTag(136, 1);
+        output.WriteInt32(NumDropped);
+      }
+      if (IsDropped != false) {
+        output.WriteRawTag(144, 1);
+        output.WriteBool(IsDropped);
+      }
+      if (ServiceStatus.Length != 0) {
+        output.WriteRawTag(154, 1);
+        output.WriteString(ServiceStatus);
+      }
+      if (ServiceErrorCode != 0) {
+        output.WriteRawTag(160, 1);
+        output.WriteInt32(ServiceErrorCode);
+      }
+      if (ServiceError.Length != 0) {
+        output.WriteRawTag(170, 1);
+        output.WriteString(ServiceError);
+      }
+      if (SendError.Length != 0) {
+        output.WriteRawTag(178, 1);
+        output.WriteString(SendError);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (EventId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(EventId);
+      }
+      if (Event.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Event);
+      }
+      if (ProjectId.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(ProjectId);
+      }
+      if (RoomName.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(RoomName);
+      }
+      if (RoomId.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(RoomId);
+      }
+      if (ParticipantIdentity.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(ParticipantIdentity);
+      }
+      if (ParticipantId.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(ParticipantId);
+      }
+      if (TrackId.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(TrackId);
+      }
+      if (EgressId.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(EgressId);
+      }
+      if (IngressId.Length != 0) {
+        output.WriteRawTag(82);
+        output.WriteString(IngressId);
+      }
+      if (createdAt_ != null) {
+        output.WriteRawTag(90);
+        output.WriteMessage(CreatedAt);
+      }
+      if (queuedAt_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(QueuedAt);
+      }
+      if (QueueDurationNs != 0L) {
+        output.WriteRawTag(104);
+        output.WriteInt64(QueueDurationNs);
+      }
+      if (sentAt_ != null) {
+        output.WriteRawTag(114);
+        output.WriteMessage(SentAt);
+      }
+      if (SendDurationNs != 0L) {
+        output.WriteRawTag(120);
+        output.WriteInt64(SendDurationNs);
+      }
+      if (Url.Length != 0) {
+        output.WriteRawTag(130, 1);
+        output.WriteString(Url);
+      }
+      if (NumDropped != 0) {
+        output.WriteRawTag(136, 1);
+        output.WriteInt32(NumDropped);
+      }
+      if (IsDropped != false) {
+        output.WriteRawTag(144, 1);
+        output.WriteBool(IsDropped);
+      }
+      if (ServiceStatus.Length != 0) {
+        output.WriteRawTag(154, 1);
+        output.WriteString(ServiceStatus);
+      }
+      if (ServiceErrorCode != 0) {
+        output.WriteRawTag(160, 1);
+        output.WriteInt32(ServiceErrorCode);
+      }
+      if (ServiceError.Length != 0) {
+        output.WriteRawTag(170, 1);
+        output.WriteString(ServiceError);
+      }
+      if (SendError.Length != 0) {
+        output.WriteRawTag(178, 1);
+        output.WriteString(SendError);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (EventId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EventId);
+      }
+      if (Event.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Event);
+      }
+      if (ProjectId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ProjectId);
+      }
+      if (RoomName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomName);
+      }
+      if (RoomId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomId);
+      }
+      if (ParticipantIdentity.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ParticipantIdentity);
+      }
+      if (ParticipantId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ParticipantId);
+      }
+      if (TrackId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(TrackId);
+      }
+      if (EgressId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EgressId);
+      }
+      if (IngressId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(IngressId);
+      }
+      if (createdAt_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CreatedAt);
+      }
+      if (queuedAt_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(QueuedAt);
+      }
+      if (QueueDurationNs != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(QueueDurationNs);
+      }
+      if (sentAt_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(SentAt);
+      }
+      if (SendDurationNs != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(SendDurationNs);
+      }
+      if (Url.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Url);
+      }
+      if (NumDropped != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(NumDropped);
+      }
+      if (IsDropped != false) {
+        size += 2 + 1;
+      }
+      if (ServiceStatus.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ServiceStatus);
+      }
+      if (ServiceErrorCode != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(ServiceErrorCode);
+      }
+      if (ServiceError.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ServiceError);
+      }
+      if (SendError.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SendError);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(WebhookInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.EventId.Length != 0) {
+        EventId = other.EventId;
+      }
+      if (other.Event.Length != 0) {
+        Event = other.Event;
+      }
+      if (other.ProjectId.Length != 0) {
+        ProjectId = other.ProjectId;
+      }
+      if (other.RoomName.Length != 0) {
+        RoomName = other.RoomName;
+      }
+      if (other.RoomId.Length != 0) {
+        RoomId = other.RoomId;
+      }
+      if (other.ParticipantIdentity.Length != 0) {
+        ParticipantIdentity = other.ParticipantIdentity;
+      }
+      if (other.ParticipantId.Length != 0) {
+        ParticipantId = other.ParticipantId;
+      }
+      if (other.TrackId.Length != 0) {
+        TrackId = other.TrackId;
+      }
+      if (other.EgressId.Length != 0) {
+        EgressId = other.EgressId;
+      }
+      if (other.IngressId.Length != 0) {
+        IngressId = other.IngressId;
+      }
+      if (other.createdAt_ != null) {
+        if (createdAt_ == null) {
+          CreatedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        CreatedAt.MergeFrom(other.CreatedAt);
+      }
+      if (other.queuedAt_ != null) {
+        if (queuedAt_ == null) {
+          QueuedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        QueuedAt.MergeFrom(other.QueuedAt);
+      }
+      if (other.QueueDurationNs != 0L) {
+        QueueDurationNs = other.QueueDurationNs;
+      }
+      if (other.sentAt_ != null) {
+        if (sentAt_ == null) {
+          SentAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        SentAt.MergeFrom(other.SentAt);
+      }
+      if (other.SendDurationNs != 0L) {
+        SendDurationNs = other.SendDurationNs;
+      }
+      if (other.Url.Length != 0) {
+        Url = other.Url;
+      }
+      if (other.NumDropped != 0) {
+        NumDropped = other.NumDropped;
+      }
+      if (other.IsDropped != false) {
+        IsDropped = other.IsDropped;
+      }
+      if (other.ServiceStatus.Length != 0) {
+        ServiceStatus = other.ServiceStatus;
+      }
+      if (other.ServiceErrorCode != 0) {
+        ServiceErrorCode = other.ServiceErrorCode;
+      }
+      if (other.ServiceError.Length != 0) {
+        ServiceError = other.ServiceError;
+      }
+      if (other.SendError.Length != 0) {
+        SendError = other.SendError;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            EventId = input.ReadString();
+            break;
+          }
+          case 18: {
+            Event = input.ReadString();
+            break;
+          }
+          case 26: {
+            ProjectId = input.ReadString();
+            break;
+          }
+          case 34: {
+            RoomName = input.ReadString();
+            break;
+          }
+          case 42: {
+            RoomId = input.ReadString();
+            break;
+          }
+          case 50: {
+            ParticipantIdentity = input.ReadString();
+            break;
+          }
+          case 58: {
+            ParticipantId = input.ReadString();
+            break;
+          }
+          case 66: {
+            TrackId = input.ReadString();
+            break;
+          }
+          case 74: {
+            EgressId = input.ReadString();
+            break;
+          }
+          case 82: {
+            IngressId = input.ReadString();
+            break;
+          }
+          case 90: {
+            if (createdAt_ == null) {
+              CreatedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(CreatedAt);
+            break;
+          }
+          case 98: {
+            if (queuedAt_ == null) {
+              QueuedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(QueuedAt);
+            break;
+          }
+          case 104: {
+            QueueDurationNs = input.ReadInt64();
+            break;
+          }
+          case 114: {
+            if (sentAt_ == null) {
+              SentAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(SentAt);
+            break;
+          }
+          case 120: {
+            SendDurationNs = input.ReadInt64();
+            break;
+          }
+          case 130: {
+            Url = input.ReadString();
+            break;
+          }
+          case 136: {
+            NumDropped = input.ReadInt32();
+            break;
+          }
+          case 144: {
+            IsDropped = input.ReadBool();
+            break;
+          }
+          case 154: {
+            ServiceStatus = input.ReadString();
+            break;
+          }
+          case 160: {
+            ServiceErrorCode = input.ReadInt32();
+            break;
+          }
+          case 170: {
+            ServiceError = input.ReadString();
+            break;
+          }
+          case 178: {
+            SendError = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            EventId = input.ReadString();
+            break;
+          }
+          case 18: {
+            Event = input.ReadString();
+            break;
+          }
+          case 26: {
+            ProjectId = input.ReadString();
+            break;
+          }
+          case 34: {
+            RoomName = input.ReadString();
+            break;
+          }
+          case 42: {
+            RoomId = input.ReadString();
+            break;
+          }
+          case 50: {
+            ParticipantIdentity = input.ReadString();
+            break;
+          }
+          case 58: {
+            ParticipantId = input.ReadString();
+            break;
+          }
+          case 66: {
+            TrackId = input.ReadString();
+            break;
+          }
+          case 74: {
+            EgressId = input.ReadString();
+            break;
+          }
+          case 82: {
+            IngressId = input.ReadString();
+            break;
+          }
+          case 90: {
+            if (createdAt_ == null) {
+              CreatedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(CreatedAt);
+            break;
+          }
+          case 98: {
+            if (queuedAt_ == null) {
+              QueuedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(QueuedAt);
+            break;
+          }
+          case 104: {
+            QueueDurationNs = input.ReadInt64();
+            break;
+          }
+          case 114: {
+            if (sentAt_ == null) {
+              SentAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(SentAt);
+            break;
+          }
+          case 120: {
+            SendDurationNs = input.ReadInt64();
+            break;
+          }
+          case 130: {
+            Url = input.ReadString();
+            break;
+          }
+          case 136: {
+            NumDropped = input.ReadInt32();
+            break;
+          }
+          case 144: {
+            IsDropped = input.ReadBool();
+            break;
+          }
+          case 154: {
+            ServiceStatus = input.ReadString();
+            break;
+          }
+          case 160: {
+            ServiceErrorCode = input.ReadInt32();
+            break;
+          }
+          case 170: {
+            ServiceError = input.ReadString();
+            break;
+          }
+          case 178: {
+            SendError = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
