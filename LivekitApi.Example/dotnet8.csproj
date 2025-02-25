@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Livekit.Server.Sdk.Dotnet" Version="1.0.7" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.5.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.6.0" />
   </ItemGroup>
 
 </Project>
