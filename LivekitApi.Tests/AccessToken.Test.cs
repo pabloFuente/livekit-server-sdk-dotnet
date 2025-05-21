@@ -280,13 +280,12 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             var tokenVerifier = new TokenVerifier(TEST_KEY, TEST_SECRET);
             // Wrong token
             var invalidToken = "invalidToken";
-            Assert.Throws<SecurityTokenMalformedException>(
-                () => tokenVerifier.Verify(invalidToken)
+            Assert.Throws<SecurityTokenMalformedException>(() => tokenVerifier.Verify(invalidToken)
             );
             // Wrong api key
             invalidToken = GenerateTestToken("invalid_key");
-            Assert.Throws<SecurityTokenInvalidIssuerException>(
-                () => tokenVerifier.Verify(invalidToken)
+            Assert.Throws<SecurityTokenInvalidIssuerException>(() =>
+                tokenVerifier.Verify(invalidToken)
             );
             // Expired
             invalidToken = GenerateTestToken(TEST_KEY, DateTime.UtcNow.AddMinutes(-1));
