@@ -25,7 +25,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChRsaXZla2l0X2VncmVzcy5wcm90bxIHbGl2ZWtpdBoUbGl2ZWtpdF9tb2Rl",
-            "bHMucHJvdG8i+QQKGlJvb21Db21wb3NpdGVFZ3Jlc3NSZXF1ZXN0EhEKCXJv",
+            "bHMucHJvdG8iowUKGlJvb21Db21wb3NpdGVFZ3Jlc3NSZXF1ZXN0EhEKCXJv",
             "b21fbmFtZRgBIAEoCRIOCgZsYXlvdXQYAiABKAkSEgoKYXVkaW9fb25seRgD",
             "IAEoCBIqCgxhdWRpb19taXhpbmcYDyABKA4yFC5saXZla2l0LkF1ZGlvTWl4",
             "aW5nEhIKCnZpZGVvX29ubHkYBCABKAgSFwoPY3VzdG9tX2Jhc2VfdXJsGAUg",
@@ -38,194 +38,199 @@ namespace Livekit.Server.Sdk.Dotnet {
             "LmxpdmVraXQuRW5jb2RlZEZpbGVPdXRwdXQSLQoOc3RyZWFtX291dHB1dHMY",
             "DCADKAsyFS5saXZla2l0LlN0cmVhbU91dHB1dBI1Cg9zZWdtZW50X291dHB1",
             "dHMYDSADKAsyHC5saXZla2l0LlNlZ21lbnRlZEZpbGVPdXRwdXQSKwoNaW1h",
-            "Z2Vfb3V0cHV0cxgOIAMoCzIULmxpdmVraXQuSW1hZ2VPdXRwdXRCCAoGb3V0",
-            "cHV0QgkKB29wdGlvbnMisAQKEFdlYkVncmVzc1JlcXVlc3QSCwoDdXJsGAEg",
-            "ASgJEhIKCmF1ZGlvX29ubHkYAiABKAgSEgoKdmlkZW9fb25seRgDIAEoCBIa",
-            "ChJhd2FpdF9zdGFydF9zaWduYWwYDCABKAgSLgoEZmlsZRgEIAEoCzIaLmxp",
-            "dmVraXQuRW5jb2RlZEZpbGVPdXRwdXRCAhgBSAASKwoGc3RyZWFtGAUgASgL",
-            "MhUubGl2ZWtpdC5TdHJlYW1PdXRwdXRCAhgBSAASNAoIc2VnbWVudHMYBiAB",
-            "KAsyHC5saXZla2l0LlNlZ21lbnRlZEZpbGVPdXRwdXRCAhgBSAASMAoGcHJl",
-            "c2V0GAcgASgOMh4ubGl2ZWtpdC5FbmNvZGluZ09wdGlvbnNQcmVzZXRIARIs",
-            "CghhZHZhbmNlZBgIIAEoCzIYLmxpdmVraXQuRW5jb2RpbmdPcHRpb25zSAES",
-            "MAoMZmlsZV9vdXRwdXRzGAkgAygLMhoubGl2ZWtpdC5FbmNvZGVkRmlsZU91",
-            "dHB1dBItCg5zdHJlYW1fb3V0cHV0cxgKIAMoCzIVLmxpdmVraXQuU3RyZWFt",
-            "T3V0cHV0EjUKD3NlZ21lbnRfb3V0cHV0cxgLIAMoCzIcLmxpdmVraXQuU2Vn",
-            "bWVudGVkRmlsZU91dHB1dBIrCg1pbWFnZV9vdXRwdXRzGA0gAygLMhQubGl2",
-            "ZWtpdC5JbWFnZU91dHB1dEIICgZvdXRwdXRCCQoHb3B0aW9ucyKFAwoYUGFy",
-            "dGljaXBhbnRFZ3Jlc3NSZXF1ZXN0EhEKCXJvb21fbmFtZRgBIAEoCRIQCghp",
-            "ZGVudGl0eRgCIAEoCRIUCgxzY3JlZW5fc2hhcmUYAyABKAgSMAoGcHJlc2V0",
-            "GAQgASgOMh4ubGl2ZWtpdC5FbmNvZGluZ09wdGlvbnNQcmVzZXRIABIsCghh",
-            "ZHZhbmNlZBgFIAEoCzIYLmxpdmVraXQuRW5jb2RpbmdPcHRpb25zSAASMAoM",
-            "ZmlsZV9vdXRwdXRzGAYgAygLMhoubGl2ZWtpdC5FbmNvZGVkRmlsZU91dHB1",
-            "dBItCg5zdHJlYW1fb3V0cHV0cxgHIAMoCzIVLmxpdmVraXQuU3RyZWFtT3V0",
-            "cHV0EjUKD3NlZ21lbnRfb3V0cHV0cxgIIAMoCzIcLmxpdmVraXQuU2VnbWVu",
-            "dGVkRmlsZU91dHB1dBIrCg1pbWFnZV9vdXRwdXRzGAkgAygLMhQubGl2ZWtp",
-            "dC5JbWFnZU91dHB1dEIJCgdvcHRpb25zIq0EChtUcmFja0NvbXBvc2l0ZUVn",
-            "cmVzc1JlcXVlc3QSEQoJcm9vbV9uYW1lGAEgASgJEhYKDmF1ZGlvX3RyYWNr",
-            "X2lkGAIgASgJEhYKDnZpZGVvX3RyYWNrX2lkGAMgASgJEi4KBGZpbGUYBCAB",
-            "KAsyGi5saXZla2l0LkVuY29kZWRGaWxlT3V0cHV0QgIYAUgAEisKBnN0cmVh",
-            "bRgFIAEoCzIVLmxpdmVraXQuU3RyZWFtT3V0cHV0QgIYAUgAEjQKCHNlZ21l",
-            "bnRzGAggASgLMhwubGl2ZWtpdC5TZWdtZW50ZWRGaWxlT3V0cHV0QgIYAUgA",
-            "EjAKBnByZXNldBgGIAEoDjIeLmxpdmVraXQuRW5jb2RpbmdPcHRpb25zUHJl",
-            "c2V0SAESLAoIYWR2YW5jZWQYByABKAsyGC5saXZla2l0LkVuY29kaW5nT3B0",
-            "aW9uc0gBEjAKDGZpbGVfb3V0cHV0cxgLIAMoCzIaLmxpdmVraXQuRW5jb2Rl",
-            "ZEZpbGVPdXRwdXQSLQoOc3RyZWFtX291dHB1dHMYDCADKAsyFS5saXZla2l0",
-            "LlN0cmVhbU91dHB1dBI1Cg9zZWdtZW50X291dHB1dHMYDSADKAsyHC5saXZl",
-            "a2l0LlNlZ21lbnRlZEZpbGVPdXRwdXQSKwoNaW1hZ2Vfb3V0cHV0cxgOIAMo",
-            "CzIULmxpdmVraXQuSW1hZ2VPdXRwdXRCCAoGb3V0cHV0QgkKB29wdGlvbnMi",
-            "hwEKElRyYWNrRWdyZXNzUmVxdWVzdBIRCglyb29tX25hbWUYASABKAkSEAoI",
-            "dHJhY2tfaWQYAiABKAkSKQoEZmlsZRgDIAEoCzIZLmxpdmVraXQuRGlyZWN0",
-            "RmlsZU91dHB1dEgAEhcKDXdlYnNvY2tldF91cmwYBCABKAlIAEIICgZvdXRw",
-            "dXQijgIKEUVuY29kZWRGaWxlT3V0cHV0EisKCWZpbGVfdHlwZRgBIAEoDjIY",
-            "LmxpdmVraXQuRW5jb2RlZEZpbGVUeXBlEhAKCGZpbGVwYXRoGAIgASgJEhgK",
-            "EGRpc2FibGVfbWFuaWZlc3QYBiABKAgSHwoCczMYAyABKAsyES5saXZla2l0",
-            "LlMzVXBsb2FkSAASIQoDZ2NwGAQgASgLMhIubGl2ZWtpdC5HQ1BVcGxvYWRI",
-            "ABIpCgVhenVyZRgFIAEoCzIYLmxpdmVraXQuQXp1cmVCbG9iVXBsb2FkSAAS",
-            "JwoGYWxpT1NTGAcgASgLMhUubGl2ZWtpdC5BbGlPU1NVcGxvYWRIAEIICgZv",
-            "dXRwdXQioAMKE1NlZ21lbnRlZEZpbGVPdXRwdXQSMAoIcHJvdG9jb2wYASAB",
-            "KA4yHi5saXZla2l0LlNlZ21lbnRlZEZpbGVQcm90b2NvbBIXCg9maWxlbmFt",
-            "ZV9wcmVmaXgYAiABKAkSFQoNcGxheWxpc3RfbmFtZRgDIAEoCRIaChJsaXZl",
-            "X3BsYXlsaXN0X25hbWUYCyABKAkSGAoQc2VnbWVudF9kdXJhdGlvbhgEIAEo",
-            "DRI1Cg9maWxlbmFtZV9zdWZmaXgYCiABKA4yHC5saXZla2l0LlNlZ21lbnRl",
-            "ZEZpbGVTdWZmaXgSGAoQZGlzYWJsZV9tYW5pZmVzdBgIIAEoCBIfCgJzMxgF",
-            "IAEoCzIRLmxpdmVraXQuUzNVcGxvYWRIABIhCgNnY3AYBiABKAsyEi5saXZl",
-            "a2l0LkdDUFVwbG9hZEgAEikKBWF6dXJlGAcgASgLMhgubGl2ZWtpdC5BenVy",
-            "ZUJsb2JVcGxvYWRIABInCgZhbGlPU1MYCSABKAsyFS5saXZla2l0LkFsaU9T",
-            "U1VwbG9hZEgAQggKBm91dHB1dCLgAQoQRGlyZWN0RmlsZU91dHB1dBIQCghm",
-            "aWxlcGF0aBgBIAEoCRIYChBkaXNhYmxlX21hbmlmZXN0GAUgASgIEh8KAnMz",
-            "GAIgASgLMhEubGl2ZWtpdC5TM1VwbG9hZEgAEiEKA2djcBgDIAEoCzISLmxp",
-            "dmVraXQuR0NQVXBsb2FkSAASKQoFYXp1cmUYBCABKAsyGC5saXZla2l0LkF6",
-            "dXJlQmxvYlVwbG9hZEgAEicKBmFsaU9TUxgGIAEoCzIVLmxpdmVraXQuQWxp",
-            "T1NTVXBsb2FkSABCCAoGb3V0cHV0IvgCCgtJbWFnZU91dHB1dBIYChBjYXB0",
-            "dXJlX2ludGVydmFsGAEgASgNEg0KBXdpZHRoGAIgASgFEg4KBmhlaWdodBgD",
-            "IAEoBRIXCg9maWxlbmFtZV9wcmVmaXgYBCABKAkSMQoPZmlsZW5hbWVfc3Vm",
-            "Zml4GAUgASgOMhgubGl2ZWtpdC5JbWFnZUZpbGVTdWZmaXgSKAoLaW1hZ2Vf",
-            "Y29kZWMYBiABKA4yEy5saXZla2l0LkltYWdlQ29kZWMSGAoQZGlzYWJsZV9t",
-            "YW5pZmVzdBgHIAEoCBIfCgJzMxgIIAEoCzIRLmxpdmVraXQuUzNVcGxvYWRI",
-            "ABIhCgNnY3AYCSABKAsyEi5saXZla2l0LkdDUFVwbG9hZEgAEikKBWF6dXJl",
-            "GAogASgLMhgubGl2ZWtpdC5BenVyZUJsb2JVcGxvYWRIABInCgZhbGlPU1MY",
-            "CyABKAsyFS5saXZla2l0LkFsaU9TU1VwbG9hZEgAQggKBm91dHB1dCLIAgoI",
-            "UzNVcGxvYWQSEgoKYWNjZXNzX2tleRgBIAEoCRIOCgZzZWNyZXQYAiABKAkS",
-            "FQoNc2Vzc2lvbl90b2tlbhgLIAEoCRIOCgZyZWdpb24YAyABKAkSEAoIZW5k",
-            "cG9pbnQYBCABKAkSDgoGYnVja2V0GAUgASgJEhgKEGZvcmNlX3BhdGhfc3R5",
-            "bGUYBiABKAgSMQoIbWV0YWRhdGEYByADKAsyHy5saXZla2l0LlMzVXBsb2Fk",
-            "Lk1ldGFkYXRhRW50cnkSDwoHdGFnZ2luZxgIIAEoCRIbChNjb250ZW50X2Rp",
-            "c3Bvc2l0aW9uGAkgASgJEiMKBXByb3h5GAogASgLMhQubGl2ZWtpdC5Qcm94",
-            "eUNvbmZpZxovCg1NZXRhZGF0YUVudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1",
-            "ZRgCIAEoCToCOAEiVQoJR0NQVXBsb2FkEhMKC2NyZWRlbnRpYWxzGAEgASgJ",
-            "Eg4KBmJ1Y2tldBgCIAEoCRIjCgVwcm94eRgDIAEoCzIULmxpdmVraXQuUHJv",
-            "eHlDb25maWciVAoPQXp1cmVCbG9iVXBsb2FkEhQKDGFjY291bnRfbmFtZRgB",
-            "IAEoCRITCgthY2NvdW50X2tleRgCIAEoCRIWCg5jb250YWluZXJfbmFtZRgD",
-            "IAEoCSJkCgxBbGlPU1NVcGxvYWQSEgoKYWNjZXNzX2tleRgBIAEoCRIOCgZz",
-            "ZWNyZXQYAiABKAkSDgoGcmVnaW9uGAMgASgJEhAKCGVuZHBvaW50GAQgASgJ",
-            "Eg4KBmJ1Y2tldBgFIAEoCSI+CgtQcm94eUNvbmZpZxILCgN1cmwYASABKAkS",
-            "EAoIdXNlcm5hbWUYAiABKAkSEAoIcGFzc3dvcmQYAyABKAkiRwoMU3RyZWFt",
-            "T3V0cHV0EikKCHByb3RvY29sGAEgASgOMhcubGl2ZWtpdC5TdHJlYW1Qcm90",
-            "b2NvbBIMCgR1cmxzGAIgAygJIrcCCg9FbmNvZGluZ09wdGlvbnMSDQoFd2lk",
-            "dGgYASABKAUSDgoGaGVpZ2h0GAIgASgFEg0KBWRlcHRoGAMgASgFEhEKCWZy",
-            "YW1lcmF0ZRgEIAEoBRIoCgthdWRpb19jb2RlYxgFIAEoDjITLmxpdmVraXQu",
-            "QXVkaW9Db2RlYxIVCg1hdWRpb19iaXRyYXRlGAYgASgFEhUKDWF1ZGlvX3F1",
-            "YWxpdHkYCyABKAUSFwoPYXVkaW9fZnJlcXVlbmN5GAcgASgFEigKC3ZpZGVv",
-            "X2NvZGVjGAggASgOMhMubGl2ZWtpdC5WaWRlb0NvZGVjEhUKDXZpZGVvX2Jp",
-            "dHJhdGUYCSABKAUSFQoNdmlkZW9fcXVhbGl0eRgMIAEoBRIaChJrZXlfZnJh",
-            "bWVfaW50ZXJ2YWwYCiABKAEiOAoTVXBkYXRlTGF5b3V0UmVxdWVzdBIRCgll",
-            "Z3Jlc3NfaWQYASABKAkSDgoGbGF5b3V0GAIgASgJIl0KE1VwZGF0ZVN0cmVh",
-            "bVJlcXVlc3QSEQoJZWdyZXNzX2lkGAEgASgJEhcKD2FkZF9vdXRwdXRfdXJs",
-            "cxgCIAMoCRIaChJyZW1vdmVfb3V0cHV0X3VybHMYAyADKAkiSQoRTGlzdEVn",
-            "cmVzc1JlcXVlc3QSEQoJcm9vbV9uYW1lGAEgASgJEhEKCWVncmVzc19pZBgC",
-            "IAEoCRIOCgZhY3RpdmUYAyABKAgiOAoSTGlzdEVncmVzc1Jlc3BvbnNlEiIK",
-            "BWl0ZW1zGAEgAygLMhMubGl2ZWtpdC5FZ3Jlc3NJbmZvIiYKEVN0b3BFZ3Jl",
-            "c3NSZXF1ZXN0EhEKCWVncmVzc19pZBgBIAEoCSKeBwoKRWdyZXNzSW5mbxIR",
-            "CgllZ3Jlc3NfaWQYASABKAkSDwoHcm9vbV9pZBgCIAEoCRIRCglyb29tX25h",
-            "bWUYDSABKAkSLgoLc291cmNlX3R5cGUYGiABKA4yGS5saXZla2l0LkVncmVz",
-            "c1NvdXJjZVR5cGUSJQoGc3RhdHVzGAMgASgOMhUubGl2ZWtpdC5FZ3Jlc3NT",
-            "dGF0dXMSEgoKc3RhcnRlZF9hdBgKIAEoAxIQCghlbmRlZF9hdBgLIAEoAxIS",
-            "Cgp1cGRhdGVkX2F0GBIgASgDEg8KB2RldGFpbHMYFSABKAkSDQoFZXJyb3IY",
-            "CSABKAkSEgoKZXJyb3JfY29kZRgWIAEoBRI9Cg5yb29tX2NvbXBvc2l0ZRgE",
-            "IAEoCzIjLmxpdmVraXQuUm9vbUNvbXBvc2l0ZUVncmVzc1JlcXVlc3RIABIo",
-            "CgN3ZWIYDiABKAsyGS5saXZla2l0LldlYkVncmVzc1JlcXVlc3RIABI4Cgtw",
-            "YXJ0aWNpcGFudBgTIAEoCzIhLmxpdmVraXQuUGFydGljaXBhbnRFZ3Jlc3NS",
-            "ZXF1ZXN0SAASPwoPdHJhY2tfY29tcG9zaXRlGAUgASgLMiQubGl2ZWtpdC5U",
-            "cmFja0NvbXBvc2l0ZUVncmVzc1JlcXVlc3RIABIsCgV0cmFjaxgGIAEoCzIb",
-            "LmxpdmVraXQuVHJhY2tFZ3Jlc3NSZXF1ZXN0SAASLQoGc3RyZWFtGAcgASgL",
-            "MhcubGl2ZWtpdC5TdHJlYW1JbmZvTGlzdEICGAFIARIlCgRmaWxlGAggASgL",
-            "MhEubGl2ZWtpdC5GaWxlSW5mb0ICGAFIARItCghzZWdtZW50cxgMIAEoCzIV",
-            "LmxpdmVraXQuU2VnbWVudHNJbmZvQgIYAUgBEisKDnN0cmVhbV9yZXN1bHRz",
-            "GA8gAygLMhMubGl2ZWtpdC5TdHJlYW1JbmZvEicKDGZpbGVfcmVzdWx0cxgQ",
-            "IAMoCzIRLmxpdmVraXQuRmlsZUluZm8SLgoPc2VnbWVudF9yZXN1bHRzGBEg",
-            "AygLMhUubGl2ZWtpdC5TZWdtZW50c0luZm8SKgoNaW1hZ2VfcmVzdWx0cxgU",
-            "IAMoCzITLmxpdmVraXQuSW1hZ2VzSW5mbxIZChFtYW5pZmVzdF9sb2NhdGlv",
-            "bhgXIAEoCRIbChNiYWNrdXBfc3RvcmFnZV91c2VkGBkgASgIQgkKB3JlcXVl",
-            "c3RCCAoGcmVzdWx0IjcKDlN0cmVhbUluZm9MaXN0EiEKBGluZm8YASADKAsy",
-            "Ey5saXZla2l0LlN0cmVhbUluZm86AhgBIrwBCgpTdHJlYW1JbmZvEgsKA3Vy",
-            "bBgBIAEoCRISCgpzdGFydGVkX2F0GAIgASgDEhAKCGVuZGVkX2F0GAMgASgD",
-            "EhAKCGR1cmF0aW9uGAQgASgDEioKBnN0YXR1cxgFIAEoDjIaLmxpdmVraXQu",
-            "U3RyZWFtSW5mby5TdGF0dXMSDQoFZXJyb3IYBiABKAkiLgoGU3RhdHVzEgoK",
-            "BkFDVElWRRAAEgwKCEZJTklTSEVEEAESCgoGRkFJTEVEEAIidAoIRmlsZUlu",
-            "Zm8SEAoIZmlsZW5hbWUYASABKAkSEgoKc3RhcnRlZF9hdBgCIAEoAxIQCghl",
-            "bmRlZF9hdBgDIAEoAxIQCghkdXJhdGlvbhgGIAEoAxIMCgRzaXplGAQgASgD",
-            "EhAKCGxvY2F0aW9uGAUgASgJItkBCgxTZWdtZW50c0luZm8SFQoNcGxheWxp",
-            "c3RfbmFtZRgBIAEoCRIaChJsaXZlX3BsYXlsaXN0X25hbWUYCCABKAkSEAoI",
-            "ZHVyYXRpb24YAiABKAMSDAoEc2l6ZRgDIAEoAxIZChFwbGF5bGlzdF9sb2Nh",
-            "dGlvbhgEIAEoCRIeChZsaXZlX3BsYXlsaXN0X2xvY2F0aW9uGAkgASgJEhUK",
-            "DXNlZ21lbnRfY291bnQYBSABKAMSEgoKc3RhcnRlZF9hdBgGIAEoAxIQCghl",
-            "bmRlZF9hdBgHIAEoAyJgCgpJbWFnZXNJbmZvEhcKD2ZpbGVuYW1lX3ByZWZp",
-            "eBgEIAEoCRITCgtpbWFnZV9jb3VudBgBIAEoAxISCgpzdGFydGVkX2F0GAIg",
-            "ASgDEhAKCGVuZGVkX2F0GAMgASgDIusBChVBdXRvUGFydGljaXBhbnRFZ3Jl",
-            "c3MSMAoGcHJlc2V0GAEgASgOMh4ubGl2ZWtpdC5FbmNvZGluZ09wdGlvbnNQ",
-            "cmVzZXRIABIsCghhZHZhbmNlZBgCIAEoCzIYLmxpdmVraXQuRW5jb2RpbmdP",
-            "cHRpb25zSAASMAoMZmlsZV9vdXRwdXRzGAMgAygLMhoubGl2ZWtpdC5FbmNv",
-            "ZGVkRmlsZU91dHB1dBI1Cg9zZWdtZW50X291dHB1dHMYBCADKAsyHC5saXZl",
-            "a2l0LlNlZ21lbnRlZEZpbGVPdXRwdXRCCQoHb3B0aW9ucyLfAQoPQXV0b1Ry",
-            "YWNrRWdyZXNzEhAKCGZpbGVwYXRoGAEgASgJEhgKEGRpc2FibGVfbWFuaWZl",
-            "c3QYBSABKAgSHwoCczMYAiABKAsyES5saXZla2l0LlMzVXBsb2FkSAASIQoD",
-            "Z2NwGAMgASgLMhIubGl2ZWtpdC5HQ1BVcGxvYWRIABIpCgVhenVyZRgEIAEo",
-            "CzIYLmxpdmVraXQuQXp1cmVCbG9iVXBsb2FkSAASJwoGYWxpT1NTGAYgASgL",
-            "MhUubGl2ZWtpdC5BbGlPU1NVcGxvYWRIAEIICgZvdXRwdXQqOQoPRW5jb2Rl",
-            "ZEZpbGVUeXBlEhQKEERFRkFVTFRfRklMRVRZUEUQABIHCgNNUDQQARIHCgNP",
-            "R0cQAipOChVTZWdtZW50ZWRGaWxlUHJvdG9jb2wSIwofREVGQVVMVF9TRUdN",
-            "RU5URURfRklMRV9QUk9UT0NPTBAAEhAKDEhMU19QUk9UT0NPTBABKi8KE1Nl",
-            "Z21lbnRlZEZpbGVTdWZmaXgSCQoFSU5ERVgQABINCglUSU1FU1RBTVAQASpF",
-            "Cg9JbWFnZUZpbGVTdWZmaXgSFgoSSU1BR0VfU1VGRklYX0lOREVYEAASGgoW",
-            "SU1BR0VfU1VGRklYX1RJTUVTVEFNUBABKjkKDlN0cmVhbVByb3RvY29sEhQK",
-            "EERFRkFVTFRfUFJPVE9DT0wQABIICgRSVE1QEAESBwoDU1JUEAIqVQoLQXVk",
-            "aW9NaXhpbmcSEgoOREVGQVVMVF9NSVhJTkcQABIWChJEVUFMX0NIQU5ORUxf",
-            "QUdFTlQQARIaChZEVUFMX0NIQU5ORUxfQUxURVJOQVRFEAIqzwEKFUVuY29k",
-            "aW5nT3B0aW9uc1ByZXNldBIQCgxIMjY0XzcyMFBfMzAQABIQCgxIMjY0Xzcy",
-            "MFBfNjAQARIRCg1IMjY0XzEwODBQXzMwEAISEQoNSDI2NF8xMDgwUF82MBAD",
-            "EhkKFVBPUlRSQUlUX0gyNjRfNzIwUF8zMBAEEhkKFVBPUlRSQUlUX0gyNjRf",
-            "NzIwUF82MBAFEhoKFlBPUlRSQUlUX0gyNjRfMTA4MFBfMzAQBhIaChZQT1JU",
-            "UkFJVF9IMjY0XzEwODBQXzYwEAcqnwEKDEVncmVzc1N0YXR1cxITCg9FR1JF",
-            "U1NfU1RBUlRJTkcQABIRCg1FR1JFU1NfQUNUSVZFEAESEQoNRUdSRVNTX0VO",
-            "RElORxACEhMKD0VHUkVTU19DT01QTEVURRADEhEKDUVHUkVTU19GQUlMRUQQ",
-            "BBISCg5FR1JFU1NfQUJPUlRFRBAFEhgKFEVHUkVTU19MSU1JVF9SRUFDSEVE",
-            "EAYqSgoQRWdyZXNzU291cmNlVHlwZRIaChZFR1JFU1NfU09VUkNFX1RZUEVf",
-            "V0VCEAASGgoWRUdSRVNTX1NPVVJDRV9UWVBFX1NESxABMpwFCgZFZ3Jlc3MS",
-            "VAoYU3RhcnRSb29tQ29tcG9zaXRlRWdyZXNzEiMubGl2ZWtpdC5Sb29tQ29t",
-            "cG9zaXRlRWdyZXNzUmVxdWVzdBoTLmxpdmVraXQuRWdyZXNzSW5mbxJACg5T",
-            "dGFydFdlYkVncmVzcxIZLmxpdmVraXQuV2ViRWdyZXNzUmVxdWVzdBoTLmxp",
-            "dmVraXQuRWdyZXNzSW5mbxJQChZTdGFydFBhcnRpY2lwYW50RWdyZXNzEiEu",
-            "bGl2ZWtpdC5QYXJ0aWNpcGFudEVncmVzc1JlcXVlc3QaEy5saXZla2l0LkVn",
-            "cmVzc0luZm8SVgoZU3RhcnRUcmFja0NvbXBvc2l0ZUVncmVzcxIkLmxpdmVr",
-            "aXQuVHJhY2tDb21wb3NpdGVFZ3Jlc3NSZXF1ZXN0GhMubGl2ZWtpdC5FZ3Jl",
-            "c3NJbmZvEkQKEFN0YXJ0VHJhY2tFZ3Jlc3MSGy5saXZla2l0LlRyYWNrRWdy",
-            "ZXNzUmVxdWVzdBoTLmxpdmVraXQuRWdyZXNzSW5mbxJBCgxVcGRhdGVMYXlv",
-            "dXQSHC5saXZla2l0LlVwZGF0ZUxheW91dFJlcXVlc3QaEy5saXZla2l0LkVn",
-            "cmVzc0luZm8SQQoMVXBkYXRlU3RyZWFtEhwubGl2ZWtpdC5VcGRhdGVTdHJl",
-            "YW1SZXF1ZXN0GhMubGl2ZWtpdC5FZ3Jlc3NJbmZvEkUKCkxpc3RFZ3Jlc3MS",
-            "Gi5saXZla2l0Lkxpc3RFZ3Jlc3NSZXF1ZXN0GhsubGl2ZWtpdC5MaXN0RWdy",
-            "ZXNzUmVzcG9uc2USPQoKU3RvcEVncmVzcxIaLmxpdmVraXQuU3RvcEVncmVz",
-            "c1JlcXVlc3QaEy5saXZla2l0LkVncmVzc0luZm9CRlojZ2l0aHViLmNvbS9s",
-            "aXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1MaXZlS2l0LlByb3Rv6gIOTGl2",
-            "ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
+            "Z2Vfb3V0cHV0cxgOIAMoCzIULmxpdmVraXQuSW1hZ2VPdXRwdXQSKAoId2Vi",
+            "aG9va3MYECADKAsyFi5saXZla2l0LldlYmhvb2tDb25maWdCCAoGb3V0cHV0",
+            "QgkKB29wdGlvbnMi2gQKEFdlYkVncmVzc1JlcXVlc3QSCwoDdXJsGAEgASgJ",
+            "EhIKCmF1ZGlvX29ubHkYAiABKAgSEgoKdmlkZW9fb25seRgDIAEoCBIaChJh",
+            "d2FpdF9zdGFydF9zaWduYWwYDCABKAgSLgoEZmlsZRgEIAEoCzIaLmxpdmVr",
+            "aXQuRW5jb2RlZEZpbGVPdXRwdXRCAhgBSAASKwoGc3RyZWFtGAUgASgLMhUu",
+            "bGl2ZWtpdC5TdHJlYW1PdXRwdXRCAhgBSAASNAoIc2VnbWVudHMYBiABKAsy",
+            "HC5saXZla2l0LlNlZ21lbnRlZEZpbGVPdXRwdXRCAhgBSAASMAoGcHJlc2V0",
+            "GAcgASgOMh4ubGl2ZWtpdC5FbmNvZGluZ09wdGlvbnNQcmVzZXRIARIsCghh",
+            "ZHZhbmNlZBgIIAEoCzIYLmxpdmVraXQuRW5jb2RpbmdPcHRpb25zSAESMAoM",
+            "ZmlsZV9vdXRwdXRzGAkgAygLMhoubGl2ZWtpdC5FbmNvZGVkRmlsZU91dHB1",
+            "dBItCg5zdHJlYW1fb3V0cHV0cxgKIAMoCzIVLmxpdmVraXQuU3RyZWFtT3V0",
+            "cHV0EjUKD3NlZ21lbnRfb3V0cHV0cxgLIAMoCzIcLmxpdmVraXQuU2VnbWVu",
+            "dGVkRmlsZU91dHB1dBIrCg1pbWFnZV9vdXRwdXRzGA0gAygLMhQubGl2ZWtp",
+            "dC5JbWFnZU91dHB1dBIoCgh3ZWJob29rcxgOIAMoCzIWLmxpdmVraXQuV2Vi",
+            "aG9va0NvbmZpZ0IICgZvdXRwdXRCCQoHb3B0aW9ucyKvAwoYUGFydGljaXBh",
+            "bnRFZ3Jlc3NSZXF1ZXN0EhEKCXJvb21fbmFtZRgBIAEoCRIQCghpZGVudGl0",
+            "eRgCIAEoCRIUCgxzY3JlZW5fc2hhcmUYAyABKAgSMAoGcHJlc2V0GAQgASgO",
+            "Mh4ubGl2ZWtpdC5FbmNvZGluZ09wdGlvbnNQcmVzZXRIABIsCghhZHZhbmNl",
+            "ZBgFIAEoCzIYLmxpdmVraXQuRW5jb2RpbmdPcHRpb25zSAASMAoMZmlsZV9v",
+            "dXRwdXRzGAYgAygLMhoubGl2ZWtpdC5FbmNvZGVkRmlsZU91dHB1dBItCg5z",
+            "dHJlYW1fb3V0cHV0cxgHIAMoCzIVLmxpdmVraXQuU3RyZWFtT3V0cHV0EjUK",
+            "D3NlZ21lbnRfb3V0cHV0cxgIIAMoCzIcLmxpdmVraXQuU2VnbWVudGVkRmls",
+            "ZU91dHB1dBIrCg1pbWFnZV9vdXRwdXRzGAkgAygLMhQubGl2ZWtpdC5JbWFn",
+            "ZU91dHB1dBIoCgh3ZWJob29rcxgKIAMoCzIWLmxpdmVraXQuV2ViaG9va0Nv",
+            "bmZpZ0IJCgdvcHRpb25zItcEChtUcmFja0NvbXBvc2l0ZUVncmVzc1JlcXVl",
+            "c3QSEQoJcm9vbV9uYW1lGAEgASgJEhYKDmF1ZGlvX3RyYWNrX2lkGAIgASgJ",
+            "EhYKDnZpZGVvX3RyYWNrX2lkGAMgASgJEi4KBGZpbGUYBCABKAsyGi5saXZl",
+            "a2l0LkVuY29kZWRGaWxlT3V0cHV0QgIYAUgAEisKBnN0cmVhbRgFIAEoCzIV",
+            "LmxpdmVraXQuU3RyZWFtT3V0cHV0QgIYAUgAEjQKCHNlZ21lbnRzGAggASgL",
+            "MhwubGl2ZWtpdC5TZWdtZW50ZWRGaWxlT3V0cHV0QgIYAUgAEjAKBnByZXNl",
+            "dBgGIAEoDjIeLmxpdmVraXQuRW5jb2RpbmdPcHRpb25zUHJlc2V0SAESLAoI",
+            "YWR2YW5jZWQYByABKAsyGC5saXZla2l0LkVuY29kaW5nT3B0aW9uc0gBEjAK",
+            "DGZpbGVfb3V0cHV0cxgLIAMoCzIaLmxpdmVraXQuRW5jb2RlZEZpbGVPdXRw",
+            "dXQSLQoOc3RyZWFtX291dHB1dHMYDCADKAsyFS5saXZla2l0LlN0cmVhbU91",
+            "dHB1dBI1Cg9zZWdtZW50X291dHB1dHMYDSADKAsyHC5saXZla2l0LlNlZ21l",
+            "bnRlZEZpbGVPdXRwdXQSKwoNaW1hZ2Vfb3V0cHV0cxgOIAMoCzIULmxpdmVr",
+            "aXQuSW1hZ2VPdXRwdXQSKAoId2ViaG9va3MYDyADKAsyFi5saXZla2l0Lldl",
+            "Ymhvb2tDb25maWdCCAoGb3V0cHV0QgkKB29wdGlvbnMisQEKElRyYWNrRWdy",
+            "ZXNzUmVxdWVzdBIRCglyb29tX25hbWUYASABKAkSEAoIdHJhY2tfaWQYAiAB",
+            "KAkSKQoEZmlsZRgDIAEoCzIZLmxpdmVraXQuRGlyZWN0RmlsZU91dHB1dEgA",
+            "EhcKDXdlYnNvY2tldF91cmwYBCABKAlIABIoCgh3ZWJob29rcxgFIAMoCzIW",
+            "LmxpdmVraXQuV2ViaG9va0NvbmZpZ0IICgZvdXRwdXQijgIKEUVuY29kZWRG",
+            "aWxlT3V0cHV0EisKCWZpbGVfdHlwZRgBIAEoDjIYLmxpdmVraXQuRW5jb2Rl",
+            "ZEZpbGVUeXBlEhAKCGZpbGVwYXRoGAIgASgJEhgKEGRpc2FibGVfbWFuaWZl",
+            "c3QYBiABKAgSHwoCczMYAyABKAsyES5saXZla2l0LlMzVXBsb2FkSAASIQoD",
+            "Z2NwGAQgASgLMhIubGl2ZWtpdC5HQ1BVcGxvYWRIABIpCgVhenVyZRgFIAEo",
+            "CzIYLmxpdmVraXQuQXp1cmVCbG9iVXBsb2FkSAASJwoGYWxpT1NTGAcgASgL",
+            "MhUubGl2ZWtpdC5BbGlPU1NVcGxvYWRIAEIICgZvdXRwdXQioAMKE1NlZ21l",
+            "bnRlZEZpbGVPdXRwdXQSMAoIcHJvdG9jb2wYASABKA4yHi5saXZla2l0LlNl",
+            "Z21lbnRlZEZpbGVQcm90b2NvbBIXCg9maWxlbmFtZV9wcmVmaXgYAiABKAkS",
+            "FQoNcGxheWxpc3RfbmFtZRgDIAEoCRIaChJsaXZlX3BsYXlsaXN0X25hbWUY",
+            "CyABKAkSGAoQc2VnbWVudF9kdXJhdGlvbhgEIAEoDRI1Cg9maWxlbmFtZV9z",
+            "dWZmaXgYCiABKA4yHC5saXZla2l0LlNlZ21lbnRlZEZpbGVTdWZmaXgSGAoQ",
+            "ZGlzYWJsZV9tYW5pZmVzdBgIIAEoCBIfCgJzMxgFIAEoCzIRLmxpdmVraXQu",
+            "UzNVcGxvYWRIABIhCgNnY3AYBiABKAsyEi5saXZla2l0LkdDUFVwbG9hZEgA",
+            "EikKBWF6dXJlGAcgASgLMhgubGl2ZWtpdC5BenVyZUJsb2JVcGxvYWRIABIn",
+            "CgZhbGlPU1MYCSABKAsyFS5saXZla2l0LkFsaU9TU1VwbG9hZEgAQggKBm91",
+            "dHB1dCLgAQoQRGlyZWN0RmlsZU91dHB1dBIQCghmaWxlcGF0aBgBIAEoCRIY",
+            "ChBkaXNhYmxlX21hbmlmZXN0GAUgASgIEh8KAnMzGAIgASgLMhEubGl2ZWtp",
+            "dC5TM1VwbG9hZEgAEiEKA2djcBgDIAEoCzISLmxpdmVraXQuR0NQVXBsb2Fk",
+            "SAASKQoFYXp1cmUYBCABKAsyGC5saXZla2l0LkF6dXJlQmxvYlVwbG9hZEgA",
+            "EicKBmFsaU9TUxgGIAEoCzIVLmxpdmVraXQuQWxpT1NTVXBsb2FkSABCCAoG",
+            "b3V0cHV0IvgCCgtJbWFnZU91dHB1dBIYChBjYXB0dXJlX2ludGVydmFsGAEg",
+            "ASgNEg0KBXdpZHRoGAIgASgFEg4KBmhlaWdodBgDIAEoBRIXCg9maWxlbmFt",
+            "ZV9wcmVmaXgYBCABKAkSMQoPZmlsZW5hbWVfc3VmZml4GAUgASgOMhgubGl2",
+            "ZWtpdC5JbWFnZUZpbGVTdWZmaXgSKAoLaW1hZ2VfY29kZWMYBiABKA4yEy5s",
+            "aXZla2l0LkltYWdlQ29kZWMSGAoQZGlzYWJsZV9tYW5pZmVzdBgHIAEoCBIf",
+            "CgJzMxgIIAEoCzIRLmxpdmVraXQuUzNVcGxvYWRIABIhCgNnY3AYCSABKAsy",
+            "Ei5saXZla2l0LkdDUFVwbG9hZEgAEikKBWF6dXJlGAogASgLMhgubGl2ZWtp",
+            "dC5BenVyZUJsb2JVcGxvYWRIABInCgZhbGlPU1MYCyABKAsyFS5saXZla2l0",
+            "LkFsaU9TU1VwbG9hZEgAQggKBm91dHB1dCLIAgoIUzNVcGxvYWQSEgoKYWNj",
+            "ZXNzX2tleRgBIAEoCRIOCgZzZWNyZXQYAiABKAkSFQoNc2Vzc2lvbl90b2tl",
+            "bhgLIAEoCRIOCgZyZWdpb24YAyABKAkSEAoIZW5kcG9pbnQYBCABKAkSDgoG",
+            "YnVja2V0GAUgASgJEhgKEGZvcmNlX3BhdGhfc3R5bGUYBiABKAgSMQoIbWV0",
+            "YWRhdGEYByADKAsyHy5saXZla2l0LlMzVXBsb2FkLk1ldGFkYXRhRW50cnkS",
+            "DwoHdGFnZ2luZxgIIAEoCRIbChNjb250ZW50X2Rpc3Bvc2l0aW9uGAkgASgJ",
+            "EiMKBXByb3h5GAogASgLMhQubGl2ZWtpdC5Qcm94eUNvbmZpZxovCg1NZXRh",
+            "ZGF0YUVudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiVQoJ",
+            "R0NQVXBsb2FkEhMKC2NyZWRlbnRpYWxzGAEgASgJEg4KBmJ1Y2tldBgCIAEo",
+            "CRIjCgVwcm94eRgDIAEoCzIULmxpdmVraXQuUHJveHlDb25maWciVAoPQXp1",
+            "cmVCbG9iVXBsb2FkEhQKDGFjY291bnRfbmFtZRgBIAEoCRITCgthY2NvdW50",
+            "X2tleRgCIAEoCRIWCg5jb250YWluZXJfbmFtZRgDIAEoCSJkCgxBbGlPU1NV",
+            "cGxvYWQSEgoKYWNjZXNzX2tleRgBIAEoCRIOCgZzZWNyZXQYAiABKAkSDgoG",
+            "cmVnaW9uGAMgASgJEhAKCGVuZHBvaW50GAQgASgJEg4KBmJ1Y2tldBgFIAEo",
+            "CSI+CgtQcm94eUNvbmZpZxILCgN1cmwYASABKAkSEAoIdXNlcm5hbWUYAiAB",
+            "KAkSEAoIcGFzc3dvcmQYAyABKAkiRwoMU3RyZWFtT3V0cHV0EikKCHByb3Rv",
+            "Y29sGAEgASgOMhcubGl2ZWtpdC5TdHJlYW1Qcm90b2NvbBIMCgR1cmxzGAIg",
+            "AygJIrcCCg9FbmNvZGluZ09wdGlvbnMSDQoFd2lkdGgYASABKAUSDgoGaGVp",
+            "Z2h0GAIgASgFEg0KBWRlcHRoGAMgASgFEhEKCWZyYW1lcmF0ZRgEIAEoBRIo",
+            "CgthdWRpb19jb2RlYxgFIAEoDjITLmxpdmVraXQuQXVkaW9Db2RlYxIVCg1h",
+            "dWRpb19iaXRyYXRlGAYgASgFEhUKDWF1ZGlvX3F1YWxpdHkYCyABKAUSFwoP",
+            "YXVkaW9fZnJlcXVlbmN5GAcgASgFEigKC3ZpZGVvX2NvZGVjGAggASgOMhMu",
+            "bGl2ZWtpdC5WaWRlb0NvZGVjEhUKDXZpZGVvX2JpdHJhdGUYCSABKAUSFQoN",
+            "dmlkZW9fcXVhbGl0eRgMIAEoBRIaChJrZXlfZnJhbWVfaW50ZXJ2YWwYCiAB",
+            "KAEiOAoTVXBkYXRlTGF5b3V0UmVxdWVzdBIRCgllZ3Jlc3NfaWQYASABKAkS",
+            "DgoGbGF5b3V0GAIgASgJIl0KE1VwZGF0ZVN0cmVhbVJlcXVlc3QSEQoJZWdy",
+            "ZXNzX2lkGAEgASgJEhcKD2FkZF9vdXRwdXRfdXJscxgCIAMoCRIaChJyZW1v",
+            "dmVfb3V0cHV0X3VybHMYAyADKAkiSQoRTGlzdEVncmVzc1JlcXVlc3QSEQoJ",
+            "cm9vbV9uYW1lGAEgASgJEhEKCWVncmVzc19pZBgCIAEoCRIOCgZhY3RpdmUY",
+            "AyABKAgiOAoSTGlzdEVncmVzc1Jlc3BvbnNlEiIKBWl0ZW1zGAEgAygLMhMu",
+            "bGl2ZWtpdC5FZ3Jlc3NJbmZvIiYKEVN0b3BFZ3Jlc3NSZXF1ZXN0EhEKCWVn",
+            "cmVzc19pZBgBIAEoCSKeBwoKRWdyZXNzSW5mbxIRCgllZ3Jlc3NfaWQYASAB",
+            "KAkSDwoHcm9vbV9pZBgCIAEoCRIRCglyb29tX25hbWUYDSABKAkSLgoLc291",
+            "cmNlX3R5cGUYGiABKA4yGS5saXZla2l0LkVncmVzc1NvdXJjZVR5cGUSJQoG",
+            "c3RhdHVzGAMgASgOMhUubGl2ZWtpdC5FZ3Jlc3NTdGF0dXMSEgoKc3RhcnRl",
+            "ZF9hdBgKIAEoAxIQCghlbmRlZF9hdBgLIAEoAxISCgp1cGRhdGVkX2F0GBIg",
+            "ASgDEg8KB2RldGFpbHMYFSABKAkSDQoFZXJyb3IYCSABKAkSEgoKZXJyb3Jf",
+            "Y29kZRgWIAEoBRI9Cg5yb29tX2NvbXBvc2l0ZRgEIAEoCzIjLmxpdmVraXQu",
+            "Um9vbUNvbXBvc2l0ZUVncmVzc1JlcXVlc3RIABIoCgN3ZWIYDiABKAsyGS5s",
+            "aXZla2l0LldlYkVncmVzc1JlcXVlc3RIABI4CgtwYXJ0aWNpcGFudBgTIAEo",
+            "CzIhLmxpdmVraXQuUGFydGljaXBhbnRFZ3Jlc3NSZXF1ZXN0SAASPwoPdHJh",
+            "Y2tfY29tcG9zaXRlGAUgASgLMiQubGl2ZWtpdC5UcmFja0NvbXBvc2l0ZUVn",
+            "cmVzc1JlcXVlc3RIABIsCgV0cmFjaxgGIAEoCzIbLmxpdmVraXQuVHJhY2tF",
+            "Z3Jlc3NSZXF1ZXN0SAASLQoGc3RyZWFtGAcgASgLMhcubGl2ZWtpdC5TdHJl",
+            "YW1JbmZvTGlzdEICGAFIARIlCgRmaWxlGAggASgLMhEubGl2ZWtpdC5GaWxl",
+            "SW5mb0ICGAFIARItCghzZWdtZW50cxgMIAEoCzIVLmxpdmVraXQuU2VnbWVu",
+            "dHNJbmZvQgIYAUgBEisKDnN0cmVhbV9yZXN1bHRzGA8gAygLMhMubGl2ZWtp",
+            "dC5TdHJlYW1JbmZvEicKDGZpbGVfcmVzdWx0cxgQIAMoCzIRLmxpdmVraXQu",
+            "RmlsZUluZm8SLgoPc2VnbWVudF9yZXN1bHRzGBEgAygLMhUubGl2ZWtpdC5T",
+            "ZWdtZW50c0luZm8SKgoNaW1hZ2VfcmVzdWx0cxgUIAMoCzITLmxpdmVraXQu",
+            "SW1hZ2VzSW5mbxIZChFtYW5pZmVzdF9sb2NhdGlvbhgXIAEoCRIbChNiYWNr",
+            "dXBfc3RvcmFnZV91c2VkGBkgASgIQgkKB3JlcXVlc3RCCAoGcmVzdWx0IjcK",
+            "DlN0cmVhbUluZm9MaXN0EiEKBGluZm8YASADKAsyEy5saXZla2l0LlN0cmVh",
+            "bUluZm86AhgBIrwBCgpTdHJlYW1JbmZvEgsKA3VybBgBIAEoCRISCgpzdGFy",
+            "dGVkX2F0GAIgASgDEhAKCGVuZGVkX2F0GAMgASgDEhAKCGR1cmF0aW9uGAQg",
+            "ASgDEioKBnN0YXR1cxgFIAEoDjIaLmxpdmVraXQuU3RyZWFtSW5mby5TdGF0",
+            "dXMSDQoFZXJyb3IYBiABKAkiLgoGU3RhdHVzEgoKBkFDVElWRRAAEgwKCEZJ",
+            "TklTSEVEEAESCgoGRkFJTEVEEAIidAoIRmlsZUluZm8SEAoIZmlsZW5hbWUY",
+            "ASABKAkSEgoKc3RhcnRlZF9hdBgCIAEoAxIQCghlbmRlZF9hdBgDIAEoAxIQ",
+            "CghkdXJhdGlvbhgGIAEoAxIMCgRzaXplGAQgASgDEhAKCGxvY2F0aW9uGAUg",
+            "ASgJItkBCgxTZWdtZW50c0luZm8SFQoNcGxheWxpc3RfbmFtZRgBIAEoCRIa",
+            "ChJsaXZlX3BsYXlsaXN0X25hbWUYCCABKAkSEAoIZHVyYXRpb24YAiABKAMS",
+            "DAoEc2l6ZRgDIAEoAxIZChFwbGF5bGlzdF9sb2NhdGlvbhgEIAEoCRIeChZs",
+            "aXZlX3BsYXlsaXN0X2xvY2F0aW9uGAkgASgJEhUKDXNlZ21lbnRfY291bnQY",
+            "BSABKAMSEgoKc3RhcnRlZF9hdBgGIAEoAxIQCghlbmRlZF9hdBgHIAEoAyJg",
+            "CgpJbWFnZXNJbmZvEhcKD2ZpbGVuYW1lX3ByZWZpeBgEIAEoCRITCgtpbWFn",
+            "ZV9jb3VudBgBIAEoAxISCgpzdGFydGVkX2F0GAIgASgDEhAKCGVuZGVkX2F0",
+            "GAMgASgDIusBChVBdXRvUGFydGljaXBhbnRFZ3Jlc3MSMAoGcHJlc2V0GAEg",
+            "ASgOMh4ubGl2ZWtpdC5FbmNvZGluZ09wdGlvbnNQcmVzZXRIABIsCghhZHZh",
+            "bmNlZBgCIAEoCzIYLmxpdmVraXQuRW5jb2RpbmdPcHRpb25zSAASMAoMZmls",
+            "ZV9vdXRwdXRzGAMgAygLMhoubGl2ZWtpdC5FbmNvZGVkRmlsZU91dHB1dBI1",
+            "Cg9zZWdtZW50X291dHB1dHMYBCADKAsyHC5saXZla2l0LlNlZ21lbnRlZEZp",
+            "bGVPdXRwdXRCCQoHb3B0aW9ucyLfAQoPQXV0b1RyYWNrRWdyZXNzEhAKCGZp",
+            "bGVwYXRoGAEgASgJEhgKEGRpc2FibGVfbWFuaWZlc3QYBSABKAgSHwoCczMY",
+            "AiABKAsyES5saXZla2l0LlMzVXBsb2FkSAASIQoDZ2NwGAMgASgLMhIubGl2",
+            "ZWtpdC5HQ1BVcGxvYWRIABIpCgVhenVyZRgEIAEoCzIYLmxpdmVraXQuQXp1",
+            "cmVCbG9iVXBsb2FkSAASJwoGYWxpT1NTGAYgASgLMhUubGl2ZWtpdC5BbGlP",
+            "U1NVcGxvYWRIAEIICgZvdXRwdXQqOQoPRW5jb2RlZEZpbGVUeXBlEhQKEERF",
+            "RkFVTFRfRklMRVRZUEUQABIHCgNNUDQQARIHCgNPR0cQAipOChVTZWdtZW50",
+            "ZWRGaWxlUHJvdG9jb2wSIwofREVGQVVMVF9TRUdNRU5URURfRklMRV9QUk9U",
+            "T0NPTBAAEhAKDEhMU19QUk9UT0NPTBABKi8KE1NlZ21lbnRlZEZpbGVTdWZm",
+            "aXgSCQoFSU5ERVgQABINCglUSU1FU1RBTVAQASpmCg9JbWFnZUZpbGVTdWZm",
+            "aXgSFgoSSU1BR0VfU1VGRklYX0lOREVYEAASGgoWSU1BR0VfU1VGRklYX1RJ",
+            "TUVTVEFNUBABEh8KG0lNQUdFX1NVRkZJWF9OT05FX09WRVJXUklURRACKjkK",
+            "DlN0cmVhbVByb3RvY29sEhQKEERFRkFVTFRfUFJPVE9DT0wQABIICgRSVE1Q",
+            "EAESBwoDU1JUEAIqVQoLQXVkaW9NaXhpbmcSEgoOREVGQVVMVF9NSVhJTkcQ",
+            "ABIWChJEVUFMX0NIQU5ORUxfQUdFTlQQARIaChZEVUFMX0NIQU5ORUxfQUxU",
+            "RVJOQVRFEAIqzwEKFUVuY29kaW5nT3B0aW9uc1ByZXNldBIQCgxIMjY0Xzcy",
+            "MFBfMzAQABIQCgxIMjY0XzcyMFBfNjAQARIRCg1IMjY0XzEwODBQXzMwEAIS",
+            "EQoNSDI2NF8xMDgwUF82MBADEhkKFVBPUlRSQUlUX0gyNjRfNzIwUF8zMBAE",
+            "EhkKFVBPUlRSQUlUX0gyNjRfNzIwUF82MBAFEhoKFlBPUlRSQUlUX0gyNjRf",
+            "MTA4MFBfMzAQBhIaChZQT1JUUkFJVF9IMjY0XzEwODBQXzYwEAcqnwEKDEVn",
+            "cmVzc1N0YXR1cxITCg9FR1JFU1NfU1RBUlRJTkcQABIRCg1FR1JFU1NfQUNU",
+            "SVZFEAESEQoNRUdSRVNTX0VORElORxACEhMKD0VHUkVTU19DT01QTEVURRAD",
+            "EhEKDUVHUkVTU19GQUlMRUQQBBISCg5FR1JFU1NfQUJPUlRFRBAFEhgKFEVH",
+            "UkVTU19MSU1JVF9SRUFDSEVEEAYqSgoQRWdyZXNzU291cmNlVHlwZRIaChZF",
+            "R1JFU1NfU09VUkNFX1RZUEVfV0VCEAASGgoWRUdSRVNTX1NPVVJDRV9UWVBF",
+            "X1NESxABMpwFCgZFZ3Jlc3MSVAoYU3RhcnRSb29tQ29tcG9zaXRlRWdyZXNz",
+            "EiMubGl2ZWtpdC5Sb29tQ29tcG9zaXRlRWdyZXNzUmVxdWVzdBoTLmxpdmVr",
+            "aXQuRWdyZXNzSW5mbxJACg5TdGFydFdlYkVncmVzcxIZLmxpdmVraXQuV2Vi",
+            "RWdyZXNzUmVxdWVzdBoTLmxpdmVraXQuRWdyZXNzSW5mbxJQChZTdGFydFBh",
+            "cnRpY2lwYW50RWdyZXNzEiEubGl2ZWtpdC5QYXJ0aWNpcGFudEVncmVzc1Jl",
+            "cXVlc3QaEy5saXZla2l0LkVncmVzc0luZm8SVgoZU3RhcnRUcmFja0NvbXBv",
+            "c2l0ZUVncmVzcxIkLmxpdmVraXQuVHJhY2tDb21wb3NpdGVFZ3Jlc3NSZXF1",
+            "ZXN0GhMubGl2ZWtpdC5FZ3Jlc3NJbmZvEkQKEFN0YXJ0VHJhY2tFZ3Jlc3MS",
+            "Gy5saXZla2l0LlRyYWNrRWdyZXNzUmVxdWVzdBoTLmxpdmVraXQuRWdyZXNz",
+            "SW5mbxJBCgxVcGRhdGVMYXlvdXQSHC5saXZla2l0LlVwZGF0ZUxheW91dFJl",
+            "cXVlc3QaEy5saXZla2l0LkVncmVzc0luZm8SQQoMVXBkYXRlU3RyZWFtEhwu",
+            "bGl2ZWtpdC5VcGRhdGVTdHJlYW1SZXF1ZXN0GhMubGl2ZWtpdC5FZ3Jlc3NJ",
+            "bmZvEkUKCkxpc3RFZ3Jlc3MSGi5saXZla2l0Lkxpc3RFZ3Jlc3NSZXF1ZXN0",
+            "GhsubGl2ZWtpdC5MaXN0RWdyZXNzUmVzcG9uc2USPQoKU3RvcEVncmVzcxIa",
+            "LmxpdmVraXQuU3RvcEVncmVzc1JlcXVlc3QaEy5saXZla2l0LkVncmVzc0lu",
+            "Zm9CRlojZ2l0aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1M",
+            "aXZlS2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.EncodedFileType), typeof(global::Livekit.Server.Sdk.Dotnet.SegmentedFileProtocol), typeof(global::Livekit.Server.Sdk.Dotnet.SegmentedFileSuffix), typeof(global::Livekit.Server.Sdk.Dotnet.ImageFileSuffix), typeof(global::Livekit.Server.Sdk.Dotnet.StreamProtocol), typeof(global::Livekit.Server.Sdk.Dotnet.AudioMixing), typeof(global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset), typeof(global::Livekit.Server.Sdk.Dotnet.EgressStatus), typeof(global::Livekit.Server.Sdk.Dotnet.EgressSourceType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest), global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest.Parser, new[]{ "RoomName", "Layout", "AudioOnly", "AudioMixing", "VideoOnly", "CustomBaseUrl", "File", "Stream", "Segments", "Preset", "Advanced", "FileOutputs", "StreamOutputs", "SegmentOutputs", "ImageOutputs" }, new[]{ "Output", "Options" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WebEgressRequest), global::Livekit.Server.Sdk.Dotnet.WebEgressRequest.Parser, new[]{ "Url", "AudioOnly", "VideoOnly", "AwaitStartSignal", "File", "Stream", "Segments", "Preset", "Advanced", "FileOutputs", "StreamOutputs", "SegmentOutputs", "ImageOutputs" }, new[]{ "Output", "Options" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest), global::Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest.Parser, new[]{ "RoomName", "Identity", "ScreenShare", "Preset", "Advanced", "FileOutputs", "StreamOutputs", "SegmentOutputs", "ImageOutputs" }, new[]{ "Options" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TrackCompositeEgressRequest), global::Livekit.Server.Sdk.Dotnet.TrackCompositeEgressRequest.Parser, new[]{ "RoomName", "AudioTrackId", "VideoTrackId", "File", "Stream", "Segments", "Preset", "Advanced", "FileOutputs", "StreamOutputs", "SegmentOutputs", "ImageOutputs" }, new[]{ "Output", "Options" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TrackEgressRequest), global::Livekit.Server.Sdk.Dotnet.TrackEgressRequest.Parser, new[]{ "RoomName", "TrackId", "File", "WebsocketUrl" }, new[]{ "Output" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest), global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest.Parser, new[]{ "RoomName", "Layout", "AudioOnly", "AudioMixing", "VideoOnly", "CustomBaseUrl", "File", "Stream", "Segments", "Preset", "Advanced", "FileOutputs", "StreamOutputs", "SegmentOutputs", "ImageOutputs", "Webhooks" }, new[]{ "Output", "Options" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WebEgressRequest), global::Livekit.Server.Sdk.Dotnet.WebEgressRequest.Parser, new[]{ "Url", "AudioOnly", "VideoOnly", "AwaitStartSignal", "File", "Stream", "Segments", "Preset", "Advanced", "FileOutputs", "StreamOutputs", "SegmentOutputs", "ImageOutputs", "Webhooks" }, new[]{ "Output", "Options" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest), global::Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest.Parser, new[]{ "RoomName", "Identity", "ScreenShare", "Preset", "Advanced", "FileOutputs", "StreamOutputs", "SegmentOutputs", "ImageOutputs", "Webhooks" }, new[]{ "Options" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TrackCompositeEgressRequest), global::Livekit.Server.Sdk.Dotnet.TrackCompositeEgressRequest.Parser, new[]{ "RoomName", "AudioTrackId", "VideoTrackId", "File", "Stream", "Segments", "Preset", "Advanced", "FileOutputs", "StreamOutputs", "SegmentOutputs", "ImageOutputs", "Webhooks" }, new[]{ "Output", "Options" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TrackEgressRequest), global::Livekit.Server.Sdk.Dotnet.TrackEgressRequest.Parser, new[]{ "RoomName", "TrackId", "File", "WebsocketUrl", "Webhooks" }, new[]{ "Output" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.EncodedFileOutput), global::Livekit.Server.Sdk.Dotnet.EncodedFileOutput.Parser, new[]{ "FileType", "Filepath", "DisableManifest", "S3", "Gcp", "Azure", "AliOSS" }, new[]{ "Output" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SegmentedFileOutput), global::Livekit.Server.Sdk.Dotnet.SegmentedFileOutput.Parser, new[]{ "Protocol", "FilenamePrefix", "PlaylistName", "LivePlaylistName", "SegmentDuration", "FilenameSuffix", "DisableManifest", "S3", "Gcp", "Azure", "AliOSS" }, new[]{ "Output" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DirectFileOutput), global::Livekit.Server.Sdk.Dotnet.DirectFileOutput.Parser, new[]{ "Filepath", "DisableManifest", "S3", "Gcp", "Azure", "AliOSS" }, new[]{ "Output" }, null, null, null),
@@ -278,6 +283,10 @@ namespace Livekit.Server.Sdk.Dotnet {
   public enum ImageFileSuffix {
     [pbr::OriginalName("IMAGE_SUFFIX_INDEX")] ImageSuffixIndex = 0,
     [pbr::OriginalName("IMAGE_SUFFIX_TIMESTAMP")] ImageSuffixTimestamp = 1,
+    /// <summary>
+    /// Do not append any suffix and overwrite the existing image with the latest
+    /// </summary>
+    [pbr::OriginalName("IMAGE_SUFFIX_NONE_OVERWRITE")] ImageSuffixNoneOverwrite = 2,
   }
 
   public enum StreamProtocol {
@@ -405,6 +414,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       streamOutputs_ = other.streamOutputs_.Clone();
       segmentOutputs_ = other.segmentOutputs_.Clone();
       imageOutputs_ = other.imageOutputs_.Clone();
+      webhooks_ = other.webhooks_.Clone();
       switch (other.OutputCase) {
         case OutputOneofCase.File:
           File = other.File.Clone();
@@ -652,6 +662,20 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return imageOutputs_; }
     }
 
+    /// <summary>Field number for the "webhooks" field.</summary>
+    public const int WebhooksFieldNumber = 16;
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> _repeated_webhooks_codec
+        = pb::FieldCodec.ForMessage(130, global::Livekit.Server.Sdk.Dotnet.WebhookConfig.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> webhooks_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig>();
+    /// <summary>
+    /// extra webhooks to call for this request
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> Webhooks {
+      get { return webhooks_; }
+    }
+
     private object output_;
     /// <summary>Enum of possible cases for the "output" oneof.</summary>
     public enum OutputOneofCase {
@@ -725,6 +749,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if(!streamOutputs_.Equals(other.streamOutputs_)) return false;
       if(!segmentOutputs_.Equals(other.segmentOutputs_)) return false;
       if(!imageOutputs_.Equals(other.imageOutputs_)) return false;
+      if(!webhooks_.Equals(other.webhooks_)) return false;
       if (OutputCase != other.OutputCase) return false;
       if (OptionsCase != other.OptionsCase) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -749,6 +774,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       hash ^= streamOutputs_.GetHashCode();
       hash ^= segmentOutputs_.GetHashCode();
       hash ^= imageOutputs_.GetHashCode();
+      hash ^= webhooks_.GetHashCode();
       hash ^= (int) outputCase_;
       hash ^= (int) optionsCase_;
       if (_unknownFields != null) {
@@ -817,6 +843,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(120);
         output.WriteEnum((int) AudioMixing);
       }
+      webhooks_.WriteTo(output, _repeated_webhooks_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -875,6 +902,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(120);
         output.WriteEnum((int) AudioMixing);
       }
+      webhooks_.WriteTo(ref output, _repeated_webhooks_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -922,6 +950,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       size += streamOutputs_.CalculateSize(_repeated_streamOutputs_codec);
       size += segmentOutputs_.CalculateSize(_repeated_segmentOutputs_codec);
       size += imageOutputs_.CalculateSize(_repeated_imageOutputs_codec);
+      size += webhooks_.CalculateSize(_repeated_webhooks_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -956,6 +985,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       streamOutputs_.Add(other.streamOutputs_);
       segmentOutputs_.Add(other.segmentOutputs_);
       imageOutputs_.Add(other.imageOutputs_);
+      webhooks_.Add(other.webhooks_);
       switch (other.OutputCase) {
         case OutputOneofCase.File:
           if (File == null) {
@@ -1089,6 +1119,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             AudioMixing = (global::Livekit.Server.Sdk.Dotnet.AudioMixing) input.ReadEnum();
             break;
           }
+          case 130: {
+            webhooks_.AddEntriesFrom(input, _repeated_webhooks_codec);
+            break;
+          }
         }
       }
     #endif
@@ -1189,6 +1223,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             AudioMixing = (global::Livekit.Server.Sdk.Dotnet.AudioMixing) input.ReadEnum();
             break;
           }
+          case 130: {
+            webhooks_.AddEntriesFrom(ref input, _repeated_webhooks_codec);
+            break;
+          }
         }
       }
     }
@@ -1242,6 +1280,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       streamOutputs_ = other.streamOutputs_.Clone();
       segmentOutputs_ = other.segmentOutputs_.Clone();
       imageOutputs_ = other.imageOutputs_.Clone();
+      webhooks_ = other.webhooks_.Clone();
       switch (other.OutputCase) {
         case OutputOneofCase.File:
           File = other.File.Clone();
@@ -1441,6 +1480,20 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return imageOutputs_; }
     }
 
+    /// <summary>Field number for the "webhooks" field.</summary>
+    public const int WebhooksFieldNumber = 14;
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> _repeated_webhooks_codec
+        = pb::FieldCodec.ForMessage(114, global::Livekit.Server.Sdk.Dotnet.WebhookConfig.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> webhooks_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig>();
+    /// <summary>
+    /// extra webhooks to call for this request
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> Webhooks {
+      get { return webhooks_; }
+    }
+
     private object output_;
     /// <summary>Enum of possible cases for the "output" oneof.</summary>
     public enum OutputOneofCase {
@@ -1512,6 +1565,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if(!streamOutputs_.Equals(other.streamOutputs_)) return false;
       if(!segmentOutputs_.Equals(other.segmentOutputs_)) return false;
       if(!imageOutputs_.Equals(other.imageOutputs_)) return false;
+      if(!webhooks_.Equals(other.webhooks_)) return false;
       if (OutputCase != other.OutputCase) return false;
       if (OptionsCase != other.OptionsCase) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -1534,6 +1588,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       hash ^= streamOutputs_.GetHashCode();
       hash ^= segmentOutputs_.GetHashCode();
       hash ^= imageOutputs_.GetHashCode();
+      hash ^= webhooks_.GetHashCode();
       hash ^= (int) outputCase_;
       hash ^= (int) optionsCase_;
       if (_unknownFields != null) {
@@ -1594,6 +1649,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteBool(AwaitStartSignal);
       }
       imageOutputs_.WriteTo(output, _repeated_imageOutputs_codec);
+      webhooks_.WriteTo(output, _repeated_webhooks_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1644,6 +1700,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteBool(AwaitStartSignal);
       }
       imageOutputs_.WriteTo(ref output, _repeated_imageOutputs_codec);
+      webhooks_.WriteTo(ref output, _repeated_webhooks_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1685,6 +1742,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       size += streamOutputs_.CalculateSize(_repeated_streamOutputs_codec);
       size += segmentOutputs_.CalculateSize(_repeated_segmentOutputs_codec);
       size += imageOutputs_.CalculateSize(_repeated_imageOutputs_codec);
+      size += webhooks_.CalculateSize(_repeated_webhooks_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1713,6 +1771,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       streamOutputs_.Add(other.streamOutputs_);
       segmentOutputs_.Add(other.segmentOutputs_);
       imageOutputs_.Add(other.imageOutputs_);
+      webhooks_.Add(other.webhooks_);
       switch (other.OutputCase) {
         case OutputOneofCase.File:
           if (File == null) {
@@ -1838,6 +1897,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             imageOutputs_.AddEntriesFrom(input, _repeated_imageOutputs_codec);
             break;
           }
+          case 114: {
+            webhooks_.AddEntriesFrom(input, _repeated_webhooks_codec);
+            break;
+          }
         }
       }
     #endif
@@ -1930,6 +1993,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             imageOutputs_.AddEntriesFrom(ref input, _repeated_imageOutputs_codec);
             break;
           }
+          case 114: {
+            webhooks_.AddEntriesFrom(ref input, _repeated_webhooks_codec);
+            break;
+          }
         }
       }
     }
@@ -1982,6 +2049,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       streamOutputs_ = other.streamOutputs_.Clone();
       segmentOutputs_ = other.segmentOutputs_.Clone();
       imageOutputs_ = other.imageOutputs_.Clone();
+      webhooks_ = other.webhooks_.Clone();
       switch (other.OptionsCase) {
         case OptionsOneofCase.Preset:
           Preset = other.Preset;
@@ -2133,6 +2201,20 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return imageOutputs_; }
     }
 
+    /// <summary>Field number for the "webhooks" field.</summary>
+    public const int WebhooksFieldNumber = 10;
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> _repeated_webhooks_codec
+        = pb::FieldCodec.ForMessage(82, global::Livekit.Server.Sdk.Dotnet.WebhookConfig.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> webhooks_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig>();
+    /// <summary>
+    /// extra webhooks to call for this request
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> Webhooks {
+      get { return webhooks_; }
+    }
+
     private object options_;
     /// <summary>Enum of possible cases for the "options" oneof.</summary>
     public enum OptionsOneofCase {
@@ -2178,6 +2260,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if(!streamOutputs_.Equals(other.streamOutputs_)) return false;
       if(!segmentOutputs_.Equals(other.segmentOutputs_)) return false;
       if(!imageOutputs_.Equals(other.imageOutputs_)) return false;
+      if(!webhooks_.Equals(other.webhooks_)) return false;
       if (OptionsCase != other.OptionsCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2195,6 +2278,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       hash ^= streamOutputs_.GetHashCode();
       hash ^= segmentOutputs_.GetHashCode();
       hash ^= imageOutputs_.GetHashCode();
+      hash ^= webhooks_.GetHashCode();
       hash ^= (int) optionsCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2238,6 +2322,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       streamOutputs_.WriteTo(output, _repeated_streamOutputs_codec);
       segmentOutputs_.WriteTo(output, _repeated_segmentOutputs_codec);
       imageOutputs_.WriteTo(output, _repeated_imageOutputs_codec);
+      webhooks_.WriteTo(output, _repeated_webhooks_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2272,6 +2357,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       streamOutputs_.WriteTo(ref output, _repeated_streamOutputs_codec);
       segmentOutputs_.WriteTo(ref output, _repeated_segmentOutputs_codec);
       imageOutputs_.WriteTo(ref output, _repeated_imageOutputs_codec);
+      webhooks_.WriteTo(ref output, _repeated_webhooks_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2301,6 +2387,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       size += streamOutputs_.CalculateSize(_repeated_streamOutputs_codec);
       size += segmentOutputs_.CalculateSize(_repeated_segmentOutputs_codec);
       size += imageOutputs_.CalculateSize(_repeated_imageOutputs_codec);
+      size += webhooks_.CalculateSize(_repeated_webhooks_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2326,6 +2413,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       streamOutputs_.Add(other.streamOutputs_);
       segmentOutputs_.Add(other.segmentOutputs_);
       imageOutputs_.Add(other.imageOutputs_);
+      webhooks_.Add(other.webhooks_);
       switch (other.OptionsCase) {
         case OptionsOneofCase.Preset:
           Preset = other.Preset;
@@ -2399,6 +2487,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             imageOutputs_.AddEntriesFrom(input, _repeated_imageOutputs_codec);
             break;
           }
+          case 82: {
+            webhooks_.AddEntriesFrom(input, _repeated_webhooks_codec);
+            break;
+          }
         }
       }
     #endif
@@ -2460,6 +2552,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             imageOutputs_.AddEntriesFrom(ref input, _repeated_imageOutputs_codec);
             break;
           }
+          case 82: {
+            webhooks_.AddEntriesFrom(ref input, _repeated_webhooks_codec);
+            break;
+          }
         }
       }
     }
@@ -2512,6 +2608,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       streamOutputs_ = other.streamOutputs_.Clone();
       segmentOutputs_ = other.segmentOutputs_.Clone();
       imageOutputs_ = other.imageOutputs_.Clone();
+      webhooks_ = other.webhooks_.Clone();
       switch (other.OutputCase) {
         case OutputOneofCase.File:
           File = other.File.Clone();
@@ -2714,6 +2811,20 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return imageOutputs_; }
     }
 
+    /// <summary>Field number for the "webhooks" field.</summary>
+    public const int WebhooksFieldNumber = 15;
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> _repeated_webhooks_codec
+        = pb::FieldCodec.ForMessage(122, global::Livekit.Server.Sdk.Dotnet.WebhookConfig.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> webhooks_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig>();
+    /// <summary>
+    /// extra webhooks to call for this request
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> Webhooks {
+      get { return webhooks_; }
+    }
+
     private object output_;
     /// <summary>Enum of possible cases for the "output" oneof.</summary>
     public enum OutputOneofCase {
@@ -2784,6 +2895,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if(!streamOutputs_.Equals(other.streamOutputs_)) return false;
       if(!segmentOutputs_.Equals(other.segmentOutputs_)) return false;
       if(!imageOutputs_.Equals(other.imageOutputs_)) return false;
+      if(!webhooks_.Equals(other.webhooks_)) return false;
       if (OutputCase != other.OutputCase) return false;
       if (OptionsCase != other.OptionsCase) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -2805,6 +2917,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       hash ^= streamOutputs_.GetHashCode();
       hash ^= segmentOutputs_.GetHashCode();
       hash ^= imageOutputs_.GetHashCode();
+      hash ^= webhooks_.GetHashCode();
       hash ^= (int) outputCase_;
       hash ^= (int) optionsCase_;
       if (_unknownFields != null) {
@@ -2861,6 +2974,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       streamOutputs_.WriteTo(output, _repeated_streamOutputs_codec);
       segmentOutputs_.WriteTo(output, _repeated_segmentOutputs_codec);
       imageOutputs_.WriteTo(output, _repeated_imageOutputs_codec);
+      webhooks_.WriteTo(output, _repeated_webhooks_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2907,6 +3021,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       streamOutputs_.WriteTo(ref output, _repeated_streamOutputs_codec);
       segmentOutputs_.WriteTo(ref output, _repeated_segmentOutputs_codec);
       imageOutputs_.WriteTo(ref output, _repeated_imageOutputs_codec);
+      webhooks_.WriteTo(ref output, _repeated_webhooks_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2945,6 +3060,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       size += streamOutputs_.CalculateSize(_repeated_streamOutputs_codec);
       size += segmentOutputs_.CalculateSize(_repeated_segmentOutputs_codec);
       size += imageOutputs_.CalculateSize(_repeated_imageOutputs_codec);
+      size += webhooks_.CalculateSize(_repeated_webhooks_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -2970,6 +3086,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       streamOutputs_.Add(other.streamOutputs_);
       segmentOutputs_.Add(other.segmentOutputs_);
       imageOutputs_.Add(other.imageOutputs_);
+      webhooks_.Add(other.webhooks_);
       switch (other.OutputCase) {
         case OutputOneofCase.File:
           if (File == null) {
@@ -3091,6 +3208,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             imageOutputs_.AddEntriesFrom(input, _repeated_imageOutputs_codec);
             break;
           }
+          case 122: {
+            webhooks_.AddEntriesFrom(input, _repeated_webhooks_codec);
+            break;
+          }
         }
       }
     #endif
@@ -3179,6 +3300,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             imageOutputs_.AddEntriesFrom(ref input, _repeated_imageOutputs_codec);
             break;
           }
+          case 122: {
+            webhooks_.AddEntriesFrom(ref input, _repeated_webhooks_codec);
+            break;
+          }
         }
       }
     }
@@ -3226,6 +3351,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     public TrackEgressRequest(TrackEgressRequest other) : this() {
       roomName_ = other.roomName_;
       trackId_ = other.trackId_;
+      webhooks_ = other.webhooks_.Clone();
       switch (other.OutputCase) {
         case OutputOneofCase.File:
           File = other.File.Clone();
@@ -3312,6 +3438,20 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "webhooks" field.</summary>
+    public const int WebhooksFieldNumber = 5;
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> _repeated_webhooks_codec
+        = pb::FieldCodec.ForMessage(42, global::Livekit.Server.Sdk.Dotnet.WebhookConfig.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> webhooks_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig>();
+    /// <summary>
+    /// extra webhooks to call for this request
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.WebhookConfig> Webhooks {
+      get { return webhooks_; }
+    }
+
     private object output_;
     /// <summary>Enum of possible cases for the "output" oneof.</summary>
     public enum OutputOneofCase {
@@ -3352,6 +3492,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (TrackId != other.TrackId) return false;
       if (!object.Equals(File, other.File)) return false;
       if (WebsocketUrl != other.WebsocketUrl) return false;
+      if(!webhooks_.Equals(other.webhooks_)) return false;
       if (OutputCase != other.OutputCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -3364,6 +3505,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (TrackId.Length != 0) hash ^= TrackId.GetHashCode();
       if (outputCase_ == OutputOneofCase.File) hash ^= File.GetHashCode();
       if (HasWebsocketUrl) hash ^= WebsocketUrl.GetHashCode();
+      hash ^= webhooks_.GetHashCode();
       hash ^= (int) outputCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3399,6 +3541,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(34);
         output.WriteString(WebsocketUrl);
       }
+      webhooks_.WriteTo(output, _repeated_webhooks_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3425,6 +3568,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(34);
         output.WriteString(WebsocketUrl);
       }
+      webhooks_.WriteTo(ref output, _repeated_webhooks_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3447,6 +3591,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (HasWebsocketUrl) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(WebsocketUrl);
       }
+      size += webhooks_.CalculateSize(_repeated_webhooks_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -3465,6 +3610,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.TrackId.Length != 0) {
         TrackId = other.TrackId;
       }
+      webhooks_.Add(other.webhooks_);
       switch (other.OutputCase) {
         case OutputOneofCase.File:
           if (File == null) {
@@ -3517,6 +3663,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             WebsocketUrl = input.ReadString();
             break;
           }
+          case 42: {
+            webhooks_.AddEntriesFrom(input, _repeated_webhooks_codec);
+            break;
+          }
         }
       }
     #endif
@@ -3555,6 +3705,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 34: {
             WebsocketUrl = input.ReadString();
+            break;
+          }
+          case 42: {
+            webhooks_.AddEntriesFrom(ref input, _repeated_webhooks_codec);
             break;
           }
         }

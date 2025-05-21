@@ -47,221 +47,275 @@ namespace Livekit.Server.Sdk.Dotnet {
             "dGEYDCABKAkiRAoJVHJ1bmtLaW5kEhAKDFRSVU5LX0xFR0FDWRAAEhEKDVRS",
             "VU5LX0lOQk9VTkQQARISCg5UUlVOS19PVVRCT1VORBACOgIYASJLChxDcmVh",
             "dGVTSVBJbmJvdW5kVHJ1bmtSZXF1ZXN0EisKBXRydW5rGAEgASgLMhwubGl2",
-            "ZWtpdC5TSVBJbmJvdW5kVHJ1bmtJbmZvIroGChNTSVBJbmJvdW5kVHJ1bmtJ",
-            "bmZvEhQKDHNpcF90cnVua19pZBgBIAEoCRIMCgRuYW1lGAIgASgJEhAKCG1l",
-            "dGFkYXRhGAMgASgJEg8KB251bWJlcnMYBCADKAkSGQoRYWxsb3dlZF9hZGRy",
-            "ZXNzZXMYBSADKAkSFwoPYWxsb3dlZF9udW1iZXJzGAYgAygJEhUKDWF1dGhf",
-            "dXNlcm5hbWUYByABKAkSFQoNYXV0aF9wYXNzd29yZBgIIAEoCRI6CgdoZWFk",
-            "ZXJzGAkgAygLMikubGl2ZWtpdC5TSVBJbmJvdW5kVHJ1bmtJbmZvLkhlYWRl",
-            "cnNFbnRyeRJUChVoZWFkZXJzX3RvX2F0dHJpYnV0ZXMYCiADKAsyNS5saXZl",
-            "a2l0LlNJUEluYm91bmRUcnVua0luZm8uSGVhZGVyc1RvQXR0cmlidXRlc0Vu",
-            "dHJ5ElQKFWF0dHJpYnV0ZXNfdG9faGVhZGVycxgOIAMoCzI1LmxpdmVraXQu",
-            "U0lQSW5ib3VuZFRydW5rSW5mby5BdHRyaWJ1dGVzVG9IZWFkZXJzRW50cnkS",
-            "MgoPaW5jbHVkZV9oZWFkZXJzGA8gASgOMhkubGl2ZWtpdC5TSVBIZWFkZXJP",
-            "cHRpb25zEjIKD3JpbmdpbmdfdGltZW91dBgLIAEoCzIZLmdvb2dsZS5wcm90",
-            "b2J1Zi5EdXJhdGlvbhI0ChFtYXhfY2FsbF9kdXJhdGlvbhgMIAEoCzIZLmdv",
-            "b2dsZS5wcm90b2J1Zi5EdXJhdGlvbhIVCg1rcmlzcF9lbmFibGVkGA0gASgI",
-            "EjUKEG1lZGlhX2VuY3J5cHRpb24YECABKA4yGy5saXZla2l0LlNJUE1lZGlh",
-            "RW5jcnlwdGlvbhouCgxIZWFkZXJzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZh",
-            "bHVlGAIgASgJOgI4ARo6ChhIZWFkZXJzVG9BdHRyaWJ1dGVzRW50cnkSCwoD",
-            "a2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ARo6ChhBdHRyaWJ1dGVzVG9I",
-            "ZWFkZXJzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASJN",
-            "Ch1DcmVhdGVTSVBPdXRib3VuZFRydW5rUmVxdWVzdBIsCgV0cnVuaxgBIAEo",
-            "CzIdLmxpdmVraXQuU0lQT3V0Ym91bmRUcnVua0luZm8ixAUKFFNJUE91dGJv",
-            "dW5kVHJ1bmtJbmZvEhQKDHNpcF90cnVua19pZBgBIAEoCRIMCgRuYW1lGAIg",
-            "ASgJEhAKCG1ldGFkYXRhGAMgASgJEg8KB2FkZHJlc3MYBCABKAkSKAoJdHJh",
-            "bnNwb3J0GAUgASgOMhUubGl2ZWtpdC5TSVBUcmFuc3BvcnQSDwoHbnVtYmVy",
-            "cxgGIAMoCRIVCg1hdXRoX3VzZXJuYW1lGAcgASgJEhUKDWF1dGhfcGFzc3dv",
-            "cmQYCCABKAkSOwoHaGVhZGVycxgJIAMoCzIqLmxpdmVraXQuU0lQT3V0Ym91",
-            "bmRUcnVua0luZm8uSGVhZGVyc0VudHJ5ElUKFWhlYWRlcnNfdG9fYXR0cmli",
-            "dXRlcxgKIAMoCzI2LmxpdmVraXQuU0lQT3V0Ym91bmRUcnVua0luZm8uSGVh",
-            "ZGVyc1RvQXR0cmlidXRlc0VudHJ5ElUKFWF0dHJpYnV0ZXNfdG9faGVhZGVy",
-            "cxgLIAMoCzI2LmxpdmVraXQuU0lQT3V0Ym91bmRUcnVua0luZm8uQXR0cmli",
-            "dXRlc1RvSGVhZGVyc0VudHJ5EjIKD2luY2x1ZGVfaGVhZGVycxgMIAEoDjIZ",
-            "LmxpdmVraXQuU0lQSGVhZGVyT3B0aW9ucxI1ChBtZWRpYV9lbmNyeXB0aW9u",
-            "GA0gASgOMhsubGl2ZWtpdC5TSVBNZWRpYUVuY3J5cHRpb24aLgoMSGVhZGVy",
-            "c0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEaOgoYSGVh",
-            "ZGVyc1RvQXR0cmlidXRlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgC",
-            "IAEoCToCOAEaOgoYQXR0cmlidXRlc1RvSGVhZGVyc0VudHJ5EgsKA2tleRgB",
-            "IAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiMQoZR2V0U0lQSW5ib3VuZFRydW5r",
-            "UmVxdWVzdBIUCgxzaXBfdHJ1bmtfaWQYASABKAkiSQoaR2V0U0lQSW5ib3Vu",
-            "ZFRydW5rUmVzcG9uc2USKwoFdHJ1bmsYASABKAsyHC5saXZla2l0LlNJUElu",
-            "Ym91bmRUcnVua0luZm8iMgoaR2V0U0lQT3V0Ym91bmRUcnVua1JlcXVlc3QS",
-            "FAoMc2lwX3RydW5rX2lkGAEgASgJIksKG0dldFNJUE91dGJvdW5kVHJ1bmtS",
-            "ZXNwb25zZRIsCgV0cnVuaxgBIAEoCzIdLmxpdmVraXQuU0lQT3V0Ym91bmRU",
-            "cnVua0luZm8iPAoTTGlzdFNJUFRydW5rUmVxdWVzdBIhCgRwYWdlGAEgASgL",
-            "MhMubGl2ZWtpdC5QYWdpbmF0aW9uOgIYASJAChRMaXN0U0lQVHJ1bmtSZXNw",
-            "b25zZRIkCgVpdGVtcxgBIAMoCzIVLmxpdmVraXQuU0lQVHJ1bmtJbmZvOgIY",
-            "ASJjChpMaXN0U0lQSW5ib3VuZFRydW5rUmVxdWVzdBIhCgRwYWdlGAMgASgL",
-            "MhMubGl2ZWtpdC5QYWdpbmF0aW9uEhEKCXRydW5rX2lkcxgBIAMoCRIPCgdu",
-            "dW1iZXJzGAIgAygJIkoKG0xpc3RTSVBJbmJvdW5kVHJ1bmtSZXNwb25zZRIr",
-            "CgVpdGVtcxgBIAMoCzIcLmxpdmVraXQuU0lQSW5ib3VuZFRydW5rSW5mbyJk",
-            "ChtMaXN0U0lQT3V0Ym91bmRUcnVua1JlcXVlc3QSIQoEcGFnZRgDIAEoCzIT",
+            "ZWtpdC5TSVBJbmJvdW5kVHJ1bmtJbmZvIqEBChxVcGRhdGVTSVBJbmJvdW5k",
+            "VHJ1bmtSZXF1ZXN0EhQKDHNpcF90cnVua19pZBgBIAEoCRIvCgdyZXBsYWNl",
+            "GAIgASgLMhwubGl2ZWtpdC5TSVBJbmJvdW5kVHJ1bmtJbmZvSAASMAoGdXBk",
+            "YXRlGAMgASgLMh4ubGl2ZWtpdC5TSVBJbmJvdW5kVHJ1bmtVcGRhdGVIAEII",
+            "CgZhY3Rpb24iugYKE1NJUEluYm91bmRUcnVua0luZm8SFAoMc2lwX3RydW5r",
+            "X2lkGAEgASgJEgwKBG5hbWUYAiABKAkSEAoIbWV0YWRhdGEYAyABKAkSDwoH",
+            "bnVtYmVycxgEIAMoCRIZChFhbGxvd2VkX2FkZHJlc3NlcxgFIAMoCRIXCg9h",
+            "bGxvd2VkX251bWJlcnMYBiADKAkSFQoNYXV0aF91c2VybmFtZRgHIAEoCRIV",
+            "Cg1hdXRoX3Bhc3N3b3JkGAggASgJEjoKB2hlYWRlcnMYCSADKAsyKS5saXZl",
+            "a2l0LlNJUEluYm91bmRUcnVua0luZm8uSGVhZGVyc0VudHJ5ElQKFWhlYWRl",
+            "cnNfdG9fYXR0cmlidXRlcxgKIAMoCzI1LmxpdmVraXQuU0lQSW5ib3VuZFRy",
+            "dW5rSW5mby5IZWFkZXJzVG9BdHRyaWJ1dGVzRW50cnkSVAoVYXR0cmlidXRl",
+            "c190b19oZWFkZXJzGA4gAygLMjUubGl2ZWtpdC5TSVBJbmJvdW5kVHJ1bmtJ",
+            "bmZvLkF0dHJpYnV0ZXNUb0hlYWRlcnNFbnRyeRIyCg9pbmNsdWRlX2hlYWRl",
+            "cnMYDyABKA4yGS5saXZla2l0LlNJUEhlYWRlck9wdGlvbnMSMgoPcmluZ2lu",
+            "Z190aW1lb3V0GAsgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uEjQK",
+            "EW1heF9jYWxsX2R1cmF0aW9uGAwgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1",
+            "cmF0aW9uEhUKDWtyaXNwX2VuYWJsZWQYDSABKAgSNQoQbWVkaWFfZW5jcnlw",
+            "dGlvbhgQIAEoDjIbLmxpdmVraXQuU0lQTWVkaWFFbmNyeXB0aW9uGi4KDEhl",
+            "YWRlcnNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBGjoK",
+            "GEhlYWRlcnNUb0F0dHJpYnV0ZXNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFs",
+            "dWUYAiABKAk6AjgBGjoKGEF0dHJpYnV0ZXNUb0hlYWRlcnNFbnRyeRILCgNr",
+            "ZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIogDChVTSVBJbmJvdW5kVHJ1",
+            "bmtVcGRhdGUSJAoHbnVtYmVycxgBIAEoCzITLmxpdmVraXQuTGlzdFVwZGF0",
+            "ZRIuChFhbGxvd2VkX2FkZHJlc3NlcxgCIAEoCzITLmxpdmVraXQuTGlzdFVw",
+            "ZGF0ZRIsCg9hbGxvd2VkX251bWJlcnMYAyABKAsyEy5saXZla2l0Lkxpc3RV",
+            "cGRhdGUSGgoNYXV0aF91c2VybmFtZRgEIAEoCUgAiAEBEhoKDWF1dGhfcGFz",
+            "c3dvcmQYBSABKAlIAYgBARIRCgRuYW1lGAYgASgJSAKIAQESFQoIbWV0YWRh",
+            "dGEYByABKAlIA4gBARI6ChBtZWRpYV9lbmNyeXB0aW9uGAggASgOMhsubGl2",
+            "ZWtpdC5TSVBNZWRpYUVuY3J5cHRpb25IBIgBAUIQCg5fYXV0aF91c2VybmFt",
+            "ZUIQCg5fYXV0aF9wYXNzd29yZEIHCgVfbmFtZUILCglfbWV0YWRhdGFCEwoR",
+            "X21lZGlhX2VuY3J5cHRpb24iTQodQ3JlYXRlU0lQT3V0Ym91bmRUcnVua1Jl",
+            "cXVlc3QSLAoFdHJ1bmsYASABKAsyHS5saXZla2l0LlNJUE91dGJvdW5kVHJ1",
+            "bmtJbmZvIqQBCh1VcGRhdGVTSVBPdXRib3VuZFRydW5rUmVxdWVzdBIUCgxz",
+            "aXBfdHJ1bmtfaWQYASABKAkSMAoHcmVwbGFjZRgCIAEoCzIdLmxpdmVraXQu",
+            "U0lQT3V0Ym91bmRUcnVua0luZm9IABIxCgZ1cGRhdGUYAyABKAsyHy5saXZl",
+            "a2l0LlNJUE91dGJvdW5kVHJ1bmtVcGRhdGVIAEIICgZhY3Rpb24ixAUKFFNJ",
+            "UE91dGJvdW5kVHJ1bmtJbmZvEhQKDHNpcF90cnVua19pZBgBIAEoCRIMCgRu",
+            "YW1lGAIgASgJEhAKCG1ldGFkYXRhGAMgASgJEg8KB2FkZHJlc3MYBCABKAkS",
+            "KAoJdHJhbnNwb3J0GAUgASgOMhUubGl2ZWtpdC5TSVBUcmFuc3BvcnQSDwoH",
+            "bnVtYmVycxgGIAMoCRIVCg1hdXRoX3VzZXJuYW1lGAcgASgJEhUKDWF1dGhf",
+            "cGFzc3dvcmQYCCABKAkSOwoHaGVhZGVycxgJIAMoCzIqLmxpdmVraXQuU0lQ",
+            "T3V0Ym91bmRUcnVua0luZm8uSGVhZGVyc0VudHJ5ElUKFWhlYWRlcnNfdG9f",
+            "YXR0cmlidXRlcxgKIAMoCzI2LmxpdmVraXQuU0lQT3V0Ym91bmRUcnVua0lu",
+            "Zm8uSGVhZGVyc1RvQXR0cmlidXRlc0VudHJ5ElUKFWF0dHJpYnV0ZXNfdG9f",
+            "aGVhZGVycxgLIAMoCzI2LmxpdmVraXQuU0lQT3V0Ym91bmRUcnVua0luZm8u",
+            "QXR0cmlidXRlc1RvSGVhZGVyc0VudHJ5EjIKD2luY2x1ZGVfaGVhZGVycxgM",
+            "IAEoDjIZLmxpdmVraXQuU0lQSGVhZGVyT3B0aW9ucxI1ChBtZWRpYV9lbmNy",
+            "eXB0aW9uGA0gASgOMhsubGl2ZWtpdC5TSVBNZWRpYUVuY3J5cHRpb24aLgoM",
+            "SGVhZGVyc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEa",
+            "OgoYSGVhZGVyc1RvQXR0cmlidXRlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2",
+            "YWx1ZRgCIAEoCToCOAEaOgoYQXR0cmlidXRlc1RvSGVhZGVyc0VudHJ5EgsK",
+            "A2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiigMKFlNJUE91dGJvdW5k",
+            "VHJ1bmtVcGRhdGUSFAoHYWRkcmVzcxgBIAEoCUgAiAEBEi0KCXRyYW5zcG9y",
+            "dBgCIAEoDjIVLmxpdmVraXQuU0lQVHJhbnNwb3J0SAGIAQESJAoHbnVtYmVy",
+            "cxgDIAEoCzITLmxpdmVraXQuTGlzdFVwZGF0ZRIaCg1hdXRoX3VzZXJuYW1l",
+            "GAQgASgJSAKIAQESGgoNYXV0aF9wYXNzd29yZBgFIAEoCUgDiAEBEhEKBG5h",
+            "bWUYBiABKAlIBIgBARIVCghtZXRhZGF0YRgHIAEoCUgFiAEBEjoKEG1lZGlh",
+            "X2VuY3J5cHRpb24YCCABKA4yGy5saXZla2l0LlNJUE1lZGlhRW5jcnlwdGlv",
+            "bkgGiAEBQgoKCF9hZGRyZXNzQgwKCl90cmFuc3BvcnRCEAoOX2F1dGhfdXNl",
+            "cm5hbWVCEAoOX2F1dGhfcGFzc3dvcmRCBwoFX25hbWVCCwoJX21ldGFkYXRh",
+            "QhMKEV9tZWRpYV9lbmNyeXB0aW9uIjEKGUdldFNJUEluYm91bmRUcnVua1Jl",
+            "cXVlc3QSFAoMc2lwX3RydW5rX2lkGAEgASgJIkkKGkdldFNJUEluYm91bmRU",
+            "cnVua1Jlc3BvbnNlEisKBXRydW5rGAEgASgLMhwubGl2ZWtpdC5TSVBJbmJv",
+            "dW5kVHJ1bmtJbmZvIjIKGkdldFNJUE91dGJvdW5kVHJ1bmtSZXF1ZXN0EhQK",
+            "DHNpcF90cnVua19pZBgBIAEoCSJLChtHZXRTSVBPdXRib3VuZFRydW5rUmVz",
+            "cG9uc2USLAoFdHJ1bmsYASABKAsyHS5saXZla2l0LlNJUE91dGJvdW5kVHJ1",
+            "bmtJbmZvIjwKE0xpc3RTSVBUcnVua1JlcXVlc3QSIQoEcGFnZRgBIAEoCzIT",
+            "LmxpdmVraXQuUGFnaW5hdGlvbjoCGAEiQAoUTGlzdFNJUFRydW5rUmVzcG9u",
+            "c2USJAoFaXRlbXMYASADKAsyFS5saXZla2l0LlNJUFRydW5rSW5mbzoCGAEi",
+            "YwoaTGlzdFNJUEluYm91bmRUcnVua1JlcXVlc3QSIQoEcGFnZRgDIAEoCzIT",
             "LmxpdmVraXQuUGFnaW5hdGlvbhIRCgl0cnVua19pZHMYASADKAkSDwoHbnVt",
-            "YmVycxgCIAMoCSJMChxMaXN0U0lQT3V0Ym91bmRUcnVua1Jlc3BvbnNlEiwK",
-            "BWl0ZW1zGAEgAygLMh0ubGl2ZWtpdC5TSVBPdXRib3VuZFRydW5rSW5mbyIt",
-            "ChVEZWxldGVTSVBUcnVua1JlcXVlc3QSFAoMc2lwX3RydW5rX2lkGAEgASgJ",
-            "IjcKFVNJUERpc3BhdGNoUnVsZURpcmVjdBIRCglyb29tX25hbWUYASABKAkS",
-            "CwoDcGluGAIgASgJIj0KGVNJUERpc3BhdGNoUnVsZUluZGl2aWR1YWwSEwoL",
-            "cm9vbV9wcmVmaXgYASABKAkSCwoDcGluGAIgASgJIkwKFVNJUERpc3BhdGNo",
-            "UnVsZUNhbGxlZRITCgtyb29tX3ByZWZpeBgBIAEoCRILCgNwaW4YAiABKAkS",
-            "EQoJcmFuZG9taXplGAMgASgIIuEBCg9TSVBEaXNwYXRjaFJ1bGUSPgoUZGlz",
-            "cGF0Y2hfcnVsZV9kaXJlY3QYASABKAsyHi5saXZla2l0LlNJUERpc3BhdGNo",
-            "UnVsZURpcmVjdEgAEkYKGGRpc3BhdGNoX3J1bGVfaW5kaXZpZHVhbBgCIAEo",
-            "CzIiLmxpdmVraXQuU0lQRGlzcGF0Y2hSdWxlSW5kaXZpZHVhbEgAEj4KFGRp",
-            "c3BhdGNoX3J1bGVfY2FsbGVlGAMgASgLMh4ubGl2ZWtpdC5TSVBEaXNwYXRj",
-            "aFJ1bGVDYWxsZWVIAEIGCgRydWxlIvECChxDcmVhdGVTSVBEaXNwYXRjaFJ1",
-            "bGVSZXF1ZXN0EiYKBHJ1bGUYASABKAsyGC5saXZla2l0LlNJUERpc3BhdGNo",
-            "UnVsZRIRCgl0cnVua19pZHMYAiADKAkSGQoRaGlkZV9waG9uZV9udW1iZXIY",
-            "AyABKAgSFwoPaW5ib3VuZF9udW1iZXJzGAYgAygJEgwKBG5hbWUYBCABKAkS",
-            "EAoIbWV0YWRhdGEYBSABKAkSSQoKYXR0cmlidXRlcxgHIAMoCzI1LmxpdmVr",
-            "aXQuQ3JlYXRlU0lQRGlzcGF0Y2hSdWxlUmVxdWVzdC5BdHRyaWJ1dGVzRW50",
-            "cnkSEwoLcm9vbV9wcmVzZXQYCCABKAkSLwoLcm9vbV9jb25maWcYCSABKAsy",
-            "Gi5saXZla2l0LlJvb21Db25maWd1cmF0aW9uGjEKD0F0dHJpYnV0ZXNFbnRy",
-            "eRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIssDChNTSVBEaXNw",
-            "YXRjaFJ1bGVJbmZvEhwKFHNpcF9kaXNwYXRjaF9ydWxlX2lkGAEgASgJEiYK",
-            "BHJ1bGUYAiABKAsyGC5saXZla2l0LlNJUERpc3BhdGNoUnVsZRIRCgl0cnVu",
-            "a19pZHMYAyADKAkSGQoRaGlkZV9waG9uZV9udW1iZXIYBCABKAgSFwoPaW5i",
-            "b3VuZF9udW1iZXJzGAcgAygJEgwKBG5hbWUYBSABKAkSEAoIbWV0YWRhdGEY",
-            "BiABKAkSQAoKYXR0cmlidXRlcxgIIAMoCzIsLmxpdmVraXQuU0lQRGlzcGF0",
-            "Y2hSdWxlSW5mby5BdHRyaWJ1dGVzRW50cnkSEwoLcm9vbV9wcmVzZXQYCSAB",
-            "KAkSLwoLcm9vbV9jb25maWcYCiABKAsyGi5saXZla2l0LlJvb21Db25maWd1",
-            "cmF0aW9uEhUKDWtyaXNwX2VuYWJsZWQYCyABKAgSNQoQbWVkaWFfZW5jcnlw",
-            "dGlvbhgMIAEoDjIbLmxpdmVraXQuU0lQTWVkaWFFbmNyeXB0aW9uGjEKD0F0",
-            "dHJpYnV0ZXNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgB",
-            "Im0KGkxpc3RTSVBEaXNwYXRjaFJ1bGVSZXF1ZXN0EiEKBHBhZ2UYAyABKAsy",
-            "Ey5saXZla2l0LlBhZ2luYXRpb24SGQoRZGlzcGF0Y2hfcnVsZV9pZHMYASAD",
-            "KAkSEQoJdHJ1bmtfaWRzGAIgAygJIkoKG0xpc3RTSVBEaXNwYXRjaFJ1bGVS",
-            "ZXNwb25zZRIrCgVpdGVtcxgBIAMoCzIcLmxpdmVraXQuU0lQRGlzcGF0Y2hS",
-            "dWxlSW5mbyI8ChxEZWxldGVTSVBEaXNwYXRjaFJ1bGVSZXF1ZXN0EhwKFHNp",
-            "cF9kaXNwYXRjaF9ydWxlX2lkGAEgASgJIp0DChFTSVBPdXRib3VuZENvbmZp",
-            "ZxIQCghob3N0bmFtZRgBIAEoCRIoCgl0cmFuc3BvcnQYAiABKA4yFS5saXZl",
-            "a2l0LlNJUFRyYW5zcG9ydBIVCg1hdXRoX3VzZXJuYW1lGAMgASgJEhUKDWF1",
-            "dGhfcGFzc3dvcmQYBCABKAkSUgoVaGVhZGVyc190b19hdHRyaWJ1dGVzGAUg",
-            "AygLMjMubGl2ZWtpdC5TSVBPdXRib3VuZENvbmZpZy5IZWFkZXJzVG9BdHRy",
-            "aWJ1dGVzRW50cnkSUgoVYXR0cmlidXRlc190b19oZWFkZXJzGAYgAygLMjMu",
-            "bGl2ZWtpdC5TSVBPdXRib3VuZENvbmZpZy5BdHRyaWJ1dGVzVG9IZWFkZXJz",
-            "RW50cnkaOgoYSGVhZGVyc1RvQXR0cmlidXRlc0VudHJ5EgsKA2tleRgBIAEo",
-            "CRINCgV2YWx1ZRgCIAEoCToCOAEaOgoYQXR0cmlidXRlc1RvSGVhZGVyc0Vu",
-            "dHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEi5wYKG0NyZWF0",
-            "ZVNJUFBhcnRpY2lwYW50UmVxdWVzdBIUCgxzaXBfdHJ1bmtfaWQYASABKAkS",
-            "KQoFdHJ1bmsYFCABKAsyGi5saXZla2l0LlNJUE91dGJvdW5kQ29uZmlnEhMK",
-            "C3NpcF9jYWxsX3RvGAIgASgJEhIKCnNpcF9udW1iZXIYDyABKAkSEQoJcm9v",
-            "bV9uYW1lGAMgASgJEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5GAQgASgJEhgK",
-            "EHBhcnRpY2lwYW50X25hbWUYByABKAkSHAoUcGFydGljaXBhbnRfbWV0YWRh",
-            "dGEYCCABKAkSXwoWcGFydGljaXBhbnRfYXR0cmlidXRlcxgJIAMoCzI/Lmxp",
-            "dmVraXQuQ3JlYXRlU0lQUGFydGljaXBhbnRSZXF1ZXN0LlBhcnRpY2lwYW50",
-            "QXR0cmlidXRlc0VudHJ5EgwKBGR0bWYYBSABKAkSGQoNcGxheV9yaW5ndG9u",
-            "ZRgGIAEoCEICGAESFQoNcGxheV9kaWFsdG9uZRgNIAEoCBIZChFoaWRlX3Bo",
-            "b25lX251bWJlchgKIAEoCBJCCgdoZWFkZXJzGBAgAygLMjEubGl2ZWtpdC5D",
-            "cmVhdGVTSVBQYXJ0aWNpcGFudFJlcXVlc3QuSGVhZGVyc0VudHJ5EjIKD2lu",
-            "Y2x1ZGVfaGVhZGVycxgRIAEoDjIZLmxpdmVraXQuU0lQSGVhZGVyT3B0aW9u",
-            "cxIyCg9yaW5naW5nX3RpbWVvdXQYCyABKAsyGS5nb29nbGUucHJvdG9idWYu",
-            "RHVyYXRpb24SNAoRbWF4X2NhbGxfZHVyYXRpb24YDCABKAsyGS5nb29nbGUu",
-            "cHJvdG9idWYuRHVyYXRpb24SFQoNa3Jpc3BfZW5hYmxlZBgOIAEoCBI1ChBt",
-            "ZWRpYV9lbmNyeXB0aW9uGBIgASgOMhsubGl2ZWtpdC5TSVBNZWRpYUVuY3J5",
-            "cHRpb24SGwoTd2FpdF91bnRpbF9hbnN3ZXJlZBgTIAEoCBo8ChpQYXJ0aWNp",
-            "cGFudEF0dHJpYnV0ZXNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiAB",
-            "KAk6AjgBGi4KDEhlYWRlcnNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUY",
-            "AiABKAk6AjgBInIKElNJUFBhcnRpY2lwYW50SW5mbxIWCg5wYXJ0aWNpcGFu",
-            "dF9pZBgBIAEoCRIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgCIAEoCRIRCgly",
-            "b29tX25hbWUYAyABKAkSEwoLc2lwX2NhbGxfaWQYBCABKAki8gEKHVRyYW5z",
-            "ZmVyU0lQUGFydGljaXBhbnRSZXF1ZXN0EhwKFHBhcnRpY2lwYW50X2lkZW50",
-            "aXR5GAEgASgJEhEKCXJvb21fbmFtZRgCIAEoCRITCgt0cmFuc2Zlcl90bxgD",
-            "IAEoCRIVCg1wbGF5X2RpYWx0b25lGAQgASgIEkQKB2hlYWRlcnMYBSADKAsy",
-            "My5saXZla2l0LlRyYW5zZmVyU0lQUGFydGljaXBhbnRSZXF1ZXN0LkhlYWRl",
-            "cnNFbnRyeRouCgxIZWFkZXJzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVl",
-            "GAIgASgJOgI4ASLEAwoLU0lQQ2FsbEluZm8SDwoHY2FsbF9pZBgBIAEoCRIQ",
-            "Cgh0cnVua19pZBgCIAEoCRIRCglyb29tX25hbWUYAyABKAkSDwoHcm9vbV9p",
-            "ZBgEIAEoCRIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgFIAEoCRIhCghmcm9t",
-            "X3VyaRgGIAEoCzIPLmxpdmVraXQuU0lQVXJpEh8KBnRvX3VyaRgHIAEoCzIP",
-            "LmxpdmVraXQuU0lQVXJpEi0KEGVuYWJsZWRfZmVhdHVyZXMYDiADKA4yEy5s",
-            "aXZla2l0LlNJUEZlYXR1cmUSMQoOY2FsbF9kaXJlY3Rpb24YDyABKA4yGS5s",
-            "aXZla2l0LlNJUENhbGxEaXJlY3Rpb24SKwoLY2FsbF9zdGF0dXMYCCABKA4y",
-            "Fi5saXZla2l0LlNJUENhbGxTdGF0dXMSEgoKY3JlYXRlZF9hdBgJIAEoAxIS",
-            "CgpzdGFydGVkX2F0GAogASgDEhAKCGVuZGVkX2F0GAsgASgDEjQKEWRpc2Nv",
-            "bm5lY3RfcmVhc29uGAwgASgOMhkubGl2ZWtpdC5EaXNjb25uZWN0UmVhc29u",
-            "Eg0KBWVycm9yGA0gASgJImgKBlNJUFVyaRIMCgR1c2VyGAEgASgJEgwKBGhv",
-            "c3QYAiABKAkSCgoCaXAYAyABKAkSDAoEcG9ydBgEIAEoDRIoCgl0cmFuc3Bv",
-            "cnQYBSABKA4yFS5saXZla2l0LlNJUFRyYW5zcG9ydCrvDAoNU0lQU3RhdHVz",
-            "Q29kZRIWChJTSVBfU1RBVFVTX1VOS05PV04QABIVChFTSVBfU1RBVFVTX1RS",
-            "WUlORxBkEhcKElNJUF9TVEFUVVNfUklOR0lORxC0ARIhChxTSVBfU1RBVFVT",
-            "X0NBTExfSVNfRk9SV0FSREVEELUBEhYKEVNJUF9TVEFUVVNfUVVFVUVEELYB",
-            "EiAKG1NJUF9TVEFUVVNfU0VTU0lPTl9QUk9HUkVTUxC3ARISCg1TSVBfU1RB",
-            "VFVTX09LEMgBEhgKE1NJUF9TVEFUVVNfQUNDRVBURUQQygESIQocU0lQX1NU",
-            "QVRVU19NT1ZFRF9QRVJNQU5FTlRMWRCtAhIhChxTSVBfU1RBVFVTX01PVkVE",
-            "X1RFTVBPUkFSSUxZEK4CEhkKFFNJUF9TVEFUVVNfVVNFX1BST1hZELECEhsK",
-            "FlNJUF9TVEFUVVNfQkFEX1JFUVVFU1QQkAMSHAoXU0lQX1NUQVRVU19VTkFV",
-            "VEhPUklaRUQQkQMSIAobU0lQX1NUQVRVU19QQVlNRU5UX1JFUVVJUkVEEJID",
-            "EhkKFFNJUF9TVEFUVVNfRk9SQklEREVOEJMDEhgKE1NJUF9TVEFUVVNfTk9U",
-            "Rk9VTkQQlAMSIgodU0lQX1NUQVRVU19NRVRIT0RfTk9UX0FMTE9XRUQQlQMS",
-            "HgoZU0lQX1NUQVRVU19OT1RfQUNDRVBUQUJMRRCWAxIjCh5TSVBfU1RBVFVT",
-            "X1BST1hZX0FVVEhfUkVRVUlSRUQQlwMSHwoaU0lQX1NUQVRVU19SRVFVRVNU",
-            "X1RJTUVPVVQQmAMSGAoTU0lQX1NUQVRVU19DT05GTElDVBCZAxIUCg9TSVBf",
-            "U1RBVFVTX0dPTkUQmgMSKAojU0lQX1NUQVRVU19SRVFVRVNUX0VOVElUWV9U",
-            "T09fTEFSR0UQnQMSJAofU0lQX1NUQVRVU19SRVFVRVNUX1VSSV9UT09fTE9O",
-            "RxCeAxImCiFTSVBfU1RBVFVTX1VOU1VQUE9SVEVEX01FRElBX1RZUEUQnwMS",
-            "LwoqU0lQX1NUQVRVU19SRVFVRVNURURfUkFOR0VfTk9UX1NBVElTRklBQkxF",
-            "EKADEh0KGFNJUF9TVEFUVVNfQkFEX0VYVEVOU0lPThCkAxIiCh1TSVBfU1RB",
-            "VFVTX0VYVEVOU0lPTl9SRVFVSVJFRBClAxIiCh1TSVBfU1RBVFVTX0lOVEVS",
-            "VkFMX1RPT19CUklFRhCnAxInCiJTSVBfU1RBVFVTX1RFTVBPUkFSSUxZX1VO",
-            "QVZBSUxBQkxFEOADEjAKK1NJUF9TVEFUVVNfQ0FMTF9UUkFOU0FDVElPTl9E",
-            "T0VTX05PVF9FWElTVFMQ4QMSHQoYU0lQX1NUQVRVU19MT09QX0RFVEVDVEVE",
-            "EOIDEh0KGFNJUF9TVEFUVVNfVE9PX01BTllfSE9QUxDjAxIiCh1TSVBfU1RB",
-            "VFVTX0FERFJFU1NfSU5DT01QTEVURRDkAxIZChRTSVBfU1RBVFVTX0FNQklH",
-            "VU9VUxDlAxIZChRTSVBfU1RBVFVTX0JVU1lfSEVSRRDmAxIiCh1TSVBfU1RB",
-            "VFVTX1JFUVVFU1RfVEVSTUlOQVRFRBDnAxIjCh5TSVBfU1RBVFVTX05PVF9B",
-            "Q0NFUFRBQkxFX0hFUkUQ6AMSJQogU0lQX1NUQVRVU19JTlRFUk5BTF9TRVJW",
-            "RVJfRVJST1IQ9AMSHwoaU0lQX1NUQVRVU19OT1RfSU1QTEVNRU5URUQQ9QMS",
-            "GwoWU0lQX1NUQVRVU19CQURfR0FURVdBWRD2AxIjCh5TSVBfU1RBVFVTX1NF",
-            "UlZJQ0VfVU5BVkFJTEFCTEUQ9wMSHwoaU0lQX1NUQVRVU19HQVRFV0FZX1RJ",
-            "TUVPVVQQ+AMSJQogU0lQX1NUQVRVU19WRVJTSU9OX05PVF9TVVBQT1JURUQQ",
-            "+QMSIQocU0lQX1NUQVRVU19NRVNTQUdFX1RPT19MQVJHRRCBBBImCiFTSVBf",
-            "U1RBVFVTX0dMT0JBTF9CVVNZX0VWRVJZV0hFUkUQ2AQSHgoZU0lQX1NUQVRV",
-            "U19HTE9CQUxfREVDTElORRDbBBIuCilTSVBfU1RBVFVTX0dMT0JBTF9ET0VT",
-            "X05PVF9FWElTVF9BTllXSEVSRRDcBBIlCiBTSVBfU1RBVFVTX0dMT0JBTF9O",
-            "T1RfQUNDRVBUQUJMRRDeBCprCgxTSVBUcmFuc3BvcnQSFgoSU0lQX1RSQU5T",
-            "UE9SVF9BVVRPEAASFQoRU0lQX1RSQU5TUE9SVF9VRFAQARIVChFTSVBfVFJB",
-            "TlNQT1JUX1RDUBACEhUKEVNJUF9UUkFOU1BPUlRfVExTEAMqTgoQU0lQSGVh",
-            "ZGVyT3B0aW9ucxISCg5TSVBfTk9fSEVBREVSUxAAEhEKDVNJUF9YX0hFQURF",
-            "UlMQARITCg9TSVBfQUxMX0hFQURFUlMQAipvChJTSVBNZWRpYUVuY3J5cHRp",
-            "b24SHQoZU0lQX01FRElBX0VOQ1JZUFRfRElTQUJMRRAAEhsKF1NJUF9NRURJ",
-            "QV9FTkNSWVBUX0FMTE9XEAESHQoZU0lQX01FRElBX0VOQ1JZUFRfUkVRVUlS",
-            "RRACKncKDVNJUENhbGxTdGF0dXMSFQoRU0NTX0NBTExfSU5DT01JTkcQABIa",
-            "ChZTQ1NfUEFSVElDSVBBTlRfSk9JTkVEEAESDgoKU0NTX0FDVElWRRACEhQK",
-            "EFNDU19ESVNDT05ORUNURUQQAxINCglTQ1NfRVJST1IQBCopCgpTSVBGZWF0",
-            "dXJlEggKBE5PTkUQABIRCg1LUklTUF9FTkFCTEVEEAEqRgoQU0lQQ2FsbERp",
-            "cmVjdGlvbhIPCgtTQ0RfVU5LTk9XThAAEg8KC1NDRF9JTkJPVU5EEAESEAoM",
-            "U0NEX09VVEJPVU5EEAIyugkKA1NJUBJQCgxMaXN0U0lQVHJ1bmsSHC5saXZl",
-            "a2l0Lkxpc3RTSVBUcnVua1JlcXVlc3QaHS5saXZla2l0Lkxpc3RTSVBUcnVu",
-            "a1Jlc3BvbnNlIgOIAgESXAoVQ3JlYXRlU0lQSW5ib3VuZFRydW5rEiUubGl2",
-            "ZWtpdC5DcmVhdGVTSVBJbmJvdW5kVHJ1bmtSZXF1ZXN0GhwubGl2ZWtpdC5T",
-            "SVBJbmJvdW5kVHJ1bmtJbmZvEl8KFkNyZWF0ZVNJUE91dGJvdW5kVHJ1bmsS",
-            "Ji5saXZla2l0LkNyZWF0ZVNJUE91dGJvdW5kVHJ1bmtSZXF1ZXN0Gh0ubGl2",
-            "ZWtpdC5TSVBPdXRib3VuZFRydW5rSW5mbxJdChJHZXRTSVBJbmJvdW5kVHJ1",
-            "bmsSIi5saXZla2l0LkdldFNJUEluYm91bmRUcnVua1JlcXVlc3QaIy5saXZl",
-            "a2l0LkdldFNJUEluYm91bmRUcnVua1Jlc3BvbnNlEmAKE0dldFNJUE91dGJv",
-            "dW5kVHJ1bmsSIy5saXZla2l0LkdldFNJUE91dGJvdW5kVHJ1bmtSZXF1ZXN0",
-            "GiQubGl2ZWtpdC5HZXRTSVBPdXRib3VuZFRydW5rUmVzcG9uc2USYAoTTGlz",
-            "dFNJUEluYm91bmRUcnVuaxIjLmxpdmVraXQuTGlzdFNJUEluYm91bmRUcnVu",
-            "a1JlcXVlc3QaJC5saXZla2l0Lkxpc3RTSVBJbmJvdW5kVHJ1bmtSZXNwb25z",
-            "ZRJjChRMaXN0U0lQT3V0Ym91bmRUcnVuaxIkLmxpdmVraXQuTGlzdFNJUE91",
-            "dGJvdW5kVHJ1bmtSZXF1ZXN0GiUubGl2ZWtpdC5MaXN0U0lQT3V0Ym91bmRU",
-            "cnVua1Jlc3BvbnNlEkcKDkRlbGV0ZVNJUFRydW5rEh4ubGl2ZWtpdC5EZWxl",
-            "dGVTSVBUcnVua1JlcXVlc3QaFS5saXZla2l0LlNJUFRydW5rSW5mbxJcChVD",
-            "cmVhdGVTSVBEaXNwYXRjaFJ1bGUSJS5saXZla2l0LkNyZWF0ZVNJUERpc3Bh",
-            "dGNoUnVsZVJlcXVlc3QaHC5saXZla2l0LlNJUERpc3BhdGNoUnVsZUluZm8S",
-            "YAoTTGlzdFNJUERpc3BhdGNoUnVsZRIjLmxpdmVraXQuTGlzdFNJUERpc3Bh",
-            "dGNoUnVsZVJlcXVlc3QaJC5saXZla2l0Lkxpc3RTSVBEaXNwYXRjaFJ1bGVS",
-            "ZXNwb25zZRJcChVEZWxldGVTSVBEaXNwYXRjaFJ1bGUSJS5saXZla2l0LkRl",
-            "bGV0ZVNJUERpc3BhdGNoUnVsZVJlcXVlc3QaHC5saXZla2l0LlNJUERpc3Bh",
-            "dGNoUnVsZUluZm8SWQoUQ3JlYXRlU0lQUGFydGljaXBhbnQSJC5saXZla2l0",
-            "LkNyZWF0ZVNJUFBhcnRpY2lwYW50UmVxdWVzdBobLmxpdmVraXQuU0lQUGFy",
-            "dGljaXBhbnRJbmZvElgKFlRyYW5zZmVyU0lQUGFydGljaXBhbnQSJi5saXZl",
-            "a2l0LlRyYW5zZmVyU0lQUGFydGljaXBhbnRSZXF1ZXN0GhYuZ29vZ2xlLnBy",
-            "b3RvYnVmLkVtcHR5QkZaI2dpdGh1Yi5jb20vbGl2ZWtpdC9wcm90b2NvbC9s",
-            "aXZla2l0qgINTGl2ZUtpdC5Qcm90b+oCDkxpdmVLaXQ6OlByb3RvYgZwcm90",
-            "bzM="));
+            "YmVycxgCIAMoCSJKChtMaXN0U0lQSW5ib3VuZFRydW5rUmVzcG9uc2USKwoF",
+            "aXRlbXMYASADKAsyHC5saXZla2l0LlNJUEluYm91bmRUcnVua0luZm8iZAob",
+            "TGlzdFNJUE91dGJvdW5kVHJ1bmtSZXF1ZXN0EiEKBHBhZ2UYAyABKAsyEy5s",
+            "aXZla2l0LlBhZ2luYXRpb24SEQoJdHJ1bmtfaWRzGAEgAygJEg8KB251bWJl",
+            "cnMYAiADKAkiTAocTGlzdFNJUE91dGJvdW5kVHJ1bmtSZXNwb25zZRIsCgVp",
+            "dGVtcxgBIAMoCzIdLmxpdmVraXQuU0lQT3V0Ym91bmRUcnVua0luZm8iLQoV",
+            "RGVsZXRlU0lQVHJ1bmtSZXF1ZXN0EhQKDHNpcF90cnVua19pZBgBIAEoCSI3",
+            "ChVTSVBEaXNwYXRjaFJ1bGVEaXJlY3QSEQoJcm9vbV9uYW1lGAEgASgJEgsK",
+            "A3BpbhgCIAEoCSI9ChlTSVBEaXNwYXRjaFJ1bGVJbmRpdmlkdWFsEhMKC3Jv",
+            "b21fcHJlZml4GAEgASgJEgsKA3BpbhgCIAEoCSJMChVTSVBEaXNwYXRjaFJ1",
+            "bGVDYWxsZWUSEwoLcm9vbV9wcmVmaXgYASABKAkSCwoDcGluGAIgASgJEhEK",
+            "CXJhbmRvbWl6ZRgDIAEoCCLhAQoPU0lQRGlzcGF0Y2hSdWxlEj4KFGRpc3Bh",
+            "dGNoX3J1bGVfZGlyZWN0GAEgASgLMh4ubGl2ZWtpdC5TSVBEaXNwYXRjaFJ1",
+            "bGVEaXJlY3RIABJGChhkaXNwYXRjaF9ydWxlX2luZGl2aWR1YWwYAiABKAsy",
+            "Ii5saXZla2l0LlNJUERpc3BhdGNoUnVsZUluZGl2aWR1YWxIABI+ChRkaXNw",
+            "YXRjaF9ydWxlX2NhbGxlZRgDIAEoCzIeLmxpdmVraXQuU0lQRGlzcGF0Y2hS",
+            "dWxlQ2FsbGVlSABCBgoEcnVsZSLKAwocQ3JlYXRlU0lQRGlzcGF0Y2hSdWxl",
+            "UmVxdWVzdBIzCg1kaXNwYXRjaF9ydWxlGAogASgLMhwubGl2ZWtpdC5TSVBE",
+            "aXNwYXRjaFJ1bGVJbmZvEioKBHJ1bGUYASABKAsyGC5saXZla2l0LlNJUERp",
+            "c3BhdGNoUnVsZUICGAESFQoJdHJ1bmtfaWRzGAIgAygJQgIYARIdChFoaWRl",
+            "X3Bob25lX251bWJlchgDIAEoCEICGAESGwoPaW5ib3VuZF9udW1iZXJzGAYg",
+            "AygJQgIYARIQCgRuYW1lGAQgASgJQgIYARIUCghtZXRhZGF0YRgFIAEoCUIC",
+            "GAESTQoKYXR0cmlidXRlcxgHIAMoCzI1LmxpdmVraXQuQ3JlYXRlU0lQRGlz",
+            "cGF0Y2hSdWxlUmVxdWVzdC5BdHRyaWJ1dGVzRW50cnlCAhgBEhcKC3Jvb21f",
+            "cHJlc2V0GAggASgJQgIYARIzCgtyb29tX2NvbmZpZxgJIAEoCzIaLmxpdmVr",
+            "aXQuUm9vbUNvbmZpZ3VyYXRpb25CAhgBGjEKD0F0dHJpYnV0ZXNFbnRyeRIL",
+            "CgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIqkBChxVcGRhdGVTSVBE",
+            "aXNwYXRjaFJ1bGVSZXF1ZXN0EhwKFHNpcF9kaXNwYXRjaF9ydWxlX2lkGAEg",
+            "ASgJEi8KB3JlcGxhY2UYAiABKAsyHC5saXZla2l0LlNJUERpc3BhdGNoUnVs",
+            "ZUluZm9IABIwCgZ1cGRhdGUYAyABKAsyHi5saXZla2l0LlNJUERpc3BhdGNo",
+            "UnVsZVVwZGF0ZUgAQggKBmFjdGlvbiLLAwoTU0lQRGlzcGF0Y2hSdWxlSW5m",
+            "bxIcChRzaXBfZGlzcGF0Y2hfcnVsZV9pZBgBIAEoCRImCgRydWxlGAIgASgL",
+            "MhgubGl2ZWtpdC5TSVBEaXNwYXRjaFJ1bGUSEQoJdHJ1bmtfaWRzGAMgAygJ",
+            "EhkKEWhpZGVfcGhvbmVfbnVtYmVyGAQgASgIEhcKD2luYm91bmRfbnVtYmVy",
+            "cxgHIAMoCRIMCgRuYW1lGAUgASgJEhAKCG1ldGFkYXRhGAYgASgJEkAKCmF0",
+            "dHJpYnV0ZXMYCCADKAsyLC5saXZla2l0LlNJUERpc3BhdGNoUnVsZUluZm8u",
+            "QXR0cmlidXRlc0VudHJ5EhMKC3Jvb21fcHJlc2V0GAkgASgJEi8KC3Jvb21f",
+            "Y29uZmlnGAogASgLMhoubGl2ZWtpdC5Sb29tQ29uZmlndXJhdGlvbhIVCg1r",
+            "cmlzcF9lbmFibGVkGAsgASgIEjUKEG1lZGlhX2VuY3J5cHRpb24YDCABKA4y",
+            "Gy5saXZla2l0LlNJUE1lZGlhRW5jcnlwdGlvbhoxCg9BdHRyaWJ1dGVzRW50",
+            "cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASLvAgoVU0lQRGlz",
+            "cGF0Y2hSdWxlVXBkYXRlEiYKCXRydW5rX2lkcxgBIAEoCzITLmxpdmVraXQu",
+            "TGlzdFVwZGF0ZRImCgRydWxlGAIgASgLMhgubGl2ZWtpdC5TSVBEaXNwYXRj",
+            "aFJ1bGUSEQoEbmFtZRgDIAEoCUgAiAEBEhUKCG1ldGFkYXRhGAQgASgJSAGI",
+            "AQESQgoKYXR0cmlidXRlcxgFIAMoCzIuLmxpdmVraXQuU0lQRGlzcGF0Y2hS",
+            "dWxlVXBkYXRlLkF0dHJpYnV0ZXNFbnRyeRI6ChBtZWRpYV9lbmNyeXB0aW9u",
+            "GAYgASgOMhsubGl2ZWtpdC5TSVBNZWRpYUVuY3J5cHRpb25IAogBARoxCg9B",
+            "dHRyaWJ1dGVzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4",
+            "AUIHCgVfbmFtZUILCglfbWV0YWRhdGFCEwoRX21lZGlhX2VuY3J5cHRpb24i",
+            "bQoaTGlzdFNJUERpc3BhdGNoUnVsZVJlcXVlc3QSIQoEcGFnZRgDIAEoCzIT",
+            "LmxpdmVraXQuUGFnaW5hdGlvbhIZChFkaXNwYXRjaF9ydWxlX2lkcxgBIAMo",
+            "CRIRCgl0cnVua19pZHMYAiADKAkiSgobTGlzdFNJUERpc3BhdGNoUnVsZVJl",
+            "c3BvbnNlEisKBWl0ZW1zGAEgAygLMhwubGl2ZWtpdC5TSVBEaXNwYXRjaFJ1",
+            "bGVJbmZvIjwKHERlbGV0ZVNJUERpc3BhdGNoUnVsZVJlcXVlc3QSHAoUc2lw",
+            "X2Rpc3BhdGNoX3J1bGVfaWQYASABKAkinQMKEVNJUE91dGJvdW5kQ29uZmln",
+            "EhAKCGhvc3RuYW1lGAEgASgJEigKCXRyYW5zcG9ydBgCIAEoDjIVLmxpdmVr",
+            "aXQuU0lQVHJhbnNwb3J0EhUKDWF1dGhfdXNlcm5hbWUYAyABKAkSFQoNYXV0",
+            "aF9wYXNzd29yZBgEIAEoCRJSChVoZWFkZXJzX3RvX2F0dHJpYnV0ZXMYBSAD",
+            "KAsyMy5saXZla2l0LlNJUE91dGJvdW5kQ29uZmlnLkhlYWRlcnNUb0F0dHJp",
+            "YnV0ZXNFbnRyeRJSChVhdHRyaWJ1dGVzX3RvX2hlYWRlcnMYBiADKAsyMy5s",
+            "aXZla2l0LlNJUE91dGJvdW5kQ29uZmlnLkF0dHJpYnV0ZXNUb0hlYWRlcnNF",
+            "bnRyeRo6ChhIZWFkZXJzVG9BdHRyaWJ1dGVzRW50cnkSCwoDa2V5GAEgASgJ",
+            "Eg0KBXZhbHVlGAIgASgJOgI4ARo6ChhBdHRyaWJ1dGVzVG9IZWFkZXJzRW50",
+            "cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASLnBgobQ3JlYXRl",
+            "U0lQUGFydGljaXBhbnRSZXF1ZXN0EhQKDHNpcF90cnVua19pZBgBIAEoCRIp",
+            "CgV0cnVuaxgUIAEoCzIaLmxpdmVraXQuU0lQT3V0Ym91bmRDb25maWcSEwoL",
+            "c2lwX2NhbGxfdG8YAiABKAkSEgoKc2lwX251bWJlchgPIAEoCRIRCglyb29t",
+            "X25hbWUYAyABKAkSHAoUcGFydGljaXBhbnRfaWRlbnRpdHkYBCABKAkSGAoQ",
+            "cGFydGljaXBhbnRfbmFtZRgHIAEoCRIcChRwYXJ0aWNpcGFudF9tZXRhZGF0",
+            "YRgIIAEoCRJfChZwYXJ0aWNpcGFudF9hdHRyaWJ1dGVzGAkgAygLMj8ubGl2",
+            "ZWtpdC5DcmVhdGVTSVBQYXJ0aWNpcGFudFJlcXVlc3QuUGFydGljaXBhbnRB",
+            "dHRyaWJ1dGVzRW50cnkSDAoEZHRtZhgFIAEoCRIZCg1wbGF5X3Jpbmd0b25l",
+            "GAYgASgIQgIYARIVCg1wbGF5X2RpYWx0b25lGA0gASgIEhkKEWhpZGVfcGhv",
+            "bmVfbnVtYmVyGAogASgIEkIKB2hlYWRlcnMYECADKAsyMS5saXZla2l0LkNy",
+            "ZWF0ZVNJUFBhcnRpY2lwYW50UmVxdWVzdC5IZWFkZXJzRW50cnkSMgoPaW5j",
+            "bHVkZV9oZWFkZXJzGBEgASgOMhkubGl2ZWtpdC5TSVBIZWFkZXJPcHRpb25z",
+            "EjIKD3JpbmdpbmdfdGltZW91dBgLIAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5E",
+            "dXJhdGlvbhI0ChFtYXhfY2FsbF9kdXJhdGlvbhgMIAEoCzIZLmdvb2dsZS5w",
+            "cm90b2J1Zi5EdXJhdGlvbhIVCg1rcmlzcF9lbmFibGVkGA4gASgIEjUKEG1l",
+            "ZGlhX2VuY3J5cHRpb24YEiABKA4yGy5saXZla2l0LlNJUE1lZGlhRW5jcnlw",
+            "dGlvbhIbChN3YWl0X3VudGlsX2Fuc3dlcmVkGBMgASgIGjwKGlBhcnRpY2lw",
+            "YW50QXR0cmlidXRlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEo",
+            "CToCOAEaLgoMSGVhZGVyc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgC",
+            "IAEoCToCOAEicgoSU0lQUGFydGljaXBhbnRJbmZvEhYKDnBhcnRpY2lwYW50",
+            "X2lkGAEgASgJEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5GAIgASgJEhEKCXJv",
+            "b21fbmFtZRgDIAEoCRITCgtzaXBfY2FsbF9pZBgEIAEoCSKmAgodVHJhbnNm",
+            "ZXJTSVBQYXJ0aWNpcGFudFJlcXVlc3QSHAoUcGFydGljaXBhbnRfaWRlbnRp",
+            "dHkYASABKAkSEQoJcm9vbV9uYW1lGAIgASgJEhMKC3RyYW5zZmVyX3RvGAMg",
+            "ASgJEhUKDXBsYXlfZGlhbHRvbmUYBCABKAgSRAoHaGVhZGVycxgFIAMoCzIz",
+            "LmxpdmVraXQuVHJhbnNmZXJTSVBQYXJ0aWNpcGFudFJlcXVlc3QuSGVhZGVy",
+            "c0VudHJ5EjIKD3JpbmdpbmdfdGltZW91dBgGIAEoCzIZLmdvb2dsZS5wcm90",
+            "b2J1Zi5EdXJhdGlvbhouCgxIZWFkZXJzRW50cnkSCwoDa2V5GAEgASgJEg0K",
+            "BXZhbHVlGAIgASgJOgI4ASKpBgoLU0lQQ2FsbEluZm8SDwoHY2FsbF9pZBgB",
+            "IAEoCRIQCgh0cnVua19pZBgCIAEoCRIYChBkaXNwYXRjaF9ydWxlX2lkGBAg",
+            "ASgJEg4KBnJlZ2lvbhgRIAEoCRIRCglyb29tX25hbWUYAyABKAkSDwoHcm9v",
+            "bV9pZBgEIAEoCRIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgFIAEoCRJPChZw",
+            "YXJ0aWNpcGFudF9hdHRyaWJ1dGVzGBIgAygLMi8ubGl2ZWtpdC5TSVBDYWxs",
+            "SW5mby5QYXJ0aWNpcGFudEF0dHJpYnV0ZXNFbnRyeRIhCghmcm9tX3VyaRgG",
+            "IAEoCzIPLmxpdmVraXQuU0lQVXJpEh8KBnRvX3VyaRgHIAEoCzIPLmxpdmVr",
+            "aXQuU0lQVXJpEhYKCmNyZWF0ZWRfYXQYCSABKANCAhgBEhYKCnN0YXJ0ZWRf",
+            "YXQYCiABKANCAhgBEhQKCGVuZGVkX2F0GAsgASgDQgIYARItChBlbmFibGVk",
+            "X2ZlYXR1cmVzGA4gAygOMhMubGl2ZWtpdC5TSVBGZWF0dXJlEjEKDmNhbGxf",
+            "ZGlyZWN0aW9uGA8gASgOMhkubGl2ZWtpdC5TSVBDYWxsRGlyZWN0aW9uEisK",
+            "C2NhbGxfc3RhdHVzGAggASgOMhYubGl2ZWtpdC5TSVBDYWxsU3RhdHVzEhUK",
+            "DWNyZWF0ZWRfYXRfbnMYFiABKAMSFQoNc3RhcnRlZF9hdF9ucxgXIAEoAxIT",
+            "CgtlbmRlZF9hdF9ucxgYIAEoAxI0ChFkaXNjb25uZWN0X3JlYXNvbhgMIAEo",
+            "DjIZLmxpdmVraXQuRGlzY29ubmVjdFJlYXNvbhINCgVlcnJvchgNIAEoCRIs",
+            "ChBjYWxsX3N0YXR1c19jb2RlGBMgASgLMhIubGl2ZWtpdC5TSVBTdGF0dXMS",
+            "EwoLYXVkaW9fY29kZWMYFCABKAkSGAoQbWVkaWFfZW5jcnlwdGlvbhgVIAEo",
+            "CRo8ChpQYXJ0aWNpcGFudEF0dHJpYnV0ZXNFbnRyeRILCgNrZXkYASABKAkS",
+            "DQoFdmFsdWUYAiABKAk6AjgBImgKBlNJUFVyaRIMCgR1c2VyGAEgASgJEgwK",
+            "BGhvc3QYAiABKAkSCgoCaXAYAyABKAkSDAoEcG9ydBgEIAEoDRIoCgl0cmFu",
+            "c3BvcnQYBSABKA4yFS5saXZla2l0LlNJUFRyYW5zcG9ydCrvDAoNU0lQU3Rh",
+            "dHVzQ29kZRIWChJTSVBfU1RBVFVTX1VOS05PV04QABIVChFTSVBfU1RBVFVT",
+            "X1RSWUlORxBkEhcKElNJUF9TVEFUVVNfUklOR0lORxC0ARIhChxTSVBfU1RB",
+            "VFVTX0NBTExfSVNfRk9SV0FSREVEELUBEhYKEVNJUF9TVEFUVVNfUVVFVUVE",
+            "ELYBEiAKG1NJUF9TVEFUVVNfU0VTU0lPTl9QUk9HUkVTUxC3ARISCg1TSVBf",
+            "U1RBVFVTX09LEMgBEhgKE1NJUF9TVEFUVVNfQUNDRVBURUQQygESIQocU0lQ",
+            "X1NUQVRVU19NT1ZFRF9QRVJNQU5FTlRMWRCtAhIhChxTSVBfU1RBVFVTX01P",
+            "VkVEX1RFTVBPUkFSSUxZEK4CEhkKFFNJUF9TVEFUVVNfVVNFX1BST1hZELEC",
+            "EhsKFlNJUF9TVEFUVVNfQkFEX1JFUVVFU1QQkAMSHAoXU0lQX1NUQVRVU19V",
+            "TkFVVEhPUklaRUQQkQMSIAobU0lQX1NUQVRVU19QQVlNRU5UX1JFUVVJUkVE",
+            "EJIDEhkKFFNJUF9TVEFUVVNfRk9SQklEREVOEJMDEhgKE1NJUF9TVEFUVVNf",
+            "Tk9URk9VTkQQlAMSIgodU0lQX1NUQVRVU19NRVRIT0RfTk9UX0FMTE9XRUQQ",
+            "lQMSHgoZU0lQX1NUQVRVU19OT1RfQUNDRVBUQUJMRRCWAxIjCh5TSVBfU1RB",
+            "VFVTX1BST1hZX0FVVEhfUkVRVUlSRUQQlwMSHwoaU0lQX1NUQVRVU19SRVFV",
+            "RVNUX1RJTUVPVVQQmAMSGAoTU0lQX1NUQVRVU19DT05GTElDVBCZAxIUCg9T",
+            "SVBfU1RBVFVTX0dPTkUQmgMSKAojU0lQX1NUQVRVU19SRVFVRVNUX0VOVElU",
+            "WV9UT09fTEFSR0UQnQMSJAofU0lQX1NUQVRVU19SRVFVRVNUX1VSSV9UT09f",
+            "TE9ORxCeAxImCiFTSVBfU1RBVFVTX1VOU1VQUE9SVEVEX01FRElBX1RZUEUQ",
+            "nwMSLwoqU0lQX1NUQVRVU19SRVFVRVNURURfUkFOR0VfTk9UX1NBVElTRklB",
+            "QkxFEKADEh0KGFNJUF9TVEFUVVNfQkFEX0VYVEVOU0lPThCkAxIiCh1TSVBf",
+            "U1RBVFVTX0VYVEVOU0lPTl9SRVFVSVJFRBClAxIiCh1TSVBfU1RBVFVTX0lO",
+            "VEVSVkFMX1RPT19CUklFRhCnAxInCiJTSVBfU1RBVFVTX1RFTVBPUkFSSUxZ",
+            "X1VOQVZBSUxBQkxFEOADEjAKK1NJUF9TVEFUVVNfQ0FMTF9UUkFOU0FDVElP",
+            "Tl9ET0VTX05PVF9FWElTVFMQ4QMSHQoYU0lQX1NUQVRVU19MT09QX0RFVEVD",
+            "VEVEEOIDEh0KGFNJUF9TVEFUVVNfVE9PX01BTllfSE9QUxDjAxIiCh1TSVBf",
+            "U1RBVFVTX0FERFJFU1NfSU5DT01QTEVURRDkAxIZChRTSVBfU1RBVFVTX0FN",
+            "QklHVU9VUxDlAxIZChRTSVBfU1RBVFVTX0JVU1lfSEVSRRDmAxIiCh1TSVBf",
+            "U1RBVFVTX1JFUVVFU1RfVEVSTUlOQVRFRBDnAxIjCh5TSVBfU1RBVFVTX05P",
+            "VF9BQ0NFUFRBQkxFX0hFUkUQ6AMSJQogU0lQX1NUQVRVU19JTlRFUk5BTF9T",
+            "RVJWRVJfRVJST1IQ9AMSHwoaU0lQX1NUQVRVU19OT1RfSU1QTEVNRU5URUQQ",
+            "9QMSGwoWU0lQX1NUQVRVU19CQURfR0FURVdBWRD2AxIjCh5TSVBfU1RBVFVT",
+            "X1NFUlZJQ0VfVU5BVkFJTEFCTEUQ9wMSHwoaU0lQX1NUQVRVU19HQVRFV0FZ",
+            "X1RJTUVPVVQQ+AMSJQogU0lQX1NUQVRVU19WRVJTSU9OX05PVF9TVVBQT1JU",
+            "RUQQ+QMSIQocU0lQX1NUQVRVU19NRVNTQUdFX1RPT19MQVJHRRCBBBImCiFT",
+            "SVBfU1RBVFVTX0dMT0JBTF9CVVNZX0VWRVJZV0hFUkUQ2AQSHgoZU0lQX1NU",
+            "QVRVU19HTE9CQUxfREVDTElORRDbBBIuCilTSVBfU1RBVFVTX0dMT0JBTF9E",
+            "T0VTX05PVF9FWElTVF9BTllXSEVSRRDcBBIlCiBTSVBfU1RBVFVTX0dMT0JB",
+            "TF9OT1RfQUNDRVBUQUJMRRDeBCprCgxTSVBUcmFuc3BvcnQSFgoSU0lQX1RS",
+            "QU5TUE9SVF9BVVRPEAASFQoRU0lQX1RSQU5TUE9SVF9VRFAQARIVChFTSVBf",
+            "VFJBTlNQT1JUX1RDUBACEhUKEVNJUF9UUkFOU1BPUlRfVExTEAMqTgoQU0lQ",
+            "SGVhZGVyT3B0aW9ucxISCg5TSVBfTk9fSEVBREVSUxAAEhEKDVNJUF9YX0hF",
+            "QURFUlMQARITCg9TSVBfQUxMX0hFQURFUlMQAipvChJTSVBNZWRpYUVuY3J5",
+            "cHRpb24SHQoZU0lQX01FRElBX0VOQ1JZUFRfRElTQUJMRRAAEhsKF1NJUF9N",
+            "RURJQV9FTkNSWVBUX0FMTE9XEAESHQoZU0lQX01FRElBX0VOQ1JZUFRfUkVR",
+            "VUlSRRACKncKDVNJUENhbGxTdGF0dXMSFQoRU0NTX0NBTExfSU5DT01JTkcQ",
+            "ABIaChZTQ1NfUEFSVElDSVBBTlRfSk9JTkVEEAESDgoKU0NTX0FDVElWRRAC",
+            "EhQKEFNDU19ESVNDT05ORUNURUQQAxINCglTQ1NfRVJST1IQBCopCgpTSVBG",
+            "ZWF0dXJlEggKBE5PTkUQABIRCg1LUklTUF9FTkFCTEVEEAEqRgoQU0lQQ2Fs",
+            "bERpcmVjdGlvbhIPCgtTQ0RfVU5LTk9XThAAEg8KC1NDRF9JTkJPVU5EEAES",
+            "EAoMU0NEX09VVEJPVU5EEAIy1wsKA1NJUBJQCgxMaXN0U0lQVHJ1bmsSHC5s",
+            "aXZla2l0Lkxpc3RTSVBUcnVua1JlcXVlc3QaHS5saXZla2l0Lkxpc3RTSVBU",
+            "cnVua1Jlc3BvbnNlIgOIAgESXAoVQ3JlYXRlU0lQSW5ib3VuZFRydW5rEiUu",
+            "bGl2ZWtpdC5DcmVhdGVTSVBJbmJvdW5kVHJ1bmtSZXF1ZXN0GhwubGl2ZWtp",
+            "dC5TSVBJbmJvdW5kVHJ1bmtJbmZvEl8KFkNyZWF0ZVNJUE91dGJvdW5kVHJ1",
+            "bmsSJi5saXZla2l0LkNyZWF0ZVNJUE91dGJvdW5kVHJ1bmtSZXF1ZXN0Gh0u",
+            "bGl2ZWtpdC5TSVBPdXRib3VuZFRydW5rSW5mbxJcChVVcGRhdGVTSVBJbmJv",
+            "dW5kVHJ1bmsSJS5saXZla2l0LlVwZGF0ZVNJUEluYm91bmRUcnVua1JlcXVl",
+            "c3QaHC5saXZla2l0LlNJUEluYm91bmRUcnVua0luZm8SXwoWVXBkYXRlU0lQ",
+            "T3V0Ym91bmRUcnVuaxImLmxpdmVraXQuVXBkYXRlU0lQT3V0Ym91bmRUcnVu",
+            "a1JlcXVlc3QaHS5saXZla2l0LlNJUE91dGJvdW5kVHJ1bmtJbmZvEl0KEkdl",
+            "dFNJUEluYm91bmRUcnVuaxIiLmxpdmVraXQuR2V0U0lQSW5ib3VuZFRydW5r",
+            "UmVxdWVzdBojLmxpdmVraXQuR2V0U0lQSW5ib3VuZFRydW5rUmVzcG9uc2US",
+            "YAoTR2V0U0lQT3V0Ym91bmRUcnVuaxIjLmxpdmVraXQuR2V0U0lQT3V0Ym91",
+            "bmRUcnVua1JlcXVlc3QaJC5saXZla2l0LkdldFNJUE91dGJvdW5kVHJ1bmtS",
+            "ZXNwb25zZRJgChNMaXN0U0lQSW5ib3VuZFRydW5rEiMubGl2ZWtpdC5MaXN0",
+            "U0lQSW5ib3VuZFRydW5rUmVxdWVzdBokLmxpdmVraXQuTGlzdFNJUEluYm91",
+            "bmRUcnVua1Jlc3BvbnNlEmMKFExpc3RTSVBPdXRib3VuZFRydW5rEiQubGl2",
+            "ZWtpdC5MaXN0U0lQT3V0Ym91bmRUcnVua1JlcXVlc3QaJS5saXZla2l0Lkxp",
+            "c3RTSVBPdXRib3VuZFRydW5rUmVzcG9uc2USRwoORGVsZXRlU0lQVHJ1bmsS",
+            "Hi5saXZla2l0LkRlbGV0ZVNJUFRydW5rUmVxdWVzdBoVLmxpdmVraXQuU0lQ",
+            "VHJ1bmtJbmZvElwKFUNyZWF0ZVNJUERpc3BhdGNoUnVsZRIlLmxpdmVraXQu",
+            "Q3JlYXRlU0lQRGlzcGF0Y2hSdWxlUmVxdWVzdBocLmxpdmVraXQuU0lQRGlz",
+            "cGF0Y2hSdWxlSW5mbxJcChVVcGRhdGVTSVBEaXNwYXRjaFJ1bGUSJS5saXZl",
+            "a2l0LlVwZGF0ZVNJUERpc3BhdGNoUnVsZVJlcXVlc3QaHC5saXZla2l0LlNJ",
+            "UERpc3BhdGNoUnVsZUluZm8SYAoTTGlzdFNJUERpc3BhdGNoUnVsZRIjLmxp",
+            "dmVraXQuTGlzdFNJUERpc3BhdGNoUnVsZVJlcXVlc3QaJC5saXZla2l0Lkxp",
+            "c3RTSVBEaXNwYXRjaFJ1bGVSZXNwb25zZRJcChVEZWxldGVTSVBEaXNwYXRj",
+            "aFJ1bGUSJS5saXZla2l0LkRlbGV0ZVNJUERpc3BhdGNoUnVsZVJlcXVlc3Qa",
+            "HC5saXZla2l0LlNJUERpc3BhdGNoUnVsZUluZm8SWQoUQ3JlYXRlU0lQUGFy",
+            "dGljaXBhbnQSJC5saXZla2l0LkNyZWF0ZVNJUFBhcnRpY2lwYW50UmVxdWVz",
+            "dBobLmxpdmVraXQuU0lQUGFydGljaXBhbnRJbmZvElgKFlRyYW5zZmVyU0lQ",
+            "UGFydGljaXBhbnQSJi5saXZla2l0LlRyYW5zZmVyU0lQUGFydGljaXBhbnRS",
+            "ZXF1ZXN0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5QkZaI2dpdGh1Yi5jb20v",
+            "bGl2ZWtpdC9wcm90b2NvbC9saXZla2l0qgINTGl2ZUtpdC5Qcm90b+oCDkxp",
+            "dmVLaXQ6OlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitRoomReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.SIPStatusCode), typeof(global::Livekit.Server.Sdk.Dotnet.SIPTransport), typeof(global::Livekit.Server.Sdk.Dotnet.SIPHeaderOptions), typeof(global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption), typeof(global::Livekit.Server.Sdk.Dotnet.SIPCallStatus), typeof(global::Livekit.Server.Sdk.Dotnet.SIPFeature), typeof(global::Livekit.Server.Sdk.Dotnet.SIPCallDirection), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -269,9 +323,13 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateSIPTrunkRequest), global::Livekit.Server.Sdk.Dotnet.CreateSIPTrunkRequest.Parser, new[]{ "InboundAddresses", "OutboundAddress", "OutboundNumber", "InboundNumbersRegex", "InboundNumbers", "InboundUsername", "InboundPassword", "OutboundUsername", "OutboundPassword", "Name", "Metadata" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo), global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Parser, new[]{ "SipTrunkId", "Kind", "InboundAddresses", "OutboundAddress", "OutboundNumber", "Transport", "InboundNumbersRegex", "InboundNumbers", "InboundUsername", "InboundPassword", "OutboundUsername", "OutboundPassword", "Name", "Metadata" }, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types.TrunkKind) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateSIPInboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.CreateSIPInboundTrunkRequest.Parser, new[]{ "Trunk" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateSIPInboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.UpdateSIPInboundTrunkRequest.Parser, new[]{ "SipTrunkId", "Replace", "Update" }, new[]{ "Action" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo), global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo.Parser, new[]{ "SipTrunkId", "Name", "Metadata", "Numbers", "AllowedAddresses", "AllowedNumbers", "AuthUsername", "AuthPassword", "Headers", "HeadersToAttributes", "AttributesToHeaders", "IncludeHeaders", "RingingTimeout", "MaxCallDuration", "KrispEnabled", "MediaEncryption" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkUpdate), global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkUpdate.Parser, new[]{ "Numbers", "AllowedAddresses", "AllowedNumbers", "AuthUsername", "AuthPassword", "Name", "Metadata", "MediaEncryption" }, new[]{ "AuthUsername", "AuthPassword", "Name", "Metadata", "MediaEncryption" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateSIPOutboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.CreateSIPOutboundTrunkRequest.Parser, new[]{ "Trunk" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateSIPOutboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.UpdateSIPOutboundTrunkRequest.Parser, new[]{ "SipTrunkId", "Replace", "Update" }, new[]{ "Action" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo), global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo.Parser, new[]{ "SipTrunkId", "Name", "Metadata", "Address", "Transport", "Numbers", "AuthUsername", "AuthPassword", "Headers", "HeadersToAttributes", "AttributesToHeaders", "IncludeHeaders", "MediaEncryption" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkUpdate), global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkUpdate.Parser, new[]{ "Address", "Transport", "Numbers", "AuthUsername", "AuthPassword", "Name", "Metadata", "MediaEncryption" }, new[]{ "Address", "Transport", "AuthUsername", "AuthPassword", "Name", "Metadata", "MediaEncryption" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkRequest.Parser, new[]{ "SipTrunkId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkResponse), global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkResponse.Parser, new[]{ "Trunk" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkRequest.Parser, new[]{ "SipTrunkId" }, null, null, null, null),
@@ -287,16 +345,18 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleIndividual), global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleIndividual.Parser, new[]{ "RoomPrefix", "Pin" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleCallee), global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleCallee.Parser, new[]{ "RoomPrefix", "Pin", "Randomize" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule), global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule.Parser, new[]{ "DispatchRuleDirect", "DispatchRuleIndividual", "DispatchRuleCallee" }, new[]{ "Rule" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateSIPDispatchRuleRequest), global::Livekit.Server.Sdk.Dotnet.CreateSIPDispatchRuleRequest.Parser, new[]{ "Rule", "TrunkIds", "HidePhoneNumber", "InboundNumbers", "Name", "Metadata", "Attributes", "RoomPreset", "RoomConfig" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateSIPDispatchRuleRequest), global::Livekit.Server.Sdk.Dotnet.CreateSIPDispatchRuleRequest.Parser, new[]{ "DispatchRule", "Rule", "TrunkIds", "HidePhoneNumber", "InboundNumbers", "Name", "Metadata", "Attributes", "RoomPreset", "RoomConfig" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateSIPDispatchRuleRequest), global::Livekit.Server.Sdk.Dotnet.UpdateSIPDispatchRuleRequest.Parser, new[]{ "SipDispatchRuleId", "Replace", "Update" }, new[]{ "Action" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo), global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo.Parser, new[]{ "SipDispatchRuleId", "Rule", "TrunkIds", "HidePhoneNumber", "InboundNumbers", "Name", "Metadata", "Attributes", "RoomPreset", "RoomConfig", "KrispEnabled", "MediaEncryption" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleUpdate), global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleUpdate.Parser, new[]{ "TrunkIds", "Rule", "Name", "Metadata", "Attributes", "MediaEncryption" }, new[]{ "Name", "Metadata", "MediaEncryption" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleRequest), global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleRequest.Parser, new[]{ "Page", "DispatchRuleIds", "TrunkIds" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleResponse), global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleResponse.Parser, new[]{ "Items" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DeleteSIPDispatchRuleRequest), global::Livekit.Server.Sdk.Dotnet.DeleteSIPDispatchRuleRequest.Parser, new[]{ "SipDispatchRuleId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPOutboundConfig), global::Livekit.Server.Sdk.Dotnet.SIPOutboundConfig.Parser, new[]{ "Hostname", "Transport", "AuthUsername", "AuthPassword", "HeadersToAttributes", "AttributesToHeaders" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateSIPParticipantRequest), global::Livekit.Server.Sdk.Dotnet.CreateSIPParticipantRequest.Parser, new[]{ "SipTrunkId", "Trunk", "SipCallTo", "SipNumber", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "ParticipantAttributes", "Dtmf", "PlayRingtone", "PlayDialtone", "HidePhoneNumber", "Headers", "IncludeHeaders", "RingingTimeout", "MaxCallDuration", "KrispEnabled", "MediaEncryption", "WaitUntilAnswered" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPParticipantInfo), global::Livekit.Server.Sdk.Dotnet.SIPParticipantInfo.Parser, new[]{ "ParticipantId", "ParticipantIdentity", "RoomName", "SipCallId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest), global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest.Parser, new[]{ "ParticipantIdentity", "RoomName", "TransferTo", "PlayDialtone", "Headers" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPCallInfo), global::Livekit.Server.Sdk.Dotnet.SIPCallInfo.Parser, new[]{ "CallId", "TrunkId", "RoomName", "RoomId", "ParticipantIdentity", "FromUri", "ToUri", "EnabledFeatures", "CallDirection", "CallStatus", "CreatedAt", "StartedAt", "EndedAt", "DisconnectReason", "Error" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest), global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest.Parser, new[]{ "ParticipantIdentity", "RoomName", "TransferTo", "PlayDialtone", "Headers", "RingingTimeout" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPCallInfo), global::Livekit.Server.Sdk.Dotnet.SIPCallInfo.Parser, new[]{ "CallId", "TrunkId", "DispatchRuleId", "Region", "RoomName", "RoomId", "ParticipantIdentity", "ParticipantAttributes", "FromUri", "ToUri", "CreatedAt", "StartedAt", "EndedAt", "EnabledFeatures", "CallDirection", "CallStatus", "CreatedAtNs", "StartedAtNs", "EndedAtNs", "DisconnectReason", "Error", "CallStatusCode", "AudioCodec", "MediaEncryption" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPUri), global::Livekit.Server.Sdk.Dotnet.SIPUri.Parser, new[]{ "User", "Host", "Ip", "Port", "Transport" }, null, null, null, null)
           }));
     }
@@ -2131,6 +2191,337 @@ namespace Livekit.Server.Sdk.Dotnet {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class UpdateSIPInboundTrunkRequest : pb::IMessage<UpdateSIPInboundTrunkRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<UpdateSIPInboundTrunkRequest> _parser = new pb::MessageParser<UpdateSIPInboundTrunkRequest>(() => new UpdateSIPInboundTrunkRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<UpdateSIPInboundTrunkRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateSIPInboundTrunkRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateSIPInboundTrunkRequest(UpdateSIPInboundTrunkRequest other) : this() {
+      sipTrunkId_ = other.sipTrunkId_;
+      switch (other.ActionCase) {
+        case ActionOneofCase.Replace:
+          Replace = other.Replace.Clone();
+          break;
+        case ActionOneofCase.Update:
+          Update = other.Update.Clone();
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateSIPInboundTrunkRequest Clone() {
+      return new UpdateSIPInboundTrunkRequest(this);
+    }
+
+    /// <summary>Field number for the "sip_trunk_id" field.</summary>
+    public const int SipTrunkIdFieldNumber = 1;
+    private string sipTrunkId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SipTrunkId {
+      get { return sipTrunkId_; }
+      set {
+        sipTrunkId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "replace" field.</summary>
+    public const int ReplaceFieldNumber = 2;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo Replace {
+      get { return actionCase_ == ActionOneofCase.Replace ? (global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Replace;
+      }
+    }
+
+    /// <summary>Field number for the "update" field.</summary>
+    public const int UpdateFieldNumber = 3;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkUpdate Update {
+      get { return actionCase_ == ActionOneofCase.Update ? (global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkUpdate) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Update;
+      }
+    }
+
+    private object action_;
+    /// <summary>Enum of possible cases for the "action" oneof.</summary>
+    public enum ActionOneofCase {
+      None = 0,
+      Replace = 2,
+      Update = 3,
+    }
+    private ActionOneofCase actionCase_ = ActionOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ActionOneofCase ActionCase {
+      get { return actionCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAction() {
+      actionCase_ = ActionOneofCase.None;
+      action_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateSIPInboundTrunkRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(UpdateSIPInboundTrunkRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SipTrunkId != other.SipTrunkId) return false;
+      if (!object.Equals(Replace, other.Replace)) return false;
+      if (!object.Equals(Update, other.Update)) return false;
+      if (ActionCase != other.ActionCase) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SipTrunkId.Length != 0) hash ^= SipTrunkId.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Replace) hash ^= Replace.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Update) hash ^= Update.GetHashCode();
+      hash ^= (int) actionCase_;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (SipTrunkId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SipTrunkId);
+      }
+      if (actionCase_ == ActionOneofCase.Replace) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Replace);
+      }
+      if (actionCase_ == ActionOneofCase.Update) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Update);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (SipTrunkId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SipTrunkId);
+      }
+      if (actionCase_ == ActionOneofCase.Replace) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Replace);
+      }
+      if (actionCase_ == ActionOneofCase.Update) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Update);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (SipTrunkId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SipTrunkId);
+      }
+      if (actionCase_ == ActionOneofCase.Replace) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Replace);
+      }
+      if (actionCase_ == ActionOneofCase.Update) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Update);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(UpdateSIPInboundTrunkRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SipTrunkId.Length != 0) {
+        SipTrunkId = other.SipTrunkId;
+      }
+      switch (other.ActionCase) {
+        case ActionOneofCase.Replace:
+          if (Replace == null) {
+            Replace = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo();
+          }
+          Replace.MergeFrom(other.Replace);
+          break;
+        case ActionOneofCase.Update:
+          if (Update == null) {
+            Update = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkUpdate();
+          }
+          Update.MergeFrom(other.Update);
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            SipTrunkId = input.ReadString();
+            break;
+          }
+          case 18: {
+            global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo();
+            if (actionCase_ == ActionOneofCase.Replace) {
+              subBuilder.MergeFrom(Replace);
+            }
+            input.ReadMessage(subBuilder);
+            Replace = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkUpdate subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkUpdate();
+            if (actionCase_ == ActionOneofCase.Update) {
+              subBuilder.MergeFrom(Update);
+            }
+            input.ReadMessage(subBuilder);
+            Update = subBuilder;
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            SipTrunkId = input.ReadString();
+            break;
+          }
+          case 18: {
+            global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo();
+            if (actionCase_ == ActionOneofCase.Replace) {
+              subBuilder.MergeFrom(Replace);
+            }
+            input.ReadMessage(subBuilder);
+            Replace = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkUpdate subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkUpdate();
+            if (actionCase_ == ActionOneofCase.Update) {
+              subBuilder.MergeFrom(Update);
+            }
+            input.ReadMessage(subBuilder);
+            Update = subBuilder;
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class SIPInboundTrunkInfo : pb::IMessage<SIPInboundTrunkInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2145,7 +2536,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2882,6 +3273,563 @@ namespace Livekit.Server.Sdk.Dotnet {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class SIPInboundTrunkUpdate : pb::IMessage<SIPInboundTrunkUpdate>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SIPInboundTrunkUpdate> _parser = new pb::MessageParser<SIPInboundTrunkUpdate>(() => new SIPInboundTrunkUpdate());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SIPInboundTrunkUpdate> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SIPInboundTrunkUpdate() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SIPInboundTrunkUpdate(SIPInboundTrunkUpdate other) : this() {
+      _hasBits0 = other._hasBits0;
+      numbers_ = other.numbers_ != null ? other.numbers_.Clone() : null;
+      allowedAddresses_ = other.allowedAddresses_ != null ? other.allowedAddresses_.Clone() : null;
+      allowedNumbers_ = other.allowedNumbers_ != null ? other.allowedNumbers_.Clone() : null;
+      authUsername_ = other.authUsername_;
+      authPassword_ = other.authPassword_;
+      name_ = other.name_;
+      metadata_ = other.metadata_;
+      mediaEncryption_ = other.mediaEncryption_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SIPInboundTrunkUpdate Clone() {
+      return new SIPInboundTrunkUpdate(this);
+    }
+
+    /// <summary>Field number for the "numbers" field.</summary>
+    public const int NumbersFieldNumber = 1;
+    private global::Livekit.Server.Sdk.Dotnet.ListUpdate numbers_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.ListUpdate Numbers {
+      get { return numbers_; }
+      set {
+        numbers_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "allowed_addresses" field.</summary>
+    public const int AllowedAddressesFieldNumber = 2;
+    private global::Livekit.Server.Sdk.Dotnet.ListUpdate allowedAddresses_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.ListUpdate AllowedAddresses {
+      get { return allowedAddresses_; }
+      set {
+        allowedAddresses_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "allowed_numbers" field.</summary>
+    public const int AllowedNumbersFieldNumber = 3;
+    private global::Livekit.Server.Sdk.Dotnet.ListUpdate allowedNumbers_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.ListUpdate AllowedNumbers {
+      get { return allowedNumbers_; }
+      set {
+        allowedNumbers_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "auth_username" field.</summary>
+    public const int AuthUsernameFieldNumber = 4;
+    private readonly static string AuthUsernameDefaultValue = "";
+
+    private string authUsername_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string AuthUsername {
+      get { return authUsername_ ?? AuthUsernameDefaultValue; }
+      set {
+        authUsername_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "auth_username" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAuthUsername {
+      get { return authUsername_ != null; }
+    }
+    /// <summary>Clears the value of the "auth_username" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAuthUsername() {
+      authUsername_ = null;
+    }
+
+    /// <summary>Field number for the "auth_password" field.</summary>
+    public const int AuthPasswordFieldNumber = 5;
+    private readonly static string AuthPasswordDefaultValue = "";
+
+    private string authPassword_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string AuthPassword {
+      get { return authPassword_ ?? AuthPasswordDefaultValue; }
+      set {
+        authPassword_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "auth_password" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAuthPassword {
+      get { return authPassword_ != null; }
+    }
+    /// <summary>Clears the value of the "auth_password" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAuthPassword() {
+      authPassword_ = null;
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 6;
+    private readonly static string NameDefaultValue = "";
+
+    private string name_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Name {
+      get { return name_ ?? NameDefaultValue; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "name" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasName {
+      get { return name_ != null; }
+    }
+    /// <summary>Clears the value of the "name" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearName() {
+      name_ = null;
+    }
+
+    /// <summary>Field number for the "metadata" field.</summary>
+    public const int MetadataFieldNumber = 7;
+    private readonly static string MetadataDefaultValue = "";
+
+    private string metadata_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Metadata {
+      get { return metadata_ ?? MetadataDefaultValue; }
+      set {
+        metadata_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "metadata" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasMetadata {
+      get { return metadata_ != null; }
+    }
+    /// <summary>Clears the value of the "metadata" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMetadata() {
+      metadata_ = null;
+    }
+
+    /// <summary>Field number for the "media_encryption" field.</summary>
+    public const int MediaEncryptionFieldNumber = 8;
+    private readonly static global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption MediaEncryptionDefaultValue = global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption.SipMediaEncryptDisable;
+
+    private global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption mediaEncryption_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption MediaEncryption {
+      get { if ((_hasBits0 & 1) != 0) { return mediaEncryption_; } else { return MediaEncryptionDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        mediaEncryption_ = value;
+      }
+    }
+    /// <summary>Gets whether the "media_encryption" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasMediaEncryption {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "media_encryption" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMediaEncryption() {
+      _hasBits0 &= ~1;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SIPInboundTrunkUpdate);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SIPInboundTrunkUpdate other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Numbers, other.Numbers)) return false;
+      if (!object.Equals(AllowedAddresses, other.AllowedAddresses)) return false;
+      if (!object.Equals(AllowedNumbers, other.AllowedNumbers)) return false;
+      if (AuthUsername != other.AuthUsername) return false;
+      if (AuthPassword != other.AuthPassword) return false;
+      if (Name != other.Name) return false;
+      if (Metadata != other.Metadata) return false;
+      if (MediaEncryption != other.MediaEncryption) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (numbers_ != null) hash ^= Numbers.GetHashCode();
+      if (allowedAddresses_ != null) hash ^= AllowedAddresses.GetHashCode();
+      if (allowedNumbers_ != null) hash ^= AllowedNumbers.GetHashCode();
+      if (HasAuthUsername) hash ^= AuthUsername.GetHashCode();
+      if (HasAuthPassword) hash ^= AuthPassword.GetHashCode();
+      if (HasName) hash ^= Name.GetHashCode();
+      if (HasMetadata) hash ^= Metadata.GetHashCode();
+      if (HasMediaEncryption) hash ^= MediaEncryption.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (numbers_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Numbers);
+      }
+      if (allowedAddresses_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(AllowedAddresses);
+      }
+      if (allowedNumbers_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(AllowedNumbers);
+      }
+      if (HasAuthUsername) {
+        output.WriteRawTag(34);
+        output.WriteString(AuthUsername);
+      }
+      if (HasAuthPassword) {
+        output.WriteRawTag(42);
+        output.WriteString(AuthPassword);
+      }
+      if (HasName) {
+        output.WriteRawTag(50);
+        output.WriteString(Name);
+      }
+      if (HasMetadata) {
+        output.WriteRawTag(58);
+        output.WriteString(Metadata);
+      }
+      if (HasMediaEncryption) {
+        output.WriteRawTag(64);
+        output.WriteEnum((int) MediaEncryption);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (numbers_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Numbers);
+      }
+      if (allowedAddresses_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(AllowedAddresses);
+      }
+      if (allowedNumbers_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(AllowedNumbers);
+      }
+      if (HasAuthUsername) {
+        output.WriteRawTag(34);
+        output.WriteString(AuthUsername);
+      }
+      if (HasAuthPassword) {
+        output.WriteRawTag(42);
+        output.WriteString(AuthPassword);
+      }
+      if (HasName) {
+        output.WriteRawTag(50);
+        output.WriteString(Name);
+      }
+      if (HasMetadata) {
+        output.WriteRawTag(58);
+        output.WriteString(Metadata);
+      }
+      if (HasMediaEncryption) {
+        output.WriteRawTag(64);
+        output.WriteEnum((int) MediaEncryption);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (numbers_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Numbers);
+      }
+      if (allowedAddresses_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(AllowedAddresses);
+      }
+      if (allowedNumbers_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(AllowedNumbers);
+      }
+      if (HasAuthUsername) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(AuthUsername);
+      }
+      if (HasAuthPassword) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(AuthPassword);
+      }
+      if (HasName) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (HasMetadata) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Metadata);
+      }
+      if (HasMediaEncryption) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) MediaEncryption);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SIPInboundTrunkUpdate other) {
+      if (other == null) {
+        return;
+      }
+      if (other.numbers_ != null) {
+        if (numbers_ == null) {
+          Numbers = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+        }
+        Numbers.MergeFrom(other.Numbers);
+      }
+      if (other.allowedAddresses_ != null) {
+        if (allowedAddresses_ == null) {
+          AllowedAddresses = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+        }
+        AllowedAddresses.MergeFrom(other.AllowedAddresses);
+      }
+      if (other.allowedNumbers_ != null) {
+        if (allowedNumbers_ == null) {
+          AllowedNumbers = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+        }
+        AllowedNumbers.MergeFrom(other.AllowedNumbers);
+      }
+      if (other.HasAuthUsername) {
+        AuthUsername = other.AuthUsername;
+      }
+      if (other.HasAuthPassword) {
+        AuthPassword = other.AuthPassword;
+      }
+      if (other.HasName) {
+        Name = other.Name;
+      }
+      if (other.HasMetadata) {
+        Metadata = other.Metadata;
+      }
+      if (other.HasMediaEncryption) {
+        MediaEncryption = other.MediaEncryption;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (numbers_ == null) {
+              Numbers = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+            }
+            input.ReadMessage(Numbers);
+            break;
+          }
+          case 18: {
+            if (allowedAddresses_ == null) {
+              AllowedAddresses = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+            }
+            input.ReadMessage(AllowedAddresses);
+            break;
+          }
+          case 26: {
+            if (allowedNumbers_ == null) {
+              AllowedNumbers = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+            }
+            input.ReadMessage(AllowedNumbers);
+            break;
+          }
+          case 34: {
+            AuthUsername = input.ReadString();
+            break;
+          }
+          case 42: {
+            AuthPassword = input.ReadString();
+            break;
+          }
+          case 50: {
+            Name = input.ReadString();
+            break;
+          }
+          case 58: {
+            Metadata = input.ReadString();
+            break;
+          }
+          case 64: {
+            MediaEncryption = (global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (numbers_ == null) {
+              Numbers = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+            }
+            input.ReadMessage(Numbers);
+            break;
+          }
+          case 18: {
+            if (allowedAddresses_ == null) {
+              AllowedAddresses = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+            }
+            input.ReadMessage(AllowedAddresses);
+            break;
+          }
+          case 26: {
+            if (allowedNumbers_ == null) {
+              AllowedNumbers = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+            }
+            input.ReadMessage(AllowedNumbers);
+            break;
+          }
+          case 34: {
+            AuthUsername = input.ReadString();
+            break;
+          }
+          case 42: {
+            AuthPassword = input.ReadString();
+            break;
+          }
+          case 50: {
+            Name = input.ReadString();
+            break;
+          }
+          case 58: {
+            Metadata = input.ReadString();
+            break;
+          }
+          case 64: {
+            MediaEncryption = (global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CreateSIPOutboundTrunkRequest : pb::IMessage<CreateSIPOutboundTrunkRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2896,7 +3844,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3092,6 +4040,337 @@ namespace Livekit.Server.Sdk.Dotnet {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class UpdateSIPOutboundTrunkRequest : pb::IMessage<UpdateSIPOutboundTrunkRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<UpdateSIPOutboundTrunkRequest> _parser = new pb::MessageParser<UpdateSIPOutboundTrunkRequest>(() => new UpdateSIPOutboundTrunkRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<UpdateSIPOutboundTrunkRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateSIPOutboundTrunkRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateSIPOutboundTrunkRequest(UpdateSIPOutboundTrunkRequest other) : this() {
+      sipTrunkId_ = other.sipTrunkId_;
+      switch (other.ActionCase) {
+        case ActionOneofCase.Replace:
+          Replace = other.Replace.Clone();
+          break;
+        case ActionOneofCase.Update:
+          Update = other.Update.Clone();
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateSIPOutboundTrunkRequest Clone() {
+      return new UpdateSIPOutboundTrunkRequest(this);
+    }
+
+    /// <summary>Field number for the "sip_trunk_id" field.</summary>
+    public const int SipTrunkIdFieldNumber = 1;
+    private string sipTrunkId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SipTrunkId {
+      get { return sipTrunkId_; }
+      set {
+        sipTrunkId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "replace" field.</summary>
+    public const int ReplaceFieldNumber = 2;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo Replace {
+      get { return actionCase_ == ActionOneofCase.Replace ? (global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Replace;
+      }
+    }
+
+    /// <summary>Field number for the "update" field.</summary>
+    public const int UpdateFieldNumber = 3;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkUpdate Update {
+      get { return actionCase_ == ActionOneofCase.Update ? (global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkUpdate) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Update;
+      }
+    }
+
+    private object action_;
+    /// <summary>Enum of possible cases for the "action" oneof.</summary>
+    public enum ActionOneofCase {
+      None = 0,
+      Replace = 2,
+      Update = 3,
+    }
+    private ActionOneofCase actionCase_ = ActionOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ActionOneofCase ActionCase {
+      get { return actionCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAction() {
+      actionCase_ = ActionOneofCase.None;
+      action_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateSIPOutboundTrunkRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(UpdateSIPOutboundTrunkRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SipTrunkId != other.SipTrunkId) return false;
+      if (!object.Equals(Replace, other.Replace)) return false;
+      if (!object.Equals(Update, other.Update)) return false;
+      if (ActionCase != other.ActionCase) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SipTrunkId.Length != 0) hash ^= SipTrunkId.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Replace) hash ^= Replace.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Update) hash ^= Update.GetHashCode();
+      hash ^= (int) actionCase_;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (SipTrunkId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SipTrunkId);
+      }
+      if (actionCase_ == ActionOneofCase.Replace) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Replace);
+      }
+      if (actionCase_ == ActionOneofCase.Update) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Update);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (SipTrunkId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SipTrunkId);
+      }
+      if (actionCase_ == ActionOneofCase.Replace) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Replace);
+      }
+      if (actionCase_ == ActionOneofCase.Update) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Update);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (SipTrunkId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SipTrunkId);
+      }
+      if (actionCase_ == ActionOneofCase.Replace) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Replace);
+      }
+      if (actionCase_ == ActionOneofCase.Update) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Update);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(UpdateSIPOutboundTrunkRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SipTrunkId.Length != 0) {
+        SipTrunkId = other.SipTrunkId;
+      }
+      switch (other.ActionCase) {
+        case ActionOneofCase.Replace:
+          if (Replace == null) {
+            Replace = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo();
+          }
+          Replace.MergeFrom(other.Replace);
+          break;
+        case ActionOneofCase.Update:
+          if (Update == null) {
+            Update = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkUpdate();
+          }
+          Update.MergeFrom(other.Update);
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            SipTrunkId = input.ReadString();
+            break;
+          }
+          case 18: {
+            global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo();
+            if (actionCase_ == ActionOneofCase.Replace) {
+              subBuilder.MergeFrom(Replace);
+            }
+            input.ReadMessage(subBuilder);
+            Replace = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkUpdate subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkUpdate();
+            if (actionCase_ == ActionOneofCase.Update) {
+              subBuilder.MergeFrom(Update);
+            }
+            input.ReadMessage(subBuilder);
+            Update = subBuilder;
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            SipTrunkId = input.ReadString();
+            break;
+          }
+          case 18: {
+            global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo();
+            if (actionCase_ == ActionOneofCase.Replace) {
+              subBuilder.MergeFrom(Replace);
+            }
+            input.ReadMessage(subBuilder);
+            Replace = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkUpdate subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkUpdate();
+            if (actionCase_ == ActionOneofCase.Update) {
+              subBuilder.MergeFrom(Update);
+            }
+            input.ReadMessage(subBuilder);
+            Update = subBuilder;
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class SIPOutboundTrunkInfo : pb::IMessage<SIPOutboundTrunkInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3106,7 +4385,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3730,6 +5009,574 @@ namespace Livekit.Server.Sdk.Dotnet {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class SIPOutboundTrunkUpdate : pb::IMessage<SIPOutboundTrunkUpdate>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SIPOutboundTrunkUpdate> _parser = new pb::MessageParser<SIPOutboundTrunkUpdate>(() => new SIPOutboundTrunkUpdate());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SIPOutboundTrunkUpdate> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[10]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SIPOutboundTrunkUpdate() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SIPOutboundTrunkUpdate(SIPOutboundTrunkUpdate other) : this() {
+      _hasBits0 = other._hasBits0;
+      address_ = other.address_;
+      transport_ = other.transport_;
+      numbers_ = other.numbers_ != null ? other.numbers_.Clone() : null;
+      authUsername_ = other.authUsername_;
+      authPassword_ = other.authPassword_;
+      name_ = other.name_;
+      metadata_ = other.metadata_;
+      mediaEncryption_ = other.mediaEncryption_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SIPOutboundTrunkUpdate Clone() {
+      return new SIPOutboundTrunkUpdate(this);
+    }
+
+    /// <summary>Field number for the "address" field.</summary>
+    public const int AddressFieldNumber = 1;
+    private readonly static string AddressDefaultValue = "";
+
+    private string address_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Address {
+      get { return address_ ?? AddressDefaultValue; }
+      set {
+        address_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "address" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAddress {
+      get { return address_ != null; }
+    }
+    /// <summary>Clears the value of the "address" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAddress() {
+      address_ = null;
+    }
+
+    /// <summary>Field number for the "transport" field.</summary>
+    public const int TransportFieldNumber = 2;
+    private readonly static global::Livekit.Server.Sdk.Dotnet.SIPTransport TransportDefaultValue = global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto;
+
+    private global::Livekit.Server.Sdk.Dotnet.SIPTransport transport_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPTransport Transport {
+      get { if ((_hasBits0 & 1) != 0) { return transport_; } else { return TransportDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        transport_ = value;
+      }
+    }
+    /// <summary>Gets whether the "transport" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasTransport {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "transport" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearTransport() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "numbers" field.</summary>
+    public const int NumbersFieldNumber = 3;
+    private global::Livekit.Server.Sdk.Dotnet.ListUpdate numbers_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.ListUpdate Numbers {
+      get { return numbers_; }
+      set {
+        numbers_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "auth_username" field.</summary>
+    public const int AuthUsernameFieldNumber = 4;
+    private readonly static string AuthUsernameDefaultValue = "";
+
+    private string authUsername_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string AuthUsername {
+      get { return authUsername_ ?? AuthUsernameDefaultValue; }
+      set {
+        authUsername_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "auth_username" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAuthUsername {
+      get { return authUsername_ != null; }
+    }
+    /// <summary>Clears the value of the "auth_username" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAuthUsername() {
+      authUsername_ = null;
+    }
+
+    /// <summary>Field number for the "auth_password" field.</summary>
+    public const int AuthPasswordFieldNumber = 5;
+    private readonly static string AuthPasswordDefaultValue = "";
+
+    private string authPassword_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string AuthPassword {
+      get { return authPassword_ ?? AuthPasswordDefaultValue; }
+      set {
+        authPassword_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "auth_password" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAuthPassword {
+      get { return authPassword_ != null; }
+    }
+    /// <summary>Clears the value of the "auth_password" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAuthPassword() {
+      authPassword_ = null;
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 6;
+    private readonly static string NameDefaultValue = "";
+
+    private string name_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Name {
+      get { return name_ ?? NameDefaultValue; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "name" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasName {
+      get { return name_ != null; }
+    }
+    /// <summary>Clears the value of the "name" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearName() {
+      name_ = null;
+    }
+
+    /// <summary>Field number for the "metadata" field.</summary>
+    public const int MetadataFieldNumber = 7;
+    private readonly static string MetadataDefaultValue = "";
+
+    private string metadata_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Metadata {
+      get { return metadata_ ?? MetadataDefaultValue; }
+      set {
+        metadata_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "metadata" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasMetadata {
+      get { return metadata_ != null; }
+    }
+    /// <summary>Clears the value of the "metadata" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMetadata() {
+      metadata_ = null;
+    }
+
+    /// <summary>Field number for the "media_encryption" field.</summary>
+    public const int MediaEncryptionFieldNumber = 8;
+    private readonly static global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption MediaEncryptionDefaultValue = global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption.SipMediaEncryptDisable;
+
+    private global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption mediaEncryption_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption MediaEncryption {
+      get { if ((_hasBits0 & 2) != 0) { return mediaEncryption_; } else { return MediaEncryptionDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        mediaEncryption_ = value;
+      }
+    }
+    /// <summary>Gets whether the "media_encryption" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasMediaEncryption {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "media_encryption" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMediaEncryption() {
+      _hasBits0 &= ~2;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SIPOutboundTrunkUpdate);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SIPOutboundTrunkUpdate other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Address != other.Address) return false;
+      if (Transport != other.Transport) return false;
+      if (!object.Equals(Numbers, other.Numbers)) return false;
+      if (AuthUsername != other.AuthUsername) return false;
+      if (AuthPassword != other.AuthPassword) return false;
+      if (Name != other.Name) return false;
+      if (Metadata != other.Metadata) return false;
+      if (MediaEncryption != other.MediaEncryption) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasAddress) hash ^= Address.GetHashCode();
+      if (HasTransport) hash ^= Transport.GetHashCode();
+      if (numbers_ != null) hash ^= Numbers.GetHashCode();
+      if (HasAuthUsername) hash ^= AuthUsername.GetHashCode();
+      if (HasAuthPassword) hash ^= AuthPassword.GetHashCode();
+      if (HasName) hash ^= Name.GetHashCode();
+      if (HasMetadata) hash ^= Metadata.GetHashCode();
+      if (HasMediaEncryption) hash ^= MediaEncryption.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasAddress) {
+        output.WriteRawTag(10);
+        output.WriteString(Address);
+      }
+      if (HasTransport) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) Transport);
+      }
+      if (numbers_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Numbers);
+      }
+      if (HasAuthUsername) {
+        output.WriteRawTag(34);
+        output.WriteString(AuthUsername);
+      }
+      if (HasAuthPassword) {
+        output.WriteRawTag(42);
+        output.WriteString(AuthPassword);
+      }
+      if (HasName) {
+        output.WriteRawTag(50);
+        output.WriteString(Name);
+      }
+      if (HasMetadata) {
+        output.WriteRawTag(58);
+        output.WriteString(Metadata);
+      }
+      if (HasMediaEncryption) {
+        output.WriteRawTag(64);
+        output.WriteEnum((int) MediaEncryption);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasAddress) {
+        output.WriteRawTag(10);
+        output.WriteString(Address);
+      }
+      if (HasTransport) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) Transport);
+      }
+      if (numbers_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Numbers);
+      }
+      if (HasAuthUsername) {
+        output.WriteRawTag(34);
+        output.WriteString(AuthUsername);
+      }
+      if (HasAuthPassword) {
+        output.WriteRawTag(42);
+        output.WriteString(AuthPassword);
+      }
+      if (HasName) {
+        output.WriteRawTag(50);
+        output.WriteString(Name);
+      }
+      if (HasMetadata) {
+        output.WriteRawTag(58);
+        output.WriteString(Metadata);
+      }
+      if (HasMediaEncryption) {
+        output.WriteRawTag(64);
+        output.WriteEnum((int) MediaEncryption);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasAddress) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Address);
+      }
+      if (HasTransport) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Transport);
+      }
+      if (numbers_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Numbers);
+      }
+      if (HasAuthUsername) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(AuthUsername);
+      }
+      if (HasAuthPassword) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(AuthPassword);
+      }
+      if (HasName) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (HasMetadata) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Metadata);
+      }
+      if (HasMediaEncryption) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) MediaEncryption);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SIPOutboundTrunkUpdate other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasAddress) {
+        Address = other.Address;
+      }
+      if (other.HasTransport) {
+        Transport = other.Transport;
+      }
+      if (other.numbers_ != null) {
+        if (numbers_ == null) {
+          Numbers = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+        }
+        Numbers.MergeFrom(other.Numbers);
+      }
+      if (other.HasAuthUsername) {
+        AuthUsername = other.AuthUsername;
+      }
+      if (other.HasAuthPassword) {
+        AuthPassword = other.AuthPassword;
+      }
+      if (other.HasName) {
+        Name = other.Name;
+      }
+      if (other.HasMetadata) {
+        Metadata = other.Metadata;
+      }
+      if (other.HasMediaEncryption) {
+        MediaEncryption = other.MediaEncryption;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Address = input.ReadString();
+            break;
+          }
+          case 16: {
+            Transport = (global::Livekit.Server.Sdk.Dotnet.SIPTransport) input.ReadEnum();
+            break;
+          }
+          case 26: {
+            if (numbers_ == null) {
+              Numbers = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+            }
+            input.ReadMessage(Numbers);
+            break;
+          }
+          case 34: {
+            AuthUsername = input.ReadString();
+            break;
+          }
+          case 42: {
+            AuthPassword = input.ReadString();
+            break;
+          }
+          case 50: {
+            Name = input.ReadString();
+            break;
+          }
+          case 58: {
+            Metadata = input.ReadString();
+            break;
+          }
+          case 64: {
+            MediaEncryption = (global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Address = input.ReadString();
+            break;
+          }
+          case 16: {
+            Transport = (global::Livekit.Server.Sdk.Dotnet.SIPTransport) input.ReadEnum();
+            break;
+          }
+          case 26: {
+            if (numbers_ == null) {
+              Numbers = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+            }
+            input.ReadMessage(Numbers);
+            break;
+          }
+          case 34: {
+            AuthUsername = input.ReadString();
+            break;
+          }
+          case 42: {
+            AuthPassword = input.ReadString();
+            break;
+          }
+          case 50: {
+            Name = input.ReadString();
+            break;
+          }
+          case 58: {
+            Metadata = input.ReadString();
+            break;
+          }
+          case 64: {
+            MediaEncryption = (global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class GetSIPInboundTrunkRequest : pb::IMessage<GetSIPInboundTrunkRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3744,7 +5591,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3942,7 +5789,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4149,7 +5996,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4347,7 +6194,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4555,7 +6402,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4763,7 +6610,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4954,7 +6801,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5220,7 +7067,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5410,7 +7257,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5676,7 +7523,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5863,7 +7710,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6061,7 +7908,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6302,7 +8149,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[19]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6543,7 +8390,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[20]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6824,7 +8671,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[21]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7182,7 +9029,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[22]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7202,6 +9049,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CreateSIPDispatchRuleRequest(CreateSIPDispatchRuleRequest other) : this() {
+      dispatchRule_ = other.dispatchRule_ != null ? other.dispatchRule_.Clone() : null;
       rule_ = other.rule_ != null ? other.rule_.Clone() : null;
       trunkIds_ = other.trunkIds_.Clone();
       hidePhoneNumber_ = other.hidePhoneNumber_;
@@ -7220,9 +9068,25 @@ namespace Livekit.Server.Sdk.Dotnet {
       return new CreateSIPDispatchRuleRequest(this);
     }
 
+    /// <summary>Field number for the "dispatch_rule" field.</summary>
+    public const int DispatchRuleFieldNumber = 10;
+    private global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo dispatchRule_;
+    /// <summary>
+    /// Rule ID is ignored
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo DispatchRule {
+      get { return dispatchRule_; }
+      set {
+        dispatchRule_ = value;
+      }
+    }
+
     /// <summary>Field number for the "rule" field.</summary>
     public const int RuleFieldNumber = 1;
     private global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule rule_;
+    [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule Rule {
@@ -7241,6 +9105,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// What trunks are accepted for this dispatch rule
     /// If empty all trunks will match this dispatch rule
     /// </summary>
+    [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<string> TrunkIds {
@@ -7254,6 +9119,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// By default the From value (Phone number) is used for participant name/identity and added to attributes.
     /// If true, a random value for identity will be used and numbers will be omitted from attributes.
     /// </summary>
+    [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HidePhoneNumber {
@@ -7271,6 +9137,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// <summary>
     /// Dispatch Rule will only accept a call made to these numbers (if set).
     /// </summary>
+    [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<string> InboundNumbers {
@@ -7283,6 +9150,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// <summary>
     /// Optional human-readable name for the Dispatch Rule.
     /// </summary>
+    [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Name {
@@ -7299,6 +9167,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// User-defined metadata for the Dispatch Rule.
     /// Participants created by this rule will inherit this metadata.
     /// </summary>
+    [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Metadata {
@@ -7317,6 +9186,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// User-defined attributes for the Dispatch Rule.
     /// Participants created by this rule will inherit these attributes.
     /// </summary>
+    [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::MapField<string, string> Attributes {
@@ -7329,6 +9199,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// <summary>
     /// Cloud-only, config preset to use
     /// </summary>
+    [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string RoomPreset {
@@ -7344,6 +9215,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// <summary>
     /// RoomConfiguration to use if the participant initiates the room
     /// </summary>
+    [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Livekit.Server.Sdk.Dotnet.RoomConfiguration RoomConfig {
@@ -7368,6 +9240,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(DispatchRule, other.DispatchRule)) return false;
       if (!object.Equals(Rule, other.Rule)) return false;
       if(!trunkIds_.Equals(other.trunkIds_)) return false;
       if (HidePhoneNumber != other.HidePhoneNumber) return false;
@@ -7384,6 +9257,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (dispatchRule_ != null) hash ^= DispatchRule.GetHashCode();
       if (rule_ != null) hash ^= Rule.GetHashCode();
       hash ^= trunkIds_.GetHashCode();
       if (HidePhoneNumber != false) hash ^= HidePhoneNumber.GetHashCode();
@@ -7438,6 +9312,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(74);
         output.WriteMessage(RoomConfig);
       }
+      if (dispatchRule_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(DispatchRule);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -7475,6 +9353,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(74);
         output.WriteMessage(RoomConfig);
       }
+      if (dispatchRule_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(DispatchRule);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -7485,6 +9367,9 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (dispatchRule_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(DispatchRule);
+      }
       if (rule_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Rule);
       }
@@ -7517,6 +9402,12 @@ namespace Livekit.Server.Sdk.Dotnet {
     public void MergeFrom(CreateSIPDispatchRuleRequest other) {
       if (other == null) {
         return;
+      }
+      if (other.dispatchRule_ != null) {
+        if (dispatchRule_ == null) {
+          DispatchRule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo();
+        }
+        DispatchRule.MergeFrom(other.DispatchRule);
       }
       if (other.rule_ != null) {
         if (rule_ == null) {
@@ -7606,6 +9497,13 @@ namespace Livekit.Server.Sdk.Dotnet {
             input.ReadMessage(RoomConfig);
             break;
           }
+          case 82: {
+            if (dispatchRule_ == null) {
+              DispatchRule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo();
+            }
+            input.ReadMessage(DispatchRule);
+            break;
+          }
         }
       }
     #endif
@@ -7667,6 +9565,344 @@ namespace Livekit.Server.Sdk.Dotnet {
             input.ReadMessage(RoomConfig);
             break;
           }
+          case 82: {
+            if (dispatchRule_ == null) {
+              DispatchRule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo();
+            }
+            input.ReadMessage(DispatchRule);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class UpdateSIPDispatchRuleRequest : pb::IMessage<UpdateSIPDispatchRuleRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<UpdateSIPDispatchRuleRequest> _parser = new pb::MessageParser<UpdateSIPDispatchRuleRequest>(() => new UpdateSIPDispatchRuleRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<UpdateSIPDispatchRuleRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[27]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateSIPDispatchRuleRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateSIPDispatchRuleRequest(UpdateSIPDispatchRuleRequest other) : this() {
+      sipDispatchRuleId_ = other.sipDispatchRuleId_;
+      switch (other.ActionCase) {
+        case ActionOneofCase.Replace:
+          Replace = other.Replace.Clone();
+          break;
+        case ActionOneofCase.Update:
+          Update = other.Update.Clone();
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public UpdateSIPDispatchRuleRequest Clone() {
+      return new UpdateSIPDispatchRuleRequest(this);
+    }
+
+    /// <summary>Field number for the "sip_dispatch_rule_id" field.</summary>
+    public const int SipDispatchRuleIdFieldNumber = 1;
+    private string sipDispatchRuleId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SipDispatchRuleId {
+      get { return sipDispatchRuleId_; }
+      set {
+        sipDispatchRuleId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "replace" field.</summary>
+    public const int ReplaceFieldNumber = 2;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo Replace {
+      get { return actionCase_ == ActionOneofCase.Replace ? (global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Replace;
+      }
+    }
+
+    /// <summary>Field number for the "update" field.</summary>
+    public const int UpdateFieldNumber = 3;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleUpdate Update {
+      get { return actionCase_ == ActionOneofCase.Update ? (global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleUpdate) action_ : null; }
+      set {
+        action_ = value;
+        actionCase_ = value == null ? ActionOneofCase.None : ActionOneofCase.Update;
+      }
+    }
+
+    private object action_;
+    /// <summary>Enum of possible cases for the "action" oneof.</summary>
+    public enum ActionOneofCase {
+      None = 0,
+      Replace = 2,
+      Update = 3,
+    }
+    private ActionOneofCase actionCase_ = ActionOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ActionOneofCase ActionCase {
+      get { return actionCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAction() {
+      actionCase_ = ActionOneofCase.None;
+      action_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateSIPDispatchRuleRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(UpdateSIPDispatchRuleRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SipDispatchRuleId != other.SipDispatchRuleId) return false;
+      if (!object.Equals(Replace, other.Replace)) return false;
+      if (!object.Equals(Update, other.Update)) return false;
+      if (ActionCase != other.ActionCase) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (SipDispatchRuleId.Length != 0) hash ^= SipDispatchRuleId.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Replace) hash ^= Replace.GetHashCode();
+      if (actionCase_ == ActionOneofCase.Update) hash ^= Update.GetHashCode();
+      hash ^= (int) actionCase_;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (SipDispatchRuleId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SipDispatchRuleId);
+      }
+      if (actionCase_ == ActionOneofCase.Replace) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Replace);
+      }
+      if (actionCase_ == ActionOneofCase.Update) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Update);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (SipDispatchRuleId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(SipDispatchRuleId);
+      }
+      if (actionCase_ == ActionOneofCase.Replace) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Replace);
+      }
+      if (actionCase_ == ActionOneofCase.Update) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Update);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (SipDispatchRuleId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SipDispatchRuleId);
+      }
+      if (actionCase_ == ActionOneofCase.Replace) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Replace);
+      }
+      if (actionCase_ == ActionOneofCase.Update) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Update);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(UpdateSIPDispatchRuleRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.SipDispatchRuleId.Length != 0) {
+        SipDispatchRuleId = other.SipDispatchRuleId;
+      }
+      switch (other.ActionCase) {
+        case ActionOneofCase.Replace:
+          if (Replace == null) {
+            Replace = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo();
+          }
+          Replace.MergeFrom(other.Replace);
+          break;
+        case ActionOneofCase.Update:
+          if (Update == null) {
+            Update = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleUpdate();
+          }
+          Update.MergeFrom(other.Update);
+          break;
+      }
+
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            SipDispatchRuleId = input.ReadString();
+            break;
+          }
+          case 18: {
+            global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo();
+            if (actionCase_ == ActionOneofCase.Replace) {
+              subBuilder.MergeFrom(Replace);
+            }
+            input.ReadMessage(subBuilder);
+            Replace = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleUpdate subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleUpdate();
+            if (actionCase_ == ActionOneofCase.Update) {
+              subBuilder.MergeFrom(Update);
+            }
+            input.ReadMessage(subBuilder);
+            Update = subBuilder;
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            SipDispatchRuleId = input.ReadString();
+            break;
+          }
+          case 18: {
+            global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo();
+            if (actionCase_ == ActionOneofCase.Replace) {
+              subBuilder.MergeFrom(Replace);
+            }
+            input.ReadMessage(subBuilder);
+            Replace = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleUpdate subBuilder = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleUpdate();
+            if (actionCase_ == ActionOneofCase.Update) {
+              subBuilder.MergeFrom(Update);
+            }
+            input.ReadMessage(subBuilder);
+            Update = subBuilder;
+            break;
+          }
         }
       }
     }
@@ -7689,7 +9925,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[23]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[28]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8287,6 +10523,441 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class SIPDispatchRuleUpdate : pb::IMessage<SIPDispatchRuleUpdate>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SIPDispatchRuleUpdate> _parser = new pb::MessageParser<SIPDispatchRuleUpdate>(() => new SIPDispatchRuleUpdate());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SIPDispatchRuleUpdate> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[29]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SIPDispatchRuleUpdate() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SIPDispatchRuleUpdate(SIPDispatchRuleUpdate other) : this() {
+      _hasBits0 = other._hasBits0;
+      trunkIds_ = other.trunkIds_ != null ? other.trunkIds_.Clone() : null;
+      rule_ = other.rule_ != null ? other.rule_.Clone() : null;
+      name_ = other.name_;
+      metadata_ = other.metadata_;
+      attributes_ = other.attributes_.Clone();
+      mediaEncryption_ = other.mediaEncryption_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SIPDispatchRuleUpdate Clone() {
+      return new SIPDispatchRuleUpdate(this);
+    }
+
+    /// <summary>Field number for the "trunk_ids" field.</summary>
+    public const int TrunkIdsFieldNumber = 1;
+    private global::Livekit.Server.Sdk.Dotnet.ListUpdate trunkIds_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.ListUpdate TrunkIds {
+      get { return trunkIds_; }
+      set {
+        trunkIds_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "rule" field.</summary>
+    public const int RuleFieldNumber = 2;
+    private global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule rule_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule Rule {
+      get { return rule_; }
+      set {
+        rule_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 3;
+    private readonly static string NameDefaultValue = "";
+
+    private string name_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Name {
+      get { return name_ ?? NameDefaultValue; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "name" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasName {
+      get { return name_ != null; }
+    }
+    /// <summary>Clears the value of the "name" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearName() {
+      name_ = null;
+    }
+
+    /// <summary>Field number for the "metadata" field.</summary>
+    public const int MetadataFieldNumber = 4;
+    private readonly static string MetadataDefaultValue = "";
+
+    private string metadata_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Metadata {
+      get { return metadata_ ?? MetadataDefaultValue; }
+      set {
+        metadata_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "metadata" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasMetadata {
+      get { return metadata_ != null; }
+    }
+    /// <summary>Clears the value of the "metadata" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMetadata() {
+      metadata_ = null;
+    }
+
+    /// <summary>Field number for the "attributes" field.</summary>
+    public const int AttributesFieldNumber = 5;
+    private static readonly pbc::MapField<string, string>.Codec _map_attributes_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForString(18, ""), 42);
+    private readonly pbc::MapField<string, string> attributes_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::MapField<string, string> Attributes {
+      get { return attributes_; }
+    }
+
+    /// <summary>Field number for the "media_encryption" field.</summary>
+    public const int MediaEncryptionFieldNumber = 6;
+    private readonly static global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption MediaEncryptionDefaultValue = global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption.SipMediaEncryptDisable;
+
+    private global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption mediaEncryption_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption MediaEncryption {
+      get { if ((_hasBits0 & 1) != 0) { return mediaEncryption_; } else { return MediaEncryptionDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        mediaEncryption_ = value;
+      }
+    }
+    /// <summary>Gets whether the "media_encryption" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasMediaEncryption {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "media_encryption" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMediaEncryption() {
+      _hasBits0 &= ~1;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SIPDispatchRuleUpdate);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SIPDispatchRuleUpdate other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(TrunkIds, other.TrunkIds)) return false;
+      if (!object.Equals(Rule, other.Rule)) return false;
+      if (Name != other.Name) return false;
+      if (Metadata != other.Metadata) return false;
+      if (!Attributes.Equals(other.Attributes)) return false;
+      if (MediaEncryption != other.MediaEncryption) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (trunkIds_ != null) hash ^= TrunkIds.GetHashCode();
+      if (rule_ != null) hash ^= Rule.GetHashCode();
+      if (HasName) hash ^= Name.GetHashCode();
+      if (HasMetadata) hash ^= Metadata.GetHashCode();
+      hash ^= Attributes.GetHashCode();
+      if (HasMediaEncryption) hash ^= MediaEncryption.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (trunkIds_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(TrunkIds);
+      }
+      if (rule_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Rule);
+      }
+      if (HasName) {
+        output.WriteRawTag(26);
+        output.WriteString(Name);
+      }
+      if (HasMetadata) {
+        output.WriteRawTag(34);
+        output.WriteString(Metadata);
+      }
+      attributes_.WriteTo(output, _map_attributes_codec);
+      if (HasMediaEncryption) {
+        output.WriteRawTag(48);
+        output.WriteEnum((int) MediaEncryption);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (trunkIds_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(TrunkIds);
+      }
+      if (rule_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Rule);
+      }
+      if (HasName) {
+        output.WriteRawTag(26);
+        output.WriteString(Name);
+      }
+      if (HasMetadata) {
+        output.WriteRawTag(34);
+        output.WriteString(Metadata);
+      }
+      attributes_.WriteTo(ref output, _map_attributes_codec);
+      if (HasMediaEncryption) {
+        output.WriteRawTag(48);
+        output.WriteEnum((int) MediaEncryption);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (trunkIds_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TrunkIds);
+      }
+      if (rule_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Rule);
+      }
+      if (HasName) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (HasMetadata) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Metadata);
+      }
+      size += attributes_.CalculateSize(_map_attributes_codec);
+      if (HasMediaEncryption) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) MediaEncryption);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SIPDispatchRuleUpdate other) {
+      if (other == null) {
+        return;
+      }
+      if (other.trunkIds_ != null) {
+        if (trunkIds_ == null) {
+          TrunkIds = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+        }
+        TrunkIds.MergeFrom(other.TrunkIds);
+      }
+      if (other.rule_ != null) {
+        if (rule_ == null) {
+          Rule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule();
+        }
+        Rule.MergeFrom(other.Rule);
+      }
+      if (other.HasName) {
+        Name = other.Name;
+      }
+      if (other.HasMetadata) {
+        Metadata = other.Metadata;
+      }
+      attributes_.MergeFrom(other.attributes_);
+      if (other.HasMediaEncryption) {
+        MediaEncryption = other.MediaEncryption;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (trunkIds_ == null) {
+              TrunkIds = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+            }
+            input.ReadMessage(TrunkIds);
+            break;
+          }
+          case 18: {
+            if (rule_ == null) {
+              Rule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule();
+            }
+            input.ReadMessage(Rule);
+            break;
+          }
+          case 26: {
+            Name = input.ReadString();
+            break;
+          }
+          case 34: {
+            Metadata = input.ReadString();
+            break;
+          }
+          case 42: {
+            attributes_.AddEntriesFrom(input, _map_attributes_codec);
+            break;
+          }
+          case 48: {
+            MediaEncryption = (global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (trunkIds_ == null) {
+              TrunkIds = new global::Livekit.Server.Sdk.Dotnet.ListUpdate();
+            }
+            input.ReadMessage(TrunkIds);
+            break;
+          }
+          case 18: {
+            if (rule_ == null) {
+              Rule = new global::Livekit.Server.Sdk.Dotnet.SIPDispatchRule();
+            }
+            input.ReadMessage(Rule);
+            break;
+          }
+          case 26: {
+            Name = input.ReadString();
+            break;
+          }
+          case 34: {
+            Metadata = input.ReadString();
+            break;
+          }
+          case 42: {
+            attributes_.AddEntriesFrom(ref input, _map_attributes_codec);
+            break;
+          }
+          case 48: {
+            MediaEncryption = (global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   /// <summary>
   /// ListSIPDispatchRuleRequest lists dispatch rules for given filters. If no filters are set, all rules are listed.
   /// </summary>
@@ -8305,7 +10976,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[24]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[30]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8571,7 +11242,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[25]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[31]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8758,7 +11429,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[26]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[32]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8956,7 +11627,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[27]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[33]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9339,7 +12010,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[28]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[34]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10304,7 +12975,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[29]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[35]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10613,7 +13284,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[30]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[36]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10638,6 +13309,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       transferTo_ = other.transferTo_;
       playDialtone_ = other.playDialtone_;
       headers_ = other.headers_.Clone();
+      ringingTimeout_ = other.ringingTimeout_ != null ? other.ringingTimeout_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -10712,6 +13384,21 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return headers_; }
     }
 
+    /// <summary>Field number for the "ringing_timeout" field.</summary>
+    public const int RingingTimeoutFieldNumber = 6;
+    private global::Google.Protobuf.WellKnownTypes.Duration ringingTimeout_;
+    /// <summary>
+    /// Max time for the transfer destination to answer the call.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Duration RingingTimeout {
+      get { return ringingTimeout_; }
+      set {
+        ringingTimeout_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -10732,6 +13419,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (TransferTo != other.TransferTo) return false;
       if (PlayDialtone != other.PlayDialtone) return false;
       if (!Headers.Equals(other.Headers)) return false;
+      if (!object.Equals(RingingTimeout, other.RingingTimeout)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -10744,6 +13432,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (TransferTo.Length != 0) hash ^= TransferTo.GetHashCode();
       if (PlayDialtone != false) hash ^= PlayDialtone.GetHashCode();
       hash ^= Headers.GetHashCode();
+      if (ringingTimeout_ != null) hash ^= RingingTimeout.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -10779,6 +13468,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteBool(PlayDialtone);
       }
       headers_.WriteTo(output, _map_headers_codec);
+      if (ringingTimeout_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(RingingTimeout);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -10806,6 +13499,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteBool(PlayDialtone);
       }
       headers_.WriteTo(ref output, _map_headers_codec);
+      if (ringingTimeout_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(RingingTimeout);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -10829,6 +13526,9 @@ namespace Livekit.Server.Sdk.Dotnet {
         size += 1 + 1;
       }
       size += headers_.CalculateSize(_map_headers_codec);
+      if (ringingTimeout_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RingingTimeout);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -10854,6 +13554,12 @@ namespace Livekit.Server.Sdk.Dotnet {
         PlayDialtone = other.PlayDialtone;
       }
       headers_.MergeFrom(other.headers_);
+      if (other.ringingTimeout_ != null) {
+        if (ringingTimeout_ == null) {
+          RingingTimeout = new global::Google.Protobuf.WellKnownTypes.Duration();
+        }
+        RingingTimeout.MergeFrom(other.RingingTimeout);
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -10891,6 +13597,13 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 42: {
             headers_.AddEntriesFrom(input, _map_headers_codec);
+            break;
+          }
+          case 50: {
+            if (ringingTimeout_ == null) {
+              RingingTimeout = new global::Google.Protobuf.WellKnownTypes.Duration();
+            }
+            input.ReadMessage(RingingTimeout);
             break;
           }
         }
@@ -10932,6 +13645,13 @@ namespace Livekit.Server.Sdk.Dotnet {
             headers_.AddEntriesFrom(ref input, _map_headers_codec);
             break;
           }
+          case 50: {
+            if (ringingTimeout_ == null) {
+              RingingTimeout = new global::Google.Protobuf.WellKnownTypes.Duration();
+            }
+            input.ReadMessage(RingingTimeout);
+            break;
+          }
         }
       }
     }
@@ -10954,7 +13674,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[31]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[37]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10976,19 +13696,28 @@ namespace Livekit.Server.Sdk.Dotnet {
     public SIPCallInfo(SIPCallInfo other) : this() {
       callId_ = other.callId_;
       trunkId_ = other.trunkId_;
+      dispatchRuleId_ = other.dispatchRuleId_;
+      region_ = other.region_;
       roomName_ = other.roomName_;
       roomId_ = other.roomId_;
       participantIdentity_ = other.participantIdentity_;
+      participantAttributes_ = other.participantAttributes_.Clone();
       fromUri_ = other.fromUri_ != null ? other.fromUri_.Clone() : null;
       toUri_ = other.toUri_ != null ? other.toUri_.Clone() : null;
-      enabledFeatures_ = other.enabledFeatures_.Clone();
-      callDirection_ = other.callDirection_;
-      callStatus_ = other.callStatus_;
       createdAt_ = other.createdAt_;
       startedAt_ = other.startedAt_;
       endedAt_ = other.endedAt_;
+      enabledFeatures_ = other.enabledFeatures_.Clone();
+      callDirection_ = other.callDirection_;
+      callStatus_ = other.callStatus_;
+      createdAtNs_ = other.createdAtNs_;
+      startedAtNs_ = other.startedAtNs_;
+      endedAtNs_ = other.endedAtNs_;
       disconnectReason_ = other.disconnectReason_;
       error_ = other.error_;
+      callStatusCode_ = other.callStatusCode_ != null ? other.callStatusCode_.Clone() : null;
+      audioCodec_ = other.audioCodec_;
+      mediaEncryption_ = other.mediaEncryption_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -11019,6 +13748,30 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return trunkId_; }
       set {
         trunkId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "dispatch_rule_id" field.</summary>
+    public const int DispatchRuleIdFieldNumber = 16;
+    private string dispatchRuleId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string DispatchRuleId {
+      get { return dispatchRuleId_; }
+      set {
+        dispatchRuleId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "region" field.</summary>
+    public const int RegionFieldNumber = 17;
+    private string region_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Region {
+      get { return region_; }
+      set {
+        region_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -11061,6 +13814,17 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "participant_attributes" field.</summary>
+    public const int ParticipantAttributesFieldNumber = 18;
+    private static readonly pbc::MapField<string, string>.Codec _map_participantAttributes_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForString(18, ""), 146);
+    private readonly pbc::MapField<string, string> participantAttributes_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::MapField<string, string> ParticipantAttributes {
+      get { return participantAttributes_; }
+    }
+
     /// <summary>Field number for the "from_uri" field.</summary>
     public const int FromUriFieldNumber = 6;
     private global::Livekit.Server.Sdk.Dotnet.SIPUri fromUri_;
@@ -11082,6 +13846,45 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return toUri_; }
       set {
         toUri_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "created_at" field.</summary>
+    public const int CreatedAtFieldNumber = 9;
+    private long createdAt_;
+    [global::System.ObsoleteAttribute]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long CreatedAt {
+      get { return createdAt_; }
+      set {
+        createdAt_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "started_at" field.</summary>
+    public const int StartedAtFieldNumber = 10;
+    private long startedAt_;
+    [global::System.ObsoleteAttribute]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long StartedAt {
+      get { return startedAt_; }
+      set {
+        startedAt_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ended_at" field.</summary>
+    public const int EndedAtFieldNumber = 11;
+    private long endedAt_;
+    [global::System.ObsoleteAttribute]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long EndedAt {
+      get { return endedAt_; }
+      set {
+        endedAt_ = value;
       }
     }
 
@@ -11120,39 +13923,39 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
-    /// <summary>Field number for the "created_at" field.</summary>
-    public const int CreatedAtFieldNumber = 9;
-    private long createdAt_;
+    /// <summary>Field number for the "created_at_ns" field.</summary>
+    public const int CreatedAtNsFieldNumber = 22;
+    private long createdAtNs_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long CreatedAt {
-      get { return createdAt_; }
+    public long CreatedAtNs {
+      get { return createdAtNs_; }
       set {
-        createdAt_ = value;
+        createdAtNs_ = value;
       }
     }
 
-    /// <summary>Field number for the "started_at" field.</summary>
-    public const int StartedAtFieldNumber = 10;
-    private long startedAt_;
+    /// <summary>Field number for the "started_at_ns" field.</summary>
+    public const int StartedAtNsFieldNumber = 23;
+    private long startedAtNs_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long StartedAt {
-      get { return startedAt_; }
+    public long StartedAtNs {
+      get { return startedAtNs_; }
       set {
-        startedAt_ = value;
+        startedAtNs_ = value;
       }
     }
 
-    /// <summary>Field number for the "ended_at" field.</summary>
-    public const int EndedAtFieldNumber = 11;
-    private long endedAt_;
+    /// <summary>Field number for the "ended_at_ns" field.</summary>
+    public const int EndedAtNsFieldNumber = 24;
+    private long endedAtNs_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public long EndedAt {
-      get { return endedAt_; }
+    public long EndedAtNs {
+      get { return endedAtNs_; }
       set {
-        endedAt_ = value;
+        endedAtNs_ = value;
       }
     }
 
@@ -11180,6 +13983,42 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "call_status_code" field.</summary>
+    public const int CallStatusCodeFieldNumber = 19;
+    private global::Livekit.Server.Sdk.Dotnet.SIPStatus callStatusCode_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPStatus CallStatusCode {
+      get { return callStatusCode_; }
+      set {
+        callStatusCode_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "audio_codec" field.</summary>
+    public const int AudioCodecFieldNumber = 20;
+    private string audioCodec_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string AudioCodec {
+      get { return audioCodec_; }
+      set {
+        audioCodec_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "media_encryption" field.</summary>
+    public const int MediaEncryptionFieldNumber = 21;
+    private string mediaEncryption_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string MediaEncryption {
+      get { return mediaEncryption_; }
+      set {
+        mediaEncryption_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -11197,19 +14036,28 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (CallId != other.CallId) return false;
       if (TrunkId != other.TrunkId) return false;
+      if (DispatchRuleId != other.DispatchRuleId) return false;
+      if (Region != other.Region) return false;
       if (RoomName != other.RoomName) return false;
       if (RoomId != other.RoomId) return false;
       if (ParticipantIdentity != other.ParticipantIdentity) return false;
+      if (!ParticipantAttributes.Equals(other.ParticipantAttributes)) return false;
       if (!object.Equals(FromUri, other.FromUri)) return false;
       if (!object.Equals(ToUri, other.ToUri)) return false;
-      if(!enabledFeatures_.Equals(other.enabledFeatures_)) return false;
-      if (CallDirection != other.CallDirection) return false;
-      if (CallStatus != other.CallStatus) return false;
       if (CreatedAt != other.CreatedAt) return false;
       if (StartedAt != other.StartedAt) return false;
       if (EndedAt != other.EndedAt) return false;
+      if(!enabledFeatures_.Equals(other.enabledFeatures_)) return false;
+      if (CallDirection != other.CallDirection) return false;
+      if (CallStatus != other.CallStatus) return false;
+      if (CreatedAtNs != other.CreatedAtNs) return false;
+      if (StartedAtNs != other.StartedAtNs) return false;
+      if (EndedAtNs != other.EndedAtNs) return false;
       if (DisconnectReason != other.DisconnectReason) return false;
       if (Error != other.Error) return false;
+      if (!object.Equals(CallStatusCode, other.CallStatusCode)) return false;
+      if (AudioCodec != other.AudioCodec) return false;
+      if (MediaEncryption != other.MediaEncryption) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -11219,19 +14067,28 @@ namespace Livekit.Server.Sdk.Dotnet {
       int hash = 1;
       if (CallId.Length != 0) hash ^= CallId.GetHashCode();
       if (TrunkId.Length != 0) hash ^= TrunkId.GetHashCode();
+      if (DispatchRuleId.Length != 0) hash ^= DispatchRuleId.GetHashCode();
+      if (Region.Length != 0) hash ^= Region.GetHashCode();
       if (RoomName.Length != 0) hash ^= RoomName.GetHashCode();
       if (RoomId.Length != 0) hash ^= RoomId.GetHashCode();
       if (ParticipantIdentity.Length != 0) hash ^= ParticipantIdentity.GetHashCode();
+      hash ^= ParticipantAttributes.GetHashCode();
       if (fromUri_ != null) hash ^= FromUri.GetHashCode();
       if (toUri_ != null) hash ^= ToUri.GetHashCode();
-      hash ^= enabledFeatures_.GetHashCode();
-      if (CallDirection != global::Livekit.Server.Sdk.Dotnet.SIPCallDirection.ScdUnknown) hash ^= CallDirection.GetHashCode();
-      if (CallStatus != global::Livekit.Server.Sdk.Dotnet.SIPCallStatus.ScsCallIncoming) hash ^= CallStatus.GetHashCode();
       if (CreatedAt != 0L) hash ^= CreatedAt.GetHashCode();
       if (StartedAt != 0L) hash ^= StartedAt.GetHashCode();
       if (EndedAt != 0L) hash ^= EndedAt.GetHashCode();
+      hash ^= enabledFeatures_.GetHashCode();
+      if (CallDirection != global::Livekit.Server.Sdk.Dotnet.SIPCallDirection.ScdUnknown) hash ^= CallDirection.GetHashCode();
+      if (CallStatus != global::Livekit.Server.Sdk.Dotnet.SIPCallStatus.ScsCallIncoming) hash ^= CallStatus.GetHashCode();
+      if (CreatedAtNs != 0L) hash ^= CreatedAtNs.GetHashCode();
+      if (StartedAtNs != 0L) hash ^= StartedAtNs.GetHashCode();
+      if (EndedAtNs != 0L) hash ^= EndedAtNs.GetHashCode();
       if (DisconnectReason != global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason) hash ^= DisconnectReason.GetHashCode();
       if (Error.Length != 0) hash ^= Error.GetHashCode();
+      if (callStatusCode_ != null) hash ^= CallStatusCode.GetHashCode();
+      if (AudioCodec.Length != 0) hash ^= AudioCodec.GetHashCode();
+      if (MediaEncryption.Length != 0) hash ^= MediaEncryption.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -11307,6 +14164,39 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(120);
         output.WriteEnum((int) CallDirection);
       }
+      if (DispatchRuleId.Length != 0) {
+        output.WriteRawTag(130, 1);
+        output.WriteString(DispatchRuleId);
+      }
+      if (Region.Length != 0) {
+        output.WriteRawTag(138, 1);
+        output.WriteString(Region);
+      }
+      participantAttributes_.WriteTo(output, _map_participantAttributes_codec);
+      if (callStatusCode_ != null) {
+        output.WriteRawTag(154, 1);
+        output.WriteMessage(CallStatusCode);
+      }
+      if (AudioCodec.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(AudioCodec);
+      }
+      if (MediaEncryption.Length != 0) {
+        output.WriteRawTag(170, 1);
+        output.WriteString(MediaEncryption);
+      }
+      if (CreatedAtNs != 0L) {
+        output.WriteRawTag(176, 1);
+        output.WriteInt64(CreatedAtNs);
+      }
+      if (StartedAtNs != 0L) {
+        output.WriteRawTag(184, 1);
+        output.WriteInt64(StartedAtNs);
+      }
+      if (EndedAtNs != 0L) {
+        output.WriteRawTag(192, 1);
+        output.WriteInt64(EndedAtNs);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -11374,6 +14264,39 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(120);
         output.WriteEnum((int) CallDirection);
       }
+      if (DispatchRuleId.Length != 0) {
+        output.WriteRawTag(130, 1);
+        output.WriteString(DispatchRuleId);
+      }
+      if (Region.Length != 0) {
+        output.WriteRawTag(138, 1);
+        output.WriteString(Region);
+      }
+      participantAttributes_.WriteTo(ref output, _map_participantAttributes_codec);
+      if (callStatusCode_ != null) {
+        output.WriteRawTag(154, 1);
+        output.WriteMessage(CallStatusCode);
+      }
+      if (AudioCodec.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(AudioCodec);
+      }
+      if (MediaEncryption.Length != 0) {
+        output.WriteRawTag(170, 1);
+        output.WriteString(MediaEncryption);
+      }
+      if (CreatedAtNs != 0L) {
+        output.WriteRawTag(176, 1);
+        output.WriteInt64(CreatedAtNs);
+      }
+      if (StartedAtNs != 0L) {
+        output.WriteRawTag(184, 1);
+        output.WriteInt64(StartedAtNs);
+      }
+      if (EndedAtNs != 0L) {
+        output.WriteRawTag(192, 1);
+        output.WriteInt64(EndedAtNs);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -11390,6 +14313,12 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (TrunkId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(TrunkId);
       }
+      if (DispatchRuleId.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(DispatchRuleId);
+      }
+      if (Region.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(Region);
+      }
       if (RoomName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomName);
       }
@@ -11399,18 +14328,12 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (ParticipantIdentity.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ParticipantIdentity);
       }
+      size += participantAttributes_.CalculateSize(_map_participantAttributes_codec);
       if (fromUri_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(FromUri);
       }
       if (toUri_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ToUri);
-      }
-      size += enabledFeatures_.CalculateSize(_repeated_enabledFeatures_codec);
-      if (CallDirection != global::Livekit.Server.Sdk.Dotnet.SIPCallDirection.ScdUnknown) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CallDirection);
-      }
-      if (CallStatus != global::Livekit.Server.Sdk.Dotnet.SIPCallStatus.ScsCallIncoming) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CallStatus);
       }
       if (CreatedAt != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(CreatedAt);
@@ -11421,11 +14344,36 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (EndedAt != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(EndedAt);
       }
+      size += enabledFeatures_.CalculateSize(_repeated_enabledFeatures_codec);
+      if (CallDirection != global::Livekit.Server.Sdk.Dotnet.SIPCallDirection.ScdUnknown) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CallDirection);
+      }
+      if (CallStatus != global::Livekit.Server.Sdk.Dotnet.SIPCallStatus.ScsCallIncoming) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CallStatus);
+      }
+      if (CreatedAtNs != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(CreatedAtNs);
+      }
+      if (StartedAtNs != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(StartedAtNs);
+      }
+      if (EndedAtNs != 0L) {
+        size += 2 + pb::CodedOutputStream.ComputeInt64Size(EndedAtNs);
+      }
       if (DisconnectReason != global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) DisconnectReason);
       }
       if (Error.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
+      }
+      if (callStatusCode_ != null) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(CallStatusCode);
+      }
+      if (AudioCodec.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(AudioCodec);
+      }
+      if (MediaEncryption.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(MediaEncryption);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -11445,6 +14393,12 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.TrunkId.Length != 0) {
         TrunkId = other.TrunkId;
       }
+      if (other.DispatchRuleId.Length != 0) {
+        DispatchRuleId = other.DispatchRuleId;
+      }
+      if (other.Region.Length != 0) {
+        Region = other.Region;
+      }
       if (other.RoomName.Length != 0) {
         RoomName = other.RoomName;
       }
@@ -11454,6 +14408,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.ParticipantIdentity.Length != 0) {
         ParticipantIdentity = other.ParticipantIdentity;
       }
+      participantAttributes_.MergeFrom(other.participantAttributes_);
       if (other.fromUri_ != null) {
         if (fromUri_ == null) {
           FromUri = new global::Livekit.Server.Sdk.Dotnet.SIPUri();
@@ -11466,13 +14421,6 @@ namespace Livekit.Server.Sdk.Dotnet {
         }
         ToUri.MergeFrom(other.ToUri);
       }
-      enabledFeatures_.Add(other.enabledFeatures_);
-      if (other.CallDirection != global::Livekit.Server.Sdk.Dotnet.SIPCallDirection.ScdUnknown) {
-        CallDirection = other.CallDirection;
-      }
-      if (other.CallStatus != global::Livekit.Server.Sdk.Dotnet.SIPCallStatus.ScsCallIncoming) {
-        CallStatus = other.CallStatus;
-      }
       if (other.CreatedAt != 0L) {
         CreatedAt = other.CreatedAt;
       }
@@ -11482,11 +14430,39 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.EndedAt != 0L) {
         EndedAt = other.EndedAt;
       }
+      enabledFeatures_.Add(other.enabledFeatures_);
+      if (other.CallDirection != global::Livekit.Server.Sdk.Dotnet.SIPCallDirection.ScdUnknown) {
+        CallDirection = other.CallDirection;
+      }
+      if (other.CallStatus != global::Livekit.Server.Sdk.Dotnet.SIPCallStatus.ScsCallIncoming) {
+        CallStatus = other.CallStatus;
+      }
+      if (other.CreatedAtNs != 0L) {
+        CreatedAtNs = other.CreatedAtNs;
+      }
+      if (other.StartedAtNs != 0L) {
+        StartedAtNs = other.StartedAtNs;
+      }
+      if (other.EndedAtNs != 0L) {
+        EndedAtNs = other.EndedAtNs;
+      }
       if (other.DisconnectReason != global::Livekit.Server.Sdk.Dotnet.DisconnectReason.UnknownReason) {
         DisconnectReason = other.DisconnectReason;
       }
       if (other.Error.Length != 0) {
         Error = other.Error;
+      }
+      if (other.callStatusCode_ != null) {
+        if (callStatusCode_ == null) {
+          CallStatusCode = new global::Livekit.Server.Sdk.Dotnet.SIPStatus();
+        }
+        CallStatusCode.MergeFrom(other.CallStatusCode);
+      }
+      if (other.AudioCodec.Length != 0) {
+        AudioCodec = other.AudioCodec;
+      }
+      if (other.MediaEncryption.Length != 0) {
+        MediaEncryption = other.MediaEncryption;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -11572,6 +14548,45 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 120: {
             CallDirection = (global::Livekit.Server.Sdk.Dotnet.SIPCallDirection) input.ReadEnum();
+            break;
+          }
+          case 130: {
+            DispatchRuleId = input.ReadString();
+            break;
+          }
+          case 138: {
+            Region = input.ReadString();
+            break;
+          }
+          case 146: {
+            participantAttributes_.AddEntriesFrom(input, _map_participantAttributes_codec);
+            break;
+          }
+          case 154: {
+            if (callStatusCode_ == null) {
+              CallStatusCode = new global::Livekit.Server.Sdk.Dotnet.SIPStatus();
+            }
+            input.ReadMessage(CallStatusCode);
+            break;
+          }
+          case 162: {
+            AudioCodec = input.ReadString();
+            break;
+          }
+          case 170: {
+            MediaEncryption = input.ReadString();
+            break;
+          }
+          case 176: {
+            CreatedAtNs = input.ReadInt64();
+            break;
+          }
+          case 184: {
+            StartedAtNs = input.ReadInt64();
+            break;
+          }
+          case 192: {
+            EndedAtNs = input.ReadInt64();
             break;
           }
         }
@@ -11660,6 +14675,45 @@ namespace Livekit.Server.Sdk.Dotnet {
             CallDirection = (global::Livekit.Server.Sdk.Dotnet.SIPCallDirection) input.ReadEnum();
             break;
           }
+          case 130: {
+            DispatchRuleId = input.ReadString();
+            break;
+          }
+          case 138: {
+            Region = input.ReadString();
+            break;
+          }
+          case 146: {
+            participantAttributes_.AddEntriesFrom(ref input, _map_participantAttributes_codec);
+            break;
+          }
+          case 154: {
+            if (callStatusCode_ == null) {
+              CallStatusCode = new global::Livekit.Server.Sdk.Dotnet.SIPStatus();
+            }
+            input.ReadMessage(CallStatusCode);
+            break;
+          }
+          case 162: {
+            AudioCodec = input.ReadString();
+            break;
+          }
+          case 170: {
+            MediaEncryption = input.ReadString();
+            break;
+          }
+          case 176: {
+            CreatedAtNs = input.ReadInt64();
+            break;
+          }
+          case 184: {
+            StartedAtNs = input.ReadInt64();
+            break;
+          }
+          case 192: {
+            EndedAtNs = input.ReadInt64();
+            break;
+          }
         }
       }
     }
@@ -11682,7 +14736,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[32]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[38]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

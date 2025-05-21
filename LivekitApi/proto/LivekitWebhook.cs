@@ -26,15 +26,15 @@ namespace Livekit.Server.Sdk.Dotnet {
           string.Concat(
             "ChVsaXZla2l0X3dlYmhvb2sucHJvdG8SB2xpdmVraXQaFGxpdmVraXRfbW9k",
             "ZWxzLnByb3RvGhRsaXZla2l0X2VncmVzcy5wcm90bxoVbGl2ZWtpdF9pbmdy",
-            "ZXNzLnByb3RvIpcCCgxXZWJob29rRXZlbnQSDQoFZXZlbnQYASABKAkSGwoE",
+            "ZXNzLnByb3RvIpsCCgxXZWJob29rRXZlbnQSDQoFZXZlbnQYASABKAkSGwoE",
             "cm9vbRgCIAEoCzINLmxpdmVraXQuUm9vbRItCgtwYXJ0aWNpcGFudBgDIAEo",
             "CzIYLmxpdmVraXQuUGFydGljaXBhbnRJbmZvEigKC2VncmVzc19pbmZvGAkg",
             "ASgLMhMubGl2ZWtpdC5FZ3Jlc3NJbmZvEioKDGluZ3Jlc3NfaW5mbxgKIAEo",
             "CzIULmxpdmVraXQuSW5ncmVzc0luZm8SIQoFdHJhY2sYCCABKAsyEi5saXZl",
             "a2l0LlRyYWNrSW5mbxIKCgJpZBgGIAEoCRISCgpjcmVhdGVkX2F0GAcgASgD",
-            "EhMKC251bV9kcm9wcGVkGAsgASgFQkZaI2dpdGh1Yi5jb20vbGl2ZWtpdC9w",
-            "cm90b2NvbC9saXZla2l0qgINTGl2ZUtpdC5Qcm90b+oCDkxpdmVLaXQ6OlBy",
-            "b3RvYgZwcm90bzM="));
+            "EhcKC251bV9kcm9wcGVkGAsgASgFQgIYAUJGWiNnaXRodWIuY29tL2xpdmVr",
+            "aXQvcHJvdG9jb2wvbGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0",
+            "OjpQcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -220,6 +220,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// <summary>Field number for the "num_dropped" field.</summary>
     public const int NumDroppedFieldNumber = 11;
     private int numDropped_;
+    [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int NumDropped {
