@@ -6,9 +6,9 @@ SCRIPT_FOLDER="$(dirname "$SCRIPT_PATH")"
 
 # Format
 dotnet tool restore || exit 1
-dotnet csharpier LivekitApi || exit 1
-dotnet csharpier LivekitApi.Tests || exit 1
-dotnet csharpier LivekitApi.Example || exit 1
+dotnet csharpier format LivekitApi || exit 1
+dotnet csharpier format LivekitApi.Tests || exit 1
+dotnet csharpier format LivekitApi.Example || exit 1
 
 # Run tests
 dotnet test || exit 1
