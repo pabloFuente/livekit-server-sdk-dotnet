@@ -59,6 +59,13 @@ IngressServiceClient ingressServiceClient = new IngressServiceClient(
     LIVEKIT_API_SECRET
 );
 
+// Initialize SipServiceClient
+SipServiceClient sipServiceClient = new SipServiceClient(
+    LIVEKIT_URL,
+    LIVEKIT_API_KEY,
+    LIVEKIT_API_SECRET
+);
+
 // Access Token generator
 app.MapGet(
     "/livekit/token",
@@ -104,12 +111,32 @@ app.MapGet(
         var listIngressResponse = await ingressServiceClient.ListIngress(new ListIngressRequest());
         IngressInfo[] ingresses = listIngressResponse.Items.ToArray();
 
+        var listSipInboundResponse = await sipServiceClient.ListSIPInboundTrunk(
+            new ListSIPInboundTrunkRequest()
+        );
+        SIPInboundTrunkInfo[] sipInboundTrunks = listSipInboundResponse.Items.ToArray();
+        var listSipOutboundResponse = await sipServiceClient.ListSIPOutboundTrunk(
+            new ListSIPOutboundTrunkRequest()
+        );
+        SIPOutboundTrunkInfo[] sipOutboundTrunks = listSipOutboundResponse.Items.ToArray();
+        var listSipDispatchRuleResponse = await sipServiceClient.ListSIPDispatchRule(
+            new ListSIPDispatchRuleRequest()
+        );
+        SIPDispatchRuleInfo[] sipDispatchRules = listSipDispatchRuleResponse.Items.ToArray();
+        var sipInfo = new
+        {
+            sipInboundTrunks,
+            sipOutboundTrunks,
+            sipDispatchRules,
+        };
+
         return Results.Ok(
             new
             {
                 rooms,
                 egresses,
                 ingresses,
+                sipInfo,
             }
         );
     }
