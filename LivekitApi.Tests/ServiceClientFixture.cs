@@ -18,7 +18,7 @@ public class ServiceClientFixture : IDisposable
     public const string TEST_API_KEY = "devkey";
     public const string TEST_API_SECRET = "secretsecretsecretsecretsecretsecretsecret";
 
-    private const string LIVEKIT_SERVER_IMAGE = "livekit/livekit-server:latest";
+    private const string LIVEKIT_SERVER_IMAGE = "livekit/livekit-server:master";
     private const string LIVEKIT_EGRESS_IMAGE = "livekit/egress:latest";
     private const string LIVEKIT_INGRESS_IMAGE = "livekit/ingress:latest";
     private const string LIVEKIT_SIP_IMAGE = "livekit/sip:latest";
