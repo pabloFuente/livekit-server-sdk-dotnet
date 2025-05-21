@@ -348,6 +348,7 @@ git clone --recurse-submodules https://github.com/pabloFuente/livekit-server-sdk
 
 Pre-requisites:
 
+- [.NET SDK](https://dotnet.microsoft.com/download/dotnet). Make sure to install the version defined in [`global.json`](./LivekitApi/global.json) file, or for minor/patch discrepancies, you can modify the `global.json` file to match your installed version.
 - [protoc](https://github.com/protocolbuffers/protobuf/releases/latest)
 - `go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@latest`
 
