@@ -283,6 +283,142 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             Assert.NotNull(response);
         }
 
+        [Fact(Skip = "Only available in LiveKit Cloud")]
+        [Trait("Category", "Integration")]
+        [Trait("Category", "RoomService")]
+        public async Task Forward_Participant()
+        {
+            // Create source room and join participant, publish track
+            string sourceRoom = TestConstants.ROOM_NAME;
+            string destRoom = TestConstants.ROOM_NAME + "-forward";
+            string participantIdentity = TestConstants.PARTICIPANT_IDENTITY;
+
+            await client.CreateRoom(new CreateRoomRequest { Name = sourceRoom });
+            await fixture.PublishVideoTrackInRoom(client, sourceRoom, participantIdentity);
+
+            // Get participant and track info in source room
+            var participant = await client.GetParticipant(
+                new RoomParticipantIdentity { Room = sourceRoom, Identity = participantIdentity }
+            );
+            Assert.NotNull(participant);
+            Assert.Single(participant.Tracks);
+            var track = participant.Tracks[0];
+
+            // Create an empty destination room
+            await client.CreateRoom(new CreateRoomRequest { Name = destRoom });
+
+            // Forward participant to destination room
+            var forwardRequest = new ForwardParticipantRequest
+            {
+                Room = sourceRoom,
+                Identity = participantIdentity,
+                DestinationRoom = destRoom,
+            };
+            await client.ForwardParticipant(forwardRequest);
+
+            // Check participant and track in destination room
+            var destParticipant = await client.GetParticipant(
+                new RoomParticipantIdentity { Room = destRoom, Identity = participantIdentity }
+            );
+            Assert.NotNull(destParticipant);
+            Assert.Equal(participantIdentity, destParticipant.Identity);
+            Assert.Single(destParticipant.Tracks);
+            Assert.Equal(track.Sid, destParticipant.Tracks[0].Sid);
+
+            // Change participant and track in source room
+            // Mute the track and update participant metadata
+            await client.MutePublishedTrack(
+                new MuteRoomTrackRequest
+                {
+                    Room = sourceRoom,
+                    Identity = participantIdentity,
+                    TrackSid = track.Sid,
+                    Muted = true,
+                }
+            );
+            await client.UpdateParticipant(
+                new UpdateParticipantRequest
+                {
+                    Room = sourceRoom,
+                    Identity = participantIdentity,
+                    Metadata = "updated-metadata",
+                }
+            );
+
+            // Check changes are reflected in destination room
+            destParticipant = await client.GetParticipant(
+                new RoomParticipantIdentity { Room = destRoom, Identity = participantIdentity }
+            );
+            Assert.True(destParticipant.Tracks[0].Muted);
+            Assert.Equal("updated-metadata", destParticipant.Metadata);
+
+            // Disconnect participant from source room
+            await client.RemoveParticipant(
+                new RoomParticipantIdentity { Room = sourceRoom, Identity = participantIdentity }
+            );
+
+            // Participant should be disconnected from destination room as well
+            var destParticipants = await client.ListParticipants(
+                new ListParticipantsRequest { Room = destRoom }
+            );
+            Assert.DoesNotContain(
+                destParticipants.Participants,
+                p => p.Identity == participantIdentity
+            );
+        }
+
+        [Fact(Skip = "Only available in LiveKit Cloud")]
+        [Trait("Category", "Integration")]
+        [Trait("Category", "RoomService")]
+        public async Task Move_Participant()
+        {
+            // Create source room and join participant, publish track
+            string sourceRoom = TestConstants.ROOM_NAME;
+            string destRoom = TestConstants.ROOM_NAME + "-move";
+            string participantIdentity = TestConstants.PARTICIPANT_IDENTITY;
+
+            await client.CreateRoom(new CreateRoomRequest { Name = sourceRoom });
+            await fixture.PublishVideoTrackInRoom(client, sourceRoom, participantIdentity);
+
+            // Get participant and track info in source room
+            var participant = await client.GetParticipant(
+                new RoomParticipantIdentity { Room = sourceRoom, Identity = participantIdentity }
+            );
+            Assert.NotNull(participant);
+            Assert.Single(participant.Tracks);
+            var track = participant.Tracks[0];
+
+            // Create an empty destination room
+            await client.CreateRoom(new CreateRoomRequest { Name = destRoom });
+
+            // Move participant to destination room
+            var moveRequest = new MoveParticipantRequest
+            {
+                Room = sourceRoom,
+                Identity = participantIdentity,
+                DestinationRoom = destRoom,
+            };
+            await client.MoveParticipant(moveRequest);
+
+            // Check participant is no longer in source room
+            var sourceParticipants = await client.ListParticipants(
+                new ListParticipantsRequest { Room = sourceRoom }
+            );
+            Assert.DoesNotContain(
+                sourceParticipants.Participants,
+                p => p.Identity == participantIdentity
+            );
+
+            // Check participant and track in destination room
+            var destParticipant = await client.GetParticipant(
+                new RoomParticipantIdentity { Room = destRoom, Identity = participantIdentity }
+            );
+            Assert.NotNull(destParticipant);
+            Assert.Equal(participantIdentity, destParticipant.Identity);
+            Assert.Single(destParticipant.Tracks);
+            Assert.Equal(track.Sid, destParticipant.Tracks[0].Sid);
+        }
+
         public Task InitializeAsync()
         {
             return Task.CompletedTask;

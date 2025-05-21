@@ -264,7 +264,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
                         EgressId = egress.EgressId,
                     }
                 );
-                egress = egresses.Items.FirstOrDefault();
+                egress = egresses.Items.FirstOrDefault()!;
                 await Task.Delay(700);
             }
             Assert.NotNull(egress);
