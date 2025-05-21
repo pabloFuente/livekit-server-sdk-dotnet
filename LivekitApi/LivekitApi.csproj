@@ -1,9 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-
   <PropertyGroup>
     <PackageId>Livekit.Server.Sdk.Dotnet</PackageId>
     <Version>1.0.7</Version>
@@ -19,7 +17,6 @@
       access to LiveKit.
     </Description>
   </PropertyGroup>
-
   <PropertyGroup>
     <RootNamespace>Livekit.Server.Sdk.Dotnet</RootNamespace>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -36,14 +33,12 @@
     <PackageValidationBaselineVersion>1.0.6</PackageValidationBaselineVersion>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <ApiCompatGenerateSuppressionFile>true</ApiCompatGenerateSuppressionFile>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="CSharpier.MSBuild" Version="0.30.6">
+    <PackageReference Include="CSharpier.MSBuild" Version="1.0.1">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -51,18 +46,19 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Google.Protobuf" Version="3.29.3" />
+    <PackageReference Include="Google.Protobuf" Version="3.31.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.6.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.10.0" />
     <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
-
-  <Target Name="InjectPackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec"
-    Condition="Exists('CHANGELOG.md')">
+  <Target
+    Name="InjectPackageReleaseNotesFromFile"
+    BeforeTargets="GenerateNuspec"
+    Condition="Exists('CHANGELOG.md')"
+  >
     <PropertyGroup>
       <PackageReleaseNotes>
         $([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/CHANGELOG.md"))</PackageReleaseNotes>
     </PropertyGroup>
   </Target>
-
 </Project>

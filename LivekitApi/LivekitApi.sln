@@ -1,9 +1,8 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.002.0
+VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet8", "dotnet8.csproj", "{DC1267CC-7958-4806-863A-FE9D78D04CAF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivekitApi", "LivekitApi.csproj", "{1C671E7B-50EF-7619-2C17-6F655FF31FBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +10,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DC1267CC-7958-4806-863A-FE9D78D04CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC1267CC-7958-4806-863A-FE9D78D04CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC1267CC-7958-4806-863A-FE9D78D04CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC1267CC-7958-4806-863A-FE9D78D04CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C671E7B-50EF-7619-2C17-6F655FF31FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C671E7B-50EF-7619-2C17-6F655FF31FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C671E7B-50EF-7619-2C17-6F655FF31FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C671E7B-50EF-7619-2C17-6F655FF31FBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {188B33DB-28A5-4869-920C-D7C9711C02D5}
+		SolutionGuid = {15342CB6-F736-4631-8723-58B71E42FA48}
 	EndGlobalSection
 EndGlobal
