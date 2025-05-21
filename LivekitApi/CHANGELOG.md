@@ -1,5 +1,9 @@
 # Changelog (Release Notes)
 
+## 1.0.8
+
+- Update livekit/protocol to [v1.38.0](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.38.0)
+
 ## 1.0.7
 
 - Update livekit/protocol to [v1.34.0](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.34.0)
