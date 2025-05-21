@@ -29,7 +29,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Updates the existing ingress with the given ingressID. Only inactive ingress can be updated
+        /// Updates the existing ingress with the given ingressID. Only inactive ingress can be updated.
         /// </summary>
         public async Task<IngressInfo> UpdateIngress(UpdateIngressRequest request)
         {

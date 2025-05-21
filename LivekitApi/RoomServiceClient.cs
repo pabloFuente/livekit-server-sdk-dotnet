@@ -161,5 +161,52 @@ namespace Livekit.Server.Sdk.Dotnet
             );
             return await Twirp.UpdateRoomMetadata(httpClient, request);
         }
+
+        /// <summary>
+        /// Forwards a participant's track(s) to another room. Requires <c>RoomAdmin</c> and <c>DestinationRoom</c>.
+        /// This will create a participant to join the destination room that has same information with the source participant
+        /// except the kind to be <c>Forwarded</c>. All changes to the source participant will be reflected to the forwarded
+        /// participant. When the source participant disconnects or the <c>RemoveParticipant</c> method is called in the
+        /// destination room, the forwarding will be stopped. A participant can be forwarded to multiple rooms. The destination
+        /// room will be created if it does not exist.
+        /// </summary>
+        public async Task<ForwardParticipantResponse> ForwardParticipant(
+            ForwardParticipantRequest request
+        )
+        {
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Bearer",
+                AuthHeader(
+                    new VideoGrants
+                    {
+                        RoomAdmin = true,
+                        Room = request.Room,
+                        DestinationRoom = request.DestinationRoom,
+                    }
+                )
+            );
+            return await Twirp.ForwardParticipant(httpClient, request);
+        }
+
+        /// <summary>
+        /// Move a connected participant to a different room. Requires <c>RoomAdmin</c> and <c>DestinationRoom</c>.
+        /// The participant will be removed from the current room and added to the destination room.
+        /// From other observers' perspective, the participant would've disconnected from the previous room and joined the new one.
+        /// </summary>
+        public async Task<MoveParticipantResponse> MoveParticipant(MoveParticipantRequest request)
+        {
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Bearer",
+                AuthHeader(
+                    new VideoGrants
+                    {
+                        RoomAdmin = true,
+                        Room = request.Room,
+                        DestinationRoom = request.DestinationRoom,
+                    }
+                )
+            );
+            return await Twirp.MoveParticipant(httpClient, request);
+        }
     }
 }
