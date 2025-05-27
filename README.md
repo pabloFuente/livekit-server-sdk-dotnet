@@ -5,7 +5,7 @@
 
 # livekit-server-sdk-dotnet <!-- omit in toc -->
 
-.NET APIs to manage LiveKit Access Tokens, Webhook and Server APIs. Use it with a .NET backend. It is build with **`netstandard2.0`** as target framework, so the SDK can be used in all versions of .NET.
+.NET APIs to manage [LiveKit](https://livekit.io) Access Tokens, Webhook and Server APIs. Use it with a .NET backend. It is build with **`netstandard2.0`** as target framework, so the SDK can be used in all versions of .NET.
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -393,6 +393,9 @@ dotnet test --filter "Category=Integration"
    - Release title `X.Y.Z`
    - A new tag `X.Y.Z`
    - Description (change `A.B.C` with the proper version of livekit/protocol): `Update livekit/protocol to [vA.B.C](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%40A.B.C)`
+
+> [!NOTE]
+> After creating the release, workflow [publish.yml](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/publish.yml) will automatically publish the new version to NuGet and will perform the necessary post-release tasks.
 
 ## GitHub Actions
 
