@@ -22,6 +22,7 @@
   - [Clone repository](#clone-repository)
   - [Compile](#compile)
   - [Run tests](#run-tests)
+  - [Perform release](#perform-release)
   - [GitHub Actions](#github-actions)
   - [Install as a local NuGet package](#install-as-a-local-nuget-package)
   - [Upgrade version of `livekit/protocol`](#upgrade-version-of-livekitprotocol)
@@ -384,6 +385,14 @@ Run integration tests (they automatically launch necessary services as Docker co
 ```bash
 dotnet test --filter "Category=Integration"
 ```
+
+## Perform release
+
+1. Create a commit [like this](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/a01453be9d50a29e7244ab38dac3939d285c84bb) for the new version.
+2. Create a [new release in GitHub](https://github.com/pabloFuente/livekit-server-sdk-dotnet/releases/new) with:
+   - Release title `X.Y.Z`
+   - A new tag `X.Y.Z`
+   - Description (change `A.B.C` with the proper version of livekit/protocol): `Update livekit/protocol to [vA.B.C](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%40A.B.C)`
 
 ## GitHub Actions
 
