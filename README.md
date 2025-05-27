@@ -441,10 +441,10 @@ To upgrade the version of the `livekit/protocol` Git submodule:
 
 ```bash
 cd protocol
-git checkout COMMIT_HASH/TAG/BRANCH
+git checkout <COMMIT_HASH/TAG/BRANCH>
 cd ..
 git add protocol
-git commit -m "Update livekit/protocol version"
+git commit -m "Update livekit/protocol to <VERSION>"
 git push
 ```
 
