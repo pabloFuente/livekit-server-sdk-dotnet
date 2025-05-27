@@ -238,25 +238,25 @@ namespace Livekit.Server.Sdk.Dotnet {
             "AhIHCgNPRkYQAypAChFDb25uZWN0aW9uUXVhbGl0eRIICgRQT09SEAASCAoE",
             "R09PRBABEg0KCUVYQ0VMTEVOVBACEggKBExPU1QQAyo7ChNDbGllbnRDb25m",
             "aWdTZXR0aW5nEgkKBVVOU0VUEAASDAoIRElTQUJMRUQQARILCgdFTkFCTEVE",
-            "EAIqxAIKEERpc2Nvbm5lY3RSZWFzb24SEgoOVU5LTk9XTl9SRUFTT04QABIU",
+            "EAIq1wIKEERpc2Nvbm5lY3RSZWFzb24SEgoOVU5LTk9XTl9SRUFTT04QABIU",
             "ChBDTElFTlRfSU5JVElBVEVEEAESFgoSRFVQTElDQVRFX0lERU5USVRZEAIS",
             "EwoPU0VSVkVSX1NIVVRET1dOEAMSFwoTUEFSVElDSVBBTlRfUkVNT1ZFRBAE",
             "EhAKDFJPT01fREVMRVRFRBAFEhIKDlNUQVRFX01JU01BVENIEAYSEAoMSk9J",
             "Tl9GQUlMVVJFEAcSDQoJTUlHUkFUSU9OEAgSEAoMU0lHTkFMX0NMT1NFEAkS",
             "DwoLUk9PTV9DTE9TRUQQChIUChBVU0VSX1VOQVZBSUxBQkxFEAsSEQoNVVNF",
             "Ul9SRUpFQ1RFRBAMEhUKEVNJUF9UUlVOS19GQUlMVVJFEA0SFgoSQ09OTkVD",
-            "VElPTl9USU1FT1VUEA4qiQEKD1JlY29ubmVjdFJlYXNvbhIOCgpSUl9VTktO",
-            "T1dOEAASGgoWUlJfU0lHTkFMX0RJU0NPTk5FQ1RFRBABEhcKE1JSX1BVQkxJ",
-            "U0hFUl9GQUlMRUQQAhIYChRSUl9TVUJTQ1JJQkVSX0ZBSUxFRBADEhcKE1JS",
-            "X1NXSVRDSF9DQU5ESURBVEUQBCpUChFTdWJzY3JpcHRpb25FcnJvchIOCgpT",
-            "RV9VTktOT1dOEAASGAoUU0VfQ09ERUNfVU5TVVBQT1JURUQQARIVChFTRV9U",
-            "UkFDS19OT1RGT1VORBACKr0BChFBdWRpb1RyYWNrRmVhdHVyZRINCglURl9T",
-            "VEVSRU8QABINCglURl9OT19EVFgQARIYChRURl9BVVRPX0dBSU5fQ09OVFJP",
-            "TBACEhgKFFRGX0VDSE9fQ0FOQ0VMTEFUSU9OEAMSGAoUVEZfTk9JU0VfU1VQ",
-            "UFJFU1NJT04QBBIiCh5URl9FTkhBTkNFRF9OT0lTRV9DQU5DRUxMQVRJT04Q",
-            "BRIYChRURl9QUkVDT05ORUNUX0JVRkZFUhAGQkZaI2dpdGh1Yi5jb20vbGl2",
-            "ZWtpdC9wcm90b2NvbC9saXZla2l0qgINTGl2ZUtpdC5Qcm90b+oCDkxpdmVL",
-            "aXQ6OlByb3RvYgZwcm90bzM="));
+            "VElPTl9USU1FT1VUEA4SEQoNTUVESUFfRkFJTFVSRRAPKokBCg9SZWNvbm5l",
+            "Y3RSZWFzb24SDgoKUlJfVU5LTk9XThAAEhoKFlJSX1NJR05BTF9ESVNDT05O",
+            "RUNURUQQARIXChNSUl9QVUJMSVNIRVJfRkFJTEVEEAISGAoUUlJfU1VCU0NS",
+            "SUJFUl9GQUlMRUQQAxIXChNSUl9TV0lUQ0hfQ0FORElEQVRFEAQqVAoRU3Vi",
+            "c2NyaXB0aW9uRXJyb3ISDgoKU0VfVU5LTk9XThAAEhgKFFNFX0NPREVDX1VO",
+            "U1VQUE9SVEVEEAESFQoRU0VfVFJBQ0tfTk9URk9VTkQQAiq9AQoRQXVkaW9U",
+            "cmFja0ZlYXR1cmUSDQoJVEZfU1RFUkVPEAASDQoJVEZfTk9fRFRYEAESGAoU",
+            "VEZfQVVUT19HQUlOX0NPTlRST0wQAhIYChRURl9FQ0hPX0NBTkNFTExBVElP",
+            "ThADEhgKFFRGX05PSVNFX1NVUFBSRVNTSU9OEAQSIgoeVEZfRU5IQU5DRURf",
+            "Tk9JU0VfQ0FOQ0VMTEFUSU9OEAUSGAoUVEZfUFJFQ09OTkVDVF9CVUZGRVIQ",
+            "BkJGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdKoCDUxp",
+            "dmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitMetricsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.AudioCodec), typeof(global::Livekit.Server.Sdk.Dotnet.VideoCodec), typeof(global::Livekit.Server.Sdk.Dotnet.ImageCodec), typeof(global::Livekit.Server.Sdk.Dotnet.BackupCodecPolicy), typeof(global::Livekit.Server.Sdk.Dotnet.TrackType), typeof(global::Livekit.Server.Sdk.Dotnet.TrackSource), typeof(global::Livekit.Server.Sdk.Dotnet.VideoQuality), typeof(global::Livekit.Server.Sdk.Dotnet.ConnectionQuality), typeof(global::Livekit.Server.Sdk.Dotnet.ClientConfigSetting), typeof(global::Livekit.Server.Sdk.Dotnet.DisconnectReason), typeof(global::Livekit.Server.Sdk.Dotnet.ReconnectReason), typeof(global::Livekit.Server.Sdk.Dotnet.SubscriptionError), typeof(global::Livekit.Server.Sdk.Dotnet.AudioTrackFeature), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -438,6 +438,10 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// server timed out a participant session
     /// </summary>
     [pbr::OriginalName("CONNECTION_TIMEOUT")] ConnectionTimeout = 14,
+    /// <summary>
+    /// media stream failure or media timeout
+    /// </summary>
+    [pbr::OriginalName("MEDIA_FAILURE")] MediaFailure = 15,
   }
 
   public enum ReconnectReason {

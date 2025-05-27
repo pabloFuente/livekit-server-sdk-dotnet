@@ -83,242 +83,253 @@ namespace Livekit.Server.Sdk.Dotnet {
             "bmtJbmZvIqQBCh1VcGRhdGVTSVBPdXRib3VuZFRydW5rUmVxdWVzdBIUCgxz",
             "aXBfdHJ1bmtfaWQYASABKAkSMAoHcmVwbGFjZRgCIAEoCzIdLmxpdmVraXQu",
             "U0lQT3V0Ym91bmRUcnVua0luZm9IABIxCgZ1cGRhdGUYAyABKAsyHy5saXZl",
-            "a2l0LlNJUE91dGJvdW5kVHJ1bmtVcGRhdGVIAEIICgZhY3Rpb24ixAUKFFNJ",
+            "a2l0LlNJUE91dGJvdW5kVHJ1bmtVcGRhdGVIAEIICgZhY3Rpb24i4QUKFFNJ",
             "UE91dGJvdW5kVHJ1bmtJbmZvEhQKDHNpcF90cnVua19pZBgBIAEoCRIMCgRu",
             "YW1lGAIgASgJEhAKCG1ldGFkYXRhGAMgASgJEg8KB2FkZHJlc3MYBCABKAkS",
-            "KAoJdHJhbnNwb3J0GAUgASgOMhUubGl2ZWtpdC5TSVBUcmFuc3BvcnQSDwoH",
-            "bnVtYmVycxgGIAMoCRIVCg1hdXRoX3VzZXJuYW1lGAcgASgJEhUKDWF1dGhf",
-            "cGFzc3dvcmQYCCABKAkSOwoHaGVhZGVycxgJIAMoCzIqLmxpdmVraXQuU0lQ",
-            "T3V0Ym91bmRUcnVua0luZm8uSGVhZGVyc0VudHJ5ElUKFWhlYWRlcnNfdG9f",
-            "YXR0cmlidXRlcxgKIAMoCzI2LmxpdmVraXQuU0lQT3V0Ym91bmRUcnVua0lu",
-            "Zm8uSGVhZGVyc1RvQXR0cmlidXRlc0VudHJ5ElUKFWF0dHJpYnV0ZXNfdG9f",
-            "aGVhZGVycxgLIAMoCzI2LmxpdmVraXQuU0lQT3V0Ym91bmRUcnVua0luZm8u",
-            "QXR0cmlidXRlc1RvSGVhZGVyc0VudHJ5EjIKD2luY2x1ZGVfaGVhZGVycxgM",
-            "IAEoDjIZLmxpdmVraXQuU0lQSGVhZGVyT3B0aW9ucxI1ChBtZWRpYV9lbmNy",
-            "eXB0aW9uGA0gASgOMhsubGl2ZWtpdC5TSVBNZWRpYUVuY3J5cHRpb24aLgoM",
-            "SGVhZGVyc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEa",
-            "OgoYSGVhZGVyc1RvQXR0cmlidXRlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2",
-            "YWx1ZRgCIAEoCToCOAEaOgoYQXR0cmlidXRlc1RvSGVhZGVyc0VudHJ5EgsK",
-            "A2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiigMKFlNJUE91dGJvdW5k",
-            "VHJ1bmtVcGRhdGUSFAoHYWRkcmVzcxgBIAEoCUgAiAEBEi0KCXRyYW5zcG9y",
-            "dBgCIAEoDjIVLmxpdmVraXQuU0lQVHJhbnNwb3J0SAGIAQESJAoHbnVtYmVy",
-            "cxgDIAEoCzITLmxpdmVraXQuTGlzdFVwZGF0ZRIaCg1hdXRoX3VzZXJuYW1l",
-            "GAQgASgJSAKIAQESGgoNYXV0aF9wYXNzd29yZBgFIAEoCUgDiAEBEhEKBG5h",
-            "bWUYBiABKAlIBIgBARIVCghtZXRhZGF0YRgHIAEoCUgFiAEBEjoKEG1lZGlh",
-            "X2VuY3J5cHRpb24YCCABKA4yGy5saXZla2l0LlNJUE1lZGlhRW5jcnlwdGlv",
-            "bkgGiAEBQgoKCF9hZGRyZXNzQgwKCl90cmFuc3BvcnRCEAoOX2F1dGhfdXNl",
-            "cm5hbWVCEAoOX2F1dGhfcGFzc3dvcmRCBwoFX25hbWVCCwoJX21ldGFkYXRh",
-            "QhMKEV9tZWRpYV9lbmNyeXB0aW9uIjEKGUdldFNJUEluYm91bmRUcnVua1Jl",
-            "cXVlc3QSFAoMc2lwX3RydW5rX2lkGAEgASgJIkkKGkdldFNJUEluYm91bmRU",
-            "cnVua1Jlc3BvbnNlEisKBXRydW5rGAEgASgLMhwubGl2ZWtpdC5TSVBJbmJv",
-            "dW5kVHJ1bmtJbmZvIjIKGkdldFNJUE91dGJvdW5kVHJ1bmtSZXF1ZXN0EhQK",
-            "DHNpcF90cnVua19pZBgBIAEoCSJLChtHZXRTSVBPdXRib3VuZFRydW5rUmVz",
-            "cG9uc2USLAoFdHJ1bmsYASABKAsyHS5saXZla2l0LlNJUE91dGJvdW5kVHJ1",
-            "bmtJbmZvIjwKE0xpc3RTSVBUcnVua1JlcXVlc3QSIQoEcGFnZRgBIAEoCzIT",
-            "LmxpdmVraXQuUGFnaW5hdGlvbjoCGAEiQAoUTGlzdFNJUFRydW5rUmVzcG9u",
-            "c2USJAoFaXRlbXMYASADKAsyFS5saXZla2l0LlNJUFRydW5rSW5mbzoCGAEi",
-            "YwoaTGlzdFNJUEluYm91bmRUcnVua1JlcXVlc3QSIQoEcGFnZRgDIAEoCzIT",
-            "LmxpdmVraXQuUGFnaW5hdGlvbhIRCgl0cnVua19pZHMYASADKAkSDwoHbnVt",
-            "YmVycxgCIAMoCSJKChtMaXN0U0lQSW5ib3VuZFRydW5rUmVzcG9uc2USKwoF",
-            "aXRlbXMYASADKAsyHC5saXZla2l0LlNJUEluYm91bmRUcnVua0luZm8iZAob",
-            "TGlzdFNJUE91dGJvdW5kVHJ1bmtSZXF1ZXN0EiEKBHBhZ2UYAyABKAsyEy5s",
-            "aXZla2l0LlBhZ2luYXRpb24SEQoJdHJ1bmtfaWRzGAEgAygJEg8KB251bWJl",
-            "cnMYAiADKAkiTAocTGlzdFNJUE91dGJvdW5kVHJ1bmtSZXNwb25zZRIsCgVp",
-            "dGVtcxgBIAMoCzIdLmxpdmVraXQuU0lQT3V0Ym91bmRUcnVua0luZm8iLQoV",
-            "RGVsZXRlU0lQVHJ1bmtSZXF1ZXN0EhQKDHNpcF90cnVua19pZBgBIAEoCSI3",
-            "ChVTSVBEaXNwYXRjaFJ1bGVEaXJlY3QSEQoJcm9vbV9uYW1lGAEgASgJEgsK",
-            "A3BpbhgCIAEoCSI9ChlTSVBEaXNwYXRjaFJ1bGVJbmRpdmlkdWFsEhMKC3Jv",
-            "b21fcHJlZml4GAEgASgJEgsKA3BpbhgCIAEoCSJMChVTSVBEaXNwYXRjaFJ1",
-            "bGVDYWxsZWUSEwoLcm9vbV9wcmVmaXgYASABKAkSCwoDcGluGAIgASgJEhEK",
-            "CXJhbmRvbWl6ZRgDIAEoCCLhAQoPU0lQRGlzcGF0Y2hSdWxlEj4KFGRpc3Bh",
-            "dGNoX3J1bGVfZGlyZWN0GAEgASgLMh4ubGl2ZWtpdC5TSVBEaXNwYXRjaFJ1",
-            "bGVEaXJlY3RIABJGChhkaXNwYXRjaF9ydWxlX2luZGl2aWR1YWwYAiABKAsy",
-            "Ii5saXZla2l0LlNJUERpc3BhdGNoUnVsZUluZGl2aWR1YWxIABI+ChRkaXNw",
-            "YXRjaF9ydWxlX2NhbGxlZRgDIAEoCzIeLmxpdmVraXQuU0lQRGlzcGF0Y2hS",
-            "dWxlQ2FsbGVlSABCBgoEcnVsZSLKAwocQ3JlYXRlU0lQRGlzcGF0Y2hSdWxl",
-            "UmVxdWVzdBIzCg1kaXNwYXRjaF9ydWxlGAogASgLMhwubGl2ZWtpdC5TSVBE",
-            "aXNwYXRjaFJ1bGVJbmZvEioKBHJ1bGUYASABKAsyGC5saXZla2l0LlNJUERp",
-            "c3BhdGNoUnVsZUICGAESFQoJdHJ1bmtfaWRzGAIgAygJQgIYARIdChFoaWRl",
-            "X3Bob25lX251bWJlchgDIAEoCEICGAESGwoPaW5ib3VuZF9udW1iZXJzGAYg",
-            "AygJQgIYARIQCgRuYW1lGAQgASgJQgIYARIUCghtZXRhZGF0YRgFIAEoCUIC",
-            "GAESTQoKYXR0cmlidXRlcxgHIAMoCzI1LmxpdmVraXQuQ3JlYXRlU0lQRGlz",
-            "cGF0Y2hSdWxlUmVxdWVzdC5BdHRyaWJ1dGVzRW50cnlCAhgBEhcKC3Jvb21f",
-            "cHJlc2V0GAggASgJQgIYARIzCgtyb29tX2NvbmZpZxgJIAEoCzIaLmxpdmVr",
-            "aXQuUm9vbUNvbmZpZ3VyYXRpb25CAhgBGjEKD0F0dHJpYnV0ZXNFbnRyeRIL",
-            "CgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIqkBChxVcGRhdGVTSVBE",
-            "aXNwYXRjaFJ1bGVSZXF1ZXN0EhwKFHNpcF9kaXNwYXRjaF9ydWxlX2lkGAEg",
-            "ASgJEi8KB3JlcGxhY2UYAiABKAsyHC5saXZla2l0LlNJUERpc3BhdGNoUnVs",
-            "ZUluZm9IABIwCgZ1cGRhdGUYAyABKAsyHi5saXZla2l0LlNJUERpc3BhdGNo",
-            "UnVsZVVwZGF0ZUgAQggKBmFjdGlvbiLLAwoTU0lQRGlzcGF0Y2hSdWxlSW5m",
-            "bxIcChRzaXBfZGlzcGF0Y2hfcnVsZV9pZBgBIAEoCRImCgRydWxlGAIgASgL",
-            "MhgubGl2ZWtpdC5TSVBEaXNwYXRjaFJ1bGUSEQoJdHJ1bmtfaWRzGAMgAygJ",
-            "EhkKEWhpZGVfcGhvbmVfbnVtYmVyGAQgASgIEhcKD2luYm91bmRfbnVtYmVy",
-            "cxgHIAMoCRIMCgRuYW1lGAUgASgJEhAKCG1ldGFkYXRhGAYgASgJEkAKCmF0",
-            "dHJpYnV0ZXMYCCADKAsyLC5saXZla2l0LlNJUERpc3BhdGNoUnVsZUluZm8u",
-            "QXR0cmlidXRlc0VudHJ5EhMKC3Jvb21fcHJlc2V0GAkgASgJEi8KC3Jvb21f",
-            "Y29uZmlnGAogASgLMhoubGl2ZWtpdC5Sb29tQ29uZmlndXJhdGlvbhIVCg1r",
-            "cmlzcF9lbmFibGVkGAsgASgIEjUKEG1lZGlhX2VuY3J5cHRpb24YDCABKA4y",
-            "Gy5saXZla2l0LlNJUE1lZGlhRW5jcnlwdGlvbhoxCg9BdHRyaWJ1dGVzRW50",
-            "cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASLvAgoVU0lQRGlz",
-            "cGF0Y2hSdWxlVXBkYXRlEiYKCXRydW5rX2lkcxgBIAEoCzITLmxpdmVraXQu",
-            "TGlzdFVwZGF0ZRImCgRydWxlGAIgASgLMhgubGl2ZWtpdC5TSVBEaXNwYXRj",
-            "aFJ1bGUSEQoEbmFtZRgDIAEoCUgAiAEBEhUKCG1ldGFkYXRhGAQgASgJSAGI",
-            "AQESQgoKYXR0cmlidXRlcxgFIAMoCzIuLmxpdmVraXQuU0lQRGlzcGF0Y2hS",
-            "dWxlVXBkYXRlLkF0dHJpYnV0ZXNFbnRyeRI6ChBtZWRpYV9lbmNyeXB0aW9u",
-            "GAYgASgOMhsubGl2ZWtpdC5TSVBNZWRpYUVuY3J5cHRpb25IAogBARoxCg9B",
-            "dHRyaWJ1dGVzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4",
-            "AUIHCgVfbmFtZUILCglfbWV0YWRhdGFCEwoRX21lZGlhX2VuY3J5cHRpb24i",
-            "bQoaTGlzdFNJUERpc3BhdGNoUnVsZVJlcXVlc3QSIQoEcGFnZRgDIAEoCzIT",
-            "LmxpdmVraXQuUGFnaW5hdGlvbhIZChFkaXNwYXRjaF9ydWxlX2lkcxgBIAMo",
-            "CRIRCgl0cnVua19pZHMYAiADKAkiSgobTGlzdFNJUERpc3BhdGNoUnVsZVJl",
-            "c3BvbnNlEisKBWl0ZW1zGAEgAygLMhwubGl2ZWtpdC5TSVBEaXNwYXRjaFJ1",
-            "bGVJbmZvIjwKHERlbGV0ZVNJUERpc3BhdGNoUnVsZVJlcXVlc3QSHAoUc2lw",
-            "X2Rpc3BhdGNoX3J1bGVfaWQYASABKAkinQMKEVNJUE91dGJvdW5kQ29uZmln",
-            "EhAKCGhvc3RuYW1lGAEgASgJEigKCXRyYW5zcG9ydBgCIAEoDjIVLmxpdmVr",
-            "aXQuU0lQVHJhbnNwb3J0EhUKDWF1dGhfdXNlcm5hbWUYAyABKAkSFQoNYXV0",
-            "aF9wYXNzd29yZBgEIAEoCRJSChVoZWFkZXJzX3RvX2F0dHJpYnV0ZXMYBSAD",
-            "KAsyMy5saXZla2l0LlNJUE91dGJvdW5kQ29uZmlnLkhlYWRlcnNUb0F0dHJp",
-            "YnV0ZXNFbnRyeRJSChVhdHRyaWJ1dGVzX3RvX2hlYWRlcnMYBiADKAsyMy5s",
-            "aXZla2l0LlNJUE91dGJvdW5kQ29uZmlnLkF0dHJpYnV0ZXNUb0hlYWRlcnNF",
-            "bnRyeRo6ChhIZWFkZXJzVG9BdHRyaWJ1dGVzRW50cnkSCwoDa2V5GAEgASgJ",
-            "Eg0KBXZhbHVlGAIgASgJOgI4ARo6ChhBdHRyaWJ1dGVzVG9IZWFkZXJzRW50",
-            "cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASLnBgobQ3JlYXRl",
-            "U0lQUGFydGljaXBhbnRSZXF1ZXN0EhQKDHNpcF90cnVua19pZBgBIAEoCRIp",
-            "CgV0cnVuaxgUIAEoCzIaLmxpdmVraXQuU0lQT3V0Ym91bmRDb25maWcSEwoL",
-            "c2lwX2NhbGxfdG8YAiABKAkSEgoKc2lwX251bWJlchgPIAEoCRIRCglyb29t",
-            "X25hbWUYAyABKAkSHAoUcGFydGljaXBhbnRfaWRlbnRpdHkYBCABKAkSGAoQ",
-            "cGFydGljaXBhbnRfbmFtZRgHIAEoCRIcChRwYXJ0aWNpcGFudF9tZXRhZGF0",
-            "YRgIIAEoCRJfChZwYXJ0aWNpcGFudF9hdHRyaWJ1dGVzGAkgAygLMj8ubGl2",
-            "ZWtpdC5DcmVhdGVTSVBQYXJ0aWNpcGFudFJlcXVlc3QuUGFydGljaXBhbnRB",
-            "dHRyaWJ1dGVzRW50cnkSDAoEZHRtZhgFIAEoCRIZCg1wbGF5X3Jpbmd0b25l",
-            "GAYgASgIQgIYARIVCg1wbGF5X2RpYWx0b25lGA0gASgIEhkKEWhpZGVfcGhv",
-            "bmVfbnVtYmVyGAogASgIEkIKB2hlYWRlcnMYECADKAsyMS5saXZla2l0LkNy",
-            "ZWF0ZVNJUFBhcnRpY2lwYW50UmVxdWVzdC5IZWFkZXJzRW50cnkSMgoPaW5j",
-            "bHVkZV9oZWFkZXJzGBEgASgOMhkubGl2ZWtpdC5TSVBIZWFkZXJPcHRpb25z",
-            "EjIKD3JpbmdpbmdfdGltZW91dBgLIAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5E",
-            "dXJhdGlvbhI0ChFtYXhfY2FsbF9kdXJhdGlvbhgMIAEoCzIZLmdvb2dsZS5w",
-            "cm90b2J1Zi5EdXJhdGlvbhIVCg1rcmlzcF9lbmFibGVkGA4gASgIEjUKEG1l",
-            "ZGlhX2VuY3J5cHRpb24YEiABKA4yGy5saXZla2l0LlNJUE1lZGlhRW5jcnlw",
-            "dGlvbhIbChN3YWl0X3VudGlsX2Fuc3dlcmVkGBMgASgIGjwKGlBhcnRpY2lw",
-            "YW50QXR0cmlidXRlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEo",
-            "CToCOAEaLgoMSGVhZGVyc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgC",
-            "IAEoCToCOAEicgoSU0lQUGFydGljaXBhbnRJbmZvEhYKDnBhcnRpY2lwYW50",
-            "X2lkGAEgASgJEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5GAIgASgJEhEKCXJv",
-            "b21fbmFtZRgDIAEoCRITCgtzaXBfY2FsbF9pZBgEIAEoCSKmAgodVHJhbnNm",
-            "ZXJTSVBQYXJ0aWNpcGFudFJlcXVlc3QSHAoUcGFydGljaXBhbnRfaWRlbnRp",
-            "dHkYASABKAkSEQoJcm9vbV9uYW1lGAIgASgJEhMKC3RyYW5zZmVyX3RvGAMg",
-            "ASgJEhUKDXBsYXlfZGlhbHRvbmUYBCABKAgSRAoHaGVhZGVycxgFIAMoCzIz",
-            "LmxpdmVraXQuVHJhbnNmZXJTSVBQYXJ0aWNpcGFudFJlcXVlc3QuSGVhZGVy",
-            "c0VudHJ5EjIKD3JpbmdpbmdfdGltZW91dBgGIAEoCzIZLmdvb2dsZS5wcm90",
-            "b2J1Zi5EdXJhdGlvbhouCgxIZWFkZXJzRW50cnkSCwoDa2V5GAEgASgJEg0K",
-            "BXZhbHVlGAIgASgJOgI4ASKpBgoLU0lQQ2FsbEluZm8SDwoHY2FsbF9pZBgB",
-            "IAEoCRIQCgh0cnVua19pZBgCIAEoCRIYChBkaXNwYXRjaF9ydWxlX2lkGBAg",
-            "ASgJEg4KBnJlZ2lvbhgRIAEoCRIRCglyb29tX25hbWUYAyABKAkSDwoHcm9v",
-            "bV9pZBgEIAEoCRIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgFIAEoCRJPChZw",
-            "YXJ0aWNpcGFudF9hdHRyaWJ1dGVzGBIgAygLMi8ubGl2ZWtpdC5TSVBDYWxs",
-            "SW5mby5QYXJ0aWNpcGFudEF0dHJpYnV0ZXNFbnRyeRIhCghmcm9tX3VyaRgG",
-            "IAEoCzIPLmxpdmVraXQuU0lQVXJpEh8KBnRvX3VyaRgHIAEoCzIPLmxpdmVr",
-            "aXQuU0lQVXJpEhYKCmNyZWF0ZWRfYXQYCSABKANCAhgBEhYKCnN0YXJ0ZWRf",
-            "YXQYCiABKANCAhgBEhQKCGVuZGVkX2F0GAsgASgDQgIYARItChBlbmFibGVk",
-            "X2ZlYXR1cmVzGA4gAygOMhMubGl2ZWtpdC5TSVBGZWF0dXJlEjEKDmNhbGxf",
-            "ZGlyZWN0aW9uGA8gASgOMhkubGl2ZWtpdC5TSVBDYWxsRGlyZWN0aW9uEisK",
-            "C2NhbGxfc3RhdHVzGAggASgOMhYubGl2ZWtpdC5TSVBDYWxsU3RhdHVzEhUK",
-            "DWNyZWF0ZWRfYXRfbnMYFiABKAMSFQoNc3RhcnRlZF9hdF9ucxgXIAEoAxIT",
-            "CgtlbmRlZF9hdF9ucxgYIAEoAxI0ChFkaXNjb25uZWN0X3JlYXNvbhgMIAEo",
-            "DjIZLmxpdmVraXQuRGlzY29ubmVjdFJlYXNvbhINCgVlcnJvchgNIAEoCRIs",
-            "ChBjYWxsX3N0YXR1c19jb2RlGBMgASgLMhIubGl2ZWtpdC5TSVBTdGF0dXMS",
-            "EwoLYXVkaW9fY29kZWMYFCABKAkSGAoQbWVkaWFfZW5jcnlwdGlvbhgVIAEo",
-            "CRo8ChpQYXJ0aWNpcGFudEF0dHJpYnV0ZXNFbnRyeRILCgNrZXkYASABKAkS",
-            "DQoFdmFsdWUYAiABKAk6AjgBImgKBlNJUFVyaRIMCgR1c2VyGAEgASgJEgwK",
-            "BGhvc3QYAiABKAkSCgoCaXAYAyABKAkSDAoEcG9ydBgEIAEoDRIoCgl0cmFu",
-            "c3BvcnQYBSABKA4yFS5saXZla2l0LlNJUFRyYW5zcG9ydCrvDAoNU0lQU3Rh",
-            "dHVzQ29kZRIWChJTSVBfU1RBVFVTX1VOS05PV04QABIVChFTSVBfU1RBVFVT",
-            "X1RSWUlORxBkEhcKElNJUF9TVEFUVVNfUklOR0lORxC0ARIhChxTSVBfU1RB",
-            "VFVTX0NBTExfSVNfRk9SV0FSREVEELUBEhYKEVNJUF9TVEFUVVNfUVVFVUVE",
-            "ELYBEiAKG1NJUF9TVEFUVVNfU0VTU0lPTl9QUk9HUkVTUxC3ARISCg1TSVBf",
-            "U1RBVFVTX09LEMgBEhgKE1NJUF9TVEFUVVNfQUNDRVBURUQQygESIQocU0lQ",
-            "X1NUQVRVU19NT1ZFRF9QRVJNQU5FTlRMWRCtAhIhChxTSVBfU1RBVFVTX01P",
-            "VkVEX1RFTVBPUkFSSUxZEK4CEhkKFFNJUF9TVEFUVVNfVVNFX1BST1hZELEC",
-            "EhsKFlNJUF9TVEFUVVNfQkFEX1JFUVVFU1QQkAMSHAoXU0lQX1NUQVRVU19V",
-            "TkFVVEhPUklaRUQQkQMSIAobU0lQX1NUQVRVU19QQVlNRU5UX1JFUVVJUkVE",
-            "EJIDEhkKFFNJUF9TVEFUVVNfRk9SQklEREVOEJMDEhgKE1NJUF9TVEFUVVNf",
-            "Tk9URk9VTkQQlAMSIgodU0lQX1NUQVRVU19NRVRIT0RfTk9UX0FMTE9XRUQQ",
-            "lQMSHgoZU0lQX1NUQVRVU19OT1RfQUNDRVBUQUJMRRCWAxIjCh5TSVBfU1RB",
-            "VFVTX1BST1hZX0FVVEhfUkVRVUlSRUQQlwMSHwoaU0lQX1NUQVRVU19SRVFV",
-            "RVNUX1RJTUVPVVQQmAMSGAoTU0lQX1NUQVRVU19DT05GTElDVBCZAxIUCg9T",
-            "SVBfU1RBVFVTX0dPTkUQmgMSKAojU0lQX1NUQVRVU19SRVFVRVNUX0VOVElU",
-            "WV9UT09fTEFSR0UQnQMSJAofU0lQX1NUQVRVU19SRVFVRVNUX1VSSV9UT09f",
-            "TE9ORxCeAxImCiFTSVBfU1RBVFVTX1VOU1VQUE9SVEVEX01FRElBX1RZUEUQ",
-            "nwMSLwoqU0lQX1NUQVRVU19SRVFVRVNURURfUkFOR0VfTk9UX1NBVElTRklB",
-            "QkxFEKADEh0KGFNJUF9TVEFUVVNfQkFEX0VYVEVOU0lPThCkAxIiCh1TSVBf",
-            "U1RBVFVTX0VYVEVOU0lPTl9SRVFVSVJFRBClAxIiCh1TSVBfU1RBVFVTX0lO",
-            "VEVSVkFMX1RPT19CUklFRhCnAxInCiJTSVBfU1RBVFVTX1RFTVBPUkFSSUxZ",
-            "X1VOQVZBSUxBQkxFEOADEjAKK1NJUF9TVEFUVVNfQ0FMTF9UUkFOU0FDVElP",
-            "Tl9ET0VTX05PVF9FWElTVFMQ4QMSHQoYU0lQX1NUQVRVU19MT09QX0RFVEVD",
-            "VEVEEOIDEh0KGFNJUF9TVEFUVVNfVE9PX01BTllfSE9QUxDjAxIiCh1TSVBf",
-            "U1RBVFVTX0FERFJFU1NfSU5DT01QTEVURRDkAxIZChRTSVBfU1RBVFVTX0FN",
-            "QklHVU9VUxDlAxIZChRTSVBfU1RBVFVTX0JVU1lfSEVSRRDmAxIiCh1TSVBf",
-            "U1RBVFVTX1JFUVVFU1RfVEVSTUlOQVRFRBDnAxIjCh5TSVBfU1RBVFVTX05P",
-            "VF9BQ0NFUFRBQkxFX0hFUkUQ6AMSJQogU0lQX1NUQVRVU19JTlRFUk5BTF9T",
-            "RVJWRVJfRVJST1IQ9AMSHwoaU0lQX1NUQVRVU19OT1RfSU1QTEVNRU5URUQQ",
-            "9QMSGwoWU0lQX1NUQVRVU19CQURfR0FURVdBWRD2AxIjCh5TSVBfU1RBVFVT",
-            "X1NFUlZJQ0VfVU5BVkFJTEFCTEUQ9wMSHwoaU0lQX1NUQVRVU19HQVRFV0FZ",
-            "X1RJTUVPVVQQ+AMSJQogU0lQX1NUQVRVU19WRVJTSU9OX05PVF9TVVBQT1JU",
-            "RUQQ+QMSIQocU0lQX1NUQVRVU19NRVNTQUdFX1RPT19MQVJHRRCBBBImCiFT",
-            "SVBfU1RBVFVTX0dMT0JBTF9CVVNZX0VWRVJZV0hFUkUQ2AQSHgoZU0lQX1NU",
-            "QVRVU19HTE9CQUxfREVDTElORRDbBBIuCilTSVBfU1RBVFVTX0dMT0JBTF9E",
-            "T0VTX05PVF9FWElTVF9BTllXSEVSRRDcBBIlCiBTSVBfU1RBVFVTX0dMT0JB",
-            "TF9OT1RfQUNDRVBUQUJMRRDeBCprCgxTSVBUcmFuc3BvcnQSFgoSU0lQX1RS",
-            "QU5TUE9SVF9BVVRPEAASFQoRU0lQX1RSQU5TUE9SVF9VRFAQARIVChFTSVBf",
-            "VFJBTlNQT1JUX1RDUBACEhUKEVNJUF9UUkFOU1BPUlRfVExTEAMqTgoQU0lQ",
-            "SGVhZGVyT3B0aW9ucxISCg5TSVBfTk9fSEVBREVSUxAAEhEKDVNJUF9YX0hF",
-            "QURFUlMQARITCg9TSVBfQUxMX0hFQURFUlMQAipvChJTSVBNZWRpYUVuY3J5",
-            "cHRpb24SHQoZU0lQX01FRElBX0VOQ1JZUFRfRElTQUJMRRAAEhsKF1NJUF9N",
-            "RURJQV9FTkNSWVBUX0FMTE9XEAESHQoZU0lQX01FRElBX0VOQ1JZUFRfUkVR",
-            "VUlSRRACKncKDVNJUENhbGxTdGF0dXMSFQoRU0NTX0NBTExfSU5DT01JTkcQ",
-            "ABIaChZTQ1NfUEFSVElDSVBBTlRfSk9JTkVEEAESDgoKU0NTX0FDVElWRRAC",
-            "EhQKEFNDU19ESVNDT05ORUNURUQQAxINCglTQ1NfRVJST1IQBCopCgpTSVBG",
-            "ZWF0dXJlEggKBE5PTkUQABIRCg1LUklTUF9FTkFCTEVEEAEqRgoQU0lQQ2Fs",
-            "bERpcmVjdGlvbhIPCgtTQ0RfVU5LTk9XThAAEg8KC1NDRF9JTkJPVU5EEAES",
-            "EAoMU0NEX09VVEJPVU5EEAIy1wsKA1NJUBJQCgxMaXN0U0lQVHJ1bmsSHC5s",
-            "aXZla2l0Lkxpc3RTSVBUcnVua1JlcXVlc3QaHS5saXZla2l0Lkxpc3RTSVBU",
-            "cnVua1Jlc3BvbnNlIgOIAgESXAoVQ3JlYXRlU0lQSW5ib3VuZFRydW5rEiUu",
-            "bGl2ZWtpdC5DcmVhdGVTSVBJbmJvdW5kVHJ1bmtSZXF1ZXN0GhwubGl2ZWtp",
-            "dC5TSVBJbmJvdW5kVHJ1bmtJbmZvEl8KFkNyZWF0ZVNJUE91dGJvdW5kVHJ1",
-            "bmsSJi5saXZla2l0LkNyZWF0ZVNJUE91dGJvdW5kVHJ1bmtSZXF1ZXN0Gh0u",
-            "bGl2ZWtpdC5TSVBPdXRib3VuZFRydW5rSW5mbxJcChVVcGRhdGVTSVBJbmJv",
-            "dW5kVHJ1bmsSJS5saXZla2l0LlVwZGF0ZVNJUEluYm91bmRUcnVua1JlcXVl",
-            "c3QaHC5saXZla2l0LlNJUEluYm91bmRUcnVua0luZm8SXwoWVXBkYXRlU0lQ",
-            "T3V0Ym91bmRUcnVuaxImLmxpdmVraXQuVXBkYXRlU0lQT3V0Ym91bmRUcnVu",
-            "a1JlcXVlc3QaHS5saXZla2l0LlNJUE91dGJvdW5kVHJ1bmtJbmZvEl0KEkdl",
-            "dFNJUEluYm91bmRUcnVuaxIiLmxpdmVraXQuR2V0U0lQSW5ib3VuZFRydW5r",
-            "UmVxdWVzdBojLmxpdmVraXQuR2V0U0lQSW5ib3VuZFRydW5rUmVzcG9uc2US",
-            "YAoTR2V0U0lQT3V0Ym91bmRUcnVuaxIjLmxpdmVraXQuR2V0U0lQT3V0Ym91",
-            "bmRUcnVua1JlcXVlc3QaJC5saXZla2l0LkdldFNJUE91dGJvdW5kVHJ1bmtS",
-            "ZXNwb25zZRJgChNMaXN0U0lQSW5ib3VuZFRydW5rEiMubGl2ZWtpdC5MaXN0",
-            "U0lQSW5ib3VuZFRydW5rUmVxdWVzdBokLmxpdmVraXQuTGlzdFNJUEluYm91",
-            "bmRUcnVua1Jlc3BvbnNlEmMKFExpc3RTSVBPdXRib3VuZFRydW5rEiQubGl2",
-            "ZWtpdC5MaXN0U0lQT3V0Ym91bmRUcnVua1JlcXVlc3QaJS5saXZla2l0Lkxp",
-            "c3RTSVBPdXRib3VuZFRydW5rUmVzcG9uc2USRwoORGVsZXRlU0lQVHJ1bmsS",
-            "Hi5saXZla2l0LkRlbGV0ZVNJUFRydW5rUmVxdWVzdBoVLmxpdmVraXQuU0lQ",
-            "VHJ1bmtJbmZvElwKFUNyZWF0ZVNJUERpc3BhdGNoUnVsZRIlLmxpdmVraXQu",
-            "Q3JlYXRlU0lQRGlzcGF0Y2hSdWxlUmVxdWVzdBocLmxpdmVraXQuU0lQRGlz",
-            "cGF0Y2hSdWxlSW5mbxJcChVVcGRhdGVTSVBEaXNwYXRjaFJ1bGUSJS5saXZl",
-            "a2l0LlVwZGF0ZVNJUERpc3BhdGNoUnVsZVJlcXVlc3QaHC5saXZla2l0LlNJ",
-            "UERpc3BhdGNoUnVsZUluZm8SYAoTTGlzdFNJUERpc3BhdGNoUnVsZRIjLmxp",
-            "dmVraXQuTGlzdFNJUERpc3BhdGNoUnVsZVJlcXVlc3QaJC5saXZla2l0Lkxp",
-            "c3RTSVBEaXNwYXRjaFJ1bGVSZXNwb25zZRJcChVEZWxldGVTSVBEaXNwYXRj",
-            "aFJ1bGUSJS5saXZla2l0LkRlbGV0ZVNJUERpc3BhdGNoUnVsZVJlcXVlc3Qa",
-            "HC5saXZla2l0LlNJUERpc3BhdGNoUnVsZUluZm8SWQoUQ3JlYXRlU0lQUGFy",
-            "dGljaXBhbnQSJC5saXZla2l0LkNyZWF0ZVNJUFBhcnRpY2lwYW50UmVxdWVz",
-            "dBobLmxpdmVraXQuU0lQUGFydGljaXBhbnRJbmZvElgKFlRyYW5zZmVyU0lQ",
-            "UGFydGljaXBhbnQSJi5saXZla2l0LlRyYW5zZmVyU0lQUGFydGljaXBhbnRS",
-            "ZXF1ZXN0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5QkZaI2dpdGh1Yi5jb20v",
-            "bGl2ZWtpdC9wcm90b2NvbC9saXZla2l0qgINTGl2ZUtpdC5Qcm90b+oCDkxp",
-            "dmVLaXQ6OlByb3RvYgZwcm90bzM="));
+            "GwoTZGVzdGluYXRpb25fY291bnRyeRgOIAEoCRIoCgl0cmFuc3BvcnQYBSAB",
+            "KA4yFS5saXZla2l0LlNJUFRyYW5zcG9ydBIPCgdudW1iZXJzGAYgAygJEhUK",
+            "DWF1dGhfdXNlcm5hbWUYByABKAkSFQoNYXV0aF9wYXNzd29yZBgIIAEoCRI7",
+            "CgdoZWFkZXJzGAkgAygLMioubGl2ZWtpdC5TSVBPdXRib3VuZFRydW5rSW5m",
+            "by5IZWFkZXJzRW50cnkSVQoVaGVhZGVyc190b19hdHRyaWJ1dGVzGAogAygL",
+            "MjYubGl2ZWtpdC5TSVBPdXRib3VuZFRydW5rSW5mby5IZWFkZXJzVG9BdHRy",
+            "aWJ1dGVzRW50cnkSVQoVYXR0cmlidXRlc190b19oZWFkZXJzGAsgAygLMjYu",
+            "bGl2ZWtpdC5TSVBPdXRib3VuZFRydW5rSW5mby5BdHRyaWJ1dGVzVG9IZWFk",
+            "ZXJzRW50cnkSMgoPaW5jbHVkZV9oZWFkZXJzGAwgASgOMhkubGl2ZWtpdC5T",
+            "SVBIZWFkZXJPcHRpb25zEjUKEG1lZGlhX2VuY3J5cHRpb24YDSABKA4yGy5s",
+            "aXZla2l0LlNJUE1lZGlhRW5jcnlwdGlvbhouCgxIZWFkZXJzRW50cnkSCwoD",
+            "a2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ARo6ChhIZWFkZXJzVG9BdHRy",
+            "aWJ1dGVzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ARo6",
+            "ChhBdHRyaWJ1dGVzVG9IZWFkZXJzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZh",
+            "bHVlGAIgASgJOgI4ASLEAwoWU0lQT3V0Ym91bmRUcnVua1VwZGF0ZRIUCgdh",
+            "ZGRyZXNzGAEgASgJSACIAQESLQoJdHJhbnNwb3J0GAIgASgOMhUubGl2ZWtp",
+            "dC5TSVBUcmFuc3BvcnRIAYgBARIgChNkZXN0aW5hdGlvbl9jb3VudHJ5GAkg",
+            "ASgJSAKIAQESJAoHbnVtYmVycxgDIAEoCzITLmxpdmVraXQuTGlzdFVwZGF0",
+            "ZRIaCg1hdXRoX3VzZXJuYW1lGAQgASgJSAOIAQESGgoNYXV0aF9wYXNzd29y",
+            "ZBgFIAEoCUgEiAEBEhEKBG5hbWUYBiABKAlIBYgBARIVCghtZXRhZGF0YRgH",
+            "IAEoCUgGiAEBEjoKEG1lZGlhX2VuY3J5cHRpb24YCCABKA4yGy5saXZla2l0",
+            "LlNJUE1lZGlhRW5jcnlwdGlvbkgHiAEBQgoKCF9hZGRyZXNzQgwKCl90cmFu",
+            "c3BvcnRCFgoUX2Rlc3RpbmF0aW9uX2NvdW50cnlCEAoOX2F1dGhfdXNlcm5h",
+            "bWVCEAoOX2F1dGhfcGFzc3dvcmRCBwoFX25hbWVCCwoJX21ldGFkYXRhQhMK",
+            "EV9tZWRpYV9lbmNyeXB0aW9uIjEKGUdldFNJUEluYm91bmRUcnVua1JlcXVl",
+            "c3QSFAoMc2lwX3RydW5rX2lkGAEgASgJIkkKGkdldFNJUEluYm91bmRUcnVu",
+            "a1Jlc3BvbnNlEisKBXRydW5rGAEgASgLMhwubGl2ZWtpdC5TSVBJbmJvdW5k",
+            "VHJ1bmtJbmZvIjIKGkdldFNJUE91dGJvdW5kVHJ1bmtSZXF1ZXN0EhQKDHNp",
+            "cF90cnVua19pZBgBIAEoCSJLChtHZXRTSVBPdXRib3VuZFRydW5rUmVzcG9u",
+            "c2USLAoFdHJ1bmsYASABKAsyHS5saXZla2l0LlNJUE91dGJvdW5kVHJ1bmtJ",
+            "bmZvIjwKE0xpc3RTSVBUcnVua1JlcXVlc3QSIQoEcGFnZRgBIAEoCzITLmxp",
+            "dmVraXQuUGFnaW5hdGlvbjoCGAEiQAoUTGlzdFNJUFRydW5rUmVzcG9uc2US",
+            "JAoFaXRlbXMYASADKAsyFS5saXZla2l0LlNJUFRydW5rSW5mbzoCGAEiYwoa",
+            "TGlzdFNJUEluYm91bmRUcnVua1JlcXVlc3QSIQoEcGFnZRgDIAEoCzITLmxp",
+            "dmVraXQuUGFnaW5hdGlvbhIRCgl0cnVua19pZHMYASADKAkSDwoHbnVtYmVy",
+            "cxgCIAMoCSJKChtMaXN0U0lQSW5ib3VuZFRydW5rUmVzcG9uc2USKwoFaXRl",
+            "bXMYASADKAsyHC5saXZla2l0LlNJUEluYm91bmRUcnVua0luZm8iZAobTGlz",
+            "dFNJUE91dGJvdW5kVHJ1bmtSZXF1ZXN0EiEKBHBhZ2UYAyABKAsyEy5saXZl",
+            "a2l0LlBhZ2luYXRpb24SEQoJdHJ1bmtfaWRzGAEgAygJEg8KB251bWJlcnMY",
+            "AiADKAkiTAocTGlzdFNJUE91dGJvdW5kVHJ1bmtSZXNwb25zZRIsCgVpdGVt",
+            "cxgBIAMoCzIdLmxpdmVraXQuU0lQT3V0Ym91bmRUcnVua0luZm8iLQoVRGVs",
+            "ZXRlU0lQVHJ1bmtSZXF1ZXN0EhQKDHNpcF90cnVua19pZBgBIAEoCSI3ChVT",
+            "SVBEaXNwYXRjaFJ1bGVEaXJlY3QSEQoJcm9vbV9uYW1lGAEgASgJEgsKA3Bp",
+            "bhgCIAEoCSI9ChlTSVBEaXNwYXRjaFJ1bGVJbmRpdmlkdWFsEhMKC3Jvb21f",
+            "cHJlZml4GAEgASgJEgsKA3BpbhgCIAEoCSJMChVTSVBEaXNwYXRjaFJ1bGVD",
+            "YWxsZWUSEwoLcm9vbV9wcmVmaXgYASABKAkSCwoDcGluGAIgASgJEhEKCXJh",
+            "bmRvbWl6ZRgDIAEoCCLhAQoPU0lQRGlzcGF0Y2hSdWxlEj4KFGRpc3BhdGNo",
+            "X3J1bGVfZGlyZWN0GAEgASgLMh4ubGl2ZWtpdC5TSVBEaXNwYXRjaFJ1bGVE",
+            "aXJlY3RIABJGChhkaXNwYXRjaF9ydWxlX2luZGl2aWR1YWwYAiABKAsyIi5s",
+            "aXZla2l0LlNJUERpc3BhdGNoUnVsZUluZGl2aWR1YWxIABI+ChRkaXNwYXRj",
+            "aF9ydWxlX2NhbGxlZRgDIAEoCzIeLmxpdmVraXQuU0lQRGlzcGF0Y2hSdWxl",
+            "Q2FsbGVlSABCBgoEcnVsZSLKAwocQ3JlYXRlU0lQRGlzcGF0Y2hSdWxlUmVx",
+            "dWVzdBIzCg1kaXNwYXRjaF9ydWxlGAogASgLMhwubGl2ZWtpdC5TSVBEaXNw",
+            "YXRjaFJ1bGVJbmZvEioKBHJ1bGUYASABKAsyGC5saXZla2l0LlNJUERpc3Bh",
+            "dGNoUnVsZUICGAESFQoJdHJ1bmtfaWRzGAIgAygJQgIYARIdChFoaWRlX3Bo",
+            "b25lX251bWJlchgDIAEoCEICGAESGwoPaW5ib3VuZF9udW1iZXJzGAYgAygJ",
+            "QgIYARIQCgRuYW1lGAQgASgJQgIYARIUCghtZXRhZGF0YRgFIAEoCUICGAES",
+            "TQoKYXR0cmlidXRlcxgHIAMoCzI1LmxpdmVraXQuQ3JlYXRlU0lQRGlzcGF0",
+            "Y2hSdWxlUmVxdWVzdC5BdHRyaWJ1dGVzRW50cnlCAhgBEhcKC3Jvb21fcHJl",
+            "c2V0GAggASgJQgIYARIzCgtyb29tX2NvbmZpZxgJIAEoCzIaLmxpdmVraXQu",
+            "Um9vbUNvbmZpZ3VyYXRpb25CAhgBGjEKD0F0dHJpYnV0ZXNFbnRyeRILCgNr",
+            "ZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIqkBChxVcGRhdGVTSVBEaXNw",
+            "YXRjaFJ1bGVSZXF1ZXN0EhwKFHNpcF9kaXNwYXRjaF9ydWxlX2lkGAEgASgJ",
+            "Ei8KB3JlcGxhY2UYAiABKAsyHC5saXZla2l0LlNJUERpc3BhdGNoUnVsZUlu",
+            "Zm9IABIwCgZ1cGRhdGUYAyABKAsyHi5saXZla2l0LlNJUERpc3BhdGNoUnVs",
+            "ZVVwZGF0ZUgAQggKBmFjdGlvbiLLAwoTU0lQRGlzcGF0Y2hSdWxlSW5mbxIc",
+            "ChRzaXBfZGlzcGF0Y2hfcnVsZV9pZBgBIAEoCRImCgRydWxlGAIgASgLMhgu",
+            "bGl2ZWtpdC5TSVBEaXNwYXRjaFJ1bGUSEQoJdHJ1bmtfaWRzGAMgAygJEhkK",
+            "EWhpZGVfcGhvbmVfbnVtYmVyGAQgASgIEhcKD2luYm91bmRfbnVtYmVycxgH",
+            "IAMoCRIMCgRuYW1lGAUgASgJEhAKCG1ldGFkYXRhGAYgASgJEkAKCmF0dHJp",
+            "YnV0ZXMYCCADKAsyLC5saXZla2l0LlNJUERpc3BhdGNoUnVsZUluZm8uQXR0",
+            "cmlidXRlc0VudHJ5EhMKC3Jvb21fcHJlc2V0GAkgASgJEi8KC3Jvb21fY29u",
+            "ZmlnGAogASgLMhoubGl2ZWtpdC5Sb29tQ29uZmlndXJhdGlvbhIVCg1rcmlz",
+            "cF9lbmFibGVkGAsgASgIEjUKEG1lZGlhX2VuY3J5cHRpb24YDCABKA4yGy5s",
+            "aXZla2l0LlNJUE1lZGlhRW5jcnlwdGlvbhoxCg9BdHRyaWJ1dGVzRW50cnkS",
+            "CwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASLvAgoVU0lQRGlzcGF0",
+            "Y2hSdWxlVXBkYXRlEiYKCXRydW5rX2lkcxgBIAEoCzITLmxpdmVraXQuTGlz",
+            "dFVwZGF0ZRImCgRydWxlGAIgASgLMhgubGl2ZWtpdC5TSVBEaXNwYXRjaFJ1",
+            "bGUSEQoEbmFtZRgDIAEoCUgAiAEBEhUKCG1ldGFkYXRhGAQgASgJSAGIAQES",
+            "QgoKYXR0cmlidXRlcxgFIAMoCzIuLmxpdmVraXQuU0lQRGlzcGF0Y2hSdWxl",
+            "VXBkYXRlLkF0dHJpYnV0ZXNFbnRyeRI6ChBtZWRpYV9lbmNyeXB0aW9uGAYg",
+            "ASgOMhsubGl2ZWtpdC5TSVBNZWRpYUVuY3J5cHRpb25IAogBARoxCg9BdHRy",
+            "aWJ1dGVzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4AUIH",
+            "CgVfbmFtZUILCglfbWV0YWRhdGFCEwoRX21lZGlhX2VuY3J5cHRpb24ibQoa",
+            "TGlzdFNJUERpc3BhdGNoUnVsZVJlcXVlc3QSIQoEcGFnZRgDIAEoCzITLmxp",
+            "dmVraXQuUGFnaW5hdGlvbhIZChFkaXNwYXRjaF9ydWxlX2lkcxgBIAMoCRIR",
+            "Cgl0cnVua19pZHMYAiADKAkiSgobTGlzdFNJUERpc3BhdGNoUnVsZVJlc3Bv",
+            "bnNlEisKBWl0ZW1zGAEgAygLMhwubGl2ZWtpdC5TSVBEaXNwYXRjaFJ1bGVJ",
+            "bmZvIjwKHERlbGV0ZVNJUERpc3BhdGNoUnVsZVJlcXVlc3QSHAoUc2lwX2Rp",
+            "c3BhdGNoX3J1bGVfaWQYASABKAkiugMKEVNJUE91dGJvdW5kQ29uZmlnEhAK",
+            "CGhvc3RuYW1lGAEgASgJEhsKE2Rlc3RpbmF0aW9uX2NvdW50cnkYByABKAkS",
+            "KAoJdHJhbnNwb3J0GAIgASgOMhUubGl2ZWtpdC5TSVBUcmFuc3BvcnQSFQoN",
+            "YXV0aF91c2VybmFtZRgDIAEoCRIVCg1hdXRoX3Bhc3N3b3JkGAQgASgJElIK",
+            "FWhlYWRlcnNfdG9fYXR0cmlidXRlcxgFIAMoCzIzLmxpdmVraXQuU0lQT3V0",
+            "Ym91bmRDb25maWcuSGVhZGVyc1RvQXR0cmlidXRlc0VudHJ5ElIKFWF0dHJp",
+            "YnV0ZXNfdG9faGVhZGVycxgGIAMoCzIzLmxpdmVraXQuU0lQT3V0Ym91bmRD",
+            "b25maWcuQXR0cmlidXRlc1RvSGVhZGVyc0VudHJ5GjoKGEhlYWRlcnNUb0F0",
+            "dHJpYnV0ZXNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgB",
+            "GjoKGEF0dHJpYnV0ZXNUb0hlYWRlcnNFbnRyeRILCgNrZXkYASABKAkSDQoF",
+            "dmFsdWUYAiABKAk6AjgBIucGChtDcmVhdGVTSVBQYXJ0aWNpcGFudFJlcXVl",
+            "c3QSFAoMc2lwX3RydW5rX2lkGAEgASgJEikKBXRydW5rGBQgASgLMhoubGl2",
+            "ZWtpdC5TSVBPdXRib3VuZENvbmZpZxITCgtzaXBfY2FsbF90bxgCIAEoCRIS",
+            "CgpzaXBfbnVtYmVyGA8gASgJEhEKCXJvb21fbmFtZRgDIAEoCRIcChRwYXJ0",
+            "aWNpcGFudF9pZGVudGl0eRgEIAEoCRIYChBwYXJ0aWNpcGFudF9uYW1lGAcg",
+            "ASgJEhwKFHBhcnRpY2lwYW50X21ldGFkYXRhGAggASgJEl8KFnBhcnRpY2lw",
+            "YW50X2F0dHJpYnV0ZXMYCSADKAsyPy5saXZla2l0LkNyZWF0ZVNJUFBhcnRp",
+            "Y2lwYW50UmVxdWVzdC5QYXJ0aWNpcGFudEF0dHJpYnV0ZXNFbnRyeRIMCgRk",
+            "dG1mGAUgASgJEhkKDXBsYXlfcmluZ3RvbmUYBiABKAhCAhgBEhUKDXBsYXlf",
+            "ZGlhbHRvbmUYDSABKAgSGQoRaGlkZV9waG9uZV9udW1iZXIYCiABKAgSQgoH",
+            "aGVhZGVycxgQIAMoCzIxLmxpdmVraXQuQ3JlYXRlU0lQUGFydGljaXBhbnRS",
+            "ZXF1ZXN0LkhlYWRlcnNFbnRyeRIyCg9pbmNsdWRlX2hlYWRlcnMYESABKA4y",
+            "GS5saXZla2l0LlNJUEhlYWRlck9wdGlvbnMSMgoPcmluZ2luZ190aW1lb3V0",
+            "GAsgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uEjQKEW1heF9jYWxs",
+            "X2R1cmF0aW9uGAwgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uEhUK",
+            "DWtyaXNwX2VuYWJsZWQYDiABKAgSNQoQbWVkaWFfZW5jcnlwdGlvbhgSIAEo",
+            "DjIbLmxpdmVraXQuU0lQTWVkaWFFbmNyeXB0aW9uEhsKE3dhaXRfdW50aWxf",
+            "YW5zd2VyZWQYEyABKAgaPAoaUGFydGljaXBhbnRBdHRyaWJ1dGVzRW50cnkS",
+            "CwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ARouCgxIZWFkZXJzRW50",
+            "cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASJyChJTSVBQYXJ0",
+            "aWNpcGFudEluZm8SFgoOcGFydGljaXBhbnRfaWQYASABKAkSHAoUcGFydGlj",
+            "aXBhbnRfaWRlbnRpdHkYAiABKAkSEQoJcm9vbV9uYW1lGAMgASgJEhMKC3Np",
+            "cF9jYWxsX2lkGAQgASgJIqYCCh1UcmFuc2ZlclNJUFBhcnRpY2lwYW50UmVx",
+            "dWVzdBIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgBIAEoCRIRCglyb29tX25h",
+            "bWUYAiABKAkSEwoLdHJhbnNmZXJfdG8YAyABKAkSFQoNcGxheV9kaWFsdG9u",
+            "ZRgEIAEoCBJECgdoZWFkZXJzGAUgAygLMjMubGl2ZWtpdC5UcmFuc2ZlclNJ",
+            "UFBhcnRpY2lwYW50UmVxdWVzdC5IZWFkZXJzRW50cnkSMgoPcmluZ2luZ190",
+            "aW1lb3V0GAYgASgLMhkuZ29vZ2xlLnByb3RvYnVmLkR1cmF0aW9uGi4KDEhl",
+            "YWRlcnNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIqkG",
+            "CgtTSVBDYWxsSW5mbxIPCgdjYWxsX2lkGAEgASgJEhAKCHRydW5rX2lkGAIg",
+            "ASgJEhgKEGRpc3BhdGNoX3J1bGVfaWQYECABKAkSDgoGcmVnaW9uGBEgASgJ",
+            "EhEKCXJvb21fbmFtZRgDIAEoCRIPCgdyb29tX2lkGAQgASgJEhwKFHBhcnRp",
+            "Y2lwYW50X2lkZW50aXR5GAUgASgJEk8KFnBhcnRpY2lwYW50X2F0dHJpYnV0",
+            "ZXMYEiADKAsyLy5saXZla2l0LlNJUENhbGxJbmZvLlBhcnRpY2lwYW50QXR0",
+            "cmlidXRlc0VudHJ5EiEKCGZyb21fdXJpGAYgASgLMg8ubGl2ZWtpdC5TSVBV",
+            "cmkSHwoGdG9fdXJpGAcgASgLMg8ubGl2ZWtpdC5TSVBVcmkSFgoKY3JlYXRl",
+            "ZF9hdBgJIAEoA0ICGAESFgoKc3RhcnRlZF9hdBgKIAEoA0ICGAESFAoIZW5k",
+            "ZWRfYXQYCyABKANCAhgBEi0KEGVuYWJsZWRfZmVhdHVyZXMYDiADKA4yEy5s",
+            "aXZla2l0LlNJUEZlYXR1cmUSMQoOY2FsbF9kaXJlY3Rpb24YDyABKA4yGS5s",
+            "aXZla2l0LlNJUENhbGxEaXJlY3Rpb24SKwoLY2FsbF9zdGF0dXMYCCABKA4y",
+            "Fi5saXZla2l0LlNJUENhbGxTdGF0dXMSFQoNY3JlYXRlZF9hdF9ucxgWIAEo",
+            "AxIVCg1zdGFydGVkX2F0X25zGBcgASgDEhMKC2VuZGVkX2F0X25zGBggASgD",
+            "EjQKEWRpc2Nvbm5lY3RfcmVhc29uGAwgASgOMhkubGl2ZWtpdC5EaXNjb25u",
+            "ZWN0UmVhc29uEg0KBWVycm9yGA0gASgJEiwKEGNhbGxfc3RhdHVzX2NvZGUY",
+            "EyABKAsyEi5saXZla2l0LlNJUFN0YXR1cxITCgthdWRpb19jb2RlYxgUIAEo",
+            "CRIYChBtZWRpYV9lbmNyeXB0aW9uGBUgASgJGjwKGlBhcnRpY2lwYW50QXR0",
+            "cmlidXRlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEi",
+            "hgIKD1NJUFRyYW5zZmVySW5mbxITCgt0cmFuc2Zlcl9pZBgBIAEoCRIPCgdj",
+            "YWxsX2lkGAIgASgJEhMKC3RyYW5zZmVyX3RvGAMgASgJEiAKGHRyYW5zZmVy",
+            "X2luaXRpYXRlZF9hdF9ucxgEIAEoAxIgChh0cmFuc2Zlcl9jb21wbGV0ZWRf",
+            "YXRfbnMYBSABKAMSMwoPdHJhbnNmZXJfc3RhdHVzGAYgASgOMhoubGl2ZWtp",
+            "dC5TSVBUcmFuc2ZlclN0YXR1cxINCgVlcnJvchgHIAEoCRIwChR0cmFuc2Zl",
+            "cl9zdGF0dXNfY29kZRgIIAEoCzISLmxpdmVraXQuU0lQU3RhdHVzImgKBlNJ",
+            "UFVyaRIMCgR1c2VyGAEgASgJEgwKBGhvc3QYAiABKAkSCgoCaXAYAyABKAkS",
+            "DAoEcG9ydBgEIAEoDRIoCgl0cmFuc3BvcnQYBSABKA4yFS5saXZla2l0LlNJ",
+            "UFRyYW5zcG9ydCrvDAoNU0lQU3RhdHVzQ29kZRIWChJTSVBfU1RBVFVTX1VO",
+            "S05PV04QABIVChFTSVBfU1RBVFVTX1RSWUlORxBkEhcKElNJUF9TVEFUVVNf",
+            "UklOR0lORxC0ARIhChxTSVBfU1RBVFVTX0NBTExfSVNfRk9SV0FSREVEELUB",
+            "EhYKEVNJUF9TVEFUVVNfUVVFVUVEELYBEiAKG1NJUF9TVEFUVVNfU0VTU0lP",
+            "Tl9QUk9HUkVTUxC3ARISCg1TSVBfU1RBVFVTX09LEMgBEhgKE1NJUF9TVEFU",
+            "VVNfQUNDRVBURUQQygESIQocU0lQX1NUQVRVU19NT1ZFRF9QRVJNQU5FTlRM",
+            "WRCtAhIhChxTSVBfU1RBVFVTX01PVkVEX1RFTVBPUkFSSUxZEK4CEhkKFFNJ",
+            "UF9TVEFUVVNfVVNFX1BST1hZELECEhsKFlNJUF9TVEFUVVNfQkFEX1JFUVVF",
+            "U1QQkAMSHAoXU0lQX1NUQVRVU19VTkFVVEhPUklaRUQQkQMSIAobU0lQX1NU",
+            "QVRVU19QQVlNRU5UX1JFUVVJUkVEEJIDEhkKFFNJUF9TVEFUVVNfRk9SQklE",
+            "REVOEJMDEhgKE1NJUF9TVEFUVVNfTk9URk9VTkQQlAMSIgodU0lQX1NUQVRV",
+            "U19NRVRIT0RfTk9UX0FMTE9XRUQQlQMSHgoZU0lQX1NUQVRVU19OT1RfQUND",
+            "RVBUQUJMRRCWAxIjCh5TSVBfU1RBVFVTX1BST1hZX0FVVEhfUkVRVUlSRUQQ",
+            "lwMSHwoaU0lQX1NUQVRVU19SRVFVRVNUX1RJTUVPVVQQmAMSGAoTU0lQX1NU",
+            "QVRVU19DT05GTElDVBCZAxIUCg9TSVBfU1RBVFVTX0dPTkUQmgMSKAojU0lQ",
+            "X1NUQVRVU19SRVFVRVNUX0VOVElUWV9UT09fTEFSR0UQnQMSJAofU0lQX1NU",
+            "QVRVU19SRVFVRVNUX1VSSV9UT09fTE9ORxCeAxImCiFTSVBfU1RBVFVTX1VO",
+            "U1VQUE9SVEVEX01FRElBX1RZUEUQnwMSLwoqU0lQX1NUQVRVU19SRVFVRVNU",
+            "RURfUkFOR0VfTk9UX1NBVElTRklBQkxFEKADEh0KGFNJUF9TVEFUVVNfQkFE",
+            "X0VYVEVOU0lPThCkAxIiCh1TSVBfU1RBVFVTX0VYVEVOU0lPTl9SRVFVSVJF",
+            "RBClAxIiCh1TSVBfU1RBVFVTX0lOVEVSVkFMX1RPT19CUklFRhCnAxInCiJT",
+            "SVBfU1RBVFVTX1RFTVBPUkFSSUxZX1VOQVZBSUxBQkxFEOADEjAKK1NJUF9T",
+            "VEFUVVNfQ0FMTF9UUkFOU0FDVElPTl9ET0VTX05PVF9FWElTVFMQ4QMSHQoY",
+            "U0lQX1NUQVRVU19MT09QX0RFVEVDVEVEEOIDEh0KGFNJUF9TVEFUVVNfVE9P",
+            "X01BTllfSE9QUxDjAxIiCh1TSVBfU1RBVFVTX0FERFJFU1NfSU5DT01QTEVU",
+            "RRDkAxIZChRTSVBfU1RBVFVTX0FNQklHVU9VUxDlAxIZChRTSVBfU1RBVFVT",
+            "X0JVU1lfSEVSRRDmAxIiCh1TSVBfU1RBVFVTX1JFUVVFU1RfVEVSTUlOQVRF",
+            "RBDnAxIjCh5TSVBfU1RBVFVTX05PVF9BQ0NFUFRBQkxFX0hFUkUQ6AMSJQog",
+            "U0lQX1NUQVRVU19JTlRFUk5BTF9TRVJWRVJfRVJST1IQ9AMSHwoaU0lQX1NU",
+            "QVRVU19OT1RfSU1QTEVNRU5URUQQ9QMSGwoWU0lQX1NUQVRVU19CQURfR0FU",
+            "RVdBWRD2AxIjCh5TSVBfU1RBVFVTX1NFUlZJQ0VfVU5BVkFJTEFCTEUQ9wMS",
+            "HwoaU0lQX1NUQVRVU19HQVRFV0FZX1RJTUVPVVQQ+AMSJQogU0lQX1NUQVRV",
+            "U19WRVJTSU9OX05PVF9TVVBQT1JURUQQ+QMSIQocU0lQX1NUQVRVU19NRVNT",
+            "QUdFX1RPT19MQVJHRRCBBBImCiFTSVBfU1RBVFVTX0dMT0JBTF9CVVNZX0VW",
+            "RVJZV0hFUkUQ2AQSHgoZU0lQX1NUQVRVU19HTE9CQUxfREVDTElORRDbBBIu",
+            "CilTSVBfU1RBVFVTX0dMT0JBTF9ET0VTX05PVF9FWElTVF9BTllXSEVSRRDc",
+            "BBIlCiBTSVBfU1RBVFVTX0dMT0JBTF9OT1RfQUNDRVBUQUJMRRDeBCprCgxT",
+            "SVBUcmFuc3BvcnQSFgoSU0lQX1RSQU5TUE9SVF9BVVRPEAASFQoRU0lQX1RS",
+            "QU5TUE9SVF9VRFAQARIVChFTSVBfVFJBTlNQT1JUX1RDUBACEhUKEVNJUF9U",
+            "UkFOU1BPUlRfVExTEAMqTgoQU0lQSGVhZGVyT3B0aW9ucxISCg5TSVBfTk9f",
+            "SEVBREVSUxAAEhEKDVNJUF9YX0hFQURFUlMQARITCg9TSVBfQUxMX0hFQURF",
+            "UlMQAipvChJTSVBNZWRpYUVuY3J5cHRpb24SHQoZU0lQX01FRElBX0VOQ1JZ",
+            "UFRfRElTQUJMRRAAEhsKF1NJUF9NRURJQV9FTkNSWVBUX0FMTE9XEAESHQoZ",
+            "U0lQX01FRElBX0VOQ1JZUFRfUkVRVUlSRRACKncKDVNJUENhbGxTdGF0dXMS",
+            "FQoRU0NTX0NBTExfSU5DT01JTkcQABIaChZTQ1NfUEFSVElDSVBBTlRfSk9J",
+            "TkVEEAESDgoKU0NTX0FDVElWRRACEhQKEFNDU19ESVNDT05ORUNURUQQAxIN",
+            "CglTQ1NfRVJST1IQBCpjChFTSVBUcmFuc2ZlclN0YXR1cxIYChRTVFNfVFJB",
+            "TlNGRVJfT05HT0lORxAAEhcKE1NUU19UUkFOU0ZFUl9GQUlMRUQQARIbChdT",
+            "VFNfVFJBTlNGRVJfU1VDQ0VTU0ZVTBACKikKClNJUEZlYXR1cmUSCAoETk9O",
+            "RRAAEhEKDUtSSVNQX0VOQUJMRUQQASpGChBTSVBDYWxsRGlyZWN0aW9uEg8K",
+            "C1NDRF9VTktOT1dOEAASDwoLU0NEX0lOQk9VTkQQARIQCgxTQ0RfT1VUQk9V",
+            "TkQQAjLXCwoDU0lQElAKDExpc3RTSVBUcnVuaxIcLmxpdmVraXQuTGlzdFNJ",
+            "UFRydW5rUmVxdWVzdBodLmxpdmVraXQuTGlzdFNJUFRydW5rUmVzcG9uc2Ui",
+            "A4gCARJcChVDcmVhdGVTSVBJbmJvdW5kVHJ1bmsSJS5saXZla2l0LkNyZWF0",
+            "ZVNJUEluYm91bmRUcnVua1JlcXVlc3QaHC5saXZla2l0LlNJUEluYm91bmRU",
+            "cnVua0luZm8SXwoWQ3JlYXRlU0lQT3V0Ym91bmRUcnVuaxImLmxpdmVraXQu",
+            "Q3JlYXRlU0lQT3V0Ym91bmRUcnVua1JlcXVlc3QaHS5saXZla2l0LlNJUE91",
+            "dGJvdW5kVHJ1bmtJbmZvElwKFVVwZGF0ZVNJUEluYm91bmRUcnVuaxIlLmxp",
+            "dmVraXQuVXBkYXRlU0lQSW5ib3VuZFRydW5rUmVxdWVzdBocLmxpdmVraXQu",
+            "U0lQSW5ib3VuZFRydW5rSW5mbxJfChZVcGRhdGVTSVBPdXRib3VuZFRydW5r",
+            "EiYubGl2ZWtpdC5VcGRhdGVTSVBPdXRib3VuZFRydW5rUmVxdWVzdBodLmxp",
+            "dmVraXQuU0lQT3V0Ym91bmRUcnVua0luZm8SXQoSR2V0U0lQSW5ib3VuZFRy",
+            "dW5rEiIubGl2ZWtpdC5HZXRTSVBJbmJvdW5kVHJ1bmtSZXF1ZXN0GiMubGl2",
+            "ZWtpdC5HZXRTSVBJbmJvdW5kVHJ1bmtSZXNwb25zZRJgChNHZXRTSVBPdXRi",
+            "b3VuZFRydW5rEiMubGl2ZWtpdC5HZXRTSVBPdXRib3VuZFRydW5rUmVxdWVz",
+            "dBokLmxpdmVraXQuR2V0U0lQT3V0Ym91bmRUcnVua1Jlc3BvbnNlEmAKE0xp",
+            "c3RTSVBJbmJvdW5kVHJ1bmsSIy5saXZla2l0Lkxpc3RTSVBJbmJvdW5kVHJ1",
+            "bmtSZXF1ZXN0GiQubGl2ZWtpdC5MaXN0U0lQSW5ib3VuZFRydW5rUmVzcG9u",
+            "c2USYwoUTGlzdFNJUE91dGJvdW5kVHJ1bmsSJC5saXZla2l0Lkxpc3RTSVBP",
+            "dXRib3VuZFRydW5rUmVxdWVzdBolLmxpdmVraXQuTGlzdFNJUE91dGJvdW5k",
+            "VHJ1bmtSZXNwb25zZRJHCg5EZWxldGVTSVBUcnVuaxIeLmxpdmVraXQuRGVs",
+            "ZXRlU0lQVHJ1bmtSZXF1ZXN0GhUubGl2ZWtpdC5TSVBUcnVua0luZm8SXAoV",
+            "Q3JlYXRlU0lQRGlzcGF0Y2hSdWxlEiUubGl2ZWtpdC5DcmVhdGVTSVBEaXNw",
+            "YXRjaFJ1bGVSZXF1ZXN0GhwubGl2ZWtpdC5TSVBEaXNwYXRjaFJ1bGVJbmZv",
+            "ElwKFVVwZGF0ZVNJUERpc3BhdGNoUnVsZRIlLmxpdmVraXQuVXBkYXRlU0lQ",
+            "RGlzcGF0Y2hSdWxlUmVxdWVzdBocLmxpdmVraXQuU0lQRGlzcGF0Y2hSdWxl",
+            "SW5mbxJgChNMaXN0U0lQRGlzcGF0Y2hSdWxlEiMubGl2ZWtpdC5MaXN0U0lQ",
+            "RGlzcGF0Y2hSdWxlUmVxdWVzdBokLmxpdmVraXQuTGlzdFNJUERpc3BhdGNo",
+            "UnVsZVJlc3BvbnNlElwKFURlbGV0ZVNJUERpc3BhdGNoUnVsZRIlLmxpdmVr",
+            "aXQuRGVsZXRlU0lQRGlzcGF0Y2hSdWxlUmVxdWVzdBocLmxpdmVraXQuU0lQ",
+            "RGlzcGF0Y2hSdWxlSW5mbxJZChRDcmVhdGVTSVBQYXJ0aWNpcGFudBIkLmxp",
+            "dmVraXQuQ3JlYXRlU0lQUGFydGljaXBhbnRSZXF1ZXN0GhsubGl2ZWtpdC5T",
+            "SVBQYXJ0aWNpcGFudEluZm8SWAoWVHJhbnNmZXJTSVBQYXJ0aWNpcGFudBIm",
+            "LmxpdmVraXQuVHJhbnNmZXJTSVBQYXJ0aWNpcGFudFJlcXVlc3QaFi5nb29n",
+            "bGUucHJvdG9idWYuRW1wdHlCRlojZ2l0aHViLmNvbS9saXZla2l0L3Byb3Rv",
+            "Y29sL2xpdmVraXSqAg1MaXZlS2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9i",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitRoomReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.SIPStatusCode), typeof(global::Livekit.Server.Sdk.Dotnet.SIPTransport), typeof(global::Livekit.Server.Sdk.Dotnet.SIPHeaderOptions), typeof(global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption), typeof(global::Livekit.Server.Sdk.Dotnet.SIPCallStatus), typeof(global::Livekit.Server.Sdk.Dotnet.SIPFeature), typeof(global::Livekit.Server.Sdk.Dotnet.SIPCallDirection), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.SIPStatusCode), typeof(global::Livekit.Server.Sdk.Dotnet.SIPTransport), typeof(global::Livekit.Server.Sdk.Dotnet.SIPHeaderOptions), typeof(global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption), typeof(global::Livekit.Server.Sdk.Dotnet.SIPCallStatus), typeof(global::Livekit.Server.Sdk.Dotnet.SIPTransferStatus), typeof(global::Livekit.Server.Sdk.Dotnet.SIPFeature), typeof(global::Livekit.Server.Sdk.Dotnet.SIPCallDirection), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPStatus), global::Livekit.Server.Sdk.Dotnet.SIPStatus.Parser, new[]{ "Code", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateSIPTrunkRequest), global::Livekit.Server.Sdk.Dotnet.CreateSIPTrunkRequest.Parser, new[]{ "InboundAddresses", "OutboundAddress", "OutboundNumber", "InboundNumbersRegex", "InboundNumbers", "InboundUsername", "InboundPassword", "OutboundUsername", "OutboundPassword", "Name", "Metadata" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo), global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Parser, new[]{ "SipTrunkId", "Kind", "InboundAddresses", "OutboundAddress", "OutboundNumber", "Transport", "InboundNumbersRegex", "InboundNumbers", "InboundUsername", "InboundPassword", "OutboundUsername", "OutboundPassword", "Name", "Metadata" }, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types.TrunkKind) }, null, null),
@@ -328,8 +339,8 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkUpdate), global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkUpdate.Parser, new[]{ "Numbers", "AllowedAddresses", "AllowedNumbers", "AuthUsername", "AuthPassword", "Name", "Metadata", "MediaEncryption" }, new[]{ "AuthUsername", "AuthPassword", "Name", "Metadata", "MediaEncryption" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateSIPOutboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.CreateSIPOutboundTrunkRequest.Parser, new[]{ "Trunk" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateSIPOutboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.UpdateSIPOutboundTrunkRequest.Parser, new[]{ "SipTrunkId", "Replace", "Update" }, new[]{ "Action" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo), global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo.Parser, new[]{ "SipTrunkId", "Name", "Metadata", "Address", "Transport", "Numbers", "AuthUsername", "AuthPassword", "Headers", "HeadersToAttributes", "AttributesToHeaders", "IncludeHeaders", "MediaEncryption" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkUpdate), global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkUpdate.Parser, new[]{ "Address", "Transport", "Numbers", "AuthUsername", "AuthPassword", "Name", "Metadata", "MediaEncryption" }, new[]{ "Address", "Transport", "AuthUsername", "AuthPassword", "Name", "Metadata", "MediaEncryption" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo), global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo.Parser, new[]{ "SipTrunkId", "Name", "Metadata", "Address", "DestinationCountry", "Transport", "Numbers", "AuthUsername", "AuthPassword", "Headers", "HeadersToAttributes", "AttributesToHeaders", "IncludeHeaders", "MediaEncryption" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkUpdate), global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkUpdate.Parser, new[]{ "Address", "Transport", "DestinationCountry", "Numbers", "AuthUsername", "AuthPassword", "Name", "Metadata", "MediaEncryption" }, new[]{ "Address", "Transport", "DestinationCountry", "AuthUsername", "AuthPassword", "Name", "Metadata", "MediaEncryption" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkRequest.Parser, new[]{ "SipTrunkId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkResponse), global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkResponse.Parser, new[]{ "Trunk" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkRequest), global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkRequest.Parser, new[]{ "SipTrunkId" }, null, null, null, null),
@@ -352,11 +363,12 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleRequest), global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleRequest.Parser, new[]{ "Page", "DispatchRuleIds", "TrunkIds" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleResponse), global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleResponse.Parser, new[]{ "Items" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DeleteSIPDispatchRuleRequest), global::Livekit.Server.Sdk.Dotnet.DeleteSIPDispatchRuleRequest.Parser, new[]{ "SipDispatchRuleId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPOutboundConfig), global::Livekit.Server.Sdk.Dotnet.SIPOutboundConfig.Parser, new[]{ "Hostname", "Transport", "AuthUsername", "AuthPassword", "HeadersToAttributes", "AttributesToHeaders" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPOutboundConfig), global::Livekit.Server.Sdk.Dotnet.SIPOutboundConfig.Parser, new[]{ "Hostname", "DestinationCountry", "Transport", "AuthUsername", "AuthPassword", "HeadersToAttributes", "AttributesToHeaders" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateSIPParticipantRequest), global::Livekit.Server.Sdk.Dotnet.CreateSIPParticipantRequest.Parser, new[]{ "SipTrunkId", "Trunk", "SipCallTo", "SipNumber", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "ParticipantAttributes", "Dtmf", "PlayRingtone", "PlayDialtone", "HidePhoneNumber", "Headers", "IncludeHeaders", "RingingTimeout", "MaxCallDuration", "KrispEnabled", "MediaEncryption", "WaitUntilAnswered" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPParticipantInfo), global::Livekit.Server.Sdk.Dotnet.SIPParticipantInfo.Parser, new[]{ "ParticipantId", "ParticipantIdentity", "RoomName", "SipCallId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest), global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest.Parser, new[]{ "ParticipantIdentity", "RoomName", "TransferTo", "PlayDialtone", "Headers", "RingingTimeout" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPCallInfo), global::Livekit.Server.Sdk.Dotnet.SIPCallInfo.Parser, new[]{ "CallId", "TrunkId", "DispatchRuleId", "Region", "RoomName", "RoomId", "ParticipantIdentity", "ParticipantAttributes", "FromUri", "ToUri", "CreatedAt", "StartedAt", "EndedAt", "EnabledFeatures", "CallDirection", "CallStatus", "CreatedAtNs", "StartedAtNs", "EndedAtNs", "DisconnectReason", "Error", "CallStatusCode", "AudioCodec", "MediaEncryption" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPTransferInfo), global::Livekit.Server.Sdk.Dotnet.SIPTransferInfo.Parser, new[]{ "TransferId", "CallId", "TransferTo", "TransferInitiatedAtNs", "TransferCompletedAtNs", "TransferStatus", "Error", "TransferStatusCode" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SIPUri), global::Livekit.Server.Sdk.Dotnet.SIPUri.Parser, new[]{ "User", "Host", "Ip", "Port", "Transport" }, null, null, null, null)
           }));
     }
@@ -474,6 +486,12 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// Call has ended or never succeeded because of an error
     /// </summary>
     [pbr::OriginalName("SCS_ERROR")] ScsError = 4,
+  }
+
+  public enum SIPTransferStatus {
+    [pbr::OriginalName("STS_TRANSFER_ONGOING")] StsTransferOngoing = 0,
+    [pbr::OriginalName("STS_TRANSFER_FAILED")] StsTransferFailed = 1,
+    [pbr::OriginalName("STS_TRANSFER_SUCCESSFUL")] StsTransferSuccessful = 2,
   }
 
   public enum SIPFeature {
@@ -4409,6 +4427,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       name_ = other.name_;
       metadata_ = other.metadata_;
       address_ = other.address_;
+      destinationCountry_ = other.destinationCountry_;
       transport_ = other.transport_;
       numbers_ = other.numbers_.Clone();
       authUsername_ = other.authUsername_;
@@ -4482,6 +4501,21 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return address_; }
       set {
         address_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "destination_country" field.</summary>
+    public const int DestinationCountryFieldNumber = 14;
+    private string destinationCountry_ = "";
+    /// <summary>
+    /// country where the call terminates as ISO 3166-1 alpha-2 (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). This will be used by the livekit infrastructure to route calls.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string DestinationCountry {
+      get { return destinationCountry_; }
+      set {
+        destinationCountry_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -4638,6 +4672,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (Name != other.Name) return false;
       if (Metadata != other.Metadata) return false;
       if (Address != other.Address) return false;
+      if (DestinationCountry != other.DestinationCountry) return false;
       if (Transport != other.Transport) return false;
       if(!numbers_.Equals(other.numbers_)) return false;
       if (AuthUsername != other.AuthUsername) return false;
@@ -4658,6 +4693,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
       if (Address.Length != 0) hash ^= Address.GetHashCode();
+      if (DestinationCountry.Length != 0) hash ^= DestinationCountry.GetHashCode();
       if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) hash ^= Transport.GetHashCode();
       hash ^= numbers_.GetHashCode();
       if (AuthUsername.Length != 0) hash ^= AuthUsername.GetHashCode();
@@ -4725,6 +4761,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(104);
         output.WriteEnum((int) MediaEncryption);
       }
+      if (DestinationCountry.Length != 0) {
+        output.WriteRawTag(114);
+        output.WriteString(DestinationCountry);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4775,6 +4815,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(104);
         output.WriteEnum((int) MediaEncryption);
       }
+      if (DestinationCountry.Length != 0) {
+        output.WriteRawTag(114);
+        output.WriteString(DestinationCountry);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4796,6 +4840,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (Address.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Address);
+      }
+      if (DestinationCountry.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(DestinationCountry);
       }
       if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Transport);
@@ -4839,6 +4886,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (other.Address.Length != 0) {
         Address = other.Address;
+      }
+      if (other.DestinationCountry.Length != 0) {
+        DestinationCountry = other.DestinationCountry;
       }
       if (other.Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         Transport = other.Transport;
@@ -4930,6 +4980,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             MediaEncryption = (global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption) input.ReadEnum();
             break;
           }
+          case 114: {
+            DestinationCountry = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -5001,6 +5055,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             MediaEncryption = (global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption) input.ReadEnum();
             break;
           }
+          case 114: {
+            DestinationCountry = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -5047,6 +5105,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       _hasBits0 = other._hasBits0;
       address_ = other.address_;
       transport_ = other.transport_;
+      destinationCountry_ = other.destinationCountry_;
       numbers_ = other.numbers_ != null ? other.numbers_.Clone() : null;
       authUsername_ = other.authUsername_;
       authPassword_ = other.authPassword_;
@@ -5113,6 +5172,32 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearTransport() {
       _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "destination_country" field.</summary>
+    public const int DestinationCountryFieldNumber = 9;
+    private readonly static string DestinationCountryDefaultValue = "";
+
+    private string destinationCountry_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string DestinationCountry {
+      get { return destinationCountry_ ?? DestinationCountryDefaultValue; }
+      set {
+        destinationCountry_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "destination_country" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasDestinationCountry {
+      get { return destinationCountry_ != null; }
+    }
+    /// <summary>Clears the value of the "destination_country" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearDestinationCountry() {
+      destinationCountry_ = null;
     }
 
     /// <summary>Field number for the "numbers" field.</summary>
@@ -5275,6 +5360,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (Address != other.Address) return false;
       if (Transport != other.Transport) return false;
+      if (DestinationCountry != other.DestinationCountry) return false;
       if (!object.Equals(Numbers, other.Numbers)) return false;
       if (AuthUsername != other.AuthUsername) return false;
       if (AuthPassword != other.AuthPassword) return false;
@@ -5290,6 +5376,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       int hash = 1;
       if (HasAddress) hash ^= Address.GetHashCode();
       if (HasTransport) hash ^= Transport.GetHashCode();
+      if (HasDestinationCountry) hash ^= DestinationCountry.GetHashCode();
       if (numbers_ != null) hash ^= Numbers.GetHashCode();
       if (HasAuthUsername) hash ^= AuthUsername.GetHashCode();
       if (HasAuthPassword) hash ^= AuthPassword.GetHashCode();
@@ -5346,6 +5433,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(64);
         output.WriteEnum((int) MediaEncryption);
       }
+      if (HasDestinationCountry) {
+        output.WriteRawTag(74);
+        output.WriteString(DestinationCountry);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5388,6 +5479,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(64);
         output.WriteEnum((int) MediaEncryption);
       }
+      if (HasDestinationCountry) {
+        output.WriteRawTag(74);
+        output.WriteString(DestinationCountry);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5403,6 +5498,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (HasTransport) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Transport);
+      }
+      if (HasDestinationCountry) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(DestinationCountry);
       }
       if (numbers_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Numbers);
@@ -5439,6 +5537,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (other.HasTransport) {
         Transport = other.Transport;
+      }
+      if (other.HasDestinationCountry) {
+        DestinationCountry = other.DestinationCountry;
       }
       if (other.numbers_ != null) {
         if (numbers_ == null) {
@@ -5515,6 +5616,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             MediaEncryption = (global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption) input.ReadEnum();
             break;
           }
+          case 74: {
+            DestinationCountry = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -5567,6 +5672,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 64: {
             MediaEncryption = (global::Livekit.Server.Sdk.Dotnet.SIPMediaEncryption) input.ReadEnum();
+            break;
+          }
+          case 74: {
+            DestinationCountry = input.ReadString();
             break;
           }
         }
@@ -11648,6 +11757,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public SIPOutboundConfig(SIPOutboundConfig other) : this() {
       hostname_ = other.hostname_;
+      destinationCountry_ = other.destinationCountry_;
       transport_ = other.transport_;
       authUsername_ = other.authUsername_;
       authPassword_ = other.authPassword_;
@@ -11674,6 +11784,21 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return hostname_; }
       set {
         hostname_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "destination_country" field.</summary>
+    public const int DestinationCountryFieldNumber = 7;
+    private string destinationCountry_ = "";
+    /// <summary>
+    /// country where the call terminates as ISO 3166-1 alpha-2 (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). This will be used by the livekit infrastructure to route calls.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string DestinationCountry {
+      get { return destinationCountry_; }
+      set {
+        destinationCountry_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -11766,6 +11891,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         return true;
       }
       if (Hostname != other.Hostname) return false;
+      if (DestinationCountry != other.DestinationCountry) return false;
       if (Transport != other.Transport) return false;
       if (AuthUsername != other.AuthUsername) return false;
       if (AuthPassword != other.AuthPassword) return false;
@@ -11779,6 +11905,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     public override int GetHashCode() {
       int hash = 1;
       if (Hostname.Length != 0) hash ^= Hostname.GetHashCode();
+      if (DestinationCountry.Length != 0) hash ^= DestinationCountry.GetHashCode();
       if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) hash ^= Transport.GetHashCode();
       if (AuthUsername.Length != 0) hash ^= AuthUsername.GetHashCode();
       if (AuthPassword.Length != 0) hash ^= AuthPassword.GetHashCode();
@@ -11820,6 +11947,10 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       headersToAttributes_.WriteTo(output, _map_headersToAttributes_codec);
       attributesToHeaders_.WriteTo(output, _map_attributesToHeaders_codec);
+      if (DestinationCountry.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(DestinationCountry);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -11848,6 +11979,10 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       headersToAttributes_.WriteTo(ref output, _map_headersToAttributes_codec);
       attributesToHeaders_.WriteTo(ref output, _map_attributesToHeaders_codec);
+      if (DestinationCountry.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(DestinationCountry);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -11860,6 +11995,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       int size = 0;
       if (Hostname.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Hostname);
+      }
+      if (DestinationCountry.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(DestinationCountry);
       }
       if (Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Transport);
@@ -11886,6 +12024,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (other.Hostname.Length != 0) {
         Hostname = other.Hostname;
+      }
+      if (other.DestinationCountry.Length != 0) {
+        DestinationCountry = other.DestinationCountry;
       }
       if (other.Transport != global::Livekit.Server.Sdk.Dotnet.SIPTransport.Auto) {
         Transport = other.Transport;
@@ -11941,6 +12082,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             attributesToHeaders_.AddEntriesFrom(input, _map_attributesToHeaders_codec);
             break;
           }
+          case 58: {
+            DestinationCountry = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -11982,6 +12127,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 50: {
             attributesToHeaders_.AddEntriesFrom(ref input, _map_attributesToHeaders_codec);
+            break;
+          }
+          case 58: {
+            DestinationCountry = input.ReadString();
             break;
           }
         }
@@ -14722,6 +14871,472 @@ namespace Livekit.Server.Sdk.Dotnet {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class SIPTransferInfo : pb::IMessage<SIPTransferInfo>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SIPTransferInfo> _parser = new pb::MessageParser<SIPTransferInfo>(() => new SIPTransferInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SIPTransferInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[38]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SIPTransferInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SIPTransferInfo(SIPTransferInfo other) : this() {
+      transferId_ = other.transferId_;
+      callId_ = other.callId_;
+      transferTo_ = other.transferTo_;
+      transferInitiatedAtNs_ = other.transferInitiatedAtNs_;
+      transferCompletedAtNs_ = other.transferCompletedAtNs_;
+      transferStatus_ = other.transferStatus_;
+      error_ = other.error_;
+      transferStatusCode_ = other.transferStatusCode_ != null ? other.transferStatusCode_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SIPTransferInfo Clone() {
+      return new SIPTransferInfo(this);
+    }
+
+    /// <summary>Field number for the "transfer_id" field.</summary>
+    public const int TransferIdFieldNumber = 1;
+    private string transferId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string TransferId {
+      get { return transferId_; }
+      set {
+        transferId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "call_id" field.</summary>
+    public const int CallIdFieldNumber = 2;
+    private string callId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string CallId {
+      get { return callId_; }
+      set {
+        callId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "transfer_to" field.</summary>
+    public const int TransferToFieldNumber = 3;
+    private string transferTo_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string TransferTo {
+      get { return transferTo_; }
+      set {
+        transferTo_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "transfer_initiated_at_ns" field.</summary>
+    public const int TransferInitiatedAtNsFieldNumber = 4;
+    private long transferInitiatedAtNs_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long TransferInitiatedAtNs {
+      get { return transferInitiatedAtNs_; }
+      set {
+        transferInitiatedAtNs_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "transfer_completed_at_ns" field.</summary>
+    public const int TransferCompletedAtNsFieldNumber = 5;
+    private long transferCompletedAtNs_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long TransferCompletedAtNs {
+      get { return transferCompletedAtNs_; }
+      set {
+        transferCompletedAtNs_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "transfer_status" field.</summary>
+    public const int TransferStatusFieldNumber = 6;
+    private global::Livekit.Server.Sdk.Dotnet.SIPTransferStatus transferStatus_ = global::Livekit.Server.Sdk.Dotnet.SIPTransferStatus.StsTransferOngoing;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPTransferStatus TransferStatus {
+      get { return transferStatus_; }
+      set {
+        transferStatus_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "error" field.</summary>
+    public const int ErrorFieldNumber = 7;
+    private string error_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Error {
+      get { return error_; }
+      set {
+        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "transfer_status_code" field.</summary>
+    public const int TransferStatusCodeFieldNumber = 8;
+    private global::Livekit.Server.Sdk.Dotnet.SIPStatus transferStatusCode_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.SIPStatus TransferStatusCode {
+      get { return transferStatusCode_; }
+      set {
+        transferStatusCode_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SIPTransferInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SIPTransferInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (TransferId != other.TransferId) return false;
+      if (CallId != other.CallId) return false;
+      if (TransferTo != other.TransferTo) return false;
+      if (TransferInitiatedAtNs != other.TransferInitiatedAtNs) return false;
+      if (TransferCompletedAtNs != other.TransferCompletedAtNs) return false;
+      if (TransferStatus != other.TransferStatus) return false;
+      if (Error != other.Error) return false;
+      if (!object.Equals(TransferStatusCode, other.TransferStatusCode)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (TransferId.Length != 0) hash ^= TransferId.GetHashCode();
+      if (CallId.Length != 0) hash ^= CallId.GetHashCode();
+      if (TransferTo.Length != 0) hash ^= TransferTo.GetHashCode();
+      if (TransferInitiatedAtNs != 0L) hash ^= TransferInitiatedAtNs.GetHashCode();
+      if (TransferCompletedAtNs != 0L) hash ^= TransferCompletedAtNs.GetHashCode();
+      if (TransferStatus != global::Livekit.Server.Sdk.Dotnet.SIPTransferStatus.StsTransferOngoing) hash ^= TransferStatus.GetHashCode();
+      if (Error.Length != 0) hash ^= Error.GetHashCode();
+      if (transferStatusCode_ != null) hash ^= TransferStatusCode.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (TransferId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(TransferId);
+      }
+      if (CallId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(CallId);
+      }
+      if (TransferTo.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(TransferTo);
+      }
+      if (TransferInitiatedAtNs != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(TransferInitiatedAtNs);
+      }
+      if (TransferCompletedAtNs != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(TransferCompletedAtNs);
+      }
+      if (TransferStatus != global::Livekit.Server.Sdk.Dotnet.SIPTransferStatus.StsTransferOngoing) {
+        output.WriteRawTag(48);
+        output.WriteEnum((int) TransferStatus);
+      }
+      if (Error.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(Error);
+      }
+      if (transferStatusCode_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(TransferStatusCode);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (TransferId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(TransferId);
+      }
+      if (CallId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(CallId);
+      }
+      if (TransferTo.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(TransferTo);
+      }
+      if (TransferInitiatedAtNs != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(TransferInitiatedAtNs);
+      }
+      if (TransferCompletedAtNs != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(TransferCompletedAtNs);
+      }
+      if (TransferStatus != global::Livekit.Server.Sdk.Dotnet.SIPTransferStatus.StsTransferOngoing) {
+        output.WriteRawTag(48);
+        output.WriteEnum((int) TransferStatus);
+      }
+      if (Error.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(Error);
+      }
+      if (transferStatusCode_ != null) {
+        output.WriteRawTag(66);
+        output.WriteMessage(TransferStatusCode);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (TransferId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(TransferId);
+      }
+      if (CallId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CallId);
+      }
+      if (TransferTo.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(TransferTo);
+      }
+      if (TransferInitiatedAtNs != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TransferInitiatedAtNs);
+      }
+      if (TransferCompletedAtNs != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TransferCompletedAtNs);
+      }
+      if (TransferStatus != global::Livekit.Server.Sdk.Dotnet.SIPTransferStatus.StsTransferOngoing) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) TransferStatus);
+      }
+      if (Error.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
+      }
+      if (transferStatusCode_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TransferStatusCode);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SIPTransferInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.TransferId.Length != 0) {
+        TransferId = other.TransferId;
+      }
+      if (other.CallId.Length != 0) {
+        CallId = other.CallId;
+      }
+      if (other.TransferTo.Length != 0) {
+        TransferTo = other.TransferTo;
+      }
+      if (other.TransferInitiatedAtNs != 0L) {
+        TransferInitiatedAtNs = other.TransferInitiatedAtNs;
+      }
+      if (other.TransferCompletedAtNs != 0L) {
+        TransferCompletedAtNs = other.TransferCompletedAtNs;
+      }
+      if (other.TransferStatus != global::Livekit.Server.Sdk.Dotnet.SIPTransferStatus.StsTransferOngoing) {
+        TransferStatus = other.TransferStatus;
+      }
+      if (other.Error.Length != 0) {
+        Error = other.Error;
+      }
+      if (other.transferStatusCode_ != null) {
+        if (transferStatusCode_ == null) {
+          TransferStatusCode = new global::Livekit.Server.Sdk.Dotnet.SIPStatus();
+        }
+        TransferStatusCode.MergeFrom(other.TransferStatusCode);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            TransferId = input.ReadString();
+            break;
+          }
+          case 18: {
+            CallId = input.ReadString();
+            break;
+          }
+          case 26: {
+            TransferTo = input.ReadString();
+            break;
+          }
+          case 32: {
+            TransferInitiatedAtNs = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            TransferCompletedAtNs = input.ReadInt64();
+            break;
+          }
+          case 48: {
+            TransferStatus = (global::Livekit.Server.Sdk.Dotnet.SIPTransferStatus) input.ReadEnum();
+            break;
+          }
+          case 58: {
+            Error = input.ReadString();
+            break;
+          }
+          case 66: {
+            if (transferStatusCode_ == null) {
+              TransferStatusCode = new global::Livekit.Server.Sdk.Dotnet.SIPStatus();
+            }
+            input.ReadMessage(TransferStatusCode);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            TransferId = input.ReadString();
+            break;
+          }
+          case 18: {
+            CallId = input.ReadString();
+            break;
+          }
+          case 26: {
+            TransferTo = input.ReadString();
+            break;
+          }
+          case 32: {
+            TransferInitiatedAtNs = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            TransferCompletedAtNs = input.ReadInt64();
+            break;
+          }
+          case 48: {
+            TransferStatus = (global::Livekit.Server.Sdk.Dotnet.SIPTransferStatus) input.ReadEnum();
+            break;
+          }
+          case 58: {
+            Error = input.ReadString();
+            break;
+          }
+          case 66: {
+            if (transferStatusCode_ == null) {
+              TransferStatusCode = new global::Livekit.Server.Sdk.Dotnet.SIPStatus();
+            }
+            input.ReadMessage(TransferStatusCode);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class SIPUri : pb::IMessage<SIPUri>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -14736,7 +15351,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[38]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor.MessageTypes[39]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

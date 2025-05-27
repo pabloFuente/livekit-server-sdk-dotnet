@@ -62,27 +62,28 @@ namespace Livekit.Server.Sdk.Dotnet {
             "b25zZRIRCgl3b3JrZXJfaWQYASABKAkSKAoLc2VydmVyX2luZm8YAyABKAsy",
             "Ey5saXZla2l0LlNlcnZlckluZm8iJAoRTWlncmF0ZUpvYlJlcXVlc3QSDwoH",
             "am9iX2lkcxgCIAMoCSJCChNBdmFpbGFiaWxpdHlSZXF1ZXN0EhkKA2pvYhgB",
-            "IAEoCzIMLmxpdmVraXQuSm9iEhAKCHJlc3VtaW5nGAIgASgIIsACChRBdmFp",
+            "IAEoCzIMLmxpdmVraXQuSm9iEhAKCHJlc3VtaW5nGAIgASgIItMCChRBdmFp",
             "bGFiaWxpdHlSZXNwb25zZRIOCgZqb2JfaWQYASABKAkSEQoJYXZhaWxhYmxl",
-            "GAIgASgIEhcKD3N1cHBvcnRzX3Jlc3VtZRgDIAEoCBIYChBwYXJ0aWNpcGFu",
-            "dF9uYW1lGAQgASgJEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5GAUgASgJEhwK",
-            "FHBhcnRpY2lwYW50X21ldGFkYXRhGAYgASgJElgKFnBhcnRpY2lwYW50X2F0",
-            "dHJpYnV0ZXMYByADKAsyOC5saXZla2l0LkF2YWlsYWJpbGl0eVJlc3BvbnNl",
-            "LlBhcnRpY2lwYW50QXR0cmlidXRlc0VudHJ5GjwKGlBhcnRpY2lwYW50QXR0",
-            "cmlidXRlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEi",
-            "VAoPVXBkYXRlSm9iU3RhdHVzEg4KBmpvYl9pZBgBIAEoCRIiCgZzdGF0dXMY",
-            "AiABKA4yEi5saXZla2l0LkpvYlN0YXR1cxINCgVlcnJvchgDIAEoCSJsChJV",
-            "cGRhdGVXb3JrZXJTdGF0dXMSKgoGc3RhdHVzGAEgASgOMhUubGl2ZWtpdC5X",
-            "b3JrZXJTdGF0dXNIAIgBARIMCgRsb2FkGAMgASgCEhEKCWpvYl9jb3VudBgE",
-            "IAEoDUIJCgdfc3RhdHVzIlMKDUpvYkFzc2lnbm1lbnQSGQoDam9iGAEgASgL",
-            "MgwubGl2ZWtpdC5Kb2ISEAoDdXJsGAIgASgJSACIAQESDQoFdG9rZW4YAyAB",
-            "KAlCBgoEX3VybCIgCg5Kb2JUZXJtaW5hdGlvbhIOCgZqb2JfaWQYASABKAkq",
-            "PAoHSm9iVHlwZRILCgdKVF9ST09NEAASEAoMSlRfUFVCTElTSEVSEAESEgoO",
-            "SlRfUEFSVElDSVBBTlQQAiotCgxXb3JrZXJTdGF0dXMSEAoMV1NfQVZBSUxB",
-            "QkxFEAASCwoHV1NfRlVMTBABKkoKCUpvYlN0YXR1cxIOCgpKU19QRU5ESU5H",
-            "EAASDgoKSlNfUlVOTklORxABEg4KCkpTX1NVQ0NFU1MQAhINCglKU19GQUlM",
-            "RUQQA0JGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdKoC",
-            "DUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
+            "GAIgASgIEhcKD3N1cHBvcnRzX3Jlc3VtZRgDIAEoCBIRCgl0ZXJtaW5hdGUY",
+            "CCABKAgSGAoQcGFydGljaXBhbnRfbmFtZRgEIAEoCRIcChRwYXJ0aWNpcGFu",
+            "dF9pZGVudGl0eRgFIAEoCRIcChRwYXJ0aWNpcGFudF9tZXRhZGF0YRgGIAEo",
+            "CRJYChZwYXJ0aWNpcGFudF9hdHRyaWJ1dGVzGAcgAygLMjgubGl2ZWtpdC5B",
+            "dmFpbGFiaWxpdHlSZXNwb25zZS5QYXJ0aWNpcGFudEF0dHJpYnV0ZXNFbnRy",
+            "eRo8ChpQYXJ0aWNpcGFudEF0dHJpYnV0ZXNFbnRyeRILCgNrZXkYASABKAkS",
+            "DQoFdmFsdWUYAiABKAk6AjgBIlQKD1VwZGF0ZUpvYlN0YXR1cxIOCgZqb2Jf",
+            "aWQYASABKAkSIgoGc3RhdHVzGAIgASgOMhIubGl2ZWtpdC5Kb2JTdGF0dXMS",
+            "DQoFZXJyb3IYAyABKAkibAoSVXBkYXRlV29ya2VyU3RhdHVzEioKBnN0YXR1",
+            "cxgBIAEoDjIVLmxpdmVraXQuV29ya2VyU3RhdHVzSACIAQESDAoEbG9hZBgD",
+            "IAEoAhIRCglqb2JfY291bnQYBCABKA1CCQoHX3N0YXR1cyJTCg1Kb2JBc3Np",
+            "Z25tZW50EhkKA2pvYhgBIAEoCzIMLmxpdmVraXQuSm9iEhAKA3VybBgCIAEo",
+            "CUgAiAEBEg0KBXRva2VuGAMgASgJQgYKBF91cmwiIAoOSm9iVGVybWluYXRp",
+            "b24SDgoGam9iX2lkGAEgASgJKjwKB0pvYlR5cGUSCwoHSlRfUk9PTRAAEhAK",
+            "DEpUX1BVQkxJU0hFUhABEhIKDkpUX1BBUlRJQ0lQQU5UEAIqLQoMV29ya2Vy",
+            "U3RhdHVzEhAKDFdTX0FWQUlMQUJMRRAAEgsKB1dTX0ZVTEwQASpKCglKb2JT",
+            "dGF0dXMSDgoKSlNfUEVORElORxAAEg4KCkpTX1JVTk5JTkcQARIOCgpKU19T",
+            "VUNDRVNTEAISDQoJSlNfRkFJTEVEEANCRlojZ2l0aHViLmNvbS9saXZla2l0",
+            "L3Byb3RvY29sL2xpdmVraXSqAg1MaXZlS2l0LlByb3Rv6gIOTGl2ZUtpdDo6",
+            "UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.JobType), typeof(global::Livekit.Server.Sdk.Dotnet.WorkerStatus), typeof(global::Livekit.Server.Sdk.Dotnet.JobStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -97,7 +98,7 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RegisterWorkerResponse), global::Livekit.Server.Sdk.Dotnet.RegisterWorkerResponse.Parser, new[]{ "WorkerId", "ServerInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.MigrateJobRequest), global::Livekit.Server.Sdk.Dotnet.MigrateJobRequest.Parser, new[]{ "JobIds" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AvailabilityRequest), global::Livekit.Server.Sdk.Dotnet.AvailabilityRequest.Parser, new[]{ "Job", "Resuming" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AvailabilityResponse), global::Livekit.Server.Sdk.Dotnet.AvailabilityResponse.Parser, new[]{ "JobId", "Available", "SupportsResume", "ParticipantName", "ParticipantIdentity", "ParticipantMetadata", "ParticipantAttributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AvailabilityResponse), global::Livekit.Server.Sdk.Dotnet.AvailabilityResponse.Parser, new[]{ "JobId", "Available", "SupportsResume", "Terminate", "ParticipantName", "ParticipantIdentity", "ParticipantMetadata", "ParticipantAttributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateJobStatus), global::Livekit.Server.Sdk.Dotnet.UpdateJobStatus.Parser, new[]{ "JobId", "Status", "Error" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateWorkerStatus), global::Livekit.Server.Sdk.Dotnet.UpdateWorkerStatus.Parser, new[]{ "Status", "Load", "JobCount" }, new[]{ "Status" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.JobAssignment), global::Livekit.Server.Sdk.Dotnet.JobAssignment.Parser, new[]{ "Job", "Url", "Token" }, new[]{ "Url" }, null, null, null),
@@ -3925,6 +3926,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       jobId_ = other.jobId_;
       available_ = other.available_;
       supportsResume_ = other.supportsResume_;
+      terminate_ = other.terminate_;
       participantName_ = other.participantName_;
       participantIdentity_ = other.participantIdentity_;
       participantMetadata_ = other.participantMetadata_;
@@ -3974,6 +3976,18 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "terminate" field.</summary>
+    public const int TerminateFieldNumber = 8;
+    private bool terminate_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Terminate {
+      get { return terminate_; }
+      set {
+        terminate_ = value;
+      }
+    }
+
     /// <summary>Field number for the "participant_name" field.</summary>
     public const int ParticipantNameFieldNumber = 4;
     private string participantName_ = "";
@@ -4015,6 +4029,9 @@ namespace Livekit.Server.Sdk.Dotnet {
     private static readonly pbc::MapField<string, string>.Codec _map_participantAttributes_codec
         = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForString(18, ""), 58);
     private readonly pbc::MapField<string, string> participantAttributes_ = new pbc::MapField<string, string>();
+    /// <summary>
+    /// NEXT_ID: 9
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::MapField<string, string> ParticipantAttributes {
@@ -4039,6 +4056,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (JobId != other.JobId) return false;
       if (Available != other.Available) return false;
       if (SupportsResume != other.SupportsResume) return false;
+      if (Terminate != other.Terminate) return false;
       if (ParticipantName != other.ParticipantName) return false;
       if (ParticipantIdentity != other.ParticipantIdentity) return false;
       if (ParticipantMetadata != other.ParticipantMetadata) return false;
@@ -4053,6 +4071,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (JobId.Length != 0) hash ^= JobId.GetHashCode();
       if (Available != false) hash ^= Available.GetHashCode();
       if (SupportsResume != false) hash ^= SupportsResume.GetHashCode();
+      if (Terminate != false) hash ^= Terminate.GetHashCode();
       if (ParticipantName.Length != 0) hash ^= ParticipantName.GetHashCode();
       if (ParticipantIdentity.Length != 0) hash ^= ParticipantIdentity.GetHashCode();
       if (ParticipantMetadata.Length != 0) hash ^= ParticipantMetadata.GetHashCode();
@@ -4100,6 +4119,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteString(ParticipantMetadata);
       }
       participantAttributes_.WriteTo(output, _map_participantAttributes_codec);
+      if (Terminate != false) {
+        output.WriteRawTag(64);
+        output.WriteBool(Terminate);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4135,6 +4158,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteString(ParticipantMetadata);
       }
       participantAttributes_.WriteTo(ref output, _map_participantAttributes_codec);
+      if (Terminate != false) {
+        output.WriteRawTag(64);
+        output.WriteBool(Terminate);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4152,6 +4179,9 @@ namespace Livekit.Server.Sdk.Dotnet {
         size += 1 + 1;
       }
       if (SupportsResume != false) {
+        size += 1 + 1;
+      }
+      if (Terminate != false) {
         size += 1 + 1;
       }
       if (ParticipantName.Length != 0) {
@@ -4184,6 +4214,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (other.SupportsResume != false) {
         SupportsResume = other.SupportsResume;
+      }
+      if (other.Terminate != false) {
+        Terminate = other.Terminate;
       }
       if (other.ParticipantName.Length != 0) {
         ParticipantName = other.ParticipantName;
@@ -4242,6 +4275,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             participantAttributes_.AddEntriesFrom(input, _map_participantAttributes_codec);
             break;
           }
+          case 64: {
+            Terminate = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -4287,6 +4324,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 58: {
             participantAttributes_.AddEntriesFrom(ref input, _map_participantAttributes_codec);
+            break;
+          }
+          case 64: {
+            Terminate = input.ReadBool();
             break;
           }
         }
