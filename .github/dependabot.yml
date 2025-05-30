@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/LivekitApi"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "nuget"
+    directory: "/LivekitApi.Tests"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "nuget"
+    directory: "/LivekitApi.Example"
+    schedule:
+      interval: "weekly"
