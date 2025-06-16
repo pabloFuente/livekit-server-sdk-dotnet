@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Livekit.Server.Sdk.Dotnet" Version="1.0.9" />
+    <PackageReference Include="Livekit.Server.Sdk.Dotnet" Version="1.0.10" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.12.0" />
   </ItemGroup>
 </Project>
