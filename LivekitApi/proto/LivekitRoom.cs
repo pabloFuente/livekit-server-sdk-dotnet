@@ -66,43 +66,43 @@ namespace Livekit.Server.Sdk.Dotnet {
             "bmF0aW9uX2lkZW50aXRpZXMYBiADKAkSEgoFdG9waWMYBSABKAlIAIgBARIN",
             "CgVub25jZRgHIAEoDEIICgZfdG9waWMiEgoQU2VuZERhdGFSZXNwb25zZSI7",
             "ChlVcGRhdGVSb29tTWV0YWRhdGFSZXF1ZXN0EgwKBHJvb20YASABKAkSEAoI",
-            "bWV0YWRhdGEYAiABKAkiigIKEVJvb21Db25maWd1cmF0aW9uEgwKBG5hbWUY",
+            "bWV0YWRhdGEYAiABKAkinAIKEVJvb21Db25maWd1cmF0aW9uEgwKBG5hbWUY",
             "ASABKAkSFQoNZW1wdHlfdGltZW91dBgCIAEoDRIZChFkZXBhcnR1cmVfdGlt",
-            "ZW91dBgDIAEoDRIYChBtYXhfcGFydGljaXBhbnRzGAQgASgNEiMKBmVncmVz",
-            "cxgFIAEoCzITLmxpdmVraXQuUm9vbUVncmVzcxIZChFtaW5fcGxheW91dF9k",
-            "ZWxheRgHIAEoDRIZChFtYXhfcGxheW91dF9kZWxheRgIIAEoDRIUCgxzeW5j",
-            "X3N0cmVhbXMYCSABKAgSKgoGYWdlbnRzGAogAygLMhoubGl2ZWtpdC5Sb29t",
-            "QWdlbnREaXNwYXRjaCJVChlGb3J3YXJkUGFydGljaXBhbnRSZXF1ZXN0EgwK",
-            "BHJvb20YASABKAkSEAoIaWRlbnRpdHkYAiABKAkSGAoQZGVzdGluYXRpb25f",
-            "cm9vbRgDIAEoCSIcChpGb3J3YXJkUGFydGljaXBhbnRSZXNwb25zZSJSChZN",
-            "b3ZlUGFydGljaXBhbnRSZXF1ZXN0EgwKBHJvb20YASABKAkSEAoIaWRlbnRp",
-            "dHkYAiABKAkSGAoQZGVzdGluYXRpb25fcm9vbRgDIAEoCSIZChdNb3ZlUGFy",
-            "dGljaXBhbnRSZXNwb25zZTKbCAoLUm9vbVNlcnZpY2USNwoKQ3JlYXRlUm9v",
-            "bRIaLmxpdmVraXQuQ3JlYXRlUm9vbVJlcXVlc3QaDS5saXZla2l0LlJvb20S",
-            "QgoJTGlzdFJvb21zEhkubGl2ZWtpdC5MaXN0Um9vbXNSZXF1ZXN0GhoubGl2",
-            "ZWtpdC5MaXN0Um9vbXNSZXNwb25zZRJFCgpEZWxldGVSb29tEhoubGl2ZWtp",
-            "dC5EZWxldGVSb29tUmVxdWVzdBobLmxpdmVraXQuRGVsZXRlUm9vbVJlc3Bv",
-            "bnNlElcKEExpc3RQYXJ0aWNpcGFudHMSIC5saXZla2l0Lkxpc3RQYXJ0aWNp",
-            "cGFudHNSZXF1ZXN0GiEubGl2ZWtpdC5MaXN0UGFydGljaXBhbnRzUmVzcG9u",
-            "c2USTAoOR2V0UGFydGljaXBhbnQSIC5saXZla2l0LlJvb21QYXJ0aWNpcGFu",
-            "dElkZW50aXR5GhgubGl2ZWtpdC5QYXJ0aWNpcGFudEluZm8SWQoRUmVtb3Zl",
-            "UGFydGljaXBhbnQSIC5saXZla2l0LlJvb21QYXJ0aWNpcGFudElkZW50aXR5",
-            "GiIubGl2ZWtpdC5SZW1vdmVQYXJ0aWNpcGFudFJlc3BvbnNlElMKEk11dGVQ",
-            "dWJsaXNoZWRUcmFjaxIdLmxpdmVraXQuTXV0ZVJvb21UcmFja1JlcXVlc3Qa",
-            "Hi5saXZla2l0Lk11dGVSb29tVHJhY2tSZXNwb25zZRJQChFVcGRhdGVQYXJ0",
-            "aWNpcGFudBIhLmxpdmVraXQuVXBkYXRlUGFydGljaXBhbnRSZXF1ZXN0Ghgu",
-            "bGl2ZWtpdC5QYXJ0aWNpcGFudEluZm8SYAoTVXBkYXRlU3Vic2NyaXB0aW9u",
-            "cxIjLmxpdmVraXQuVXBkYXRlU3Vic2NyaXB0aW9uc1JlcXVlc3QaJC5saXZl",
-            "a2l0LlVwZGF0ZVN1YnNjcmlwdGlvbnNSZXNwb25zZRI/CghTZW5kRGF0YRIY",
-            "LmxpdmVraXQuU2VuZERhdGFSZXF1ZXN0GhkubGl2ZWtpdC5TZW5kRGF0YVJl",
-            "c3BvbnNlEkcKElVwZGF0ZVJvb21NZXRhZGF0YRIiLmxpdmVraXQuVXBkYXRl",
-            "Um9vbU1ldGFkYXRhUmVxdWVzdBoNLmxpdmVraXQuUm9vbRJdChJGb3J3YXJk",
-            "UGFydGljaXBhbnQSIi5saXZla2l0LkZvcndhcmRQYXJ0aWNpcGFudFJlcXVl",
-            "c3QaIy5saXZla2l0LkZvcndhcmRQYXJ0aWNpcGFudFJlc3BvbnNlElQKD01v",
-            "dmVQYXJ0aWNpcGFudBIfLmxpdmVraXQuTW92ZVBhcnRpY2lwYW50UmVxdWVz",
-            "dBogLmxpdmVraXQuTW92ZVBhcnRpY2lwYW50UmVzcG9uc2VCRlojZ2l0aHVi",
-            "LmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1MaXZlS2l0LlByb3Rv",
-            "6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
+            "ZW91dBgDIAEoDRIYChBtYXhfcGFydGljaXBhbnRzGAQgASgNEhAKCG1ldGFk",
+            "YXRhGAsgASgJEiMKBmVncmVzcxgFIAEoCzITLmxpdmVraXQuUm9vbUVncmVz",
+            "cxIZChFtaW5fcGxheW91dF9kZWxheRgHIAEoDRIZChFtYXhfcGxheW91dF9k",
+            "ZWxheRgIIAEoDRIUCgxzeW5jX3N0cmVhbXMYCSABKAgSKgoGYWdlbnRzGAog",
+            "AygLMhoubGl2ZWtpdC5Sb29tQWdlbnREaXNwYXRjaCJVChlGb3J3YXJkUGFy",
+            "dGljaXBhbnRSZXF1ZXN0EgwKBHJvb20YASABKAkSEAoIaWRlbnRpdHkYAiAB",
+            "KAkSGAoQZGVzdGluYXRpb25fcm9vbRgDIAEoCSIcChpGb3J3YXJkUGFydGlj",
+            "aXBhbnRSZXNwb25zZSJSChZNb3ZlUGFydGljaXBhbnRSZXF1ZXN0EgwKBHJv",
+            "b20YASABKAkSEAoIaWRlbnRpdHkYAiABKAkSGAoQZGVzdGluYXRpb25fcm9v",
+            "bRgDIAEoCSIZChdNb3ZlUGFydGljaXBhbnRSZXNwb25zZTKbCAoLUm9vbVNl",
+            "cnZpY2USNwoKQ3JlYXRlUm9vbRIaLmxpdmVraXQuQ3JlYXRlUm9vbVJlcXVl",
+            "c3QaDS5saXZla2l0LlJvb20SQgoJTGlzdFJvb21zEhkubGl2ZWtpdC5MaXN0",
+            "Um9vbXNSZXF1ZXN0GhoubGl2ZWtpdC5MaXN0Um9vbXNSZXNwb25zZRJFCgpE",
+            "ZWxldGVSb29tEhoubGl2ZWtpdC5EZWxldGVSb29tUmVxdWVzdBobLmxpdmVr",
+            "aXQuRGVsZXRlUm9vbVJlc3BvbnNlElcKEExpc3RQYXJ0aWNpcGFudHMSIC5s",
+            "aXZla2l0Lkxpc3RQYXJ0aWNpcGFudHNSZXF1ZXN0GiEubGl2ZWtpdC5MaXN0",
+            "UGFydGljaXBhbnRzUmVzcG9uc2USTAoOR2V0UGFydGljaXBhbnQSIC5saXZl",
+            "a2l0LlJvb21QYXJ0aWNpcGFudElkZW50aXR5GhgubGl2ZWtpdC5QYXJ0aWNp",
+            "cGFudEluZm8SWQoRUmVtb3ZlUGFydGljaXBhbnQSIC5saXZla2l0LlJvb21Q",
+            "YXJ0aWNpcGFudElkZW50aXR5GiIubGl2ZWtpdC5SZW1vdmVQYXJ0aWNpcGFu",
+            "dFJlc3BvbnNlElMKEk11dGVQdWJsaXNoZWRUcmFjaxIdLmxpdmVraXQuTXV0",
+            "ZVJvb21UcmFja1JlcXVlc3QaHi5saXZla2l0Lk11dGVSb29tVHJhY2tSZXNw",
+            "b25zZRJQChFVcGRhdGVQYXJ0aWNpcGFudBIhLmxpdmVraXQuVXBkYXRlUGFy",
+            "dGljaXBhbnRSZXF1ZXN0GhgubGl2ZWtpdC5QYXJ0aWNpcGFudEluZm8SYAoT",
+            "VXBkYXRlU3Vic2NyaXB0aW9ucxIjLmxpdmVraXQuVXBkYXRlU3Vic2NyaXB0",
+            "aW9uc1JlcXVlc3QaJC5saXZla2l0LlVwZGF0ZVN1YnNjcmlwdGlvbnNSZXNw",
+            "b25zZRI/CghTZW5kRGF0YRIYLmxpdmVraXQuU2VuZERhdGFSZXF1ZXN0Ghku",
+            "bGl2ZWtpdC5TZW5kRGF0YVJlc3BvbnNlEkcKElVwZGF0ZVJvb21NZXRhZGF0",
+            "YRIiLmxpdmVraXQuVXBkYXRlUm9vbU1ldGFkYXRhUmVxdWVzdBoNLmxpdmVr",
+            "aXQuUm9vbRJdChJGb3J3YXJkUGFydGljaXBhbnQSIi5saXZla2l0LkZvcndh",
+            "cmRQYXJ0aWNpcGFudFJlcXVlc3QaIy5saXZla2l0LkZvcndhcmRQYXJ0aWNp",
+            "cGFudFJlc3BvbnNlElQKD01vdmVQYXJ0aWNpcGFudBIfLmxpdmVraXQuTW92",
+            "ZVBhcnRpY2lwYW50UmVxdWVzdBogLmxpdmVraXQuTW92ZVBhcnRpY2lwYW50",
+            "UmVzcG9uc2VCRlojZ2l0aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVr",
+            "aXSqAg1MaXZlS2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitAgentDispatchReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -125,7 +125,7 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SendDataRequest), global::Livekit.Server.Sdk.Dotnet.SendDataRequest.Parser, new[]{ "Room", "Data", "Kind", "DestinationSids", "DestinationIdentities", "Topic", "Nonce" }, new[]{ "Topic" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SendDataResponse), global::Livekit.Server.Sdk.Dotnet.SendDataResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest), global::Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest.Parser, new[]{ "Room", "Metadata" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomConfiguration), global::Livekit.Server.Sdk.Dotnet.RoomConfiguration.Parser, new[]{ "Name", "EmptyTimeout", "DepartureTimeout", "MaxParticipants", "Egress", "MinPlayoutDelay", "MaxPlayoutDelay", "SyncStreams", "Agents" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomConfiguration), global::Livekit.Server.Sdk.Dotnet.RoomConfiguration.Parser, new[]{ "Name", "EmptyTimeout", "DepartureTimeout", "MaxParticipants", "Metadata", "Egress", "MinPlayoutDelay", "MaxPlayoutDelay", "SyncStreams", "Agents" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ForwardParticipantRequest), global::Livekit.Server.Sdk.Dotnet.ForwardParticipantRequest.Parser, new[]{ "Room", "Identity", "DestinationRoom" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ForwardParticipantResponse), global::Livekit.Server.Sdk.Dotnet.ForwardParticipantResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.MoveParticipantRequest), global::Livekit.Server.Sdk.Dotnet.MoveParticipantRequest.Parser, new[]{ "Room", "Identity", "DestinationRoom" }, null, null, null, null),
@@ -5106,6 +5106,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       emptyTimeout_ = other.emptyTimeout_;
       departureTimeout_ = other.departureTimeout_;
       maxParticipants_ = other.maxParticipants_;
+      metadata_ = other.metadata_;
       egress_ = other.egress_ != null ? other.egress_.Clone() : null;
       minPlayoutDelay_ = other.minPlayoutDelay_;
       maxPlayoutDelay_ = other.maxPlayoutDelay_;
@@ -5177,6 +5178,21 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return maxParticipants_; }
       set {
         maxParticipants_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "metadata" field.</summary>
+    public const int MetadataFieldNumber = 11;
+    private string metadata_ = "";
+    /// <summary>
+    /// metadata of room
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Metadata {
+      get { return metadata_; }
+      set {
+        metadata_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -5271,6 +5287,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (EmptyTimeout != other.EmptyTimeout) return false;
       if (DepartureTimeout != other.DepartureTimeout) return false;
       if (MaxParticipants != other.MaxParticipants) return false;
+      if (Metadata != other.Metadata) return false;
       if (!object.Equals(Egress, other.Egress)) return false;
       if (MinPlayoutDelay != other.MinPlayoutDelay) return false;
       if (MaxPlayoutDelay != other.MaxPlayoutDelay) return false;
@@ -5287,6 +5304,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (EmptyTimeout != 0) hash ^= EmptyTimeout.GetHashCode();
       if (DepartureTimeout != 0) hash ^= DepartureTimeout.GetHashCode();
       if (MaxParticipants != 0) hash ^= MaxParticipants.GetHashCode();
+      if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
       if (egress_ != null) hash ^= Egress.GetHashCode();
       if (MinPlayoutDelay != 0) hash ^= MinPlayoutDelay.GetHashCode();
       if (MaxPlayoutDelay != 0) hash ^= MaxPlayoutDelay.GetHashCode();
@@ -5343,6 +5361,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteBool(SyncStreams);
       }
       agents_.WriteTo(output, _repeated_agents_codec);
+      if (Metadata.Length != 0) {
+        output.WriteRawTag(90);
+        output.WriteString(Metadata);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5386,6 +5408,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteBool(SyncStreams);
       }
       agents_.WriteTo(ref output, _repeated_agents_codec);
+      if (Metadata.Length != 0) {
+        output.WriteRawTag(90);
+        output.WriteString(Metadata);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5407,6 +5433,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (MaxParticipants != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(MaxParticipants);
+      }
+      if (Metadata.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Metadata);
       }
       if (egress_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Egress);
@@ -5444,6 +5473,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (other.MaxParticipants != 0) {
         MaxParticipants = other.MaxParticipants;
+      }
+      if (other.Metadata.Length != 0) {
+        Metadata = other.Metadata;
       }
       if (other.egress_ != null) {
         if (egress_ == null) {
@@ -5519,6 +5551,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             agents_.AddEntriesFrom(input, _repeated_agents_codec);
             break;
           }
+          case 90: {
+            Metadata = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -5575,6 +5611,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 82: {
             agents_.AddEntriesFrom(ref input, _repeated_agents_codec);
+            break;
+          }
+          case 90: {
+            Metadata = input.ReadString();
             break;
           }
         }
