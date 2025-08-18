@@ -1,0 +1,2 @@
+# .gitattributes
+*.csproj text eol=lf
