@@ -1,5 +1,9 @@
 # Changelog (Release Notes)
 
+## 1.0.11
+
+- Update livekit/protocol to [v1.40.0](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.40.0)
+
 ## 1.0.10
 
 - Update livekit/protocol to [v1.39.2](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.39.2)
