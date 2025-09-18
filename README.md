@@ -454,6 +454,7 @@ To upgrade the version of the `livekit/protocol` Git submodule:
 
 ```bash
 cd protocol
+git fetch --all
 git checkout <COMMIT_HASH/TAG/BRANCH>
 cd ..
 git add protocol
