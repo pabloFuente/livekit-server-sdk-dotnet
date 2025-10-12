@@ -107,8 +107,8 @@ jobs:
         run: |
           # Update property <PackageValidationBaselineVersion> to the new release version
           sed -i "s/<PackageValidationBaselineVersion>.*<\/PackageValidationBaselineVersion>/<PackageValidationBaselineVersion>${{ github.event.release.tag_name }}<\/PackageValidationBaselineVersion>/" LivekitApi/LivekitApi.csproj
-          # Delete file LivekitApi/CompatibilitySupressions.xml if exists
-          rm -f LivekitApi/CompatibilitySupressions.xml
+          # Delete file LivekitApi/CompatibilitySuppressions.xml if exists
+          rm -f LivekitApi/CompatibilitySuppressions.xml
 
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
