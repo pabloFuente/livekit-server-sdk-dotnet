@@ -43,36 +43,39 @@ namespace Livekit.Server.Sdk.Dotnet {
             "Chhub3JtYWxpemVkX2VuZF90aW1lc3RhbXAYByABKAsyGi5nb29nbGUucHJv",
             "dG9idWYuVGltZXN0YW1wSAGIAQESEAoIbWV0YWRhdGEYCCABKAkSCwoDcmlk",
             "GAkgASgNQhMKEV9lbmRfdGltZXN0YW1wX21zQhsKGV9ub3JtYWxpemVkX2Vu",
-            "ZF90aW1lc3RhbXAqgQcKC01ldHJpY0xhYmVsEhMKD0FHRU5UU19MTE1fVFRG",
-            "VBAAEhMKD0FHRU5UU19TVFRfVFRGVBABEhMKD0FHRU5UU19UVFNfVFRGQhAC",
-            "EigKJENMSUVOVF9WSURFT19TVUJTQ1JJQkVSX0ZSRUVaRV9DT1VOVBADEjEK",
-            "LUNMSUVOVF9WSURFT19TVUJTQ1JJQkVSX1RPVEFMX0ZSRUVaRV9EVVJBVElP",
-            "ThAEEicKI0NMSUVOVF9WSURFT19TVUJTQ1JJQkVSX1BBVVNFX0NPVU5UEAUS",
-            "MQotQ0xJRU5UX1ZJREVPX1NVQlNDUklCRVJfVE9UQUxfUEFVU0VTX0RVUkFU",
-            "SU9OEAYSLQopQ0xJRU5UX0FVRElPX1NVQlNDUklCRVJfQ09OQ0VBTEVEX1NB",
-            "TVBMRVMQBxI0CjBDTElFTlRfQVVESU9fU1VCU0NSSUJFUl9TSUxFTlRfQ09O",
-            "Q0VBTEVEX1NBTVBMRVMQCBIuCipDTElFTlRfQVVESU9fU1VCU0NSSUJFUl9D",
-            "T05DRUFMTUVOVF9FVkVOVFMQCRIuCipDTElFTlRfQVVESU9fU1VCU0NSSUJF",
-            "Ul9JTlRFUlJVUFRJT05fQ09VTlQQChI3CjNDTElFTlRfQVVESU9fU1VCU0NS",
-            "SUJFUl9UT1RBTF9JTlRFUlJVUFRJT05fRFVSQVRJT04QCxIpCiVDTElFTlRf",
-            "U1VCU0NSSUJFUl9KSVRURVJfQlVGRkVSX0RFTEFZEAwSMQotQ0xJRU5UX1NV",
-            "QlNDUklCRVJfSklUVEVSX0JVRkZFUl9FTUlUVEVEX0NPVU5UEA0SQAo8Q0xJ",
-            "RU5UX1ZJREVPX1BVQkxJU0hFUl9RVUFMSVRZX0xJTUlUQVRJT05fRFVSQVRJ",
-            "T05fQkFORFdJRFRIEA4SOgo2Q0xJRU5UX1ZJREVPX1BVQkxJU0hFUl9RVUFM",
-            "SVRZX0xJTUlUQVRJT05fRFVSQVRJT05fQ1BVEA8SPAo4Q0xJRU5UX1ZJREVP",
-            "X1BVQkxJU0hFUl9RVUFMSVRZX0xJTUlUQVRJT05fRFVSQVRJT05fT1RIRVIQ",
-            "EBIRCg1QVUJMSVNIRVJfUlRUEBESEwoPU0VSVkVSX01FU0hfUlRUEBISEgoO",
-            "U1VCU0NSSUJFUl9SVFQQExImCiFNRVRSSUNfTEFCRUxfUFJFREVGSU5FRF9N",
-            "QVhfVkFMVUUQgCBCRlojZ2l0aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xp",
-            "dmVraXSqAg1MaXZlS2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3Rv",
-            "Mw=="));
+            "ZF90aW1lc3RhbXAibwoWTWV0cmljc1JlY29yZGluZ0hlYWRlchIPCgdyb29t",
+            "X2lkGAEgASgJEiYKGWVuYWJsZV91c2VyX2RhdGFfdHJhaW5pbmcYAiABKAhI",
+            "AIgBAUIcChpfZW5hYmxlX3VzZXJfZGF0YV90cmFpbmluZyqBBwoLTWV0cmlj",
+            "TGFiZWwSEwoPQUdFTlRTX0xMTV9UVEZUEAASEwoPQUdFTlRTX1NUVF9UVEZU",
+            "EAESEwoPQUdFTlRTX1RUU19UVEZCEAISKAokQ0xJRU5UX1ZJREVPX1NVQlND",
+            "UklCRVJfRlJFRVpFX0NPVU5UEAMSMQotQ0xJRU5UX1ZJREVPX1NVQlNDUklC",
+            "RVJfVE9UQUxfRlJFRVpFX0RVUkFUSU9OEAQSJwojQ0xJRU5UX1ZJREVPX1NV",
+            "QlNDUklCRVJfUEFVU0VfQ09VTlQQBRIxCi1DTElFTlRfVklERU9fU1VCU0NS",
+            "SUJFUl9UT1RBTF9QQVVTRVNfRFVSQVRJT04QBhItCilDTElFTlRfQVVESU9f",
+            "U1VCU0NSSUJFUl9DT05DRUFMRURfU0FNUExFUxAHEjQKMENMSUVOVF9BVURJ",
+            "T19TVUJTQ1JJQkVSX1NJTEVOVF9DT05DRUFMRURfU0FNUExFUxAIEi4KKkNM",
+            "SUVOVF9BVURJT19TVUJTQ1JJQkVSX0NPTkNFQUxNRU5UX0VWRU5UUxAJEi4K",
+            "KkNMSUVOVF9BVURJT19TVUJTQ1JJQkVSX0lOVEVSUlVQVElPTl9DT1VOVBAK",
+            "EjcKM0NMSUVOVF9BVURJT19TVUJTQ1JJQkVSX1RPVEFMX0lOVEVSUlVQVElP",
+            "Tl9EVVJBVElPThALEikKJUNMSUVOVF9TVUJTQ1JJQkVSX0pJVFRFUl9CVUZG",
+            "RVJfREVMQVkQDBIxCi1DTElFTlRfU1VCU0NSSUJFUl9KSVRURVJfQlVGRkVS",
+            "X0VNSVRURURfQ09VTlQQDRJACjxDTElFTlRfVklERU9fUFVCTElTSEVSX1FV",
+            "QUxJVFlfTElNSVRBVElPTl9EVVJBVElPTl9CQU5EV0lEVEgQDhI6CjZDTElF",
+            "TlRfVklERU9fUFVCTElTSEVSX1FVQUxJVFlfTElNSVRBVElPTl9EVVJBVElP",
+            "Tl9DUFUQDxI8CjhDTElFTlRfVklERU9fUFVCTElTSEVSX1FVQUxJVFlfTElN",
+            "SVRBVElPTl9EVVJBVElPTl9PVEhFUhAQEhEKDVBVQkxJU0hFUl9SVFQQERIT",
+            "Cg9TRVJWRVJfTUVTSF9SVFQQEhISCg5TVUJTQ1JJQkVSX1JUVBATEiYKIU1F",
+            "VFJJQ19MQUJFTF9QUkVERUZJTkVEX01BWF9WQUxVRRCAIEJGWiNnaXRodWIu",
+            "Y29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/q",
+            "Ag5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.MetricLabel), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.MetricsBatch), global::Livekit.Server.Sdk.Dotnet.MetricsBatch.Parser, new[]{ "TimestampMs", "NormalizedTimestamp", "StrData", "TimeSeries", "Events" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TimeSeriesMetric), global::Livekit.Server.Sdk.Dotnet.TimeSeriesMetric.Parser, new[]{ "Label", "ParticipantIdentity", "TrackSid", "Samples", "Rid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.MetricSample), global::Livekit.Server.Sdk.Dotnet.MetricSample.Parser, new[]{ "TimestampMs", "NormalizedTimestamp", "Value" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.EventMetric), global::Livekit.Server.Sdk.Dotnet.EventMetric.Parser, new[]{ "Label", "ParticipantIdentity", "TrackSid", "StartTimestampMs", "EndTimestampMs", "NormalizedStartTimestamp", "NormalizedEndTimestamp", "Metadata", "Rid" }, new[]{ "EndTimestampMs", "NormalizedEndTimestamp" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.EventMetric), global::Livekit.Server.Sdk.Dotnet.EventMetric.Parser, new[]{ "Label", "ParticipantIdentity", "TrackSid", "StartTimestampMs", "EndTimestampMs", "NormalizedStartTimestamp", "NormalizedEndTimestamp", "Metadata", "Rid" }, new[]{ "EndTimestampMs", "NormalizedEndTimestamp" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.MetricsRecordingHeader), global::Livekit.Server.Sdk.Dotnet.MetricsRecordingHeader.Parser, new[]{ "RoomId", "EnableUserDataTraining" }, new[]{ "EnableUserDataTraining" }, null, null, null)
           }));
     }
     #endregion
@@ -255,7 +258,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// This is useful for storing participant identities, track names, etc.
     /// There is also a predefined list of labels that can be used to reference common metrics.
     /// They have reserved indices from 0 to (METRIC_LABEL_PREDEFINED_MAX_VALUE - 1).
-    /// Indexes pointing at str_data should start from METRIC_LABEL_PREDEFINED_MAX_VALUE, 
+    /// Indexes pointing at str_data should start from METRIC_LABEL_PREDEFINED_MAX_VALUE,
     /// such that str_data[0] == index of METRIC_LABEL_PREDEFINED_MAX_VALUE.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1669,6 +1672,258 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 72: {
             Rid = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class MetricsRecordingHeader : pb::IMessage<MetricsRecordingHeader>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<MetricsRecordingHeader> _parser = new pb::MessageParser<MetricsRecordingHeader>(() => new MetricsRecordingHeader());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<MetricsRecordingHeader> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitMetricsReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public MetricsRecordingHeader() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public MetricsRecordingHeader(MetricsRecordingHeader other) : this() {
+      _hasBits0 = other._hasBits0;
+      roomId_ = other.roomId_;
+      enableUserDataTraining_ = other.enableUserDataTraining_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public MetricsRecordingHeader Clone() {
+      return new MetricsRecordingHeader(this);
+    }
+
+    /// <summary>Field number for the "room_id" field.</summary>
+    public const int RoomIdFieldNumber = 1;
+    private string roomId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RoomId {
+      get { return roomId_; }
+      set {
+        roomId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "enable_user_data_training" field.</summary>
+    public const int EnableUserDataTrainingFieldNumber = 2;
+    private readonly static bool EnableUserDataTrainingDefaultValue = false;
+
+    private bool enableUserDataTraining_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool EnableUserDataTraining {
+      get { if ((_hasBits0 & 1) != 0) { return enableUserDataTraining_; } else { return EnableUserDataTrainingDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        enableUserDataTraining_ = value;
+      }
+    }
+    /// <summary>Gets whether the "enable_user_data_training" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasEnableUserDataTraining {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "enable_user_data_training" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearEnableUserDataTraining() {
+      _hasBits0 &= ~1;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as MetricsRecordingHeader);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(MetricsRecordingHeader other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RoomId != other.RoomId) return false;
+      if (EnableUserDataTraining != other.EnableUserDataTraining) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RoomId.Length != 0) hash ^= RoomId.GetHashCode();
+      if (HasEnableUserDataTraining) hash ^= EnableUserDataTraining.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (RoomId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RoomId);
+      }
+      if (HasEnableUserDataTraining) {
+        output.WriteRawTag(16);
+        output.WriteBool(EnableUserDataTraining);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (RoomId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RoomId);
+      }
+      if (HasEnableUserDataTraining) {
+        output.WriteRawTag(16);
+        output.WriteBool(EnableUserDataTraining);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (RoomId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomId);
+      }
+      if (HasEnableUserDataTraining) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(MetricsRecordingHeader other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RoomId.Length != 0) {
+        RoomId = other.RoomId;
+      }
+      if (other.HasEnableUserDataTraining) {
+        EnableUserDataTraining = other.EnableUserDataTraining;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            RoomId = input.ReadString();
+            break;
+          }
+          case 16: {
+            EnableUserDataTraining = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            RoomId = input.ReadString();
+            break;
+          }
+          case 16: {
+            EnableUserDataTraining = input.ReadBool();
             break;
           }
         }

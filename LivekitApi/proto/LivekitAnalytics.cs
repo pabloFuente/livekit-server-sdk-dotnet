@@ -142,7 +142,7 @@ namespace Livekit.Server.Sdk.Dotnet {
             "ZWQYEiABKAgSFgoOc2VydmljZV9zdGF0dXMYEyABKAkSGgoSc2VydmljZV9l",
             "cnJvcl9jb2RlGBQgASgFEhUKDXNlcnZpY2VfZXJyb3IYFSABKAkSEgoKc2Vu",
             "ZF9lcnJvchgWIAEoCSoqCgpTdHJlYW1UeXBlEgwKCFVQU1RSRUFNEAASDgoK",
-            "RE9XTlNUUkVBTRABKrEIChJBbmFseXRpY3NFdmVudFR5cGUSEAoMUk9PTV9D",
+            "RE9XTlNUUkVBTRABKsYIChJBbmFseXRpY3NFdmVudFR5cGUSEAoMUk9PTV9D",
             "UkVBVEVEEAASDgoKUk9PTV9FTkRFRBABEhYKElBBUlRJQ0lQQU5UX0pPSU5F",
             "RBACEhQKEFBBUlRJQ0lQQU5UX0xFRlQQAxIiCh5QQVJUSUNJUEFOVF9DT05O",
             "RUNUSU9OX0FCT1JURUQQLRITCg9UUkFDS19QVUJMSVNIRUQQBBIbChdUUkFD",
@@ -165,9 +165,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             "EhsKF1NJUF9QQVJUSUNJUEFOVF9DUkVBVEVEECQSFQoRU0lQX0NBTExfSU5D",
             "T01JTkcQJRIUChBTSVBfQ0FMTF9TVEFSVEVEECYSEgoOU0lQX0NBTExfRU5E",
             "RUQQJxIaChZTSVBfVFJBTlNGRVJfUkVRVUVTVEVEECsSGQoVU0lQX1RSQU5T",
-            "RkVSX0NPTVBMRVRFECwSCgoGUkVQT1JUECgSDAoIQVBJX0NBTEwQKRILCgdX",
-            "RUJIT09LECpCRlojZ2l0aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVr",
-            "aXSqAg1MaXZlS2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
+            "RkVSX0NPTVBMRVRFECwSEwoPU0lQX0NBTExfVVBEQVRFEC4SCgoGUkVQT1JU",
+            "ECgSDAoIQVBJX0NBTEwQKRILCgdXRUJIT09LECpCRlojZ2l0aHViLmNvbS9s",
+            "aXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1MaXZlS2l0LlByb3Rv6gIOTGl2",
+            "ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitSipReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitRoomReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.StreamType), typeof(global::Livekit.Server.Sdk.Dotnet.AnalyticsEventType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -240,6 +241,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [pbr::OriginalName("SIP_CALL_ENDED")] SipCallEnded = 39,
     [pbr::OriginalName("SIP_TRANSFER_REQUESTED")] SipTransferRequested = 43,
     [pbr::OriginalName("SIP_TRANSFER_COMPLETE")] SipTransferComplete = 44,
+    [pbr::OriginalName("SIP_CALL_UPDATE")] SipCallUpdate = 46,
     [pbr::OriginalName("REPORT")] Report = 40,
     [pbr::OriginalName("API_CALL")] ApiCall = 41,
     [pbr::OriginalName("WEBHOOK")] Webhook = 42,

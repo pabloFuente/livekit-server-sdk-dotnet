@@ -185,6 +185,10 @@ public class Twirp {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.MoveParticipantRequest, global::Livekit.Server.Sdk.Dotnet.MoveParticipantResponse>(client, "/twirp/livekit.RoomService/MoveParticipant", req, global::Livekit.Server.Sdk.Dotnet.MoveParticipantResponse.Parser.ParseFrom);
   }
 
+  public static async Task<global::Livekit.Server.Sdk.Dotnet.PerformRpcResponse> PerformRpc(HttpClient client, global::Livekit.Server.Sdk.Dotnet.PerformRpcRequest req) {
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.PerformRpcRequest, global::Livekit.Server.Sdk.Dotnet.PerformRpcResponse>(client, "/twirp/livekit.RoomService/PerformRpc", req, global::Livekit.Server.Sdk.Dotnet.PerformRpcResponse.Parser.ParseFrom);
+  }
+
   // Create a new Ingress
   public static async Task<global::Livekit.Server.Sdk.Dotnet.IngressInfo> CreateIngress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.CreateIngressRequest req) {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateIngressRequest, global::Livekit.Server.Sdk.Dotnet.IngressInfo>(client, "/twirp/livekit.Ingress/CreateIngress", req, global::Livekit.Server.Sdk.Dotnet.IngressInfo.Parser.ParseFrom);
