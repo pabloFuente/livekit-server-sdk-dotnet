@@ -80,7 +80,7 @@ rtp_port: 10000-20000";
             .WithName("redis")
             .WithPortBinding(6379, 6379)
             .WithAutoRemove(true)
-            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(6379))
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilExternalTcpPortIsAvailable(6379))
             .Build();
         redisContainer.StartAsync().Wait();
         // Livekit server
@@ -92,7 +92,7 @@ rtp_port: 10000-20000";
             .WithEnvironment("LIVEKIT_REDIS_ADDRESS", redisContainer.IpAddress + ":6379")
             .WithPortBinding(7880, 7880)
             .DependsOn(redisContainer)
-            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(7880))
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilExternalTcpPortIsAvailable(7880))
             .WithWaitStrategy(
                 Wait.ForUnixContainer()
                     .UntilHttpRequestIsSucceeded(r =>
@@ -118,7 +118,7 @@ rtp_port: 10000-20000";
             .WithPortBinding(9091, true)
             .DependsOn(redisContainer)
             .DependsOn(livekitServerContainer)
-            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(9091))
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilExternalTcpPortIsAvailable(9091))
             .WithWaitStrategy(
                 Wait.ForUnixContainer()
                     .UntilHttpRequestIsSucceeded(request =>
@@ -143,7 +143,7 @@ rtp_port: 10000-20000";
             .WithPortBinding(9091, true)
             .DependsOn(redisContainer)
             .DependsOn(livekitServerContainer)
-            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(9091))
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilExternalTcpPortIsAvailable(9091))
             .WithWaitStrategy(
                 Wait.ForUnixContainer()
                     .UntilHttpRequestIsSucceeded(request =>
