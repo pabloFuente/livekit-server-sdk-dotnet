@@ -61,112 +61,112 @@ public class Twirp {
 
   // start recording or streaming a room, participant, or tracks
   public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartRoomCompositeEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "/twirp/livekit.Egress/StartRoomCompositeEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartRoomCompositeEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartWebEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.WebEgressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.WebEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "/twirp/livekit.Egress/StartWebEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.WebEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartWebEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartParticipantEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "/twirp/livekit.Egress/StartParticipantEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartParticipantEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartTrackCompositeEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.TrackCompositeEgressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.TrackCompositeEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "/twirp/livekit.Egress/StartTrackCompositeEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.TrackCompositeEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartTrackCompositeEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartTrackEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.TrackEgressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.TrackEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "/twirp/livekit.Egress/StartTrackEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.TrackEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartTrackEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
 
   // update web composite layout
   public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> UpdateLayout(HttpClient client, global::Livekit.Server.Sdk.Dotnet.UpdateLayoutRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateLayoutRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "/twirp/livekit.Egress/UpdateLayout", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateLayoutRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/UpdateLayout", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
 
   // add or remove stream endpoints
   public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> UpdateStream(HttpClient client, global::Livekit.Server.Sdk.Dotnet.UpdateStreamRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateStreamRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "/twirp/livekit.Egress/UpdateStream", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateStreamRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/UpdateStream", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
 
   // list available egress
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ListEgressResponse> ListEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ListEgressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListEgressRequest, global::Livekit.Server.Sdk.Dotnet.ListEgressResponse>(client, "/twirp/livekit.Egress/ListEgress", req, global::Livekit.Server.Sdk.Dotnet.ListEgressResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListEgressRequest, global::Livekit.Server.Sdk.Dotnet.ListEgressResponse>(client, "twirp/livekit.Egress/ListEgress", req, global::Livekit.Server.Sdk.Dotnet.ListEgressResponse.Parser.ParseFrom);
   }
 
   // stop a recording or stream
   public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StopEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.StopEgressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.StopEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "/twirp/livekit.Egress/StopEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.StopEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StopEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.AgentDispatch> CreateDispatch(HttpClient client, global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest, global::Livekit.Server.Sdk.Dotnet.AgentDispatch>(client, "/twirp/livekit.AgentDispatchService/CreateDispatch", req, global::Livekit.Server.Sdk.Dotnet.AgentDispatch.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest, global::Livekit.Server.Sdk.Dotnet.AgentDispatch>(client, "twirp/livekit.AgentDispatchService/CreateDispatch", req, global::Livekit.Server.Sdk.Dotnet.AgentDispatch.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.AgentDispatch> DeleteDispatch(HttpClient client, global::Livekit.Server.Sdk.Dotnet.DeleteAgentDispatchRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.DeleteAgentDispatchRequest, global::Livekit.Server.Sdk.Dotnet.AgentDispatch>(client, "/twirp/livekit.AgentDispatchService/DeleteDispatch", req, global::Livekit.Server.Sdk.Dotnet.AgentDispatch.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.DeleteAgentDispatchRequest, global::Livekit.Server.Sdk.Dotnet.AgentDispatch>(client, "twirp/livekit.AgentDispatchService/DeleteDispatch", req, global::Livekit.Server.Sdk.Dotnet.AgentDispatch.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchResponse> ListDispatch(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchRequest, global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchResponse>(client, "/twirp/livekit.AgentDispatchService/ListDispatch", req, global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchRequest, global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchResponse>(client, "twirp/livekit.AgentDispatchService/ListDispatch", req, global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchResponse.Parser.ParseFrom);
   }
 
   // Creates a room with settings. Requires `roomCreate` permission.
   // This method is optional; rooms are automatically created when clients connect to them for the first time.
   public static async Task<global::Livekit.Server.Sdk.Dotnet.Room> CreateRoom(HttpClient client, global::Livekit.Server.Sdk.Dotnet.CreateRoomRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateRoomRequest, global::Livekit.Server.Sdk.Dotnet.Room>(client, "/twirp/livekit.RoomService/CreateRoom", req, global::Livekit.Server.Sdk.Dotnet.Room.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateRoomRequest, global::Livekit.Server.Sdk.Dotnet.Room>(client, "twirp/livekit.RoomService/CreateRoom", req, global::Livekit.Server.Sdk.Dotnet.Room.Parser.ParseFrom);
   }
 
   // List rooms that are active on the server. Requires `roomList` permission.
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ListRoomsResponse> ListRooms(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ListRoomsRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListRoomsRequest, global::Livekit.Server.Sdk.Dotnet.ListRoomsResponse>(client, "/twirp/livekit.RoomService/ListRooms", req, global::Livekit.Server.Sdk.Dotnet.ListRoomsResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListRoomsRequest, global::Livekit.Server.Sdk.Dotnet.ListRoomsResponse>(client, "twirp/livekit.RoomService/ListRooms", req, global::Livekit.Server.Sdk.Dotnet.ListRoomsResponse.Parser.ParseFrom);
   }
 
   // Deletes an existing room by name or id. Requires `roomCreate` permission.
   // DeleteRoom will disconnect all participants that are currently in the room.
   public static async Task<global::Livekit.Server.Sdk.Dotnet.DeleteRoomResponse> DeleteRoom(HttpClient client, global::Livekit.Server.Sdk.Dotnet.DeleteRoomRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.DeleteRoomRequest, global::Livekit.Server.Sdk.Dotnet.DeleteRoomResponse>(client, "/twirp/livekit.RoomService/DeleteRoom", req, global::Livekit.Server.Sdk.Dotnet.DeleteRoomResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.DeleteRoomRequest, global::Livekit.Server.Sdk.Dotnet.DeleteRoomResponse>(client, "twirp/livekit.RoomService/DeleteRoom", req, global::Livekit.Server.Sdk.Dotnet.DeleteRoomResponse.Parser.ParseFrom);
   }
 
   // Lists participants in a room, Requires `roomAdmin`
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ListParticipantsResponse> ListParticipants(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ListParticipantsRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListParticipantsRequest, global::Livekit.Server.Sdk.Dotnet.ListParticipantsResponse>(client, "/twirp/livekit.RoomService/ListParticipants", req, global::Livekit.Server.Sdk.Dotnet.ListParticipantsResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListParticipantsRequest, global::Livekit.Server.Sdk.Dotnet.ListParticipantsResponse>(client, "twirp/livekit.RoomService/ListParticipants", req, global::Livekit.Server.Sdk.Dotnet.ListParticipantsResponse.Parser.ParseFrom);
   }
 
   // Get information on a specific participant, Requires `roomAdmin`
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ParticipantInfo> GetParticipant(HttpClient client, global::Livekit.Server.Sdk.Dotnet.RoomParticipantIdentity req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.RoomParticipantIdentity, global::Livekit.Server.Sdk.Dotnet.ParticipantInfo>(client, "/twirp/livekit.RoomService/GetParticipant", req, global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.RoomParticipantIdentity, global::Livekit.Server.Sdk.Dotnet.ParticipantInfo>(client, "twirp/livekit.RoomService/GetParticipant", req, global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Parser.ParseFrom);
   }
 
   // Removes a participant from room. Requires `roomAdmin`
   public static async Task<global::Livekit.Server.Sdk.Dotnet.RemoveParticipantResponse> RemoveParticipant(HttpClient client, global::Livekit.Server.Sdk.Dotnet.RoomParticipantIdentity req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.RoomParticipantIdentity, global::Livekit.Server.Sdk.Dotnet.RemoveParticipantResponse>(client, "/twirp/livekit.RoomService/RemoveParticipant", req, global::Livekit.Server.Sdk.Dotnet.RemoveParticipantResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.RoomParticipantIdentity, global::Livekit.Server.Sdk.Dotnet.RemoveParticipantResponse>(client, "twirp/livekit.RoomService/RemoveParticipant", req, global::Livekit.Server.Sdk.Dotnet.RemoveParticipantResponse.Parser.ParseFrom);
   }
 
   // Mute/unmute a participant's track, Requires `roomAdmin`
   public static async Task<global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackResponse> MutePublishedTrack(HttpClient client, global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackRequest, global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackResponse>(client, "/twirp/livekit.RoomService/MutePublishedTrack", req, global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackRequest, global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackResponse>(client, "twirp/livekit.RoomService/MutePublishedTrack", req, global::Livekit.Server.Sdk.Dotnet.MuteRoomTrackResponse.Parser.ParseFrom);
   }
 
   // Update participant metadata, will cause updates to be broadcasted to everyone in the room. Requires `roomAdmin`
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ParticipantInfo> UpdateParticipant(HttpClient client, global::Livekit.Server.Sdk.Dotnet.UpdateParticipantRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateParticipantRequest, global::Livekit.Server.Sdk.Dotnet.ParticipantInfo>(client, "/twirp/livekit.RoomService/UpdateParticipant", req, global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateParticipantRequest, global::Livekit.Server.Sdk.Dotnet.ParticipantInfo>(client, "twirp/livekit.RoomService/UpdateParticipant", req, global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Parser.ParseFrom);
   }
 
   // Subscribes or unsubscribe a participant from tracks. Requires `roomAdmin`
   public static async Task<global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsResponse> UpdateSubscriptions(HttpClient client, global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsRequest, global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsResponse>(client, "/twirp/livekit.RoomService/UpdateSubscriptions", req, global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsRequest, global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsResponse>(client, "twirp/livekit.RoomService/UpdateSubscriptions", req, global::Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsResponse.Parser.ParseFrom);
   }
 
   // Send data over data channel to participants in a room, Requires `roomAdmin`
   public static async Task<global::Livekit.Server.Sdk.Dotnet.SendDataResponse> SendData(HttpClient client, global::Livekit.Server.Sdk.Dotnet.SendDataRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.SendDataRequest, global::Livekit.Server.Sdk.Dotnet.SendDataResponse>(client, "/twirp/livekit.RoomService/SendData", req, global::Livekit.Server.Sdk.Dotnet.SendDataResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.SendDataRequest, global::Livekit.Server.Sdk.Dotnet.SendDataResponse>(client, "twirp/livekit.RoomService/SendData", req, global::Livekit.Server.Sdk.Dotnet.SendDataResponse.Parser.ParseFrom);
   }
 
   // Update room metadata, will cause updates to be broadcasted to everyone in the room, Requires `roomAdmin`
   public static async Task<global::Livekit.Server.Sdk.Dotnet.Room> UpdateRoomMetadata(HttpClient client, global::Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest, global::Livekit.Server.Sdk.Dotnet.Room>(client, "/twirp/livekit.RoomService/UpdateRoomMetadata", req, global::Livekit.Server.Sdk.Dotnet.Room.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest, global::Livekit.Server.Sdk.Dotnet.Room>(client, "twirp/livekit.RoomService/UpdateRoomMetadata", req, global::Livekit.Server.Sdk.Dotnet.Room.Parser.ParseFrom);
   }
 
   // Cloud-only
@@ -174,7 +174,7 @@ public class Twirp {
   // stop when the participant leaves the room or `RemoveParticipant` has been called in the destination room. 
   // A participant can be forwarded to multiple rooms. The destination room will be created if it does not exist.
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ForwardParticipantResponse> ForwardParticipant(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ForwardParticipantRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ForwardParticipantRequest, global::Livekit.Server.Sdk.Dotnet.ForwardParticipantResponse>(client, "/twirp/livekit.RoomService/ForwardParticipant", req, global::Livekit.Server.Sdk.Dotnet.ForwardParticipantResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ForwardParticipantRequest, global::Livekit.Server.Sdk.Dotnet.ForwardParticipantResponse>(client, "twirp/livekit.RoomService/ForwardParticipant", req, global::Livekit.Server.Sdk.Dotnet.ForwardParticipantResponse.Parser.ParseFrom);
   }
 
   // Cloud-only
@@ -182,92 +182,92 @@ public class Twirp {
   // The participant will be removed from the current room and added to the destination room.
   // From the other observers' perspective, the participant would've disconnected from the previous room and joined the new one.
   public static async Task<global::Livekit.Server.Sdk.Dotnet.MoveParticipantResponse> MoveParticipant(HttpClient client, global::Livekit.Server.Sdk.Dotnet.MoveParticipantRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.MoveParticipantRequest, global::Livekit.Server.Sdk.Dotnet.MoveParticipantResponse>(client, "/twirp/livekit.RoomService/MoveParticipant", req, global::Livekit.Server.Sdk.Dotnet.MoveParticipantResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.MoveParticipantRequest, global::Livekit.Server.Sdk.Dotnet.MoveParticipantResponse>(client, "twirp/livekit.RoomService/MoveParticipant", req, global::Livekit.Server.Sdk.Dotnet.MoveParticipantResponse.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.PerformRpcResponse> PerformRpc(HttpClient client, global::Livekit.Server.Sdk.Dotnet.PerformRpcRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.PerformRpcRequest, global::Livekit.Server.Sdk.Dotnet.PerformRpcResponse>(client, "/twirp/livekit.RoomService/PerformRpc", req, global::Livekit.Server.Sdk.Dotnet.PerformRpcResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.PerformRpcRequest, global::Livekit.Server.Sdk.Dotnet.PerformRpcResponse>(client, "twirp/livekit.RoomService/PerformRpc", req, global::Livekit.Server.Sdk.Dotnet.PerformRpcResponse.Parser.ParseFrom);
   }
 
   // Create a new Ingress
   public static async Task<global::Livekit.Server.Sdk.Dotnet.IngressInfo> CreateIngress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.CreateIngressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateIngressRequest, global::Livekit.Server.Sdk.Dotnet.IngressInfo>(client, "/twirp/livekit.Ingress/CreateIngress", req, global::Livekit.Server.Sdk.Dotnet.IngressInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateIngressRequest, global::Livekit.Server.Sdk.Dotnet.IngressInfo>(client, "twirp/livekit.Ingress/CreateIngress", req, global::Livekit.Server.Sdk.Dotnet.IngressInfo.Parser.ParseFrom);
   }
 
   // Update an existing Ingress. Ingress can only be updated when it's in ENDPOINT_WAITING state.
   public static async Task<global::Livekit.Server.Sdk.Dotnet.IngressInfo> UpdateIngress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.UpdateIngressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateIngressRequest, global::Livekit.Server.Sdk.Dotnet.IngressInfo>(client, "/twirp/livekit.Ingress/UpdateIngress", req, global::Livekit.Server.Sdk.Dotnet.IngressInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateIngressRequest, global::Livekit.Server.Sdk.Dotnet.IngressInfo>(client, "twirp/livekit.Ingress/UpdateIngress", req, global::Livekit.Server.Sdk.Dotnet.IngressInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ListIngressResponse> ListIngress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ListIngressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListIngressRequest, global::Livekit.Server.Sdk.Dotnet.ListIngressResponse>(client, "/twirp/livekit.Ingress/ListIngress", req, global::Livekit.Server.Sdk.Dotnet.ListIngressResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListIngressRequest, global::Livekit.Server.Sdk.Dotnet.ListIngressResponse>(client, "twirp/livekit.Ingress/ListIngress", req, global::Livekit.Server.Sdk.Dotnet.ListIngressResponse.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.IngressInfo> DeleteIngress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.DeleteIngressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.DeleteIngressRequest, global::Livekit.Server.Sdk.Dotnet.IngressInfo>(client, "/twirp/livekit.Ingress/DeleteIngress", req, global::Livekit.Server.Sdk.Dotnet.IngressInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.DeleteIngressRequest, global::Livekit.Server.Sdk.Dotnet.IngressInfo>(client, "twirp/livekit.Ingress/DeleteIngress", req, global::Livekit.Server.Sdk.Dotnet.IngressInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkResponse> ListSIPTrunk(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkRequest, global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkResponse>(client, "/twirp/livekit.SIP/ListSIPTrunk", req, global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkRequest, global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkResponse>(client, "twirp/livekit.SIP/ListSIPTrunk", req, global::Livekit.Server.Sdk.Dotnet.ListSIPTrunkResponse.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo> CreateSIPInboundTrunk(HttpClient client, global::Livekit.Server.Sdk.Dotnet.CreateSIPInboundTrunkRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateSIPInboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo>(client, "/twirp/livekit.SIP/CreateSIPInboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateSIPInboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo>(client, "twirp/livekit.SIP/CreateSIPInboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo> CreateSIPOutboundTrunk(HttpClient client, global::Livekit.Server.Sdk.Dotnet.CreateSIPOutboundTrunkRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateSIPOutboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo>(client, "/twirp/livekit.SIP/CreateSIPOutboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateSIPOutboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo>(client, "twirp/livekit.SIP/CreateSIPOutboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo> UpdateSIPInboundTrunk(HttpClient client, global::Livekit.Server.Sdk.Dotnet.UpdateSIPInboundTrunkRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateSIPInboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo>(client, "/twirp/livekit.SIP/UpdateSIPInboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateSIPInboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo>(client, "twirp/livekit.SIP/UpdateSIPInboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo> UpdateSIPOutboundTrunk(HttpClient client, global::Livekit.Server.Sdk.Dotnet.UpdateSIPOutboundTrunkRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateSIPOutboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo>(client, "/twirp/livekit.SIP/UpdateSIPOutboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateSIPOutboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo>(client, "twirp/livekit.SIP/UpdateSIPOutboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkResponse> GetSIPInboundTrunk(HttpClient client, global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkResponse>(client, "/twirp/livekit.SIP/GetSIPInboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkResponse>(client, "twirp/livekit.SIP/GetSIPInboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkResponse.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkResponse> GetSIPOutboundTrunk(HttpClient client, global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkResponse>(client, "/twirp/livekit.SIP/GetSIPOutboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkResponse>(client, "twirp/livekit.SIP/GetSIPOutboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkResponse.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ListSIPInboundTrunkResponse> ListSIPInboundTrunk(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ListSIPInboundTrunkRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListSIPInboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.ListSIPInboundTrunkResponse>(client, "/twirp/livekit.SIP/ListSIPInboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.ListSIPInboundTrunkResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListSIPInboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.ListSIPInboundTrunkResponse>(client, "twirp/livekit.SIP/ListSIPInboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.ListSIPInboundTrunkResponse.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ListSIPOutboundTrunkResponse> ListSIPOutboundTrunk(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ListSIPOutboundTrunkRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListSIPOutboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.ListSIPOutboundTrunkResponse>(client, "/twirp/livekit.SIP/ListSIPOutboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.ListSIPOutboundTrunkResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListSIPOutboundTrunkRequest, global::Livekit.Server.Sdk.Dotnet.ListSIPOutboundTrunkResponse>(client, "twirp/livekit.SIP/ListSIPOutboundTrunk", req, global::Livekit.Server.Sdk.Dotnet.ListSIPOutboundTrunkResponse.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo> DeleteSIPTrunk(HttpClient client, global::Livekit.Server.Sdk.Dotnet.DeleteSIPTrunkRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.DeleteSIPTrunkRequest, global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo>(client, "/twirp/livekit.SIP/DeleteSIPTrunk", req, global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.DeleteSIPTrunkRequest, global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo>(client, "twirp/livekit.SIP/DeleteSIPTrunk", req, global::Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo> CreateSIPDispatchRule(HttpClient client, global::Livekit.Server.Sdk.Dotnet.CreateSIPDispatchRuleRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateSIPDispatchRuleRequest, global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo>(client, "/twirp/livekit.SIP/CreateSIPDispatchRule", req, global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateSIPDispatchRuleRequest, global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo>(client, "twirp/livekit.SIP/CreateSIPDispatchRule", req, global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo> UpdateSIPDispatchRule(HttpClient client, global::Livekit.Server.Sdk.Dotnet.UpdateSIPDispatchRuleRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateSIPDispatchRuleRequest, global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo>(client, "/twirp/livekit.SIP/UpdateSIPDispatchRule", req, global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateSIPDispatchRuleRequest, global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo>(client, "twirp/livekit.SIP/UpdateSIPDispatchRule", req, global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleResponse> ListSIPDispatchRule(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleRequest, global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleResponse>(client, "/twirp/livekit.SIP/ListSIPDispatchRule", req, global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleResponse.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleRequest, global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleResponse>(client, "twirp/livekit.SIP/ListSIPDispatchRule", req, global::Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleResponse.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo> DeleteSIPDispatchRule(HttpClient client, global::Livekit.Server.Sdk.Dotnet.DeleteSIPDispatchRuleRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.DeleteSIPDispatchRuleRequest, global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo>(client, "/twirp/livekit.SIP/DeleteSIPDispatchRule", req, global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.DeleteSIPDispatchRuleRequest, global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo>(client, "twirp/livekit.SIP/DeleteSIPDispatchRule", req, global::Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.SIPParticipantInfo> CreateSIPParticipant(HttpClient client, global::Livekit.Server.Sdk.Dotnet.CreateSIPParticipantRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateSIPParticipantRequest, global::Livekit.Server.Sdk.Dotnet.SIPParticipantInfo>(client, "/twirp/livekit.SIP/CreateSIPParticipant", req, global::Livekit.Server.Sdk.Dotnet.SIPParticipantInfo.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateSIPParticipantRequest, global::Livekit.Server.Sdk.Dotnet.SIPParticipantInfo>(client, "twirp/livekit.SIP/CreateSIPParticipant", req, global::Livekit.Server.Sdk.Dotnet.SIPParticipantInfo.Parser.ParseFrom);
   }
 
   public static async Task<Google.Protobuf.WellKnownTypes.Empty> TransferSIPParticipant(HttpClient client, global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest, Google.Protobuf.WellKnownTypes.Empty>(client, "/twirp/livekit.SIP/TransferSIPParticipant", req, Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest, Google.Protobuf.WellKnownTypes.Empty>(client, "twirp/livekit.SIP/TransferSIPParticipant", req, Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
   }
 }
