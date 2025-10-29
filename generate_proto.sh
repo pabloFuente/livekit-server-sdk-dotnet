@@ -32,7 +32,7 @@ sed -i 's|global::LiveKit.Proto.|global::Livekit.Server.Sdk.Dotnet.|g' "$API_OUT
 
 # Twirp (generated with https://github.com/seanpfeifer/twirp-gen)
 
-protoc -I "$API_PROTOCOL" --twirpcs_out="$API_OUT_CSHARP" \
+protoc -I "$API_PROTOCOL" --twirpcs_out=pathPrefix=twirp:"$API_OUT_CSHARP" \
     "$API_PROTOCOL"/livekit_room.proto \
     "$API_PROTOCOL"/livekit_egress.proto \
     "$API_PROTOCOL"/livekit_ingress.proto \
