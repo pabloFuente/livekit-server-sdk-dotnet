@@ -43,31 +43,31 @@ namespace Livekit.Server.Sdk.Dotnet {
             "Chhub3JtYWxpemVkX2VuZF90aW1lc3RhbXAYByABKAsyGi5nb29nbGUucHJv",
             "dG9idWYuVGltZXN0YW1wSAGIAQESEAoIbWV0YWRhdGEYCCABKAkSCwoDcmlk",
             "GAkgASgNQhMKEV9lbmRfdGltZXN0YW1wX21zQhsKGV9ub3JtYWxpemVkX2Vu",
-            "ZF90aW1lc3RhbXAibwoWTWV0cmljc1JlY29yZGluZ0hlYWRlchIPCgdyb29t",
-            "X2lkGAEgASgJEiYKGWVuYWJsZV91c2VyX2RhdGFfdHJhaW5pbmcYAiABKAhI",
-            "AIgBAUIcChpfZW5hYmxlX3VzZXJfZGF0YV90cmFpbmluZyqBBwoLTWV0cmlj",
-            "TGFiZWwSEwoPQUdFTlRTX0xMTV9UVEZUEAASEwoPQUdFTlRTX1NUVF9UVEZU",
-            "EAESEwoPQUdFTlRTX1RUU19UVEZCEAISKAokQ0xJRU5UX1ZJREVPX1NVQlND",
-            "UklCRVJfRlJFRVpFX0NPVU5UEAMSMQotQ0xJRU5UX1ZJREVPX1NVQlNDUklC",
-            "RVJfVE9UQUxfRlJFRVpFX0RVUkFUSU9OEAQSJwojQ0xJRU5UX1ZJREVPX1NV",
-            "QlNDUklCRVJfUEFVU0VfQ09VTlQQBRIxCi1DTElFTlRfVklERU9fU1VCU0NS",
-            "SUJFUl9UT1RBTF9QQVVTRVNfRFVSQVRJT04QBhItCilDTElFTlRfQVVESU9f",
-            "U1VCU0NSSUJFUl9DT05DRUFMRURfU0FNUExFUxAHEjQKMENMSUVOVF9BVURJ",
-            "T19TVUJTQ1JJQkVSX1NJTEVOVF9DT05DRUFMRURfU0FNUExFUxAIEi4KKkNM",
-            "SUVOVF9BVURJT19TVUJTQ1JJQkVSX0NPTkNFQUxNRU5UX0VWRU5UUxAJEi4K",
-            "KkNMSUVOVF9BVURJT19TVUJTQ1JJQkVSX0lOVEVSUlVQVElPTl9DT1VOVBAK",
-            "EjcKM0NMSUVOVF9BVURJT19TVUJTQ1JJQkVSX1RPVEFMX0lOVEVSUlVQVElP",
-            "Tl9EVVJBVElPThALEikKJUNMSUVOVF9TVUJTQ1JJQkVSX0pJVFRFUl9CVUZG",
-            "RVJfREVMQVkQDBIxCi1DTElFTlRfU1VCU0NSSUJFUl9KSVRURVJfQlVGRkVS",
-            "X0VNSVRURURfQ09VTlQQDRJACjxDTElFTlRfVklERU9fUFVCTElTSEVSX1FV",
-            "QUxJVFlfTElNSVRBVElPTl9EVVJBVElPTl9CQU5EV0lEVEgQDhI6CjZDTElF",
-            "TlRfVklERU9fUFVCTElTSEVSX1FVQUxJVFlfTElNSVRBVElPTl9EVVJBVElP",
-            "Tl9DUFUQDxI8CjhDTElFTlRfVklERU9fUFVCTElTSEVSX1FVQUxJVFlfTElN",
-            "SVRBVElPTl9EVVJBVElPTl9PVEhFUhAQEhEKDVBVQkxJU0hFUl9SVFQQERIT",
-            "Cg9TRVJWRVJfTUVTSF9SVFQQEhISCg5TVUJTQ1JJQkVSX1JUVBATEiYKIU1F",
-            "VFJJQ19MQUJFTF9QUkVERUZJTkVEX01BWF9WQUxVRRCAIEJGWiNnaXRodWIu",
-            "Y29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/q",
-            "Ag5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
+            "ZF90aW1lc3RhbXAiawoWTWV0cmljc1JlY29yZGluZ0hlYWRlchIPCgdyb29t",
+            "X2lkGAEgASgJEhAKCGR1cmF0aW9uGAMgASgEEi4KCnN0YXJ0X3RpbWUYBCAB",
+            "KAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wKoEHCgtNZXRyaWNMYWJl",
+            "bBITCg9BR0VOVFNfTExNX1RURlQQABITCg9BR0VOVFNfU1RUX1RURlQQARIT",
+            "Cg9BR0VOVFNfVFRTX1RURkIQAhIoCiRDTElFTlRfVklERU9fU1VCU0NSSUJF",
+            "Ul9GUkVFWkVfQ09VTlQQAxIxCi1DTElFTlRfVklERU9fU1VCU0NSSUJFUl9U",
+            "T1RBTF9GUkVFWkVfRFVSQVRJT04QBBInCiNDTElFTlRfVklERU9fU1VCU0NS",
+            "SUJFUl9QQVVTRV9DT1VOVBAFEjEKLUNMSUVOVF9WSURFT19TVUJTQ1JJQkVS",
+            "X1RPVEFMX1BBVVNFU19EVVJBVElPThAGEi0KKUNMSUVOVF9BVURJT19TVUJT",
+            "Q1JJQkVSX0NPTkNFQUxFRF9TQU1QTEVTEAcSNAowQ0xJRU5UX0FVRElPX1NV",
+            "QlNDUklCRVJfU0lMRU5UX0NPTkNFQUxFRF9TQU1QTEVTEAgSLgoqQ0xJRU5U",
+            "X0FVRElPX1NVQlNDUklCRVJfQ09OQ0VBTE1FTlRfRVZFTlRTEAkSLgoqQ0xJ",
+            "RU5UX0FVRElPX1NVQlNDUklCRVJfSU5URVJSVVBUSU9OX0NPVU5UEAoSNwoz",
+            "Q0xJRU5UX0FVRElPX1NVQlNDUklCRVJfVE9UQUxfSU5URVJSVVBUSU9OX0RV",
+            "UkFUSU9OEAsSKQolQ0xJRU5UX1NVQlNDUklCRVJfSklUVEVSX0JVRkZFUl9E",
+            "RUxBWRAMEjEKLUNMSUVOVF9TVUJTQ1JJQkVSX0pJVFRFUl9CVUZGRVJfRU1J",
+            "VFRFRF9DT1VOVBANEkAKPENMSUVOVF9WSURFT19QVUJMSVNIRVJfUVVBTElU",
+            "WV9MSU1JVEFUSU9OX0RVUkFUSU9OX0JBTkRXSURUSBAOEjoKNkNMSUVOVF9W",
+            "SURFT19QVUJMSVNIRVJfUVVBTElUWV9MSU1JVEFUSU9OX0RVUkFUSU9OX0NQ",
+            "VRAPEjwKOENMSUVOVF9WSURFT19QVUJMSVNIRVJfUVVBTElUWV9MSU1JVEFU",
+            "SU9OX0RVUkFUSU9OX09USEVSEBASEQoNUFVCTElTSEVSX1JUVBAREhMKD1NF",
+            "UlZFUl9NRVNIX1JUVBASEhIKDlNVQlNDUklCRVJfUlRUEBMSJgohTUVUUklD",
+            "X0xBQkVMX1BSRURFRklORURfTUFYX1ZBTFVFEIAgQkZaI2dpdGh1Yi5jb20v",
+            "bGl2ZWtpdC9wcm90b2NvbC9saXZla2l0qgINTGl2ZUtpdC5Qcm90b+oCDkxp",
+            "dmVLaXQ6OlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.MetricLabel), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -75,7 +75,7 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TimeSeriesMetric), global::Livekit.Server.Sdk.Dotnet.TimeSeriesMetric.Parser, new[]{ "Label", "ParticipantIdentity", "TrackSid", "Samples", "Rid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.MetricSample), global::Livekit.Server.Sdk.Dotnet.MetricSample.Parser, new[]{ "TimestampMs", "NormalizedTimestamp", "Value" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.EventMetric), global::Livekit.Server.Sdk.Dotnet.EventMetric.Parser, new[]{ "Label", "ParticipantIdentity", "TrackSid", "StartTimestampMs", "EndTimestampMs", "NormalizedStartTimestamp", "NormalizedEndTimestamp", "Metadata", "Rid" }, new[]{ "EndTimestampMs", "NormalizedEndTimestamp" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.MetricsRecordingHeader), global::Livekit.Server.Sdk.Dotnet.MetricsRecordingHeader.Parser, new[]{ "RoomId", "EnableUserDataTraining" }, new[]{ "EnableUserDataTraining" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.MetricsRecordingHeader), global::Livekit.Server.Sdk.Dotnet.MetricsRecordingHeader.Parser, new[]{ "RoomId", "Duration", "StartTime" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1689,7 +1689,6 @@ namespace Livekit.Server.Sdk.Dotnet {
   {
     private static readonly pb::MessageParser<MetricsRecordingHeader> _parser = new pb::MessageParser<MetricsRecordingHeader>(() => new MetricsRecordingHeader());
     private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<MetricsRecordingHeader> Parser { get { return _parser; } }
@@ -1717,9 +1716,9 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public MetricsRecordingHeader(MetricsRecordingHeader other) : this() {
-      _hasBits0 = other._hasBits0;
       roomId_ = other.roomId_;
-      enableUserDataTraining_ = other.enableUserDataTraining_;
+      duration_ = other.duration_;
+      startTime_ = other.startTime_ != null ? other.startTime_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1741,31 +1740,31 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
-    /// <summary>Field number for the "enable_user_data_training" field.</summary>
-    public const int EnableUserDataTrainingFieldNumber = 2;
-    private readonly static bool EnableUserDataTrainingDefaultValue = false;
-
-    private bool enableUserDataTraining_;
+    /// <summary>Field number for the "duration" field.</summary>
+    public const int DurationFieldNumber = 3;
+    private ulong duration_;
+    /// <summary>
+    /// milliseconds
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool EnableUserDataTraining {
-      get { if ((_hasBits0 & 1) != 0) { return enableUserDataTraining_; } else { return EnableUserDataTrainingDefaultValue; } }
+    public ulong Duration {
+      get { return duration_; }
       set {
-        _hasBits0 |= 1;
-        enableUserDataTraining_ = value;
+        duration_ = value;
       }
     }
-    /// <summary>Gets whether the "enable_user_data_training" field is set</summary>
+
+    /// <summary>Field number for the "start_time" field.</summary>
+    public const int StartTimeFieldNumber = 4;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp startTime_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasEnableUserDataTraining {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "enable_user_data_training" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearEnableUserDataTraining() {
-      _hasBits0 &= ~1;
+    public global::Google.Protobuf.WellKnownTypes.Timestamp StartTime {
+      get { return startTime_; }
+      set {
+        startTime_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1784,7 +1783,8 @@ namespace Livekit.Server.Sdk.Dotnet {
         return true;
       }
       if (RoomId != other.RoomId) return false;
-      if (EnableUserDataTraining != other.EnableUserDataTraining) return false;
+      if (Duration != other.Duration) return false;
+      if (!object.Equals(StartTime, other.StartTime)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1793,7 +1793,8 @@ namespace Livekit.Server.Sdk.Dotnet {
     public override int GetHashCode() {
       int hash = 1;
       if (RoomId.Length != 0) hash ^= RoomId.GetHashCode();
-      if (HasEnableUserDataTraining) hash ^= EnableUserDataTraining.GetHashCode();
+      if (Duration != 0UL) hash ^= Duration.GetHashCode();
+      if (startTime_ != null) hash ^= StartTime.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1816,9 +1817,13 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(10);
         output.WriteString(RoomId);
       }
-      if (HasEnableUserDataTraining) {
-        output.WriteRawTag(16);
-        output.WriteBool(EnableUserDataTraining);
+      if (Duration != 0UL) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(Duration);
+      }
+      if (startTime_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(StartTime);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1834,9 +1839,13 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(10);
         output.WriteString(RoomId);
       }
-      if (HasEnableUserDataTraining) {
-        output.WriteRawTag(16);
-        output.WriteBool(EnableUserDataTraining);
+      if (Duration != 0UL) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(Duration);
+      }
+      if (startTime_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(StartTime);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1851,8 +1860,11 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (RoomId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomId);
       }
-      if (HasEnableUserDataTraining) {
-        size += 1 + 1;
+      if (Duration != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Duration);
+      }
+      if (startTime_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(StartTime);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1869,8 +1881,14 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.RoomId.Length != 0) {
         RoomId = other.RoomId;
       }
-      if (other.HasEnableUserDataTraining) {
-        EnableUserDataTraining = other.EnableUserDataTraining;
+      if (other.Duration != 0UL) {
+        Duration = other.Duration;
+      }
+      if (other.startTime_ != null) {
+        if (startTime_ == null) {
+          StartTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        StartTime.MergeFrom(other.StartTime);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1895,8 +1913,15 @@ namespace Livekit.Server.Sdk.Dotnet {
             RoomId = input.ReadString();
             break;
           }
-          case 16: {
-            EnableUserDataTraining = input.ReadBool();
+          case 24: {
+            Duration = input.ReadUInt64();
+            break;
+          }
+          case 34: {
+            if (startTime_ == null) {
+              StartTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(StartTime);
             break;
           }
         }
@@ -1922,8 +1947,15 @@ namespace Livekit.Server.Sdk.Dotnet {
             RoomId = input.ReadString();
             break;
           }
-          case 16: {
-            EnableUserDataTraining = input.ReadBool();
+          case 24: {
+            Duration = input.ReadUInt64();
+            break;
+          }
+          case 34: {
+            if (startTime_ == null) {
+              StartTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(StartTime);
             break;
           }
         }
