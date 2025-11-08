@@ -1,5 +1,10 @@
 # Changelog (Release Notes)
 
+## 1.0.14
+
+- Update livekit/protocol to [v1.43.0](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.43.0)
+- Allow subpaths in the base URL when connecting to LiveKit server API. Before, all petitions were routed to the root path /twirp (e.g., https://my-livekit-server.com/twirp). Now, subpaths are also supported (e.g., https://my-livekit-server.com/my-subpath/twirp). [PR #32](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/32)
+
 ## 1.0.13
 
 - Update livekit/protocol to [v1.42.0](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.42.0)
