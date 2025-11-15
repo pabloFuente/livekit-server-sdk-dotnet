@@ -293,17 +293,22 @@ public class TestHttpMessageHandler : HttpMessageHandler
     protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
         LastRequest = request;
+
+        // Return an empty but valid protobuf message for any service client.
+        var emptyContent = new ByteArrayContent(new byte[0]);
+        emptyContent.Headers.ContentType = new MediaTypeHeaderValue("application/protobuf");
+
         var response = new HttpResponseMessage(System.Net.HttpStatusCode.OK)
         {
-            Content = new StringContent("{}")
+            Content = emptyContent
         };
+
         if (request.Headers.Contains("X-Test-Random-Out"))
-        {
             response.Headers.Add("X-Test-Random-In", request.Headers.GetValues("X-Test-Random-Out"));
-        }
-        // Always add a marker header to prove this handler was used
+
         response.Headers.Add("X-Test-Handler", "CustomHttpClientUsed");
         LastResponse = response;
+
         return Task.FromResult(response);
     }
 }
