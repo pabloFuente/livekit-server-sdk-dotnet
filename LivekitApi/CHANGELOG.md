@@ -1,5 +1,9 @@
 # Changelog (Release Notes)
 
+## 1.1.0
+
+- Allow configuring a custom HttpClient (of package System.Net.Http) when creating any service client. This allows setting custom headers, proxy configuration, timeouts, or other HttpClient settings. See [Using a custom HttpClient](https://github.com/pabloFuente/livekit-server-sdk-dotnet/blob/d522cedc64d6b0ec873a9fbecd6189a512ae0a10/README.md#using-a-custom-httpclient).
+
 ## 1.0.14
 
 - Update livekit/protocol to [v1.43.0](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.43.0)
