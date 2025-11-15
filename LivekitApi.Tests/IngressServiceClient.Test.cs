@@ -32,7 +32,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
             var service = new IngressServiceClient("http://localhost", "key", "secretsecretsecretsecretsecretsecret", client);
 
-            var response = await service.ListIngress(new ListIngressRequest());
+            await service.ListIngress(new ListIngressRequest());
 
             // The custom header is present in the outgoing request
             Assert.NotNull(handler.LastRequest);

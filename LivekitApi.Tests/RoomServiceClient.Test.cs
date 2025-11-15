@@ -29,7 +29,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
             var service = new RoomServiceClient("http://localhost", "key", "secretsecretsecretsecretsecretsecret", client);
 
-            var response = await service.ListRooms(new ListRoomsRequest());
+            await service.ListRooms(new ListRoomsRequest());
 
             // The custom header is present in the outgoing request
             Assert.NotNull(handler.LastRequest);

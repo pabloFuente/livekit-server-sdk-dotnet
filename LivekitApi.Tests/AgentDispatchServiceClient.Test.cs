@@ -14,7 +14,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
             var service = new AgentDispatchServiceClient("http://localhost", "key", "secretsecretsecretsecretsecretsecret", client);
 
-            var response = await service.ListDispatch(new ListAgentDispatchRequest());
+            await service.ListDispatch(new ListAgentDispatchRequest());
 
             // The custom header is present in the outgoing request
             Assert.NotNull(handler.LastRequest);

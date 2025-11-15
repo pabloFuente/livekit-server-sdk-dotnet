@@ -39,7 +39,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
             var service = new SipServiceClient("http://localhost", "key", "secretsecretsecretsecretsecretsecret", client);
 
-            var response = await service.ListSIPInboundTrunk(new ListSIPInboundTrunkRequest());
+            await service.ListSIPInboundTrunk(new ListSIPInboundTrunkRequest());
 
             // The custom header is present in the outgoing request
             Assert.NotNull(handler.LastRequest);

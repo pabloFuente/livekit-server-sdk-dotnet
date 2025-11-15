@@ -32,7 +32,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
             var service = new EgressServiceClient("http://localhost", "key", "secretsecretsecretsecretsecretsecret", client);
 
-            var response = await service.ListEgress(new ListEgressRequest());
+            await service.ListEgress(new ListEgressRequest());
 
             // The custom header is present in the outgoing request
             Assert.NotNull(handler.LastRequest);
