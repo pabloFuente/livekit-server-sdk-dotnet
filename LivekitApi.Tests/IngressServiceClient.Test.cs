@@ -30,21 +30,35 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             var randomHeaderValue = "random-value-" + Guid.NewGuid().ToString();
             client.DefaultRequestHeaders.Add("X-Test-Random-Out", randomHeaderValue);
 
-            var service = new IngressServiceClient("http://localhost", "key", "secretsecretsecretsecretsecretsecret", client);
+            var service = new IngressServiceClient(
+                "http://localhost",
+                "key",
+                "secretsecretsecretsecretsecretsecret",
+                client
+            );
 
             await service.ListIngress(new ListIngressRequest());
 
             // The custom header is present in the outgoing request
             Assert.NotNull(handler.LastRequest);
             Assert.True(handler.LastRequest.Headers.Contains("X-Test-Header"));
-            Assert.Equal("test-value", handler.LastRequest.Headers.GetValues("X-Test-Header").First());
+            Assert.Equal(
+                "test-value",
+                handler.LastRequest.Headers.GetValues("X-Test-Header").First()
+            );
 
             // The handler's response contains the marker header and echo header
             Assert.NotNull(handler.LastResponse);
             Assert.True(handler.LastResponse.Headers.Contains("X-Test-Handler"));
-            Assert.Equal("CustomHttpClientUsed", handler.LastResponse.Headers.GetValues("X-Test-Handler").First());
+            Assert.Equal(
+                "CustomHttpClientUsed",
+                handler.LastResponse.Headers.GetValues("X-Test-Handler").First()
+            );
             Assert.True(handler.LastResponse.Headers.Contains("X-Test-Random-In"));
-            Assert.Equal(randomHeaderValue, handler.LastResponse.Headers.GetValues("X-Test-Random-In").First());
+            Assert.Equal(
+                randomHeaderValue,
+                handler.LastResponse.Headers.GetValues("X-Test-Random-In").First()
+            );
         }
 
         [Fact]

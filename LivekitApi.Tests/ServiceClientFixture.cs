@@ -291,7 +291,10 @@ public class TestHttpMessageHandler : HttpMessageHandler
     public HttpRequestMessage LastRequest { get; private set; }
     public HttpResponseMessage LastResponse { get; private set; }
 
-    protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+    protected override Task<HttpResponseMessage> SendAsync(
+        HttpRequestMessage request,
+        CancellationToken cancellationToken
+    )
     {
         LastRequest = request;
 
@@ -301,11 +304,14 @@ public class TestHttpMessageHandler : HttpMessageHandler
 
         var response = new HttpResponseMessage(System.Net.HttpStatusCode.OK)
         {
-            Content = emptyContent
+            Content = emptyContent,
         };
 
         if (request.Headers.Contains("X-Test-Random-Out"))
-            response.Headers.Add("X-Test-Random-In", request.Headers.GetValues("X-Test-Random-Out"));
+            response.Headers.Add(
+                "X-Test-Random-In",
+                request.Headers.GetValues("X-Test-Random-Out")
+            );
 
         response.Headers.Add("X-Test-Handler", "CustomHttpClientUsed");
         LastResponse = response;
