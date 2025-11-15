@@ -1,3 +1,4 @@
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
@@ -5,8 +6,13 @@ namespace Livekit.Server.Sdk.Dotnet
 {
     public class AgentDispatchServiceClient : BaseService
     {
-        public AgentDispatchServiceClient(string host, string apiKey, string apiSecret)
-            : base(host, apiKey, apiSecret) { }
+        public AgentDispatchServiceClient(
+            string host,
+            string apiKey,
+            string apiSecret,
+            HttpClient client = null
+        )
+            : base(host, apiKey, apiSecret, client) { }
 
         public async Task<AgentDispatch> CreateDispatch(CreateAgentDispatchRequest request)
         {

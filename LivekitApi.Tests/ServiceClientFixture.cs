@@ -1,4 +1,7 @@
 using System.Net;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Containers;
@@ -279,6 +282,29 @@ rtp_port: 10000-20000";
         var path = Path.GetTempPath();
         var fileName = Path.ChangeExtension(Guid.NewGuid().ToString(), extension);
         return Path.Combine(path, fileName);
+    }
+}
+
+public class TestHttpMessageHandler : HttpMessageHandler
+{
+    public HttpRequestMessage LastRequest { get; private set; }
+    public HttpResponseMessage LastResponse { get; private set; }
+
+    protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+    {
+        LastRequest = request;
+        var response = new HttpResponseMessage(System.Net.HttpStatusCode.OK)
+        {
+            Content = new StringContent("{}")
+        };
+        if (request.Headers.Contains("X-Test-Random-Out"))
+        {
+            response.Headers.Add("X-Test-Random-In", request.Headers.GetValues("X-Test-Random-Out"));
+        }
+        // Always add a marker header to prove this handler was used
+        response.Headers.Add("X-Test-Handler", "CustomHttpClientUsed");
+        LastResponse = response;
+        return Task.FromResult(response);
     }
 }
 

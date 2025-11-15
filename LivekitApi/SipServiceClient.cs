@@ -1,3 +1,4 @@
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Google.Protobuf.WellKnownTypes;
@@ -6,8 +7,13 @@ namespace Livekit.Server.Sdk.Dotnet
 {
     public class SipServiceClient : BaseService
     {
-        public SipServiceClient(string host, string apiKey, string apiSecret)
-            : base(host, apiKey, apiSecret) { }
+        public SipServiceClient(
+            string host,
+            string apiKey,
+            string apiSecret,
+            HttpClient client = null
+        )
+            : base(host, apiKey, apiSecret, client) { }
 
         [System.Obsolete(
             "This method is obsolete. Call ListSipInboundTrunk or ListSipOutboundTrunk instead.",

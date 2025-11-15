@@ -17,6 +17,7 @@
   - [Agent Dispatch Service](#agent-dispatch-service)
   - [Receiving Webhooks](#receiving-webhooks)
   - [Environment Variables](#environment-variables)
+  - [Using a custom HttpClient](#using-a-custom-httpclient)
 - [Example app](#example-app)
 - [For developers of the SDK](#for-developers-of-the-sdk)
   - [Clone repository](#clone-repository)
@@ -332,6 +333,39 @@ You may store credentials in environment variables. If api-key or api-secret is 
 - `LIVEKIT_API_KEY`
 - `LIVEKIT_API_SECRET`
 
+## Using a custom HttpClient
+
+You can provide a custom `HttpClient` when creating any of the service clients. This allows you to customize settings such as timeouts, headers, or proxy configurations.
+
+```csharp
+using System;
+using System.Net;
+using System.Net.Http;
+using Livekit.Server.Sdk.Dotnet;
+
+// Custom proxy
+var handler = new HttpClientHandler
+{
+    Proxy = new WebProxy("http://myproxy.example.com:8080"),
+    UseProxy = true
+};
+
+// Custom timeout and custom header
+var httpClient = new HttpClient(handler)
+{
+    Timeout = TimeSpan.FromSeconds(10)
+};
+httpClient.DefaultRequestHeaders.Add("X-Custom-Header", "my-value");
+
+// Pass your custom HttpClient to the service client
+var roomService = new RoomServiceClient(
+    "https://your-livekit-server",
+    "your-api-key",
+    "your-api-secret",
+    httpClient
+);
+```
+
 # Example app
 
 At [LivekitApi.Example](https://github.com/pabloFuente/livekit-server-sdk-dotnet/tree/main/LivekitApi.Example) you can find a sample application using livekit-server-sdk-dotnet.
@@ -483,7 +517,9 @@ dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:Gen
 This compatibility suppression file will allow packaging and publishing the SDK even with breaking changes. Once the new version is available in NuGet, the only thing left is to update in file `LivekitApi.csproj` property `<PackageValidationBaselineVersion>X.Y.Z</PackageValidationBaselineVersion>` to the new version (so the new reference for breaking changes is this new version), and delete `CompatibilitySuppressions.xml` (as it is no longer needed). Workflow [publish.yml](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/publish.yml) automatically does this as last step.
 
 <!--BEGIN_REPO_NAV-->
+
 <br/><table>
+
 <thead><tr><th colspan="2">LiveKit Ecosystem</th></tr></thead>
 <tbody>
 <tr><td>LiveKit SDKs</td><td><a href="https://github.com/livekit/client-sdk-js">Browser</a> · <a href="https://github.com/livekit/client-sdk-swift">iOS/macOS/visionOS</a> · <a href="https://github.com/livekit/client-sdk-android">Android</a> · <a href="https://github.com/livekit/client-sdk-flutter">Flutter</a> · <a href="https://github.com/livekit/client-sdk-react-native">React Native</a> · <a href="https://github.com/livekit/rust-sdks">Rust</a> · <a href="https://github.com/livekit/node-sdks">Node.js</a> · <a href="https://github.com/livekit/python-sdks">Python</a> · <a href="https://github.com/livekit/client-sdk-unity">Unity</a> · <a href="https://github.com/livekit/client-sdk-unity-web">Unity (WebGL)</a> · <a href="https://github.com/livekit/client-sdk-esp32">ESP32</a></td></tr><tr></tr>

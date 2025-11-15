@@ -1,3 +1,4 @@
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Google.Protobuf;
@@ -16,8 +17,13 @@ namespace Livekit.Server.Sdk.Dotnet
         /// A client for interacting managing LiveKit rooms and participants.
         /// <see href="https://docs.livekit.io/realtime/server/managing-rooms/" />
         /// </summary>
-        public RoomServiceClient(string host, string apiKey, string apiSecret)
-            : base(host, apiKey, apiSecret) { }
+        public RoomServiceClient(
+            string host,
+            string apiKey,
+            string apiSecret,
+            HttpClient client = null
+        )
+            : base(host, apiKey, apiSecret, client) { }
 
         /// <summary>
         /// Creates a new room. Explicit room creation is not required, since rooms will

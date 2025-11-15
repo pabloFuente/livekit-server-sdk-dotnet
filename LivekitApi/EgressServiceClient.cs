@@ -1,3 +1,4 @@
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
@@ -13,8 +14,13 @@ namespace Livekit.Server.Sdk.Dotnet
         /// A client for interacting with the Egress service.
         /// See: <see href="https://docs.livekit.io/realtime/egress/overview/">Egress</see>
         /// </summary>
-        public EgressServiceClient(string host, string apiKey, string apiSecret)
-            : base(host, apiKey, apiSecret) { }
+        public EgressServiceClient(
+            string host,
+            string apiKey,
+            string apiSecret,
+            HttpClient client = null
+        )
+            : base(host, apiKey, apiSecret, client) { }
 
         public async Task<EgressInfo> StartRoomCompositeEgress(RoomCompositeEgressRequest request)
         {

@@ -1,3 +1,4 @@
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
@@ -13,8 +14,13 @@ namespace Livekit.Server.Sdk.Dotnet
         /// A client for interacting with the Ingress service.
         /// See: <see href="https://docs.livekit.io/realtime/ingress/overview/">Ingress</see>
         /// </summary>
-        public IngressServiceClient(string host, string apiKey, string apiSecret)
-            : base(host, apiKey, apiSecret) { }
+        public IngressServiceClient(
+            string host,
+            string apiKey,
+            string apiSecret,
+            HttpClient client = null
+        )
+            : base(host, apiKey, apiSecret, client) { }
 
         /// <summary>
         /// Creates a new ingress. Default audio and video options will be used if none is provided.
