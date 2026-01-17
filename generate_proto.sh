@@ -14,16 +14,25 @@ mkdir -p "$API_OUT_CSHARP"
 protoc \
     -I="$API_PROTOCOL" \
     --csharp_out="$API_OUT_CSHARP" \
-    "$API_PROTOCOL"/livekit_room.proto \
+    "$API_PROTOCOL"/livekit_agent_dispatch.proto \
+    "$API_PROTOCOL"/livekit_agent.proto \
+    "$API_PROTOCOL"/livekit_analytics.proto \
+    "$API_PROTOCOL"/livekit_cloud_agent.proto \
+    "$API_PROTOCOL"/livekit_connector_twilio.proto \
+    "$API_PROTOCOL"/livekit_connector_whatsapp.proto \
+    "$API_PROTOCOL"/livekit_connector.proto \
     "$API_PROTOCOL"/livekit_egress.proto \
     "$API_PROTOCOL"/livekit_ingress.proto \
-    "$API_PROTOCOL"/livekit_sip.proto \
-    "$API_PROTOCOL"/livekit_agent.proto \
-    "$API_PROTOCOL"/livekit_agent_dispatch.proto \
-    "$API_PROTOCOL"/livekit_webhook.proto \
-    "$API_PROTOCOL"/livekit_models.proto \
+    "$API_PROTOCOL"/livekit_internal.proto \
     "$API_PROTOCOL"/livekit_metrics.proto \
-    "$API_PROTOCOL"/livekit_analytics.proto
+    "$API_PROTOCOL"/livekit_models.proto \
+    "$API_PROTOCOL"/livekit_phone_number.proto \
+    "$API_PROTOCOL"/livekit_room.proto \
+    "$API_PROTOCOL"/livekit_rtc.proto \
+    "$API_PROTOCOL"/livekit_sip.proto \
+    "$API_PROTOCOL"/livekit_token_source.proto \
+    "$API_PROTOCOL"/livekit_webhook.proto \
+    "$API_PROTOCOL"/logger/options.proto
 
 # Patch proto stubs
 # 1. Modify the namespace from "Livekit.Proto" to "Livekit.Server.Sdk.Dotnet"

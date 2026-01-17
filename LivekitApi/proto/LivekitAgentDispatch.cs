@@ -25,29 +25,30 @@ namespace Livekit.Server.Sdk.Dotnet {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChxsaXZla2l0X2FnZW50X2Rpc3BhdGNoLnByb3RvEgdsaXZla2l0GhNsaXZl",
-            "a2l0X2FnZW50LnByb3RvIlAKGkNyZWF0ZUFnZW50RGlzcGF0Y2hSZXF1ZXN0",
-            "EhIKCmFnZW50X25hbWUYASABKAkSDAoEcm9vbRgCIAEoCRIQCghtZXRhZGF0",
-            "YRgDIAEoCSI5ChFSb29tQWdlbnREaXNwYXRjaBISCgphZ2VudF9uYW1lGAEg",
-            "ASgJEhAKCG1ldGFkYXRhGAIgASgJIj8KGkRlbGV0ZUFnZW50RGlzcGF0Y2hS",
-            "ZXF1ZXN0EhMKC2Rpc3BhdGNoX2lkGAEgASgJEgwKBHJvb20YAiABKAkiPQoY",
-            "TGlzdEFnZW50RGlzcGF0Y2hSZXF1ZXN0EhMKC2Rpc3BhdGNoX2lkGAEgASgJ",
-            "EgwKBHJvb20YAiABKAkiTQoZTGlzdEFnZW50RGlzcGF0Y2hSZXNwb25zZRIw",
-            "ChBhZ2VudF9kaXNwYXRjaGVzGAEgAygLMhYubGl2ZWtpdC5BZ2VudERpc3Bh",
-            "dGNoInsKDUFnZW50RGlzcGF0Y2gSCgoCaWQYASABKAkSEgoKYWdlbnRfbmFt",
-            "ZRgCIAEoCRIMCgRyb29tGAMgASgJEhAKCG1ldGFkYXRhGAQgASgJEioKBXN0",
-            "YXRlGAUgASgLMhsubGl2ZWtpdC5BZ2VudERpc3BhdGNoU3RhdGUiWAoSQWdl",
-            "bnREaXNwYXRjaFN0YXRlEhoKBGpvYnMYASADKAsyDC5saXZla2l0LkpvYhIS",
-            "CgpjcmVhdGVkX2F0GAIgASgDEhIKCmRlbGV0ZWRfYXQYAyABKAMyiwIKFEFn",
-            "ZW50RGlzcGF0Y2hTZXJ2aWNlEk0KDkNyZWF0ZURpc3BhdGNoEiMubGl2ZWtp",
-            "dC5DcmVhdGVBZ2VudERpc3BhdGNoUmVxdWVzdBoWLmxpdmVraXQuQWdlbnRE",
-            "aXNwYXRjaBJNCg5EZWxldGVEaXNwYXRjaBIjLmxpdmVraXQuRGVsZXRlQWdl",
-            "bnREaXNwYXRjaFJlcXVlc3QaFi5saXZla2l0LkFnZW50RGlzcGF0Y2gSVQoM",
-            "TGlzdERpc3BhdGNoEiEubGl2ZWtpdC5MaXN0QWdlbnREaXNwYXRjaFJlcXVl",
-            "c3QaIi5saXZla2l0Lkxpc3RBZ2VudERpc3BhdGNoUmVzcG9uc2VCRlojZ2l0",
-            "aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1MaXZlS2l0LlBy",
-            "b3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
+            "a2l0X2FnZW50LnByb3RvGhRsb2dnZXIvb3B0aW9ucy5wcm90byJWChpDcmVh",
+            "dGVBZ2VudERpc3BhdGNoUmVxdWVzdBISCgphZ2VudF9uYW1lGAEgASgJEgwK",
+            "BHJvb20YAiABKAkSFgoIbWV0YWRhdGEYAyABKAlCBIjsLAEiPwoRUm9vbUFn",
+            "ZW50RGlzcGF0Y2gSEgoKYWdlbnRfbmFtZRgBIAEoCRIWCghtZXRhZGF0YRgC",
+            "IAEoCUIEiOwsASI/ChpEZWxldGVBZ2VudERpc3BhdGNoUmVxdWVzdBITCgtk",
+            "aXNwYXRjaF9pZBgBIAEoCRIMCgRyb29tGAIgASgJIj0KGExpc3RBZ2VudERp",
+            "c3BhdGNoUmVxdWVzdBITCgtkaXNwYXRjaF9pZBgBIAEoCRIMCgRyb29tGAIg",
+            "ASgJIk0KGUxpc3RBZ2VudERpc3BhdGNoUmVzcG9uc2USMAoQYWdlbnRfZGlz",
+            "cGF0Y2hlcxgBIAMoCzIWLmxpdmVraXQuQWdlbnREaXNwYXRjaCKBAQoNQWdl",
+            "bnREaXNwYXRjaBIKCgJpZBgBIAEoCRISCgphZ2VudF9uYW1lGAIgASgJEgwK",
+            "BHJvb20YAyABKAkSFgoIbWV0YWRhdGEYBCABKAlCBIjsLAESKgoFc3RhdGUY",
+            "BSABKAsyGy5saXZla2l0LkFnZW50RGlzcGF0Y2hTdGF0ZSJYChJBZ2VudERp",
+            "c3BhdGNoU3RhdGUSGgoEam9icxgBIAMoCzIMLmxpdmVraXQuSm9iEhIKCmNy",
+            "ZWF0ZWRfYXQYAiABKAMSEgoKZGVsZXRlZF9hdBgDIAEoAzKLAgoUQWdlbnRE",
+            "aXNwYXRjaFNlcnZpY2USTQoOQ3JlYXRlRGlzcGF0Y2gSIy5saXZla2l0LkNy",
+            "ZWF0ZUFnZW50RGlzcGF0Y2hSZXF1ZXN0GhYubGl2ZWtpdC5BZ2VudERpc3Bh",
+            "dGNoEk0KDkRlbGV0ZURpc3BhdGNoEiMubGl2ZWtpdC5EZWxldGVBZ2VudERp",
+            "c3BhdGNoUmVxdWVzdBoWLmxpdmVraXQuQWdlbnREaXNwYXRjaBJVCgxMaXN0",
+            "RGlzcGF0Y2gSIS5saXZla2l0Lkxpc3RBZ2VudERpc3BhdGNoUmVxdWVzdBoi",
+            "LmxpdmVraXQuTGlzdEFnZW50RGlzcGF0Y2hSZXNwb25zZUJGWiNnaXRodWIu",
+            "Y29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/q",
+            "Ag5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.OptionsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest.Parser, new[]{ "AgentName", "Room", "Metadata" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomAgentDispatch), global::Livekit.Server.Sdk.Dotnet.RoomAgentDispatch.Parser, new[]{ "AgentName", "Metadata" }, null, null, null, null),
@@ -62,7 +63,6 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
   #region Messages
-  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CreateAgentDispatchRequest : pb::IMessage<CreateAgentDispatchRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -276,11 +276,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
+        switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -307,11 +303,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
+        switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -334,7 +326,6 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
-  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RoomAgentDispatch : pb::IMessage<RoomAgentDispatch>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -519,11 +510,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
+        switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -546,11 +533,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
+        switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -569,7 +552,6 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
-  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DeleteAgentDispatchRequest : pb::IMessage<DeleteAgentDispatchRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -754,11 +736,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
+        switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -781,11 +759,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
+        switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -804,7 +778,6 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
-  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListAgentDispatchRequest : pb::IMessage<ListAgentDispatchRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -995,11 +968,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
+        switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1022,11 +991,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
+        switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1045,7 +1010,6 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
-  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListAgentDispatchResponse : pb::IMessage<ListAgentDispatchResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1190,11 +1154,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
+        switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1213,11 +1173,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
+        switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1232,7 +1188,6 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
-  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AgentDispatch : pb::IMessage<AgentDispatch>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1507,11 +1462,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
+        switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1549,11 +1500,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
+        switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1587,7 +1534,6 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
-  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AgentDispatchState : pb::IMessage<AgentDispatchState>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1640,7 +1586,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.Job.Parser);
     private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.Job> jobs_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.Job>();
     /// <summary>
-    /// For dispatches of tyoe JT_ROOM, there will be at most 1 job. 
+    /// For dispatches of tyoe JT_ROOM, there will be at most 1 job.
     /// For dispatches of type JT_PUBLISHER, there will be 1 per publisher.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1794,11 +1740,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
+        switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1825,11 +1767,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-      if ((tag & 7) == 4) {
-        // Abort on any end group tag.
-        return;
-      }
-      switch(tag) {
+        switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
