@@ -1,5 +1,10 @@
 # Changelog (Release Notes)
 
+## 1.2.0
+
+- Update livekit/protocol to [v1.44.0](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.44.0).
+- Support for [Phone Number APIs](https://docs.livekit.io/reference/telephony/phone-numbers-api/), [custom Token Sources](https://docs.livekit.io/frontends/authentication/tokens/custom/#use-a-custom-tokensource) and **Connectors for WhatsApp and Twilio**.
+
 ## 1.1.0
 
 - Allow configuring a custom HttpClient (of package System.Net.Http) when creating any service client. This allows setting custom headers, proxy configuration, timeouts, or other HttpClient settings. See [Using a custom HttpClient](https://github.com/pabloFuente/livekit-server-sdk-dotnet/blob/d522cedc64d6b0ec873a9fbecd6189a512ae0a10/README.md#using-a-custom-httpclient).

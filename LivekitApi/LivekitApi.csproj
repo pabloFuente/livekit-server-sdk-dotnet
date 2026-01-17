@@ -4,7 +4,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <PackageId>Livekit.Server.Sdk.Dotnet</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Authors>pabloFuente</Authors>
     <MaintainerEmail>pablofuenteperez@gmail.com</MaintainerEmail>
     <PackageProjectUrl>https://github.com/pabloFuente/livekit-server-sdk-dotnet</PackageProjectUrl>
