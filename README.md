@@ -1,17 +1,21 @@
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/pabloFuente/livekit-server-sdk-dotnet/dotnet.yml)](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/dotnet.yml)
-[![License badge](https://img.shields.io/badge/license-Apache2-orange.svg)](http://www.apache.org/licenses/LICENSE-2.0) | [Livekit.Server.Sdk.Dotnet](#livekitserversdkdotnet): [![NuGet Version](https://img.shields.io/nuget/v/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/packages/Livekit.Server.Sdk.Dotnet) [![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Server.Sdk.Dotnet?groupby=Version) | [Livekit.Rtc.Dotnet](#livekitrtcdotnet): [![NuGet Version](https://img.shields.io/nuget/v/Livekit.Rtc.Dotnet)](https://www.nuget.org/packages/Livekit.Rtc.Dotnet) [![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Rtc.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Rtc.Dotnet?groupby=Version)
+[![License badge](https://img.shields.io/badge/license-Apache2-orange.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+
+[Livekit.Server.Sdk.Dotnet](#livekitserversdkdotnet) - [![NuGet Version](https://img.shields.io/nuget/v/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/packages/Livekit.Server.Sdk.Dotnet) [![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Server.Sdk.Dotnet?groupby=Version)
+
+[Livekit.Rtc.Dotnet](#livekitrtcdotnet) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- [![NuGet Version](https://img.shields.io/nuget/v/Livekit.Rtc.Dotnet)](https://www.nuget.org/packages/Livekit.Rtc.Dotnet) [![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Rtc.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Rtc.Dotnet?groupby=Version)
 
 # LiveKit .NET SDKs <!-- omit in toc -->
 
 Use this SDK to add realtime video, audio and data features to your .NET app. By connecting to LiveKit Cloud or a self-hosted server, you can quickly build applications such as multi-modal AI, live streaming, or video calls with just a few lines of code.
 
-- [Packages](#-packages)
+- [Packages](#packages)
   - [Livekit.Server.Sdk.Dotnet](#livekitserversdkdotnet)
   - [Livekit.Rtc.Dotnet](#livekitrtcdotnet)
-- [Quick Start](#-quick-start)
+- [Quick Start](#quick-start)
   - [Livekit.Server.Sdk.Dotnet - Access Tokens & Management APIs](#livekitserversdkdotnet---access-tokens--management-apis)
   - [Livekit.Rtc.Dotnet - Real-Time Media](#livekitrtcdotnet---real-time-media)
-- [For Developers](#️-for-developers)
+- [For Developers](#for-developers)
   - [Clone repository](#clone-repository)
   - [Build and test](#build-and-test)
   - [Perform release](#perform-release)
