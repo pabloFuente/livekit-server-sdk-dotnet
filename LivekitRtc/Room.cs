@@ -364,6 +364,96 @@ namespace LiveKit.Rtc
             }
         }
 
+        private async Task<T?> RetryUntilFound<T>(
+            Func<T?> retrievalFunc,
+            int maxRetries = 20,
+            int delayMs = 25
+        )
+            where T : class
+        {
+            for (int i = 0; i < maxRetries; i++)
+            {
+                var result = retrievalFunc();
+                if (result != null)
+                    return result;
+
+                await Task.Delay(delayMs);
+            }
+
+            return null;
+        }
+
+        private async Task<LocalTrackPublication> RequireLocalTrackPublication(string trackSid)
+        {
+            if (LocalParticipant == null)
+                throw new InvalidOperationException("Local participant not available");
+
+            var publication = await RetryUntilFound(() =>
+            {
+                _ffiEventLock.Wait();
+                try
+                {
+                    return LocalParticipant.GetTrackPublication(trackSid) as LocalTrackPublication;
+                }
+                finally
+                {
+                    _ffiEventLock.Release();
+                }
+            });
+
+            if (publication == null)
+                throw new InvalidOperationException($"Publication {trackSid} not found");
+
+            return publication;
+        }
+
+        private async Task<(
+            RemoteParticipant participant,
+            RemoteTrackPublication publication
+        )> RequireRemoteTrackPublication(string participantIdentity, string trackSid)
+        {
+            RemoteParticipant? participant;
+            lock (_lock)
+            {
+                if (!_remoteParticipants.TryGetValue(participantIdentity, out participant))
+                    throw new InvalidOperationException(
+                        $"Participant {participantIdentity} not found"
+                    );
+            }
+
+            var publication = await RetryUntilFound(() =>
+                participant.GetTrackPublication(trackSid) as RemoteTrackPublication
+            );
+
+            if (publication == null)
+                throw new InvalidOperationException(
+                    $"Publication {trackSid} not found for participant {participantIdentity}"
+                );
+
+            return (participant, publication);
+        }
+
+        private async Task<(
+            Participant participant,
+            TrackPublication publication
+        )> RequireTrackPublication(string participantIdentity, string trackSid)
+        {
+            Participant? participant = GetParticipantByIdentity(participantIdentity);
+            if (participant == null)
+                throw new InvalidOperationException($"Participant {participantIdentity} not found");
+
+            var publication = await RetryUntilFound(() =>
+                participant.GetTrackPublication(trackSid)
+            );
+
+            if (publication == null)
+                throw new InvalidOperationException(
+                    $"Publication {trackSid} not found for participant {participantIdentity}"
+                );
+
+            return (participant, publication);
+        }
+
         /// <summary>
         /// Creates a new Room instance.
         /// </summary>
@@ -647,8 +737,9 @@ namespace LiveKit.Rtc
                 if (invocation.LocalParticipantHandle != LocalParticipant.Handle.HandleId)
                     return;
 
-                // Handle RPC method invocation using the serial event queue to ensure ordering
-                DispatchEvent(async () =>
+                // Fire and forget immediately. Do NOT use DispatchEvent.
+                // RPCs are independent request/response cycles and should not be blocked by the event queue.
+                _ = Task.Run(async () =>
                 {
                     try
                     {
@@ -830,43 +921,17 @@ namespace LiveKit.Rtc
 
             DispatchEvent(async () =>
             {
-                LocalTrackPublication? publication = null;
-
-                // Retry logic: The FFI event might arrive before the PublishTrack Task
-                // has finished updating the internal dictionary.
-                for (int i = 0; i < 20; i++)
+                try
                 {
-                    await _ffiEventLock.WaitAsync();
-                    try
-                    {
-                        publication =
-                            LocalParticipant.GetTrackPublication(evt.TrackSid)
-                            as LocalTrackPublication;
-                    }
-                    finally
-                    {
-                        _ffiEventLock.Release();
-                    }
-
-                    if (publication != null)
-                        break;
-
-                    // Wait before retrying if not found yet
-                    await Task.Delay(25);
-                }
-
-                if (publication != null)
-                {
+                    var publication = await RequireLocalTrackPublication(evt.TrackSid);
                     LocalTrackPublished?.Invoke(
                         this,
                         new LocalTrackPublishedEventArgs(publication, LocalParticipant)
                     );
                 }
-                else
+                catch (Exception ex)
                 {
-                    Console.Error.WriteLine(
-                        $"[ERROR] LocalTrackPublished: Track {evt.TrackSid} not found in LocalParticipant after retries."
-                    );
+                    Console.Error.WriteLine($"[WARN] RoomEvent.LocalTrackPublished: {ex.Message}");
                 }
             });
         }
@@ -876,26 +941,20 @@ namespace LiveKit.Rtc
             if (LocalParticipant == null || string.IsNullOrEmpty(evt?.PublicationSid))
                 return;
 
-            DispatchEvent(() =>
+            DispatchEvent(async () =>
             {
-                LocalTrackPublication? publication = null;
-                _ffiEventLock.WaitAsync();
                 try
                 {
-                    publication =
-                        LocalParticipant.GetTrackPublication(evt.PublicationSid)
-                        as LocalTrackPublication;
-                }
-                finally
-                {
-                    _ffiEventLock.Release();
-                }
-
-                if (publication != null)
-                {
+                    var publication = await RequireLocalTrackPublication(evt.PublicationSid);
                     LocalTrackUnpublished?.Invoke(
                         this,
                         new LocalTrackPublishedEventArgs(publication, LocalParticipant)
+                    );
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine(
+                        $"[WARN] RoomEvent.LocalTrackUnpublished: {ex.Message}"
                     );
                 }
             });
@@ -906,21 +965,17 @@ namespace LiveKit.Rtc
             if (LocalParticipant == null || string.IsNullOrEmpty(evt?.TrackSid))
                 return;
 
-            DispatchEvent(() =>
+            DispatchEvent(async () =>
             {
-                LocalTrackPublication? publication = null;
-                _ffiEventLock.WaitAsync();
                 try
                 {
-                    publication =
-                        LocalParticipant.GetTrackPublication(evt.TrackSid) as LocalTrackPublication;
+                    var publication = await RequireLocalTrackPublication(evt.TrackSid);
+                    publication.ResolveFirstSubscription();
                 }
-                finally
+                catch (Exception ex)
                 {
-                    _ffiEventLock.Release();
+                    Console.Error.WriteLine($"[WARN] RoomEvent.LocalTrackSubscribed: {ex.Message}");
                 }
-
-                publication?.ResolveFirstSubscription();
             });
         }
 
@@ -939,18 +994,32 @@ namespace LiveKit.Rtc
             // Add publication to participant
             participant.AddPublication(evt.Publication);
 
-            var publication =
-                participant.GetTrackPublication(evt.Publication.Info?.Sid ?? "")
-                as RemoteTrackPublication;
-            if (publication != null)
+            DispatchEvent(async () =>
             {
-                DispatchEvent(() =>
+                try
+                {
+                    // Retry logic: The FFI event might arrive before AddPublication
+                    // has finished updating the internal dictionary.
+                    var publication = await RetryUntilFound(() =>
+                        participant.GetTrackPublication(evt.Publication.Info?.Sid ?? "")
+                        as RemoteTrackPublication
+                    );
+
+                    if (publication == null)
+                        throw new InvalidOperationException(
+                            $"Publication {evt.Publication.Info?.Sid} not found after AddPublication"
+                        );
+
                     TrackPublished?.Invoke(
                         this,
                         new TrackPublishedEventArgs(publication, participant)
-                    )
-                );
-            }
+                    );
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine($"[WARN] RoomEvent.TrackPublished: {ex.Message}");
+                }
+            });
         }
 
         private void HandleTrackUnpublished(Proto.TrackUnpublished evt)
@@ -1013,17 +1082,26 @@ namespace LiveKit.Rtc
 
             if (track != null)
             {
-                // Get the publication and associate the track
-                var publication =
-                    participant.GetTrackPublication(trackInfo.Sid ?? "") as RemoteTrackPublication;
-                if (publication != null)
+                DispatchEvent(async () =>
                 {
-                    publication.Track = track;
-                    TrackSubscribed?.Invoke(
-                        this,
-                        new TrackSubscribedEventArgs(track, publication, participant)
-                    );
-                }
+                    try
+                    {
+                        var (participant, publication) = await RequireRemoteTrackPublication(
+                            evt.ParticipantIdentity,
+                            trackInfo.Sid ?? ""
+                        );
+
+                        publication.Track = track;
+                        TrackSubscribed?.Invoke(
+                            this,
+                            new TrackSubscribedEventArgs(track, publication, participant)
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.Error.WriteLine($"[WARN] RoomEvent.TrackSubscribed: {ex.Message}");
+                    }
+                });
             }
         }
 
@@ -1034,26 +1112,32 @@ namespace LiveKit.Rtc
             )
                 return;
 
-            RemoteParticipant? participant;
-            lock (_lock)
+            DispatchEvent(async () =>
             {
-                if (!_remoteParticipants.TryGetValue(evt.ParticipantIdentity, out participant))
-                    return;
-            }
+                try
+                {
+                    var (participant, publication) = await RequireRemoteTrackPublication(
+                        evt.ParticipantIdentity,
+                        evt.TrackSid
+                    );
 
-            var publication =
-                participant.GetTrackPublication(evt.TrackSid) as RemoteTrackPublication;
-            if (publication?.Track != null)
-            {
-                var track = publication.Track;
-                DispatchEvent(() =>
+                    if (publication.Track == null)
+                        throw new InvalidOperationException(
+                            $"Track {evt.TrackSid} already unsubscribed"
+                        );
+
+                    var track = publication.Track;
                     TrackUnsubscribed?.Invoke(
                         this,
                         new TrackSubscribedEventArgs(track, publication, participant)
-                    )
-                );
-                publication.Track = null;
-            }
+                    );
+                    publication.Track = null;
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine($"[WARN] RoomEvent.TrackUnsubscribed: {ex.Message}");
+                }
+            });
         }
 
         private void HandleTrackMuted(Proto.TrackMuted evt)
@@ -1063,21 +1147,26 @@ namespace LiveKit.Rtc
             )
                 return;
 
-            var participant = GetParticipantByIdentity(evt.ParticipantIdentity);
-            if (participant == null)
-                return;
-
-            var publication = participant.GetTrackPublication(evt.TrackSid);
-            if (publication != null)
+            DispatchEvent(async () =>
             {
-                var updatedInfo = publication.Info;
-                updatedInfo.Muted = true;
-                publication.UpdateInfo(updatedInfo);
+                try
+                {
+                    var (participant, publication) = await RequireTrackPublication(
+                        evt.ParticipantIdentity,
+                        evt.TrackSid
+                    );
 
-                DispatchEvent(() =>
-                    TrackMuted?.Invoke(this, new TrackMutedEventArgs(publication, participant))
-                );
-            }
+                    var updatedInfo = publication.Info;
+                    updatedInfo.Muted = true;
+                    publication.UpdateInfo(updatedInfo);
+
+                    TrackMuted?.Invoke(this, new TrackMutedEventArgs(publication, participant));
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine($"[WARN] RoomEvent.TrackMuted: {ex.Message}");
+                }
+            });
         }
 
         private void HandleTrackUnmuted(Proto.TrackUnmuted evt)
@@ -1087,21 +1176,26 @@ namespace LiveKit.Rtc
             )
                 return;
 
-            var participant = GetParticipantByIdentity(evt.ParticipantIdentity);
-            if (participant == null)
-                return;
-
-            var publication = participant.GetTrackPublication(evt.TrackSid);
-            if (publication != null)
+            DispatchEvent(async () =>
             {
-                var updatedInfo = publication.Info;
-                updatedInfo.Muted = false;
-                publication.UpdateInfo(updatedInfo);
+                try
+                {
+                    var (participant, publication) = await RequireTrackPublication(
+                        evt.ParticipantIdentity,
+                        evt.TrackSid
+                    );
 
-                DispatchEvent(() =>
-                    TrackUnmuted?.Invoke(this, new TrackMutedEventArgs(publication, participant))
-                );
-            }
+                    var updatedInfo = publication.Info;
+                    updatedInfo.Muted = false;
+                    publication.UpdateInfo(updatedInfo);
+
+                    TrackUnmuted?.Invoke(this, new TrackMutedEventArgs(publication, participant));
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine($"[WARN] RoomEvent.TrackUnmuted: {ex.Message}");
+                }
+            });
         }
 
         private void HandleActiveSpeakersChanged(Proto.ActiveSpeakersChanged evt)
