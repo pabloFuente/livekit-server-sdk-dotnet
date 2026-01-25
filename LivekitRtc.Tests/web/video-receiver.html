@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveKit Video Receiver Test</title>
+    <script src="https://unpkg.com/livekit-client@2.17.0/dist/livekit-client.umd.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #1a1a2e;
+            color: #eee;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .connected { background: #28a745; }
+        .disconnected { background: #dc3545; }
+        .waiting { background: #ffc107; color: #000; }
+        #log {
+            background: #16213e;
+            padding: 15px;
+            border-radius: 5px;
+            height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .log-entry { margin: 5px 0; }
+        .log-info { color: #17a2b8; }
+        .log-success { color: #28a745; }
+        .log-error { color: #dc3545; }
+        #videoContainer {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        video {
+            max-width: 640px;
+            background: #000;
+            border: 2px solid #28a745;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LiveKit Video Receiver Test</h1>
+        
+        <div id="statusDiv" class="status disconnected">
+            Status: Disconnected
+        </div>
+        
+        <div id="trackInfo" class="status waiting" style="display:none;">
+            Waiting for video track...
+        </div>
+
+        <div id="videoContainer"></div>
+        
+        <h3>Log</h3>
+        <div id="log"></div>
+    </div>
+
+    <script>
+        // Test state exposed to Selenium
+        window.testState = {
+            connected: false,
+            videoTrackReceived: false,
+            videoTrackSid: null,
+            participantIdentity: null,
+            error: null,
+            errors: [],
+            videoFramesReceived: 0
+        };
+
+        const statusDiv = document.getElementById('statusDiv');
+        const trackInfo = document.getElementById('trackInfo');
+        const logDiv = document.getElementById('log');
+        const videoContainer = document.getElementById('videoContainer');
+
+        function log(message, type = 'info') {
+            const entry = document.createElement('div');
+            entry.className = `log-entry log-${type}`;
+            entry.textContent = `[${new Date().toISOString()}] ${message}`;
+            logDiv.appendChild(entry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(message);
+        }
+
+        function updateStatus(text, connected) {
+            statusDiv.textContent = `Status: ${text}`;
+            statusDiv.className = `status ${connected ? 'connected' : 'disconnected'}`;
+            window.testState.connected = connected;
+        }
+
+        async function connectToRoom(url, token) {
+            log('Creating room instance...');
+            
+            const room = new LivekitClient.Room({
+                adaptiveStream: true,
+                dynacast: true,
+            });
+
+            room.on(LivekitClient.RoomEvent.Connected, () => {
+                log('Connected to room!', 'success');
+                updateStatus('Connected', true);
+            });
+
+            room.on(LivekitClient.RoomEvent.Disconnected, (reason) => {
+                log(`Disconnected: ${reason}`, 'error');
+                updateStatus('Disconnected', false);
+            });
+
+            room.on(LivekitClient.RoomEvent.ParticipantConnected, (participant) => {
+                log(`Participant connected: ${participant.identity}`, 'success');
+            });
+
+            room.on(LivekitClient.RoomEvent.TrackSubscribed, (track, publication, participant) => {
+                log(`Track subscribed: ${track.kind} from ${participant.identity}`, 'success');
+                
+                if (track.kind === LivekitClient.Track.Kind.Video) {
+                    log('Video track received!', 'success');
+                    window.testState.videoTrackReceived = true;
+                    window.testState.videoTrackSid = publication.trackSid;
+                    window.testState.participantIdentity = participant.identity;
+                    
+                    trackInfo.style.display = 'block';
+                    trackInfo.className = 'status connected';
+                    trackInfo.textContent = `Video track received from: ${participant.identity} (SID: ${publication.trackSid})`;
+                    
+                    // Attach video element
+                    const videoEl = track.attach();
+                    videoEl.id = 'remoteVideo';
+                    videoEl.autoplay = true;
+                    videoEl.playsInline = true;
+                    videoEl.muted = false;
+                    videoContainer.appendChild(videoEl);
+                    
+                    // Monitor video frames
+                    monitorVideoFrames(videoEl);
+                }
+            });
+
+            room.on(LivekitClient.RoomEvent.TrackUnsubscribed, (track, publication, participant) => {
+                log(`Track unsubscribed: ${track.kind} from ${participant.identity}`);
+                track.detach();
+            });
+
+            room.on(LivekitClient.RoomEvent.TrackPublished, (publication, participant) => {
+                log(`Track published: ${publication.kind} from ${participant.identity}`);
+            });
+
+            try {
+                log(`Connecting to ${url}...`);
+                await room.connect(url, token);
+                log('Room connection established', 'success');
+                
+                trackInfo.style.display = 'block';
+                trackInfo.textContent = 'Waiting for video track...';
+                
+            } catch (error) {
+                log(`Connection error: ${error.message}`, 'error');
+                window.testState.error = error.message;
+                window.testState.errors.push(error.message);
+                updateStatus('Connection Failed', false);
+            }
+            
+            return room;
+        }
+
+        function monitorVideoFrames(videoElement) {
+            // Monitor video playback to count frames
+            let lastTime = 0;
+            
+            function checkVideo() {
+                if (videoElement.currentTime !== lastTime) {
+                    lastTime = videoElement.currentTime;
+                    window.testState.videoFramesReceived++;
+                    
+                    if (window.testState.videoFramesReceived % 30 === 1) {
+                        log(`Video playing - frames: ${window.testState.videoFramesReceived}, time: ${lastTime.toFixed(2)}s`, 'info');
+                    }
+                }
+                
+                requestAnimationFrame(checkVideo);
+            }
+            
+            // Wait for video to start playing
+            videoElement.addEventListener('playing', () => {
+                log('Video started playing!', 'success');
+                checkVideo();
+            });
+            
+            videoElement.addEventListener('loadedmetadata', () => {
+                log(`Video metadata loaded: ${videoElement.videoWidth}x${videoElement.videoHeight}`, 'info');
+            });
+            
+            videoElement.addEventListener('error', (e) => {
+                log(`Video error: ${e.message}`, 'error');
+                window.testState.error = e.message;
+            });
+        }
+
+        // Expose connectToRoom globally
+        window.connectToRoom = connectToRoom;
+
+        log('Page loaded, ready for connection');
+    </script>
+</body>
+</html>

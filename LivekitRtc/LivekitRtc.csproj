@@ -1,0 +1,131 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>Livekit.Rtc.Dotnet</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>pabloFuente</Authors>
+    <MaintainerEmail>pablofuenteperez@gmail.com</MaintainerEmail>
+    <PackageProjectUrl>https://github.com/pabloFuente/livekit-server-sdk-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/pabloFuente/livekit-server-sdk-dotnet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Livekit;LiveKit;livekit;SDK;WebRTC;VoIP;Dotnet;realtime;RTC;audio;video</PackageTags>
+    <Description>
+      .NET SDK to integrate LiveKit's real-time video, audio, and data capabilities into your .NET
+      applications using WebRTC. Access the same powerful API offered by client SDKs, but directly
+      from your .NET server: connect to rooms as a participant, publish and subscribe to audio/video
+      tracks, send and receive data messages, perform RPC calls, and more.
+    </Description>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>LiveKit.Rtc</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <DebugType>embedded</DebugType>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <DebugSymbols>true</DebugSymbols>
+    <EmbedAllSources>true</EmbedAllSources>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.32.1" />
+    <PackageReference Include="System.Threading.Channels" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <!-- Native library content files for different platforms - for NuGet package -->
+  <ItemGroup>
+    <Content
+      Include="runtimes\win-x64\native\livekit_ffi.dll"
+      Pack="true"
+      PackagePath="runtimes\win-x64\native\"
+      CopyToOutputDirectory="PreserveNewest"
+      Link="runtimes\win-x64\native\livekit_ffi.dll"
+      Condition="Exists('runtimes\win-x64\native\livekit_ffi.dll')"
+    />
+    <Content
+      Include="runtimes\linux-x64\native\liblivekit_ffi.so"
+      Pack="true"
+      PackagePath="runtimes\linux-x64\native\"
+      CopyToOutputDirectory="PreserveNewest"
+      Link="runtimes\linux-x64\native\liblivekit_ffi.so"
+      Condition="Exists('runtimes\linux-x64\native\liblivekit_ffi.so')"
+    />
+    <Content
+      Include="runtimes\linux-arm64\native\liblivekit_ffi.so"
+      Pack="true"
+      PackagePath="runtimes\linux-arm64\native\"
+      CopyToOutputDirectory="PreserveNewest"
+      Link="runtimes\linux-arm64\native\liblivekit_ffi.so"
+      Condition="Exists('runtimes\linux-arm64\native\liblivekit_ffi.so')"
+    />
+    <Content
+      Include="runtimes\osx-x64\native\liblivekit_ffi.dylib"
+      Pack="true"
+      PackagePath="runtimes\osx-x64\native\"
+      CopyToOutputDirectory="PreserveNewest"
+      Link="runtimes\osx-x64\native\liblivekit_ffi.dylib"
+      Condition="Exists('runtimes\osx-x64\native\liblivekit_ffi.dylib')"
+    />
+    <Content
+      Include="runtimes\osx-arm64\native\liblivekit_ffi.dylib"
+      Pack="true"
+      PackagePath="runtimes\osx-arm64\native\"
+      CopyToOutputDirectory="PreserveNewest"
+      Link="runtimes\osx-arm64\native\liblivekit_ffi.dylib"
+      Condition="Exists('runtimes\osx-arm64\native\liblivekit_ffi.dylib')"
+    />
+  </ItemGroup>
+  <!-- Also copy native library to output directory root for local development -->
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'X64'">
+    <None
+      Include="runtimes\linux-x64\native\liblivekit_ffi.so"
+      CopyToOutputDirectory="PreserveNewest"
+      Link="liblivekit_ffi.so"
+      Condition="Exists('runtimes\linux-x64\native\liblivekit_ffi.so')"
+    />
+  </ItemGroup>
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'Arm64'">
+    <None
+      Include="runtimes\linux-arm64\native\liblivekit_ffi.so"
+      CopyToOutputDirectory="PreserveNewest"
+      Link="liblivekit_ffi.so"
+      Condition="Exists('runtimes\linux-arm64\native\liblivekit_ffi.so')"
+    />
+  </ItemGroup>
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX')) And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'X64'">
+    <None
+      Include="runtimes\osx-x64\native\liblivekit_ffi.dylib"
+      CopyToOutputDirectory="PreserveNewest"
+      Link="liblivekit_ffi.dylib"
+      Condition="Exists('runtimes\osx-x64\native\liblivekit_ffi.dylib')"
+    />
+  </ItemGroup>
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX')) And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'Arm64'">
+    <None
+      Include="runtimes\osx-arm64\native\liblivekit_ffi.dylib"
+      CopyToOutputDirectory="PreserveNewest"
+      Link="liblivekit_ffi.dylib"
+      Condition="Exists('runtimes\osx-arm64\native\liblivekit_ffi.dylib')"
+    />
+  </ItemGroup>
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+    <None
+      Include="runtimes\win-x64\native\livekit_ffi.dll"
+      CopyToOutputDirectory="PreserveNewest"
+      Link="livekit_ffi.dll"
+      Condition="Exists('runtimes\win-x64\native\livekit_ffi.dll')"
+    />
+  </ItemGroup>
+</Project>

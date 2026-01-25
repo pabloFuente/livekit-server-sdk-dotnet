@@ -12,3 +12,15 @@ updates:
     directory: "/LivekitApi.Example"
     schedule:
       interval: "weekly"
+  - package-ecosystem: "nuget"
+    directory: "/LivekitRtc"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "nuget"
+    directory: "/LivekitRtc.Tests"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "nuget"
+    directory: "/LivekitRtc.Example"
+    schedule:
+      interval: "weekly"

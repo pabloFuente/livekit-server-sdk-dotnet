@@ -384,7 +384,7 @@ git clone --recurse-submodules https://github.com/pabloFuente/livekit-server-sdk
 
 Pre-requisites:
 
-- [.NET SDK](https://dotnet.microsoft.com/download/dotnet). Make sure to install the version defined in [`global.json`](./LivekitApi/global.json) file, or for minor/patch discrepancies, you can modify the `global.json` file to match your installed version.
+- [.NET 8.0+ SDK](https://dotnet.microsoft.com/download/dotnet)
 - [protoc](https://github.com/protocolbuffers/protobuf/releases/latest)
 - `go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@latest`
 
@@ -405,19 +405,19 @@ dotnet build
 Run all tests:
 
 ```bash
-dotnet test
+dotnet test LivekitApi.Tests
 ```
 
 Run unit tests:
 
 ```bash
-dotnet test --filter "Category=Unit"
+dotnet test LivekitApi.Tests --filter "Category=Unit"
 ```
 
 Run integration tests (they automatically launch necessary services as Docker containers with [Testcontainers](https://testcontainers.com/)):
 
 ```bash
-dotnet test --filter "Category=Integration"
+dotnet test LivekitApi.Tests --filter "Category=Integration"
 ```
 
 ## Perform release
@@ -425,17 +425,19 @@ dotnet test --filter "Category=Integration"
 1. Create a commit [like this](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/a01453be9d50a29e7244ab38dac3939d285c84bb) for the new version.
 2. Make sure to run script `./build_local.sh` to properly format all files with csharpier. Commit any changes in the repo after the script finishes.
 3. Create a [new release in GitHub](https://github.com/pabloFuente/livekit-server-sdk-dotnet/releases/new) with:
-   - Release title `X.Y.Z`
-   - A new tag `X.Y.Z`
+   - Release title `api-X.Y.Z`
+   - A new tag `api-X.Y.Z`
    - Description (change `A.B.C` with the proper version of livekit/protocol): `Update livekit/protocol to [vA.B.C](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%40A.B.C)`
 
-> [!NOTE]
+> [!IMPORTANT]
+> The **`api-`** prefix in the tag is mandatory for the publish workflow to identify that it is a release for package **Livekit.Server.Sdk.Dotnet** specifically.
+> 
 > After creating the release, workflow [publish.yml](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/publish.yml) will automatically publish the new version to NuGet and will perform the necessary post-release tasks.
 
 ## GitHub Actions
 
 - Tests are automatically run in GitHub Actions after each commit, thanks to [this workflow](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/dotnet.yml).
-- A new version is published to NuGet after a new release is created in GitHub, thanks to [this workflow](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/publish.yml).
+- A new version is published to NuGet after a new release with a tag with prefix **`api-`** is created in GitHub, thanks to [this workflow](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/publish.yml).
 
 ## Install as a local NuGet package
 
@@ -515,19 +517,3 @@ dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:Gen
 ```
 
 This compatibility suppression file will allow packaging and publishing the SDK even with breaking changes. Once the new version is available in NuGet, the only thing left is to update in file `LivekitApi.csproj` property `<PackageValidationBaselineVersion>X.Y.Z</PackageValidationBaselineVersion>` to the new version (so the new reference for breaking changes is this new version), and delete `CompatibilitySuppressions.xml` (as it is no longer needed). Workflow [publish.yml](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/publish.yml) automatically does this as last step.
-
-<!--BEGIN_REPO_NAV-->
-
-<br/><table>
-
-<thead><tr><th colspan="2">LiveKit Ecosystem</th></tr></thead>
-<tbody>
-<tr><td>LiveKit SDKs</td><td><a href="https://github.com/livekit/client-sdk-js">Browser</a> · <a href="https://github.com/livekit/client-sdk-swift">iOS/macOS/visionOS</a> · <a href="https://github.com/livekit/client-sdk-android">Android</a> · <a href="https://github.com/livekit/client-sdk-flutter">Flutter</a> · <a href="https://github.com/livekit/client-sdk-react-native">React Native</a> · <a href="https://github.com/livekit/rust-sdks">Rust</a> · <a href="https://github.com/livekit/node-sdks">Node.js</a> · <a href="https://github.com/livekit/python-sdks">Python</a> · <a href="https://github.com/livekit/client-sdk-unity">Unity</a> · <a href="https://github.com/livekit/client-sdk-unity-web">Unity (WebGL)</a> · <a href="https://github.com/livekit/client-sdk-esp32">ESP32</a></td></tr><tr></tr>
-<tr><td>Server APIs</td><td><a href="https://github.com/livekit/node-sdks">Node.js</a> · <a href="https://github.com/livekit/server-sdk-go">Golang</a> · <a href="https://github.com/livekit/server-sdk-ruby">Ruby</a> · <a href="https://github.com/livekit/server-sdk-kotlin">Java/Kotlin</a> · <a href="https://github.com/livekit/python-sdks">Python</a> · <a href="https://github.com/livekit/rust-sdks">Rust</a> · <a href="https://github.com/agence104/livekit-server-sdk-php">PHP (community)</a> · <b>.NET (community)</b></td></tr><tr></tr>
-<tr><td>UI Components</td><td><a href="https://github.com/livekit/components-js">React</a> · <a href="https://github.com/livekit/components-android">Android Compose</a> · <a href="https://github.com/livekit/components-swift">SwiftUI</a> · <a href="https://github.com/livekit/components-flutter">Flutter</a></td></tr><tr></tr>
-<tr><td>Agents Frameworks</td><td><a href="https://github.com/livekit/agents">Python</a> · <a href="https://github.com/livekit/agents-js">Node.js</a> · <a href="https://github.com/livekit/agent-playground">Playground</a></td></tr><tr></tr>
-<tr><td>Services</td><td><a href="https://github.com/livekit/livekit">LiveKit server</a> · <a href="https://github.com/livekit/egress">Egress</a> · <a href="https://github.com/livekit/ingress">Ingress</a> · <a href="https://github.com/livekit/sip">SIP</a></td></tr><tr></tr>
-<tr><td>Resources</td><td><a href="https://docs.livekit.io">Docs</a> · <a href="https://github.com/livekit-examples">Example apps</a> · <a href="https://livekit.io/cloud">Cloud</a> · <a href="https://docs.livekit.io/home/self-hosting/deployment">Self-hosting</a> · <a href="https://github.com/livekit/livekit-cli">CLI</a></td></tr>
-</tbody>
-</table>
-<!--END_REPO_NAV-->

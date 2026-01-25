@@ -1,3 +1,7 @@
 [submodule "protocol"]
 	path = protocol
 	url = https://github.com/livekit/protocol
+
+[submodule "LivekitRtc/rust-sdks"]
+	path = LivekitRtc/rust-sdks
+	url = https://github.com/livekit/rust-sdks

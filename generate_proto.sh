@@ -5,6 +5,8 @@ set -e
 SCRIPT_PATH=$(realpath "$0")
 SCRIPT_FOLDER="$(dirname "$SCRIPT_PATH")"
 
+echo "=== Generating proto files for LivekitApi (Server SDK) ==="
+
 API_PROTOCOL=$SCRIPT_FOLDER/protocol/protobufs
 API_OUT_CSHARP=$SCRIPT_FOLDER/LivekitApi/proto
 
@@ -61,3 +63,49 @@ sed -i 's|Livekit.Empty|Google.Protobuf.WellKnownTypes.Empty|g' "$API_OUT_CSHARP
 sed -i 's|Livekit.|global::Livekit.Server.Sdk.Dotnet.|g' "$API_OUT_CSHARP"/GeneratedAPI.cs
 sed -i 's|GeneratedAPI|Twirp|g' "$API_OUT_CSHARP"/GeneratedAPI.cs
 mv "$API_OUT_CSHARP"/GeneratedAPI.cs "$API_OUT_CSHARP"/Twirp.cs
+
+echo "✓ LivekitApi proto files generated successfully"
+echo ""
+echo "=== Generating proto files for LivekitRtc (RTC SDK) ==="
+
+RTC_PROTOCOL="$SCRIPT_FOLDER/LivekitRtc/rust-sdks/livekit-ffi/protocol"
+RTC_OUT_CSHARP="$SCRIPT_FOLDER/LivekitRtc/Proto"
+
+# Check if rust-sdks submodule exists
+if [ ! -d "$RTC_PROTOCOL" ]; then
+    echo "Error: rust-sdks submodule not found at $RTC_PROTOCOL"
+    echo "Please run: git submodule update --init --recursive"
+    exit 1
+fi
+
+# Check if protoc is available
+if ! command -v protoc &> /dev/null; then
+    echo "Error: protoc not found. Please install Protocol Buffers compiler:"
+    echo "https://github.com/protocolbuffers/protobuf/releases/latest"
+    exit 1
+fi
+
+# Create output directory
+mkdir -p "$RTC_OUT_CSHARP"
+
+# Generate C# files from FFI proto definitions
+protoc \
+    -I="$RTC_PROTOCOL" \
+    --csharp_out="$RTC_OUT_CSHARP" \
+    --csharp_opt=file_extension=.g.cs \
+    "$RTC_PROTOCOL/audio_frame.proto" \
+    "$RTC_PROTOCOL/ffi.proto" \
+    "$RTC_PROTOCOL/handle.proto" \
+    "$RTC_PROTOCOL/participant.proto" \
+    "$RTC_PROTOCOL/room.proto" \
+    "$RTC_PROTOCOL/track.proto" \
+    "$RTC_PROTOCOL/track_publication.proto" \
+    "$RTC_PROTOCOL/video_frame.proto" \
+    "$RTC_PROTOCOL/e2ee.proto" \
+    "$RTC_PROTOCOL/stats.proto" \
+    "$RTC_PROTOCOL/rpc.proto" \
+    "$RTC_PROTOCOL/data_stream.proto"
+
+echo "✓ LivekitRtc proto files generated successfully"
+echo ""
+echo "All proto generation complete!"

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveKit Audio Receiver Test</title>
+    <script src="https://unpkg.com/livekit-client@2.17.0/dist/livekit-client.umd.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #1a1a2e;
+            color: #eee;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .connected { background: #28a745; }
+        .disconnected { background: #dc3545; }
+        .waiting { background: #ffc107; color: #000; }
+        #log {
+            background: #16213e;
+            padding: 15px;
+            border-radius: 5px;
+            height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .log-entry { margin: 5px 0; }
+        .log-info { color: #17a2b8; }
+        .log-success { color: #28a745; }
+        .log-error { color: #dc3545; }
+        #audioContainer {
+            margin: 20px 0;
+        }
+        audio {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LiveKit Audio Receiver Test</h1>
+        
+        <div id="statusDiv" class="status disconnected">
+            Status: Disconnected
+        </div>
+        
+        <div id="trackInfo" class="status waiting" style="display:none;">
+            Waiting for audio track...
+        </div>
+
+        <div id="audioContainer"></div>
+        
+        <h3>Log</h3>
+        <div id="log"></div>
+    </div>
+
+    <script>
+        // Test state exposed to Selenium
+        window.testState = {
+            connected: false,
+            audioTrackReceived: false,
+            audioTrackSid: null,
+            participantIdentity: null,
+            error: null,
+            errors: [],
+            audioFramesReceived: 0
+        };
+
+        const statusDiv = document.getElementById('statusDiv');
+        const trackInfo = document.getElementById('trackInfo');
+        const logDiv = document.getElementById('log');
+        const audioContainer = document.getElementById('audioContainer');
+
+        function log(message, type = 'info') {
+            const entry = document.createElement('div');
+            entry.className = `log-entry log-${type}`;
+            entry.textContent = `[${new Date().toISOString()}] ${message}`;
+            logDiv.appendChild(entry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(message);
+        }
+
+        function updateStatus(text, connected) {
+            statusDiv.textContent = `Status: ${text}`;
+            statusDiv.className = `status ${connected ? 'connected' : 'disconnected'}`;
+            window.testState.connected = connected;
+        }
+
+        async function connectToRoom(url, token) {
+            log('Creating room instance...');
+            
+            const room = new LivekitClient.Room({
+                adaptiveStream: true,
+                dynacast: true,
+            });
+
+            room.on(LivekitClient.RoomEvent.Connected, () => {
+                log('Connected to room!', 'success');
+                updateStatus('Connected', true);
+            });
+
+            room.on(LivekitClient.RoomEvent.Disconnected, (reason) => {
+                log(`Disconnected: ${reason}`, 'error');
+                updateStatus('Disconnected', false);
+            });
+
+            room.on(LivekitClient.RoomEvent.ParticipantConnected, (participant) => {
+                log(`Participant connected: ${participant.identity}`, 'success');
+            });
+
+            room.on(LivekitClient.RoomEvent.TrackSubscribed, (track, publication, participant) => {
+                log(`Track subscribed: ${track.kind} from ${participant.identity}`, 'success');
+                
+                if (track.kind === LivekitClient.Track.Kind.Audio) {
+                    log('Audio track received!', 'success');
+                    window.testState.audioTrackReceived = true;
+                    window.testState.audioTrackSid = publication.trackSid;
+                    window.testState.participantIdentity = participant.identity;
+                    
+                    trackInfo.style.display = 'block';
+                    trackInfo.className = 'status connected';
+                    trackInfo.textContent = `Audio track received from: ${participant.identity} (SID: ${publication.trackSid})`;
+                    
+                    // Attach audio element
+                    const audioEl = track.attach();
+                    audioEl.id = 'remoteAudio';
+                    audioEl.controls = true;
+                    audioEl.autoplay = true;
+                    audioContainer.appendChild(audioEl);
+                    
+                    // Monitor audio levels
+                    monitorAudioLevels(track);
+                }
+            });
+
+            room.on(LivekitClient.RoomEvent.TrackUnsubscribed, (track, publication, participant) => {
+                log(`Track unsubscribed: ${track.kind} from ${participant.identity}`);
+                track.detach();
+            });
+
+            room.on(LivekitClient.RoomEvent.TrackPublished, (publication, participant) => {
+                log(`Track published: ${publication.kind} from ${participant.identity}`);
+            });
+
+            try {
+                log(`Connecting to ${url}...`);
+                await room.connect(url, token);
+                log('Room connection established', 'success');
+                
+                trackInfo.style.display = 'block';
+                trackInfo.textContent = 'Waiting for audio track...';
+                
+            } catch (error) {
+                log(`Connection error: ${error.message}`, 'error');
+                window.testState.error = error.message;
+                window.testState.errors.push(error.message);
+                updateStatus('Connection Failed', false);
+            }
+            
+            return room;
+        }
+
+        function monitorAudioLevels(track) {
+            // Create audio context to analyze audio
+            try {
+                const audioContext = new AudioContext();
+                const mediaStream = new MediaStream([track.mediaStreamTrack]);
+                const source = audioContext.createMediaStreamSource(mediaStream);
+                const analyser = audioContext.createAnalyser();
+                analyser.fftSize = 256;
+                source.connect(analyser);
+                
+                const dataArray = new Uint8Array(analyser.frequencyBinCount);
+                
+                function checkAudio() {
+                    analyser.getByteFrequencyData(dataArray);
+                    const average = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
+                    
+                    if (average > 0) {
+                        window.testState.audioFramesReceived++;
+                        if (window.testState.audioFramesReceived % 50 === 1) {
+                            log(`Audio level: ${average.toFixed(2)} (frames: ${window.testState.audioFramesReceived})`, 'info');
+                        }
+                    }
+                    
+                    requestAnimationFrame(checkAudio);
+                }
+                
+                checkAudio();
+            } catch (e) {
+                log(`Audio monitoring error: ${e.message}`, 'error');
+            }
+        }
+
+        // Expose connect function for Selenium
+        window.connectToRoom = connectToRoom;
+        
+        log('LiveKit test client initialized');
+    </script>
+</body>
+</html>

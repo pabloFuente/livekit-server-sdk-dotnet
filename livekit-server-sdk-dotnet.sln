@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivekitApi", "LivekitApi\Li
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivekitApi.Tests", "LivekitApi.Tests\LivekitApi.Tests.csproj", "{C253BB65-A42B-4198-B8E1-EA14BF585944}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivekitRtc", "LivekitRtc\LivekitRtc.csproj", "{A1B2C3D4-E5F6-4789-ABCD-EF0123456789}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivekitRtc.Tests", "LivekitRtc.Tests\LivekitRtc.Tests.csproj", "{9A1FBAC2-D8D9-4091-919F-F7BFE99D2360}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{C253BB65-A42B-4198-B8E1-EA14BF585944}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C253BB65-A42B-4198-B8E1-EA14BF585944}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C253BB65-A42B-4198-B8E1-EA14BF585944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B2C3D4-E5F6-4789-ABCD-EF0123456789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B2C3D4-E5F6-4789-ABCD-EF0123456789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B2C3D4-E5F6-4789-ABCD-EF0123456789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B2C3D4-E5F6-4789-ABCD-EF0123456789}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A1FBAC2-D8D9-4091-919F-F7BFE99D2360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A1FBAC2-D8D9-4091-919F-F7BFE99D2360}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A1FBAC2-D8D9-4091-919F-F7BFE99D2360}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A1FBAC2-D8D9-4091-919F-F7BFE99D2360}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

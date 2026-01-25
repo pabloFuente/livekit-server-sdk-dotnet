@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveKit Audio Publisher Test</title>
+    <script src="https://unpkg.com/livekit-client@2.17.0/dist/livekit-client.umd.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #1a1a2e;
+            color: #eee;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .connected { background: #28a745; }
+        .disconnected { background: #dc3545; }
+        .publishing { background: #007bff; }
+        #log {
+            background: #16213e;
+            padding: 15px;
+            border-radius: 5px;
+            height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .log-entry { margin: 5px 0; }
+        .log-info { color: #17a2b8; }
+        .log-success { color: #28a745; }
+        .log-error { color: #dc3545; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LiveKit Audio Publisher Test</h1>
+        
+        <div id="statusDiv" class="status disconnected">
+            Status: Disconnected
+        </div>
+        
+        <div id="publishStatus" class="status" style="display:none;">
+            Publishing status: Not publishing
+        </div>
+        
+        <h3>Log</h3>
+        <div id="log"></div>
+    </div>
+
+    <script>
+        // Test state exposed to Selenium
+        window.testState = {
+            connected: false,
+            audioTrackPublished: false,
+            audioTrackSid: null,
+            error: null,
+            errors: []
+        };
+
+        const statusDiv = document.getElementById('statusDiv');
+        const publishStatus = document.getElementById('publishStatus');
+        const logDiv = document.getElementById('log');
+
+        function log(message, type = 'info') {
+            const entry = document.createElement('div');
+            entry.className = `log-entry log-${type}`;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logDiv.appendChild(entry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(message);
+        }
+
+        function updateStatus(connected) {
+            statusDiv.className = connected ? 'status connected' : 'status disconnected';
+            statusDiv.textContent = `Status: ${connected ? 'Connected' : 'Disconnected'}`;
+        }
+
+        function updatePublishStatus(publishing, trackSid = null) {
+            publishStatus.style.display = 'block';
+            publishStatus.className = publishing ? 'status publishing' : 'status disconnected';
+            publishStatus.textContent = publishing 
+                ? `Publishing: ${trackSid || 'unknown'}` 
+                : 'Not publishing';
+        }
+
+        // Make LivekitClient globally available
+        window.LivekitClient = LivekitClient;
+
+        log('Page loaded, LiveKit client ready', 'success');
+        log('Waiting for Selenium to initiate connection...', 'info');
+
+        // Helper functions for Selenium
+        window.connectAndPublish = async function(url, token) {
+            try {
+                log(`Connecting to ${url}...`, 'info');
+                
+                const room = new LivekitClient.Room();
+                
+                room.on(LivekitClient.RoomEvent.Connected, () => {
+                    log('Connected to room', 'success');
+                    updateStatus(true);
+                    window.testState.connected = true;
+                });
+
+                room.on(LivekitClient.RoomEvent.Disconnected, () => {
+                    log('Disconnected from room', 'info');
+                    updateStatus(false);
+                    window.testState.connected = false;
+                });
+
+                room.on(LivekitClient.RoomEvent.LocalTrackPublished, (publication) => {
+                    log(`Local track published: ${publication.trackSid}`, 'success');
+                    window.testState.audioTrackPublished = true;
+                    window.testState.audioTrackSid = publication.trackSid;
+                    updatePublishStatus(true, publication.trackSid);
+                });
+
+                await room.connect(url, token);
+                log('Room connection established', 'success');
+                
+                // Create audio track using Web Audio API to generate audible tone
+                log('Creating audio track using Web Audio API...', 'info');
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                const destination = audioContext.createMediaStreamDestination();
+                
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // A4 note (440 Hz)
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime); // 30% volume
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(destination);
+                oscillator.start();
+                
+                log('Oscillator started at 440 Hz', 'success');
+                
+                const mediaStream = destination.stream;
+                const audioTrack = new LivekitClient.LocalAudioTrack(
+                    mediaStream.getAudioTracks()[0], 
+                    undefined, 
+                    undefined, 
+                    audioContext
+                );
+                
+                log('Audio track created', 'success');
+                
+                log('Publishing audio track...', 'info');
+                const publication = await room.localParticipant.publishTrack(audioTrack);
+                log(`Audio track published with SID: ${publication.trackSid}`, 'success');
+                
+                window.livekitRoom = room;
+                window.livekitAudioTrack = audioTrack;
+                
+                return { success: true, message: 'Audio published successfully', trackSid: publication.trackSid };
+            } catch (error) {
+                log(`Error: ${error.message}`, 'error');
+                window.testState.error = error.toString();
+                window.testState.errors.push(error.toString());
+                return { success: false, message: error.toString() };
+            }
+        };
+
+        window.disconnect = function() {
+            if (window.livekitRoom) {
+                log('Disconnecting...', 'info');
+                window.livekitRoom.disconnect();
+                window.livekitRoom = null;
+                window.livekitAudioTrack = null;
+                updatePublishStatus(false);
+            }
+        };
+    </script>
+</body>
+</html>

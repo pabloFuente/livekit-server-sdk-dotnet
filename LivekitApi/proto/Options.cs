@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Livekit.Server.Sdk.Dotnet {
+namespace Logger {
 
   /// <summary>Holder for reflection information generated from logger/options.proto</summary>
   public static partial class OptionsReflection {
@@ -27,9 +27,8 @@ namespace Livekit.Server.Sdk.Dotnet {
             "ChRsb2dnZXIvb3B0aW9ucy5wcm90bxIGbG9nZ2VyGiBnb29nbGUvcHJvdG9i",
             "dWYvZGVzY3JpcHRvci5wcm90bzovCgZyZWRhY3QSHS5nb29nbGUucHJvdG9i",
             "dWYuRmllbGRPcHRpb25zGMHNBSABKAg6NgoNcmVkYWN0X2Zvcm1hdBIdLmdv",
-            "b2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMYws0FIAEoCUJNWipnaXRodWIu",
-            "Y29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdC9sb2dnZXKqAg1MaXZlS2l0",
-            "LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
+            "b2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMYws0FIAEoCUIsWipnaXRodWIu",
+            "Y29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdC9sb2dnZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pb::Extension[] { OptionsExtensions.Redact, OptionsExtensions.RedactFormat }, null));

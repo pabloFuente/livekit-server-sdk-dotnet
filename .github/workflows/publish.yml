@@ -28,8 +28,25 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
 
-      # Create the NuGet package in the folder from the environment variable NuGetDirectory
-      - run: dotnet pack -c Release --output ${{ env.NuGetDirectory }}
+      # Determine which project to pack based on release tag
+      - name: Determine project to pack
+        id: determine_project
+        run: |
+          $TAG = "${{ github.event.release.tag_name }}"
+          if ($TAG -like "api-*") {
+            Write-Output "project=LivekitApi/LivekitApi.csproj" >> $env:GITHUB_OUTPUT
+            Write-Output "project_name=LivekitApi" >> $env:GITHUB_OUTPUT
+          } elseif ($TAG -like "rtc-*") {
+            Write-Output "project=LivekitRtc/LivekitRtc.csproj" >> $env:GITHUB_OUTPUT
+            Write-Output "project_name=LivekitRtc" >> $env:GITHUB_OUTPUT
+          } else {
+            Write-Error "Invalid tag format. Expected 'api-X.Y.Z' or 'rtc-X.Y.Z', got '$TAG'"
+            exit 1
+          }
+
+      # Create the NuGet package for the specific project
+      - name: Pack NuGet package
+        run: dotnet pack ${{ steps.determine_project.outputs.project }} -c Release --output ${{ env.NuGetDirectory }}
 
       # Publish the NuGet package as an artifact, so they can be used in the following jobs
       - uses: actions/upload-artifact@v4
@@ -105,10 +122,26 @@ jobs:
 
       - name: Post release steps
         run: |
-          # Update property <PackageValidationBaselineVersion> to the new release version
-          sed -i "s/<PackageValidationBaselineVersion>.*<\/PackageValidationBaselineVersion>/<PackageValidationBaselineVersion>${{ github.event.release.tag_name }}<\/PackageValidationBaselineVersion>/" LivekitApi/LivekitApi.csproj
-          # Delete file LivekitApi/CompatibilitySuppressions.xml if exists
-          rm -f LivekitApi/CompatibilitySuppressions.xml
+          $TAG = "${{ github.event.release.tag_name }}"
+
+          # Determine which package to update based on tag prefix
+          # Expected tag formats: api-X.Y.Z or rtc-X.Y.Z
+          if ($TAG -like "api-*") {
+            # API package release
+            $VERSION = $TAG -replace '^api-', ''
+            Write-Output "Updating LivekitApi to version $VERSION"
+            (Get-Content LivekitApi/LivekitApi.csproj) -replace '<PackageValidationBaselineVersion>.*</PackageValidationBaselineVersion>', "<PackageValidationBaselineVersion>$VERSION</PackageValidationBaselineVersion>" | Set-Content LivekitApi/LivekitApi.csproj
+            Remove-Item -Path LivekitApi/CompatibilitySuppressions.xml -ErrorAction SilentlyContinue
+          } elseif ($TAG -like "rtc-*") {
+            # RTC package release
+            $VERSION = $TAG -replace '^rtc-', ''
+            Write-Output "Updating LivekitRtc to version $VERSION"
+            (Get-Content LivekitRtc/LivekitRtc.csproj) -replace '<PackageValidationBaselineVersion>.*</PackageValidationBaselineVersion>', "<PackageValidationBaselineVersion>$VERSION</PackageValidationBaselineVersion>" | Set-Content LivekitRtc/LivekitRtc.csproj
+            Remove-Item -Path LivekitRtc/CompatibilitySuppressions.xml -ErrorAction SilentlyContinue
+          } else {
+            Write-Error "Invalid tag format. Expected 'api-X.Y.Z' or 'rtc-X.Y.Z'"
+            exit 1
+          }
 
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
