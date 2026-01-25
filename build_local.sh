@@ -14,7 +14,7 @@ dotnet csharpier format LivekitRtc.Tests || exit 1
 dotnet csharpier format LivekitRtc.Example || exit 1
 
 # Run tests
-dotnet test || echo "Some tests failed" && exit 1
+dotnet test || { echo "Some tests failed"; exit 1; }
 
 # Build and install Livekit.Server.Sdk.Dotnet
 pushd "$SCRIPT_FOLDER"/LivekitApi || exit 1
