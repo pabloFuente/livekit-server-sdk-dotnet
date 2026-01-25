@@ -39,7 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.32.1" />
-    <PackageReference Include="System.Threading.Channels" Version="8.0.0" />
+    <PackageReference Include="System.Threading.Channels" Version="10.0.2" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
