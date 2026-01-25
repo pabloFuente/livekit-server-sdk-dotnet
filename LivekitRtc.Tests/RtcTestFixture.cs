@@ -191,6 +191,56 @@ public class RtcTestFixture : IAsyncLifetime
             .WithGrants(new VideoGrants { RoomJoin = true, Room = roomName })
             .ToJwt();
     }
+
+    public async Task ConnectRoomsAndWaitForEvents(
+        Room firstRoom,
+        Room secondRoom,
+        string firstToken,
+        string secondToken,
+        string secondIdentity,
+        Action<string>? log = null,
+        int timeoutSeconds = 5
+    )
+    {
+        // Setup event tracking BEFORE connecting
+        var firstConnected = new TaskCompletionSource<bool>();
+        var secondConnected = new TaskCompletionSource<bool>();
+        var firstSeesSecond = new TaskCompletionSource<Participant>();
+
+        firstRoom.Connected += (sender, e) =>
+        {
+            log?.Invoke("First room Connected event fired");
+            firstConnected.TrySetResult(true);
+        };
+
+        secondRoom.Connected += (sender, e) =>
+        {
+            log?.Invoke("Second room Connected event fired");
+            secondConnected.TrySetResult(true);
+        };
+
+        firstRoom.ParticipantConnected += (sender, participant) =>
+        {
+            log?.Invoke($"First room sees participant: {participant.Identity}");
+            if (participant.Identity == secondIdentity)
+                firstSeesSecond.TrySetResult(participant);
+        };
+
+        // Connect first room, then second room
+        await firstRoom.ConnectAsync(LiveKitUrl, firstToken);
+        await Task.Delay(100); // Brief delay to ensure first participant is established
+        await secondRoom.ConnectAsync(LiveKitUrl, secondToken);
+
+        // Wait for both Connected events and first room to see second participant
+        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(timeoutSeconds));
+        await Task.WhenAll(
+            firstConnected.Task.WaitAsync(cts.Token),
+            secondConnected.Task.WaitAsync(cts.Token),
+            firstSeesSecond.Task.WaitAsync(cts.Token)
+        );
+
+        log?.Invoke("Both rooms connected and first room sees second participant");
+    }
 }
 
 /// <summary>

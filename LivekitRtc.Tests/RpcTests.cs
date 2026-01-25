@@ -47,16 +47,19 @@ namespace LiveKit.Rtc.Tests
             _callerRoom = new Room();
             _responderRoom = new Room();
 
-            await _callerRoom.ConnectAsync(_fixture.LiveKitUrl, callerToken);
-            await _responderRoom.ConnectAsync(_fixture.LiveKitUrl, responderToken);
+            await _fixture.ConnectRoomsAndWaitForEvents(
+                _callerRoom,
+                _responderRoom,
+                callerToken,
+                responderToken,
+                _responderIdentity,
+                Log
+            );
 
             _callerParticipant = _callerRoom.LocalParticipant;
             _responderParticipant = _responderRoom.LocalParticipant;
 
-            // Wait for participants to fully connect
-            await Task.Delay(500);
-
-            Log($"Test setup complete: Caller={_callerIdentity}, Responder={_responderIdentity}");
+            Log("Test setup complete: Both participants connected and caller sees responder");
         }
 
         public async Task DisposeAsync()
@@ -91,8 +94,6 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(500); // Allow registration to propagate
-
             // Call the method from caller
             var response = await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,
@@ -122,8 +123,6 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(500);
-
             var payload = "{\"name\":\"Alice\",\"age\":30}";
             var response = await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,
@@ -151,8 +150,6 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(500);
-
             var response = await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,
                 "ping",
@@ -179,8 +176,6 @@ namespace LiveKit.Rtc.Tests
                     return Task.FromResult(callCount.ToString());
                 }
             );
-
-            await Task.Delay(500);
 
             for (int i = 1; i <= 5; i++)
             {
@@ -222,8 +217,6 @@ namespace LiveKit.Rtc.Tests
                     return Task.FromResult("response-from-responder");
                 }
             );
-
-            await Task.Delay(500);
 
             // Call from caller to responder
             var response1 = await _callerParticipant.PerformRpcAsync(
@@ -267,8 +260,6 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(500);
-
             // Register second handler (should overwrite)
             _responderParticipant.RegisterRpcMethod(
                 "test",
@@ -278,8 +269,6 @@ namespace LiveKit.Rtc.Tests
                     return Task.FromResult("second-handler");
                 }
             );
-
-            await Task.Delay(500);
 
             var response = await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,
@@ -306,12 +295,8 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(500);
-
             // Unregister the handler
             _responderParticipant.UnregisterRpcMethod("temp");
-
-            await Task.Delay(500);
 
             // Attempt to call should fail with UnsupportedMethod
             var exception = await Assert.ThrowsAsync<RpcError>(async () =>
@@ -345,8 +330,6 @@ namespace LiveKit.Rtc.Tests
                 "method3",
                 (data) => Task.FromResult("response3")
             );
-
-            await Task.Delay(500);
 
             var response1 = await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,
@@ -394,8 +377,6 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(500);
-
             await _callerParticipant!.PerformRpcAsync(_responderIdentity, "checkCaller", "", 10.0);
 
             Assert.Equal(_callerIdentity, receivedCallerIdentity);
@@ -418,8 +399,6 @@ namespace LiveKit.Rtc.Tests
                     return Task.FromResult("ok");
                 }
             );
-
-            await Task.Delay(500);
 
             await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,
@@ -448,8 +427,6 @@ namespace LiveKit.Rtc.Tests
                     return Task.FromResult("ok");
                 }
             );
-
-            await Task.Delay(500);
 
             await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,
@@ -480,8 +457,6 @@ namespace LiveKit.Rtc.Tests
                     return Task.FromResult("ok");
                 }
             );
-
-            await Task.Delay(500);
 
             await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,
@@ -550,8 +525,6 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(500);
-
             var exception = await Assert.ThrowsAsync<RpcError>(async () =>
             {
                 await _callerParticipant!.PerformRpcAsync(
@@ -584,8 +557,6 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(500);
-
             var exception = await Assert.ThrowsAsync<RpcError>(async () =>
             {
                 await _callerParticipant!.PerformRpcAsync(
@@ -614,8 +585,6 @@ namespace LiveKit.Rtc.Tests
                     return Task.FromResult<string>(null!);
                 }
             );
-
-            await Task.Delay(500);
 
             var response = await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,
@@ -719,8 +688,6 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(500);
-
             await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,
                 "nullPayload",
@@ -785,8 +752,6 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(500);
-
             var response = await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,
                 "slowMethod",
@@ -818,8 +783,6 @@ namespace LiveKit.Rtc.Tests
                     return $"call-{callCount}";
                 }
             );
-
-            await Task.Delay(500);
 
             // Make 5 concurrent calls
             var tasks = new List<Task<string>>();
@@ -862,8 +825,6 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(500);
-
             var response = await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,
                 "largePayload",
@@ -890,8 +851,6 @@ namespace LiveKit.Rtc.Tests
                     return Task.FromResult(largeResponse);
                 }
             );
-
-            await Task.Delay(500);
 
             var response = await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,
@@ -925,8 +884,6 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(500);
-
             var response = await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,
                 "specialChars",
@@ -952,8 +909,6 @@ namespace LiveKit.Rtc.Tests
                     return Task.FromResult("success");
                 }
             );
-
-            await Task.Delay(500);
 
             var response = await _callerParticipant!.PerformRpcAsync(
                 _responderIdentity,

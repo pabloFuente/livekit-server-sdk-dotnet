@@ -47,14 +47,19 @@ namespace LiveKit.Rtc.Tests
             _senderRoom = new Room();
             _receiverRoom = new Room();
 
-            await _senderRoom.ConnectAsync(_fixture.LiveKitUrl, senderToken);
-            await _receiverRoom.ConnectAsync(_fixture.LiveKitUrl, receiverToken);
+            await _fixture.ConnectRoomsAndWaitForEvents(
+                _senderRoom,
+                _receiverRoom,
+                senderToken,
+                receiverToken,
+                "receiver",
+                Log
+            );
 
             _senderParticipant = _senderRoom.LocalParticipant;
             _receiverParticipant = _receiverRoom.LocalParticipant;
 
-            // Wait for participants to fully connect
-            await Task.Delay(500);
+            Log("Test setup complete: Both participants connected and sender sees receiver");
         }
 
         public async Task DisposeAsync()
