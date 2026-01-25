@@ -13,7 +13,7 @@ Use this SDK to add realtime video, audio and data features to your .NET app. By
   - [Livekit.Server.Sdk.Dotnet](#livekitserversdkdotnet)
   - [Livekit.Rtc.Dotnet](#livekitrtcdotnet)
 - [Quick Start](#quick-start)
-  - [Livekit.Server.Sdk.Dotnet - Access Tokens & Management APIs](#livekitserversdkdotnet---access-tokens--management-apis)
+  - [Livekit.Server.Sdk.Dotnet - Access Tokens & Server APIs](#livekitserversdkdotnet---access-tokens--management-apis)
   - [Livekit.Rtc.Dotnet - Real-Time Media](#livekitrtcdotnet---real-time-media)
 - [For Developers](#for-developers)
   - [Clone repository](#clone-repository)
@@ -50,7 +50,7 @@ This repository contains two complementary .NET packages for different LiveKit u
 
 ## Quick Start
 
-### Livekit.Server.Sdk.Dotnet - Access Tokens & Management APIs
+### Livekit.Server.Sdk.Dotnet - Access Tokens & Server APIs
 
 ```bash
 dotnet add package Livekit.Server.Sdk.Dotnet
