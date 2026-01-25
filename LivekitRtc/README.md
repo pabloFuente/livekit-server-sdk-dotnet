@@ -243,3 +243,15 @@ dotnet build
 ```
 
 ## Perform release
+
+1. Create a commit for the new version updating the `<Version>` property in `LivekitRtc.csproj`.
+2. Make sure to run script `./build_local.sh` to properly format all files with csharpier. Commit any changes in the repo after the script finishes.
+3. Create a [new release in GitHub](https://github.com/pabloFuente/livekit-server-sdk-dotnet/releases/new) with:
+   - Release title `rtc-X.Y.Z`
+   - A new tag `rtc-X.Y.Z`
+   - Description with relevant changes (e.g., `Update to LiveKit Rust SDK vA.B.C`)
+
+> [!IMPORTANT]
+> The **`rtc-`** prefix in the tag is mandatory for the publish workflow to identify that it is a release for package **Livekit.Rtc.Dotnet** specifically.
+>
+> After creating the release, workflow [publish.yml](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/publish.yml) will automatically publish the new version to NuGet and will perform the necessary post-release tasks.
