@@ -291,7 +291,9 @@ namespace LiveKit.Rtc.Tests
         public async Task LocalTrackPublished_Unpublished_MassiveSimultaneousStressTest()
         {
             const int TRACK_COUNT = 100; // Publish 100 tracks simultaneously
-            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Starting massive simultaneous track stress test with {TRACK_COUNT} tracks");
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] Starting massive simultaneous track stress test with {TRACK_COUNT} tracks"
+            );
 
             using var room = new Room();
             var token = _fixture.CreateToken("stress-test-participant", "stress-room");
@@ -303,13 +305,17 @@ namespace LiveKit.Rtc.Tests
             room.LocalTrackPublished += (sender, args) =>
             {
                 publishedEvents.Add(args.Publication.Sid);
-                _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] LocalTrackPublished: {args.Publication.Sid}");
+                _output.WriteLine(
+                    $"[{DateTime.Now:HH:mm:ss.fff}] LocalTrackPublished: {args.Publication.Sid}"
+                );
             };
 
             room.LocalTrackUnpublished += (sender, args) =>
             {
                 unpublishedEvents.Add(args.Publication.Sid);
-                _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] LocalTrackUnpublished: {args.Publication.Sid}");
+                _output.WriteLine(
+                    $"[{DateTime.Now:HH:mm:ss.fff}] LocalTrackUnpublished: {args.Publication.Sid}"
+                );
             };
 
             await room.ConnectAsync(_fixture.LiveKitUrl, token);
@@ -318,7 +324,7 @@ namespace LiveKit.Rtc.Tests
             // Create all audio sources and tracks
             var audioSources = new List<AudioSource>();
             var audioTracks = new List<LocalAudioTrack>();
-            
+
             for (int i = 0; i < TRACK_COUNT; i++)
             {
                 var source = new AudioSource(48000, 1);
@@ -330,11 +336,15 @@ namespace LiveKit.Rtc.Tests
             _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Created {TRACK_COUNT} audio tracks");
 
             // STRESS TEST 1: Publish ALL tracks simultaneously
-            var publishTasks = audioTracks.Select(track =>
-                room.LocalParticipant!.PublishTrackAsync(track, new TrackPublishOptions())
-            ).ToArray();
+            var publishTasks = audioTracks
+                .Select(track =>
+                    room.LocalParticipant!.PublishTrackAsync(track, new TrackPublishOptions())
+                )
+                .ToArray();
 
-            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Publishing {TRACK_COUNT} tracks simultaneously...");
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] Publishing {TRACK_COUNT} tracks simultaneously..."
+            );
             var publications = await Task.WhenAll(publishTasks);
             _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] All {TRACK_COUNT} tracks published");
 
@@ -345,28 +355,39 @@ namespace LiveKit.Rtc.Tests
                 await Task.Delay(100);
             }
 
-            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Received {publishedEvents.Count}/{TRACK_COUNT} LocalTrackPublished events");
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] Received {publishedEvents.Count}/{TRACK_COUNT} LocalTrackPublished events"
+            );
             Assert.Equal(TRACK_COUNT, publishedEvents.Count);
 
             // Verify all publication SIDs were captured
             var publishedSids = new HashSet<string>(publishedEvents);
             var expectedSids = new HashSet<string>(publications.Select(p => p.Sid));
             Assert.Equal(expectedSids.Count, publishedSids.Count);
-            Assert.True(expectedSids.SetEquals(publishedSids), "Published event SIDs should match actual publication SIDs");
+            Assert.True(
+                expectedSids.SetEquals(publishedSids),
+                "Published event SIDs should match actual publication SIDs"
+            );
 
-            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] ✓ All LocalTrackPublished events verified");
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] ✓ All LocalTrackPublished events verified"
+            );
 
             // Brief delay before unpublish storm
             await Task.Delay(500);
 
             // STRESS TEST 2: Unpublish ALL tracks simultaneously
-            var unpublishTasks = publications.Select(pub =>
-                room.LocalParticipant!.UnpublishTrackAsync(pub.Sid)
-            ).ToArray();
+            var unpublishTasks = publications
+                .Select(pub => room.LocalParticipant!.UnpublishTrackAsync(pub.Sid))
+                .ToArray();
 
-            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Unpublishing {TRACK_COUNT} tracks simultaneously...");
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] Unpublishing {TRACK_COUNT} tracks simultaneously..."
+            );
             await Task.WhenAll(unpublishTasks);
-            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] All {TRACK_COUNT} tracks unpublished");
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] All {TRACK_COUNT} tracks unpublished"
+            );
 
             // Wait for ALL LocalTrackUnpublished events
             var unpublishedDeadline = DateTime.Now.AddSeconds(30);
@@ -375,15 +396,22 @@ namespace LiveKit.Rtc.Tests
                 await Task.Delay(100);
             }
 
-            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Received {unpublishedEvents.Count}/{TRACK_COUNT} LocalTrackUnpublished events");
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] Received {unpublishedEvents.Count}/{TRACK_COUNT} LocalTrackUnpublished events"
+            );
             Assert.Equal(TRACK_COUNT, unpublishedEvents.Count);
 
             // Verify all unpublication SIDs were captured
             var unpublishedSids = new HashSet<string>(unpublishedEvents);
             Assert.Equal(expectedSids.Count, unpublishedSids.Count);
-            Assert.True(expectedSids.SetEquals(unpublishedSids), "Unpublished event SIDs should match publication SIDs");
+            Assert.True(
+                expectedSids.SetEquals(unpublishedSids),
+                "Unpublished event SIDs should match publication SIDs"
+            );
 
-            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] ✓ All LocalTrackUnpublished events verified");
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] ✓ All LocalTrackUnpublished events verified"
+            );
 
             // Verify no duplicate events
             Assert.Equal(publishedEvents.Count, publishedEvents.Distinct().Count());
@@ -401,7 +429,9 @@ namespace LiveKit.Rtc.Tests
             }
 
             await room.DisconnectAsync();
-            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] 🎉 STRESS TEST PASSED: {TRACK_COUNT} tracks published/unpublished simultaneously with 100% event delivery!");
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] 🎉 STRESS TEST PASSED: {TRACK_COUNT} tracks published/unpublished simultaneously with 100% event delivery!"
+            );
         }
     }
 }

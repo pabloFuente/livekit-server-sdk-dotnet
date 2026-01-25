@@ -30,8 +30,10 @@ namespace LiveKit.Rtc.Internal
 
         // Event Storage
         private readonly List<FfiEvent> _eventQueue = new();
-        private readonly List<(Func<FfiEvent, bool> Predicate, TaskCompletionSource<FfiEvent> Tcs)> _waiters =
-            new List<(Func<FfiEvent, bool>, TaskCompletionSource<FfiEvent>)>();
+        private readonly List<(
+            Func<FfiEvent, bool> Predicate,
+            TaskCompletionSource<FfiEvent> Tcs
+        )> _waiters = new List<(Func<FfiEvent, bool>, TaskCompletionSource<FfiEvent>)>();
 
         /// <summary>
         /// Global event for all FFI messages. Invoked outside the internal lock.
@@ -48,11 +50,13 @@ namespace LiveKit.Rtc.Internal
 
         public void Initialize(bool captureLogs = false)
         {
-            if (_initialized) return;
+            if (_initialized)
+                return;
 
             lock (_initLock)
             {
-                if (_initialized || _disposed) return;
+                if (_initialized || _disposed)
+                    return;
                 NativeMethods.Initialize(_callbackDelegate, captureLogs, SdkName, SdkVersion);
                 _initialized = true;
             }
@@ -92,7 +96,7 @@ namespace LiveKit.Rtc.Internal
         }
 
         /// <summary>
-        /// Async waits for a specific event. Uses the Waiter Pattern to ensure no events 
+        /// Async waits for a specific event. Uses the Waiter Pattern to ensure no events
         /// are missed between a Request and a Wait call.
         /// </summary>
         public async Task<FfiEvent> WaitForEventAsync(
@@ -101,7 +105,9 @@ namespace LiveKit.Rtc.Internal
             CancellationToken cancellationToken = default
         )
         {
-            TaskCompletionSource<FfiEvent> tcs = new(TaskCreationOptions.RunContinuationsAsynchronously);
+            TaskCompletionSource<FfiEvent> tcs = new(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
 
             lock (_lock)
             {
@@ -111,7 +117,7 @@ namespace LiveKit.Rtc.Internal
                     if (predicate(_eventQueue[i]))
                     {
                         var evt = _eventQueue[i];
-                        _eventQueue.RemoveAt(i);  // Preserves order of remaining events
+                        _eventQueue.RemoveAt(i); // Preserves order of remaining events
                         return evt;
                     }
                 }
@@ -121,11 +127,13 @@ namespace LiveKit.Rtc.Internal
             }
 
             using var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-            if (timeout.HasValue) cts.CancelAfter(timeout.Value);
+            if (timeout.HasValue)
+                cts.CancelAfter(timeout.Value);
 
             using var registration = cts.Token.Register(() =>
             {
-                lock (_lock) _waiters.RemoveAll(w => w.Tcs == tcs);
+                lock (_lock)
+                    _waiters.RemoveAll(w => w.Tcs == tcs);
                 tcs.TrySetCanceled();
             });
 
@@ -135,13 +143,16 @@ namespace LiveKit.Rtc.Internal
             }
             catch (OperationCanceledException) when (!cancellationToken.IsCancellationRequested)
             {
-                throw new TimeoutException($"FFI event wait timed out after {timeout?.TotalSeconds}s");
+                throw new TimeoutException(
+                    $"FFI event wait timed out after {timeout?.TotalSeconds}s"
+                );
             }
         }
 
         private void OnFfiCallback(IntPtr dataPtr, UIntPtr dataLen)
         {
-            if (_disposed) return;
+            if (_disposed)
+                return;
 
             try
             {
@@ -154,7 +165,8 @@ namespace LiveKit.Rtc.Internal
 
                 if (ffiEvent.MessageCase == FfiEvent.MessageOneofCase.Logs)
                 {
-                    foreach (var record in ffiEvent.Logs.Records) LogRecord(record);
+                    foreach (var record in ffiEvent.Logs.Records)
+                        LogRecord(record);
                     return;
                 }
 
@@ -169,7 +181,8 @@ namespace LiveKit.Rtc.Internal
 
                 lock (_lock)
                 {
-                    if (_disposed) return;
+                    if (_disposed)
+                        return;
 
                     // Match against active waiters
                     for (int i = _waiters.Count - 1; i >= 0; i--)
@@ -185,12 +198,14 @@ namespace LiveKit.Rtc.Internal
                     if (toTrigger.Count == 0)
                     {
                         _eventQueue.Add(ffiEvent);
-                        if (_eventQueue.Count > 1000) _eventQueue.RemoveAt(0); // Circular buffer: remove oldest
+                        if (_eventQueue.Count > 1000)
+                            _eventQueue.RemoveAt(0); // Circular buffer: remove oldest
                     }
                 }
 
                 // Trigger TaskCompletionSources and Events OUTSIDE the lock to prevent deadlocks
-                foreach (var tcs in toTrigger) tcs.TrySetResult(ffiEvent);
+                foreach (var tcs in toTrigger)
+                    tcs.TrySetResult(ffiEvent);
                 EventReceived?.Invoke(this, ffiEvent);
             }
             catch (Exception ex)
@@ -206,7 +221,7 @@ namespace LiveKit.Rtc.Internal
                 LogLevel.LogError => "ERROR",
                 LogLevel.LogWarn => "WARN",
                 LogLevel.LogInfo => "INFO",
-                _ => "DEBUG"
+                _ => "DEBUG",
             };
             Console.WriteLine($"[{level}] {record.Target} - {record.Message}");
         }
@@ -214,34 +229,44 @@ namespace LiveKit.Rtc.Internal
         public unsafe byte[] CopyBuffer(ulong ptr, int len)
         {
             byte[] buffer = new byte[len];
-            fixed (byte* dst = buffer) NativeMethods.CopyBuffer(ptr, (UIntPtr)len, dst);
+            fixed (byte* dst = buffer)
+                NativeMethods.CopyBuffer(ptr, (UIntPtr)len, dst);
             return buffer;
         }
 
         public unsafe ulong RetrievePtr(byte[] data)
         {
-            fixed (byte* ptr = data) return NativeMethods.RetrievePtr(ptr, (UIntPtr)data.Length);
+            fixed (byte* ptr = data)
+                return NativeMethods.RetrievePtr(ptr, (UIntPtr)data.Length);
         }
 
-        private void EnsureInitialized() { if (!_initialized) Initialize(); }
+        private void EnsureInitialized()
+        {
+            if (!_initialized)
+                Initialize();
+        }
 
         public void Dispose()
         {
-            if (_disposed) return;
+            if (_disposed)
+                return;
             lock (_initLock)
             {
-                if (_disposed) return;
+                if (_disposed)
+                    return;
                 _disposed = true;
 
                 lock (_lock)
                 {
                     // Cancel all pending async waiters
-                    foreach (var waiter in _waiters) waiter.Tcs.TrySetCanceled();
+                    foreach (var waiter in _waiters)
+                        waiter.Tcs.TrySetCanceled();
                     _waiters.Clear();
                     _eventQueue.Clear();
                 }
 
-                if (_initialized) NativeMethods.Dispose();
+                if (_initialized)
+                    NativeMethods.Dispose();
             }
         }
     }

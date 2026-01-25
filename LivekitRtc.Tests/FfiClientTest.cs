@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Google.Protobuf;
 using LiveKit.Proto;
 using LiveKit.Rtc.Internal;
 using Xunit;
-using Google.Protobuf;
 
 namespace LiveKit.Rtc.Tests
 {
@@ -13,14 +13,14 @@ namespace LiveKit.Rtc.Tests
     {
         public FfiClientTest()
         {
-            // Reset state before each test if possible, 
+            // Reset state before each test if possible,
             // though FfiClient is a Singleton, we must ensure it's initialized.
             FfiClient.Instance.Initialize();
         }
 
         public void Dispose()
         {
-            // In a real scenario, you'd want a way to reset the Singleton 
+            // In a real scenario, you'd want a way to reset the Singleton
             // for test isolation, but we'll work with the existing structure.
         }
 
@@ -54,7 +54,10 @@ namespace LiveKit.Rtc.Tests
             var ffiEvent = CreateMockEvent(asyncId);
 
             // 2. Act: Start waiting on a background task
-            var waitTask = FfiClient.Instance.WaitForEventAsync(e => GetAsyncId(e) == asyncId, TimeSpan.FromSeconds(2));
+            var waitTask = FfiClient.Instance.WaitForEventAsync(
+                e => GetAsyncId(e) == asyncId,
+                TimeSpan.FromSeconds(2)
+            );
 
             // Simulate delay from "Rust"
             await Task.Delay(100);
@@ -77,10 +80,10 @@ namespace LiveKit.Rtc.Tests
             var asyncId = 789UL;
             var ffiEvent = CreateMockEvent(asyncId);
             bool globalFired = false;
-            
+
             EventHandler<FfiEvent>? handler = null;
-            handler = (s, e) => 
-            { 
+            handler = (s, e) =>
+            {
                 if (GetAsyncId(e) == asyncId)
                 {
                     globalFired = true;
@@ -94,12 +97,15 @@ namespace LiveKit.Rtc.Tests
             var waitTask = FfiClient.Instance.WaitForEventAsync(e => GetAsyncId(e) == asyncId);
             SimulateNativeCallback(ffiEvent);
             await waitTask;
-            
+
             // Small delay to ensure EventReceived handler has executed
             await Task.Delay(50);
 
             // 3. Assert
-            Assert.True(globalFired, "EventReceived should fire for all events, including those consumed by waiters.");
+            Assert.True(
+                globalFired,
+                "EventReceived should fire for all events, including those consumed by waiters."
+            );
         }
 
         /// <summary>
@@ -130,8 +136,11 @@ namespace LiveKit.Rtc.Tests
 
             // 3. Assert
             var result = await Task.WhenAny(tcs.Task, Task.Delay(1000));
-            Assert.True(tcs.Task.IsCompleted, "Global event should have fired for unclaimed event.");
-            
+            Assert.True(
+                tcs.Task.IsCompleted,
+                "Global event should have fired for unclaimed event."
+            );
+
             // Cleanup
             FfiClient.Instance.EventReceived -= handler;
         }
@@ -149,14 +158,23 @@ namespace LiveKit.Rtc.Tests
             for (int i = 0; i < count; i++)
             {
                 var id = (ulong)i;
-                tasks.Add(FfiClient.Instance.WaitForEventAsync(e => GetAsyncId(e) == id, TimeSpan.FromSeconds(5)));
+                tasks.Add(
+                    FfiClient.Instance.WaitForEventAsync(
+                        e => GetAsyncId(e) == id,
+                        TimeSpan.FromSeconds(5)
+                    )
+                );
             }
 
             // 2. Act: Bombard with callbacks from multiple threads
-            Parallel.For(0, count, i =>
-            {
-                SimulateNativeCallback(CreateMockEvent((ulong)i));
-            });
+            Parallel.For(
+                0,
+                count,
+                i =>
+                {
+                    SimulateNativeCallback(CreateMockEvent((ulong)i));
+                }
+            );
 
             // 3. Assert
             await Task.WhenAll(tasks);
@@ -172,7 +190,10 @@ namespace LiveKit.Rtc.Tests
             // Act & Assert
             await Assert.ThrowsAsync<TimeoutException>(async () =>
             {
-                await FfiClient.Instance.WaitForEventAsync(e => false, TimeSpan.FromMilliseconds(100));
+                await FfiClient.Instance.WaitForEventAsync(
+                    e => false,
+                    TimeSpan.FromMilliseconds(100)
+                );
             });
         }
 
@@ -184,14 +205,17 @@ namespace LiveKit.Rtc.Tests
         {
             var asyncId = 999UL;
             var ffiEvent = CreateMockEvent(asyncId);
-            
+
             // Create 10 waiters for the same event
             var waiters = new List<Task<FfiEvent>>();
             for (int i = 0; i < 10; i++)
             {
-                waiters.Add(FfiClient.Instance.WaitForEventAsync(
-                    e => GetAsyncId(e) == asyncId, 
-                    TimeSpan.FromSeconds(3)));
+                waiters.Add(
+                    FfiClient.Instance.WaitForEventAsync(
+                        e => GetAsyncId(e) == asyncId,
+                        TimeSpan.FromSeconds(3)
+                    )
+                );
             }
 
             await Task.Delay(50); // Ensure all waiters are registered
@@ -219,18 +243,26 @@ namespace LiveKit.Rtc.Tests
             for (int i = 0; i < count; i++)
             {
                 var id = (ulong)i;
-                tasks.Add(FfiClient.Instance.WaitForEventAsync(
-                    e => GetAsyncId(e) == id, 
-                    TimeSpan.FromSeconds(10)));
+                tasks.Add(
+                    FfiClient.Instance.WaitForEventAsync(
+                        e => GetAsyncId(e) == id,
+                        TimeSpan.FromSeconds(10)
+                    )
+                );
             }
 
             // Fire events as fast as possible from multiple threads
             await Task.Run(() =>
             {
-                Parallel.For(0, count, new ParallelOptions { MaxDegreeOfParallelism = 10 }, i =>
-                {
-                    SimulateNativeCallback(CreateMockEvent((ulong)i));
-                });
+                Parallel.For(
+                    0,
+                    count,
+                    new ParallelOptions { MaxDegreeOfParallelism = 10 },
+                    i =>
+                    {
+                        SimulateNativeCallback(CreateMockEvent((ulong)i));
+                    }
+                );
             });
 
             // All should complete
@@ -255,8 +287,9 @@ namespace LiveKit.Rtc.Tests
                 // Start waiting and immediately fire event
                 var waitTask = FfiClient.Instance.WaitForEventAsync(
                     e => GetAsyncId(e) == asyncId,
-                    TimeSpan.FromMilliseconds(500));
-                
+                    TimeSpan.FromMilliseconds(500)
+                );
+
                 // Fire immediately - creates race between queue check and waiter registration
                 SimulateNativeCallback(ffiEvent);
 
@@ -293,9 +326,10 @@ namespace LiveKit.Rtc.Tests
                 {
                     EventHandler<FfiEvent>? handler = (s, e) =>
                     {
-                        lock (lockObj) receivedEvents++;
+                        lock (lockObj)
+                            receivedEvents++;
                     };
-                    
+
                     FfiClient.Instance.EventReceived += handler;
                     await Task.Delay(5);
                     FfiClient.Instance.EventReceived -= handler;
@@ -305,15 +339,19 @@ namespace LiveKit.Rtc.Tests
             // Task 2: Fire events rapidly
             var fireTask = Task.Run(() =>
             {
-                Parallel.For(0, eventCount, i =>
-                {
-                    SimulateNativeCallback(CreateMockEvent((ulong)(20000 + i)));
-                    Thread.Sleep(1); // Small delay to spread events
-                });
+                Parallel.For(
+                    0,
+                    eventCount,
+                    i =>
+                    {
+                        SimulateNativeCallback(CreateMockEvent((ulong)(20000 + i)));
+                        Thread.Sleep(1); // Small delay to spread events
+                    }
+                );
             });
 
             await Task.WhenAll(subscribeTask, fireTask);
-            
+
             // Should have received some events without crashing
             Assert.True(receivedEvents >= 0); // Just verify no crash
         }
@@ -334,7 +372,8 @@ namespace LiveKit.Rtc.Tests
             var asyncId = 99999UL;
             var waitTask = FfiClient.Instance.WaitForEventAsync(
                 e => GetAsyncId(e) == asyncId,
-                TimeSpan.FromSeconds(1));
+                TimeSpan.FromSeconds(1)
+            );
 
             await Task.Delay(50);
             SimulateNativeCallback(CreateMockEvent(asyncId));
@@ -357,11 +396,14 @@ namespace LiveKit.Rtc.Tests
             {
                 var cts = new CancellationTokenSource();
                 cancellationTokenSources.Add(cts);
-                
-                tasks.Add(FfiClient.Instance.WaitForEventAsync(
-                    e => GetAsyncId(e) == 88888,
-                    TimeSpan.FromSeconds(30),
-                    cts.Token));
+
+                tasks.Add(
+                    FfiClient.Instance.WaitForEventAsync(
+                        e => GetAsyncId(e) == 88888,
+                        TimeSpan.FromSeconds(30),
+                        cts.Token
+                    )
+                );
             }
 
             await Task.Delay(50); // Let them register
@@ -370,22 +412,24 @@ namespace LiveKit.Rtc.Tests
             Parallel.ForEach(cancellationTokenSources, cts => cts.Cancel());
 
             // All should be cancelled
-            var results = await Task.WhenAll(tasks.Select(async t =>
-            {
-                try
+            var results = await Task.WhenAll(
+                tasks.Select(async t =>
                 {
-                    await t;
-                    return false; // Shouldn't complete
-                }
-                catch (OperationCanceledException)
-                {
-                    return true; // Expected
-                }
-                catch
-                {
-                    return false;
-                }
-            }));
+                    try
+                    {
+                        await t;
+                        return false; // Shouldn't complete
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        return true; // Expected
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                })
+            );
 
             Assert.All(results, r => Assert.True(r));
         }
@@ -403,63 +447,73 @@ namespace LiveKit.Rtc.Tests
             var lockObj = new object();
 
             // Task 1: Constantly add waiters
-            tasks.Add(Task.Run(async () =>
-            {
-                int id = 50000;
-                while (!cts.Token.IsCancellationRequested)
+            tasks.Add(
+                Task.Run(async () =>
                 {
-                    try
+                    int id = 50000;
+                    while (!cts.Token.IsCancellationRequested)
                     {
-                        var waitTask = FfiClient.Instance.WaitForEventAsync(
-                            e => GetAsyncId(e) == (ulong)id++,
-                            TimeSpan.FromMilliseconds(100),
-                            cts.Token);
-                        _ = waitTask.ContinueWith(t => { }, TaskContinuationOptions.None);
+                        try
+                        {
+                            var waitTask = FfiClient.Instance.WaitForEventAsync(
+                                e => GetAsyncId(e) == (ulong)id++,
+                                TimeSpan.FromMilliseconds(100),
+                                cts.Token
+                            );
+                            _ = waitTask.ContinueWith(t => { }, TaskContinuationOptions.None);
+                        }
+                        catch (Exception ex)
+                        {
+                            lock (lockObj)
+                                errors.Add(ex);
+                        }
+                        await Task.Delay(5);
                     }
-                    catch (Exception ex)
-                    {
-                        lock (lockObj) errors.Add(ex);
-                    }
-                    await Task.Delay(5);
-                }
-            }));
+                })
+            );
 
             // Task 2: Constantly fire events
-            tasks.Add(Task.Run(() =>
-            {
-                int id = 60000;
-                while (!cts.Token.IsCancellationRequested)
+            tasks.Add(
+                Task.Run(() =>
                 {
-                    try
+                    int id = 60000;
+                    while (!cts.Token.IsCancellationRequested)
                     {
-                        SimulateNativeCallback(CreateMockEvent((ulong)id++));
+                        try
+                        {
+                            SimulateNativeCallback(CreateMockEvent((ulong)id++));
+                        }
+                        catch (Exception ex)
+                        {
+                            lock (lockObj)
+                                errors.Add(ex);
+                        }
+                        Thread.Sleep(2);
                     }
-                    catch (Exception ex)
-                    {
-                        lock (lockObj) errors.Add(ex);
-                    }
-                    Thread.Sleep(2);
-                }
-            }));
+                })
+            );
 
             // Task 3: Constantly subscribe/unsubscribe EventReceived
-            tasks.Add(Task.Run(async () =>
-            {
-                while (!cts.Token.IsCancellationRequested)
+            tasks.Add(
+                Task.Run(async () =>
                 {
-                    try
+                    while (!cts.Token.IsCancellationRequested)
                     {
-                        EventHandler<FfiEvent>? handler = (s, e) => { };
-                        FfiClient.Instance.EventReceived += handler;
-                        await Task.Delay(10);
-                        FfiClient.Instance.EventReceived -= handler;
+                        try
+                        {
+                            EventHandler<FfiEvent>? handler = (s, e) => { };
+                            FfiClient.Instance.EventReceived += handler;
+                            await Task.Delay(10);
+                            FfiClient.Instance.EventReceived -= handler;
+                        }
+                        catch (Exception ex)
+                        {
+                            lock (lockObj)
+                                errors.Add(ex);
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        lock (lockObj) errors.Add(ex);
-                    }
-                }
-            }));
+                })
+            );
 
             await Task.WhenAll(tasks);
 
@@ -481,29 +535,37 @@ namespace LiveKit.Rtc.Tests
             for (int i = 0; i < count; i++)
             {
                 var id = (ulong)(70000 + i);
-                tasks.Add(Task.Run(async () =>
-                {
-                    try
+                tasks.Add(
+                    Task.Run(async () =>
                     {
-                        var result = await FfiClient.Instance.WaitForEventAsync(
-                            e => GetAsyncId(e) == id,
-                            TimeSpan.FromSeconds(10));
-                        receivedIds.Add(GetAsyncId(result));
-                    }
-                    catch (TimeoutException)
-                    {
-                        // Event was lost!
-                    }
-                }));
+                        try
+                        {
+                            var result = await FfiClient.Instance.WaitForEventAsync(
+                                e => GetAsyncId(e) == id,
+                                TimeSpan.FromSeconds(10)
+                            );
+                            receivedIds.Add(GetAsyncId(result));
+                        }
+                        catch (TimeoutException)
+                        {
+                            // Event was lost!
+                        }
+                    })
+                );
             }
 
             // Fire all events from multiple threads
             await Task.Run(() =>
             {
-                Parallel.For(0, count, new ParallelOptions { MaxDegreeOfParallelism = 8 }, i =>
-                {
-                    SimulateNativeCallback(CreateMockEvent((ulong)(70000 + i)));
-                });
+                Parallel.For(
+                    0,
+                    count,
+                    new ParallelOptions { MaxDegreeOfParallelism = 8 },
+                    i =>
+                    {
+                        SimulateNativeCallback(CreateMockEvent((ulong)(70000 + i)));
+                    }
+                );
             });
 
             await Task.WhenAll(tasks);
@@ -529,11 +591,7 @@ namespace LiveKit.Rtc.Tests
                         Room = new OwnedRoom
                         {
                             Handle = new FfiOwnedHandle { Id = 1 },
-                            Info = new RoomInfo
-                            {
-                                Sid = "test-room",
-                                Name = "Test Room"
-                            }
+                            Info = new RoomInfo { Sid = "test-room", Name = "Test Room" },
                         },
                         LocalParticipant = new OwnedParticipant
                         {
@@ -541,11 +599,11 @@ namespace LiveKit.Rtc.Tests
                             Info = new ParticipantInfo
                             {
                                 Sid = "test-participant",
-                                Identity = "test-identity"
-                            }
-                        }
-                    }
-                }
+                                Identity = "test-identity",
+                            },
+                        },
+                    },
+                },
             };
         }
 
@@ -555,7 +613,7 @@ namespace LiveKit.Rtc.Tests
             return e.MessageCase switch
             {
                 FfiEvent.MessageOneofCase.Connect => e.Connect.AsyncId,
-                _ => 0
+                _ => 0,
             };
         }
 
@@ -564,12 +622,18 @@ namespace LiveKit.Rtc.Tests
             var data = ffiEvent.ToByteArray();
             fixed (byte* ptr = data)
             {
-                // We have to use Reflection to call the private OnFfiCallback 
+                // We have to use Reflection to call the private OnFfiCallback
                 // because it's the entry point from the unmanaged side.
-                var method = typeof(FfiClient).GetMethod("OnFfiCallback",
-                    System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                var method = typeof(FfiClient).GetMethod(
+                    "OnFfiCallback",
+                    System.Reflection.BindingFlags.NonPublic
+                        | System.Reflection.BindingFlags.Instance
+                );
 
-                method?.Invoke(FfiClient.Instance, new object[] { (IntPtr)ptr, (UIntPtr)data.Length });
+                method?.Invoke(
+                    FfiClient.Instance,
+                    new object[] { (IntPtr)ptr, (UIntPtr)data.Length }
+                );
             }
         }
 

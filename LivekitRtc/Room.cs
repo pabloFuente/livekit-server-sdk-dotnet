@@ -317,11 +317,24 @@ namespace LiveKit.Rtc
         {
             lock (_eventLock)
             {
-                _eventTaskChain = _eventTaskChain.ContinueWith(async _ =>
-                {
-                    try { action(); }
-                    catch (Exception ex) { Console.Error.WriteLine($"[ERROR] Room event handler exception: {ex.Message}"); }
-                }, TaskScheduler.Default).Unwrap(); // Unwrap is key for async actions
+                _eventTaskChain = _eventTaskChain
+                    .ContinueWith(
+                        async _ =>
+                        {
+                            try
+                            {
+                                action();
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.Error.WriteLine(
+                                    $"[ERROR] Room event handler exception: {ex.Message}"
+                                );
+                            }
+                        },
+                        TaskScheduler.Default
+                    )
+                    .Unwrap(); // Unwrap is key for async actions
             }
         }
 
@@ -330,11 +343,24 @@ namespace LiveKit.Rtc
         {
             lock (_eventLock)
             {
-                _eventTaskChain = _eventTaskChain.ContinueWith(async _ =>
-                {
-                    try { await action(); }
-                    catch (Exception ex) { Console.Error.WriteLine($"[ERROR] Room event handler exception: {ex.Message}"); }
-                }, TaskScheduler.Default).Unwrap();
+                _eventTaskChain = _eventTaskChain
+                    .ContinueWith(
+                        async _ =>
+                        {
+                            try
+                            {
+                                await action();
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.Error.WriteLine(
+                                    $"[ERROR] Room event handler exception: {ex.Message}"
+                                );
+                            }
+                        },
+                        TaskScheduler.Default
+                    )
+                    .Unwrap();
             }
         }
 
@@ -621,8 +647,8 @@ namespace LiveKit.Rtc
                 if (invocation.LocalParticipantHandle != LocalParticipant.Handle.HandleId)
                     return;
 
-                // Handle RPC method invocation asynchronously (fire and forget)
-                _ = Task.Run(async () =>
+                // Handle RPC method invocation using the serial event queue to ensure ordering
+                DispatchEvent(async () =>
                 {
                     try
                     {
@@ -806,21 +832,24 @@ namespace LiveKit.Rtc
             {
                 LocalTrackPublication? publication = null;
 
-                // Retry logic: The FFI event might arrive before the PublishTrack Task 
+                // Retry logic: The FFI event might arrive before the PublishTrack Task
                 // has finished updating the internal dictionary.
                 for (int i = 0; i < 20; i++)
                 {
                     await _ffiEventLock.WaitAsync();
                     try
                     {
-                        publication = LocalParticipant.GetTrackPublication(evt.TrackSid) as LocalTrackPublication;
+                        publication =
+                            LocalParticipant.GetTrackPublication(evt.TrackSid)
+                            as LocalTrackPublication;
                     }
                     finally
                     {
                         _ffiEventLock.Release();
                     }
 
-                    if (publication != null) break;
+                    if (publication != null)
+                        break;
 
                     // Wait before retrying if not found yet
                     await Task.Delay(25);
@@ -828,11 +857,16 @@ namespace LiveKit.Rtc
 
                 if (publication != null)
                 {
-                    LocalTrackPublished?.Invoke(this, new LocalTrackPublishedEventArgs(publication, LocalParticipant));
+                    LocalTrackPublished?.Invoke(
+                        this,
+                        new LocalTrackPublishedEventArgs(publication, LocalParticipant)
+                    );
                 }
                 else
                 {
-                    Console.Error.WriteLine($"[ERROR] LocalTrackPublished: Track {evt.TrackSid} not found in LocalParticipant after retries.");
+                    Console.Error.WriteLine(
+                        $"[ERROR] LocalTrackPublished: Track {evt.TrackSid} not found in LocalParticipant after retries."
+                    );
                 }
             });
         }
@@ -848,7 +882,9 @@ namespace LiveKit.Rtc
                 _ffiEventLock.WaitAsync();
                 try
                 {
-                    publication = LocalParticipant.GetTrackPublication(evt.PublicationSid) as LocalTrackPublication;
+                    publication =
+                        LocalParticipant.GetTrackPublication(evt.PublicationSid)
+                        as LocalTrackPublication;
                 }
                 finally
                 {
@@ -857,7 +893,10 @@ namespace LiveKit.Rtc
 
                 if (publication != null)
                 {
-                    LocalTrackUnpublished?.Invoke(this, new LocalTrackPublishedEventArgs(publication, LocalParticipant));
+                    LocalTrackUnpublished?.Invoke(
+                        this,
+                        new LocalTrackPublishedEventArgs(publication, LocalParticipant)
+                    );
                 }
             });
         }
@@ -873,7 +912,8 @@ namespace LiveKit.Rtc
                 _ffiEventLock.WaitAsync();
                 try
                 {
-                    publication = LocalParticipant.GetTrackPublication(evt.TrackSid) as LocalTrackPublication;
+                    publication =
+                        LocalParticipant.GetTrackPublication(evt.TrackSid) as LocalTrackPublication;
                 }
                 finally
                 {
@@ -904,7 +944,12 @@ namespace LiveKit.Rtc
                 as RemoteTrackPublication;
             if (publication != null)
             {
-                DispatchEvent(() => TrackPublished?.Invoke(this, new TrackPublishedEventArgs(publication, participant)));
+                DispatchEvent(() =>
+                    TrackPublished?.Invoke(
+                        this,
+                        new TrackPublishedEventArgs(publication, participant)
+                    )
+                );
             }
         }
 
@@ -927,10 +972,12 @@ namespace LiveKit.Rtc
                 participant.GetTrackPublication(evt.PublicationSid) as RemoteTrackPublication;
             if (publication != null)
             {
-                DispatchEvent(() => TrackUnpublished?.Invoke(
-                    this,
-                    new TrackPublishedEventArgs(publication, participant)
-                ));
+                DispatchEvent(() =>
+                    TrackUnpublished?.Invoke(
+                        this,
+                        new TrackPublishedEventArgs(publication, participant)
+                    )
+                );
                 participant.RemovePublication(evt.PublicationSid);
             }
         }
@@ -999,10 +1046,12 @@ namespace LiveKit.Rtc
             if (publication?.Track != null)
             {
                 var track = publication.Track;
-                DispatchEvent(() => TrackUnsubscribed?.Invoke(
-                    this,
-                    new TrackSubscribedEventArgs(track, publication, participant)
-                ));
+                DispatchEvent(() =>
+                    TrackUnsubscribed?.Invoke(
+                        this,
+                        new TrackSubscribedEventArgs(track, publication, participant)
+                    )
+                );
                 publication.Track = null;
             }
         }
@@ -1025,7 +1074,9 @@ namespace LiveKit.Rtc
                 updatedInfo.Muted = true;
                 publication.UpdateInfo(updatedInfo);
 
-                DispatchEvent(() => TrackMuted?.Invoke(this, new TrackMutedEventArgs(publication, participant)));
+                DispatchEvent(() =>
+                    TrackMuted?.Invoke(this, new TrackMutedEventArgs(publication, participant))
+                );
             }
         }
 
@@ -1047,7 +1098,9 @@ namespace LiveKit.Rtc
                 updatedInfo.Muted = false;
                 publication.UpdateInfo(updatedInfo);
 
-                DispatchEvent(() => TrackUnmuted?.Invoke(this, new TrackMutedEventArgs(publication, participant)));
+                DispatchEvent(() =>
+                    TrackUnmuted?.Invoke(this, new TrackMutedEventArgs(publication, participant))
+                );
             }
         }
 
@@ -1066,7 +1119,9 @@ namespace LiveKit.Rtc
                 }
             }
 
-            DispatchEvent(() => ActiveSpeakersChanged?.Invoke(this, new ActiveSpeakersChangedEventArgs(speakers)));
+            DispatchEvent(() =>
+                ActiveSpeakersChanged?.Invoke(this, new ActiveSpeakersChangedEventArgs(speakers))
+            );
         }
 
         private void HandleConnectionQualityChanged(Proto.ConnectionQualityChanged evt)
@@ -1079,10 +1134,12 @@ namespace LiveKit.Rtc
                 return;
 
             var quality = evt.Quality;
-            DispatchEvent(() => ConnectionQualityChanged?.Invoke(
-                this,
-                new ConnectionQualityChangedEventArgs(quality, participant)
-            ));
+            DispatchEvent(() =>
+                ConnectionQualityChanged?.Invoke(
+                    this,
+                    new ConnectionQualityChangedEventArgs(quality, participant)
+                )
+            );
         }
 
         private void HandleDataPacketReceived(Proto.DataPacketReceived evt)
@@ -1121,7 +1178,12 @@ namespace LiveKit.Rtc
                 }
             }
 
-            DispatchEvent(() => DataReceived?.Invoke(this, new DataReceivedEventArgs(data, participant, kind, topic)));
+            DispatchEvent(() =>
+                DataReceived?.Invoke(
+                    this,
+                    new DataReceivedEventArgs(data, participant, kind, topic)
+                )
+            );
         }
 
         private void HandleRoomMetadataChanged(Proto.RoomMetadataChanged evt)
