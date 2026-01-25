@@ -31,9 +31,9 @@ This repository contains two complementary .NET packages for different LiveKit u
 
 **Server-side management and authentication SDK** for LiveKit. Use it to interact with all LiveKit server APIs, create access tokens, and handle webhooks.
 
-**Target Framework:** `netstandard2.0`
+- **Target Framework:** `netstandard2.0`
 
-**[Full Documentation →](LivekitApi/README.md)**
+- **[Full Documentation →](LivekitApi/README.md)**
 
 ### Livekit.Rtc.Dotnet
 
@@ -42,11 +42,11 @@ This repository contains two complementary .NET packages for different LiveKit u
 
 **Real-time communication SDK** for .NET server applications. Use it to connect to LiveKit as a server-side participant, and to publish and subscribe to audio, video, and data.
 
-**Target Framework:** `netstandard2.1`
+- **Target Framework:** `netstandard2.1`
 
-**Included Native Binaries:** Precompiled for Windows, Linux, macOS (x64 & ARM64)
+- **Included Native Binaries:** Precompiled for Windows, Linux, macOS (x64 & ARM64)
 
-**[Full Documentation →](LivekitRtc/README.md)**
+- **[Full Documentation →](LivekitRtc/README.md)**
 
 ## Quick Start
 
