@@ -129,24 +129,12 @@ dotnet test LivekitRtc.Tests/LivekitRtc.Tests.csproj
 
 ### Perform release
 
-Releases are automated through GitHub Actions:
+Releases are automated through GitHub Actions thanks to the [publish workflow](.github/workflows/publish.yml). Both packages `Livekit.Server.Sdk.Dotnet` and `Livekit.Rtc.Dotnet` can be released independently. Checkout how to do so:
 
-1. **Livekit.Server.Sdk.Dotnet:** Create a tag with format `api-X.Y.Z`
+- [Release Livekit.Server.Sdk.Dotnet](LivekitApi/README.md#perform-release)
+- [Release Livekit.Rtc.Dotnet](LivekitRtc/README.md#perform-release)
 
-   ```bash
-   git tag api-1.2.0
-   git push origin api-1.2.0
-   ```
-
-2. **Livekit.Rtc.Dotnet:** Create a tag with format `rtc-X.Y.Z`
-   ```bash
-   git tag rtc-0.1.0
-   git push origin rtc-0.1.0
-   ```
-
-The [publish workflow](.github/workflows/publish.yml) will automatically build, pack, and publish the appropriate package to NuGet.org.
-
-## Upgrade version of `livekit/protocol`
+### Upgrade version of `livekit/protocol`
 
 To upgrade the version of the `livekit/protocol` Git submodule:
 
