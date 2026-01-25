@@ -263,12 +263,14 @@ namespace LiveKit.Rtc.Internal
                     return;
                 }
 
-                // Queue the event and raise the event handler
+                // Queue the event and raise the event handler atomically under lock
+                // This prevents a race condition where WaitForEventAsync could check the queue
+                // and subscribe to EventReceived between enqueueing and invoking the event
                 lock (_queueLock)
                 {
                     _eventQueue.Enqueue(ffiEvent);
+                    EventReceived?.Invoke(this, ffiEvent);
                 }
-                EventReceived?.Invoke(this, ffiEvent);
             }
             catch (Exception ex)
             {
