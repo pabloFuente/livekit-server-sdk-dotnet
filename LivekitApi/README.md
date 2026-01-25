@@ -3,9 +3,12 @@
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/pabloFuente/livekit-server-sdk-dotnet/dotnet.yml)](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/dotnet.yml)
 [![License badge](https://img.shields.io/badge/license-Apache2-orange.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
-# livekit-server-sdk-dotnet <!-- omit in toc -->
+# Livekit.Server.Sdk.Dotnet <!-- omit in toc -->
 
 .NET APIs to manage [LiveKit](https://livekit.io) Access Tokens, Webhook and Server APIs. Use it with a .NET backend. It is build with **`netstandard2.0`** as target framework, so the SDK can be used in all versions of .NET.
+
+> [!NOTE]
+> This SDK does not provide real-time communication capabilities. If you want to add real-time audio, video and data features to your .NET server application, please check [Livekit.Rtc.Dotnet](../LivekitRtc/README.md) instead.
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -26,7 +29,6 @@
   - [Perform release](#perform-release)
   - [GitHub Actions](#github-actions)
   - [Install as a local NuGet package](#install-as-a-local-nuget-package)
-  - [Upgrade version of `livekit/protocol`](#upgrade-version-of-livekitprotocol)
 
 # Installation
 
@@ -431,7 +433,7 @@ dotnet test LivekitApi.Tests --filter "Category=Integration"
 
 > [!IMPORTANT]
 > The **`api-`** prefix in the tag is mandatory for the publish workflow to identify that it is a release for package **Livekit.Server.Sdk.Dotnet** specifically.
-> 
+>
 > After creating the release, workflow [publish.yml](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/publish.yml) will automatically publish the new version to NuGet and will perform the necessary post-release tasks.
 
 ## GitHub Actions
@@ -483,37 +485,3 @@ dotnet restore
 ```
 
 > **Note**: all this process is automated in the `build_local.sh` script. Tested in Unix systems.
-
-## Upgrade version of `livekit/protocol`
-
-To upgrade the version of the `livekit/protocol` Git submodule:
-
-```bash
-cd protocol
-git fetch --all
-git checkout <COMMIT_HASH/TAG/BRANCH>
-cd ..
-git add protocol
-git commit -m "Update livekit/protocol to <VERSION>"
-git push
-```
-
-Then it may be necessary to re-generate the proto files to actually reflect the changes in livekit/protocol:
-
-```bash
-./generate_proto.sh
-```
-
-Then try packaging the SDK to test the validity of the changes in the protocol:
-
-```bash
-dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
-```
-
-This command may throw an error if there are breaking changes in the protocol, as the SDK is configured in strict mode for [package validation](https://learn.microsoft.com/en-us/dotnet/fundamentals/apicompat/package-validation/overview). The way to overcome these breaking changes is running the package command with option `-p:GenerateCompatibilitySuppressionFile=true` to generate file `CompatibilitySuppressions.xml`:
-
-```bash
-dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:GenerateCompatibilitySuppressionFile=true
-```
-
-This compatibility suppression file will allow packaging and publishing the SDK even with breaking changes. Once the new version is available in NuGet, the only thing left is to update in file `LivekitApi.csproj` property `<PackageValidationBaselineVersion>X.Y.Z</PackageValidationBaselineVersion>` to the new version (so the new reference for breaking changes is this new version), and delete `CompatibilitySuppressions.xml` (as it is no longer needed). Workflow [publish.yml](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/publish.yml) automatically does this as last step.

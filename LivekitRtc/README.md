@@ -3,9 +3,14 @@
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/pabloFuente/livekit-server-sdk-dotnet/dotnet.yml)](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/dotnet.yml)
 [![License badge](https://img.shields.io/badge/license-Apache2-orange.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
-# LiveKit RTC SDK for .NET <!-- omit in toc -->
+# Livekit.Rtc.Dotnet <!-- omit in toc -->
 
-- [Overview](#overview)
+.NET SDK to integrate LiveKit's real-time video, audio, and data capabilities into your .NET applications using WebRTC. Access the same powerful API offered by client SDKs, but directly from your .NET server: connect to rooms as a participant, publish and subscribe to audio/video tracks, send and receive data messages, perform RPC calls, and more.
+
+> [!NOTE]
+> This SDK does not provide Server APIs to manage LiveKit resources such as Rooms, Egress, Ingress or SIP. If you want to manage LiveKit APIs from your .NET backend, please check [Livekit.Server.Sdk.Dotnet](../LivekitApi/README.md) instead.
+
+- [Design principles](#design-principles)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -23,9 +28,7 @@
   - [Building from source](#building-from-source)
   - [Perform release](#perform-release)
 
-## Overview
-
-.NET SDK to integrate LiveKit's real-time video, audio, and data capabilities into your .NET applications using WebRTC. Access the same powerful API offered by client SDKs, but directly from your .NET server: connect to rooms as a participant, publish and subscribe to audio/video tracks, send and receive data messages, perform RPC calls, and more.
+## Design principles
 
 This library is crafted based on three core principles:
 
@@ -240,4 +243,3 @@ dotnet build
 ```
 
 ## Perform release
-
