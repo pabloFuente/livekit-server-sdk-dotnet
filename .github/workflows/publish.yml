@@ -14,7 +14,7 @@ env:
 
 defaults:
   run:
-    shell: pwsh
+    shell: bash
 
 jobs:
   create_nuget:
@@ -23,6 +23,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Get all history to allow automatic versioning using MinVer
+          submodules: recursive # Required for LivekitRtc which depends on rust-sdks submodule
 
       # Install the .NET SDK indicated in the global.json file
       - name: Setup .NET
@@ -32,17 +33,17 @@ jobs:
       - name: Determine project to pack
         id: determine_project
         run: |
-          $TAG = "${{ github.event.release.tag_name }}"
-          if ($TAG -like "api-*") {
-            Write-Output "project=LivekitApi/LivekitApi.csproj" >> $env:GITHUB_OUTPUT
-            Write-Output "project_name=LivekitApi" >> $env:GITHUB_OUTPUT
-          } elseif ($TAG -like "rtc-*") {
-            Write-Output "project=LivekitRtc/LivekitRtc.csproj" >> $env:GITHUB_OUTPUT
-            Write-Output "project_name=LivekitRtc" >> $env:GITHUB_OUTPUT
-          } else {
-            Write-Error "Invalid tag format. Expected 'api-X.Y.Z' or 'rtc-X.Y.Z', got '$TAG'"
+          TAG="${{ github.event.release.tag_name }}"
+          if [[ "$TAG" == api-* ]]; then
+            echo "project=LivekitApi/LivekitApi.csproj" >> "$GITHUB_OUTPUT"
+            echo "project_name=LivekitApi" >> "$GITHUB_OUTPUT"
+          elif [[ "$TAG" == rtc-* ]]; then
+            echo "project=LivekitRtc/LivekitRtc.csproj" >> "$GITHUB_OUTPUT"
+            echo "project_name=LivekitRtc" >> "$GITHUB_OUTPUT"
+          else
+            echo "Invalid tag format. Expected 'api-X.Y.Z' or 'rtc-X.Y.Z', got '$TAG'" >&2
             exit 1
-          }
+          fi
 
       # Create the NuGet package for the specific project
       - name: Pack NuGet package
@@ -78,12 +79,14 @@ jobs:
       # If some rules are not applicable, you can disable them
       # using the --excluded-rules or --excluded-rule-ids option
       - name: Validate package
-        run: meziantou.validate-nuget-package --excluded-rules IconMustBeSet (Get-ChildItem "${{ env.NuGetDirectory }}/*.nupkg")
+        run: meziantou.validate-nuget-package --excluded-rules IconMustBeSet "${{ env.NuGetDirectory }}"/*.nupkg
 
   run_test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: recursive # Required for LivekitRtc which depends on rust-sdks submodule
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
       - name: Run tests
@@ -112,9 +115,9 @@ jobs:
       # If you retry a failed workflow, already published packages will be skipped without error.
       - name: Publish NuGet package
         run: |
-          foreach($file in (Get-ChildItem "${{ env.NuGetDirectory }}" -Recurse -Include *.nupkg)) {
-              dotnet nuget push $file --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
-          }
+          for file in "${{ env.NuGetDirectory }}"/*.nupkg; do
+            dotnet nuget push "$file" --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+          done
 
       - uses: actions/checkout@v4
         with:
@@ -122,26 +125,26 @@ jobs:
 
       - name: Post release steps
         run: |
-          $TAG = "${{ github.event.release.tag_name }}"
+          TAG="${{ github.event.release.tag_name }}"
 
           # Determine which package to update based on tag prefix
           # Expected tag formats: api-X.Y.Z or rtc-X.Y.Z
-          if ($TAG -like "api-*") {
+          if [[ "$TAG" == api-* ]]; then
             # API package release
-            $VERSION = $TAG -replace '^api-', ''
-            Write-Output "Updating LivekitApi to version $VERSION"
-            (Get-Content LivekitApi/LivekitApi.csproj) -replace '<PackageValidationBaselineVersion>.*</PackageValidationBaselineVersion>', "<PackageValidationBaselineVersion>$VERSION</PackageValidationBaselineVersion>" | Set-Content LivekitApi/LivekitApi.csproj
-            Remove-Item -Path LivekitApi/CompatibilitySuppressions.xml -ErrorAction SilentlyContinue
-          } elseif ($TAG -like "rtc-*") {
+            VERSION="${TAG#api-}"
+            echo "Updating LivekitApi to version $VERSION"
+            sed -i "s|<PackageValidationBaselineVersion>.*</PackageValidationBaselineVersion>|<PackageValidationBaselineVersion>$VERSION</PackageValidationBaselineVersion>|" LivekitApi/LivekitApi.csproj
+            rm -f LivekitApi/CompatibilitySuppressions.xml
+          elif [[ "$TAG" == rtc-* ]]; then
             # RTC package release
-            $VERSION = $TAG -replace '^rtc-', ''
-            Write-Output "Updating LivekitRtc to version $VERSION"
-            (Get-Content LivekitRtc/LivekitRtc.csproj) -replace '<PackageValidationBaselineVersion>.*</PackageValidationBaselineVersion>', "<PackageValidationBaselineVersion>$VERSION</PackageValidationBaselineVersion>" | Set-Content LivekitRtc/LivekitRtc.csproj
-            Remove-Item -Path LivekitRtc/CompatibilitySuppressions.xml -ErrorAction SilentlyContinue
-          } else {
-            Write-Error "Invalid tag format. Expected 'api-X.Y.Z' or 'rtc-X.Y.Z'"
+            VERSION="${TAG#rtc-}"
+            echo "Updating LivekitRtc to version $VERSION"
+            sed -i "s|<PackageValidationBaselineVersion>.*</PackageValidationBaselineVersion>|<PackageValidationBaselineVersion>$VERSION</PackageValidationBaselineVersion>|" LivekitRtc/LivekitRtc.csproj
+            rm -f LivekitRtc/CompatibilitySuppressions.xml
+          else
+            echo "Invalid tag format. Expected 'api-X.Y.Z' or 'rtc-X.Y.Z'" >&2
             exit 1
-          }
+          fi
 
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
