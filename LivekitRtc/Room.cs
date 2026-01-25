@@ -63,6 +63,10 @@ namespace LiveKit.Rtc
         private bool _disposed;
         private E2EEManager? _e2eeManager;
 
+        // Serial Task Queue for event dispatching to ensure ordering and prevent deadlocks
+        private Task _eventTaskChain = Task.CompletedTask;
+        private readonly object _eventLock = new object();
+
         // Stream handling
         private readonly Dictionary<string, TextStreamReader> _textStreamReaders =
             new Dictionary<string, TextStreamReader>();
@@ -306,6 +310,35 @@ namespace LiveKit.Rtc
         }
 
         /// <summary>
+        /// Dispatches events asynchronously while maintaining strict FIFO order.
+        /// This prevents deadlocks and protects the FFI thread from user-code exceptions.
+        /// </summary>
+        private void DispatchEvent(Action action)
+        {
+            lock (_eventLock)
+            {
+                _eventTaskChain = _eventTaskChain.ContinueWith(async _ =>
+                {
+                    try { action(); }
+                    catch (Exception ex) { Console.Error.WriteLine($"[ERROR] Room event handler exception: {ex.Message}"); }
+                }, TaskScheduler.Default).Unwrap(); // Unwrap is key for async actions
+            }
+        }
+
+        // Overload to handle async delegates directly
+        private void DispatchEvent(Func<Task> action)
+        {
+            lock (_eventLock)
+            {
+                _eventTaskChain = _eventTaskChain.ContinueWith(async _ =>
+                {
+                    try { await action(); }
+                    catch (Exception ex) { Console.Error.WriteLine($"[ERROR] Room event handler exception: {ex.Message}"); }
+                }, TaskScheduler.Default).Unwrap();
+            }
+        }
+
+        /// <summary>
         /// Creates a new Room instance.
         /// </summary>
         public Room()
@@ -342,7 +375,7 @@ namespace LiveKit.Rtc
             // Proto only has 3 states: ConnDisconnected, ConnConnected, ConnReconnecting
             // Application-level "connecting" is handled by being != ConnDisconnected
             ConnectionState = Proto.ConnectionState.ConnDisconnected;
-            ConnectionStateChanged?.Invoke(this, ConnectionState);
+            DispatchEvent(() => ConnectionStateChanged?.Invoke(this, ConnectionState));
 
             // Send connect request
             var request = new FfiRequest
@@ -376,7 +409,7 @@ namespace LiveKit.Rtc
             if (!string.IsNullOrEmpty(callback.Error))
             {
                 ConnectionState = Proto.ConnectionState.ConnDisconnected;
-                ConnectionStateChanged?.Invoke(this, ConnectionState);
+                DispatchEvent(() => ConnectionStateChanged?.Invoke(this, ConnectionState));
                 throw new RoomException($"Failed to connect: {callback.Error}");
             }
 
@@ -438,8 +471,8 @@ namespace LiveKit.Rtc
             }
 
             ConnectionState = Proto.ConnectionState.ConnConnected;
-            ConnectionStateChanged?.Invoke(this, ConnectionState);
-            Connected?.Invoke(this, EventArgs.Empty);
+            DispatchEvent(() => ConnectionStateChanged?.Invoke(this, ConnectionState));
+            DispatchEvent(() => Connected?.Invoke(this, EventArgs.Empty));
         }
 
         /// <summary>
@@ -716,14 +749,14 @@ namespace LiveKit.Rtc
 
                 case RoomEvent.MessageOneofCase.Reconnecting:
                     ConnectionState = Proto.ConnectionState.ConnReconnecting;
-                    ConnectionStateChanged?.Invoke(this, ConnectionState);
-                    Reconnecting?.Invoke(this, EventArgs.Empty);
+                    DispatchEvent(() => ConnectionStateChanged?.Invoke(this, ConnectionState));
+                    DispatchEvent(() => Reconnecting?.Invoke(this, EventArgs.Empty));
                     break;
 
                 case RoomEvent.MessageOneofCase.Reconnected:
                     ConnectionState = Proto.ConnectionState.ConnConnected;
-                    ConnectionStateChanged?.Invoke(this, ConnectionState);
-                    Reconnected?.Invoke(this, EventArgs.Empty);
+                    DispatchEvent(() => ConnectionStateChanged?.Invoke(this, ConnectionState));
+                    DispatchEvent(() => Reconnected?.Invoke(this, EventArgs.Empty));
                     break;
             }
         }
@@ -744,7 +777,7 @@ namespace LiveKit.Rtc
                 _remoteParticipants[participant.Identity] = participant;
             }
 
-            ParticipantConnected?.Invoke(this, participant);
+            DispatchEvent(() => ParticipantConnected?.Invoke(this, participant));
         }
 
         private void HandleParticipantDisconnected(Proto.ParticipantDisconnected evt)
@@ -761,7 +794,7 @@ namespace LiveKit.Rtc
                 _remoteParticipants.Remove(evt.ParticipantIdentity);
             }
 
-            ParticipantDisconnected?.Invoke(this, participant);
+            DispatchEvent(() => ParticipantDisconnected?.Invoke(this, participant));
         }
 
         private void HandleLocalTrackPublished(Proto.LocalTrackPublished evt)
@@ -769,27 +802,39 @@ namespace LiveKit.Rtc
             if (LocalParticipant == null || string.IsNullOrEmpty(evt?.TrackSid))
                 return;
 
-            // Acquire lock to safely access track publications (matches Node SDK pattern)
-            _ffiEventLock.Wait();
-            LocalTrackPublication? publication = null;
-            try
+            DispatchEvent(async () =>
             {
-                publication =
-                    LocalParticipant.GetTrackPublication(evt.TrackSid) as LocalTrackPublication;
-            }
-            finally
-            {
-                _ffiEventLock.Release();
-            }
+                LocalTrackPublication? publication = null;
 
-            // Fire event outside of lock
-            if (publication != null)
-            {
-                LocalTrackPublished?.Invoke(
-                    this,
-                    new LocalTrackPublishedEventArgs(publication, LocalParticipant)
-                );
-            }
+                // Retry logic: The FFI event might arrive before the PublishTrack Task 
+                // has finished updating the internal dictionary.
+                for (int i = 0; i < 20; i++)
+                {
+                    await _ffiEventLock.WaitAsync();
+                    try
+                    {
+                        publication = LocalParticipant.GetTrackPublication(evt.TrackSid) as LocalTrackPublication;
+                    }
+                    finally
+                    {
+                        _ffiEventLock.Release();
+                    }
+
+                    if (publication != null) break;
+
+                    // Wait before retrying if not found yet
+                    await Task.Delay(25);
+                }
+
+                if (publication != null)
+                {
+                    LocalTrackPublished?.Invoke(this, new LocalTrackPublishedEventArgs(publication, LocalParticipant));
+                }
+                else
+                {
+                    Console.Error.WriteLine($"[ERROR] LocalTrackPublished: Track {evt.TrackSid} not found in LocalParticipant after retries.");
+                }
+            });
         }
 
         private void HandleLocalTrackUnpublished(Proto.LocalTrackUnpublished evt)
@@ -797,28 +842,24 @@ namespace LiveKit.Rtc
             if (LocalParticipant == null || string.IsNullOrEmpty(evt?.PublicationSid))
                 return;
 
-            // Acquire lock to safely access track publications (matches Node SDK pattern)
-            _ffiEventLock.Wait();
-            LocalTrackPublication? publication = null;
-            try
+            DispatchEvent(() =>
             {
-                publication =
-                    LocalParticipant.GetTrackPublication(evt.PublicationSid)
-                    as LocalTrackPublication;
-            }
-            finally
-            {
-                _ffiEventLock.Release();
-            }
+                LocalTrackPublication? publication = null;
+                _ffiEventLock.WaitAsync();
+                try
+                {
+                    publication = LocalParticipant.GetTrackPublication(evt.PublicationSid) as LocalTrackPublication;
+                }
+                finally
+                {
+                    _ffiEventLock.Release();
+                }
 
-            // Fire event outside of lock
-            if (publication != null)
-            {
-                LocalTrackUnpublished?.Invoke(
-                    this,
-                    new LocalTrackPublishedEventArgs(publication, LocalParticipant)
-                );
-            }
+                if (publication != null)
+                {
+                    LocalTrackUnpublished?.Invoke(this, new LocalTrackPublishedEventArgs(publication, LocalParticipant));
+                }
+            });
         }
 
         private void HandleLocalTrackSubscribed(Proto.LocalTrackSubscribed evt)
@@ -826,24 +867,21 @@ namespace LiveKit.Rtc
             if (LocalParticipant == null || string.IsNullOrEmpty(evt?.TrackSid))
                 return;
 
-            // Acquire lock to safely access track publications
-            _ffiEventLock.Wait();
-            LocalTrackPublication? publication = null;
-            try
+            DispatchEvent(() =>
             {
-                publication =
-                    LocalParticipant.GetTrackPublication(evt.TrackSid) as LocalTrackPublication;
-            }
-            finally
-            {
-                _ffiEventLock.Release();
-            }
+                LocalTrackPublication? publication = null;
+                _ffiEventLock.WaitAsync();
+                try
+                {
+                    publication = LocalParticipant.GetTrackPublication(evt.TrackSid) as LocalTrackPublication;
+                }
+                finally
+                {
+                    _ffiEventLock.Release();
+                }
 
-            // Resolve the first subscription promise
-            if (publication != null)
-            {
-                publication.ResolveFirstSubscription();
-            }
+                publication?.ResolveFirstSubscription();
+            });
         }
 
         private void HandleTrackPublished(Proto.TrackPublished evt)
@@ -866,7 +904,7 @@ namespace LiveKit.Rtc
                 as RemoteTrackPublication;
             if (publication != null)
             {
-                TrackPublished?.Invoke(this, new TrackPublishedEventArgs(publication, participant));
+                DispatchEvent(() => TrackPublished?.Invoke(this, new TrackPublishedEventArgs(publication, participant)));
             }
         }
 
@@ -889,10 +927,10 @@ namespace LiveKit.Rtc
                 participant.GetTrackPublication(evt.PublicationSid) as RemoteTrackPublication;
             if (publication != null)
             {
-                TrackUnpublished?.Invoke(
+                DispatchEvent(() => TrackUnpublished?.Invoke(
                     this,
                     new TrackPublishedEventArgs(publication, participant)
-                );
+                ));
                 participant.RemovePublication(evt.PublicationSid);
             }
         }
@@ -961,10 +999,10 @@ namespace LiveKit.Rtc
             if (publication?.Track != null)
             {
                 var track = publication.Track;
-                TrackUnsubscribed?.Invoke(
+                DispatchEvent(() => TrackUnsubscribed?.Invoke(
                     this,
                     new TrackSubscribedEventArgs(track, publication, participant)
-                );
+                ));
                 publication.Track = null;
             }
         }
@@ -987,7 +1025,7 @@ namespace LiveKit.Rtc
                 updatedInfo.Muted = true;
                 publication.UpdateInfo(updatedInfo);
 
-                TrackMuted?.Invoke(this, new TrackMutedEventArgs(publication, participant));
+                DispatchEvent(() => TrackMuted?.Invoke(this, new TrackMutedEventArgs(publication, participant)));
             }
         }
 
@@ -1009,7 +1047,7 @@ namespace LiveKit.Rtc
                 updatedInfo.Muted = false;
                 publication.UpdateInfo(updatedInfo);
 
-                TrackUnmuted?.Invoke(this, new TrackMutedEventArgs(publication, participant));
+                DispatchEvent(() => TrackUnmuted?.Invoke(this, new TrackMutedEventArgs(publication, participant)));
             }
         }
 
@@ -1028,7 +1066,7 @@ namespace LiveKit.Rtc
                 }
             }
 
-            ActiveSpeakersChanged?.Invoke(this, new ActiveSpeakersChangedEventArgs(speakers));
+            DispatchEvent(() => ActiveSpeakersChanged?.Invoke(this, new ActiveSpeakersChangedEventArgs(speakers)));
         }
 
         private void HandleConnectionQualityChanged(Proto.ConnectionQualityChanged evt)
@@ -1041,10 +1079,10 @@ namespace LiveKit.Rtc
                 return;
 
             var quality = evt.Quality;
-            ConnectionQualityChanged?.Invoke(
+            DispatchEvent(() => ConnectionQualityChanged?.Invoke(
                 this,
                 new ConnectionQualityChangedEventArgs(quality, participant)
-            );
+            ));
         }
 
         private void HandleDataPacketReceived(Proto.DataPacketReceived evt)
@@ -1083,7 +1121,7 @@ namespace LiveKit.Rtc
                 }
             }
 
-            DataReceived?.Invoke(this, new DataReceivedEventArgs(data, participant, kind, topic));
+            DispatchEvent(() => DataReceived?.Invoke(this, new DataReceivedEventArgs(data, participant, kind, topic)));
         }
 
         private void HandleRoomMetadataChanged(Proto.RoomMetadataChanged evt)
@@ -1092,7 +1130,7 @@ namespace LiveKit.Rtc
                 return;
 
             Metadata = evt.Metadata ?? string.Empty;
-            RoomMetadataChanged?.Invoke(this, Metadata);
+            DispatchEvent(() => RoomMetadataChanged?.Invoke(this, Metadata));
         }
 
         private void HandleParticipantMetadataChanged(Proto.ParticipantMetadataChanged evt)
@@ -1107,7 +1145,7 @@ namespace LiveKit.Rtc
                 updatedInfo.Metadata = evt.Metadata ?? string.Empty;
                 participant.UpdateInfo(updatedInfo);
 
-                ParticipantMetadataChanged?.Invoke(this, participant);
+                DispatchEvent(() => ParticipantMetadataChanged?.Invoke(this, participant));
             }
         }
 
@@ -1123,7 +1161,7 @@ namespace LiveKit.Rtc
                 updatedInfo.Name = evt.Name ?? string.Empty;
                 participant.UpdateInfo(updatedInfo);
 
-                ParticipantNameChanged?.Invoke(this, participant);
+                DispatchEvent(() => ParticipantNameChanged?.Invoke(this, participant));
             }
         }
 
@@ -1212,8 +1250,8 @@ namespace LiveKit.Rtc
         private void CleanupOnDisconnect()
         {
             ConnectionState = Proto.ConnectionState.ConnDisconnected;
-            ConnectionStateChanged?.Invoke(this, ConnectionState);
-            Disconnected?.Invoke(this, Proto.DisconnectReason.UnknownReason);
+            DispatchEvent(() => ConnectionStateChanged?.Invoke(this, ConnectionState));
+            DispatchEvent(() => Disconnected?.Invoke(this, Proto.DisconnectReason.UnknownReason));
 
             lock (_lock)
             {

@@ -286,5 +286,122 @@ namespace LiveKit.Rtc.Tests
             await subscriberRoom.DisconnectAsync();
             _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Test completed successfully!");
         }
+
+        [Fact]
+        public async Task LocalTrackPublished_Unpublished_MassiveSimultaneousStressTest()
+        {
+            const int TRACK_COUNT = 100; // Publish 100 tracks simultaneously
+            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Starting massive simultaneous track stress test with {TRACK_COUNT} tracks");
+
+            using var room = new Room();
+            var token = _fixture.CreateToken("stress-test-participant", "stress-room");
+
+            // Track all published and unpublished events
+            var publishedEvents = new System.Collections.Concurrent.ConcurrentBag<string>();
+            var unpublishedEvents = new System.Collections.Concurrent.ConcurrentBag<string>();
+
+            room.LocalTrackPublished += (sender, args) =>
+            {
+                publishedEvents.Add(args.Publication.Sid);
+                _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] LocalTrackPublished: {args.Publication.Sid}");
+            };
+
+            room.LocalTrackUnpublished += (sender, args) =>
+            {
+                unpublishedEvents.Add(args.Publication.Sid);
+                _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] LocalTrackUnpublished: {args.Publication.Sid}");
+            };
+
+            await room.ConnectAsync(_fixture.LiveKitUrl, token);
+            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Connected to room");
+
+            // Create all audio sources and tracks
+            var audioSources = new List<AudioSource>();
+            var audioTracks = new List<LocalAudioTrack>();
+            
+            for (int i = 0; i < TRACK_COUNT; i++)
+            {
+                var source = new AudioSource(48000, 1);
+                var track = LocalAudioTrack.Create($"stress-track-{i}", source);
+                audioSources.Add(source);
+                audioTracks.Add(track);
+            }
+
+            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Created {TRACK_COUNT} audio tracks");
+
+            // STRESS TEST 1: Publish ALL tracks simultaneously
+            var publishTasks = audioTracks.Select(track =>
+                room.LocalParticipant!.PublishTrackAsync(track, new TrackPublishOptions())
+            ).ToArray();
+
+            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Publishing {TRACK_COUNT} tracks simultaneously...");
+            var publications = await Task.WhenAll(publishTasks);
+            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] All {TRACK_COUNT} tracks published");
+
+            // Wait for ALL LocalTrackPublished events (with generous timeout due to volume)
+            var publishedDeadline = DateTime.Now.AddSeconds(30);
+            while (publishedEvents.Count < TRACK_COUNT && DateTime.Now < publishedDeadline)
+            {
+                await Task.Delay(100);
+            }
+
+            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Received {publishedEvents.Count}/{TRACK_COUNT} LocalTrackPublished events");
+            Assert.Equal(TRACK_COUNT, publishedEvents.Count);
+
+            // Verify all publication SIDs were captured
+            var publishedSids = new HashSet<string>(publishedEvents);
+            var expectedSids = new HashSet<string>(publications.Select(p => p.Sid));
+            Assert.Equal(expectedSids.Count, publishedSids.Count);
+            Assert.True(expectedSids.SetEquals(publishedSids), "Published event SIDs should match actual publication SIDs");
+
+            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] ✓ All LocalTrackPublished events verified");
+
+            // Brief delay before unpublish storm
+            await Task.Delay(500);
+
+            // STRESS TEST 2: Unpublish ALL tracks simultaneously
+            var unpublishTasks = publications.Select(pub =>
+                room.LocalParticipant!.UnpublishTrackAsync(pub.Sid)
+            ).ToArray();
+
+            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Unpublishing {TRACK_COUNT} tracks simultaneously...");
+            await Task.WhenAll(unpublishTasks);
+            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] All {TRACK_COUNT} tracks unpublished");
+
+            // Wait for ALL LocalTrackUnpublished events
+            var unpublishedDeadline = DateTime.Now.AddSeconds(30);
+            while (unpublishedEvents.Count < TRACK_COUNT && DateTime.Now < unpublishedDeadline)
+            {
+                await Task.Delay(100);
+            }
+
+            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Received {unpublishedEvents.Count}/{TRACK_COUNT} LocalTrackUnpublished events");
+            Assert.Equal(TRACK_COUNT, unpublishedEvents.Count);
+
+            // Verify all unpublication SIDs were captured
+            var unpublishedSids = new HashSet<string>(unpublishedEvents);
+            Assert.Equal(expectedSids.Count, unpublishedSids.Count);
+            Assert.True(expectedSids.SetEquals(unpublishedSids), "Unpublished event SIDs should match publication SIDs");
+
+            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] ✓ All LocalTrackUnpublished events verified");
+
+            // Verify no duplicate events
+            Assert.Equal(publishedEvents.Count, publishedEvents.Distinct().Count());
+            Assert.Equal(unpublishedEvents.Count, unpublishedEvents.Distinct().Count());
+            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] ✓ No duplicate events detected");
+
+            // Cleanup
+            foreach (var track in audioTracks)
+            {
+                track.Dispose();
+            }
+            foreach (var source in audioSources)
+            {
+                source.Dispose();
+            }
+
+            await room.DisconnectAsync();
+            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] 🎉 STRESS TEST PASSED: {TRACK_COUNT} tracks published/unpublished simultaneously with 100% event delivery!");
+        }
     }
 }
