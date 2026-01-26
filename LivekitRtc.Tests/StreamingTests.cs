@@ -570,6 +570,9 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
+            // Small delay to ensure handler is registered before stream opens
+            await Task.Delay(100);
+
             var writer = await _senderParticipant!.StreamTextAsync(topic: "e2e-text");
 
             // Wait for handler to start before sending data to avoid race condition
@@ -673,6 +676,9 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
+            // Small delay to ensure handler is registered before stream opens
+            await Task.Delay(100);
+
             var writer = await _senderParticipant!.StreamTextAsync(topic: "readall-test");
 
             // Wait for handler to start before sending data to avoid race condition
@@ -724,6 +730,9 @@ namespace LiveKit.Rtc.Tests
                     });
                 }
             );
+
+            // Small delay to ensure handler is registered before stream opens
+            await Task.Delay(100);
 
             var writer = await _senderParticipant!.StreamTextAsync(topic: "multi-chunk");
 
@@ -853,6 +862,7 @@ namespace LiveKit.Rtc.Tests
 
             _receiverRoom!.UnregisterTextStreamHandler("unregister-test");
 
+            // Small delay to ensure handler is registered before stream opens
             await Task.Delay(100);
 
             var writer = await _senderParticipant!.StreamTextAsync(topic: "unregister-test");
@@ -944,6 +954,9 @@ namespace LiveKit.Rtc.Tests
                     });
                 }
             );
+
+            // Small delay to ensure handler is registered before stream opens
+            await Task.Delay(100);
 
             var writer1 = await _senderParticipant!.StreamTextAsync(topic: "topic1");
             await handler1Started.Task.WaitAsync(TimeSpan.FromSeconds(5));

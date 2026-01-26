@@ -267,6 +267,66 @@ namespace LiveKit.Rtc
         /// </summary>
         public event EventHandler<Participant>? ParticipantNameChanged;
 
+        /// <summary>
+        /// Event raised when a participant's attributes change.
+        /// </summary>
+        public event EventHandler<ParticipantAttributesChangedEventArgs>? ParticipantAttributesChanged;
+
+        /// <summary>
+        /// Event raised when a participant's encryption status changes.
+        /// </summary>
+        public event EventHandler<ParticipantEncryptionStatusChangedEventArgs>? ParticipantEncryptionStatusChanged;
+
+        /// <summary>
+        /// Event raised when a local track is subscribed by a remote participant.
+        /// </summary>
+        public event EventHandler<LocalTrackSubscribedEventArgs>? LocalTrackSubscribed;
+
+        /// <summary>
+        /// Event raised when track subscription fails.
+        /// </summary>
+        public event EventHandler<TrackSubscriptionFailedEventArgs>? TrackSubscriptionFailed;
+
+        /// <summary>
+        /// Event raised when room information is updated.
+        /// </summary>
+        public event EventHandler<RoomInfo>? RoomUpdated;
+
+        /// <summary>
+        /// Event raised when the room SID changes.
+        /// </summary>
+        public event EventHandler<string>? RoomSidChanged;
+
+        /// <summary>
+        /// Event raised when the local participant is moved to a new room.
+        /// </summary>
+        public event EventHandler<RoomInfo>? Moved;
+
+        /// <summary>
+        /// Event raised when a chat message is received.
+        /// </summary>
+        public event EventHandler<ChatMessageReceivedEventArgs>? ChatMessageReceived;
+
+        /// <summary>
+        /// Event raised when a SIP DTMF tone is received.
+        /// </summary>
+        public event EventHandler<SipDtmfReceivedEventArgs>? SipDtmfReceived;
+
+        /// <summary>
+        /// Event raised when an E2EE (encryption) error occurs.
+        /// </summary>
+        public event EventHandler<E2EEStateChangedEventArgs>? E2EEStateChanged;
+
+        /// <summary>
+        /// Event raised when a transcription is received.
+        /// </summary>
+        public event EventHandler<TranscriptionReceivedEventArgs>? TranscriptionReceived;
+
+        /// <summary>
+        /// Event raised when the access token is refreshed.
+        /// </summary>
+        public event EventHandler<string>? TokenRefreshed;
+
         #endregion
 
         /// <summary>
@@ -833,6 +893,48 @@ namespace LiveKit.Rtc
                     HandleParticipantNameChanged(roomEvent.ParticipantNameChanged);
                     break;
 
+                case RoomEvent.MessageOneofCase.ParticipantAttributesChanged:
+                    HandleParticipantAttributesChanged(roomEvent.ParticipantAttributesChanged);
+                    break;
+
+                case RoomEvent.MessageOneofCase.ParticipantEncryptionStatusChanged:
+                    HandleParticipantEncryptionStatusChanged(
+                        roomEvent.ParticipantEncryptionStatusChanged
+                    );
+                    break;
+
+                case RoomEvent.MessageOneofCase.TrackSubscriptionFailed:
+                    HandleTrackSubscriptionFailed(roomEvent.TrackSubscriptionFailed);
+                    break;
+
+                case RoomEvent.MessageOneofCase.RoomUpdated:
+                    HandleRoomUpdated(roomEvent.RoomUpdated);
+                    break;
+
+                case RoomEvent.MessageOneofCase.RoomSidChanged:
+                    HandleRoomSidChanged(roomEvent.RoomSidChanged);
+                    break;
+
+                case RoomEvent.MessageOneofCase.Moved:
+                    HandleMoved(roomEvent.Moved);
+                    break;
+
+                case RoomEvent.MessageOneofCase.ChatMessage:
+                    HandleChatMessage(roomEvent.ChatMessage);
+                    break;
+
+                case RoomEvent.MessageOneofCase.E2EeStateChanged:
+                    HandleE2EEStateChanged(roomEvent.E2EeStateChanged);
+                    break;
+
+                case RoomEvent.MessageOneofCase.TranscriptionReceived:
+                    HandleTranscriptionReceived(roomEvent.TranscriptionReceived);
+                    break;
+
+                case RoomEvent.MessageOneofCase.TokenRefreshed:
+                    HandleTokenRefreshed(roomEvent.TokenRefreshed);
+                    break;
+
                 case RoomEvent.MessageOneofCase.StreamHeaderReceived:
                     if (
                         roomEvent.StreamHeaderReceived?.Header != null
@@ -971,6 +1073,10 @@ namespace LiveKit.Rtc
                 {
                     var publication = await RequireLocalTrackPublication(evt.TrackSid);
                     publication.ResolveFirstSubscription();
+                    LocalTrackSubscribed?.Invoke(
+                        this,
+                        new LocalTrackSubscribedEventArgs(publication)
+                    );
                 }
                 catch (Exception ex)
                 {
@@ -1281,14 +1387,34 @@ namespace LiveKit.Rtc
                         using var handle = FfiHandle.FromId(evt.User.Data.Handle.Id);
                     }
                 }
-            }
 
-            DispatchEvent(() =>
-                DataReceived?.Invoke(
-                    this,
-                    new DataReceivedEventArgs(data, participant, kind, topic)
-                )
-            );
+                DispatchEvent(() =>
+                    DataReceived?.Invoke(
+                        this,
+                        new DataReceivedEventArgs(data, participant, kind, topic)
+                    )
+                );
+            }
+            else if (
+                evt.ValueCase == Proto.DataPacketReceived.ValueOneofCase.SipDtmf
+                && evt.SipDtmf != null
+            )
+            {
+                // Handle SIP DTMF
+                if (participant is RemoteParticipant remoteParticipant)
+                {
+                    DispatchEvent(() =>
+                        SipDtmfReceived?.Invoke(
+                            this,
+                            new SipDtmfReceivedEventArgs(
+                                evt.SipDtmf.Code,
+                                evt.SipDtmf.Digit,
+                                remoteParticipant
+                            )
+                        )
+                    );
+                }
+            }
         }
 
         private void HandleRoomMetadataChanged(Proto.RoomMetadataChanged evt)
@@ -1330,6 +1456,166 @@ namespace LiveKit.Rtc
 
                 DispatchEvent(() => ParticipantNameChanged?.Invoke(this, participant));
             }
+        }
+
+        private void HandleParticipantAttributesChanged(Proto.ParticipantAttributesChanged evt)
+        {
+            if (string.IsNullOrEmpty(evt?.ParticipantIdentity))
+                return;
+
+            var participant = GetParticipantByIdentity(evt.ParticipantIdentity);
+            if (participant != null)
+            {
+                var attributes = new Dictionary<string, string>();
+                foreach (var attr in evt.Attributes)
+                {
+                    attributes[attr.Key] = attr.Value;
+                }
+
+                var changedAttributes = new Dictionary<string, string>();
+                foreach (var attr in evt.ChangedAttributes)
+                {
+                    changedAttributes[attr.Key] = attr.Value;
+                }
+
+                DispatchEvent(() =>
+                    ParticipantAttributesChanged?.Invoke(
+                        this,
+                        new ParticipantAttributesChangedEventArgs(
+                            participant,
+                            attributes,
+                            changedAttributes
+                        )
+                    )
+                );
+            }
+        }
+
+        private void HandleParticipantEncryptionStatusChanged(
+            Proto.ParticipantEncryptionStatusChanged evt
+        )
+        {
+            if (string.IsNullOrEmpty(evt?.ParticipantIdentity))
+                return;
+
+            var participant = GetParticipantByIdentity(evt.ParticipantIdentity);
+            if (participant != null)
+            {
+                DispatchEvent(() =>
+                    ParticipantEncryptionStatusChanged?.Invoke(
+                        this,
+                        new ParticipantEncryptionStatusChangedEventArgs(
+                            participant,
+                            evt.IsEncrypted
+                        )
+                    )
+                );
+            }
+        }
+
+        private void HandleTrackSubscriptionFailed(Proto.TrackSubscriptionFailed evt)
+        {
+            if (
+                string.IsNullOrEmpty(evt?.ParticipantIdentity) || string.IsNullOrEmpty(evt.TrackSid)
+            )
+                return;
+
+            RemoteParticipant? participant;
+            lock (_lock)
+            {
+                if (!_remoteParticipants.TryGetValue(evt.ParticipantIdentity, out participant))
+                    return;
+            }
+
+            DispatchEvent(() =>
+                TrackSubscriptionFailed?.Invoke(
+                    this,
+                    new TrackSubscriptionFailedEventArgs(evt.TrackSid, participant, evt.Error)
+                )
+            );
+        }
+
+        private void HandleRoomUpdated(Proto.RoomInfo evt)
+        {
+            if (evt == null)
+                return;
+
+            UpdateFromInfo(evt);
+            DispatchEvent(() => RoomUpdated?.Invoke(this, evt));
+        }
+
+        private void HandleRoomSidChanged(Proto.RoomSidChanged evt)
+        {
+            if (string.IsNullOrEmpty(evt?.Sid))
+                return;
+
+            Sid = evt.Sid;
+            DispatchEvent(() => RoomSidChanged?.Invoke(this, evt.Sid));
+        }
+
+        private void HandleMoved(Proto.RoomInfo evt)
+        {
+            if (evt == null)
+                return;
+
+            UpdateFromInfo(evt);
+            DispatchEvent(() => Moved?.Invoke(this, evt));
+        }
+
+        private void HandleChatMessage(Proto.ChatMessageReceived evt)
+        {
+            if (evt?.Message == null)
+                return;
+
+            var participant = GetParticipantByIdentity(evt.ParticipantIdentity ?? "");
+
+            DispatchEvent(() =>
+                ChatMessageReceived?.Invoke(
+                    this,
+                    new ChatMessageReceivedEventArgs(evt.Message, participant)
+                )
+            );
+        }
+
+        private void HandleE2EEStateChanged(Proto.E2eeStateChanged evt)
+        {
+            if (string.IsNullOrEmpty(evt?.ParticipantIdentity))
+                return;
+
+            var participant = GetParticipantByIdentity(evt.ParticipantIdentity);
+            if (participant != null)
+            {
+                DispatchEvent(() =>
+                    E2EEStateChanged?.Invoke(
+                        this,
+                        new E2EEStateChangedEventArgs(participant, evt.State)
+                    )
+                );
+            }
+        }
+
+        private void HandleTranscriptionReceived(Proto.TranscriptionReceived evt)
+        {
+            if (evt == null)
+                return;
+
+            var participant = GetParticipantByIdentity(evt.ParticipantIdentity ?? "");
+            var segments = new List<Proto.TranscriptionSegment>(evt.Segments);
+
+            DispatchEvent(() =>
+                TranscriptionReceived?.Invoke(
+                    this,
+                    new TranscriptionReceivedEventArgs(participant, evt.TrackSid, segments)
+                )
+            );
+        }
+
+        private void HandleTokenRefreshed(Proto.TokenRefreshed evt)
+        {
+            if (string.IsNullOrEmpty(evt?.Token))
+                return;
+
+            DispatchEvent(() => TokenRefreshed?.Invoke(this, evt.Token));
         }
 
         private Participant? GetParticipantByIdentity(string identity)

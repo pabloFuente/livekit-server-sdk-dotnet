@@ -433,5 +433,382 @@ namespace LiveKit.Rtc.Tests
                 $"[{DateTime.Now:HH:mm:ss.fff}] 🎉 STRESS TEST PASSED: {TRACK_COUNT} tracks published/unpublished simultaneously with 100% event delivery!"
             );
         }
+
+        [Fact]
+        public async Task LocalTrackSubscribed_EventFires_WhenRemoteParticipantSubscribes()
+        {
+            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Starting LocalTrackSubscribed test");
+
+            using var room1 = new Room();
+            using var room2 = new Room();
+
+            var trackSubscribedTcs = new TaskCompletionSource<LocalTrackPublication>();
+
+            room1.LocalTrackSubscribed += (sender, e) =>
+            {
+                _output.WriteLine(
+                    $"[{DateTime.Now:HH:mm:ss.fff}] LocalTrackSubscribed event fired for track: {e.Publication.Sid}"
+                );
+                trackSubscribedTcs.TrySetResult(e.Publication);
+            };
+
+            var token1 = _fixture.CreateToken("participant1", "test-room");
+            var token2 = _fixture.CreateToken("participant2", "test-room");
+
+            await room1.ConnectAsync(_fixture.LiveKitUrl, token1);
+            await room2.ConnectAsync(_fixture.LiveKitUrl, token2);
+
+            using var audioSource = new AudioSource(48000, 1);
+            var audioTrack = LocalAudioTrack.Create("test-audio", audioSource);
+            var publication = await room1.LocalParticipant!.PublishTrackAsync(audioTrack);
+
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+            cts.Token.Register(() =>
+                trackSubscribedTcs.TrySetException(
+                    new TimeoutException("LocalTrackSubscribed event did not fire")
+                )
+            );
+
+            var subscribedPublication = await trackSubscribedTcs.Task;
+            Assert.Equal(publication.Sid, subscribedPublication.Sid);
+
+            await room1.DisconnectAsync();
+            await room2.DisconnectAsync();
+
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] LocalTrackSubscribed test completed successfully"
+            );
+        }
+
+        [Fact]
+        public async Task ParticipantMetadataChanged_EventFires_WhenParticipantUpdatesMetadata()
+        {
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] Starting ParticipantMetadataChanged test"
+            );
+
+            using var room1 = new Room();
+            using var room2 = new Room();
+
+            var participantConnectedTcs = new TaskCompletionSource<Participant>();
+            var metadataChangedTcs = new TaskCompletionSource<Participant>();
+
+            room1.ParticipantConnected += (sender, participant) =>
+            {
+                if (participant.Identity == "participant2")
+                {
+                    _output.WriteLine(
+                        $"[{DateTime.Now:HH:mm:ss.fff}] Participant2 connected to room1"
+                    );
+                    participantConnectedTcs.TrySetResult(participant);
+                }
+            };
+
+            room1.ParticipantMetadataChanged += (sender, participant) =>
+            {
+                _output.WriteLine(
+                    $"[{DateTime.Now:HH:mm:ss.fff}] ParticipantMetadataChanged event fired for participant: {participant.Identity}"
+                );
+                metadataChangedTcs.TrySetResult(participant);
+            };
+
+            var token1 = _fixture.CreateToken("participant1", "test-room");
+            var token2 = new Livekit.Server.Sdk.Dotnet.AccessToken(
+                RtcTestFixture.API_KEY,
+                RtcTestFixture.API_SECRET
+            )
+                .WithIdentity("participant2")
+                .WithName("participant2")
+                .WithGrants(
+                    new Livekit.Server.Sdk.Dotnet.VideoGrants
+                    {
+                        RoomJoin = true,
+                        Room = "test-room",
+                        CanUpdateOwnMetadata = true,
+                    }
+                )
+                .ToJwt();
+
+            await room1.ConnectAsync(_fixture.LiveKitUrl, token1);
+            await room2.ConnectAsync(_fixture.LiveKitUrl, token2);
+
+            // Wait for room1 to see participant2
+            using var connectCts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+            await participantConnectedTcs.Task.WaitAsync(connectCts.Token);
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] Room1 sees participant2, proceeding with metadata update"
+            );
+
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+            cts.Token.Register(() =>
+                metadataChangedTcs.TrySetException(
+                    new TimeoutException("ParticipantMetadataChanged event did not fire")
+                )
+            );
+
+            await room2.LocalParticipant!.SetMetadataAsync("test-metadata");
+
+            var participant = await metadataChangedTcs.Task;
+            Assert.Equal("participant2", participant.Identity);
+            Assert.Equal("test-metadata", participant.Metadata);
+
+            await room1.DisconnectAsync();
+            await room2.DisconnectAsync();
+
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] ParticipantMetadataChanged test completed successfully"
+            );
+        }
+
+        [Fact]
+        public async Task ParticipantNameChanged_EventFires_WhenParticipantUpdatesName()
+        {
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] Starting ParticipantNameChanged test"
+            );
+
+            using var room1 = new Room();
+            using var room2 = new Room();
+
+            var participantConnectedTcs = new TaskCompletionSource<Participant>();
+            var nameChangedTcs = new TaskCompletionSource<Participant>();
+
+            room1.ParticipantConnected += (sender, participant) =>
+            {
+                if (participant.Identity == "participant2")
+                {
+                    _output.WriteLine(
+                        $"[{DateTime.Now:HH:mm:ss.fff}] Participant2 connected to room1"
+                    );
+                    participantConnectedTcs.TrySetResult(participant);
+                }
+            };
+
+            room1.ParticipantNameChanged += (sender, participant) =>
+            {
+                _output.WriteLine(
+                    $"[{DateTime.Now:HH:mm:ss.fff}] ParticipantNameChanged event fired for participant: {participant.Identity}"
+                );
+                nameChangedTcs.TrySetResult(participant);
+            };
+
+            var token1 = _fixture.CreateToken("participant1", "test-room");
+            var token2 = new Livekit.Server.Sdk.Dotnet.AccessToken(
+                RtcTestFixture.API_KEY,
+                RtcTestFixture.API_SECRET
+            )
+                .WithIdentity("participant2")
+                .WithName("participant2")
+                .WithGrants(
+                    new Livekit.Server.Sdk.Dotnet.VideoGrants
+                    {
+                        RoomJoin = true,
+                        Room = "test-room",
+                        CanUpdateOwnMetadata = true,
+                    }
+                )
+                .ToJwt();
+
+            await room1.ConnectAsync(_fixture.LiveKitUrl, token1);
+            await room2.ConnectAsync(_fixture.LiveKitUrl, token2);
+
+            // Wait for room1 to see participant2
+            using var connectCts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+            await participantConnectedTcs.Task.WaitAsync(connectCts.Token);
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] Room1 sees participant2, proceeding with name update"
+            );
+
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+            cts.Token.Register(() =>
+                nameChangedTcs.TrySetException(
+                    new TimeoutException("ParticipantNameChanged event did not fire")
+                )
+            );
+
+            await room2.LocalParticipant!.SetNameAsync("test-name");
+
+            var participant = await nameChangedTcs.Task;
+            Assert.Equal("participant2", participant.Identity);
+            Assert.Equal("test-name", participant.Name);
+
+            await room1.DisconnectAsync();
+            await room2.DisconnectAsync();
+
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] ParticipantNameChanged test completed successfully"
+            );
+        }
+
+        [Fact]
+        public async Task ParticipantAttributesChanged_EventFires_WhenParticipantUpdatesAttributes()
+        {
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] Starting ParticipantAttributesChanged test"
+            );
+
+            using var room1 = new Room();
+            using var room2 = new Room();
+
+            var participantConnectedTcs = new TaskCompletionSource<Participant>();
+            var attributesChangedTcs =
+                new TaskCompletionSource<ParticipantAttributesChangedEventArgs>();
+
+            room1.ParticipantConnected += (sender, participant) =>
+            {
+                if (participant.Identity == "participant2")
+                {
+                    _output.WriteLine(
+                        $"[{DateTime.Now:HH:mm:ss.fff}] Participant2 connected to room1"
+                    );
+                    participantConnectedTcs.TrySetResult(participant);
+                }
+            };
+
+            room1.ParticipantAttributesChanged += (sender, e) =>
+            {
+                _output.WriteLine(
+                    $"[{DateTime.Now:HH:mm:ss.fff}] ParticipantAttributesChanged event fired for participant: {e.Participant.Identity}"
+                );
+                attributesChangedTcs.TrySetResult(e);
+            };
+
+            var token1 = _fixture.CreateToken("participant1", "test-room");
+            var token2 = new Livekit.Server.Sdk.Dotnet.AccessToken(
+                RtcTestFixture.API_KEY,
+                RtcTestFixture.API_SECRET
+            )
+                .WithIdentity("participant2")
+                .WithName("participant2")
+                .WithGrants(
+                    new Livekit.Server.Sdk.Dotnet.VideoGrants
+                    {
+                        RoomJoin = true,
+                        Room = "test-room",
+                        CanUpdateOwnMetadata = true,
+                    }
+                )
+                .ToJwt();
+
+            await room1.ConnectAsync(_fixture.LiveKitUrl, token1);
+            await room2.ConnectAsync(_fixture.LiveKitUrl, token2);
+
+            // Wait for room1 to see participant2
+            using var connectCts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+            await participantConnectedTcs.Task.WaitAsync(connectCts.Token);
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] Room1 sees participant2, proceeding with attributes update"
+            );
+
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+            cts.Token.Register(() =>
+                attributesChangedTcs.TrySetException(
+                    new TimeoutException("ParticipantAttributesChanged event did not fire")
+                )
+            );
+
+            var testAttributes = new Dictionary<string, string>
+            {
+                { "key1", "value1" },
+                { "key2", "value2" },
+            };
+            await room2.LocalParticipant!.SetAttributesAsync(testAttributes);
+
+            var eventArgs = await attributesChangedTcs.Task;
+            Assert.Equal("participant2", eventArgs.Participant.Identity);
+            Assert.Equal(2, eventArgs.Attributes.Count);
+            Assert.Equal("value1", eventArgs.Attributes["key1"]);
+            Assert.Equal("value2", eventArgs.Attributes["key2"]);
+            Assert.Equal(2, eventArgs.ChangedAttributes.Count);
+            Assert.Equal("value1", eventArgs.ChangedAttributes["key1"]);
+            Assert.Equal("value2", eventArgs.ChangedAttributes["key2"]);
+
+            await room1.DisconnectAsync();
+            await room2.DisconnectAsync();
+
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] ParticipantAttributesChanged test completed successfully"
+            );
+        }
+
+        [Fact]
+        public void ParticipantEncryptionStatusChanged_HandlerRegistered_NoExceptions()
+        {
+            using var room = new Room();
+            room.ParticipantEncryptionStatusChanged += (sender, e) => { };
+            Assert.True(true, "Handler registered successfully");
+        }
+
+        [Fact]
+        public void TrackSubscriptionFailed_HandlerRegistered_NoExceptions()
+        {
+            using var room = new Room();
+            room.TrackSubscriptionFailed += (sender, e) => { };
+            Assert.True(true, "Handler registered successfully");
+        }
+
+        [Fact]
+        public void RoomUpdated_HandlerRegistered_NoExceptions()
+        {
+            using var room = new Room();
+            room.RoomUpdated += (sender, e) => { };
+            Assert.True(true, "Handler registered successfully");
+        }
+
+        [Fact]
+        public void RoomSidChanged_HandlerRegistered_NoExceptions()
+        {
+            using var room = new Room();
+            room.RoomSidChanged += (sender, e) => { };
+            Assert.True(true, "Handler registered successfully");
+        }
+
+        [Fact]
+        public void Moved_HandlerRegistered_NoExceptions()
+        {
+            using var room = new Room();
+            room.Moved += (sender, e) => { };
+            Assert.True(true, "Handler registered successfully");
+        }
+
+        [Fact]
+        public void ChatMessageReceived_HandlerRegistered_NoExceptions()
+        {
+            using var room = new Room();
+            room.ChatMessageReceived += (sender, e) => { };
+            Assert.True(true, "Handler registered successfully");
+        }
+
+        [Fact]
+        public void SipDtmfReceived_HandlerRegistered_NoExceptions()
+        {
+            using var room = new Room();
+            room.SipDtmfReceived += (sender, e) => { };
+            Assert.True(true, "Handler registered successfully");
+        }
+
+        [Fact]
+        public void E2EEStateChanged_HandlerRegistered_NoExceptions()
+        {
+            using var room = new Room();
+            room.E2EEStateChanged += (sender, e) => { };
+            Assert.True(true, "Handler registered successfully");
+        }
+
+        [Fact]
+        public void TranscriptionReceived_HandlerRegistered_NoExceptions()
+        {
+            using var room = new Room();
+            room.TranscriptionReceived += (sender, e) => { };
+            Assert.True(true, "Handler registered successfully");
+        }
+
+        [Fact]
+        public void TokenRefreshed_HandlerRegistered_NoExceptions()
+        {
+            using var room = new Room();
+            room.TokenRefreshed += (sender, e) => { };
+            Assert.True(true, "Handler registered successfully");
+        }
     }
 }

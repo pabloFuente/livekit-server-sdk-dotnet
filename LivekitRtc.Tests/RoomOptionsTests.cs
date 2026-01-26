@@ -30,11 +30,18 @@ public class RoomOptionsTests : IClassFixture<RtcTestFixture>
         using var subscriberRoom = new Room();
 
         var trackSubscribedTcs = new TaskCompletionSource<RemoteTrack>();
+        var localTrackSubscribedTcs = new TaskCompletionSource<LocalTrackPublication>();
 
         subscriberRoom.TrackSubscribed += (sender, args) =>
         {
             Log($"TrackSubscribed: {args.Track.Sid}");
             trackSubscribedTcs.TrySetResult(args.Track);
+        };
+
+        publisherRoom.LocalTrackSubscribed += (sender, args) =>
+        {
+            Log($"LocalTrackSubscribed: {args.Publication.Sid}");
+            localTrackSubscribedTcs.TrySetResult(args.Publication);
         };
 
         // Connect publisher normally
@@ -61,6 +68,14 @@ public class RoomOptionsTests : IClassFixture<RtcTestFixture>
 
         Assert.NotNull(subscribedTrack);
         Log("Track was automatically subscribed");
+
+        // Wait for publisher to be notified of the subscription
+        using var localSubCts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+        var localPub = await localTrackSubscribedTcs.Task.WaitAsync(localSubCts.Token);
+
+        Assert.NotNull(localPub);
+        Log($"Publisher received LocalTrackSubscribed for publication {localPub.Sid}");
+
         Log("Test passed - AutoSubscribe=true works");
 
         await publisherRoom.DisconnectAsync();

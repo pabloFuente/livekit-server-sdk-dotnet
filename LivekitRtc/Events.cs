@@ -188,4 +188,213 @@ namespace LiveKit.Rtc
             Topic = topic;
         }
     }
+
+    /// <summary>
+    /// Event arguments for local track subscribed events.
+    /// </summary>
+    public class LocalTrackSubscribedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// The local track publication that was subscribed.
+        /// </summary>
+        public LocalTrackPublication Publication { get; }
+
+        internal LocalTrackSubscribedEventArgs(LocalTrackPublication publication)
+        {
+            Publication = publication;
+        }
+    }
+
+    /// <summary>
+    /// Event arguments for track subscription failed events.
+    /// </summary>
+    public class TrackSubscriptionFailedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// The SID of the track that failed to subscribe.
+        /// </summary>
+        public string TrackSid { get; }
+
+        /// <summary>
+        /// The participant whose track failed to subscribe.
+        /// </summary>
+        public RemoteParticipant Participant { get; }
+
+        /// <summary>
+        /// The error message describing why the subscription failed.
+        /// </summary>
+        public string Error { get; }
+
+        internal TrackSubscriptionFailedEventArgs(
+            string trackSid,
+            RemoteParticipant participant,
+            string error
+        )
+        {
+            TrackSid = trackSid;
+            Participant = participant;
+            Error = error;
+        }
+    }
+
+    /// <summary>
+    /// Event arguments for participant attributes changed events.
+    /// </summary>
+    public class ParticipantAttributesChangedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// The participant whose attributes changed.
+        /// </summary>
+        public Participant Participant { get; }
+
+        /// <summary>
+        /// All current attributes of the participant.
+        /// </summary>
+        public IReadOnlyDictionary<string, string> Attributes { get; }
+
+        /// <summary>
+        /// The attributes that changed (subset of all attributes).
+        /// </summary>
+        public IReadOnlyDictionary<string, string> ChangedAttributes { get; }
+
+        internal ParticipantAttributesChangedEventArgs(
+            Participant participant,
+            IReadOnlyDictionary<string, string> attributes,
+            IReadOnlyDictionary<string, string> changedAttributes
+        )
+        {
+            Participant = participant;
+            Attributes = attributes;
+            ChangedAttributes = changedAttributes;
+        }
+    }
+
+    /// <summary>
+    /// Event arguments for participant encryption status changed events.
+    /// </summary>
+    public class ParticipantEncryptionStatusChangedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// The participant whose encryption status changed.
+        /// </summary>
+        public Participant Participant { get; }
+
+        /// <summary>
+        /// Whether the participant is encrypted.
+        /// </summary>
+        public bool IsEncrypted { get; }
+
+        internal ParticipantEncryptionStatusChangedEventArgs(
+            Participant participant,
+            bool isEncrypted
+        )
+        {
+            Participant = participant;
+            IsEncrypted = isEncrypted;
+        }
+    }
+
+    /// <summary>
+    /// Event arguments for chat message received events.
+    /// </summary>
+    public class ChatMessageReceivedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// The chat message.
+        /// </summary>
+        public Proto.ChatMessage Message { get; }
+
+        /// <summary>
+        /// The participant who sent the message (null if from server).
+        /// </summary>
+        public Participant? Participant { get; }
+
+        internal ChatMessageReceivedEventArgs(Proto.ChatMessage message, Participant? participant)
+        {
+            Message = message;
+            Participant = participant;
+        }
+    }
+
+    /// <summary>
+    /// Event arguments for SIP DTMF received events.
+    /// </summary>
+    public class SipDtmfReceivedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// The DTMF code.
+        /// </summary>
+        public uint Code { get; }
+
+        /// <summary>
+        /// The DTMF digit (if applicable).
+        /// </summary>
+        public string? Digit { get; }
+
+        /// <summary>
+        /// The participant who sent the DTMF.
+        /// </summary>
+        public RemoteParticipant Participant { get; }
+
+        internal SipDtmfReceivedEventArgs(uint code, string? digit, RemoteParticipant participant)
+        {
+            Code = code;
+            Digit = digit;
+            Participant = participant;
+        }
+    }
+
+    /// <summary>
+    /// Event arguments for E2EE state changed events.
+    /// </summary>
+    public class E2EEStateChangedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// The participant whose encryption state changed.
+        /// </summary>
+        public Participant Participant { get; }
+
+        /// <summary>
+        /// The new encryption state.
+        /// </summary>
+        public Proto.EncryptionState State { get; }
+
+        internal E2EEStateChangedEventArgs(Participant participant, Proto.EncryptionState state)
+        {
+            Participant = participant;
+            State = state;
+        }
+    }
+
+    /// <summary>
+    /// Event arguments for transcription received events.
+    /// </summary>
+    public class TranscriptionReceivedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// The participant whose transcription was received (null if not applicable).
+        /// </summary>
+        public Participant? Participant { get; }
+
+        /// <summary>
+        /// The track SID associated with the transcription (null if not applicable).
+        /// </summary>
+        public string? TrackSid { get; }
+
+        /// <summary>
+        /// The transcription segments.
+        /// </summary>
+        public IReadOnlyList<Proto.TranscriptionSegment> Segments { get; }
+
+        internal TranscriptionReceivedEventArgs(
+            Participant? participant,
+            string? trackSid,
+            IReadOnlyList<Proto.TranscriptionSegment> segments
+        )
+        {
+            Participant = participant;
+            TrackSid = trackSid;
+            Segments = segments;
+        }
+    }
 }
