@@ -55,6 +55,14 @@
       Condition="Exists('runtimes\win-x64\native\livekit_ffi.dll')"
     />
     <Content
+      Include="runtimes\win-arm64\native\livekit_ffi.dll"
+      Pack="true"
+      PackagePath="runtimes\win-arm64\native\"
+      CopyToOutputDirectory="PreserveNewest"
+      Link="runtimes\win-arm64\native\livekit_ffi.dll"
+      Condition="Exists('runtimes\win-arm64\native\livekit_ffi.dll')"
+    />
+    <Content
       Include="runtimes\linux-x64\native\liblivekit_ffi.so"
       Pack="true"
       PackagePath="runtimes\linux-x64\native\"
@@ -120,12 +128,20 @@
       Condition="Exists('runtimes\osx-arm64\native\liblivekit_ffi.dylib')"
     />
   </ItemGroup>
-  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'X64'">
     <None
       Include="runtimes\win-x64\native\livekit_ffi.dll"
       CopyToOutputDirectory="PreserveNewest"
       Link="livekit_ffi.dll"
       Condition="Exists('runtimes\win-x64\native\livekit_ffi.dll')"
+    />
+  </ItemGroup>
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'Arm64'">
+    <None
+      Include="runtimes\win-arm64\native\livekit_ffi.dll"
+      CopyToOutputDirectory="PreserveNewest"
+      Link="livekit_ffi.dll"
+      Condition="Exists('runtimes\win-arm64\native\livekit_ffi.dll')"
     />
   </ItemGroup>
 </Project>

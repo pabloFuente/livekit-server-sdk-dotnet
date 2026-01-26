@@ -377,23 +377,22 @@ namespace LiveKit.Rtc
         {
             lock (_eventLock)
             {
-                _eventTaskChain = _eventTaskChain
-                    .ContinueWith(
-                        _ =>
+                _eventTaskChain = _eventTaskChain.ContinueWith(
+                    _ =>
+                    {
+                        try
                         {
-                            try
-                            {
-                                action();
-                            }
-                            catch (Exception ex)
-                            {
-                                Console.Error.WriteLine(
-                                    $"[ERROR] Room event handler exception: {ex.Message}"
-                                );
-                            }
-                        },
-                        TaskScheduler.Default
-                    );
+                            action();
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.Error.WriteLine(
+                                $"[ERROR] Room event handler exception: {ex.Message}"
+                            );
+                        }
+                    },
+                    TaskScheduler.Default
+                );
             }
         }
 
