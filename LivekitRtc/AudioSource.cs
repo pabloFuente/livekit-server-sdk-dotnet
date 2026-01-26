@@ -121,8 +121,12 @@ namespace LiveKit.Rtc
             _playoutTcs = new TaskCompletionSource<bool>();
             _playoutCts = new CancellationTokenSource();
 
-            // Schedule release after queue empties
-            _ = Task.Delay(TimeSpan.FromSeconds(_queueSize), _playoutCts.Token)
+            // Schedule release after queue empties (clamp queueSize to valid int range)
+            double clampedQueueSize = Math.Max(
+                0.0,
+                Math.Min(_queueSize, int.MaxValue / 1000.0 - 1)
+            );
+            _ = Task.Delay(TimeSpan.FromSeconds(clampedQueueSize), _playoutCts.Token)
                 .ContinueWith(_ => ReleaseWaiter(), TaskContinuationOptions.OnlyOnRanToCompletion);
 
             // Send capture request

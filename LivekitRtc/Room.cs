@@ -1133,6 +1133,17 @@ namespace LiveKit.Rtc
                     );
                     publication.Track = null;
                 }
+                catch (InvalidOperationException ex)
+                {
+                    // Silently ignore "not found for participant" errors during cleanup/disconnect
+                    // The participant or publication may have already been removed
+                    if (!ex.Message.Contains("not found for participant"))
+                    {
+                        Console.Error.WriteLine(
+                            $"[WARN] RoomEvent.TrackUnsubscribed: {ex.Message}"
+                        );
+                    }
+                }
                 catch (Exception ex)
                 {
                     Console.Error.WriteLine($"[WARN] RoomEvent.TrackUnsubscribed: {ex.Message}");

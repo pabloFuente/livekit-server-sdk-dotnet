@@ -541,15 +541,17 @@ namespace LiveKit.Rtc.Tests
             Log("Testing text stream E2E: sender sends, receiver receives");
 
             var receivedData = new TaskCompletionSource<(string identity, string text)>();
+            var handlerStarted = new TaskCompletionSource<bool>();
 
             _receiverRoom!.RegisterTextStreamHandler(
                 "e2e-text",
                 (reader, identity) =>
                 {
-                    Task.Run(async () =>
+                    _ = Task.Run(async () =>
                     {
                         try
                         {
+                            handlerStarted.TrySetResult(true);
                             var chunks = new List<string>();
                             await foreach (var chunk in reader)
                             {
@@ -561,16 +563,17 @@ namespace LiveKit.Rtc.Tests
                         catch (Exception ex)
                         {
                             Log($"Error in handler: {ex.Message}");
+                            handlerStarted.TrySetException(ex);
                             receivedData.TrySetException(ex);
                         }
                     });
                 }
             );
 
-            // Give handler time to register
-            await Task.Delay(100);
-
             var writer = await _senderParticipant!.StreamTextAsync(topic: "e2e-text");
+
+            // Wait for handler to start before sending data to avoid race condition
+            await handlerStarted.Task.WaitAsync(TimeSpan.FromSeconds(5));
             await writer.WriteAsync("Hello ");
             await writer.WriteAsync("from ");
             await writer.WriteAsync("sender!");
@@ -592,15 +595,17 @@ namespace LiveKit.Rtc.Tests
             Log("Testing byte stream E2E: sender sends, receiver receives");
 
             var receivedData = new TaskCompletionSource<(string identity, byte[] data)>();
+            var handlerStarted = new TaskCompletionSource<bool>();
 
             _receiverRoom!.RegisterByteStreamHandler(
                 "e2e-bytes",
                 (reader, identity) =>
                 {
-                    Task.Run(async () =>
+                    _ = Task.Run(async () =>
                     {
                         try
                         {
+                            handlerStarted.TrySetResult(true);
                             var chunks = new List<byte>();
                             await foreach (var chunk in reader)
                             {
@@ -611,17 +616,18 @@ namespace LiveKit.Rtc.Tests
                         catch (Exception ex)
                         {
                             Log($"Error in handler: {ex.Message}");
+                            handlerStarted.TrySetException(ex);
                             receivedData.TrySetException(ex);
                         }
                     });
                 }
             );
 
-            // Give handler time to register
-            await Task.Delay(100);
-
             var testData = new byte[] { 0x01, 0x02, 0x03, 0x04, 0x05 };
             var writer = await _senderParticipant!.StreamBytesAsync("data.bin", topic: "e2e-bytes");
+
+            // Wait for handler to start before sending data to avoid race condition
+            await handlerStarted.Task.WaitAsync(TimeSpan.FromSeconds(5));
             await writer.WriteAsync(testData);
             await writer.CloseAsync();
 
@@ -638,21 +644,72 @@ namespace LiveKit.Rtc.Tests
         }
 
         [Fact]
+        public async Task RegisterTextStreamHandler_ReadAllAsync_ReceivesCompleteText()
+        {
+            Log("Testing text stream with ReadAllAsync");
+
+            var receivedData = new TaskCompletionSource<(string identity, string text)>();
+            var handlerStarted = new TaskCompletionSource<bool>();
+
+            _receiverRoom!.RegisterTextStreamHandler(
+                "readall-test",
+                (reader, identity) =>
+                {
+                    _ = Task.Run(async () =>
+                    {
+                        try
+                        {
+                            handlerStarted.TrySetResult(true);
+                            var fullText = await reader.ReadAllAsync();
+                            receivedData.TrySetResult((identity, fullText));
+                        }
+                        catch (Exception ex)
+                        {
+                            Log($"Error in handler: {ex.Message}");
+                            handlerStarted.TrySetException(ex);
+                            receivedData.TrySetException(ex);
+                        }
+                    });
+                }
+            );
+
+            var writer = await _senderParticipant!.StreamTextAsync(topic: "readall-test");
+
+            // Wait for handler to start before sending data to avoid race condition
+            await handlerStarted.Task.WaitAsync(TimeSpan.FromSeconds(5));
+            await writer.WriteAsync("Hello ");
+            await writer.WriteAsync("from ");
+            await writer.WriteAsync("ReadAllAsync!");
+            await writer.CloseAsync();
+
+            var (receivedIdentity, receivedText) = await receivedData.Task.WaitAsync(
+                TimeSpan.FromSeconds(10)
+            );
+
+            Assert.Equal("sender", receivedIdentity);
+            Assert.Equal("Hello from ReadAllAsync!", receivedText);
+
+            Log($"Successfully received complete text from {receivedIdentity}: {receivedText}");
+        }
+
+        [Fact]
         public async Task RegisterTextStreamHandler_MultipleChunks_ReceivesAll()
         {
             Log("Testing text stream with multiple chunks");
 
             var receivedChunks = new List<string>();
             var completed = new TaskCompletionSource<bool>();
+            var handlerStarted = new TaskCompletionSource<bool>();
 
             _receiverRoom!.RegisterTextStreamHandler(
                 "multi-chunk",
                 (reader, identity) =>
                 {
-                    Task.Run(async () =>
+                    _ = Task.Run(async () =>
                     {
                         try
                         {
+                            handlerStarted.TrySetResult(true);
                             await foreach (var chunk in reader)
                             {
                                 receivedChunks.Add(chunk);
@@ -661,15 +718,18 @@ namespace LiveKit.Rtc.Tests
                         }
                         catch (Exception ex)
                         {
+                            handlerStarted.TrySetException(ex);
                             completed.TrySetException(ex);
                         }
                     });
                 }
             );
 
-            await Task.Delay(100);
-
             var writer = await _senderParticipant!.StreamTextAsync(topic: "multi-chunk");
+
+            // Wait for handler to start before sending data to avoid losing chunks
+            await handlerStarted.Task.WaitAsync(TimeSpan.FromSeconds(5));
+
             for (int i = 0; i < 10; i++)
             {
                 await writer.WriteAsync($"Chunk{i} ");
@@ -848,13 +908,16 @@ namespace LiveKit.Rtc.Tests
 
             var topic1Data = new TaskCompletionSource<string>();
             var topic2Data = new TaskCompletionSource<string>();
+            var handler1Started = new TaskCompletionSource<bool>();
+            var handler2Started = new TaskCompletionSource<bool>();
 
             _receiverRoom!.RegisterTextStreamHandler(
                 "topic1",
                 (reader, identity) =>
                 {
-                    Task.Run(async () =>
+                    _ = Task.Run(async () =>
                     {
+                        handler1Started.TrySetResult(true);
                         var chunks = new List<string>();
                         await foreach (var chunk in reader)
                         {
@@ -869,8 +932,9 @@ namespace LiveKit.Rtc.Tests
                 "topic2",
                 (reader, identity) =>
                 {
-                    Task.Run(async () =>
+                    _ = Task.Run(async () =>
                     {
+                        handler2Started.TrySetResult(true);
                         var chunks = new List<string>();
                         await foreach (var chunk in reader)
                         {
@@ -881,13 +945,13 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(100);
-
             var writer1 = await _senderParticipant!.StreamTextAsync(topic: "topic1");
+            await handler1Started.Task.WaitAsync(TimeSpan.FromSeconds(5));
             await writer1.WriteAsync("Data for topic 1");
             await writer1.CloseAsync();
 
             var writer2 = await _senderParticipant!.StreamTextAsync(topic: "topic2");
+            await handler2Started.Task.WaitAsync(TimeSpan.FromSeconds(5));
             await writer2.WriteAsync("Data for topic 2");
             await writer2.CloseAsync();
 
