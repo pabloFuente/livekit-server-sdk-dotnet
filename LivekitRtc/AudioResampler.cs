@@ -9,37 +9,6 @@ using LiveKit.Rtc.Internal;
 namespace LiveKit.Rtc
 {
     /// <summary>
-    /// Audio resampler quality settings.
-    /// </summary>
-    public enum AudioResamplerQuality
-    {
-        /// <summary>
-        /// Quick quality (lowest).
-        /// </summary>
-        Quick = 0,
-
-        /// <summary>
-        /// Low quality.
-        /// </summary>
-        Low = 1,
-
-        /// <summary>
-        /// Medium quality (default).
-        /// </summary>
-        Medium = 2,
-
-        /// <summary>
-        /// High quality.
-        /// </summary>
-        High = 3,
-
-        /// <summary>
-        /// Very high quality (best).
-        /// </summary>
-        VeryHigh = 4,
-    }
-
-    /// <summary>
     /// A class for resampling audio data from one sample rate to another.
     /// Uses the Sox resampling library under the hood.
     /// </summary>
@@ -62,7 +31,7 @@ namespace LiveKit.Rtc
             uint inputRate,
             uint outputRate,
             uint numChannels = 1,
-            AudioResamplerQuality quality = AudioResamplerQuality.Medium
+            SoxQualityRecipe quality = SoxQualityRecipe.SoxrQualityMedium
         )
         {
             _inputRate = inputRate;
@@ -76,7 +45,7 @@ namespace LiveKit.Rtc
                     InputRate = inputRate,
                     OutputRate = outputRate,
                     NumChannels = numChannels,
-                    QualityRecipe = ToProtoQuality(quality),
+                    QualityRecipe = quality,
                     InputDataType = SoxResamplerDataType.SoxrDatatypeInt16I,
                     OutputDataType = SoxResamplerDataType.SoxrDatatypeInt16I,
                     Flags = 0,
@@ -223,25 +192,6 @@ namespace LiveKit.Rtc
             );
 
             return new List<AudioFrame> { frame };
-        }
-
-        private static SoxQualityRecipe ToProtoQuality(AudioResamplerQuality quality)
-        {
-            switch (quality)
-            {
-                case AudioResamplerQuality.Quick:
-                    return SoxQualityRecipe.SoxrQualityQuick;
-                case AudioResamplerQuality.Low:
-                    return SoxQualityRecipe.SoxrQualityLow;
-                case AudioResamplerQuality.Medium:
-                    return SoxQualityRecipe.SoxrQualityMedium;
-                case AudioResamplerQuality.High:
-                    return SoxQualityRecipe.SoxrQualityHigh;
-                case AudioResamplerQuality.VeryHigh:
-                    return SoxQualityRecipe.SoxrQualityVeryhigh;
-                default:
-                    return SoxQualityRecipe.SoxrQualityMedium;
-            }
         }
 
         /// <inheritdoc />

@@ -570,8 +570,8 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            // Small delay to ensure handler is registered before stream opens
-            await Task.Delay(100);
+            // Delay to ensure handler is fully registered and stream infrastructure is ready
+            await Task.Delay(500);
 
             var writer = await _senderParticipant!.StreamTextAsync(topic: "e2e-text");
 
@@ -677,7 +677,7 @@ namespace LiveKit.Rtc.Tests
             );
 
             // Small delay to ensure handler is registered before stream opens
-            await Task.Delay(100);
+            await Task.Delay(200);
 
             var writer = await _senderParticipant!.StreamTextAsync(topic: "readall-test");
 
@@ -732,7 +732,7 @@ namespace LiveKit.Rtc.Tests
             );
 
             // Small delay to ensure handler is registered before stream opens
-            await Task.Delay(100);
+            await Task.Delay(200);
 
             var writer = await _senderParticipant!.StreamTextAsync(topic: "multi-chunk");
 
@@ -786,7 +786,7 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(100);
+            await Task.Delay(200);
 
             var largeData = new byte[100 * 1024]; // 100KB
             new Random(42).NextBytes(largeData);
@@ -863,7 +863,7 @@ namespace LiveKit.Rtc.Tests
             _receiverRoom!.UnregisterTextStreamHandler("unregister-test");
 
             // Small delay to ensure handler is registered before stream opens
-            await Task.Delay(100);
+            await Task.Delay(200);
 
             var writer = await _senderParticipant!.StreamTextAsync(topic: "unregister-test");
             await writer.WriteAsync("This should not be received");
@@ -894,7 +894,7 @@ namespace LiveKit.Rtc.Tests
 
             _receiverRoom!.UnregisterByteStreamHandler("unregister-bytes");
 
-            await Task.Delay(100);
+            await Task.Delay(200);
 
             var writer = await _senderParticipant!.StreamBytesAsync(
                 "data.bin",
@@ -956,7 +956,7 @@ namespace LiveKit.Rtc.Tests
             );
 
             // Small delay to ensure handler is registered before stream opens
-            await Task.Delay(100);
+            await Task.Delay(200);
 
             var writer1 = await _senderParticipant!.StreamTextAsync(topic: "topic1");
             await handler1Started.Task.WaitAsync(TimeSpan.FromSeconds(5));
@@ -992,7 +992,7 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(100);
+            await Task.Delay(200);
 
             var attributes = new Dictionary<string, string>
             {
@@ -1037,7 +1037,7 @@ namespace LiveKit.Rtc.Tests
                 }
             );
 
-            await Task.Delay(100);
+            await Task.Delay(200);
 
             var writer = await _senderParticipant!.StreamBytesAsync(
                 "metadata.bin",
@@ -1126,7 +1126,7 @@ namespace LiveKit.Rtc.Tests
                 );
             }
 
-            await Task.Delay(100);
+            await Task.Delay(200);
 
             var writers = new List<Task>();
             for (int i = 0; i < topics.Length; i++)

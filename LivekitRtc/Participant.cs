@@ -367,17 +367,7 @@ namespace LiveKit.Rtc
 
             foreach (var segment in transcription.Segments)
             {
-                request.PublishTranscription.Segments.Add(
-                    new Proto.TranscriptionSegment
-                    {
-                        Id = segment.Id,
-                        Text = segment.Text,
-                        StartTime = (ulong)segment.StartTime,
-                        EndTime = (ulong)segment.EndTime,
-                        Final = segment.IsFinal,
-                        Language = segment.Language,
-                    }
-                );
+                request.PublishTranscription.Segments.Add(segment);
             }
 
             var response = FfiClient.Instance.SendRequest(request);
@@ -562,7 +552,7 @@ namespace LiveKit.Rtc
                 );
             }
 
-            return ChatMessage.FromProto(chatEvent.ChatMessage!.ChatMessage!);
+            return chatEvent.ChatMessage!.ChatMessage!;
         }
 
         /// <summary>
@@ -591,7 +581,7 @@ namespace LiveKit.Rtc
                 {
                     LocalParticipantHandle = Handle.HandleId,
                     EditText = editText,
-                    OriginalMessage = originalMessage.ToProto(),
+                    OriginalMessage = originalMessage,
                 },
             };
 
@@ -622,7 +612,7 @@ namespace LiveKit.Rtc
                 );
             }
 
-            return ChatMessage.FromProto(chatEvent.ChatMessage!.ChatMessage!);
+            return chatEvent.ChatMessage!.ChatMessage!;
         }
 
         /// <summary>

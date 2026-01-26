@@ -379,7 +379,7 @@ namespace LiveKit.Rtc
             {
                 _eventTaskChain = _eventTaskChain
                     .ContinueWith(
-                        async _ =>
+                        _ =>
                         {
                             try
                             {
@@ -393,8 +393,7 @@ namespace LiveKit.Rtc
                             }
                         },
                         TaskScheduler.Default
-                    )
-                    .Unwrap(); // Unwrap is key for async actions
+                    );
             }
         }
 
