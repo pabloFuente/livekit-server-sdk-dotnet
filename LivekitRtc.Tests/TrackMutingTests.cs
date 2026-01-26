@@ -73,7 +73,7 @@ public class TrackMutingTests : IClassFixture<RtcTestFixture>
             var mutedPub = await mutedTcs.Task.WaitAsync(mutedCts.Token);
             Assert.NotNull(mutedPub);
             Assert.Equal(publication.Sid, mutedPub.Sid);
-            Assert.True(publication.IsMuted);
+            Assert.True(mutedPub.IsMuted);
             Log("TrackMuted event received successfully");
         }
         catch (TimeoutException)
@@ -93,7 +93,7 @@ public class TrackMutingTests : IClassFixture<RtcTestFixture>
             var unmutedPub = await unmutedTcs.Task.WaitAsync(unmutedCts.Token);
             Assert.NotNull(unmutedPub);
             Assert.Equal(publication.Sid, unmutedPub.Sid);
-            Assert.False(publication.IsMuted);
+            Assert.False(unmutedPub.IsMuted);
             Log("TrackUnmuted event received successfully");
         }
         catch (TimeoutException)
@@ -159,7 +159,7 @@ public class TrackMutingTests : IClassFixture<RtcTestFixture>
             var mutedPub = await mutedTcs.Task.WaitAsync(mutedCts.Token);
             Assert.NotNull(mutedPub);
             Assert.Equal(publication.Sid, mutedPub.Sid);
-            Assert.True(publication.IsMuted);
+            Assert.True(mutedPub.IsMuted);
             Log("TrackMuted event received successfully");
         }
         catch (TimeoutException)
@@ -179,7 +179,7 @@ public class TrackMutingTests : IClassFixture<RtcTestFixture>
             var unmutedPub = await unmutedTcs.Task.WaitAsync(unmutedCts.Token);
             Assert.NotNull(unmutedPub);
             Assert.Equal(publication.Sid, unmutedPub.Sid);
-            Assert.False(publication.IsMuted);
+            Assert.False(unmutedPub.IsMuted);
             Log("TrackUnmuted event received successfully");
         }
         catch (TimeoutException)
