@@ -435,7 +435,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
                 await sipClient.TransferSIPParticipant(transferRequest)
             );
-            Assert.Contains("transfer_to must be a valid SIP or TEL URI", ex.Message);
+            Assert.Matches(@"transfer_to must be a valid SIP(\(s\))? or TEL", ex.Message);
 
             transferRequest.TransferTo = "tel:+14155550100";
             ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
