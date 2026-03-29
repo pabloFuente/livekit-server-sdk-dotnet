@@ -26,6 +26,7 @@
   - [Clone repository](#clone-repository)
   - [Run tests](#run-tests)
   - [Building from source](#building-from-source)
+  - [Upgrade version of `rust-sdks`](#upgrade-version-of-rust-sdks)
   - [Perform release](#perform-release)
 
 ## Design principles
@@ -240,6 +241,26 @@ After building, copy the native libraries from `target/release/` to the appropri
 ```bash
 # From LivekitRtc directory
 dotnet build
+```
+
+## Upgrade version of `rust-sdks`
+
+To upgrade the version of the `rust-sdks` Git submodule:
+
+```bash
+cd rust-sdks
+git fetch --all
+git checkout <COMMIT_HASH/TAG/BRANCH>
+cd ..
+git add rust-sdks
+git commit -m "Update rust-sdks to <VERSION>"
+git push
+```
+
+Then it may be necessary to re-generate the proto files to actually reflect the changes in rust-sdks:
+
+```bash
+./generate_proto.sh
 ```
 
 ## Perform release

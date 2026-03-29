@@ -21,15 +21,19 @@ OUTPUT_DIR="$SCRIPT_DIR/runtimes"
 GITHUB_API="https://api.github.com/repos/livekit/rust-sdks/releases"
 GITHUB_RELEASE_BASE="https://github.com/livekit/rust-sdks/releases/download"
 
-# If no version specified, get latest
+# If no version specified, get latest livekit-ffi release
 if [ -z "$VERSION" ]; then
     echo "Fetching latest version..."
-    VERSION=$(curl -sL "$GITHUB_API/latest" | grep -o '"tag_name": *"[^"]*"' | head -1 | sed 's/.*"tag_name": *"\([^"]*\)".*/\1/')
+    VERSION=$(curl -sL "$GITHUB_API?per_page=30" | grep -o '"tag_name": *"[^"]*"' | sed 's/.*"tag_name": *"\([^"]*\)".*/\1/' | grep '^livekit-ffi/' | head -1)
+    if [ -z "$VERSION" ]; then
+        echo "Error: Could not find a livekit-ffi release"
+        exit 1
+    fi
     echo "Latest version: $VERSION"
 else
-    # If version is just a number like "0.12.44", construct the full tag
-    if [[ ! "$VERSION" =~ ^rust-sdks ]]; then
-        VERSION="rust-sdks/livekit-ffi@${VERSION}"
+    # If version is just a number like "0.12.50", construct the full tag (new format: livekit-ffi/vX.Y.Z)
+    if [[ "$VERSION" =~ ^[0-9] ]]; then
+        VERSION="livekit-ffi/v${VERSION}"
     fi
 fi
 

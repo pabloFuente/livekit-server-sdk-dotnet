@@ -27,112 +27,122 @@ namespace LiveKit.Proto {
             "Cgpyb29tLnByb3RvEg1saXZla2l0LnByb3RvGgplMmVlLnByb3RvGgxoYW5k",
             "bGUucHJvdG8aEXBhcnRpY2lwYW50LnByb3RvGgt0cmFjay5wcm90bxoRdmlk",
             "ZW9fZnJhbWUucHJvdG8aC3N0YXRzLnByb3RvGhFkYXRhX3N0cmVhbS5wcm90",
-            "byJZCg5Db25uZWN0UmVxdWVzdBILCgN1cmwYASACKAkSDQoFdG9rZW4YAiAC",
+            "byJzCg5Db25uZWN0UmVxdWVzdBILCgN1cmwYASACKAkSDQoFdG9rZW4YAiAC",
             "KAkSKwoHb3B0aW9ucxgDIAIoCzIaLmxpdmVraXQucHJvdG8uUm9vbU9wdGlv",
-            "bnMiIwoPQ29ubmVjdFJlc3BvbnNlEhAKCGFzeW5jX2lkGAEgAigEIr8DCg9D",
-            "b25uZWN0Q2FsbGJhY2sSEAoIYXN5bmNfaWQYASACKAQSDwoFZXJyb3IYAiAB",
-            "KAlIABI3CgZyZXN1bHQYAyABKAsyJS5saXZla2l0LnByb3RvLkNvbm5lY3RD",
-            "YWxsYmFjay5SZXN1bHRIABqJAQoVUGFydGljaXBhbnRXaXRoVHJhY2tzEjQK",
-            "C3BhcnRpY2lwYW50GAEgAigLMh8ubGl2ZWtpdC5wcm90by5Pd25lZFBhcnRp",
-            "Y2lwYW50EjoKDHB1YmxpY2F0aW9ucxgCIAMoCzIkLmxpdmVraXQucHJvdG8u",
-            "T3duZWRUcmFja1B1YmxpY2F0aW9uGrgBCgZSZXN1bHQSJgoEcm9vbRgBIAIo",
-            "CzIYLmxpdmVraXQucHJvdG8uT3duZWRSb29tEjoKEWxvY2FsX3BhcnRpY2lw",
-            "YW50GAIgAigLMh8ubGl2ZWtpdC5wcm90by5Pd25lZFBhcnRpY2lwYW50EkoK",
-            "DHBhcnRpY2lwYW50cxgDIAMoCzI0LmxpdmVraXQucHJvdG8uQ29ubmVjdENh",
-            "bGxiYWNrLlBhcnRpY2lwYW50V2l0aFRyYWNrc0IJCgdtZXNzYWdlIigKEURp",
-            "c2Nvbm5lY3RSZXF1ZXN0EhMKC3Jvb21faGFuZGxlGAEgAigEIiYKEkRpc2Nv",
-            "bm5lY3RSZXNwb25zZRIQCghhc3luY19pZBgBIAIoBCImChJEaXNjb25uZWN0",
-            "Q2FsbGJhY2sSEAoIYXN5bmNfaWQYASACKAQiggEKE1B1Ymxpc2hUcmFja1Jl",
-            "cXVlc3QSIAoYbG9jYWxfcGFydGljaXBhbnRfaGFuZGxlGAEgAigEEhQKDHRy",
-            "YWNrX2hhbmRsZRgCIAIoBBIzCgdvcHRpb25zGAMgAigLMiIubGl2ZWtpdC5w",
-            "cm90by5UcmFja1B1Ymxpc2hPcHRpb25zIigKFFB1Ymxpc2hUcmFja1Jlc3Bv",
-            "bnNlEhAKCGFzeW5jX2lkGAEgAigEIoEBChRQdWJsaXNoVHJhY2tDYWxsYmFj",
-            "axIQCghhc3luY19pZBgBIAIoBBIPCgVlcnJvchgCIAEoCUgAEjsKC3B1Ymxp",
-            "Y2F0aW9uGAMgASgLMiQubGl2ZWtpdC5wcm90by5Pd25lZFRyYWNrUHVibGlj",
-            "YXRpb25IAEIJCgdtZXNzYWdlImcKFVVucHVibGlzaFRyYWNrUmVxdWVzdBIg",
-            "Chhsb2NhbF9wYXJ0aWNpcGFudF9oYW5kbGUYASACKAQSEQoJdHJhY2tfc2lk",
-            "GAIgAigJEhkKEXN0b3Bfb25fdW5wdWJsaXNoGAMgAigIIioKFlVucHVibGlz",
-            "aFRyYWNrUmVzcG9uc2USEAoIYXN5bmNfaWQYASACKAQiOQoWVW5wdWJsaXNo",
-            "VHJhY2tDYWxsYmFjaxIQCghhc3luY19pZBgBIAIoBBINCgVlcnJvchgCIAEo",
-            "CSK5AQoSUHVibGlzaERhdGFSZXF1ZXN0EiAKGGxvY2FsX3BhcnRpY2lwYW50",
-            "X2hhbmRsZRgBIAIoBBIQCghkYXRhX3B0chgCIAIoBBIQCghkYXRhX2xlbhgD",
-            "IAIoBBIQCghyZWxpYWJsZRgEIAIoCBIcChBkZXN0aW5hdGlvbl9zaWRzGAUg",
-            "AygJQgIYARINCgV0b3BpYxgGIAEoCRIeChZkZXN0aW5hdGlvbl9pZGVudGl0",
-            "aWVzGAcgAygJIicKE1B1Ymxpc2hEYXRhUmVzcG9uc2USEAoIYXN5bmNfaWQY",
+            "bnMSGAoQcmVxdWVzdF9hc3luY19pZBgEIAEoBCIjCg9Db25uZWN0UmVzcG9u",
+            "c2USEAoIYXN5bmNfaWQYASACKAQivwMKD0Nvbm5lY3RDYWxsYmFjaxIQCghh",
+            "c3luY19pZBgBIAIoBBIPCgVlcnJvchgCIAEoCUgAEjcKBnJlc3VsdBgDIAEo",
+            "CzIlLmxpdmVraXQucHJvdG8uQ29ubmVjdENhbGxiYWNrLlJlc3VsdEgAGokB",
+            "ChVQYXJ0aWNpcGFudFdpdGhUcmFja3MSNAoLcGFydGljaXBhbnQYASACKAsy",
+            "Hy5saXZla2l0LnByb3RvLk93bmVkUGFydGljaXBhbnQSOgoMcHVibGljYXRp",
+            "b25zGAIgAygLMiQubGl2ZWtpdC5wcm90by5Pd25lZFRyYWNrUHVibGljYXRp",
+            "b24auAEKBlJlc3VsdBImCgRyb29tGAEgAigLMhgubGl2ZWtpdC5wcm90by5P",
+            "d25lZFJvb20SOgoRbG9jYWxfcGFydGljaXBhbnQYAiACKAsyHy5saXZla2l0",
+            "LnByb3RvLk93bmVkUGFydGljaXBhbnQSSgoMcGFydGljaXBhbnRzGAMgAygL",
+            "MjQubGl2ZWtpdC5wcm90by5Db25uZWN0Q2FsbGJhY2suUGFydGljaXBhbnRX",
+            "aXRoVHJhY2tzQgkKB21lc3NhZ2UicwoRRGlzY29ubmVjdFJlcXVlc3QSEwoL",
+            "cm9vbV9oYW5kbGUYASACKAQSGAoQcmVxdWVzdF9hc3luY19pZBgCIAEoBBIv",
+            "CgZyZWFzb24YAyABKA4yHy5saXZla2l0LnByb3RvLkRpc2Nvbm5lY3RSZWFz",
+            "b24iJgoSRGlzY29ubmVjdFJlc3BvbnNlEhAKCGFzeW5jX2lkGAEgAigEIiYK",
+            "EkRpc2Nvbm5lY3RDYWxsYmFjaxIQCghhc3luY19pZBgBIAIoBCKcAQoTUHVi",
+            "bGlzaFRyYWNrUmVxdWVzdBIgChhsb2NhbF9wYXJ0aWNpcGFudF9oYW5kbGUY",
+            "ASACKAQSFAoMdHJhY2tfaGFuZGxlGAIgAigEEjMKB29wdGlvbnMYAyACKAsy",
+            "Ii5saXZla2l0LnByb3RvLlRyYWNrUHVibGlzaE9wdGlvbnMSGAoQcmVxdWVz",
+            "dF9hc3luY19pZBgEIAEoBCIoChRQdWJsaXNoVHJhY2tSZXNwb25zZRIQCghh",
+            "c3luY19pZBgBIAIoBCKBAQoUUHVibGlzaFRyYWNrQ2FsbGJhY2sSEAoIYXN5",
+            "bmNfaWQYASACKAQSDwoFZXJyb3IYAiABKAlIABI7CgtwdWJsaWNhdGlvbhgD",
+            "IAEoCzIkLmxpdmVraXQucHJvdG8uT3duZWRUcmFja1B1YmxpY2F0aW9uSABC",
+            "CQoHbWVzc2FnZSKBAQoVVW5wdWJsaXNoVHJhY2tSZXF1ZXN0EiAKGGxvY2Fs",
+            "X3BhcnRpY2lwYW50X2hhbmRsZRgBIAIoBBIRCgl0cmFja19zaWQYAiACKAkS",
+            "GQoRc3RvcF9vbl91bnB1Ymxpc2gYAyACKAgSGAoQcmVxdWVzdF9hc3luY19p",
+            "ZBgEIAEoBCIqChZVbnB1Ymxpc2hUcmFja1Jlc3BvbnNlEhAKCGFzeW5jX2lk",
+            "GAEgAigEIjkKFlVucHVibGlzaFRyYWNrQ2FsbGJhY2sSEAoIYXN5bmNfaWQY",
+            "ASACKAQSDQoFZXJyb3IYAiABKAki0wEKElB1Ymxpc2hEYXRhUmVxdWVzdBIg",
+            "Chhsb2NhbF9wYXJ0aWNpcGFudF9oYW5kbGUYASACKAQSEAoIZGF0YV9wdHIY",
+            "AiACKAQSEAoIZGF0YV9sZW4YAyACKAQSEAoIcmVsaWFibGUYBCACKAgSHAoQ",
+            "ZGVzdGluYXRpb25fc2lkcxgFIAMoCUICGAESDQoFdG9waWMYBiABKAkSHgoW",
+            "ZGVzdGluYXRpb25faWRlbnRpdGllcxgHIAMoCRIYChByZXF1ZXN0X2FzeW5j",
+            "X2lkGAggASgEIicKE1B1Ymxpc2hEYXRhUmVzcG9uc2USEAoIYXN5bmNfaWQY",
             "ASACKAQiNgoTUHVibGlzaERhdGFDYWxsYmFjaxIQCghhc3luY19pZBgBIAIo",
-            "BBINCgVlcnJvchgCIAEoCSKmAQobUHVibGlzaFRyYW5zY3JpcHRpb25SZXF1",
+            "BBINCgVlcnJvchgCIAEoCSLAAQobUHVibGlzaFRyYW5zY3JpcHRpb25SZXF1",
             "ZXN0EiAKGGxvY2FsX3BhcnRpY2lwYW50X2hhbmRsZRgBIAIoBBIcChRwYXJ0",
             "aWNpcGFudF9pZGVudGl0eRgCIAIoCRIQCgh0cmFja19pZBgDIAIoCRI1Cghz",
             "ZWdtZW50cxgEIAMoCzIjLmxpdmVraXQucHJvdG8uVHJhbnNjcmlwdGlvblNl",
-            "Z21lbnQiMAocUHVibGlzaFRyYW5zY3JpcHRpb25SZXNwb25zZRIQCghhc3lu",
-            "Y19pZBgBIAIoBCI/ChxQdWJsaXNoVHJhbnNjcmlwdGlvbkNhbGxiYWNrEhAK",
-            "CGFzeW5jX2lkGAEgAigEEg0KBWVycm9yGAIgASgJInYKFVB1Ymxpc2hTaXBE",
-            "dG1mUmVxdWVzdBIgChhsb2NhbF9wYXJ0aWNpcGFudF9oYW5kbGUYASACKAQS",
-            "DAoEY29kZRgCIAIoDRINCgVkaWdpdBgDIAIoCRIeChZkZXN0aW5hdGlvbl9p",
-            "ZGVudGl0aWVzGAQgAygJIioKFlB1Ymxpc2hTaXBEdG1mUmVzcG9uc2USEAoI",
-            "YXN5bmNfaWQYASACKAQiOQoWUHVibGlzaFNpcER0bWZDYWxsYmFjaxIQCghh",
-            "c3luY19pZBgBIAIoBBINCgVlcnJvchgCIAEoCSJNChdTZXRMb2NhbE1ldGFk",
-            "YXRhUmVxdWVzdBIgChhsb2NhbF9wYXJ0aWNpcGFudF9oYW5kbGUYASACKAQS",
-            "EAoIbWV0YWRhdGEYAiACKAkiLAoYU2V0TG9jYWxNZXRhZGF0YVJlc3BvbnNl",
-            "EhAKCGFzeW5jX2lkGAEgAigEIjsKGFNldExvY2FsTWV0YWRhdGFDYWxsYmFj",
-            "axIQCghhc3luY19pZBgBIAIoBBINCgVlcnJvchgCIAEoCSKEAQoWU2VuZENo",
-            "YXRNZXNzYWdlUmVxdWVzdBIgChhsb2NhbF9wYXJ0aWNpcGFudF9oYW5kbGUY",
-            "ASACKAQSDwoHbWVzc2FnZRgCIAIoCRIeChZkZXN0aW5hdGlvbl9pZGVudGl0",
-            "aWVzGAMgAygJEhcKD3NlbmRlcl9pZGVudGl0eRgEIAEoCSK8AQoWRWRpdENo",
-            "YXRNZXNzYWdlUmVxdWVzdBIgChhsb2NhbF9wYXJ0aWNpcGFudF9oYW5kbGUY",
-            "ASACKAQSEQoJZWRpdF90ZXh0GAIgAigJEjQKEG9yaWdpbmFsX21lc3NhZ2UY",
-            "AyACKAsyGi5saXZla2l0LnByb3RvLkNoYXRNZXNzYWdlEh4KFmRlc3RpbmF0",
-            "aW9uX2lkZW50aXRpZXMYBCADKAkSFwoPc2VuZGVyX2lkZW50aXR5GAUgASgJ",
-            "IisKF1NlbmRDaGF0TWVzc2FnZVJlc3BvbnNlEhAKCGFzeW5jX2lkGAEgAigE",
-            "InsKF1NlbmRDaGF0TWVzc2FnZUNhbGxiYWNrEhAKCGFzeW5jX2lkGAEgAigE",
-            "Eg8KBWVycm9yGAIgASgJSAASMgoMY2hhdF9tZXNzYWdlGAMgASgLMhoubGl2",
-            "ZWtpdC5wcm90by5DaGF0TWVzc2FnZUgAQgkKB21lc3NhZ2UicQoZU2V0TG9j",
-            "YWxBdHRyaWJ1dGVzUmVxdWVzdBIgChhsb2NhbF9wYXJ0aWNpcGFudF9oYW5k",
-            "bGUYASACKAQSMgoKYXR0cmlidXRlcxgCIAMoCzIeLmxpdmVraXQucHJvdG8u",
-            "QXR0cmlidXRlc0VudHJ5Ii0KD0F0dHJpYnV0ZXNFbnRyeRILCgNrZXkYASAC",
-            "KAkSDQoFdmFsdWUYAiACKAkiLgoaU2V0TG9jYWxBdHRyaWJ1dGVzUmVzcG9u",
-            "c2USEAoIYXN5bmNfaWQYASACKAQiPQoaU2V0TG9jYWxBdHRyaWJ1dGVzQ2Fs",
-            "bGJhY2sSEAoIYXN5bmNfaWQYASACKAQSDQoFZXJyb3IYAiABKAkiRQoTU2V0",
-            "TG9jYWxOYW1lUmVxdWVzdBIgChhsb2NhbF9wYXJ0aWNpcGFudF9oYW5kbGUY",
-            "ASACKAQSDAoEbmFtZRgCIAIoCSIoChRTZXRMb2NhbE5hbWVSZXNwb25zZRIQ",
-            "Cghhc3luY19pZBgBIAIoBCI3ChRTZXRMb2NhbE5hbWVDYWxsYmFjaxIQCghh",
-            "c3luY19pZBgBIAIoBBINCgVlcnJvchgCIAEoCSJFChRTZXRTdWJzY3JpYmVk",
-            "UmVxdWVzdBIRCglzdWJzY3JpYmUYASACKAgSGgoScHVibGljYXRpb25faGFu",
-            "ZGxlGAIgAigEIhcKFVNldFN1YnNjcmliZWRSZXNwb25zZSItChZHZXRTZXNz",
-            "aW9uU3RhdHNSZXF1ZXN0EhMKC3Jvb21faGFuZGxlGAEgAigEIisKF0dldFNl",
-            "c3Npb25TdGF0c1Jlc3BvbnNlEhAKCGFzeW5jX2lkGAEgAigEIvcBChdHZXRT",
-            "ZXNzaW9uU3RhdHNDYWxsYmFjaxIQCghhc3luY19pZBgBIAIoBBIPCgVlcnJv",
-            "chgCIAEoCUgAEj8KBnJlc3VsdBgDIAEoCzItLmxpdmVraXQucHJvdG8uR2V0",
-            "U2Vzc2lvblN0YXRzQ2FsbGJhY2suUmVzdWx0SAAabQoGUmVzdWx0EjAKD3B1",
-            "Ymxpc2hlcl9zdGF0cxgBIAMoCzIXLmxpdmVraXQucHJvdG8uUnRjU3RhdHMS",
-            "MQoQc3Vic2NyaWJlcl9zdGF0cxgCIAMoCzIXLmxpdmVraXQucHJvdG8uUnRj",
-            "U3RhdHNCCQoHbWVzc2FnZSI7Cg1WaWRlb0VuY29kaW5nEhMKC21heF9iaXRy",
-            "YXRlGAEgAigEEhUKDW1heF9mcmFtZXJhdGUYAiACKAEiJAoNQXVkaW9FbmNv",
-            "ZGluZxITCgttYXhfYml0cmF0ZRgBIAIoBCK1AgoTVHJhY2tQdWJsaXNoT3B0",
-            "aW9ucxI0Cg52aWRlb19lbmNvZGluZxgBIAEoCzIcLmxpdmVraXQucHJvdG8u",
-            "VmlkZW9FbmNvZGluZxI0Cg5hdWRpb19lbmNvZGluZxgCIAEoCzIcLmxpdmVr",
-            "aXQucHJvdG8uQXVkaW9FbmNvZGluZxIuCgt2aWRlb19jb2RlYxgDIAEoDjIZ",
-            "LmxpdmVraXQucHJvdG8uVmlkZW9Db2RlYxILCgNkdHgYBCABKAgSCwoDcmVk",
-            "GAUgASgIEhEKCXNpbXVsY2FzdBgGIAEoCBIqCgZzb3VyY2UYByABKA4yGi5s",
-            "aXZla2l0LnByb3RvLlRyYWNrU291cmNlEg4KBnN0cmVhbRgIIAEoCRIZChFw",
-            "cmVjb25uZWN0X2J1ZmZlchgJIAEoCCI9CglJY2VTZXJ2ZXISDAoEdXJscxgB",
-            "IAMoCRIQCgh1c2VybmFtZRgCIAEoCRIQCghwYXNzd29yZBgDIAEoCSLEAQoJ",
-            "UnRjQ29uZmlnEjsKEmljZV90cmFuc3BvcnRfdHlwZRgBIAEoDjIfLmxpdmVr",
-            "aXQucHJvdG8uSWNlVHJhbnNwb3J0VHlwZRJLChpjb250aW51YWxfZ2F0aGVy",
-            "aW5nX3BvbGljeRgCIAEoDjInLmxpdmVraXQucHJvdG8uQ29udGludWFsR2F0",
-            "aGVyaW5nUG9saWN5Ei0KC2ljZV9zZXJ2ZXJzGAMgAygLMhgubGl2ZWtpdC5w",
-            "cm90by5JY2VTZXJ2ZXIi8gEKC1Jvb21PcHRpb25zEhYKDmF1dG9fc3Vic2Ny",
-            "aWJlGAEgASgIEhcKD2FkYXB0aXZlX3N0cmVhbRgCIAEoCBIQCghkeW5hY2Fz",
-            "dBgDIAEoCBIsCgRlMmVlGAQgASgLMhoubGl2ZWtpdC5wcm90by5FMmVlT3B0",
-            "aW9uc0ICGAESLAoKcnRjX2NvbmZpZxgFIAEoCzIYLmxpdmVraXQucHJvdG8u",
-            "UnRjQ29uZmlnEhQKDGpvaW5fcmV0cmllcxgGIAEoDRIuCgplbmNyeXB0aW9u",
-            "GAcgASgLMhoubGl2ZWtpdC5wcm90by5FMmVlT3B0aW9ucyJ3ChRUcmFuc2Ny",
+            "Z21lbnQSGAoQcmVxdWVzdF9hc3luY19pZBgFIAEoBCIwChxQdWJsaXNoVHJh",
+            "bnNjcmlwdGlvblJlc3BvbnNlEhAKCGFzeW5jX2lkGAEgAigEIj8KHFB1Ymxp",
+            "c2hUcmFuc2NyaXB0aW9uQ2FsbGJhY2sSEAoIYXN5bmNfaWQYASACKAQSDQoF",
+            "ZXJyb3IYAiABKAkikAEKFVB1Ymxpc2hTaXBEdG1mUmVxdWVzdBIgChhsb2Nh",
+            "bF9wYXJ0aWNpcGFudF9oYW5kbGUYASACKAQSDAoEY29kZRgCIAIoDRINCgVk",
+            "aWdpdBgDIAIoCRIeChZkZXN0aW5hdGlvbl9pZGVudGl0aWVzGAQgAygJEhgK",
+            "EHJlcXVlc3RfYXN5bmNfaWQYBSABKAQiKgoWUHVibGlzaFNpcER0bWZSZXNw",
+            "b25zZRIQCghhc3luY19pZBgBIAIoBCI5ChZQdWJsaXNoU2lwRHRtZkNhbGxi",
+            "YWNrEhAKCGFzeW5jX2lkGAEgAigEEg0KBWVycm9yGAIgASgJImcKF1NldExv",
+            "Y2FsTWV0YWRhdGFSZXF1ZXN0EiAKGGxvY2FsX3BhcnRpY2lwYW50X2hhbmRs",
+            "ZRgBIAIoBBIQCghtZXRhZGF0YRgCIAIoCRIYChByZXF1ZXN0X2FzeW5jX2lk",
+            "GAMgASgEIiwKGFNldExvY2FsTWV0YWRhdGFSZXNwb25zZRIQCghhc3luY19p",
+            "ZBgBIAIoBCI7ChhTZXRMb2NhbE1ldGFkYXRhQ2FsbGJhY2sSEAoIYXN5bmNf",
+            "aWQYASACKAQSDQoFZXJyb3IYAiABKAkingEKFlNlbmRDaGF0TWVzc2FnZVJl",
+            "cXVlc3QSIAoYbG9jYWxfcGFydGljaXBhbnRfaGFuZGxlGAEgAigEEg8KB21l",
+            "c3NhZ2UYAiACKAkSHgoWZGVzdGluYXRpb25faWRlbnRpdGllcxgDIAMoCRIX",
+            "Cg9zZW5kZXJfaWRlbnRpdHkYBCABKAkSGAoQcmVxdWVzdF9hc3luY19pZBgF",
+            "IAEoBCLWAQoWRWRpdENoYXRNZXNzYWdlUmVxdWVzdBIgChhsb2NhbF9wYXJ0",
+            "aWNpcGFudF9oYW5kbGUYASACKAQSEQoJZWRpdF90ZXh0GAIgAigJEjQKEG9y",
+            "aWdpbmFsX21lc3NhZ2UYAyACKAsyGi5saXZla2l0LnByb3RvLkNoYXRNZXNz",
+            "YWdlEh4KFmRlc3RpbmF0aW9uX2lkZW50aXRpZXMYBCADKAkSFwoPc2VuZGVy",
+            "X2lkZW50aXR5GAUgASgJEhgKEHJlcXVlc3RfYXN5bmNfaWQYBiABKAQiKwoX",
+            "U2VuZENoYXRNZXNzYWdlUmVzcG9uc2USEAoIYXN5bmNfaWQYASACKAQiewoX",
+            "U2VuZENoYXRNZXNzYWdlQ2FsbGJhY2sSEAoIYXN5bmNfaWQYASACKAQSDwoF",
+            "ZXJyb3IYAiABKAlIABIyCgxjaGF0X21lc3NhZ2UYAyABKAsyGi5saXZla2l0",
+            "LnByb3RvLkNoYXRNZXNzYWdlSABCCQoHbWVzc2FnZSKLAQoZU2V0TG9jYWxB",
+            "dHRyaWJ1dGVzUmVxdWVzdBIgChhsb2NhbF9wYXJ0aWNpcGFudF9oYW5kbGUY",
+            "ASACKAQSMgoKYXR0cmlidXRlcxgCIAMoCzIeLmxpdmVraXQucHJvdG8uQXR0",
+            "cmlidXRlc0VudHJ5EhgKEHJlcXVlc3RfYXN5bmNfaWQYAyABKAQiLQoPQXR0",
+            "cmlidXRlc0VudHJ5EgsKA2tleRgBIAIoCRINCgV2YWx1ZRgCIAIoCSIuChpT",
+            "ZXRMb2NhbEF0dHJpYnV0ZXNSZXNwb25zZRIQCghhc3luY19pZBgBIAIoBCI9",
+            "ChpTZXRMb2NhbEF0dHJpYnV0ZXNDYWxsYmFjaxIQCghhc3luY19pZBgBIAIo",
+            "BBINCgVlcnJvchgCIAEoCSJfChNTZXRMb2NhbE5hbWVSZXF1ZXN0EiAKGGxv",
+            "Y2FsX3BhcnRpY2lwYW50X2hhbmRsZRgBIAIoBBIMCgRuYW1lGAIgAigJEhgK",
+            "EHJlcXVlc3RfYXN5bmNfaWQYAyABKAQiKAoUU2V0TG9jYWxOYW1lUmVzcG9u",
+            "c2USEAoIYXN5bmNfaWQYASACKAQiNwoUU2V0TG9jYWxOYW1lQ2FsbGJhY2sS",
+            "EAoIYXN5bmNfaWQYASACKAQSDQoFZXJyb3IYAiABKAkiRQoUU2V0U3Vic2Ny",
+            "aWJlZFJlcXVlc3QSEQoJc3Vic2NyaWJlGAEgAigIEhoKEnB1YmxpY2F0aW9u",
+            "X2hhbmRsZRgCIAIoBCIXChVTZXRTdWJzY3JpYmVkUmVzcG9uc2UiRwoWR2V0",
+            "U2Vzc2lvblN0YXRzUmVxdWVzdBITCgtyb29tX2hhbmRsZRgBIAIoBBIYChBy",
+            "ZXF1ZXN0X2FzeW5jX2lkGAIgASgEIisKF0dldFNlc3Npb25TdGF0c1Jlc3Bv",
+            "bnNlEhAKCGFzeW5jX2lkGAEgAigEIvcBChdHZXRTZXNzaW9uU3RhdHNDYWxs",
+            "YmFjaxIQCghhc3luY19pZBgBIAIoBBIPCgVlcnJvchgCIAEoCUgAEj8KBnJl",
+            "c3VsdBgDIAEoCzItLmxpdmVraXQucHJvdG8uR2V0U2Vzc2lvblN0YXRzQ2Fs",
+            "bGJhY2suUmVzdWx0SAAabQoGUmVzdWx0EjAKD3B1Ymxpc2hlcl9zdGF0cxgB",
+            "IAMoCzIXLmxpdmVraXQucHJvdG8uUnRjU3RhdHMSMQoQc3Vic2NyaWJlcl9z",
+            "dGF0cxgCIAMoCzIXLmxpdmVraXQucHJvdG8uUnRjU3RhdHNCCQoHbWVzc2Fn",
+            "ZSI7Cg1WaWRlb0VuY29kaW5nEhMKC21heF9iaXRyYXRlGAEgAigEEhUKDW1h",
+            "eF9mcmFtZXJhdGUYAiACKAEiJAoNQXVkaW9FbmNvZGluZxITCgttYXhfYml0",
+            "cmF0ZRgBIAIoBCK1AgoTVHJhY2tQdWJsaXNoT3B0aW9ucxI0Cg52aWRlb19l",
+            "bmNvZGluZxgBIAEoCzIcLmxpdmVraXQucHJvdG8uVmlkZW9FbmNvZGluZxI0",
+            "Cg5hdWRpb19lbmNvZGluZxgCIAEoCzIcLmxpdmVraXQucHJvdG8uQXVkaW9F",
+            "bmNvZGluZxIuCgt2aWRlb19jb2RlYxgDIAEoDjIZLmxpdmVraXQucHJvdG8u",
+            "VmlkZW9Db2RlYxILCgNkdHgYBCABKAgSCwoDcmVkGAUgASgIEhEKCXNpbXVs",
+            "Y2FzdBgGIAEoCBIqCgZzb3VyY2UYByABKA4yGi5saXZla2l0LnByb3RvLlRy",
+            "YWNrU291cmNlEg4KBnN0cmVhbRgIIAEoCRIZChFwcmVjb25uZWN0X2J1ZmZl",
+            "chgJIAEoCCI9CglJY2VTZXJ2ZXISDAoEdXJscxgBIAMoCRIQCgh1c2VybmFt",
+            "ZRgCIAEoCRIQCghwYXNzd29yZBgDIAEoCSLEAQoJUnRjQ29uZmlnEjsKEmlj",
+            "ZV90cmFuc3BvcnRfdHlwZRgBIAEoDjIfLmxpdmVraXQucHJvdG8uSWNlVHJh",
+            "bnNwb3J0VHlwZRJLChpjb250aW51YWxfZ2F0aGVyaW5nX3BvbGljeRgCIAEo",
+            "DjInLmxpdmVraXQucHJvdG8uQ29udGludWFsR2F0aGVyaW5nUG9saWN5Ei0K",
+            "C2ljZV9zZXJ2ZXJzGAMgAygLMhgubGl2ZWtpdC5wcm90by5JY2VTZXJ2ZXIi",
+            "rgIKC1Jvb21PcHRpb25zEhYKDmF1dG9fc3Vic2NyaWJlGAEgASgIEhcKD2Fk",
+            "YXB0aXZlX3N0cmVhbRgCIAEoCBIQCghkeW5hY2FzdBgDIAEoCBIsCgRlMmVl",
+            "GAQgASgLMhoubGl2ZWtpdC5wcm90by5FMmVlT3B0aW9uc0ICGAESLAoKcnRj",
+            "X2NvbmZpZxgFIAEoCzIYLmxpdmVraXQucHJvdG8uUnRjQ29uZmlnEhQKDGpv",
+            "aW5fcmV0cmllcxgGIAEoDRIuCgplbmNyeXB0aW9uGAcgASgLMhoubGl2ZWtp",
+            "dC5wcm90by5FMmVlT3B0aW9ucxIeChZzaW5nbGVfcGVlcl9jb25uZWN0aW9u",
+            "GAggASgIEhoKEmNvbm5lY3RfdGltZW91dF9tcxgJIAEoBCJ3ChRUcmFuc2Ny",
             "aXB0aW9uU2VnbWVudBIKCgJpZBgBIAIoCRIMCgR0ZXh0GAIgAigJEhIKCnN0",
             "YXJ0X3RpbWUYAyACKAQSEAoIZW5kX3RpbWUYBCACKAQSDQoFZmluYWwYBSAC",
             "KAgSEAoIbGFuZ3VhZ2UYBiACKAkiMAoKQnVmZmVySW5mbxIQCghkYXRhX3B0",
             "chgBIAIoBBIQCghkYXRhX2xlbhgCIAIoBCJlCgtPd25lZEJ1ZmZlchItCgZo",
             "YW5kbGUYASACKAsyHS5saXZla2l0LnByb3RvLkZmaU93bmVkSGFuZGxlEicK",
-            "BGRhdGEYAiACKAsyGS5saXZla2l0LnByb3RvLkJ1ZmZlckluZm8i5BQKCVJv",
+            "BGRhdGEYAiACKAsyGS5saXZla2l0LnByb3RvLkJ1ZmZlckluZm8iuxUKCVJv",
             "b21FdmVudBITCgtyb29tX2hhbmRsZRgBIAIoBBJEChVwYXJ0aWNpcGFudF9j",
             "b25uZWN0ZWQYAiABKAsyIy5saXZla2l0LnByb3RvLlBhcnRpY2lwYW50Q29u",
             "bmVjdGVkSAASSgoYcGFydGljaXBhbnRfZGlzY29ubmVjdGVkGAMgASgLMiYu",
@@ -190,184 +200,190 @@ namespace LiveKit.Proto {
             "cGFudHNfdXBkYXRlZBgmIAEoCzIiLmxpdmVraXQucHJvdG8uUGFydGljaXBh",
             "bnRzVXBkYXRlZEgAEmIKJXBhcnRpY2lwYW50X2VuY3J5cHRpb25fc3RhdHVz",
             "X2NoYW5nZWQYJyABKAsyMS5saXZla2l0LnByb3RvLlBhcnRpY2lwYW50RW5j",
-            "cnlwdGlvblN0YXR1c0NoYW5nZWRIABI4Cg90b2tlbl9yZWZyZXNoZWQYKCAB",
-            "KAsyHS5saXZla2l0LnByb3RvLlRva2VuUmVmcmVzaGVkSABCCQoHbWVzc2Fn",
-            "ZSLJAgoIUm9vbUluZm8SCwoDc2lkGAEgASgJEgwKBG5hbWUYAiACKAkSEAoI",
-            "bWV0YWRhdGEYAyACKAkSLgombG9zc3lfZGNfYnVmZmVyZWRfYW1vdW50X2xv",
-            "d190aHJlc2hvbGQYBCACKAQSMQopcmVsaWFibGVfZGNfYnVmZmVyZWRfYW1v",
-            "dW50X2xvd190aHJlc2hvbGQYBSACKAQSFQoNZW1wdHlfdGltZW91dBgGIAIo",
-            "DRIZChFkZXBhcnR1cmVfdGltZW91dBgHIAIoDRIYChBtYXhfcGFydGljaXBh",
-            "bnRzGAggAigNEhUKDWNyZWF0aW9uX3RpbWUYCSACKAMSGAoQbnVtX3BhcnRp",
-            "Y2lwYW50cxgKIAIoDRIWCg5udW1fcHVibGlzaGVycxgLIAIoDRIYChBhY3Rp",
-            "dmVfcmVjb3JkaW5nGAwgAigIImEKCU93bmVkUm9vbRItCgZoYW5kbGUYASAC",
-            "KAsyHS5saXZla2l0LnByb3RvLkZmaU93bmVkSGFuZGxlEiUKBGluZm8YAiAC",
-            "KAsyFy5saXZla2l0LnByb3RvLlJvb21JbmZvIksKE1BhcnRpY2lwYW50c1Vw",
-            "ZGF0ZWQSNAoMcGFydGljaXBhbnRzGAEgAygLMh4ubGl2ZWtpdC5wcm90by5Q",
-            "YXJ0aWNpcGFudEluZm8iRQoUUGFydGljaXBhbnRDb25uZWN0ZWQSLQoEaW5m",
-            "bxgBIAIoCzIfLmxpdmVraXQucHJvdG8uT3duZWRQYXJ0aWNpcGFudCJzChdQ",
-            "YXJ0aWNpcGFudERpc2Nvbm5lY3RlZBIcChRwYXJ0aWNpcGFudF9pZGVudGl0",
-            "eRgBIAIoCRI6ChFkaXNjb25uZWN0X3JlYXNvbhgCIAIoDjIfLmxpdmVraXQu",
-            "cHJvdG8uRGlzY29ubmVjdFJlYXNvbiIoChNMb2NhbFRyYWNrUHVibGlzaGVk",
-            "EhEKCXRyYWNrX3NpZBgBIAIoCSIwChVMb2NhbFRyYWNrVW5wdWJsaXNoZWQS",
-            "FwoPcHVibGljYXRpb25fc2lkGAEgAigJIikKFExvY2FsVHJhY2tTdWJzY3Jp",
-            "YmVkEhEKCXRyYWNrX3NpZBgCIAIoCSJpCg5UcmFja1B1Ymxpc2hlZBIcChRw",
-            "YXJ0aWNpcGFudF9pZGVudGl0eRgBIAIoCRI5CgtwdWJsaWNhdGlvbhgCIAIo",
-            "CzIkLmxpdmVraXQucHJvdG8uT3duZWRUcmFja1B1YmxpY2F0aW9uIkkKEFRy",
-            "YWNrVW5wdWJsaXNoZWQSHAoUcGFydGljaXBhbnRfaWRlbnRpdHkYASACKAkS",
-            "FwoPcHVibGljYXRpb25fc2lkGAIgAigJIlkKD1RyYWNrU3Vic2NyaWJlZBIc",
-            "ChRwYXJ0aWNpcGFudF9pZGVudGl0eRgBIAIoCRIoCgV0cmFjaxgCIAIoCzIZ",
-            "LmxpdmVraXQucHJvdG8uT3duZWRUcmFjayJEChFUcmFja1Vuc3Vic2NyaWJl",
-            "ZBIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgBIAIoCRIRCgl0cmFja19zaWQY",
-            "AiACKAkiWQoXVHJhY2tTdWJzY3JpcHRpb25GYWlsZWQSHAoUcGFydGljaXBh",
-            "bnRfaWRlbnRpdHkYASACKAkSEQoJdHJhY2tfc2lkGAIgAigJEg0KBWVycm9y",
-            "GAMgAigJIj0KClRyYWNrTXV0ZWQSHAoUcGFydGljaXBhbnRfaWRlbnRpdHkY",
-            "ASACKAkSEQoJdHJhY2tfc2lkGAIgAigJIj8KDFRyYWNrVW5tdXRlZBIcChRw",
-            "YXJ0aWNpcGFudF9pZGVudGl0eRgBIAIoCRIRCgl0cmFja19zaWQYAiACKAki",
-            "XwoQRTJlZVN0YXRlQ2hhbmdlZBIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgB",
-            "IAIoCRItCgVzdGF0ZRgCIAIoDjIeLmxpdmVraXQucHJvdG8uRW5jcnlwdGlv",
-            "blN0YXRlIjcKFUFjdGl2ZVNwZWFrZXJzQ2hhbmdlZBIeChZwYXJ0aWNpcGFu",
-            "dF9pZGVudGl0aWVzGAEgAygJIicKE1Jvb21NZXRhZGF0YUNoYW5nZWQSEAoI",
-            "bWV0YWRhdGEYASACKAkiHQoOUm9vbVNpZENoYW5nZWQSCwoDc2lkGAEgAigJ",
-            "IkwKGlBhcnRpY2lwYW50TWV0YWRhdGFDaGFuZ2VkEhwKFHBhcnRpY2lwYW50",
-            "X2lkZW50aXR5GAEgAigJEhAKCG1ldGFkYXRhGAIgAigJIqwBChxQYXJ0aWNp",
-            "cGFudEF0dHJpYnV0ZXNDaGFuZ2VkEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5",
-            "GAEgAigJEjIKCmF0dHJpYnV0ZXMYAiADKAsyHi5saXZla2l0LnByb3RvLkF0",
-            "dHJpYnV0ZXNFbnRyeRI6ChJjaGFuZ2VkX2F0dHJpYnV0ZXMYAyADKAsyHi5s",
-            "aXZla2l0LnByb3RvLkF0dHJpYnV0ZXNFbnRyeSJYCiJQYXJ0aWNpcGFudEVu",
-            "Y3J5cHRpb25TdGF0dXNDaGFuZ2VkEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5",
-            "GAEgAigJEhQKDGlzX2VuY3J5cHRlZBgCIAIoCCJEChZQYXJ0aWNpcGFudE5h",
-            "bWVDaGFuZ2VkEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5GAEgAigJEgwKBG5h",
-            "bWUYAiACKAkiawoYQ29ubmVjdGlvblF1YWxpdHlDaGFuZ2VkEhwKFHBhcnRp",
-            "Y2lwYW50X2lkZW50aXR5GAEgAigJEjEKB3F1YWxpdHkYAiACKA4yIC5saXZl",
-            "a2l0LnByb3RvLkNvbm5lY3Rpb25RdWFsaXR5IkUKClVzZXJQYWNrZXQSKAoE",
-            "ZGF0YRgBIAIoCzIaLmxpdmVraXQucHJvdG8uT3duZWRCdWZmZXISDQoFdG9w",
-            "aWMYAiABKAkieQoLQ2hhdE1lc3NhZ2USCgoCaWQYASACKAkSEQoJdGltZXN0",
-            "YW1wGAIgAigDEg8KB21lc3NhZ2UYAyACKAkSFgoOZWRpdF90aW1lc3RhbXAY",
-            "BCABKAMSDwoHZGVsZXRlZBgFIAEoCBIRCglnZW5lcmF0ZWQYBiABKAgiYAoT",
-            "Q2hhdE1lc3NhZ2VSZWNlaXZlZBIrCgdtZXNzYWdlGAEgAigLMhoubGl2ZWtp",
-            "dC5wcm90by5DaGF0TWVzc2FnZRIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgC",
-            "IAIoCSImCgdTaXBEVE1GEgwKBGNvZGUYASACKA0SDQoFZGlnaXQYAiABKAki",
-            "vwEKEkRhdGFQYWNrZXRSZWNlaXZlZBIrCgRraW5kGAEgAigOMh0ubGl2ZWtp",
-            "dC5wcm90by5EYXRhUGFja2V0S2luZBIcChRwYXJ0aWNpcGFudF9pZGVudGl0",
-            "eRgCIAIoCRIpCgR1c2VyGAQgASgLMhkubGl2ZWtpdC5wcm90by5Vc2VyUGFj",
-            "a2V0SAASKgoIc2lwX2R0bWYYBSABKAsyFi5saXZla2l0LnByb3RvLlNpcERU",
-            "TUZIAEIHCgV2YWx1ZSJ/ChVUcmFuc2NyaXB0aW9uUmVjZWl2ZWQSHAoUcGFy",
-            "dGljaXBhbnRfaWRlbnRpdHkYASABKAkSEQoJdHJhY2tfc2lkGAIgASgJEjUK",
-            "CHNlZ21lbnRzGAMgAygLMiMubGl2ZWtpdC5wcm90by5UcmFuc2NyaXB0aW9u",
-            "U2VnbWVudCJHChZDb25uZWN0aW9uU3RhdGVDaGFuZ2VkEi0KBXN0YXRlGAEg",
-            "AigOMh4ubGl2ZWtpdC5wcm90by5Db25uZWN0aW9uU3RhdGUiCwoJQ29ubmVj",
-            "dGVkIj8KDERpc2Nvbm5lY3RlZBIvCgZyZWFzb24YASACKA4yHy5saXZla2l0",
-            "LnByb3RvLkRpc2Nvbm5lY3RSZWFzb24iDgoMUmVjb25uZWN0aW5nIg0KC1Jl",
-            "Y29ubmVjdGVkIh8KDlRva2VuUmVmcmVzaGVkEg0KBXRva2VuGAEgAigJIgkK",
-            "B1Jvb21FT1MijgcKCkRhdGFTdHJlYW0aqgEKClRleHRIZWFkZXISPwoOb3Bl",
-            "cmF0aW9uX3R5cGUYASACKA4yJy5saXZla2l0LnByb3RvLkRhdGFTdHJlYW0u",
-            "T3BlcmF0aW9uVHlwZRIPCgd2ZXJzaW9uGAIgASgFEhoKEnJlcGx5X3RvX3N0",
-            "cmVhbV9pZBgDIAEoCRIbChNhdHRhY2hlZF9zdHJlYW1faWRzGAQgAygJEhEK",
-            "CWdlbmVyYXRlZBgFIAEoCBoaCgpCeXRlSGVhZGVyEgwKBG5hbWUYASACKAka",
-            "6wIKBkhlYWRlchIRCglzdHJlYW1faWQYASACKAkSEQoJdGltZXN0YW1wGAIg",
-            "AigDEhEKCW1pbWVfdHlwZRgDIAIoCRINCgV0b3BpYxgEIAIoCRIUCgx0b3Rh",
-            "bF9sZW5ndGgYBSABKAQSRAoKYXR0cmlidXRlcxgGIAMoCzIwLmxpdmVraXQu",
-            "cHJvdG8uRGF0YVN0cmVhbS5IZWFkZXIuQXR0cmlidXRlc0VudHJ5EjsKC3Rl",
-            "eHRfaGVhZGVyGAcgASgLMiQubGl2ZWtpdC5wcm90by5EYXRhU3RyZWFtLlRl",
-            "eHRIZWFkZXJIABI7CgtieXRlX2hlYWRlchgIIAEoCzIkLmxpdmVraXQucHJv",
-            "dG8uRGF0YVN0cmVhbS5CeXRlSGVhZGVySAAaMQoPQXR0cmlidXRlc0VudHJ5",
-            "EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAFCEAoOY29udGVudF9o",
-            "ZWFkZXIaXQoFQ2h1bmsSEQoJc3RyZWFtX2lkGAEgAigJEhMKC2NodW5rX2lu",
-            "ZGV4GAIgAigEEg8KB2NvbnRlbnQYAyACKAwSDwoHdmVyc2lvbhgEIAEoBRIK",
-            "CgJpdhgFIAEoDBqmAQoHVHJhaWxlchIRCglzdHJlYW1faWQYASACKAkSDgoG",
-            "cmVhc29uGAIgAigJEkUKCmF0dHJpYnV0ZXMYAyADKAsyMS5saXZla2l0LnBy",
-            "b3RvLkRhdGFTdHJlYW0uVHJhaWxlci5BdHRyaWJ1dGVzRW50cnkaMQoPQXR0",
-            "cmlidXRlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEi",
-            "QQoNT3BlcmF0aW9uVHlwZRIKCgZDUkVBVEUQABIKCgZVUERBVEUQARIKCgZE",
-            "RUxFVEUQAhIMCghSRUFDVElPThADImoKGERhdGFTdHJlYW1IZWFkZXJSZWNl",
-            "aXZlZBIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgBIAIoCRIwCgZoZWFkZXIY",
-            "AiACKAsyIC5saXZla2l0LnByb3RvLkRhdGFTdHJlYW0uSGVhZGVyImcKF0Rh",
-            "dGFTdHJlYW1DaHVua1JlY2VpdmVkEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5",
-            "GAEgAigJEi4KBWNodW5rGAIgAigLMh8ubGl2ZWtpdC5wcm90by5EYXRhU3Ry",
-            "ZWFtLkNodW5rIm0KGURhdGFTdHJlYW1UcmFpbGVyUmVjZWl2ZWQSHAoUcGFy",
-            "dGljaXBhbnRfaWRlbnRpdHkYASACKAkSMgoHdHJhaWxlchgCIAIoCzIhLmxp",
-            "dmVraXQucHJvdG8uRGF0YVN0cmVhbS5UcmFpbGVyIqYBChdTZW5kU3RyZWFt",
-            "SGVhZGVyUmVxdWVzdBIgChhsb2NhbF9wYXJ0aWNpcGFudF9oYW5kbGUYASAC",
-            "KAQSMAoGaGVhZGVyGAIgAigLMiAubGl2ZWtpdC5wcm90by5EYXRhU3RyZWFt",
-            "LkhlYWRlchIeChZkZXN0aW5hdGlvbl9pZGVudGl0aWVzGAMgAygJEhcKD3Nl",
-            "bmRlcl9pZGVudGl0eRgEIAIoCSKjAQoWU2VuZFN0cmVhbUNodW5rUmVxdWVz",
-            "dBIgChhsb2NhbF9wYXJ0aWNpcGFudF9oYW5kbGUYASACKAQSLgoFY2h1bmsY",
-            "AiACKAsyHy5saXZla2l0LnByb3RvLkRhdGFTdHJlYW0uQ2h1bmsSHgoWZGVz",
-            "dGluYXRpb25faWRlbnRpdGllcxgDIAMoCRIXCg9zZW5kZXJfaWRlbnRpdHkY",
-            "BCACKAkiqQEKGFNlbmRTdHJlYW1UcmFpbGVyUmVxdWVzdBIgChhsb2NhbF9w",
-            "YXJ0aWNpcGFudF9oYW5kbGUYASACKAQSMgoHdHJhaWxlchgCIAIoCzIhLmxp",
-            "dmVraXQucHJvdG8uRGF0YVN0cmVhbS5UcmFpbGVyEh4KFmRlc3RpbmF0aW9u",
-            "X2lkZW50aXRpZXMYAyADKAkSFwoPc2VuZGVyX2lkZW50aXR5GAQgAigJIiwK",
-            "GFNlbmRTdHJlYW1IZWFkZXJSZXNwb25zZRIQCghhc3luY19pZBgBIAIoBCIr",
-            "ChdTZW5kU3RyZWFtQ2h1bmtSZXNwb25zZRIQCghhc3luY19pZBgBIAIoBCIt",
-            "ChlTZW5kU3RyZWFtVHJhaWxlclJlc3BvbnNlEhAKCGFzeW5jX2lkGAEgAigE",
-            "IjsKGFNlbmRTdHJlYW1IZWFkZXJDYWxsYmFjaxIQCghhc3luY19pZBgBIAIo",
-            "BBINCgVlcnJvchgCIAEoCSI6ChdTZW5kU3RyZWFtQ2h1bmtDYWxsYmFjaxIQ",
-            "Cghhc3luY19pZBgBIAIoBBINCgVlcnJvchgCIAEoCSI8ChlTZW5kU3RyZWFt",
-            "VHJhaWxlckNhbGxiYWNrEhAKCGFzeW5jX2lkGAEgAigEEg0KBWVycm9yGAIg",
-            "ASgJIpMBCi9TZXREYXRhQ2hhbm5lbEJ1ZmZlcmVkQW1vdW50TG93VGhyZXNo",
-            "b2xkUmVxdWVzdBIgChhsb2NhbF9wYXJ0aWNpcGFudF9oYW5kbGUYASACKAQS",
-            "EQoJdGhyZXNob2xkGAIgAigEEisKBGtpbmQYAyACKA4yHS5saXZla2l0LnBy",
-            "b3RvLkRhdGFQYWNrZXRLaW5kIjIKMFNldERhdGFDaGFubmVsQnVmZmVyZWRB",
-            "bW91bnRMb3dUaHJlc2hvbGRSZXNwb25zZSJuCixEYXRhQ2hhbm5lbEJ1ZmZl",
-            "cmVkQW1vdW50TG93VGhyZXNob2xkQ2hhbmdlZBIrCgRraW5kGAEgAigOMh0u",
-            "bGl2ZWtpdC5wcm90by5EYXRhUGFja2V0S2luZBIRCgl0aHJlc2hvbGQYAiAC",
-            "KAQiZgoQQnl0ZVN0cmVhbU9wZW5lZBI0CgZyZWFkZXIYASACKAsyJC5saXZl",
-            "a2l0LnByb3RvLk93bmVkQnl0ZVN0cmVhbVJlYWRlchIcChRwYXJ0aWNpcGFu",
-            "dF9pZGVudGl0eRgCIAIoCSJmChBUZXh0U3RyZWFtT3BlbmVkEjQKBnJlYWRl",
-            "chgBIAIoCzIkLmxpdmVraXQucHJvdG8uT3duZWRUZXh0U3RyZWFtUmVhZGVy",
-            "EhwKFHBhcnRpY2lwYW50X2lkZW50aXR5GAIgAigJKlAKEEljZVRyYW5zcG9y",
-            "dFR5cGUSEwoPVFJBTlNQT1JUX1JFTEFZEAASFAoQVFJBTlNQT1JUX05PSE9T",
-            "VBABEhEKDVRSQU5TUE9SVF9BTEwQAipDChhDb250aW51YWxHYXRoZXJpbmdQ",
-            "b2xpY3kSDwoLR0FUSEVSX09OQ0UQABIWChJHQVRIRVJfQ09OVElOVUFMTFkQ",
-            "ASpgChFDb25uZWN0aW9uUXVhbGl0eRIQCgxRVUFMSVRZX1BPT1IQABIQCgxR",
-            "VUFMSVRZX0dPT0QQARIVChFRVUFMSVRZX0VYQ0VMTEVOVBACEhAKDFFVQUxJ",
-            "VFlfTE9TVBADKlMKD0Nvbm5lY3Rpb25TdGF0ZRIVChFDT05OX0RJU0NPTk5F",
-            "Q1RFRBAAEhIKDkNPTk5fQ09OTkVDVEVEEAESFQoRQ09OTl9SRUNPTk5FQ1RJ",
-            "TkcQAiozCg5EYXRhUGFja2V0S2luZBIOCgpLSU5EX0xPU1NZEAASEQoNS0lO",
-            "RF9SRUxJQUJMRRABQhCqAg1MaXZlS2l0LlByb3Rv"));
+            "cnlwdGlvblN0YXR1c0NoYW5nZWRIABJVCh5wYXJ0aWNpcGFudF9wZXJtaXNz",
+            "aW9uX2NoYW5nZWQYKSABKAsyKy5saXZla2l0LnByb3RvLlBhcnRpY2lwYW50",
+            "UGVybWlzc2lvbkNoYW5nZWRIABI4Cg90b2tlbl9yZWZyZXNoZWQYKCABKAsy",
+            "HS5saXZla2l0LnByb3RvLlRva2VuUmVmcmVzaGVkSABCCQoHbWVzc2FnZSLJ",
+            "AgoIUm9vbUluZm8SCwoDc2lkGAEgASgJEgwKBG5hbWUYAiACKAkSEAoIbWV0",
+            "YWRhdGEYAyACKAkSLgombG9zc3lfZGNfYnVmZmVyZWRfYW1vdW50X2xvd190",
+            "aHJlc2hvbGQYBCACKAQSMQopcmVsaWFibGVfZGNfYnVmZmVyZWRfYW1vdW50",
+            "X2xvd190aHJlc2hvbGQYBSACKAQSFQoNZW1wdHlfdGltZW91dBgGIAIoDRIZ",
+            "ChFkZXBhcnR1cmVfdGltZW91dBgHIAIoDRIYChBtYXhfcGFydGljaXBhbnRz",
+            "GAggAigNEhUKDWNyZWF0aW9uX3RpbWUYCSACKAMSGAoQbnVtX3BhcnRpY2lw",
+            "YW50cxgKIAIoDRIWCg5udW1fcHVibGlzaGVycxgLIAIoDRIYChBhY3RpdmVf",
+            "cmVjb3JkaW5nGAwgAigIImEKCU93bmVkUm9vbRItCgZoYW5kbGUYASACKAsy",
+            "HS5saXZla2l0LnByb3RvLkZmaU93bmVkSGFuZGxlEiUKBGluZm8YAiACKAsy",
+            "Fy5saXZla2l0LnByb3RvLlJvb21JbmZvIksKE1BhcnRpY2lwYW50c1VwZGF0",
+            "ZWQSNAoMcGFydGljaXBhbnRzGAEgAygLMh4ubGl2ZWtpdC5wcm90by5QYXJ0",
+            "aWNpcGFudEluZm8iRQoUUGFydGljaXBhbnRDb25uZWN0ZWQSLQoEaW5mbxgB",
+            "IAIoCzIfLmxpdmVraXQucHJvdG8uT3duZWRQYXJ0aWNpcGFudCJzChdQYXJ0",
+            "aWNpcGFudERpc2Nvbm5lY3RlZBIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgB",
+            "IAIoCRI6ChFkaXNjb25uZWN0X3JlYXNvbhgCIAIoDjIfLmxpdmVraXQucHJv",
+            "dG8uRGlzY29ubmVjdFJlYXNvbiIoChNMb2NhbFRyYWNrUHVibGlzaGVkEhEK",
+            "CXRyYWNrX3NpZBgBIAIoCSIwChVMb2NhbFRyYWNrVW5wdWJsaXNoZWQSFwoP",
+            "cHVibGljYXRpb25fc2lkGAEgAigJIikKFExvY2FsVHJhY2tTdWJzY3JpYmVk",
+            "EhEKCXRyYWNrX3NpZBgCIAIoCSJpCg5UcmFja1B1Ymxpc2hlZBIcChRwYXJ0",
+            "aWNpcGFudF9pZGVudGl0eRgBIAIoCRI5CgtwdWJsaWNhdGlvbhgCIAIoCzIk",
+            "LmxpdmVraXQucHJvdG8uT3duZWRUcmFja1B1YmxpY2F0aW9uIkkKEFRyYWNr",
+            "VW5wdWJsaXNoZWQSHAoUcGFydGljaXBhbnRfaWRlbnRpdHkYASACKAkSFwoP",
+            "cHVibGljYXRpb25fc2lkGAIgAigJIlkKD1RyYWNrU3Vic2NyaWJlZBIcChRw",
+            "YXJ0aWNpcGFudF9pZGVudGl0eRgBIAIoCRIoCgV0cmFjaxgCIAIoCzIZLmxp",
+            "dmVraXQucHJvdG8uT3duZWRUcmFjayJEChFUcmFja1Vuc3Vic2NyaWJlZBIc",
+            "ChRwYXJ0aWNpcGFudF9pZGVudGl0eRgBIAIoCRIRCgl0cmFja19zaWQYAiAC",
+            "KAkiWQoXVHJhY2tTdWJzY3JpcHRpb25GYWlsZWQSHAoUcGFydGljaXBhbnRf",
+            "aWRlbnRpdHkYASACKAkSEQoJdHJhY2tfc2lkGAIgAigJEg0KBWVycm9yGAMg",
+            "AigJIj0KClRyYWNrTXV0ZWQSHAoUcGFydGljaXBhbnRfaWRlbnRpdHkYASAC",
+            "KAkSEQoJdHJhY2tfc2lkGAIgAigJIj8KDFRyYWNrVW5tdXRlZBIcChRwYXJ0",
+            "aWNpcGFudF9pZGVudGl0eRgBIAIoCRIRCgl0cmFja19zaWQYAiACKAkiXwoQ",
+            "RTJlZVN0YXRlQ2hhbmdlZBIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgBIAIo",
+            "CRItCgVzdGF0ZRgCIAIoDjIeLmxpdmVraXQucHJvdG8uRW5jcnlwdGlvblN0",
+            "YXRlIjcKFUFjdGl2ZVNwZWFrZXJzQ2hhbmdlZBIeChZwYXJ0aWNpcGFudF9p",
+            "ZGVudGl0aWVzGAEgAygJIicKE1Jvb21NZXRhZGF0YUNoYW5nZWQSEAoIbWV0",
+            "YWRhdGEYASACKAkiHQoOUm9vbVNpZENoYW5nZWQSCwoDc2lkGAEgAigJIkwK",
+            "GlBhcnRpY2lwYW50TWV0YWRhdGFDaGFuZ2VkEhwKFHBhcnRpY2lwYW50X2lk",
+            "ZW50aXR5GAEgAigJEhAKCG1ldGFkYXRhGAIgAigJIqwBChxQYXJ0aWNpcGFu",
+            "dEF0dHJpYnV0ZXNDaGFuZ2VkEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5GAEg",
+            "AigJEjIKCmF0dHJpYnV0ZXMYAiADKAsyHi5saXZla2l0LnByb3RvLkF0dHJp",
+            "YnV0ZXNFbnRyeRI6ChJjaGFuZ2VkX2F0dHJpYnV0ZXMYAyADKAsyHi5saXZl",
+            "a2l0LnByb3RvLkF0dHJpYnV0ZXNFbnRyeSJYCiJQYXJ0aWNpcGFudEVuY3J5",
+            "cHRpb25TdGF0dXNDaGFuZ2VkEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5GAEg",
+            "AigJEhQKDGlzX2VuY3J5cHRlZBgCIAIoCCJEChZQYXJ0aWNpcGFudE5hbWVD",
+            "aGFuZ2VkEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5GAEgAigJEgwKBG5hbWUY",
+            "AiACKAkidgocUGFydGljaXBhbnRQZXJtaXNzaW9uQ2hhbmdlZBIcChRwYXJ0",
+            "aWNpcGFudF9pZGVudGl0eRgBIAIoCRI4CgpwZXJtaXNzaW9uGAIgASgLMiQu",
+            "bGl2ZWtpdC5wcm90by5QYXJ0aWNpcGFudFBlcm1pc3Npb24iawoYQ29ubmVj",
+            "dGlvblF1YWxpdHlDaGFuZ2VkEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5GAEg",
+            "AigJEjEKB3F1YWxpdHkYAiACKA4yIC5saXZla2l0LnByb3RvLkNvbm5lY3Rp",
+            "b25RdWFsaXR5IkUKClVzZXJQYWNrZXQSKAoEZGF0YRgBIAIoCzIaLmxpdmVr",
+            "aXQucHJvdG8uT3duZWRCdWZmZXISDQoFdG9waWMYAiABKAkieQoLQ2hhdE1l",
+            "c3NhZ2USCgoCaWQYASACKAkSEQoJdGltZXN0YW1wGAIgAigDEg8KB21lc3Nh",
+            "Z2UYAyACKAkSFgoOZWRpdF90aW1lc3RhbXAYBCABKAMSDwoHZGVsZXRlZBgF",
+            "IAEoCBIRCglnZW5lcmF0ZWQYBiABKAgiYAoTQ2hhdE1lc3NhZ2VSZWNlaXZl",
+            "ZBIrCgdtZXNzYWdlGAEgAigLMhoubGl2ZWtpdC5wcm90by5DaGF0TWVzc2Fn",
+            "ZRIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgCIAIoCSImCgdTaXBEVE1GEgwK",
+            "BGNvZGUYASACKA0SDQoFZGlnaXQYAiABKAkivwEKEkRhdGFQYWNrZXRSZWNl",
+            "aXZlZBIrCgRraW5kGAEgAigOMh0ubGl2ZWtpdC5wcm90by5EYXRhUGFja2V0",
+            "S2luZBIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgCIAIoCRIpCgR1c2VyGAQg",
+            "ASgLMhkubGl2ZWtpdC5wcm90by5Vc2VyUGFja2V0SAASKgoIc2lwX2R0bWYY",
+            "BSABKAsyFi5saXZla2l0LnByb3RvLlNpcERUTUZIAEIHCgV2YWx1ZSJ/ChVU",
+            "cmFuc2NyaXB0aW9uUmVjZWl2ZWQSHAoUcGFydGljaXBhbnRfaWRlbnRpdHkY",
+            "ASABKAkSEQoJdHJhY2tfc2lkGAIgASgJEjUKCHNlZ21lbnRzGAMgAygLMiMu",
+            "bGl2ZWtpdC5wcm90by5UcmFuc2NyaXB0aW9uU2VnbWVudCJHChZDb25uZWN0",
+            "aW9uU3RhdGVDaGFuZ2VkEi0KBXN0YXRlGAEgAigOMh4ubGl2ZWtpdC5wcm90",
+            "by5Db25uZWN0aW9uU3RhdGUiCwoJQ29ubmVjdGVkIj8KDERpc2Nvbm5lY3Rl",
+            "ZBIvCgZyZWFzb24YASACKA4yHy5saXZla2l0LnByb3RvLkRpc2Nvbm5lY3RS",
+            "ZWFzb24iDgoMUmVjb25uZWN0aW5nIg0KC1JlY29ubmVjdGVkIh8KDlRva2Vu",
+            "UmVmcmVzaGVkEg0KBXRva2VuGAEgAigJIgkKB1Jvb21FT1MijgcKCkRhdGFT",
+            "dHJlYW0aqgEKClRleHRIZWFkZXISPwoOb3BlcmF0aW9uX3R5cGUYASACKA4y",
+            "Jy5saXZla2l0LnByb3RvLkRhdGFTdHJlYW0uT3BlcmF0aW9uVHlwZRIPCgd2",
+            "ZXJzaW9uGAIgASgFEhoKEnJlcGx5X3RvX3N0cmVhbV9pZBgDIAEoCRIbChNh",
+            "dHRhY2hlZF9zdHJlYW1faWRzGAQgAygJEhEKCWdlbmVyYXRlZBgFIAEoCBoa",
+            "CgpCeXRlSGVhZGVyEgwKBG5hbWUYASACKAka6wIKBkhlYWRlchIRCglzdHJl",
+            "YW1faWQYASACKAkSEQoJdGltZXN0YW1wGAIgAigDEhEKCW1pbWVfdHlwZRgD",
+            "IAIoCRINCgV0b3BpYxgEIAIoCRIUCgx0b3RhbF9sZW5ndGgYBSABKAQSRAoK",
+            "YXR0cmlidXRlcxgGIAMoCzIwLmxpdmVraXQucHJvdG8uRGF0YVN0cmVhbS5I",
+            "ZWFkZXIuQXR0cmlidXRlc0VudHJ5EjsKC3RleHRfaGVhZGVyGAcgASgLMiQu",
+            "bGl2ZWtpdC5wcm90by5EYXRhU3RyZWFtLlRleHRIZWFkZXJIABI7CgtieXRl",
+            "X2hlYWRlchgIIAEoCzIkLmxpdmVraXQucHJvdG8uRGF0YVN0cmVhbS5CeXRl",
+            "SGVhZGVySAAaMQoPQXR0cmlidXRlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2",
+            "YWx1ZRgCIAEoCToCOAFCEAoOY29udGVudF9oZWFkZXIaXQoFQ2h1bmsSEQoJ",
+            "c3RyZWFtX2lkGAEgAigJEhMKC2NodW5rX2luZGV4GAIgAigEEg8KB2NvbnRl",
+            "bnQYAyACKAwSDwoHdmVyc2lvbhgEIAEoBRIKCgJpdhgFIAEoDBqmAQoHVHJh",
+            "aWxlchIRCglzdHJlYW1faWQYASACKAkSDgoGcmVhc29uGAIgAigJEkUKCmF0",
+            "dHJpYnV0ZXMYAyADKAsyMS5saXZla2l0LnByb3RvLkRhdGFTdHJlYW0uVHJh",
+            "aWxlci5BdHRyaWJ1dGVzRW50cnkaMQoPQXR0cmlidXRlc0VudHJ5EgsKA2tl",
+            "eRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiQQoNT3BlcmF0aW9uVHlwZRIK",
+            "CgZDUkVBVEUQABIKCgZVUERBVEUQARIKCgZERUxFVEUQAhIMCghSRUFDVElP",
+            "ThADImoKGERhdGFTdHJlYW1IZWFkZXJSZWNlaXZlZBIcChRwYXJ0aWNpcGFu",
+            "dF9pZGVudGl0eRgBIAIoCRIwCgZoZWFkZXIYAiACKAsyIC5saXZla2l0LnBy",
+            "b3RvLkRhdGFTdHJlYW0uSGVhZGVyImcKF0RhdGFTdHJlYW1DaHVua1JlY2Vp",
+            "dmVkEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5GAEgAigJEi4KBWNodW5rGAIg",
+            "AigLMh8ubGl2ZWtpdC5wcm90by5EYXRhU3RyZWFtLkNodW5rIm0KGURhdGFT",
+            "dHJlYW1UcmFpbGVyUmVjZWl2ZWQSHAoUcGFydGljaXBhbnRfaWRlbnRpdHkY",
+            "ASACKAkSMgoHdHJhaWxlchgCIAIoCzIhLmxpdmVraXQucHJvdG8uRGF0YVN0",
+            "cmVhbS5UcmFpbGVyIsABChdTZW5kU3RyZWFtSGVhZGVyUmVxdWVzdBIgChhs",
+            "b2NhbF9wYXJ0aWNpcGFudF9oYW5kbGUYASACKAQSMAoGaGVhZGVyGAIgAigL",
+            "MiAubGl2ZWtpdC5wcm90by5EYXRhU3RyZWFtLkhlYWRlchIeChZkZXN0aW5h",
+            "dGlvbl9pZGVudGl0aWVzGAMgAygJEhcKD3NlbmRlcl9pZGVudGl0eRgEIAIo",
+            "CRIYChByZXF1ZXN0X2FzeW5jX2lkGAUgASgEIr0BChZTZW5kU3RyZWFtQ2h1",
+            "bmtSZXF1ZXN0EiAKGGxvY2FsX3BhcnRpY2lwYW50X2hhbmRsZRgBIAIoBBIu",
+            "CgVjaHVuaxgCIAIoCzIfLmxpdmVraXQucHJvdG8uRGF0YVN0cmVhbS5DaHVu",
+            "axIeChZkZXN0aW5hdGlvbl9pZGVudGl0aWVzGAMgAygJEhcKD3NlbmRlcl9p",
+            "ZGVudGl0eRgEIAIoCRIYChByZXF1ZXN0X2FzeW5jX2lkGAUgASgEIsMBChhT",
+            "ZW5kU3RyZWFtVHJhaWxlclJlcXVlc3QSIAoYbG9jYWxfcGFydGljaXBhbnRf",
+            "aGFuZGxlGAEgAigEEjIKB3RyYWlsZXIYAiACKAsyIS5saXZla2l0LnByb3Rv",
+            "LkRhdGFTdHJlYW0uVHJhaWxlchIeChZkZXN0aW5hdGlvbl9pZGVudGl0aWVz",
+            "GAMgAygJEhcKD3NlbmRlcl9pZGVudGl0eRgEIAIoCRIYChByZXF1ZXN0X2Fz",
+            "eW5jX2lkGAUgASgEIiwKGFNlbmRTdHJlYW1IZWFkZXJSZXNwb25zZRIQCghh",
+            "c3luY19pZBgBIAIoBCIrChdTZW5kU3RyZWFtQ2h1bmtSZXNwb25zZRIQCghh",
+            "c3luY19pZBgBIAIoBCItChlTZW5kU3RyZWFtVHJhaWxlclJlc3BvbnNlEhAK",
+            "CGFzeW5jX2lkGAEgAigEIjsKGFNlbmRTdHJlYW1IZWFkZXJDYWxsYmFjaxIQ",
+            "Cghhc3luY19pZBgBIAIoBBINCgVlcnJvchgCIAEoCSI6ChdTZW5kU3RyZWFt",
+            "Q2h1bmtDYWxsYmFjaxIQCghhc3luY19pZBgBIAIoBBINCgVlcnJvchgCIAEo",
+            "CSI8ChlTZW5kU3RyZWFtVHJhaWxlckNhbGxiYWNrEhAKCGFzeW5jX2lkGAEg",
+            "AigEEg0KBWVycm9yGAIgASgJIpMBCi9TZXREYXRhQ2hhbm5lbEJ1ZmZlcmVk",
+            "QW1vdW50TG93VGhyZXNob2xkUmVxdWVzdBIgChhsb2NhbF9wYXJ0aWNpcGFu",
+            "dF9oYW5kbGUYASACKAQSEQoJdGhyZXNob2xkGAIgAigEEisKBGtpbmQYAyAC",
+            "KA4yHS5saXZla2l0LnByb3RvLkRhdGFQYWNrZXRLaW5kIjIKMFNldERhdGFD",
+            "aGFubmVsQnVmZmVyZWRBbW91bnRMb3dUaHJlc2hvbGRSZXNwb25zZSJuCixE",
+            "YXRhQ2hhbm5lbEJ1ZmZlcmVkQW1vdW50TG93VGhyZXNob2xkQ2hhbmdlZBIr",
+            "CgRraW5kGAEgAigOMh0ubGl2ZWtpdC5wcm90by5EYXRhUGFja2V0S2luZBIR",
+            "Cgl0aHJlc2hvbGQYAiACKAQiZgoQQnl0ZVN0cmVhbU9wZW5lZBI0CgZyZWFk",
+            "ZXIYASACKAsyJC5saXZla2l0LnByb3RvLk93bmVkQnl0ZVN0cmVhbVJlYWRl",
+            "chIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgCIAIoCSJmChBUZXh0U3RyZWFt",
+            "T3BlbmVkEjQKBnJlYWRlchgBIAIoCzIkLmxpdmVraXQucHJvdG8uT3duZWRU",
+            "ZXh0U3RyZWFtUmVhZGVyEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5GAIgAigJ",
+            "KlAKEEljZVRyYW5zcG9ydFR5cGUSEwoPVFJBTlNQT1JUX1JFTEFZEAASFAoQ",
+            "VFJBTlNQT1JUX05PSE9TVBABEhEKDVRSQU5TUE9SVF9BTEwQAipDChhDb250",
+            "aW51YWxHYXRoZXJpbmdQb2xpY3kSDwoLR0FUSEVSX09OQ0UQABIWChJHQVRI",
+            "RVJfQ09OVElOVUFMTFkQASpgChFDb25uZWN0aW9uUXVhbGl0eRIQCgxRVUFM",
+            "SVRZX1BPT1IQABIQCgxRVUFMSVRZX0dPT0QQARIVChFRVUFMSVRZX0VYQ0VM",
+            "TEVOVBACEhAKDFFVQUxJVFlfTE9TVBADKlMKD0Nvbm5lY3Rpb25TdGF0ZRIV",
+            "ChFDT05OX0RJU0NPTk5FQ1RFRBAAEhIKDkNPTk5fQ09OTkVDVEVEEAESFQoR",
+            "Q09OTl9SRUNPTk5FQ1RJTkcQAiozCg5EYXRhUGFja2V0S2luZBIOCgpLSU5E",
+            "X0xPU1NZEAASEQoNS0lORF9SRUxJQUJMRRABQhCqAg1MaXZlS2l0LlByb3Rv"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::LiveKit.Proto.E2EeReflection.Descriptor, global::LiveKit.Proto.HandleReflection.Descriptor, global::LiveKit.Proto.ParticipantReflection.Descriptor, global::LiveKit.Proto.TrackReflection.Descriptor, global::LiveKit.Proto.VideoFrameReflection.Descriptor, global::LiveKit.Proto.StatsReflection.Descriptor, global::LiveKit.Proto.DataStreamReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LiveKit.Proto.IceTransportType), typeof(global::LiveKit.Proto.ContinualGatheringPolicy), typeof(global::LiveKit.Proto.ConnectionQuality), typeof(global::LiveKit.Proto.ConnectionState), typeof(global::LiveKit.Proto.DataPacketKind), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ConnectRequest), global::LiveKit.Proto.ConnectRequest.Parser, new[]{ "Url", "Token", "Options" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ConnectRequest), global::LiveKit.Proto.ConnectRequest.Parser, new[]{ "Url", "Token", "Options", "RequestAsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ConnectResponse), global::LiveKit.Proto.ConnectResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ConnectCallback), global::LiveKit.Proto.ConnectCallback.Parser, new[]{ "AsyncId", "Error", "Result" }, new[]{ "Message" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ConnectCallback.Types.ParticipantWithTracks), global::LiveKit.Proto.ConnectCallback.Types.ParticipantWithTracks.Parser, new[]{ "Participant", "Publications" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ConnectCallback.Types.Result), global::LiveKit.Proto.ConnectCallback.Types.Result.Parser, new[]{ "Room", "LocalParticipant", "Participants" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.DisconnectRequest), global::LiveKit.Proto.DisconnectRequest.Parser, new[]{ "RoomHandle" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.DisconnectRequest), global::LiveKit.Proto.DisconnectRequest.Parser, new[]{ "RoomHandle", "RequestAsyncId", "Reason" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.DisconnectResponse), global::LiveKit.Proto.DisconnectResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.DisconnectCallback), global::LiveKit.Proto.DisconnectCallback.Parser, new[]{ "AsyncId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishTrackRequest), global::LiveKit.Proto.PublishTrackRequest.Parser, new[]{ "LocalParticipantHandle", "TrackHandle", "Options" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishTrackRequest), global::LiveKit.Proto.PublishTrackRequest.Parser, new[]{ "LocalParticipantHandle", "TrackHandle", "Options", "RequestAsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishTrackResponse), global::LiveKit.Proto.PublishTrackResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishTrackCallback), global::LiveKit.Proto.PublishTrackCallback.Parser, new[]{ "AsyncId", "Error", "Publication" }, new[]{ "Message" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.UnpublishTrackRequest), global::LiveKit.Proto.UnpublishTrackRequest.Parser, new[]{ "LocalParticipantHandle", "TrackSid", "StopOnUnpublish" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.UnpublishTrackRequest), global::LiveKit.Proto.UnpublishTrackRequest.Parser, new[]{ "LocalParticipantHandle", "TrackSid", "StopOnUnpublish", "RequestAsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.UnpublishTrackResponse), global::LiveKit.Proto.UnpublishTrackResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.UnpublishTrackCallback), global::LiveKit.Proto.UnpublishTrackCallback.Parser, new[]{ "AsyncId", "Error" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishDataRequest), global::LiveKit.Proto.PublishDataRequest.Parser, new[]{ "LocalParticipantHandle", "DataPtr", "DataLen", "Reliable", "DestinationSids", "Topic", "DestinationIdentities" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishDataRequest), global::LiveKit.Proto.PublishDataRequest.Parser, new[]{ "LocalParticipantHandle", "DataPtr", "DataLen", "Reliable", "DestinationSids", "Topic", "DestinationIdentities", "RequestAsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishDataResponse), global::LiveKit.Proto.PublishDataResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishDataCallback), global::LiveKit.Proto.PublishDataCallback.Parser, new[]{ "AsyncId", "Error" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishTranscriptionRequest), global::LiveKit.Proto.PublishTranscriptionRequest.Parser, new[]{ "LocalParticipantHandle", "ParticipantIdentity", "TrackId", "Segments" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishTranscriptionRequest), global::LiveKit.Proto.PublishTranscriptionRequest.Parser, new[]{ "LocalParticipantHandle", "ParticipantIdentity", "TrackId", "Segments", "RequestAsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishTranscriptionResponse), global::LiveKit.Proto.PublishTranscriptionResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishTranscriptionCallback), global::LiveKit.Proto.PublishTranscriptionCallback.Parser, new[]{ "AsyncId", "Error" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishSipDtmfRequest), global::LiveKit.Proto.PublishSipDtmfRequest.Parser, new[]{ "LocalParticipantHandle", "Code", "Digit", "DestinationIdentities" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishSipDtmfRequest), global::LiveKit.Proto.PublishSipDtmfRequest.Parser, new[]{ "LocalParticipantHandle", "Code", "Digit", "DestinationIdentities", "RequestAsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishSipDtmfResponse), global::LiveKit.Proto.PublishSipDtmfResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.PublishSipDtmfCallback), global::LiveKit.Proto.PublishSipDtmfCallback.Parser, new[]{ "AsyncId", "Error" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SetLocalMetadataRequest), global::LiveKit.Proto.SetLocalMetadataRequest.Parser, new[]{ "LocalParticipantHandle", "Metadata" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SetLocalMetadataRequest), global::LiveKit.Proto.SetLocalMetadataRequest.Parser, new[]{ "LocalParticipantHandle", "Metadata", "RequestAsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SetLocalMetadataResponse), global::LiveKit.Proto.SetLocalMetadataResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SetLocalMetadataCallback), global::LiveKit.Proto.SetLocalMetadataCallback.Parser, new[]{ "AsyncId", "Error" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendChatMessageRequest), global::LiveKit.Proto.SendChatMessageRequest.Parser, new[]{ "LocalParticipantHandle", "Message", "DestinationIdentities", "SenderIdentity" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.EditChatMessageRequest), global::LiveKit.Proto.EditChatMessageRequest.Parser, new[]{ "LocalParticipantHandle", "EditText", "OriginalMessage", "DestinationIdentities", "SenderIdentity" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendChatMessageRequest), global::LiveKit.Proto.SendChatMessageRequest.Parser, new[]{ "LocalParticipantHandle", "Message", "DestinationIdentities", "SenderIdentity", "RequestAsyncId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.EditChatMessageRequest), global::LiveKit.Proto.EditChatMessageRequest.Parser, new[]{ "LocalParticipantHandle", "EditText", "OriginalMessage", "DestinationIdentities", "SenderIdentity", "RequestAsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendChatMessageResponse), global::LiveKit.Proto.SendChatMessageResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendChatMessageCallback), global::LiveKit.Proto.SendChatMessageCallback.Parser, new[]{ "AsyncId", "Error", "ChatMessage" }, new[]{ "Message" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SetLocalAttributesRequest), global::LiveKit.Proto.SetLocalAttributesRequest.Parser, new[]{ "LocalParticipantHandle", "Attributes" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SetLocalAttributesRequest), global::LiveKit.Proto.SetLocalAttributesRequest.Parser, new[]{ "LocalParticipantHandle", "Attributes", "RequestAsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.AttributesEntry), global::LiveKit.Proto.AttributesEntry.Parser, new[]{ "Key", "Value" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SetLocalAttributesResponse), global::LiveKit.Proto.SetLocalAttributesResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SetLocalAttributesCallback), global::LiveKit.Proto.SetLocalAttributesCallback.Parser, new[]{ "AsyncId", "Error" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SetLocalNameRequest), global::LiveKit.Proto.SetLocalNameRequest.Parser, new[]{ "LocalParticipantHandle", "Name" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SetLocalNameRequest), global::LiveKit.Proto.SetLocalNameRequest.Parser, new[]{ "LocalParticipantHandle", "Name", "RequestAsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SetLocalNameResponse), global::LiveKit.Proto.SetLocalNameResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SetLocalNameCallback), global::LiveKit.Proto.SetLocalNameCallback.Parser, new[]{ "AsyncId", "Error" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SetSubscribedRequest), global::LiveKit.Proto.SetSubscribedRequest.Parser, new[]{ "Subscribe", "PublicationHandle" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SetSubscribedResponse), global::LiveKit.Proto.SetSubscribedResponse.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.GetSessionStatsRequest), global::LiveKit.Proto.GetSessionStatsRequest.Parser, new[]{ "RoomHandle" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.GetSessionStatsRequest), global::LiveKit.Proto.GetSessionStatsRequest.Parser, new[]{ "RoomHandle", "RequestAsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.GetSessionStatsResponse), global::LiveKit.Proto.GetSessionStatsResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.GetSessionStatsCallback), global::LiveKit.Proto.GetSessionStatsCallback.Parser, new[]{ "AsyncId", "Error", "Result" }, new[]{ "Message" }, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.GetSessionStatsCallback.Types.Result), global::LiveKit.Proto.GetSessionStatsCallback.Types.Result.Parser, new[]{ "PublisherStats", "SubscriberStats" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoEncoding), global::LiveKit.Proto.VideoEncoding.Parser, new[]{ "MaxBitrate", "MaxFramerate" }, null, null, null, null),
@@ -375,11 +391,11 @@ namespace LiveKit.Proto {
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.TrackPublishOptions), global::LiveKit.Proto.TrackPublishOptions.Parser, new[]{ "VideoEncoding", "AudioEncoding", "VideoCodec", "Dtx", "Red", "Simulcast", "Source", "Stream", "PreconnectBuffer" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.IceServer), global::LiveKit.Proto.IceServer.Parser, new[]{ "Urls", "Username", "Password" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RtcConfig), global::LiveKit.Proto.RtcConfig.Parser, new[]{ "IceTransportType", "ContinualGatheringPolicy", "IceServers" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RoomOptions), global::LiveKit.Proto.RoomOptions.Parser, new[]{ "AutoSubscribe", "AdaptiveStream", "Dynacast", "E2Ee", "RtcConfig", "JoinRetries", "Encryption" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RoomOptions), global::LiveKit.Proto.RoomOptions.Parser, new[]{ "AutoSubscribe", "AdaptiveStream", "Dynacast", "E2Ee", "RtcConfig", "JoinRetries", "Encryption", "SinglePeerConnection", "ConnectTimeoutMs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.TranscriptionSegment), global::LiveKit.Proto.TranscriptionSegment.Parser, new[]{ "Id", "Text", "StartTime", "EndTime", "Final", "Language" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.BufferInfo), global::LiveKit.Proto.BufferInfo.Parser, new[]{ "DataPtr", "DataLen" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.OwnedBuffer), global::LiveKit.Proto.OwnedBuffer.Parser, new[]{ "Handle", "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RoomEvent), global::LiveKit.Proto.RoomEvent.Parser, new[]{ "RoomHandle", "ParticipantConnected", "ParticipantDisconnected", "LocalTrackPublished", "LocalTrackUnpublished", "LocalTrackSubscribed", "TrackPublished", "TrackUnpublished", "TrackSubscribed", "TrackUnsubscribed", "TrackSubscriptionFailed", "TrackMuted", "TrackUnmuted", "ActiveSpeakersChanged", "RoomMetadataChanged", "RoomSidChanged", "ParticipantMetadataChanged", "ParticipantNameChanged", "ParticipantAttributesChanged", "ConnectionQualityChanged", "ConnectionStateChanged", "Disconnected", "Reconnecting", "Reconnected", "E2EeStateChanged", "Eos", "DataPacketReceived", "TranscriptionReceived", "ChatMessage", "StreamHeaderReceived", "StreamChunkReceived", "StreamTrailerReceived", "DataChannelLowThresholdChanged", "ByteStreamOpened", "TextStreamOpened", "RoomUpdated", "Moved", "ParticipantsUpdated", "ParticipantEncryptionStatusChanged", "TokenRefreshed" }, new[]{ "Message" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RoomEvent), global::LiveKit.Proto.RoomEvent.Parser, new[]{ "RoomHandle", "ParticipantConnected", "ParticipantDisconnected", "LocalTrackPublished", "LocalTrackUnpublished", "LocalTrackSubscribed", "TrackPublished", "TrackUnpublished", "TrackSubscribed", "TrackUnsubscribed", "TrackSubscriptionFailed", "TrackMuted", "TrackUnmuted", "ActiveSpeakersChanged", "RoomMetadataChanged", "RoomSidChanged", "ParticipantMetadataChanged", "ParticipantNameChanged", "ParticipantAttributesChanged", "ConnectionQualityChanged", "ConnectionStateChanged", "Disconnected", "Reconnecting", "Reconnected", "E2EeStateChanged", "Eos", "DataPacketReceived", "TranscriptionReceived", "ChatMessage", "StreamHeaderReceived", "StreamChunkReceived", "StreamTrailerReceived", "DataChannelLowThresholdChanged", "ByteStreamOpened", "TextStreamOpened", "RoomUpdated", "Moved", "ParticipantsUpdated", "ParticipantEncryptionStatusChanged", "ParticipantPermissionChanged", "TokenRefreshed" }, new[]{ "Message" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.RoomInfo), global::LiveKit.Proto.RoomInfo.Parser, new[]{ "Sid", "Name", "Metadata", "LossyDcBufferedAmountLowThreshold", "ReliableDcBufferedAmountLowThreshold", "EmptyTimeout", "DepartureTimeout", "MaxParticipants", "CreationTime", "NumParticipants", "NumPublishers", "ActiveRecording" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.OwnedRoom), global::LiveKit.Proto.OwnedRoom.Parser, new[]{ "Handle", "Info" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ParticipantsUpdated), global::LiveKit.Proto.ParticipantsUpdated.Parser, new[]{ "Participants" }, null, null, null, null),
@@ -403,6 +419,7 @@ namespace LiveKit.Proto {
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ParticipantAttributesChanged), global::LiveKit.Proto.ParticipantAttributesChanged.Parser, new[]{ "ParticipantIdentity", "Attributes", "ChangedAttributes" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ParticipantEncryptionStatusChanged), global::LiveKit.Proto.ParticipantEncryptionStatusChanged.Parser, new[]{ "ParticipantIdentity", "IsEncrypted" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ParticipantNameChanged), global::LiveKit.Proto.ParticipantNameChanged.Parser, new[]{ "ParticipantIdentity", "Name" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ParticipantPermissionChanged), global::LiveKit.Proto.ParticipantPermissionChanged.Parser, new[]{ "ParticipantIdentity", "Permission" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ConnectionQualityChanged), global::LiveKit.Proto.ConnectionQualityChanged.Parser, new[]{ "ParticipantIdentity", "Quality" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.UserPacket), global::LiveKit.Proto.UserPacket.Parser, new[]{ "Data", "Topic" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.ChatMessage), global::LiveKit.Proto.ChatMessage.Parser, new[]{ "Id", "Timestamp", "Message", "EditTimestamp", "Deleted", "Generated" }, null, null, null, null),
@@ -425,9 +442,9 @@ namespace LiveKit.Proto {
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.DataStreamHeaderReceived), global::LiveKit.Proto.DataStreamHeaderReceived.Parser, new[]{ "ParticipantIdentity", "Header" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.DataStreamChunkReceived), global::LiveKit.Proto.DataStreamChunkReceived.Parser, new[]{ "ParticipantIdentity", "Chunk" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.DataStreamTrailerReceived), global::LiveKit.Proto.DataStreamTrailerReceived.Parser, new[]{ "ParticipantIdentity", "Trailer" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendStreamHeaderRequest), global::LiveKit.Proto.SendStreamHeaderRequest.Parser, new[]{ "LocalParticipantHandle", "Header", "DestinationIdentities", "SenderIdentity" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendStreamChunkRequest), global::LiveKit.Proto.SendStreamChunkRequest.Parser, new[]{ "LocalParticipantHandle", "Chunk", "DestinationIdentities", "SenderIdentity" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendStreamTrailerRequest), global::LiveKit.Proto.SendStreamTrailerRequest.Parser, new[]{ "LocalParticipantHandle", "Trailer", "DestinationIdentities", "SenderIdentity" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendStreamHeaderRequest), global::LiveKit.Proto.SendStreamHeaderRequest.Parser, new[]{ "LocalParticipantHandle", "Header", "DestinationIdentities", "SenderIdentity", "RequestAsyncId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendStreamChunkRequest), global::LiveKit.Proto.SendStreamChunkRequest.Parser, new[]{ "LocalParticipantHandle", "Chunk", "DestinationIdentities", "SenderIdentity", "RequestAsyncId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendStreamTrailerRequest), global::LiveKit.Proto.SendStreamTrailerRequest.Parser, new[]{ "LocalParticipantHandle", "Trailer", "DestinationIdentities", "SenderIdentity", "RequestAsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendStreamHeaderResponse), global::LiveKit.Proto.SendStreamHeaderResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendStreamChunkResponse), global::LiveKit.Proto.SendStreamChunkResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.SendStreamTrailerResponse), global::LiveKit.Proto.SendStreamTrailerResponse.Parser, new[]{ "AsyncId" }, null, null, null, null),
@@ -487,6 +504,7 @@ namespace LiveKit.Proto {
   {
     private static readonly pb::MessageParser<ConnectRequest> _parser = new pb::MessageParser<ConnectRequest>(() => new ConnectRequest());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<ConnectRequest> Parser { get { return _parser; } }
@@ -514,9 +532,11 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ConnectRequest(ConnectRequest other) : this() {
+      _hasBits0 = other._hasBits0;
       url_ = other.url_;
       token_ = other.token_;
       options_ = other.options_ != null ? other.options_.Clone() : null;
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -590,6 +610,33 @@ namespace LiveKit.Proto {
       }
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 4;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 1) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~1;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -608,6 +655,7 @@ namespace LiveKit.Proto {
       if (Url != other.Url) return false;
       if (Token != other.Token) return false;
       if (!object.Equals(Options, other.Options)) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -618,6 +666,7 @@ namespace LiveKit.Proto {
       if (HasUrl) hash ^= Url.GetHashCode();
       if (HasToken) hash ^= Token.GetHashCode();
       if (options_ != null) hash ^= Options.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -648,6 +697,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(26);
         output.WriteMessage(Options);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -670,6 +723,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(26);
         output.WriteMessage(Options);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -688,6 +745,9 @@ namespace LiveKit.Proto {
       }
       if (options_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Options);
+      }
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -712,6 +772,9 @@ namespace LiveKit.Proto {
           Options = new global::LiveKit.Proto.RoomOptions();
         }
         Options.MergeFrom(other.Options);
+      }
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -743,6 +806,10 @@ namespace LiveKit.Proto {
             input.ReadMessage(Options);
             break;
           }
+          case 32: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -771,6 +838,10 @@ namespace LiveKit.Proto {
               Options = new global::LiveKit.Proto.RoomOptions();
             }
             input.ReadMessage(Options);
+            break;
+          }
+          case 32: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -1872,6 +1943,8 @@ namespace LiveKit.Proto {
     public DisconnectRequest(DisconnectRequest other) : this() {
       _hasBits0 = other._hasBits0;
       roomHandle_ = other.roomHandle_;
+      requestAsyncId_ = other.requestAsyncId_;
+      reason_ = other.reason_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1908,6 +1981,60 @@ namespace LiveKit.Proto {
       _hasBits0 &= ~1;
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 2;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 2) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "reason" field.</summary>
+    public const int ReasonFieldNumber = 3;
+    private readonly static global::LiveKit.Proto.DisconnectReason ReasonDefaultValue = global::LiveKit.Proto.DisconnectReason.UnknownReason;
+
+    private global::LiveKit.Proto.DisconnectReason reason_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::LiveKit.Proto.DisconnectReason Reason {
+      get { if ((_hasBits0 & 4) != 0) { return reason_; } else { return ReasonDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        reason_ = value;
+      }
+    }
+    /// <summary>Gets whether the "reason" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasReason {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "reason" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearReason() {
+      _hasBits0 &= ~4;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1924,6 +2051,8 @@ namespace LiveKit.Proto {
         return true;
       }
       if (RoomHandle != other.RoomHandle) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
+      if (Reason != other.Reason) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1932,6 +2061,8 @@ namespace LiveKit.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (HasRoomHandle) hash ^= RoomHandle.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
+      if (HasReason) hash ^= Reason.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1954,6 +2085,14 @@ namespace LiveKit.Proto {
         output.WriteRawTag(8);
         output.WriteUInt64(RoomHandle);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(RequestAsyncId);
+      }
+      if (HasReason) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) Reason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1968,6 +2107,14 @@ namespace LiveKit.Proto {
         output.WriteRawTag(8);
         output.WriteUInt64(RoomHandle);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(RequestAsyncId);
+      }
+      if (HasReason) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) Reason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1980,6 +2127,12 @@ namespace LiveKit.Proto {
       int size = 0;
       if (HasRoomHandle) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RoomHandle);
+      }
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
+      }
+      if (HasReason) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Reason);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1995,6 +2148,12 @@ namespace LiveKit.Proto {
       }
       if (other.HasRoomHandle) {
         RoomHandle = other.RoomHandle;
+      }
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
+      }
+      if (other.HasReason) {
+        Reason = other.Reason;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2015,6 +2174,14 @@ namespace LiveKit.Proto {
             RoomHandle = input.ReadUInt64();
             break;
           }
+          case 16: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
+          case 24: {
+            Reason = (global::LiveKit.Proto.DisconnectReason) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -2032,6 +2199,14 @@ namespace LiveKit.Proto {
             break;
           case 8: {
             RoomHandle = input.ReadUInt64();
+            break;
+          }
+          case 16: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
+          case 24: {
+            Reason = (global::LiveKit.Proto.DisconnectReason) input.ReadEnum();
             break;
           }
         }
@@ -2495,6 +2670,7 @@ namespace LiveKit.Proto {
       localParticipantHandle_ = other.localParticipantHandle_;
       trackHandle_ = other.trackHandle_;
       options_ = other.options_ != null ? other.options_.Clone() : null;
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2570,6 +2746,33 @@ namespace LiveKit.Proto {
       }
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 4;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 4) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~4;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2588,6 +2791,7 @@ namespace LiveKit.Proto {
       if (LocalParticipantHandle != other.LocalParticipantHandle) return false;
       if (TrackHandle != other.TrackHandle) return false;
       if (!object.Equals(Options, other.Options)) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2598,6 +2802,7 @@ namespace LiveKit.Proto {
       if (HasLocalParticipantHandle) hash ^= LocalParticipantHandle.GetHashCode();
       if (HasTrackHandle) hash ^= TrackHandle.GetHashCode();
       if (options_ != null) hash ^= Options.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2628,6 +2833,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(26);
         output.WriteMessage(Options);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2650,6 +2859,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(26);
         output.WriteMessage(Options);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2668,6 +2881,9 @@ namespace LiveKit.Proto {
       }
       if (options_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Options);
+      }
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2692,6 +2908,9 @@ namespace LiveKit.Proto {
           Options = new global::LiveKit.Proto.TrackPublishOptions();
         }
         Options.MergeFrom(other.Options);
+      }
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2723,6 +2942,10 @@ namespace LiveKit.Proto {
             input.ReadMessage(Options);
             break;
           }
+          case 32: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -2751,6 +2974,10 @@ namespace LiveKit.Proto {
               Options = new global::LiveKit.Proto.TrackPublishOptions();
             }
             input.ReadMessage(Options);
+            break;
+          }
+          case 32: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -3348,6 +3575,7 @@ namespace LiveKit.Proto {
       localParticipantHandle_ = other.localParticipantHandle_;
       trackSid_ = other.trackSid_;
       stopOnUnpublish_ = other.stopOnUnpublish_;
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3437,6 +3665,33 @@ namespace LiveKit.Proto {
       _hasBits0 &= ~2;
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 4;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 4) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~4;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3455,6 +3710,7 @@ namespace LiveKit.Proto {
       if (LocalParticipantHandle != other.LocalParticipantHandle) return false;
       if (TrackSid != other.TrackSid) return false;
       if (StopOnUnpublish != other.StopOnUnpublish) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3465,6 +3721,7 @@ namespace LiveKit.Proto {
       if (HasLocalParticipantHandle) hash ^= LocalParticipantHandle.GetHashCode();
       if (HasTrackSid) hash ^= TrackSid.GetHashCode();
       if (HasStopOnUnpublish) hash ^= StopOnUnpublish.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3495,6 +3752,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(24);
         output.WriteBool(StopOnUnpublish);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3517,6 +3778,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(24);
         output.WriteBool(StopOnUnpublish);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3535,6 +3800,9 @@ namespace LiveKit.Proto {
       }
       if (HasStopOnUnpublish) {
         size += 1 + 1;
+      }
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3556,6 +3824,9 @@ namespace LiveKit.Proto {
       }
       if (other.HasStopOnUnpublish) {
         StopOnUnpublish = other.StopOnUnpublish;
+      }
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3584,6 +3855,10 @@ namespace LiveKit.Proto {
             StopOnUnpublish = input.ReadBool();
             break;
           }
+          case 32: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -3609,6 +3884,10 @@ namespace LiveKit.Proto {
           }
           case 24: {
             StopOnUnpublish = input.ReadBool();
+            break;
+          }
+          case 32: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -4127,6 +4406,7 @@ namespace LiveKit.Proto {
       destinationSids_ = other.destinationSids_.Clone();
       topic_ = other.topic_;
       destinationIdentities_ = other.destinationIdentities_.Clone();
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4293,6 +4573,33 @@ namespace LiveKit.Proto {
       get { return destinationIdentities_; }
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 8;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 16) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 16;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 16) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~16;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -4315,6 +4622,7 @@ namespace LiveKit.Proto {
       if(!destinationSids_.Equals(other.destinationSids_)) return false;
       if (Topic != other.Topic) return false;
       if(!destinationIdentities_.Equals(other.destinationIdentities_)) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4329,6 +4637,7 @@ namespace LiveKit.Proto {
       hash ^= destinationSids_.GetHashCode();
       if (HasTopic) hash ^= Topic.GetHashCode();
       hash ^= destinationIdentities_.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4369,6 +4678,10 @@ namespace LiveKit.Proto {
         output.WriteString(Topic);
       }
       destinationIdentities_.WriteTo(output, _repeated_destinationIdentities_codec);
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(64);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4401,6 +4714,10 @@ namespace LiveKit.Proto {
         output.WriteString(Topic);
       }
       destinationIdentities_.WriteTo(ref output, _repeated_destinationIdentities_codec);
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(64);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4428,6 +4745,9 @@ namespace LiveKit.Proto {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Topic);
       }
       size += destinationIdentities_.CalculateSize(_repeated_destinationIdentities_codec);
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -4457,6 +4777,9 @@ namespace LiveKit.Proto {
         Topic = other.Topic;
       }
       destinationIdentities_.Add(other.destinationIdentities_);
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -4500,6 +4823,10 @@ namespace LiveKit.Proto {
             destinationIdentities_.AddEntriesFrom(input, _repeated_destinationIdentities_codec);
             break;
           }
+          case 64: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -4541,6 +4868,10 @@ namespace LiveKit.Proto {
           }
           case 58: {
             destinationIdentities_.AddEntriesFrom(ref input, _repeated_destinationIdentities_codec);
+            break;
+          }
+          case 64: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -5056,6 +5387,7 @@ namespace LiveKit.Proto {
       participantIdentity_ = other.participantIdentity_;
       trackId_ = other.trackId_;
       segments_ = other.segments_.Clone();
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -5155,6 +5487,33 @@ namespace LiveKit.Proto {
       get { return segments_; }
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 5;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 2) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -5174,6 +5533,7 @@ namespace LiveKit.Proto {
       if (ParticipantIdentity != other.ParticipantIdentity) return false;
       if (TrackId != other.TrackId) return false;
       if(!segments_.Equals(other.segments_)) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5185,6 +5545,7 @@ namespace LiveKit.Proto {
       if (HasParticipantIdentity) hash ^= ParticipantIdentity.GetHashCode();
       if (HasTrackId) hash ^= TrackId.GetHashCode();
       hash ^= segments_.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5216,6 +5577,10 @@ namespace LiveKit.Proto {
         output.WriteString(TrackId);
       }
       segments_.WriteTo(output, _repeated_segments_codec);
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5239,6 +5604,10 @@ namespace LiveKit.Proto {
         output.WriteString(TrackId);
       }
       segments_.WriteTo(ref output, _repeated_segments_codec);
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5259,6 +5628,9 @@ namespace LiveKit.Proto {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(TrackId);
       }
       size += segments_.CalculateSize(_repeated_segments_codec);
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -5281,6 +5653,9 @@ namespace LiveKit.Proto {
         TrackId = other.TrackId;
       }
       segments_.Add(other.segments_);
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -5312,6 +5687,10 @@ namespace LiveKit.Proto {
             segments_.AddEntriesFrom(input, _repeated_segments_codec);
             break;
           }
+          case 40: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -5341,6 +5720,10 @@ namespace LiveKit.Proto {
           }
           case 34: {
             segments_.AddEntriesFrom(ref input, _repeated_segments_codec);
+            break;
+          }
+          case 40: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -5856,6 +6239,7 @@ namespace LiveKit.Proto {
       code_ = other.code_;
       digit_ = other.digit_;
       destinationIdentities_ = other.destinationIdentities_.Clone();
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -5956,6 +6340,33 @@ namespace LiveKit.Proto {
       get { return destinationIdentities_; }
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 5;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 4) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~4;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -5975,6 +6386,7 @@ namespace LiveKit.Proto {
       if (Code != other.Code) return false;
       if (Digit != other.Digit) return false;
       if(!destinationIdentities_.Equals(other.destinationIdentities_)) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5986,6 +6398,7 @@ namespace LiveKit.Proto {
       if (HasCode) hash ^= Code.GetHashCode();
       if (HasDigit) hash ^= Digit.GetHashCode();
       hash ^= destinationIdentities_.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -6017,6 +6430,10 @@ namespace LiveKit.Proto {
         output.WriteString(Digit);
       }
       destinationIdentities_.WriteTo(output, _repeated_destinationIdentities_codec);
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -6040,6 +6457,10 @@ namespace LiveKit.Proto {
         output.WriteString(Digit);
       }
       destinationIdentities_.WriteTo(ref output, _repeated_destinationIdentities_codec);
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -6060,6 +6481,9 @@ namespace LiveKit.Proto {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Digit);
       }
       size += destinationIdentities_.CalculateSize(_repeated_destinationIdentities_codec);
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -6082,6 +6506,9 @@ namespace LiveKit.Proto {
         Digit = other.Digit;
       }
       destinationIdentities_.Add(other.destinationIdentities_);
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -6113,6 +6540,10 @@ namespace LiveKit.Proto {
             destinationIdentities_.AddEntriesFrom(input, _repeated_destinationIdentities_codec);
             break;
           }
+          case 40: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -6142,6 +6573,10 @@ namespace LiveKit.Proto {
           }
           case 34: {
             destinationIdentities_.AddEntriesFrom(ref input, _repeated_destinationIdentities_codec);
+            break;
+          }
+          case 40: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -6655,6 +7090,7 @@ namespace LiveKit.Proto {
       _hasBits0 = other._hasBits0;
       localParticipantHandle_ = other.localParticipantHandle_;
       metadata_ = other.metadata_;
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -6717,6 +7153,33 @@ namespace LiveKit.Proto {
       metadata_ = null;
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 3;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 2) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -6734,6 +7197,7 @@ namespace LiveKit.Proto {
       }
       if (LocalParticipantHandle != other.LocalParticipantHandle) return false;
       if (Metadata != other.Metadata) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -6743,6 +7207,7 @@ namespace LiveKit.Proto {
       int hash = 1;
       if (HasLocalParticipantHandle) hash ^= LocalParticipantHandle.GetHashCode();
       if (HasMetadata) hash ^= Metadata.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -6769,6 +7234,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(18);
         output.WriteString(Metadata);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -6787,6 +7256,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(18);
         output.WriteString(Metadata);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -6802,6 +7275,9 @@ namespace LiveKit.Proto {
       }
       if (HasMetadata) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Metadata);
+      }
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -6820,6 +7296,9 @@ namespace LiveKit.Proto {
       }
       if (other.HasMetadata) {
         Metadata = other.Metadata;
+      }
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -6844,6 +7323,10 @@ namespace LiveKit.Proto {
             Metadata = input.ReadString();
             break;
           }
+          case 24: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -6865,6 +7348,10 @@ namespace LiveKit.Proto {
           }
           case 18: {
             Metadata = input.ReadString();
+            break;
+          }
+          case 24: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -7377,6 +7864,7 @@ namespace LiveKit.Proto {
       message_ = other.message_;
       destinationIdentities_ = other.destinationIdentities_.Clone();
       senderIdentity_ = other.senderIdentity_;
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -7476,6 +7964,33 @@ namespace LiveKit.Proto {
       senderIdentity_ = null;
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 5;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 2) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -7495,6 +8010,7 @@ namespace LiveKit.Proto {
       if (Message != other.Message) return false;
       if(!destinationIdentities_.Equals(other.destinationIdentities_)) return false;
       if (SenderIdentity != other.SenderIdentity) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -7506,6 +8022,7 @@ namespace LiveKit.Proto {
       if (HasMessage) hash ^= Message.GetHashCode();
       hash ^= destinationIdentities_.GetHashCode();
       if (HasSenderIdentity) hash ^= SenderIdentity.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -7537,6 +8054,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteString(SenderIdentity);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -7560,6 +8081,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteString(SenderIdentity);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -7579,6 +8104,9 @@ namespace LiveKit.Proto {
       size += destinationIdentities_.CalculateSize(_repeated_destinationIdentities_codec);
       if (HasSenderIdentity) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(SenderIdentity);
+      }
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -7601,6 +8129,9 @@ namespace LiveKit.Proto {
       destinationIdentities_.Add(other.destinationIdentities_);
       if (other.HasSenderIdentity) {
         SenderIdentity = other.SenderIdentity;
+      }
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -7633,6 +8164,10 @@ namespace LiveKit.Proto {
             SenderIdentity = input.ReadString();
             break;
           }
+          case 40: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -7662,6 +8197,10 @@ namespace LiveKit.Proto {
           }
           case 34: {
             SenderIdentity = input.ReadString();
+            break;
+          }
+          case 40: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -7712,6 +8251,7 @@ namespace LiveKit.Proto {
       originalMessage_ = other.originalMessage_ != null ? other.originalMessage_.Clone() : null;
       destinationIdentities_ = other.destinationIdentities_.Clone();
       senderIdentity_ = other.senderIdentity_;
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -7823,6 +8363,33 @@ namespace LiveKit.Proto {
       senderIdentity_ = null;
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 6;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 2) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -7843,6 +8410,7 @@ namespace LiveKit.Proto {
       if (!object.Equals(OriginalMessage, other.OriginalMessage)) return false;
       if(!destinationIdentities_.Equals(other.destinationIdentities_)) return false;
       if (SenderIdentity != other.SenderIdentity) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -7855,6 +8423,7 @@ namespace LiveKit.Proto {
       if (originalMessage_ != null) hash ^= OriginalMessage.GetHashCode();
       hash ^= destinationIdentities_.GetHashCode();
       if (HasSenderIdentity) hash ^= SenderIdentity.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -7890,6 +8459,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(42);
         output.WriteString(SenderIdentity);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(48);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -7917,6 +8490,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(42);
         output.WriteString(SenderIdentity);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(48);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -7939,6 +8516,9 @@ namespace LiveKit.Proto {
       size += destinationIdentities_.CalculateSize(_repeated_destinationIdentities_codec);
       if (HasSenderIdentity) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(SenderIdentity);
+      }
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -7967,6 +8547,9 @@ namespace LiveKit.Proto {
       destinationIdentities_.Add(other.destinationIdentities_);
       if (other.HasSenderIdentity) {
         SenderIdentity = other.SenderIdentity;
+      }
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -8006,6 +8589,10 @@ namespace LiveKit.Proto {
             SenderIdentity = input.ReadString();
             break;
           }
+          case 48: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -8042,6 +8629,10 @@ namespace LiveKit.Proto {
           }
           case 42: {
             SenderIdentity = input.ReadString();
+            break;
+          }
+          case 48: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -8638,6 +9229,7 @@ namespace LiveKit.Proto {
       _hasBits0 = other._hasBits0;
       localParticipantHandle_ = other.localParticipantHandle_;
       attributes_ = other.attributes_.Clone();
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -8685,6 +9277,33 @@ namespace LiveKit.Proto {
       get { return attributes_; }
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 3;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 2) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -8702,6 +9321,7 @@ namespace LiveKit.Proto {
       }
       if (LocalParticipantHandle != other.LocalParticipantHandle) return false;
       if(!attributes_.Equals(other.attributes_)) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -8711,6 +9331,7 @@ namespace LiveKit.Proto {
       int hash = 1;
       if (HasLocalParticipantHandle) hash ^= LocalParticipantHandle.GetHashCode();
       hash ^= attributes_.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -8734,6 +9355,10 @@ namespace LiveKit.Proto {
         output.WriteUInt64(LocalParticipantHandle);
       }
       attributes_.WriteTo(output, _repeated_attributes_codec);
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -8749,6 +9374,10 @@ namespace LiveKit.Proto {
         output.WriteUInt64(LocalParticipantHandle);
       }
       attributes_.WriteTo(ref output, _repeated_attributes_codec);
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -8763,6 +9392,9 @@ namespace LiveKit.Proto {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(LocalParticipantHandle);
       }
       size += attributes_.CalculateSize(_repeated_attributes_codec);
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -8779,6 +9411,9 @@ namespace LiveKit.Proto {
         LocalParticipantHandle = other.LocalParticipantHandle;
       }
       attributes_.Add(other.attributes_);
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -8802,6 +9437,10 @@ namespace LiveKit.Proto {
             attributes_.AddEntriesFrom(input, _repeated_attributes_codec);
             break;
           }
+          case 24: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -8823,6 +9462,10 @@ namespace LiveKit.Proto {
           }
           case 18: {
             attributes_.AddEntriesFrom(ref input, _repeated_attributes_codec);
+            break;
+          }
+          case 24: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -9590,6 +10233,7 @@ namespace LiveKit.Proto {
       _hasBits0 = other._hasBits0;
       localParticipantHandle_ = other.localParticipantHandle_;
       name_ = other.name_;
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -9652,6 +10296,33 @@ namespace LiveKit.Proto {
       name_ = null;
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 3;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 2) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -9669,6 +10340,7 @@ namespace LiveKit.Proto {
       }
       if (LocalParticipantHandle != other.LocalParticipantHandle) return false;
       if (Name != other.Name) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -9678,6 +10350,7 @@ namespace LiveKit.Proto {
       int hash = 1;
       if (HasLocalParticipantHandle) hash ^= LocalParticipantHandle.GetHashCode();
       if (HasName) hash ^= Name.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -9704,6 +10377,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(18);
         output.WriteString(Name);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -9722,6 +10399,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(18);
         output.WriteString(Name);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -9737,6 +10418,9 @@ namespace LiveKit.Proto {
       }
       if (HasName) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -9755,6 +10439,9 @@ namespace LiveKit.Proto {
       }
       if (other.HasName) {
         Name = other.Name;
+      }
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -9779,6 +10466,10 @@ namespace LiveKit.Proto {
             Name = input.ReadString();
             break;
           }
+          case 24: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -9800,6 +10491,10 @@ namespace LiveKit.Proto {
           }
           case 18: {
             Name = input.ReadString();
+            break;
+          }
+          case 24: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -10722,6 +11417,7 @@ namespace LiveKit.Proto {
     public GetSessionStatsRequest(GetSessionStatsRequest other) : this() {
       _hasBits0 = other._hasBits0;
       roomHandle_ = other.roomHandle_;
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -10758,6 +11454,33 @@ namespace LiveKit.Proto {
       _hasBits0 &= ~1;
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 2;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 2) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -10774,6 +11497,7 @@ namespace LiveKit.Proto {
         return true;
       }
       if (RoomHandle != other.RoomHandle) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -10782,6 +11506,7 @@ namespace LiveKit.Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (HasRoomHandle) hash ^= RoomHandle.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -10804,6 +11529,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(8);
         output.WriteUInt64(RoomHandle);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -10818,6 +11547,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(8);
         output.WriteUInt64(RoomHandle);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -10830,6 +11563,9 @@ namespace LiveKit.Proto {
       int size = 0;
       if (HasRoomHandle) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RoomHandle);
+      }
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -10845,6 +11581,9 @@ namespace LiveKit.Proto {
       }
       if (other.HasRoomHandle) {
         RoomHandle = other.RoomHandle;
+      }
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -10865,6 +11604,10 @@ namespace LiveKit.Proto {
             RoomHandle = input.ReadUInt64();
             break;
           }
+          case 16: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -10882,6 +11625,10 @@ namespace LiveKit.Proto {
             break;
           case 8: {
             RoomHandle = input.ReadUInt64();
+            break;
+          }
+          case 16: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -13335,6 +14082,8 @@ namespace LiveKit.Proto {
       rtcConfig_ = other.rtcConfig_ != null ? other.rtcConfig_.Clone() : null;
       joinRetries_ = other.joinRetries_;
       encryption_ = other.encryption_ != null ? other.encryption_.Clone() : null;
+      singlePeerConnection_ = other.singlePeerConnection_;
+      connectTimeoutMs_ = other.connectTimeoutMs_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -13492,6 +14241,66 @@ namespace LiveKit.Proto {
       }
     }
 
+    /// <summary>Field number for the "single_peer_connection" field.</summary>
+    public const int SinglePeerConnectionFieldNumber = 8;
+    private readonly static bool SinglePeerConnectionDefaultValue = false;
+
+    private bool singlePeerConnection_;
+    /// <summary>
+    /// use single peer connection for both publish/subscribe (default: false)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool SinglePeerConnection {
+      get { if ((_hasBits0 & 16) != 0) { return singlePeerConnection_; } else { return SinglePeerConnectionDefaultValue; } }
+      set {
+        _hasBits0 |= 16;
+        singlePeerConnection_ = value;
+      }
+    }
+    /// <summary>Gets whether the "single_peer_connection" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasSinglePeerConnection {
+      get { return (_hasBits0 & 16) != 0; }
+    }
+    /// <summary>Clears the value of the "single_peer_connection" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearSinglePeerConnection() {
+      _hasBits0 &= ~16;
+    }
+
+    /// <summary>Field number for the "connect_timeout_ms" field.</summary>
+    public const int ConnectTimeoutMsFieldNumber = 9;
+    private readonly static ulong ConnectTimeoutMsDefaultValue = 0UL;
+
+    private ulong connectTimeoutMs_;
+    /// <summary>
+    /// timeout in milliseconds for each signal connection attempt (default: 5000)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong ConnectTimeoutMs {
+      get { if ((_hasBits0 & 32) != 0) { return connectTimeoutMs_; } else { return ConnectTimeoutMsDefaultValue; } }
+      set {
+        _hasBits0 |= 32;
+        connectTimeoutMs_ = value;
+      }
+    }
+    /// <summary>Gets whether the "connect_timeout_ms" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasConnectTimeoutMs {
+      get { return (_hasBits0 & 32) != 0; }
+    }
+    /// <summary>Clears the value of the "connect_timeout_ms" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearConnectTimeoutMs() {
+      _hasBits0 &= ~32;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -13514,6 +14323,8 @@ namespace LiveKit.Proto {
       if (!object.Equals(RtcConfig, other.RtcConfig)) return false;
       if (JoinRetries != other.JoinRetries) return false;
       if (!object.Equals(Encryption, other.Encryption)) return false;
+      if (SinglePeerConnection != other.SinglePeerConnection) return false;
+      if (ConnectTimeoutMs != other.ConnectTimeoutMs) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -13528,6 +14339,8 @@ namespace LiveKit.Proto {
       if (rtcConfig_ != null) hash ^= RtcConfig.GetHashCode();
       if (HasJoinRetries) hash ^= JoinRetries.GetHashCode();
       if (encryption_ != null) hash ^= Encryption.GetHashCode();
+      if (HasSinglePeerConnection) hash ^= SinglePeerConnection.GetHashCode();
+      if (HasConnectTimeoutMs) hash ^= ConnectTimeoutMs.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -13574,6 +14387,14 @@ namespace LiveKit.Proto {
         output.WriteRawTag(58);
         output.WriteMessage(Encryption);
       }
+      if (HasSinglePeerConnection) {
+        output.WriteRawTag(64);
+        output.WriteBool(SinglePeerConnection);
+      }
+      if (HasConnectTimeoutMs) {
+        output.WriteRawTag(72);
+        output.WriteUInt64(ConnectTimeoutMs);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -13612,6 +14433,14 @@ namespace LiveKit.Proto {
         output.WriteRawTag(58);
         output.WriteMessage(Encryption);
       }
+      if (HasSinglePeerConnection) {
+        output.WriteRawTag(64);
+        output.WriteBool(SinglePeerConnection);
+      }
+      if (HasConnectTimeoutMs) {
+        output.WriteRawTag(72);
+        output.WriteUInt64(ConnectTimeoutMs);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -13642,6 +14471,12 @@ namespace LiveKit.Proto {
       }
       if (encryption_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Encryption);
+      }
+      if (HasSinglePeerConnection) {
+        size += 1 + 1;
+      }
+      if (HasConnectTimeoutMs) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ConnectTimeoutMs);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -13684,6 +14519,12 @@ namespace LiveKit.Proto {
           Encryption = new global::LiveKit.Proto.E2eeOptions();
         }
         Encryption.MergeFrom(other.Encryption);
+      }
+      if (other.HasSinglePeerConnection) {
+        SinglePeerConnection = other.SinglePeerConnection;
+      }
+      if (other.HasConnectTimeoutMs) {
+        ConnectTimeoutMs = other.ConnectTimeoutMs;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -13737,6 +14578,14 @@ namespace LiveKit.Proto {
             input.ReadMessage(Encryption);
             break;
           }
+          case 64: {
+            SinglePeerConnection = input.ReadBool();
+            break;
+          }
+          case 72: {
+            ConnectTimeoutMs = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -13787,6 +14636,14 @@ namespace LiveKit.Proto {
               Encryption = new global::LiveKit.Proto.E2eeOptions();
             }
             input.ReadMessage(Encryption);
+            break;
+          }
+          case 64: {
+            SinglePeerConnection = input.ReadBool();
+            break;
+          }
+          case 72: {
+            ConnectTimeoutMs = input.ReadUInt64();
             break;
           }
         }
@@ -14913,6 +15770,9 @@ namespace LiveKit.Proto {
         case MessageOneofCase.ParticipantEncryptionStatusChanged:
           ParticipantEncryptionStatusChanged = other.ParticipantEncryptionStatusChanged.Clone();
           break;
+        case MessageOneofCase.ParticipantPermissionChanged:
+          ParticipantPermissionChanged = other.ParticipantPermissionChanged.Clone();
+          break;
         case MessageOneofCase.TokenRefreshed:
           TokenRefreshed = other.TokenRefreshed.Clone();
           break;
@@ -15431,6 +16291,18 @@ namespace LiveKit.Proto {
       }
     }
 
+    /// <summary>Field number for the "participant_permission_changed" field.</summary>
+    public const int ParticipantPermissionChangedFieldNumber = 41;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::LiveKit.Proto.ParticipantPermissionChanged ParticipantPermissionChanged {
+      get { return messageCase_ == MessageOneofCase.ParticipantPermissionChanged ? (global::LiveKit.Proto.ParticipantPermissionChanged) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.ParticipantPermissionChanged;
+      }
+    }
+
     /// <summary>Field number for the "token_refreshed" field.</summary>
     public const int TokenRefreshedFieldNumber = 40;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15485,6 +16357,7 @@ namespace LiveKit.Proto {
       Moved = 37,
       ParticipantsUpdated = 38,
       ParticipantEncryptionStatusChanged = 39,
+      ParticipantPermissionChanged = 41,
       TokenRefreshed = 40,
     }
     private MessageOneofCase messageCase_ = MessageOneofCase.None;
@@ -15555,6 +16428,7 @@ namespace LiveKit.Proto {
       if (!object.Equals(Moved, other.Moved)) return false;
       if (!object.Equals(ParticipantsUpdated, other.ParticipantsUpdated)) return false;
       if (!object.Equals(ParticipantEncryptionStatusChanged, other.ParticipantEncryptionStatusChanged)) return false;
+      if (!object.Equals(ParticipantPermissionChanged, other.ParticipantPermissionChanged)) return false;
       if (!object.Equals(TokenRefreshed, other.TokenRefreshed)) return false;
       if (MessageCase != other.MessageCase) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -15603,6 +16477,7 @@ namespace LiveKit.Proto {
       if (messageCase_ == MessageOneofCase.Moved) hash ^= Moved.GetHashCode();
       if (messageCase_ == MessageOneofCase.ParticipantsUpdated) hash ^= ParticipantsUpdated.GetHashCode();
       if (messageCase_ == MessageOneofCase.ParticipantEncryptionStatusChanged) hash ^= ParticipantEncryptionStatusChanged.GetHashCode();
+      if (messageCase_ == MessageOneofCase.ParticipantPermissionChanged) hash ^= ParticipantPermissionChanged.GetHashCode();
       if (messageCase_ == MessageOneofCase.TokenRefreshed) hash ^= TokenRefreshed.GetHashCode();
       hash ^= (int) messageCase_;
       if (_unknownFields != null) {
@@ -15783,6 +16658,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(194, 2);
         output.WriteMessage(TokenRefreshed);
       }
+      if (messageCase_ == MessageOneofCase.ParticipantPermissionChanged) {
+        output.WriteRawTag(202, 2);
+        output.WriteMessage(ParticipantPermissionChanged);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -15953,6 +16832,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(194, 2);
         output.WriteMessage(TokenRefreshed);
       }
+      if (messageCase_ == MessageOneofCase.ParticipantPermissionChanged) {
+        output.WriteRawTag(202, 2);
+        output.WriteMessage(ParticipantPermissionChanged);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -16079,6 +16962,9 @@ namespace LiveKit.Proto {
       }
       if (messageCase_ == MessageOneofCase.ParticipantEncryptionStatusChanged) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(ParticipantEncryptionStatusChanged);
+      }
+      if (messageCase_ == MessageOneofCase.ParticipantPermissionChanged) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(ParticipantPermissionChanged);
       }
       if (messageCase_ == MessageOneofCase.TokenRefreshed) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(TokenRefreshed);
@@ -16326,6 +17212,12 @@ namespace LiveKit.Proto {
             ParticipantEncryptionStatusChanged = new global::LiveKit.Proto.ParticipantEncryptionStatusChanged();
           }
           ParticipantEncryptionStatusChanged.MergeFrom(other.ParticipantEncryptionStatusChanged);
+          break;
+        case MessageOneofCase.ParticipantPermissionChanged:
+          if (ParticipantPermissionChanged == null) {
+            ParticipantPermissionChanged = new global::LiveKit.Proto.ParticipantPermissionChanged();
+          }
+          ParticipantPermissionChanged.MergeFrom(other.ParticipantPermissionChanged);
           break;
         case MessageOneofCase.TokenRefreshed:
           if (TokenRefreshed == null) {
@@ -16705,6 +17597,15 @@ namespace LiveKit.Proto {
             TokenRefreshed = subBuilder;
             break;
           }
+          case 330: {
+            global::LiveKit.Proto.ParticipantPermissionChanged subBuilder = new global::LiveKit.Proto.ParticipantPermissionChanged();
+            if (messageCase_ == MessageOneofCase.ParticipantPermissionChanged) {
+              subBuilder.MergeFrom(ParticipantPermissionChanged);
+            }
+            input.ReadMessage(subBuilder);
+            ParticipantPermissionChanged = subBuilder;
+            break;
+          }
         }
       }
     #endif
@@ -17073,6 +17974,15 @@ namespace LiveKit.Proto {
             }
             input.ReadMessage(subBuilder);
             TokenRefreshed = subBuilder;
+            break;
+          }
+          case 330: {
+            global::LiveKit.Proto.ParticipantPermissionChanged subBuilder = new global::LiveKit.Proto.ParticipantPermissionChanged();
+            if (messageCase_ == MessageOneofCase.ParticipantPermissionChanged) {
+              subBuilder.MergeFrom(ParticipantPermissionChanged);
+            }
+            input.ReadMessage(subBuilder);
+            ParticipantPermissionChanged = subBuilder;
             break;
           }
         }
@@ -23037,6 +23947,255 @@ namespace LiveKit.Proto {
 
   }
 
+  public sealed partial class ParticipantPermissionChanged : pb::IMessage<ParticipantPermissionChanged>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<ParticipantPermissionChanged> _parser = new pb::MessageParser<ParticipantPermissionChanged>(() => new ParticipantPermissionChanged());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<ParticipantPermissionChanged> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[73]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ParticipantPermissionChanged() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ParticipantPermissionChanged(ParticipantPermissionChanged other) : this() {
+      participantIdentity_ = other.participantIdentity_;
+      permission_ = other.permission_ != null ? other.permission_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ParticipantPermissionChanged Clone() {
+      return new ParticipantPermissionChanged(this);
+    }
+
+    /// <summary>Field number for the "participant_identity" field.</summary>
+    public const int ParticipantIdentityFieldNumber = 1;
+    private readonly static string ParticipantIdentityDefaultValue = "";
+
+    private string participantIdentity_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ParticipantIdentity {
+      get { return participantIdentity_ ?? ParticipantIdentityDefaultValue; }
+      set {
+        participantIdentity_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "participant_identity" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasParticipantIdentity {
+      get { return participantIdentity_ != null; }
+    }
+    /// <summary>Clears the value of the "participant_identity" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearParticipantIdentity() {
+      participantIdentity_ = null;
+    }
+
+    /// <summary>Field number for the "permission" field.</summary>
+    public const int PermissionFieldNumber = 2;
+    private global::LiveKit.Proto.ParticipantPermission permission_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::LiveKit.Proto.ParticipantPermission Permission {
+      get { return permission_; }
+      set {
+        permission_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as ParticipantPermissionChanged);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(ParticipantPermissionChanged other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ParticipantIdentity != other.ParticipantIdentity) return false;
+      if (!object.Equals(Permission, other.Permission)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasParticipantIdentity) hash ^= ParticipantIdentity.GetHashCode();
+      if (permission_ != null) hash ^= Permission.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasParticipantIdentity) {
+        output.WriteRawTag(10);
+        output.WriteString(ParticipantIdentity);
+      }
+      if (permission_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Permission);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasParticipantIdentity) {
+        output.WriteRawTag(10);
+        output.WriteString(ParticipantIdentity);
+      }
+      if (permission_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Permission);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasParticipantIdentity) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ParticipantIdentity);
+      }
+      if (permission_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Permission);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(ParticipantPermissionChanged other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasParticipantIdentity) {
+        ParticipantIdentity = other.ParticipantIdentity;
+      }
+      if (other.permission_ != null) {
+        if (permission_ == null) {
+          Permission = new global::LiveKit.Proto.ParticipantPermission();
+        }
+        Permission.MergeFrom(other.Permission);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            ParticipantIdentity = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (permission_ == null) {
+              Permission = new global::LiveKit.Proto.ParticipantPermission();
+            }
+            input.ReadMessage(Permission);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            ParticipantIdentity = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (permission_ == null) {
+              Permission = new global::LiveKit.Proto.ParticipantPermission();
+            }
+            input.ReadMessage(Permission);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class ConnectionQualityChanged : pb::IMessage<ConnectionQualityChanged>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -23052,7 +24211,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[73]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[74]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23308,7 +24467,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[74]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[75]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23558,7 +24717,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[75]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[76]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24021,7 +25180,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[76]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[77]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24271,7 +25430,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[77]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[78]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24528,7 +25687,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[78]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[79]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24920,7 +26079,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[79]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[80]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25201,7 +26360,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[80]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[81]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25406,7 +26565,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[81]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[82]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25559,7 +26718,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[82]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[83]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25764,7 +26923,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[83]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[84]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25916,7 +27075,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[84]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[85]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -26068,7 +27227,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[85]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[86]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -26271,7 +27430,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[86]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[87]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -26423,7 +27582,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[87]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[88]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -28498,7 +29657,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[88]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[89]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -28747,7 +29906,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[89]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[90]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -28996,7 +30155,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[90]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[91]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -29246,7 +30405,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[91]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[92]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -29271,6 +30430,7 @@ namespace LiveKit.Proto {
       header_ = other.header_ != null ? other.header_.Clone() : null;
       destinationIdentities_ = other.destinationIdentities_.Clone();
       senderIdentity_ = other.senderIdentity_;
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -29356,6 +30516,33 @@ namespace LiveKit.Proto {
       senderIdentity_ = null;
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 5;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 2) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -29375,6 +30562,7 @@ namespace LiveKit.Proto {
       if (!object.Equals(Header, other.Header)) return false;
       if(!destinationIdentities_.Equals(other.destinationIdentities_)) return false;
       if (SenderIdentity != other.SenderIdentity) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -29386,6 +30574,7 @@ namespace LiveKit.Proto {
       if (header_ != null) hash ^= Header.GetHashCode();
       hash ^= destinationIdentities_.GetHashCode();
       if (HasSenderIdentity) hash ^= SenderIdentity.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -29417,6 +30606,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteString(SenderIdentity);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -29440,6 +30633,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteString(SenderIdentity);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -29459,6 +30656,9 @@ namespace LiveKit.Proto {
       size += destinationIdentities_.CalculateSize(_repeated_destinationIdentities_codec);
       if (HasSenderIdentity) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(SenderIdentity);
+      }
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -29484,6 +30684,9 @@ namespace LiveKit.Proto {
       destinationIdentities_.Add(other.destinationIdentities_);
       if (other.HasSenderIdentity) {
         SenderIdentity = other.SenderIdentity;
+      }
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -29517,6 +30720,10 @@ namespace LiveKit.Proto {
           }
           case 34: {
             SenderIdentity = input.ReadString();
+            break;
+          }
+          case 40: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -29553,6 +30760,10 @@ namespace LiveKit.Proto {
             SenderIdentity = input.ReadString();
             break;
           }
+          case 40: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     }
@@ -29575,7 +30786,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[92]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[93]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -29600,6 +30811,7 @@ namespace LiveKit.Proto {
       chunk_ = other.chunk_ != null ? other.chunk_.Clone() : null;
       destinationIdentities_ = other.destinationIdentities_.Clone();
       senderIdentity_ = other.senderIdentity_;
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -29685,6 +30897,33 @@ namespace LiveKit.Proto {
       senderIdentity_ = null;
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 5;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 2) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -29704,6 +30943,7 @@ namespace LiveKit.Proto {
       if (!object.Equals(Chunk, other.Chunk)) return false;
       if(!destinationIdentities_.Equals(other.destinationIdentities_)) return false;
       if (SenderIdentity != other.SenderIdentity) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -29715,6 +30955,7 @@ namespace LiveKit.Proto {
       if (chunk_ != null) hash ^= Chunk.GetHashCode();
       hash ^= destinationIdentities_.GetHashCode();
       if (HasSenderIdentity) hash ^= SenderIdentity.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -29746,6 +30987,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteString(SenderIdentity);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -29769,6 +31014,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteString(SenderIdentity);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -29788,6 +31037,9 @@ namespace LiveKit.Proto {
       size += destinationIdentities_.CalculateSize(_repeated_destinationIdentities_codec);
       if (HasSenderIdentity) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(SenderIdentity);
+      }
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -29813,6 +31065,9 @@ namespace LiveKit.Proto {
       destinationIdentities_.Add(other.destinationIdentities_);
       if (other.HasSenderIdentity) {
         SenderIdentity = other.SenderIdentity;
+      }
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -29846,6 +31101,10 @@ namespace LiveKit.Proto {
           }
           case 34: {
             SenderIdentity = input.ReadString();
+            break;
+          }
+          case 40: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -29882,6 +31141,10 @@ namespace LiveKit.Proto {
             SenderIdentity = input.ReadString();
             break;
           }
+          case 40: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     }
@@ -29904,7 +31167,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[93]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[94]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -29929,6 +31192,7 @@ namespace LiveKit.Proto {
       trailer_ = other.trailer_ != null ? other.trailer_.Clone() : null;
       destinationIdentities_ = other.destinationIdentities_.Clone();
       senderIdentity_ = other.senderIdentity_;
+      requestAsyncId_ = other.requestAsyncId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -30014,6 +31278,33 @@ namespace LiveKit.Proto {
       senderIdentity_ = null;
     }
 
+    /// <summary>Field number for the "request_async_id" field.</summary>
+    public const int RequestAsyncIdFieldNumber = 5;
+    private readonly static ulong RequestAsyncIdDefaultValue = 0UL;
+
+    private ulong requestAsyncId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong RequestAsyncId {
+      get { if ((_hasBits0 & 2) != 0) { return requestAsyncId_; } else { return RequestAsyncIdDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        requestAsyncId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "request_async_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequestAsyncId {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "request_async_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequestAsyncId() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -30033,6 +31324,7 @@ namespace LiveKit.Proto {
       if (!object.Equals(Trailer, other.Trailer)) return false;
       if(!destinationIdentities_.Equals(other.destinationIdentities_)) return false;
       if (SenderIdentity != other.SenderIdentity) return false;
+      if (RequestAsyncId != other.RequestAsyncId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -30044,6 +31336,7 @@ namespace LiveKit.Proto {
       if (trailer_ != null) hash ^= Trailer.GetHashCode();
       hash ^= destinationIdentities_.GetHashCode();
       if (HasSenderIdentity) hash ^= SenderIdentity.GetHashCode();
+      if (HasRequestAsyncId) hash ^= RequestAsyncId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -30075,6 +31368,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteString(SenderIdentity);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -30098,6 +31395,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(34);
         output.WriteString(SenderIdentity);
       }
+      if (HasRequestAsyncId) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(RequestAsyncId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -30117,6 +31418,9 @@ namespace LiveKit.Proto {
       size += destinationIdentities_.CalculateSize(_repeated_destinationIdentities_codec);
       if (HasSenderIdentity) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(SenderIdentity);
+      }
+      if (HasRequestAsyncId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestAsyncId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -30142,6 +31446,9 @@ namespace LiveKit.Proto {
       destinationIdentities_.Add(other.destinationIdentities_);
       if (other.HasSenderIdentity) {
         SenderIdentity = other.SenderIdentity;
+      }
+      if (other.HasRequestAsyncId) {
+        RequestAsyncId = other.RequestAsyncId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -30175,6 +31482,10 @@ namespace LiveKit.Proto {
           }
           case 34: {
             SenderIdentity = input.ReadString();
+            break;
+          }
+          case 40: {
+            RequestAsyncId = input.ReadUInt64();
             break;
           }
         }
@@ -30211,6 +31522,10 @@ namespace LiveKit.Proto {
             SenderIdentity = input.ReadString();
             break;
           }
+          case 40: {
+            RequestAsyncId = input.ReadUInt64();
+            break;
+          }
         }
       }
     }
@@ -30233,7 +31548,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[94]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[95]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -30439,7 +31754,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[95]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[96]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -30645,7 +31960,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[96]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[97]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -30851,7 +32166,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[97]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[98]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -31108,7 +32423,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[98]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[99]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -31365,7 +32680,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[99]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[100]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -31622,7 +32937,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[100]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[101]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -31931,7 +33246,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[101]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[102]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -32084,7 +33399,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[102]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[103]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -32341,7 +33656,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[103]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[104]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -32590,7 +33905,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[104]; }
+      get { return global::LiveKit.Proto.RoomReflection.Descriptor.MessageTypes[105]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
