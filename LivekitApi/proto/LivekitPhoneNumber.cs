@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Livekit {
+namespace Livekit.Server.Sdk.Dotnet {
 
   /// <summary>Holder for reflection information generated from livekit_phone_number.proto</summary>
   public static partial class LivekitPhoneNumberReflection {
@@ -26,86 +26,89 @@ namespace Livekit {
           string.Concat(
             "ChpsaXZla2l0X3Bob25lX251bWJlci5wcm90bxIHbGl2ZWtpdBofZ29vZ2xl",
             "L3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90bxoUbGl2ZWtpdF9tb2RlbHMucHJv",
-            "dG8itwEKGVNlYXJjaFBob25lTnVtYmVyc1JlcXVlc3QSFAoMY291bnRyeV9j",
-            "b2RlGAEgASgJEhYKCWFyZWFfY29kZRgCIAEoCUgAiAEBEhIKBWxpbWl0GAMg",
-            "ASgFSAGIAQESMQoKcGFnZV90b2tlbhgEIAEoCzIYLmxpdmVraXQuVG9rZW5Q",
-            "YWdpbmF0aW9uSAKIAQFCDAoKX2FyZWFfY29kZUIICgZfbGltaXRCDQoLX3Bh",
-            "Z2VfdG9rZW4idAoaU2VhcmNoUGhvbmVOdW1iZXJzUmVzcG9uc2USIwoFaXRl",
-            "bXMYASADKAsyFC5saXZla2l0LlBob25lTnVtYmVyEjEKD25leHRfcGFnZV90",
-            "b2tlbhgCIAEoCzIYLmxpdmVraXQuVG9rZW5QYWdpbmF0aW9uIm8KGlB1cmNo",
-            "YXNlUGhvbmVOdW1iZXJSZXF1ZXN0EhUKDXBob25lX251bWJlcnMYASADKAkS",
-            "IQoUc2lwX2Rpc3BhdGNoX3J1bGVfaWQYAiABKAlIAIgBAUIXChVfc2lwX2Rp",
-            "c3BhdGNoX3J1bGVfaWQiSgobUHVyY2hhc2VQaG9uZU51bWJlclJlc3BvbnNl",
-            "EisKDXBob25lX251bWJlcnMYASADKAsyFC5saXZla2l0LlBob25lTnVtYmVy",
-            "IuMBChdMaXN0UGhvbmVOdW1iZXJzUmVxdWVzdBISCgVsaW1pdBgBIAEoBUgA",
-            "iAEBEiwKCHN0YXR1c2VzGAIgAygOMhoubGl2ZWtpdC5QaG9uZU51bWJlclN0",
-            "YXR1cxIxCgpwYWdlX3Rva2VuGAMgASgLMhgubGl2ZWtpdC5Ub2tlblBhZ2lu",
-            "YXRpb25IAYgBARIhChRzaXBfZGlzcGF0Y2hfcnVsZV9pZBgEIAEoCUgCiAEB",
-            "QggKBl9saW1pdEINCgtfcGFnZV90b2tlbkIXChVfc2lwX2Rpc3BhdGNoX3J1",
-            "bGVfaWQingEKGExpc3RQaG9uZU51bWJlcnNSZXNwb25zZRIjCgVpdGVtcxgB",
-            "IAMoCzIULmxpdmVraXQuUGhvbmVOdW1iZXISMQoPbmV4dF9wYWdlX3Rva2Vu",
-            "GAIgASgLMhgubGl2ZWtpdC5Ub2tlblBhZ2luYXRpb24SEwoLdG90YWxfY291",
-            "bnQYAyABKAUSFQoNb2ZmbGluZV9jb3VudBgEIAEoBSJbChVHZXRQaG9uZU51",
-            "bWJlclJlcXVlc3QSDwoCaWQYASABKAlIAIgBARIZCgxwaG9uZV9udW1iZXIY",
-            "AiABKAlIAYgBAUIFCgNfaWRCDwoNX3Bob25lX251bWJlciJEChZHZXRQaG9u",
-            "ZU51bWJlclJlc3BvbnNlEioKDHBob25lX251bWJlchgBIAEoCzIULmxpdmVr",
-            "aXQuUGhvbmVOdW1iZXIimgEKGFVwZGF0ZVBob25lTnVtYmVyUmVxdWVzdBIP",
-            "CgJpZBgBIAEoCUgAiAEBEhkKDHBob25lX251bWJlchgCIAEoCUgBiAEBEiEK",
-            "FHNpcF9kaXNwYXRjaF9ydWxlX2lkGAMgASgJSAKIAQFCBQoDX2lkQg8KDV9w",
-            "aG9uZV9udW1iZXJCFwoVX3NpcF9kaXNwYXRjaF9ydWxlX2lkIkcKGVVwZGF0",
-            "ZVBob25lTnVtYmVyUmVzcG9uc2USKgoMcGhvbmVfbnVtYmVyGAEgASgLMhQu",
-            "bGl2ZWtpdC5QaG9uZU51bWJlciJAChpSZWxlYXNlUGhvbmVOdW1iZXJzUmVx",
-            "dWVzdBILCgNpZHMYASADKAkSFQoNcGhvbmVfbnVtYmVycxgCIAMoCSIdChtS",
-            "ZWxlYXNlUGhvbmVOdW1iZXJzUmVzcG9uc2UigQQKC1Bob25lTnVtYmVyEgoK",
-            "AmlkGAEgASgJEhMKC2UxNjRfZm9ybWF0GAIgASgJEhQKDGNvdW50cnlfY29k",
-            "ZRgDIAEoCRIRCglhcmVhX2NvZGUYBCABKAkSLQoLbnVtYmVyX3R5cGUYBSAB",
-            "KA4yGC5saXZla2l0LlBob25lTnVtYmVyVHlwZRIQCghsb2NhbGl0eRgGIAEo",
-            "CRIOCgZyZWdpb24YByABKAkSEgoKc3BhbV9zY29yZRgIIAEoARIuCgpjcmVh",
-            "dGVkX2F0GAkgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1",
-            "cGRhdGVkX2F0GAogASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIU",
-            "CgxjYXBhYmlsaXRpZXMYCyADKAkSKgoGc3RhdHVzGAwgASgOMhoubGl2ZWtp",
-            "dC5QaG9uZU51bWJlclN0YXR1cxIvCgthc3NpZ25lZF9hdBgNIAEoCzIaLmdv",
-            "b2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLwoLcmVsZWFzZWRfYXQYDiABKAsy",
-            "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEiAKFHNpcF9kaXNwYXRjaF9y",
-            "dWxlX2lkGA8gASgJQgIYARIdChVzaXBfZGlzcGF0Y2hfcnVsZV9pZHMYECAD",
-            "KAkqvAEKEVBob25lTnVtYmVyU3RhdHVzEiMKH1BIT05FX05VTUJFUl9TVEFU",
-            "VVNfVU5TUEVDSUZJRUQQABIeChpQSE9ORV9OVU1CRVJfU1RBVFVTX0FDVElW",
-            "RRABEh8KG1BIT05FX05VTUJFUl9TVEFUVVNfUEVORElORxACEiAKHFBIT05F",
-            "X05VTUJFUl9TVEFUVVNfUkVMRUFTRUQQAxIfChtQSE9ORV9OVU1CRVJfU1RB",
-            "VFVTX09GRkxJTkUQBCqMAQoPUGhvbmVOdW1iZXJUeXBlEh0KGVBIT05FX05V",
-            "TUJFUl9UWVBFX1VOS05PV04QABIcChhQSE9ORV9OVU1CRVJfVFlQRV9NT0JJ",
-            "TEUQARIbChdQSE9ORV9OVU1CRVJfVFlQRV9MT0NBTBACEh8KG1BIT05FX05V",
-            "TUJFUl9UWVBFX1RPTExfRlJFRRADMssEChJQaG9uZU51bWJlclNlcnZpY2US",
-            "XwoSU2VhcmNoUGhvbmVOdW1iZXJzEiIubGl2ZWtpdC5TZWFyY2hQaG9uZU51",
-            "bWJlcnNSZXF1ZXN0GiMubGl2ZWtpdC5TZWFyY2hQaG9uZU51bWJlcnNSZXNw",
-            "b25zZSIAEmIKE1B1cmNoYXNlUGhvbmVOdW1iZXISIy5saXZla2l0LlB1cmNo",
-            "YXNlUGhvbmVOdW1iZXJSZXF1ZXN0GiQubGl2ZWtpdC5QdXJjaGFzZVBob25l",
-            "TnVtYmVyUmVzcG9uc2UiABJZChBMaXN0UGhvbmVOdW1iZXJzEiAubGl2ZWtp",
-            "dC5MaXN0UGhvbmVOdW1iZXJzUmVxdWVzdBohLmxpdmVraXQuTGlzdFBob25l",
-            "TnVtYmVyc1Jlc3BvbnNlIgASUwoOR2V0UGhvbmVOdW1iZXISHi5saXZla2l0",
-            "LkdldFBob25lTnVtYmVyUmVxdWVzdBofLmxpdmVraXQuR2V0UGhvbmVOdW1i",
-            "ZXJSZXNwb25zZSIAElwKEVVwZGF0ZVBob25lTnVtYmVyEiEubGl2ZWtpdC5V",
-            "cGRhdGVQaG9uZU51bWJlclJlcXVlc3QaIi5saXZla2l0LlVwZGF0ZVBob25l",
-            "TnVtYmVyUmVzcG9uc2UiABJiChNSZWxlYXNlUGhvbmVOdW1iZXJzEiMubGl2",
-            "ZWtpdC5SZWxlYXNlUGhvbmVOdW1iZXJzUmVxdWVzdBokLmxpdmVraXQuUmVs",
-            "ZWFzZVBob25lTnVtYmVyc1Jlc3BvbnNlIgBCJVojZ2l0aHViLmNvbS9saXZl",
-            "a2l0L3Byb3RvY29sL2xpdmVraXRiBnByb3RvMw=="));
+            "dG8aFGxvZ2dlci9vcHRpb25zLnByb3RvIrcBChlTZWFyY2hQaG9uZU51bWJl",
+            "cnNSZXF1ZXN0EhQKDGNvdW50cnlfY29kZRgBIAEoCRIWCglhcmVhX2NvZGUY",
+            "AiABKAlIAIgBARISCgVsaW1pdBgDIAEoBUgBiAEBEjEKCnBhZ2VfdG9rZW4Y",
+            "BCABKAsyGC5saXZla2l0LlRva2VuUGFnaW5hdGlvbkgCiAEBQgwKCl9hcmVh",
+            "X2NvZGVCCAoGX2xpbWl0Qg0KC19wYWdlX3Rva2VuInQKGlNlYXJjaFBob25l",
+            "TnVtYmVyc1Jlc3BvbnNlEiMKBWl0ZW1zGAEgAygLMhQubGl2ZWtpdC5QaG9u",
+            "ZU51bWJlchIxCg9uZXh0X3BhZ2VfdG9rZW4YAiABKAsyGC5saXZla2l0LlRv",
+            "a2VuUGFnaW5hdGlvbiKGAQoaUHVyY2hhc2VQaG9uZU51bWJlclJlcXVlc3QS",
+            "FQoNcGhvbmVfbnVtYmVycxgBIAMoCRI4ChRzaXBfZGlzcGF0Y2hfcnVsZV9p",
+            "ZBgCIAEoCUIVmuwsEXNpcERpc3BhdGNoUnVsZUlESACIAQFCFwoVX3NpcF9k",
+            "aXNwYXRjaF9ydWxlX2lkIkoKG1B1cmNoYXNlUGhvbmVOdW1iZXJSZXNwb25z",
+            "ZRIrCg1waG9uZV9udW1iZXJzGAEgAygLMhQubGl2ZWtpdC5QaG9uZU51bWJl",
+            "ciL6AQoXTGlzdFBob25lTnVtYmVyc1JlcXVlc3QSEgoFbGltaXQYASABKAVI",
+            "AIgBARIsCghzdGF0dXNlcxgCIAMoDjIaLmxpdmVraXQuUGhvbmVOdW1iZXJT",
+            "dGF0dXMSMQoKcGFnZV90b2tlbhgDIAEoCzIYLmxpdmVraXQuVG9rZW5QYWdp",
+            "bmF0aW9uSAGIAQESOAoUc2lwX2Rpc3BhdGNoX3J1bGVfaWQYBCABKAlCFZrs",
+            "LBFzaXBEaXNwYXRjaFJ1bGVJREgCiAEBQggKBl9saW1pdEINCgtfcGFnZV90",
+            "b2tlbkIXChVfc2lwX2Rpc3BhdGNoX3J1bGVfaWQingEKGExpc3RQaG9uZU51",
+            "bWJlcnNSZXNwb25zZRIjCgVpdGVtcxgBIAMoCzIULmxpdmVraXQuUGhvbmVO",
+            "dW1iZXISMQoPbmV4dF9wYWdlX3Rva2VuGAIgASgLMhgubGl2ZWtpdC5Ub2tl",
+            "blBhZ2luYXRpb24SEwoLdG90YWxfY291bnQYAyABKAUSFQoNb2ZmbGluZV9j",
+            "b3VudBgEIAEoBSJbChVHZXRQaG9uZU51bWJlclJlcXVlc3QSDwoCaWQYASAB",
+            "KAlIAIgBARIZCgxwaG9uZV9udW1iZXIYAiABKAlIAYgBAUIFCgNfaWRCDwoN",
+            "X3Bob25lX251bWJlciJEChZHZXRQaG9uZU51bWJlclJlc3BvbnNlEioKDHBo",
+            "b25lX251bWJlchgBIAEoCzIULmxpdmVraXQuUGhvbmVOdW1iZXIisQEKGFVw",
+            "ZGF0ZVBob25lTnVtYmVyUmVxdWVzdBIPCgJpZBgBIAEoCUgAiAEBEhkKDHBo",
+            "b25lX251bWJlchgCIAEoCUgBiAEBEjgKFHNpcF9kaXNwYXRjaF9ydWxlX2lk",
+            "GAMgASgJQhWa7CwRc2lwRGlzcGF0Y2hSdWxlSURIAogBAUIFCgNfaWRCDwoN",
+            "X3Bob25lX251bWJlckIXChVfc2lwX2Rpc3BhdGNoX3J1bGVfaWQiRwoZVXBk",
+            "YXRlUGhvbmVOdW1iZXJSZXNwb25zZRIqCgxwaG9uZV9udW1iZXIYASABKAsy",
+            "FC5saXZla2l0LlBob25lTnVtYmVyIkAKGlJlbGVhc2VQaG9uZU51bWJlcnNS",
+            "ZXF1ZXN0EgsKA2lkcxgBIAMoCRIVCg1waG9uZV9udW1iZXJzGAIgAygJIh0K",
+            "G1JlbGVhc2VQaG9uZU51bWJlcnNSZXNwb25zZSKWBAoLUGhvbmVOdW1iZXIS",
+            "CgoCaWQYASABKAkSEwoLZTE2NF9mb3JtYXQYAiABKAkSFAoMY291bnRyeV9j",
+            "b2RlGAMgASgJEhEKCWFyZWFfY29kZRgEIAEoCRItCgtudW1iZXJfdHlwZRgF",
+            "IAEoDjIYLmxpdmVraXQuUGhvbmVOdW1iZXJUeXBlEhAKCGxvY2FsaXR5GAYg",
+            "ASgJEg4KBnJlZ2lvbhgHIAEoCRISCgpzcGFtX3Njb3JlGAggASgBEi4KCmNy",
+            "ZWF0ZWRfYXQYCSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4K",
+            "CnVwZGF0ZWRfYXQYCiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1w",
+            "EhQKDGNhcGFiaWxpdGllcxgLIAMoCRIqCgZzdGF0dXMYDCABKA4yGi5saXZl",
+            "a2l0LlBob25lTnVtYmVyU3RhdHVzEi8KC2Fzc2lnbmVkX2F0GA0gASgLMhou",
+            "Z29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIvCgtyZWxlYXNlZF9hdBgOIAEo",
+            "CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASNQoUc2lwX2Rpc3BhdGNo",
+            "X3J1bGVfaWQYDyABKAlCFxgBmuwsEXNpcERpc3BhdGNoUnVsZUlEEh0KFXNp",
+            "cF9kaXNwYXRjaF9ydWxlX2lkcxgQIAMoCSq8AQoRUGhvbmVOdW1iZXJTdGF0",
+            "dXMSIwofUEhPTkVfTlVNQkVSX1NUQVRVU19VTlNQRUNJRklFRBAAEh4KGlBI",
+            "T05FX05VTUJFUl9TVEFUVVNfQUNUSVZFEAESHwobUEhPTkVfTlVNQkVSX1NU",
+            "QVRVU19QRU5ESU5HEAISIAocUEhPTkVfTlVNQkVSX1NUQVRVU19SRUxFQVNF",
+            "RBADEh8KG1BIT05FX05VTUJFUl9TVEFUVVNfT0ZGTElORRAEKowBCg9QaG9u",
+            "ZU51bWJlclR5cGUSHQoZUEhPTkVfTlVNQkVSX1RZUEVfVU5LTk9XThAAEhwK",
+            "GFBIT05FX05VTUJFUl9UWVBFX01PQklMRRABEhsKF1BIT05FX05VTUJFUl9U",
+            "WVBFX0xPQ0FMEAISHwobUEhPTkVfTlVNQkVSX1RZUEVfVE9MTF9GUkVFEAMy",
+            "ywQKElBob25lTnVtYmVyU2VydmljZRJfChJTZWFyY2hQaG9uZU51bWJlcnMS",
+            "Ii5saXZla2l0LlNlYXJjaFBob25lTnVtYmVyc1JlcXVlc3QaIy5saXZla2l0",
+            "LlNlYXJjaFBob25lTnVtYmVyc1Jlc3BvbnNlIgASYgoTUHVyY2hhc2VQaG9u",
+            "ZU51bWJlchIjLmxpdmVraXQuUHVyY2hhc2VQaG9uZU51bWJlclJlcXVlc3Qa",
+            "JC5saXZla2l0LlB1cmNoYXNlUGhvbmVOdW1iZXJSZXNwb25zZSIAElkKEExp",
+            "c3RQaG9uZU51bWJlcnMSIC5saXZla2l0Lkxpc3RQaG9uZU51bWJlcnNSZXF1",
+            "ZXN0GiEubGl2ZWtpdC5MaXN0UGhvbmVOdW1iZXJzUmVzcG9uc2UiABJTCg5H",
+            "ZXRQaG9uZU51bWJlchIeLmxpdmVraXQuR2V0UGhvbmVOdW1iZXJSZXF1ZXN0",
+            "Gh8ubGl2ZWtpdC5HZXRQaG9uZU51bWJlclJlc3BvbnNlIgASXAoRVXBkYXRl",
+            "UGhvbmVOdW1iZXISIS5saXZla2l0LlVwZGF0ZVBob25lTnVtYmVyUmVxdWVz",
+            "dBoiLmxpdmVraXQuVXBkYXRlUGhvbmVOdW1iZXJSZXNwb25zZSIAEmIKE1Jl",
+            "bGVhc2VQaG9uZU51bWJlcnMSIy5saXZla2l0LlJlbGVhc2VQaG9uZU51bWJl",
+            "cnNSZXF1ZXN0GiQubGl2ZWtpdC5SZWxlYXNlUGhvbmVOdW1iZXJzUmVzcG9u",
+            "c2UiAEJGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdKoC",
+            "DUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.PhoneNumberStatus), typeof(global::Livekit.PhoneNumberType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.SearchPhoneNumbersRequest), global::Livekit.SearchPhoneNumbersRequest.Parser, new[]{ "CountryCode", "AreaCode", "Limit", "PageToken" }, new[]{ "AreaCode", "Limit", "PageToken" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.SearchPhoneNumbersResponse), global::Livekit.SearchPhoneNumbersResponse.Parser, new[]{ "Items", "NextPageToken" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.PurchasePhoneNumberRequest), global::Livekit.PurchasePhoneNumberRequest.Parser, new[]{ "PhoneNumbers", "SipDispatchRuleId" }, new[]{ "SipDispatchRuleId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.PurchasePhoneNumberResponse), global::Livekit.PurchasePhoneNumberResponse.Parser, new[]{ "PhoneNumbers" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.ListPhoneNumbersRequest), global::Livekit.ListPhoneNumbersRequest.Parser, new[]{ "Limit", "Statuses", "PageToken", "SipDispatchRuleId" }, new[]{ "Limit", "PageToken", "SipDispatchRuleId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.ListPhoneNumbersResponse), global::Livekit.ListPhoneNumbersResponse.Parser, new[]{ "Items", "NextPageToken", "TotalCount", "OfflineCount" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.GetPhoneNumberRequest), global::Livekit.GetPhoneNumberRequest.Parser, new[]{ "Id", "PhoneNumber" }, new[]{ "Id", "PhoneNumber" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.GetPhoneNumberResponse), global::Livekit.GetPhoneNumberResponse.Parser, new[]{ "PhoneNumber" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.UpdatePhoneNumberRequest), global::Livekit.UpdatePhoneNumberRequest.Parser, new[]{ "Id", "PhoneNumber", "SipDispatchRuleId" }, new[]{ "Id", "PhoneNumber", "SipDispatchRuleId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.UpdatePhoneNumberResponse), global::Livekit.UpdatePhoneNumberResponse.Parser, new[]{ "PhoneNumber" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.ReleasePhoneNumbersRequest), global::Livekit.ReleasePhoneNumbersRequest.Parser, new[]{ "Ids", "PhoneNumbers" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.ReleasePhoneNumbersResponse), global::Livekit.ReleasePhoneNumbersResponse.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.PhoneNumber), global::Livekit.PhoneNumber.Parser, new[]{ "Id", "E164Format", "CountryCode", "AreaCode", "NumberType", "Locality", "Region", "SpamScore", "CreatedAt", "UpdatedAt", "Capabilities", "Status", "AssignedAt", "ReleasedAt", "SipDispatchRuleId", "SipDispatchRuleIds" }, null, null, null, null)
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.OptionsReflection.Descriptor, },
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus), typeof(global::Livekit.Server.Sdk.Dotnet.PhoneNumberType), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SearchPhoneNumbersRequest), global::Livekit.Server.Sdk.Dotnet.SearchPhoneNumbersRequest.Parser, new[]{ "CountryCode", "AreaCode", "Limit", "PageToken" }, new[]{ "AreaCode", "Limit", "PageToken" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SearchPhoneNumbersResponse), global::Livekit.Server.Sdk.Dotnet.SearchPhoneNumbersResponse.Parser, new[]{ "Items", "NextPageToken" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.PurchasePhoneNumberRequest), global::Livekit.Server.Sdk.Dotnet.PurchasePhoneNumberRequest.Parser, new[]{ "PhoneNumbers", "SipDispatchRuleId" }, new[]{ "SipDispatchRuleId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.PurchasePhoneNumberResponse), global::Livekit.Server.Sdk.Dotnet.PurchasePhoneNumberResponse.Parser, new[]{ "PhoneNumbers" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListPhoneNumbersRequest), global::Livekit.Server.Sdk.Dotnet.ListPhoneNumbersRequest.Parser, new[]{ "Limit", "Statuses", "PageToken", "SipDispatchRuleId" }, new[]{ "Limit", "PageToken", "SipDispatchRuleId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListPhoneNumbersResponse), global::Livekit.Server.Sdk.Dotnet.ListPhoneNumbersResponse.Parser, new[]{ "Items", "NextPageToken", "TotalCount", "OfflineCount" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.GetPhoneNumberRequest), global::Livekit.Server.Sdk.Dotnet.GetPhoneNumberRequest.Parser, new[]{ "Id", "PhoneNumber" }, new[]{ "Id", "PhoneNumber" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.GetPhoneNumberResponse), global::Livekit.Server.Sdk.Dotnet.GetPhoneNumberResponse.Parser, new[]{ "PhoneNumber" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdatePhoneNumberRequest), global::Livekit.Server.Sdk.Dotnet.UpdatePhoneNumberRequest.Parser, new[]{ "Id", "PhoneNumber", "SipDispatchRuleId" }, new[]{ "Id", "PhoneNumber", "SipDispatchRuleId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdatePhoneNumberResponse), global::Livekit.Server.Sdk.Dotnet.UpdatePhoneNumberResponse.Parser, new[]{ "PhoneNumber" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ReleasePhoneNumbersRequest), global::Livekit.Server.Sdk.Dotnet.ReleasePhoneNumbersRequest.Parser, new[]{ "Ids", "PhoneNumbers" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ReleasePhoneNumbersResponse), global::Livekit.Server.Sdk.Dotnet.ReleasePhoneNumbersResponse.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.PhoneNumber), global::Livekit.Server.Sdk.Dotnet.PhoneNumber.Parser, new[]{ "Id", "E164Format", "CountryCode", "AreaCode", "NumberType", "Locality", "Region", "SpamScore", "CreatedAt", "UpdatedAt", "Capabilities", "Status", "AssignedAt", "ReleasedAt", "SipDispatchRuleId", "SipDispatchRuleIds" }, null, null, null, null)
           }));
     }
     #endregion
@@ -181,7 +184,7 @@ namespace Livekit {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.LivekitPhoneNumberReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitPhoneNumberReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -531,7 +534,7 @@ namespace Livekit {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.LivekitPhoneNumberReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitPhoneNumberReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -564,15 +567,15 @@ namespace Livekit {
 
     /// <summary>Field number for the "items" field.</summary>
     public const int ItemsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Livekit.PhoneNumber> _repeated_items_codec
-        = pb::FieldCodec.ForMessage(10, global::Livekit.PhoneNumber.Parser);
-    private readonly pbc::RepeatedField<global::Livekit.PhoneNumber> items_ = new pbc::RepeatedField<global::Livekit.PhoneNumber>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.PhoneNumber> _repeated_items_codec
+        = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.PhoneNumber.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.PhoneNumber> items_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.PhoneNumber>();
     /// <summary>
     /// List of available phone numbers
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::Livekit.PhoneNumber> Items {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.PhoneNumber> Items {
       get { return items_; }
     }
 
@@ -764,7 +767,7 @@ namespace Livekit {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.LivekitPhoneNumberReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitPhoneNumberReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1000,7 +1003,7 @@ namespace Livekit {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.LivekitPhoneNumberReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitPhoneNumberReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1032,15 +1035,15 @@ namespace Livekit {
 
     /// <summary>Field number for the "phone_numbers" field.</summary>
     public const int PhoneNumbersFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Livekit.PhoneNumber> _repeated_phoneNumbers_codec
-        = pb::FieldCodec.ForMessage(10, global::Livekit.PhoneNumber.Parser);
-    private readonly pbc::RepeatedField<global::Livekit.PhoneNumber> phoneNumbers_ = new pbc::RepeatedField<global::Livekit.PhoneNumber>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.PhoneNumber> _repeated_phoneNumbers_codec
+        = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.PhoneNumber.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.PhoneNumber> phoneNumbers_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.PhoneNumber>();
     /// <summary>
     /// Details of the purchased phone numbers
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::Livekit.PhoneNumber> PhoneNumbers {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.PhoneNumber> PhoneNumbers {
       get { return phoneNumbers_; }
     }
 
@@ -1185,7 +1188,7 @@ namespace Livekit {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.LivekitPhoneNumberReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitPhoneNumberReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1249,15 +1252,15 @@ namespace Livekit {
 
     /// <summary>Field number for the "statuses" field.</summary>
     public const int StatusesFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::Livekit.PhoneNumberStatus> _repeated_statuses_codec
-        = pb::FieldCodec.ForEnum(18, x => (int) x, x => (global::Livekit.PhoneNumberStatus) x);
-    private readonly pbc::RepeatedField<global::Livekit.PhoneNumberStatus> statuses_ = new pbc::RepeatedField<global::Livekit.PhoneNumberStatus>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus> _repeated_statuses_codec
+        = pb::FieldCodec.ForEnum(18, x => (int) x, x => (global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus) x);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus> statuses_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus>();
     /// <summary>
     /// Filter by statuses (active, pending, released)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::Livekit.PhoneNumberStatus> Statuses {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus> Statuses {
       get { return statuses_; }
     }
 
@@ -1526,7 +1529,7 @@ namespace Livekit {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.LivekitPhoneNumberReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitPhoneNumberReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1561,15 +1564,15 @@ namespace Livekit {
 
     /// <summary>Field number for the "items" field.</summary>
     public const int ItemsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::Livekit.PhoneNumber> _repeated_items_codec
-        = pb::FieldCodec.ForMessage(10, global::Livekit.PhoneNumber.Parser);
-    private readonly pbc::RepeatedField<global::Livekit.PhoneNumber> items_ = new pbc::RepeatedField<global::Livekit.PhoneNumber>();
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.PhoneNumber> _repeated_items_codec
+        = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.PhoneNumber.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.PhoneNumber> items_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.PhoneNumber>();
     /// <summary>
     /// List of phone numbers
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::Livekit.PhoneNumber> Items {
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.PhoneNumber> Items {
       get { return items_; }
     }
 
@@ -1839,7 +1842,7 @@ namespace Livekit {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.LivekitPhoneNumberReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitPhoneNumberReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2098,7 +2101,7 @@ namespace Livekit {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.LivekitPhoneNumberReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitPhoneNumberReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2130,13 +2133,13 @@ namespace Livekit {
 
     /// <summary>Field number for the "phone_number" field.</summary>
     public const int PhoneNumberFieldNumber = 1;
-    private global::Livekit.PhoneNumber phoneNumber_;
+    private global::Livekit.Server.Sdk.Dotnet.PhoneNumber phoneNumber_;
     /// <summary>
     /// The phone number details
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Livekit.PhoneNumber PhoneNumber {
+    public global::Livekit.Server.Sdk.Dotnet.PhoneNumber PhoneNumber {
       get { return phoneNumber_; }
       set {
         phoneNumber_ = value;
@@ -2230,7 +2233,7 @@ namespace Livekit {
       }
       if (other.phoneNumber_ != null) {
         if (phoneNumber_ == null) {
-          PhoneNumber = new global::Livekit.PhoneNumber();
+          PhoneNumber = new global::Livekit.Server.Sdk.Dotnet.PhoneNumber();
         }
         PhoneNumber.MergeFrom(other.PhoneNumber);
       }
@@ -2251,7 +2254,7 @@ namespace Livekit {
             break;
           case 10: {
             if (phoneNumber_ == null) {
-              PhoneNumber = new global::Livekit.PhoneNumber();
+              PhoneNumber = new global::Livekit.Server.Sdk.Dotnet.PhoneNumber();
             }
             input.ReadMessage(PhoneNumber);
             break;
@@ -2273,7 +2276,7 @@ namespace Livekit {
             break;
           case 10: {
             if (phoneNumber_ == null) {
-              PhoneNumber = new global::Livekit.PhoneNumber();
+              PhoneNumber = new global::Livekit.Server.Sdk.Dotnet.PhoneNumber();
             }
             input.ReadMessage(PhoneNumber);
             break;
@@ -2302,7 +2305,7 @@ namespace Livekit {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.LivekitPhoneNumberReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitPhoneNumberReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2613,7 +2616,7 @@ namespace Livekit {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.LivekitPhoneNumberReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitPhoneNumberReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2645,13 +2648,13 @@ namespace Livekit {
 
     /// <summary>Field number for the "phone_number" field.</summary>
     public const int PhoneNumberFieldNumber = 1;
-    private global::Livekit.PhoneNumber phoneNumber_;
+    private global::Livekit.Server.Sdk.Dotnet.PhoneNumber phoneNumber_;
     /// <summary>
     /// The updated phone number details
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Livekit.PhoneNumber PhoneNumber {
+    public global::Livekit.Server.Sdk.Dotnet.PhoneNumber PhoneNumber {
       get { return phoneNumber_; }
       set {
         phoneNumber_ = value;
@@ -2745,7 +2748,7 @@ namespace Livekit {
       }
       if (other.phoneNumber_ != null) {
         if (phoneNumber_ == null) {
-          PhoneNumber = new global::Livekit.PhoneNumber();
+          PhoneNumber = new global::Livekit.Server.Sdk.Dotnet.PhoneNumber();
         }
         PhoneNumber.MergeFrom(other.PhoneNumber);
       }
@@ -2766,7 +2769,7 @@ namespace Livekit {
             break;
           case 10: {
             if (phoneNumber_ == null) {
-              PhoneNumber = new global::Livekit.PhoneNumber();
+              PhoneNumber = new global::Livekit.Server.Sdk.Dotnet.PhoneNumber();
             }
             input.ReadMessage(PhoneNumber);
             break;
@@ -2788,7 +2791,7 @@ namespace Livekit {
             break;
           case 10: {
             if (phoneNumber_ == null) {
-              PhoneNumber = new global::Livekit.PhoneNumber();
+              PhoneNumber = new global::Livekit.Server.Sdk.Dotnet.PhoneNumber();
             }
             input.ReadMessage(PhoneNumber);
             break;
@@ -2817,7 +2820,7 @@ namespace Livekit {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.LivekitPhoneNumberReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitPhoneNumberReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3030,7 +3033,7 @@ namespace Livekit {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.LivekitPhoneNumberReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitPhoneNumberReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3185,7 +3188,7 @@ namespace Livekit {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.LivekitPhoneNumberReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitPhoneNumberReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3292,13 +3295,13 @@ namespace Livekit {
 
     /// <summary>Field number for the "number_type" field.</summary>
     public const int NumberTypeFieldNumber = 5;
-    private global::Livekit.PhoneNumberType numberType_ = global::Livekit.PhoneNumberType.Unknown;
+    private global::Livekit.Server.Sdk.Dotnet.PhoneNumberType numberType_ = global::Livekit.Server.Sdk.Dotnet.PhoneNumberType.Unknown;
     /// <summary>
     /// Number type (mobile, local, toll-free, unknown)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Livekit.PhoneNumberType NumberType {
+    public global::Livekit.Server.Sdk.Dotnet.PhoneNumberType NumberType {
       get { return numberType_; }
       set {
         numberType_ = value;
@@ -3396,13 +3399,13 @@ namespace Livekit {
 
     /// <summary>Field number for the "status" field.</summary>
     public const int StatusFieldNumber = 12;
-    private global::Livekit.PhoneNumberStatus status_ = global::Livekit.PhoneNumberStatus.Unspecified;
+    private global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus status_ = global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus.Unspecified;
     /// <summary>
     /// Current status
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Livekit.PhoneNumberStatus Status {
+    public global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus Status {
       get { return status_; }
       set {
         status_ = value;
@@ -3511,14 +3514,14 @@ namespace Livekit {
       if (E164Format.Length != 0) hash ^= E164Format.GetHashCode();
       if (CountryCode.Length != 0) hash ^= CountryCode.GetHashCode();
       if (AreaCode.Length != 0) hash ^= AreaCode.GetHashCode();
-      if (NumberType != global::Livekit.PhoneNumberType.Unknown) hash ^= NumberType.GetHashCode();
+      if (NumberType != global::Livekit.Server.Sdk.Dotnet.PhoneNumberType.Unknown) hash ^= NumberType.GetHashCode();
       if (Locality.Length != 0) hash ^= Locality.GetHashCode();
       if (Region.Length != 0) hash ^= Region.GetHashCode();
       if (SpamScore != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(SpamScore);
       if (createdAt_ != null) hash ^= CreatedAt.GetHashCode();
       if (updatedAt_ != null) hash ^= UpdatedAt.GetHashCode();
       hash ^= capabilities_.GetHashCode();
-      if (Status != global::Livekit.PhoneNumberStatus.Unspecified) hash ^= Status.GetHashCode();
+      if (Status != global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus.Unspecified) hash ^= Status.GetHashCode();
       if (assignedAt_ != null) hash ^= AssignedAt.GetHashCode();
       if (releasedAt_ != null) hash ^= ReleasedAt.GetHashCode();
       if (SipDispatchRuleId.Length != 0) hash ^= SipDispatchRuleId.GetHashCode();
@@ -3557,7 +3560,7 @@ namespace Livekit {
         output.WriteRawTag(34);
         output.WriteString(AreaCode);
       }
-      if (NumberType != global::Livekit.PhoneNumberType.Unknown) {
+      if (NumberType != global::Livekit.Server.Sdk.Dotnet.PhoneNumberType.Unknown) {
         output.WriteRawTag(40);
         output.WriteEnum((int) NumberType);
       }
@@ -3582,7 +3585,7 @@ namespace Livekit {
         output.WriteMessage(UpdatedAt);
       }
       capabilities_.WriteTo(output, _repeated_capabilities_codec);
-      if (Status != global::Livekit.PhoneNumberStatus.Unspecified) {
+      if (Status != global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus.Unspecified) {
         output.WriteRawTag(96);
         output.WriteEnum((int) Status);
       }
@@ -3625,7 +3628,7 @@ namespace Livekit {
         output.WriteRawTag(34);
         output.WriteString(AreaCode);
       }
-      if (NumberType != global::Livekit.PhoneNumberType.Unknown) {
+      if (NumberType != global::Livekit.Server.Sdk.Dotnet.PhoneNumberType.Unknown) {
         output.WriteRawTag(40);
         output.WriteEnum((int) NumberType);
       }
@@ -3650,7 +3653,7 @@ namespace Livekit {
         output.WriteMessage(UpdatedAt);
       }
       capabilities_.WriteTo(ref output, _repeated_capabilities_codec);
-      if (Status != global::Livekit.PhoneNumberStatus.Unspecified) {
+      if (Status != global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus.Unspecified) {
         output.WriteRawTag(96);
         output.WriteEnum((int) Status);
       }
@@ -3689,7 +3692,7 @@ namespace Livekit {
       if (AreaCode.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(AreaCode);
       }
-      if (NumberType != global::Livekit.PhoneNumberType.Unknown) {
+      if (NumberType != global::Livekit.Server.Sdk.Dotnet.PhoneNumberType.Unknown) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) NumberType);
       }
       if (Locality.Length != 0) {
@@ -3708,7 +3711,7 @@ namespace Livekit {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(UpdatedAt);
       }
       size += capabilities_.CalculateSize(_repeated_capabilities_codec);
-      if (Status != global::Livekit.PhoneNumberStatus.Unspecified) {
+      if (Status != global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus.Unspecified) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
       }
       if (assignedAt_ != null) {
@@ -3745,7 +3748,7 @@ namespace Livekit {
       if (other.AreaCode.Length != 0) {
         AreaCode = other.AreaCode;
       }
-      if (other.NumberType != global::Livekit.PhoneNumberType.Unknown) {
+      if (other.NumberType != global::Livekit.Server.Sdk.Dotnet.PhoneNumberType.Unknown) {
         NumberType = other.NumberType;
       }
       if (other.Locality.Length != 0) {
@@ -3770,7 +3773,7 @@ namespace Livekit {
         UpdatedAt.MergeFrom(other.UpdatedAt);
       }
       capabilities_.Add(other.capabilities_);
-      if (other.Status != global::Livekit.PhoneNumberStatus.Unspecified) {
+      if (other.Status != global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus.Unspecified) {
         Status = other.Status;
       }
       if (other.assignedAt_ != null) {
@@ -3821,7 +3824,7 @@ namespace Livekit {
             break;
           }
           case 40: {
-            NumberType = (global::Livekit.PhoneNumberType) input.ReadEnum();
+            NumberType = (global::Livekit.Server.Sdk.Dotnet.PhoneNumberType) input.ReadEnum();
             break;
           }
           case 50: {
@@ -3855,7 +3858,7 @@ namespace Livekit {
             break;
           }
           case 96: {
-            Status = (global::Livekit.PhoneNumberStatus) input.ReadEnum();
+            Status = (global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus) input.ReadEnum();
             break;
           }
           case 106: {
@@ -3912,7 +3915,7 @@ namespace Livekit {
             break;
           }
           case 40: {
-            NumberType = (global::Livekit.PhoneNumberType) input.ReadEnum();
+            NumberType = (global::Livekit.Server.Sdk.Dotnet.PhoneNumberType) input.ReadEnum();
             break;
           }
           case 50: {
@@ -3946,7 +3949,7 @@ namespace Livekit {
             break;
           }
           case 96: {
-            Status = (global::Livekit.PhoneNumberStatus) input.ReadEnum();
+            Status = (global::Livekit.Server.Sdk.Dotnet.PhoneNumberStatus) input.ReadEnum();
             break;
           }
           case 106: {

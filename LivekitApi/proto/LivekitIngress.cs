@@ -50,69 +50,73 @@ namespace Livekit.Server.Sdk.Dotnet {
             "AiABKA0SEwoLZGlzYWJsZV9kdHgYAyABKAgSEAoIY2hhbm5lbHMYBCABKA0i",
             "gAEKG0luZ3Jlc3NWaWRlb0VuY29kaW5nT3B0aW9ucxIoCgt2aWRlb19jb2Rl",
             "YxgBIAEoDjITLmxpdmVraXQuVmlkZW9Db2RlYxISCgpmcmFtZV9yYXRlGAIg",
-            "ASgBEiMKBmxheWVycxgDIAMoCzITLmxpdmVraXQuVmlkZW9MYXllciKeBAoL",
-            "SW5ncmVzc0luZm8SEgoKaW5ncmVzc19pZBgBIAEoCRIMCgRuYW1lGAIgASgJ",
-            "EhIKCnN0cmVhbV9rZXkYAyABKAkSCwoDdXJsGAQgASgJEikKCmlucHV0X3R5",
-            "cGUYBSABKA4yFS5saXZla2l0LkluZ3Jlc3NJbnB1dBIeChJieXBhc3NfdHJh",
-            "bnNjb2RpbmcYDSABKAhCAhgBEh8KEmVuYWJsZV90cmFuc2NvZGluZxgPIAEo",
-            "CEgAiAEBEisKBWF1ZGlvGAYgASgLMhwubGl2ZWtpdC5JbmdyZXNzQXVkaW9P",
-            "cHRpb25zEisKBXZpZGVvGAcgASgLMhwubGl2ZWtpdC5JbmdyZXNzVmlkZW9P",
-            "cHRpb25zEhEKCXJvb21fbmFtZRgIIAEoCRIcChRwYXJ0aWNpcGFudF9pZGVu",
-            "dGl0eRgJIAEoCRIeChBwYXJ0aWNpcGFudF9uYW1lGAogASgJQgSI7CwBEkQK",
-            "FHBhcnRpY2lwYW50X21ldGFkYXRhGA4gASgJQiaI7CwBkuwsHjxyZWRhY3Rl",
-            "ZCAoe3sgLlNpemUgfX0gYnl0ZXMpPhIQCghyZXVzYWJsZRgLIAEoCBIkCgVz",
-            "dGF0ZRgMIAEoCzIVLmxpdmVraXQuSW5ncmVzc1N0YXRlEhQKB2VuYWJsZWQY",
-            "ECABKAhIAYgBAUIVChNfZW5hYmxlX3RyYW5zY29kaW5nQgoKCF9lbmFibGVk",
-            "Ip4DCgxJbmdyZXNzU3RhdGUSLAoGc3RhdHVzGAEgASgOMhwubGl2ZWtpdC5J",
-            "bmdyZXNzU3RhdGUuU3RhdHVzEg0KBWVycm9yGAIgASgJEicKBXZpZGVvGAMg",
-            "ASgLMhgubGl2ZWtpdC5JbnB1dFZpZGVvU3RhdGUSJwoFYXVkaW8YBCABKAsy",
-            "GC5saXZla2l0LklucHV0QXVkaW9TdGF0ZRIPCgdyb29tX2lkGAUgASgJEhIK",
-            "CnN0YXJ0ZWRfYXQYByABKAMSEAoIZW5kZWRfYXQYCCABKAMSEgoKdXBkYXRl",
-            "ZF9hdBgKIAEoAxITCgtyZXNvdXJjZV9pZBgJIAEoCRIiCgZ0cmFja3MYBiAD",
-            "KAsyEi5saXZla2l0LlRyYWNrSW5mbyJ7CgZTdGF0dXMSFQoRRU5EUE9JTlRf",
-            "SU5BQ1RJVkUQABIWChJFTkRQT0lOVF9CVUZGRVJJTkcQARIXChNFTkRQT0lO",
-            "VF9QVUJMSVNISU5HEAISEgoORU5EUE9JTlRfRVJST1IQAxIVChFFTkRQT0lO",
-            "VF9DT01QTEVURRAEIm8KD0lucHV0VmlkZW9TdGF0ZRIRCgltaW1lX3R5cGUY",
-            "ASABKAkSFwoPYXZlcmFnZV9iaXRyYXRlGAIgASgNEg0KBXdpZHRoGAMgASgN",
-            "Eg4KBmhlaWdodBgEIAEoDRIRCglmcmFtZXJhdGUYBSABKAEiZAoPSW5wdXRB",
-            "dWRpb1N0YXRlEhEKCW1pbWVfdHlwZRgBIAEoCRIXCg9hdmVyYWdlX2JpdHJh",
-            "dGUYAiABKA0SEAoIY2hhbm5lbHMYAyABKA0SEwoLc2FtcGxlX3JhdGUYBCAB",
-            "KA0ivwMKFFVwZGF0ZUluZ3Jlc3NSZXF1ZXN0EhIKCmluZ3Jlc3NfaWQYASAB",
-            "KAkSDAoEbmFtZRgCIAEoCRIRCglyb29tX25hbWUYAyABKAkSHAoUcGFydGlj",
-            "aXBhbnRfaWRlbnRpdHkYBCABKAkSHgoQcGFydGljaXBhbnRfbmFtZRgFIAEo",
-            "CUIEiOwsARJEChRwYXJ0aWNpcGFudF9tZXRhZGF0YRgJIAEoCUImiOwsAZLs",
-            "LB48cmVkYWN0ZWQgKHt7IC5TaXplIH19IGJ5dGVzKT4SIwoSYnlwYXNzX3Ry",
-            "YW5zY29kaW5nGAggASgIQgIYAUgAiAEBEh8KEmVuYWJsZV90cmFuc2NvZGlu",
-            "ZxgKIAEoCEgBiAEBEisKBWF1ZGlvGAYgASgLMhwubGl2ZWtpdC5JbmdyZXNz",
-            "QXVkaW9PcHRpb25zEisKBXZpZGVvGAcgASgLMhwubGl2ZWtpdC5JbmdyZXNz",
-            "VmlkZW9PcHRpb25zEhQKB2VuYWJsZWQYCyABKAhIAogBAUIVChNfYnlwYXNz",
-            "X3RyYW5zY29kaW5nQhUKE19lbmFibGVfdHJhbnNjb2RpbmdCCgoIX2VuYWJs",
-            "ZWQiOwoSTGlzdEluZ3Jlc3NSZXF1ZXN0EhEKCXJvb21fbmFtZRgBIAEoCRIS",
-            "CgppbmdyZXNzX2lkGAIgASgJIjoKE0xpc3RJbmdyZXNzUmVzcG9uc2USIwoF",
-            "aXRlbXMYASADKAsyFC5saXZla2l0LkluZ3Jlc3NJbmZvIioKFERlbGV0ZUlu",
-            "Z3Jlc3NSZXF1ZXN0EhIKCmluZ3Jlc3NfaWQYASABKAkqPQoMSW5ncmVzc0lu",
-            "cHV0Eg4KClJUTVBfSU5QVVQQABIOCgpXSElQX0lOUFVUEAESDQoJVVJMX0lO",
-            "UFVUEAIqSQoaSW5ncmVzc0F1ZGlvRW5jb2RpbmdQcmVzZXQSFgoST1BVU19T",
-            "VEVSRU9fOTZLQlBTEAASEwoPT1BVU19NT05PXzY0S0JTEAEqhAMKGkluZ3Jl",
-            "c3NWaWRlb0VuY29kaW5nUHJlc2V0EhwKGEgyNjRfNzIwUF8zMEZQU18zX0xB",
-            "WUVSUxAAEh0KGUgyNjRfMTA4MFBfMzBGUFNfM19MQVlFUlMQARIcChhIMjY0",
-            "XzU0MFBfMjVGUFNfMl9MQVlFUlMQAhIbChdIMjY0XzcyMFBfMzBGUFNfMV9M",
-            "QVlFUhADEhwKGEgyNjRfMTA4MFBfMzBGUFNfMV9MQVlFUhAEEigKJEgyNjRf",
-            "NzIwUF8zMEZQU18zX0xBWUVSU19ISUdIX01PVElPThAFEikKJUgyNjRfMTA4",
-            "MFBfMzBGUFNfM19MQVlFUlNfSElHSF9NT1RJT04QBhIoCiRIMjY0XzU0MFBf",
-            "MjVGUFNfMl9MQVlFUlNfSElHSF9NT1RJT04QBxInCiNIMjY0XzcyMFBfMzBG",
-            "UFNfMV9MQVlFUl9ISUdIX01PVElPThAIEigKJEgyNjRfMTA4MFBfMzBGUFNf",
-            "MV9MQVlFUl9ISUdIX01PVElPThAJMqUCCgdJbmdyZXNzEkQKDUNyZWF0ZUlu",
-            "Z3Jlc3MSHS5saXZla2l0LkNyZWF0ZUluZ3Jlc3NSZXF1ZXN0GhQubGl2ZWtp",
-            "dC5JbmdyZXNzSW5mbxJECg1VcGRhdGVJbmdyZXNzEh0ubGl2ZWtpdC5VcGRh",
-            "dGVJbmdyZXNzUmVxdWVzdBoULmxpdmVraXQuSW5ncmVzc0luZm8SSAoLTGlz",
-            "dEluZ3Jlc3MSGy5saXZla2l0Lkxpc3RJbmdyZXNzUmVxdWVzdBocLmxpdmVr",
-            "aXQuTGlzdEluZ3Jlc3NSZXNwb25zZRJECg1EZWxldGVJbmdyZXNzEh0ubGl2",
-            "ZWtpdC5EZWxldGVJbmdyZXNzUmVxdWVzdBoULmxpdmVraXQuSW5ncmVzc0lu",
-            "Zm9CRlojZ2l0aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1M",
-            "aXZlS2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
+            "ASgBEiMKBmxheWVycxgDIAMoCzITLmxpdmVraXQuVmlkZW9MYXllciKtBAoL",
+            "SW5ncmVzc0luZm8SIQoKaW5ncmVzc19pZBgBIAEoCUINmuwsCWluZ3Jlc3NJ",
+            "RBIMCgRuYW1lGAIgASgJEhIKCnN0cmVhbV9rZXkYAyABKAkSCwoDdXJsGAQg",
+            "ASgJEikKCmlucHV0X3R5cGUYBSABKA4yFS5saXZla2l0LkluZ3Jlc3NJbnB1",
+            "dBIeChJieXBhc3NfdHJhbnNjb2RpbmcYDSABKAhCAhgBEh8KEmVuYWJsZV90",
+            "cmFuc2NvZGluZxgPIAEoCEgAiAEBEisKBWF1ZGlvGAYgASgLMhwubGl2ZWtp",
+            "dC5JbmdyZXNzQXVkaW9PcHRpb25zEisKBXZpZGVvGAcgASgLMhwubGl2ZWtp",
+            "dC5JbmdyZXNzVmlkZW9PcHRpb25zEhEKCXJvb21fbmFtZRgIIAEoCRIcChRw",
+            "YXJ0aWNpcGFudF9pZGVudGl0eRgJIAEoCRIeChBwYXJ0aWNpcGFudF9uYW1l",
+            "GAogASgJQgSI7CwBEkQKFHBhcnRpY2lwYW50X21ldGFkYXRhGA4gASgJQiaI",
+            "7CwBkuwsHjxyZWRhY3RlZCAoe3sgLlNpemUgfX0gYnl0ZXMpPhIQCghyZXVz",
+            "YWJsZRgLIAEoCBIkCgVzdGF0ZRgMIAEoCzIVLmxpdmVraXQuSW5ncmVzc1N0",
+            "YXRlEhQKB2VuYWJsZWQYECABKAhIAYgBAUIVChNfZW5hYmxlX3RyYW5zY29k",
+            "aW5nQgoKCF9lbmFibGVkIroDCgxJbmdyZXNzU3RhdGUSLAoGc3RhdHVzGAEg",
+            "ASgOMhwubGl2ZWtpdC5JbmdyZXNzU3RhdGUuU3RhdHVzEg0KBWVycm9yGAIg",
+            "ASgJEicKBXZpZGVvGAMgASgLMhgubGl2ZWtpdC5JbnB1dFZpZGVvU3RhdGUS",
+            "JwoFYXVkaW8YBCABKAsyGC5saXZla2l0LklucHV0QXVkaW9TdGF0ZRIbCgdy",
+            "b29tX2lkGAUgASgJQgqa7CwGcm9vbUlEEhIKCnN0YXJ0ZWRfYXQYByABKAMS",
+            "EAoIZW5kZWRfYXQYCCABKAMSEgoKdXBkYXRlZF9hdBgKIAEoAxIjCgtyZXNv",
+            "dXJjZV9pZBgJIAEoCUIOmuwsCnJlc291cmNlSUQSIgoGdHJhY2tzGAYgAygL",
+            "MhIubGl2ZWtpdC5UcmFja0luZm8iewoGU3RhdHVzEhUKEUVORFBPSU5UX0lO",
+            "QUNUSVZFEAASFgoSRU5EUE9JTlRfQlVGRkVSSU5HEAESFwoTRU5EUE9JTlRf",
+            "UFVCTElTSElORxACEhIKDkVORFBPSU5UX0VSUk9SEAMSFQoRRU5EUE9JTlRf",
+            "Q09NUExFVEUQBCJvCg9JbnB1dFZpZGVvU3RhdGUSEQoJbWltZV90eXBlGAEg",
+            "ASgJEhcKD2F2ZXJhZ2VfYml0cmF0ZRgCIAEoDRINCgV3aWR0aBgDIAEoDRIO",
+            "CgZoZWlnaHQYBCABKA0SEQoJZnJhbWVyYXRlGAUgASgBImQKD0lucHV0QXVk",
+            "aW9TdGF0ZRIRCgltaW1lX3R5cGUYASABKAkSFwoPYXZlcmFnZV9iaXRyYXRl",
+            "GAIgASgNEhAKCGNoYW5uZWxzGAMgASgNEhMKC3NhbXBsZV9yYXRlGAQgASgN",
+            "Is4DChRVcGRhdGVJbmdyZXNzUmVxdWVzdBIhCgppbmdyZXNzX2lkGAEgASgJ",
+            "Qg2a7CwJaW5ncmVzc0lEEgwKBG5hbWUYAiABKAkSEQoJcm9vbV9uYW1lGAMg",
+            "ASgJEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5GAQgASgJEh4KEHBhcnRpY2lw",
+            "YW50X25hbWUYBSABKAlCBIjsLAESRAoUcGFydGljaXBhbnRfbWV0YWRhdGEY",
+            "CSABKAlCJojsLAGS7CwePHJlZGFjdGVkICh7eyAuU2l6ZSB9fSBieXRlcyk+",
+            "EiMKEmJ5cGFzc190cmFuc2NvZGluZxgIIAEoCEICGAFIAIgBARIfChJlbmFi",
+            "bGVfdHJhbnNjb2RpbmcYCiABKAhIAYgBARIrCgVhdWRpbxgGIAEoCzIcLmxp",
+            "dmVraXQuSW5ncmVzc0F1ZGlvT3B0aW9ucxIrCgV2aWRlbxgHIAEoCzIcLmxp",
+            "dmVraXQuSW5ncmVzc1ZpZGVvT3B0aW9ucxIUCgdlbmFibGVkGAsgASgISAKI",
+            "AQFCFQoTX2J5cGFzc190cmFuc2NvZGluZ0IVChNfZW5hYmxlX3RyYW5zY29k",
+            "aW5nQgoKCF9lbmFibGVkIngKEkxpc3RJbmdyZXNzUmVxdWVzdBIsCgpwYWdl",
+            "X3Rva2VuGAMgASgLMhgubGl2ZWtpdC5Ub2tlblBhZ2luYXRpb24SEQoJcm9v",
+            "bV9uYW1lGAEgASgJEiEKCmluZ3Jlc3NfaWQYAiABKAlCDZrsLAlpbmdyZXNz",
+            "SUQibQoTTGlzdEluZ3Jlc3NSZXNwb25zZRIxCg9uZXh0X3BhZ2VfdG9rZW4Y",
+            "AiABKAsyGC5saXZla2l0LlRva2VuUGFnaW5hdGlvbhIjCgVpdGVtcxgBIAMo",
+            "CzIULmxpdmVraXQuSW5ncmVzc0luZm8iOQoURGVsZXRlSW5ncmVzc1JlcXVl",
+            "c3QSIQoKaW5ncmVzc19pZBgBIAEoCUINmuwsCWluZ3Jlc3NJRCo9CgxJbmdy",
+            "ZXNzSW5wdXQSDgoKUlRNUF9JTlBVVBAAEg4KCldISVBfSU5QVVQQARINCglV",
+            "UkxfSU5QVVQQAipJChpJbmdyZXNzQXVkaW9FbmNvZGluZ1ByZXNldBIWChJP",
+            "UFVTX1NURVJFT185NktCUFMQABITCg9PUFVTX01PTk9fNjRLQlMQASqEAwoa",
+            "SW5ncmVzc1ZpZGVvRW5jb2RpbmdQcmVzZXQSHAoYSDI2NF83MjBQXzMwRlBT",
+            "XzNfTEFZRVJTEAASHQoZSDI2NF8xMDgwUF8zMEZQU18zX0xBWUVSUxABEhwK",
+            "GEgyNjRfNTQwUF8yNUZQU18yX0xBWUVSUxACEhsKF0gyNjRfNzIwUF8zMEZQ",
+            "U18xX0xBWUVSEAMSHAoYSDI2NF8xMDgwUF8zMEZQU18xX0xBWUVSEAQSKAok",
+            "SDI2NF83MjBQXzMwRlBTXzNfTEFZRVJTX0hJR0hfTU9USU9OEAUSKQolSDI2",
+            "NF8xMDgwUF8zMEZQU18zX0xBWUVSU19ISUdIX01PVElPThAGEigKJEgyNjRf",
+            "NTQwUF8yNUZQU18yX0xBWUVSU19ISUdIX01PVElPThAHEicKI0gyNjRfNzIw",
+            "UF8zMEZQU18xX0xBWUVSX0hJR0hfTU9USU9OEAgSKAokSDI2NF8xMDgwUF8z",
+            "MEZQU18xX0xBWUVSX0hJR0hfTU9USU9OEAkypQIKB0luZ3Jlc3MSRAoNQ3Jl",
+            "YXRlSW5ncmVzcxIdLmxpdmVraXQuQ3JlYXRlSW5ncmVzc1JlcXVlc3QaFC5s",
+            "aXZla2l0LkluZ3Jlc3NJbmZvEkQKDVVwZGF0ZUluZ3Jlc3MSHS5saXZla2l0",
+            "LlVwZGF0ZUluZ3Jlc3NSZXF1ZXN0GhQubGl2ZWtpdC5JbmdyZXNzSW5mbxJI",
+            "CgtMaXN0SW5ncmVzcxIbLmxpdmVraXQuTGlzdEluZ3Jlc3NSZXF1ZXN0Ghwu",
+            "bGl2ZWtpdC5MaXN0SW5ncmVzc1Jlc3BvbnNlEkQKDURlbGV0ZUluZ3Jlc3MS",
+            "HS5saXZla2l0LkRlbGV0ZUluZ3Jlc3NSZXF1ZXN0GhQubGl2ZWtpdC5Jbmdy",
+            "ZXNzSW5mb0JGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtp",
+            "dKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Logger.OptionsReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.OptionsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.IngressInput), typeof(global::Livekit.Server.Sdk.Dotnet.IngressAudioEncodingPreset), typeof(global::Livekit.Server.Sdk.Dotnet.IngressVideoEncodingPreset), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateIngressRequest), global::Livekit.Server.Sdk.Dotnet.CreateIngressRequest.Parser, new[]{ "InputType", "Url", "Name", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "BypassTranscoding", "EnableTranscoding", "Audio", "Video", "Enabled" }, new[]{ "EnableTranscoding", "Enabled" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions), global::Livekit.Server.Sdk.Dotnet.IngressAudioOptions.Parser, new[]{ "Name", "Source", "Preset", "Options" }, new[]{ "EncodingOptions" }, null, null, null),
@@ -124,8 +128,8 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.InputVideoState), global::Livekit.Server.Sdk.Dotnet.InputVideoState.Parser, new[]{ "MimeType", "AverageBitrate", "Width", "Height", "Framerate" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.InputAudioState), global::Livekit.Server.Sdk.Dotnet.InputAudioState.Parser, new[]{ "MimeType", "AverageBitrate", "Channels", "SampleRate" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateIngressRequest), global::Livekit.Server.Sdk.Dotnet.UpdateIngressRequest.Parser, new[]{ "IngressId", "Name", "RoomName", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "BypassTranscoding", "EnableTranscoding", "Audio", "Video", "Enabled" }, new[]{ "BypassTranscoding", "EnableTranscoding", "Enabled" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListIngressRequest), global::Livekit.Server.Sdk.Dotnet.ListIngressRequest.Parser, new[]{ "RoomName", "IngressId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListIngressResponse), global::Livekit.Server.Sdk.Dotnet.ListIngressResponse.Parser, new[]{ "Items" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListIngressRequest), global::Livekit.Server.Sdk.Dotnet.ListIngressRequest.Parser, new[]{ "PageToken", "RoomName", "IngressId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListIngressResponse), global::Livekit.Server.Sdk.Dotnet.ListIngressResponse.Parser, new[]{ "NextPageToken", "Items" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DeleteIngressRequest), global::Livekit.Server.Sdk.Dotnet.DeleteIngressRequest.Parser, new[]{ "IngressId" }, null, null, null, null)
           }));
     }
@@ -4786,6 +4790,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ListIngressRequest(ListIngressRequest other) : this() {
+      pageToken_ = other.pageToken_ != null ? other.pageToken_.Clone() : null;
       roomName_ = other.roomName_;
       ingressId_ = other.ingressId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -4795,6 +4800,18 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ListIngressRequest Clone() {
       return new ListIngressRequest(this);
+    }
+
+    /// <summary>Field number for the "page_token" field.</summary>
+    public const int PageTokenFieldNumber = 3;
+    private global::Livekit.Server.Sdk.Dotnet.TokenPagination pageToken_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.TokenPagination PageToken {
+      get { return pageToken_; }
+      set {
+        pageToken_ = value;
+      }
     }
 
     /// <summary>Field number for the "room_name" field.</summary>
@@ -4842,6 +4859,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(PageToken, other.PageToken)) return false;
       if (RoomName != other.RoomName) return false;
       if (IngressId != other.IngressId) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -4851,6 +4869,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (pageToken_ != null) hash ^= PageToken.GetHashCode();
       if (RoomName.Length != 0) hash ^= RoomName.GetHashCode();
       if (IngressId.Length != 0) hash ^= IngressId.GetHashCode();
       if (_unknownFields != null) {
@@ -4879,6 +4898,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(18);
         output.WriteString(IngressId);
       }
+      if (pageToken_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(PageToken);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4897,6 +4920,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(18);
         output.WriteString(IngressId);
       }
+      if (pageToken_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(PageToken);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4907,6 +4934,9 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (pageToken_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PageToken);
+      }
       if (RoomName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomName);
       }
@@ -4924,6 +4954,12 @@ namespace Livekit.Server.Sdk.Dotnet {
     public void MergeFrom(ListIngressRequest other) {
       if (other == null) {
         return;
+      }
+      if (other.pageToken_ != null) {
+        if (pageToken_ == null) {
+          PageToken = new global::Livekit.Server.Sdk.Dotnet.TokenPagination();
+        }
+        PageToken.MergeFrom(other.PageToken);
       }
       if (other.RoomName.Length != 0) {
         RoomName = other.RoomName;
@@ -4954,6 +4990,13 @@ namespace Livekit.Server.Sdk.Dotnet {
             IngressId = input.ReadString();
             break;
           }
+          case 26: {
+            if (pageToken_ == null) {
+              PageToken = new global::Livekit.Server.Sdk.Dotnet.TokenPagination();
+            }
+            input.ReadMessage(PageToken);
+            break;
+          }
         }
       }
     #endif
@@ -4975,6 +5018,13 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 18: {
             IngressId = input.ReadString();
+            break;
+          }
+          case 26: {
+            if (pageToken_ == null) {
+              PageToken = new global::Livekit.Server.Sdk.Dotnet.TokenPagination();
+            }
+            input.ReadMessage(PageToken);
             break;
           }
         }
@@ -5018,6 +5068,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ListIngressResponse(ListIngressResponse other) : this() {
+      nextPageToken_ = other.nextPageToken_ != null ? other.nextPageToken_.Clone() : null;
       items_ = other.items_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -5028,11 +5079,26 @@ namespace Livekit.Server.Sdk.Dotnet {
       return new ListIngressResponse(this);
     }
 
+    /// <summary>Field number for the "next_page_token" field.</summary>
+    public const int NextPageTokenFieldNumber = 2;
+    private global::Livekit.Server.Sdk.Dotnet.TokenPagination nextPageToken_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.TokenPagination NextPageToken {
+      get { return nextPageToken_; }
+      set {
+        nextPageToken_ = value;
+      }
+    }
+
     /// <summary>Field number for the "items" field.</summary>
     public const int ItemsFieldNumber = 1;
     private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.IngressInfo> _repeated_items_codec
         = pb::FieldCodec.ForMessage(10, global::Livekit.Server.Sdk.Dotnet.IngressInfo.Parser);
     private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.IngressInfo> items_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.IngressInfo>();
+    /// <summary>
+    /// next field id: 3
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.IngressInfo> Items {
@@ -5054,6 +5120,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(NextPageToken, other.NextPageToken)) return false;
       if(!items_.Equals(other.items_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -5062,6 +5129,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (nextPageToken_ != null) hash ^= NextPageToken.GetHashCode();
       hash ^= items_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -5082,6 +5150,10 @@ namespace Livekit.Server.Sdk.Dotnet {
       output.WriteRawMessage(this);
     #else
       items_.WriteTo(output, _repeated_items_codec);
+      if (nextPageToken_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(NextPageToken);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5093,6 +5165,10 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
       items_.WriteTo(ref output, _repeated_items_codec);
+      if (nextPageToken_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(NextPageToken);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5103,6 +5179,9 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (nextPageToken_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(NextPageToken);
+      }
       size += items_.CalculateSize(_repeated_items_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -5115,6 +5194,12 @@ namespace Livekit.Server.Sdk.Dotnet {
     public void MergeFrom(ListIngressResponse other) {
       if (other == null) {
         return;
+      }
+      if (other.nextPageToken_ != null) {
+        if (nextPageToken_ == null) {
+          NextPageToken = new global::Livekit.Server.Sdk.Dotnet.TokenPagination();
+        }
+        NextPageToken.MergeFrom(other.NextPageToken);
       }
       items_.Add(other.items_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -5136,6 +5221,13 @@ namespace Livekit.Server.Sdk.Dotnet {
             items_.AddEntriesFrom(input, _repeated_items_codec);
             break;
           }
+          case 18: {
+            if (nextPageToken_ == null) {
+              NextPageToken = new global::Livekit.Server.Sdk.Dotnet.TokenPagination();
+            }
+            input.ReadMessage(NextPageToken);
+            break;
+          }
         }
       }
     #endif
@@ -5153,6 +5245,13 @@ namespace Livekit.Server.Sdk.Dotnet {
             break;
           case 10: {
             items_.AddEntriesFrom(ref input, _repeated_items_codec);
+            break;
+          }
+          case 18: {
+            if (nextPageToken_ == null) {
+              NextPageToken = new global::Livekit.Server.Sdk.Dotnet.TokenPagination();
+            }
+            input.ReadMessage(NextPageToken);
             break;
           }
         }

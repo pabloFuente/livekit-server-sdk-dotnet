@@ -25,35 +25,33 @@ namespace Livekit.Server.Sdk.Dotnet {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChNsaXZla2l0X2FnZW50LnByb3RvEgdsaXZla2l0GhRsaXZla2l0X21vZGVs",
-            "cy5wcm90byKgAgoDSm9iEgoKAmlkGAEgASgJEhMKC2Rpc3BhdGNoX2lkGAkg",
-            "ASgJEh4KBHR5cGUYAiABKA4yEC5saXZla2l0LkpvYlR5cGUSGwoEcm9vbRgD",
-            "IAEoCzINLmxpdmVraXQuUm9vbRIyCgtwYXJ0aWNpcGFudBgEIAEoCzIYLmxp",
-            "dmVraXQuUGFydGljaXBhbnRJbmZvSACIAQESFQoJbmFtZXNwYWNlGAUgASgJ",
-            "QgIYARIQCghtZXRhZGF0YRgGIAEoCRISCgphZ2VudF9uYW1lGAcgASgJEiAK",
-            "BXN0YXRlGAggASgLMhEubGl2ZWtpdC5Kb2JTdGF0ZRIYChBlbmFibGVfcmVj",
-            "b3JkaW5nGAogASgIQg4KDF9wYXJ0aWNpcGFudCK6AQoISm9iU3RhdGUSIgoG",
-            "c3RhdHVzGAEgASgOMhIubGl2ZWtpdC5Kb2JTdGF0dXMSDQoFZXJyb3IYAiAB",
-            "KAkSEgoKc3RhcnRlZF9hdBgDIAEoAxIQCghlbmRlZF9hdBgEIAEoAxISCgp1",
-            "cGRhdGVkX2F0GAUgASgDEhwKFHBhcnRpY2lwYW50X2lkZW50aXR5GAYgASgJ",
-            "EhEKCXdvcmtlcl9pZBgHIAEoCRIQCghhZ2VudF9pZBgIIAEoCSLeAwoNV29y",
-            "a2VyTWVzc2FnZRIyCghyZWdpc3RlchgBIAEoCzIeLmxpdmVraXQuUmVnaXN0",
-            "ZXJXb3JrZXJSZXF1ZXN0SAASNQoMYXZhaWxhYmlsaXR5GAIgASgLMh0ubGl2",
-            "ZWtpdC5BdmFpbGFiaWxpdHlSZXNwb25zZUgAEjQKDXVwZGF0ZV93b3JrZXIY",
-            "AyABKAsyGy5saXZla2l0LlVwZGF0ZVdvcmtlclN0YXR1c0gAEi4KCnVwZGF0",
-            "ZV9qb2IYBCABKAsyGC5saXZla2l0LlVwZGF0ZUpvYlN0YXR1c0gAEiMKBHBp",
-            "bmcYBSABKAsyEy5saXZla2l0LldvcmtlclBpbmdIABIzCgxzaW11bGF0ZV9q",
-            "b2IYBiABKAsyGy5saXZla2l0LlNpbXVsYXRlSm9iUmVxdWVzdEgAEjEKC21p",
-            "Z3JhdGVfam9iGAcgASgLMhoubGl2ZWtpdC5NaWdyYXRlSm9iUmVxdWVzdEgA",
-            "EjUKDXRleHRfcmVzcG9uc2UYCCABKAsyHC5saXZla2l0LlRleHRNZXNzYWdl",
-            "UmVzcG9uc2VIABItCglwdXNoX3RleHQYCSABKAsyGC5saXZla2l0LlB1c2hU",
-            "ZXh0UmVxdWVzdEgAQgkKB21lc3NhZ2UivQIKDVNlcnZlck1lc3NhZ2USMwoI",
-            "cmVnaXN0ZXIYASABKAsyHy5saXZla2l0LlJlZ2lzdGVyV29ya2VyUmVzcG9u",
-            "c2VIABI0CgxhdmFpbGFiaWxpdHkYAiABKAsyHC5saXZla2l0LkF2YWlsYWJp",
-            "bGl0eVJlcXVlc3RIABIsCgphc3NpZ25tZW50GAMgASgLMhYubGl2ZWtpdC5K",
-            "b2JBc3NpZ25tZW50SAASLgoLdGVybWluYXRpb24YBSABKAsyFy5saXZla2l0",
-            "LkpvYlRlcm1pbmF0aW9uSAASIwoEcG9uZxgEIAEoCzITLmxpdmVraXQuV29y",
-            "a2VyUG9uZ0gAEjMKDHRleHRfcmVxdWVzdBgGIAEoCzIbLmxpdmVraXQuVGV4",
-            "dE1lc3NhZ2VSZXF1ZXN0SABCCQoHbWVzc2FnZSKAAQoSU2ltdWxhdGVKb2JS",
+            "cy5wcm90bxoUbG9nZ2VyL29wdGlvbnMucHJvdG8isAIKA0pvYhIKCgJpZBgB",
+            "IAEoCRIjCgtkaXNwYXRjaF9pZBgJIAEoCUIOmuwsCmRpc3BhdGNoSUQSHgoE",
+            "dHlwZRgCIAEoDjIQLmxpdmVraXQuSm9iVHlwZRIbCgRyb29tGAMgASgLMg0u",
+            "bGl2ZWtpdC5Sb29tEjIKC3BhcnRpY2lwYW50GAQgASgLMhgubGl2ZWtpdC5Q",
+            "YXJ0aWNpcGFudEluZm9IAIgBARIVCgluYW1lc3BhY2UYBSABKAlCAhgBEhAK",
+            "CG1ldGFkYXRhGAYgASgJEhIKCmFnZW50X25hbWUYByABKAkSIAoFc3RhdGUY",
+            "CCABKAsyES5saXZla2l0LkpvYlN0YXRlEhgKEGVuYWJsZV9yZWNvcmRpbmcY",
+            "CiABKAhCDgoMX3BhcnRpY2lwYW50ItUBCghKb2JTdGF0ZRIiCgZzdGF0dXMY",
+            "ASABKA4yEi5saXZla2l0LkpvYlN0YXR1cxINCgVlcnJvchgCIAEoCRISCgpz",
+            "dGFydGVkX2F0GAMgASgDEhAKCGVuZGVkX2F0GAQgASgDEhIKCnVwZGF0ZWRf",
+            "YXQYBSABKAMSHAoUcGFydGljaXBhbnRfaWRlbnRpdHkYBiABKAkSHwoJd29y",
+            "a2VyX2lkGAcgASgJQgya7CwId29ya2VySUQSHQoIYWdlbnRfaWQYCCABKAlC",
+            "C5rsLAdhZ2VudElEIvgCCg1Xb3JrZXJNZXNzYWdlEjIKCHJlZ2lzdGVyGAEg",
+            "ASgLMh4ubGl2ZWtpdC5SZWdpc3RlcldvcmtlclJlcXVlc3RIABI1CgxhdmFp",
+            "bGFiaWxpdHkYAiABKAsyHS5saXZla2l0LkF2YWlsYWJpbGl0eVJlc3BvbnNl",
+            "SAASNAoNdXBkYXRlX3dvcmtlchgDIAEoCzIbLmxpdmVraXQuVXBkYXRlV29y",
+            "a2VyU3RhdHVzSAASLgoKdXBkYXRlX2pvYhgEIAEoCzIYLmxpdmVraXQuVXBk",
+            "YXRlSm9iU3RhdHVzSAASIwoEcGluZxgFIAEoCzITLmxpdmVraXQuV29ya2Vy",
+            "UGluZ0gAEjMKDHNpbXVsYXRlX2pvYhgGIAEoCzIbLmxpdmVraXQuU2ltdWxh",
+            "dGVKb2JSZXF1ZXN0SAASMQoLbWlncmF0ZV9qb2IYByABKAsyGi5saXZla2l0",
+            "Lk1pZ3JhdGVKb2JSZXF1ZXN0SABCCQoHbWVzc2FnZSKIAgoNU2VydmVyTWVz",
+            "c2FnZRIzCghyZWdpc3RlchgBIAEoCzIfLmxpdmVraXQuUmVnaXN0ZXJXb3Jr",
+            "ZXJSZXNwb25zZUgAEjQKDGF2YWlsYWJpbGl0eRgCIAEoCzIcLmxpdmVraXQu",
+            "QXZhaWxhYmlsaXR5UmVxdWVzdEgAEiwKCmFzc2lnbm1lbnQYAyABKAsyFi5s",
+            "aXZla2l0LkpvYkFzc2lnbm1lbnRIABIuCgt0ZXJtaW5hdGlvbhgFIAEoCzIX",
+            "LmxpdmVraXQuSm9iVGVybWluYXRpb25IABIjCgRwb25nGAQgASgLMhMubGl2",
+            "ZWtpdC5Xb3JrZXJQb25nSABCCQoHbWVzc2FnZSKAAQoSU2ltdWxhdGVKb2JS",
             "ZXF1ZXN0Eh4KBHR5cGUYASABKA4yEC5saXZla2l0LkpvYlR5cGUSGwoEcm9v",
             "bRgCIAEoCzINLmxpdmVraXQuUm9vbRItCgtwYXJ0aWNpcGFudBgDIAEoCzIY",
             "LmxpdmVraXQuUGFydGljaXBhbnRJbmZvIh8KCldvcmtlclBpbmcSEQoJdGlt",
@@ -63,45 +61,40 @@ namespace Livekit.Server.Sdk.Dotnet {
             "dF9uYW1lGAggASgJEg8KB3ZlcnNpb24YAyABKAkSFQoNcGluZ19pbnRlcnZh",
             "bBgFIAEoDRIWCgluYW1lc3BhY2UYBiABKAlIAIgBARI7ChNhbGxvd2VkX3Bl",
             "cm1pc3Npb25zGAcgASgLMh4ubGl2ZWtpdC5QYXJ0aWNpcGFudFBlcm1pc3Np",
-            "b25CDAoKX25hbWVzcGFjZSJVChZSZWdpc3RlcldvcmtlclJlc3BvbnNlEhEK",
-            "CXdvcmtlcl9pZBgBIAEoCRIoCgtzZXJ2ZXJfaW5mbxgDIAEoCzITLmxpdmVr",
-            "aXQuU2VydmVySW5mbyIkChFNaWdyYXRlSm9iUmVxdWVzdBIPCgdqb2JfaWRz",
-            "GAIgAygJIkIKE0F2YWlsYWJpbGl0eVJlcXVlc3QSGQoDam9iGAEgASgLMgwu",
-            "bGl2ZWtpdC5Kb2ISEAoIcmVzdW1pbmcYAiABKAgi0wIKFEF2YWlsYWJpbGl0",
-            "eVJlc3BvbnNlEg4KBmpvYl9pZBgBIAEoCRIRCglhdmFpbGFibGUYAiABKAgS",
-            "FwoPc3VwcG9ydHNfcmVzdW1lGAMgASgIEhEKCXRlcm1pbmF0ZRgIIAEoCBIY",
-            "ChBwYXJ0aWNpcGFudF9uYW1lGAQgASgJEhwKFHBhcnRpY2lwYW50X2lkZW50",
-            "aXR5GAUgASgJEhwKFHBhcnRpY2lwYW50X21ldGFkYXRhGAYgASgJElgKFnBh",
-            "cnRpY2lwYW50X2F0dHJpYnV0ZXMYByADKAsyOC5saXZla2l0LkF2YWlsYWJp",
-            "bGl0eVJlc3BvbnNlLlBhcnRpY2lwYW50QXR0cmlidXRlc0VudHJ5GjwKGlBh",
-            "cnRpY2lwYW50QXR0cmlidXRlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1",
-            "ZRgCIAEoCToCOAEiVAoPVXBkYXRlSm9iU3RhdHVzEg4KBmpvYl9pZBgBIAEo",
-            "CRIiCgZzdGF0dXMYAiABKA4yEi5saXZla2l0LkpvYlN0YXR1cxINCgVlcnJv",
-            "chgDIAEoCSJsChJVcGRhdGVXb3JrZXJTdGF0dXMSKgoGc3RhdHVzGAEgASgO",
-            "MhUubGl2ZWtpdC5Xb3JrZXJTdGF0dXNIAIgBARIMCgRsb2FkGAMgASgCEhEK",
-            "CWpvYl9jb3VudBgEIAEoDUIJCgdfc3RhdHVzIlMKDUpvYkFzc2lnbm1lbnQS",
-            "GQoDam9iGAEgASgLMgwubGl2ZWtpdC5Kb2ISEAoDdXJsGAIgASgJSACIAQES",
-            "DQoFdG9rZW4YAyABKAlCBgoEX3VybCIgCg5Kb2JUZXJtaW5hdGlvbhIOCgZq",
-            "b2JfaWQYASABKAkihgEKElRleHRNZXNzYWdlUmVxdWVzdBISCgptZXNzYWdl",
-            "X2lkGAEgASgJEhIKCnNlc3Npb25faWQYAiABKAkSEgoKYWdlbnRfbmFtZRgD",
-            "IAEoCRIQCghtZXRhZGF0YRgEIAEoCRIUCgxzZXNzaW9uX2RhdGEYBSABKAwS",
-            "DAoEdGV4dBgGIAEoCSI2Cg9QdXNoVGV4dFJlcXVlc3QSEgoKbWVzc2FnZV9p",
-            "ZBgBIAEoCRIPCgdjb250ZW50GAIgASgJIk4KE1RleHRNZXNzYWdlUmVzcG9u",
-            "c2USEgoKbWVzc2FnZV9pZBgBIAEoCRIUCgxzZXNzaW9uX2RhdGEYAiABKAwS",
-            "DQoFZXJyb3IYAyABKAkqPAoHSm9iVHlwZRILCgdKVF9ST09NEAASEAoMSlRf",
-            "UFVCTElTSEVSEAESEgoOSlRfUEFSVElDSVBBTlQQAiotCgxXb3JrZXJTdGF0",
-            "dXMSEAoMV1NfQVZBSUxBQkxFEAASCwoHV1NfRlVMTBABKkoKCUpvYlN0YXR1",
-            "cxIOCgpKU19QRU5ESU5HEAASDgoKSlNfUlVOTklORxABEg4KCkpTX1NVQ0NF",
-            "U1MQAhINCglKU19GQUlMRUQQA0JGWiNnaXRodWIuY29tL2xpdmVraXQvcHJv",
-            "dG9jb2wvbGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90",
-            "b2IGcHJvdG8z"));
+            "b25CDAoKX25hbWVzcGFjZSJjChZSZWdpc3RlcldvcmtlclJlc3BvbnNlEh8K",
+            "CXdvcmtlcl9pZBgBIAEoCUIMmuwsCHdvcmtlcklEEigKC3NlcnZlcl9pbmZv",
+            "GAMgASgLMhMubGl2ZWtpdC5TZXJ2ZXJJbmZvIiQKEU1pZ3JhdGVKb2JSZXF1",
+            "ZXN0Eg8KB2pvYl9pZHMYAiADKAkiQgoTQXZhaWxhYmlsaXR5UmVxdWVzdBIZ",
+            "CgNqb2IYASABKAsyDC5saXZla2l0LkpvYhIQCghyZXN1bWluZxgCIAEoCCLe",
+            "AgoUQXZhaWxhYmlsaXR5UmVzcG9uc2USGQoGam9iX2lkGAEgASgJQgma7CwF",
+            "am9iSUQSEQoJYXZhaWxhYmxlGAIgASgIEhcKD3N1cHBvcnRzX3Jlc3VtZRgD",
+            "IAEoCBIRCgl0ZXJtaW5hdGUYCCABKAgSGAoQcGFydGljaXBhbnRfbmFtZRgE",
+            "IAEoCRIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgFIAEoCRIcChRwYXJ0aWNp",
+            "cGFudF9tZXRhZGF0YRgGIAEoCRJYChZwYXJ0aWNpcGFudF9hdHRyaWJ1dGVz",
+            "GAcgAygLMjgubGl2ZWtpdC5BdmFpbGFiaWxpdHlSZXNwb25zZS5QYXJ0aWNp",
+            "cGFudEF0dHJpYnV0ZXNFbnRyeRo8ChpQYXJ0aWNpcGFudEF0dHJpYnV0ZXNF",
+            "bnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIl8KD1VwZGF0",
+            "ZUpvYlN0YXR1cxIZCgZqb2JfaWQYASABKAlCCZrsLAVqb2JJRBIiCgZzdGF0",
+            "dXMYAiABKA4yEi5saXZla2l0LkpvYlN0YXR1cxINCgVlcnJvchgDIAEoCSJs",
+            "ChJVcGRhdGVXb3JrZXJTdGF0dXMSKgoGc3RhdHVzGAEgASgOMhUubGl2ZWtp",
+            "dC5Xb3JrZXJTdGF0dXNIAIgBARIMCgRsb2FkGAMgASgCEhEKCWpvYl9jb3Vu",
+            "dBgEIAEoDUIJCgdfc3RhdHVzIlMKDUpvYkFzc2lnbm1lbnQSGQoDam9iGAEg",
+            "ASgLMgwubGl2ZWtpdC5Kb2ISEAoDdXJsGAIgASgJSACIAQESDQoFdG9rZW4Y",
+            "AyABKAlCBgoEX3VybCIrCg5Kb2JUZXJtaW5hdGlvbhIZCgZqb2JfaWQYASAB",
+            "KAlCCZrsLAVqb2JJRCo8CgdKb2JUeXBlEgsKB0pUX1JPT00QABIQCgxKVF9Q",
+            "VUJMSVNIRVIQARISCg5KVF9QQVJUSUNJUEFOVBACKi0KDFdvcmtlclN0YXR1",
+            "cxIQCgxXU19BVkFJTEFCTEUQABILCgdXU19GVUxMEAEqSgoJSm9iU3RhdHVz",
+            "Eg4KCkpTX1BFTkRJTkcQABIOCgpKU19SVU5OSU5HEAESDgoKSlNfU1VDQ0VT",
+            "UxACEg0KCUpTX0ZBSUxFRBADQkZaI2dpdGh1Yi5jb20vbGl2ZWtpdC9wcm90",
+            "b2NvbC9saXZla2l0qgINTGl2ZUtpdC5Qcm90b+oCDkxpdmVLaXQ6OlByb3Rv",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.OptionsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.JobType), typeof(global::Livekit.Server.Sdk.Dotnet.WorkerStatus), typeof(global::Livekit.Server.Sdk.Dotnet.JobStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.Job), global::Livekit.Server.Sdk.Dotnet.Job.Parser, new[]{ "Id", "DispatchId", "Type", "Room", "Participant", "Namespace", "Metadata", "AgentName", "State", "EnableRecording" }, new[]{ "Participant" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.JobState), global::Livekit.Server.Sdk.Dotnet.JobState.Parser, new[]{ "Status", "Error", "StartedAt", "EndedAt", "UpdatedAt", "ParticipantIdentity", "WorkerId", "AgentId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WorkerMessage), global::Livekit.Server.Sdk.Dotnet.WorkerMessage.Parser, new[]{ "Register", "Availability", "UpdateWorker", "UpdateJob", "Ping", "SimulateJob", "MigrateJob", "TextResponse", "PushText" }, new[]{ "Message" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ServerMessage), global::Livekit.Server.Sdk.Dotnet.ServerMessage.Parser, new[]{ "Register", "Availability", "Assignment", "Termination", "Pong", "TextRequest" }, new[]{ "Message" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WorkerMessage), global::Livekit.Server.Sdk.Dotnet.WorkerMessage.Parser, new[]{ "Register", "Availability", "UpdateWorker", "UpdateJob", "Ping", "SimulateJob", "MigrateJob" }, new[]{ "Message" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ServerMessage), global::Livekit.Server.Sdk.Dotnet.ServerMessage.Parser, new[]{ "Register", "Availability", "Assignment", "Termination", "Pong" }, new[]{ "Message" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SimulateJobRequest), global::Livekit.Server.Sdk.Dotnet.SimulateJobRequest.Parser, new[]{ "Type", "Room", "Participant" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WorkerPing), global::Livekit.Server.Sdk.Dotnet.WorkerPing.Parser, new[]{ "Timestamp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WorkerPong), global::Livekit.Server.Sdk.Dotnet.WorkerPong.Parser, new[]{ "LastTimestamp", "Timestamp" }, null, null, null, null),
@@ -113,10 +106,7 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateJobStatus), global::Livekit.Server.Sdk.Dotnet.UpdateJobStatus.Parser, new[]{ "JobId", "Status", "Error" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateWorkerStatus), global::Livekit.Server.Sdk.Dotnet.UpdateWorkerStatus.Parser, new[]{ "Status", "Load", "JobCount" }, new[]{ "Status" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.JobAssignment), global::Livekit.Server.Sdk.Dotnet.JobAssignment.Parser, new[]{ "Job", "Url", "Token" }, new[]{ "Url" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.JobTermination), global::Livekit.Server.Sdk.Dotnet.JobTermination.Parser, new[]{ "JobId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TextMessageRequest), global::Livekit.Server.Sdk.Dotnet.TextMessageRequest.Parser, new[]{ "MessageId", "SessionId", "AgentName", "Metadata", "SessionData", "Text" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.PushTextRequest), global::Livekit.Server.Sdk.Dotnet.PushTextRequest.Parser, new[]{ "MessageId", "Content" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TextMessageResponse), global::Livekit.Server.Sdk.Dotnet.TextMessageResponse.Parser, new[]{ "MessageId", "SessionData", "Error" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.JobTermination), global::Livekit.Server.Sdk.Dotnet.JobTermination.Parser, new[]{ "JobId" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1201,12 +1191,6 @@ namespace Livekit.Server.Sdk.Dotnet {
         case MessageOneofCase.MigrateJob:
           MigrateJob = other.MigrateJob.Clone();
           break;
-        case MessageOneofCase.TextResponse:
-          TextResponse = other.TextResponse.Clone();
-          break;
-        case MessageOneofCase.PushText:
-          PushText = other.PushText.Clone();
-          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -1314,30 +1298,6 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
-    /// <summary>Field number for the "text_response" field.</summary>
-    public const int TextResponseFieldNumber = 8;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Livekit.Server.Sdk.Dotnet.TextMessageResponse TextResponse {
-      get { return messageCase_ == MessageOneofCase.TextResponse ? (global::Livekit.Server.Sdk.Dotnet.TextMessageResponse) message_ : null; }
-      set {
-        message_ = value;
-        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.TextResponse;
-      }
-    }
-
-    /// <summary>Field number for the "push_text" field.</summary>
-    public const int PushTextFieldNumber = 9;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Livekit.Server.Sdk.Dotnet.PushTextRequest PushText {
-      get { return messageCase_ == MessageOneofCase.PushText ? (global::Livekit.Server.Sdk.Dotnet.PushTextRequest) message_ : null; }
-      set {
-        message_ = value;
-        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.PushText;
-      }
-    }
-
     private object message_;
     /// <summary>Enum of possible cases for the "message" oneof.</summary>
     public enum MessageOneofCase {
@@ -1349,8 +1309,6 @@ namespace Livekit.Server.Sdk.Dotnet {
       Ping = 5,
       SimulateJob = 6,
       MigrateJob = 7,
-      TextResponse = 8,
-      PushText = 9,
     }
     private MessageOneofCase messageCase_ = MessageOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1388,8 +1346,6 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (!object.Equals(Ping, other.Ping)) return false;
       if (!object.Equals(SimulateJob, other.SimulateJob)) return false;
       if (!object.Equals(MigrateJob, other.MigrateJob)) return false;
-      if (!object.Equals(TextResponse, other.TextResponse)) return false;
-      if (!object.Equals(PushText, other.PushText)) return false;
       if (MessageCase != other.MessageCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1405,8 +1361,6 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (messageCase_ == MessageOneofCase.Ping) hash ^= Ping.GetHashCode();
       if (messageCase_ == MessageOneofCase.SimulateJob) hash ^= SimulateJob.GetHashCode();
       if (messageCase_ == MessageOneofCase.MigrateJob) hash ^= MigrateJob.GetHashCode();
-      if (messageCase_ == MessageOneofCase.TextResponse) hash ^= TextResponse.GetHashCode();
-      if (messageCase_ == MessageOneofCase.PushText) hash ^= PushText.GetHashCode();
       hash ^= (int) messageCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1454,14 +1408,6 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(58);
         output.WriteMessage(MigrateJob);
       }
-      if (messageCase_ == MessageOneofCase.TextResponse) {
-        output.WriteRawTag(66);
-        output.WriteMessage(TextResponse);
-      }
-      if (messageCase_ == MessageOneofCase.PushText) {
-        output.WriteRawTag(74);
-        output.WriteMessage(PushText);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1500,14 +1446,6 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(58);
         output.WriteMessage(MigrateJob);
       }
-      if (messageCase_ == MessageOneofCase.TextResponse) {
-        output.WriteRawTag(66);
-        output.WriteMessage(TextResponse);
-      }
-      if (messageCase_ == MessageOneofCase.PushText) {
-        output.WriteRawTag(74);
-        output.WriteMessage(PushText);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1538,12 +1476,6 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (messageCase_ == MessageOneofCase.MigrateJob) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(MigrateJob);
-      }
-      if (messageCase_ == MessageOneofCase.TextResponse) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TextResponse);
-      }
-      if (messageCase_ == MessageOneofCase.PushText) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(PushText);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1599,18 +1531,6 @@ namespace Livekit.Server.Sdk.Dotnet {
             MigrateJob = new global::Livekit.Server.Sdk.Dotnet.MigrateJobRequest();
           }
           MigrateJob.MergeFrom(other.MigrateJob);
-          break;
-        case MessageOneofCase.TextResponse:
-          if (TextResponse == null) {
-            TextResponse = new global::Livekit.Server.Sdk.Dotnet.TextMessageResponse();
-          }
-          TextResponse.MergeFrom(other.TextResponse);
-          break;
-        case MessageOneofCase.PushText:
-          if (PushText == null) {
-            PushText = new global::Livekit.Server.Sdk.Dotnet.PushTextRequest();
-          }
-          PushText.MergeFrom(other.PushText);
           break;
       }
 
@@ -1692,24 +1612,6 @@ namespace Livekit.Server.Sdk.Dotnet {
             MigrateJob = subBuilder;
             break;
           }
-          case 66: {
-            global::Livekit.Server.Sdk.Dotnet.TextMessageResponse subBuilder = new global::Livekit.Server.Sdk.Dotnet.TextMessageResponse();
-            if (messageCase_ == MessageOneofCase.TextResponse) {
-              subBuilder.MergeFrom(TextResponse);
-            }
-            input.ReadMessage(subBuilder);
-            TextResponse = subBuilder;
-            break;
-          }
-          case 74: {
-            global::Livekit.Server.Sdk.Dotnet.PushTextRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.PushTextRequest();
-            if (messageCase_ == MessageOneofCase.PushText) {
-              subBuilder.MergeFrom(PushText);
-            }
-            input.ReadMessage(subBuilder);
-            PushText = subBuilder;
-            break;
-          }
         }
       }
     #endif
@@ -1788,24 +1690,6 @@ namespace Livekit.Server.Sdk.Dotnet {
             MigrateJob = subBuilder;
             break;
           }
-          case 66: {
-            global::Livekit.Server.Sdk.Dotnet.TextMessageResponse subBuilder = new global::Livekit.Server.Sdk.Dotnet.TextMessageResponse();
-            if (messageCase_ == MessageOneofCase.TextResponse) {
-              subBuilder.MergeFrom(TextResponse);
-            }
-            input.ReadMessage(subBuilder);
-            TextResponse = subBuilder;
-            break;
-          }
-          case 74: {
-            global::Livekit.Server.Sdk.Dotnet.PushTextRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.PushTextRequest();
-            if (messageCase_ == MessageOneofCase.PushText) {
-              subBuilder.MergeFrom(PushText);
-            }
-            input.ReadMessage(subBuilder);
-            PushText = subBuilder;
-            break;
-          }
         }
       }
     }
@@ -1865,9 +1749,6 @@ namespace Livekit.Server.Sdk.Dotnet {
           break;
         case MessageOneofCase.Pong:
           Pong = other.Pong.Clone();
-          break;
-        case MessageOneofCase.TextRequest:
-          TextRequest = other.TextRequest.Clone();
           break;
       }
 
@@ -1946,18 +1827,6 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
-    /// <summary>Field number for the "text_request" field.</summary>
-    public const int TextRequestFieldNumber = 6;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Livekit.Server.Sdk.Dotnet.TextMessageRequest TextRequest {
-      get { return messageCase_ == MessageOneofCase.TextRequest ? (global::Livekit.Server.Sdk.Dotnet.TextMessageRequest) message_ : null; }
-      set {
-        message_ = value;
-        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.TextRequest;
-      }
-    }
-
     private object message_;
     /// <summary>Enum of possible cases for the "message" oneof.</summary>
     public enum MessageOneofCase {
@@ -1967,7 +1836,6 @@ namespace Livekit.Server.Sdk.Dotnet {
       Assignment = 3,
       Termination = 5,
       Pong = 4,
-      TextRequest = 6,
     }
     private MessageOneofCase messageCase_ = MessageOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2003,7 +1871,6 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (!object.Equals(Assignment, other.Assignment)) return false;
       if (!object.Equals(Termination, other.Termination)) return false;
       if (!object.Equals(Pong, other.Pong)) return false;
-      if (!object.Equals(TextRequest, other.TextRequest)) return false;
       if (MessageCase != other.MessageCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2017,7 +1884,6 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (messageCase_ == MessageOneofCase.Assignment) hash ^= Assignment.GetHashCode();
       if (messageCase_ == MessageOneofCase.Termination) hash ^= Termination.GetHashCode();
       if (messageCase_ == MessageOneofCase.Pong) hash ^= Pong.GetHashCode();
-      if (messageCase_ == MessageOneofCase.TextRequest) hash ^= TextRequest.GetHashCode();
       hash ^= (int) messageCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2057,10 +1923,6 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(42);
         output.WriteMessage(Termination);
       }
-      if (messageCase_ == MessageOneofCase.TextRequest) {
-        output.WriteRawTag(50);
-        output.WriteMessage(TextRequest);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2091,10 +1953,6 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(42);
         output.WriteMessage(Termination);
       }
-      if (messageCase_ == MessageOneofCase.TextRequest) {
-        output.WriteRawTag(50);
-        output.WriteMessage(TextRequest);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2119,9 +1977,6 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (messageCase_ == MessageOneofCase.Pong) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Pong);
-      }
-      if (messageCase_ == MessageOneofCase.TextRequest) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TextRequest);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2165,12 +2020,6 @@ namespace Livekit.Server.Sdk.Dotnet {
             Pong = new global::Livekit.Server.Sdk.Dotnet.WorkerPong();
           }
           Pong.MergeFrom(other.Pong);
-          break;
-        case MessageOneofCase.TextRequest:
-          if (TextRequest == null) {
-            TextRequest = new global::Livekit.Server.Sdk.Dotnet.TextMessageRequest();
-          }
-          TextRequest.MergeFrom(other.TextRequest);
           break;
       }
 
@@ -2234,15 +2083,6 @@ namespace Livekit.Server.Sdk.Dotnet {
             Termination = subBuilder;
             break;
           }
-          case 50: {
-            global::Livekit.Server.Sdk.Dotnet.TextMessageRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.TextMessageRequest();
-            if (messageCase_ == MessageOneofCase.TextRequest) {
-              subBuilder.MergeFrom(TextRequest);
-            }
-            input.ReadMessage(subBuilder);
-            TextRequest = subBuilder;
-            break;
-          }
         }
       }
     #endif
@@ -2301,15 +2141,6 @@ namespace Livekit.Server.Sdk.Dotnet {
             }
             input.ReadMessage(subBuilder);
             Termination = subBuilder;
-            break;
-          }
-          case 50: {
-            global::Livekit.Server.Sdk.Dotnet.TextMessageRequest subBuilder = new global::Livekit.Server.Sdk.Dotnet.TextMessageRequest();
-            if (messageCase_ == MessageOneofCase.TextRequest) {
-              subBuilder.MergeFrom(TextRequest);
-            }
-            input.ReadMessage(subBuilder);
-            TextRequest = subBuilder;
             break;
           }
         }
@@ -5525,875 +5356,6 @@ namespace Livekit.Server.Sdk.Dotnet {
             break;
           case 10: {
             JobId = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class TextMessageRequest : pb::IMessage<TextMessageRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<TextMessageRequest> _parser = new pb::MessageParser<TextMessageRequest>(() => new TextMessageRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<TextMessageRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[16]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TextMessageRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TextMessageRequest(TextMessageRequest other) : this() {
-      messageId_ = other.messageId_;
-      sessionId_ = other.sessionId_;
-      agentName_ = other.agentName_;
-      metadata_ = other.metadata_;
-      sessionData_ = other.sessionData_;
-      text_ = other.text_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TextMessageRequest Clone() {
-      return new TextMessageRequest(this);
-    }
-
-    /// <summary>Field number for the "message_id" field.</summary>
-    public const int MessageIdFieldNumber = 1;
-    private string messageId_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string MessageId {
-      get { return messageId_; }
-      set {
-        messageId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "session_id" field.</summary>
-    public const int SessionIdFieldNumber = 2;
-    private string sessionId_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string SessionId {
-      get { return sessionId_; }
-      set {
-        sessionId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "agent_name" field.</summary>
-    public const int AgentNameFieldNumber = 3;
-    private string agentName_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string AgentName {
-      get { return agentName_; }
-      set {
-        agentName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "metadata" field.</summary>
-    public const int MetadataFieldNumber = 4;
-    private string metadata_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Metadata {
-      get { return metadata_; }
-      set {
-        metadata_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "session_data" field.</summary>
-    public const int SessionDataFieldNumber = 5;
-    private pb::ByteString sessionData_ = pb::ByteString.Empty;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString SessionData {
-      get { return sessionData_; }
-      set {
-        sessionData_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "text" field.</summary>
-    public const int TextFieldNumber = 6;
-    private string text_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Text {
-      get { return text_; }
-      set {
-        text_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as TextMessageRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(TextMessageRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (MessageId != other.MessageId) return false;
-      if (SessionId != other.SessionId) return false;
-      if (AgentName != other.AgentName) return false;
-      if (Metadata != other.Metadata) return false;
-      if (SessionData != other.SessionData) return false;
-      if (Text != other.Text) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (MessageId.Length != 0) hash ^= MessageId.GetHashCode();
-      if (SessionId.Length != 0) hash ^= SessionId.GetHashCode();
-      if (AgentName.Length != 0) hash ^= AgentName.GetHashCode();
-      if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
-      if (SessionData.Length != 0) hash ^= SessionData.GetHashCode();
-      if (Text.Length != 0) hash ^= Text.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (MessageId.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(MessageId);
-      }
-      if (SessionId.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(SessionId);
-      }
-      if (AgentName.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(AgentName);
-      }
-      if (Metadata.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Metadata);
-      }
-      if (SessionData.Length != 0) {
-        output.WriteRawTag(42);
-        output.WriteBytes(SessionData);
-      }
-      if (Text.Length != 0) {
-        output.WriteRawTag(50);
-        output.WriteString(Text);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (MessageId.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(MessageId);
-      }
-      if (SessionId.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(SessionId);
-      }
-      if (AgentName.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(AgentName);
-      }
-      if (Metadata.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Metadata);
-      }
-      if (SessionData.Length != 0) {
-        output.WriteRawTag(42);
-        output.WriteBytes(SessionData);
-      }
-      if (Text.Length != 0) {
-        output.WriteRawTag(50);
-        output.WriteString(Text);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (MessageId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(MessageId);
-      }
-      if (SessionId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(SessionId);
-      }
-      if (AgentName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(AgentName);
-      }
-      if (Metadata.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Metadata);
-      }
-      if (SessionData.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(SessionData);
-      }
-      if (Text.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Text);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(TextMessageRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.MessageId.Length != 0) {
-        MessageId = other.MessageId;
-      }
-      if (other.SessionId.Length != 0) {
-        SessionId = other.SessionId;
-      }
-      if (other.AgentName.Length != 0) {
-        AgentName = other.AgentName;
-      }
-      if (other.Metadata.Length != 0) {
-        Metadata = other.Metadata;
-      }
-      if (other.SessionData.Length != 0) {
-        SessionData = other.SessionData;
-      }
-      if (other.Text.Length != 0) {
-        Text = other.Text;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            MessageId = input.ReadString();
-            break;
-          }
-          case 18: {
-            SessionId = input.ReadString();
-            break;
-          }
-          case 26: {
-            AgentName = input.ReadString();
-            break;
-          }
-          case 34: {
-            Metadata = input.ReadString();
-            break;
-          }
-          case 42: {
-            SessionData = input.ReadBytes();
-            break;
-          }
-          case 50: {
-            Text = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            MessageId = input.ReadString();
-            break;
-          }
-          case 18: {
-            SessionId = input.ReadString();
-            break;
-          }
-          case 26: {
-            AgentName = input.ReadString();
-            break;
-          }
-          case 34: {
-            Metadata = input.ReadString();
-            break;
-          }
-          case 42: {
-            SessionData = input.ReadBytes();
-            break;
-          }
-          case 50: {
-            Text = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class PushTextRequest : pb::IMessage<PushTextRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<PushTextRequest> _parser = new pb::MessageParser<PushTextRequest>(() => new PushTextRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<PushTextRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[17]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PushTextRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PushTextRequest(PushTextRequest other) : this() {
-      messageId_ = other.messageId_;
-      content_ = other.content_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PushTextRequest Clone() {
-      return new PushTextRequest(this);
-    }
-
-    /// <summary>Field number for the "message_id" field.</summary>
-    public const int MessageIdFieldNumber = 1;
-    private string messageId_ = "";
-    /// <summary>
-    /// The message_id of the TextMessageRequest that this push is for
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string MessageId {
-      get { return messageId_; }
-      set {
-        messageId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "content" field.</summary>
-    public const int ContentFieldNumber = 2;
-    private string content_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Content {
-      get { return content_; }
-      set {
-        content_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as PushTextRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(PushTextRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (MessageId != other.MessageId) return false;
-      if (Content != other.Content) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (MessageId.Length != 0) hash ^= MessageId.GetHashCode();
-      if (Content.Length != 0) hash ^= Content.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (MessageId.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(MessageId);
-      }
-      if (Content.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Content);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (MessageId.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(MessageId);
-      }
-      if (Content.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Content);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (MessageId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(MessageId);
-      }
-      if (Content.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Content);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(PushTextRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.MessageId.Length != 0) {
-        MessageId = other.MessageId;
-      }
-      if (other.Content.Length != 0) {
-        Content = other.Content;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            MessageId = input.ReadString();
-            break;
-          }
-          case 18: {
-            Content = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            MessageId = input.ReadString();
-            break;
-          }
-          case 18: {
-            Content = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class TextMessageResponse : pb::IMessage<TextMessageResponse>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<TextMessageResponse> _parser = new pb::MessageParser<TextMessageResponse>(() => new TextMessageResponse());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<TextMessageResponse> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor.MessageTypes[18]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TextMessageResponse() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TextMessageResponse(TextMessageResponse other) : this() {
-      messageId_ = other.messageId_;
-      sessionData_ = other.sessionData_;
-      error_ = other.error_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public TextMessageResponse Clone() {
-      return new TextMessageResponse(this);
-    }
-
-    /// <summary>Field number for the "message_id" field.</summary>
-    public const int MessageIdFieldNumber = 1;
-    private string messageId_ = "";
-    /// <summary>
-    /// Indicate the request is completed
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string MessageId {
-      get { return messageId_; }
-      set {
-        messageId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "session_data" field.</summary>
-    public const int SessionDataFieldNumber = 2;
-    private pb::ByteString sessionData_ = pb::ByteString.Empty;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pb::ByteString SessionData {
-      get { return sessionData_; }
-      set {
-        sessionData_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 3;
-    private string error_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Error {
-      get { return error_; }
-      set {
-        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as TextMessageResponse);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(TextMessageResponse other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (MessageId != other.MessageId) return false;
-      if (SessionData != other.SessionData) return false;
-      if (Error != other.Error) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (MessageId.Length != 0) hash ^= MessageId.GetHashCode();
-      if (SessionData.Length != 0) hash ^= SessionData.GetHashCode();
-      if (Error.Length != 0) hash ^= Error.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (MessageId.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(MessageId);
-      }
-      if (SessionData.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(SessionData);
-      }
-      if (Error.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Error);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (MessageId.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(MessageId);
-      }
-      if (SessionData.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteBytes(SessionData);
-      }
-      if (Error.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Error);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (MessageId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(MessageId);
-      }
-      if (SessionData.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(SessionData);
-      }
-      if (Error.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(TextMessageResponse other) {
-      if (other == null) {
-        return;
-      }
-      if (other.MessageId.Length != 0) {
-        MessageId = other.MessageId;
-      }
-      if (other.SessionData.Length != 0) {
-        SessionData = other.SessionData;
-      }
-      if (other.Error.Length != 0) {
-        Error = other.Error;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            MessageId = input.ReadString();
-            break;
-          }
-          case 18: {
-            SessionData = input.ReadBytes();
-            break;
-          }
-          case 26: {
-            Error = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            MessageId = input.ReadString();
-            break;
-          }
-          case 18: {
-            SessionData = input.ReadBytes();
-            break;
-          }
-          case 26: {
-            Error = input.ReadString();
             break;
           }
         }

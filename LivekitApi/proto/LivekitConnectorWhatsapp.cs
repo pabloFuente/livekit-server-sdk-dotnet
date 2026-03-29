@@ -24,67 +24,74 @@ namespace Livekit.Server.Sdk.Dotnet {
     static LivekitConnectorWhatsappReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiBsaXZla2l0X2Nvbm5lY3Rvcl93aGF0c2FwcC5wcm90bxIHbGl2ZWtpdBoc",
-            "bGl2ZWtpdF9hZ2VudF9kaXNwYXRjaC5wcm90bxoRbGl2ZWtpdF9ydGMucHJv",
-            "dG8aFGxvZ2dlci9vcHRpb25zLnByb3RvIpgFChdEaWFsV2hhdHNBcHBDYWxs",
-            "UmVxdWVzdBIgChh3aGF0c2FwcF9waG9uZV9udW1iZXJfaWQYASABKAkSJgoY",
-            "d2hhdHNhcHBfdG9fcGhvbmVfbnVtYmVyGAIgASgJQgSI7CwBEh4KEHdoYXRz",
-            "YXBwX2FwaV9rZXkYAyABKAlCBIjsLAESIgoad2hhdHNhcHBfY2xvdWRfYXBp",
-            "X3ZlcnNpb24YDCABKAkSKQohd2hhdHNhcHBfYml6X29wYXF1ZV9jYWxsYmFj",
-            "a19kYXRhGAQgASgJEhEKCXJvb21fbmFtZRgFIAEoCRIqCgZhZ2VudHMYBiAD",
-            "KAsyGi5saXZla2l0LlJvb21BZ2VudERpc3BhdGNoEhwKFHBhcnRpY2lwYW50",
-            "X2lkZW50aXR5GAcgASgJEkAKEHBhcnRpY2lwYW50X25hbWUYCCABKAlCJojs",
-            "LAGS7CwePHJlZGFjdGVkICh7eyAuU2l6ZSB9fSBieXRlcyk+EkQKFHBhcnRp",
-            "Y2lwYW50X21ldGFkYXRhGAkgASgJQiaI7CwBkuwsHjxyZWRhY3RlZCAoe3sg",
-            "LlNpemUgfX0gYnl0ZXMpPhKDAQoWcGFydGljaXBhbnRfYXR0cmlidXRlcxgK",
-            "IAMoCzI7LmxpdmVraXQuRGlhbFdoYXRzQXBwQ2FsbFJlcXVlc3QuUGFydGlj",
-            "aXBhbnRBdHRyaWJ1dGVzRW50cnlCJojsLAGS7CwePHJlZGFjdGVkICh7eyAu",
-            "U2l6ZSB9fSBieXRlcyk+EhsKE2Rlc3RpbmF0aW9uX2NvdW50cnkYCyABKAka",
-            "PAoaUGFydGljaXBhbnRBdHRyaWJ1dGVzRW50cnkSCwoDa2V5GAEgASgJEg0K",
-            "BXZhbHVlGAIgASgJOgI4ASJHChhEaWFsV2hhdHNBcHBDYWxsUmVzcG9uc2US",
-            "GAoQd2hhdHNhcHBfY2FsbF9pZBgBIAEoCRIRCglyb29tX25hbWUYAiABKAki",
-            "7QEKHURpc2Nvbm5lY3RXaGF0c0FwcENhbGxSZXF1ZXN0EhgKEHdoYXRzYXBw",
-            "X2NhbGxfaWQYASABKAkSHgoQd2hhdHNhcHBfYXBpX2tleRgCIAEoCUIEiOws",
-            "ARJSChFkaXNjb25uZWN0X3JlYXNvbhgDIAEoDjI3LmxpdmVraXQuRGlzY29u",
-            "bmVjdFdoYXRzQXBwQ2FsbFJlcXVlc3QuRGlzY29ubmVjdFJlYXNvbiI+ChBE",
-            "aXNjb25uZWN0UmVhc29uEhYKEkJVU0lORVNTX0lOSVRJQVRFRBAAEhIKDlVT",
-            "RVJfSU5JVElBVEVEEAEiIAoeRGlzY29ubmVjdFdoYXRzQXBwQ2FsbFJlc3Bv",
-            "bnNlImAKGkNvbm5lY3RXaGF0c0FwcENhbGxSZXF1ZXN0EhgKEHdoYXRzYXBw",
-            "X2NhbGxfaWQYASABKAkSKAoDc2RwGAIgASgLMhsubGl2ZWtpdC5TZXNzaW9u",
-            "RGVzY3JpcHRpb24iHQobQ29ubmVjdFdoYXRzQXBwQ2FsbFJlc3BvbnNlIrgF",
-            "ChlBY2NlcHRXaGF0c0FwcENhbGxSZXF1ZXN0EiAKGHdoYXRzYXBwX3Bob25l",
-            "X251bWJlcl9pZBgBIAEoCRIeChB3aGF0c2FwcF9hcGlfa2V5GAIgASgJQgSI",
-            "7CwBEiIKGndoYXRzYXBwX2Nsb3VkX2FwaV92ZXJzaW9uGA0gASgJEhgKEHdo",
-            "YXRzYXBwX2NhbGxfaWQYAyABKAkSKQohd2hhdHNhcHBfYml6X29wYXF1ZV9j",
-            "YWxsYmFja19kYXRhGAQgASgJEigKA3NkcBgFIAEoCzIbLmxpdmVraXQuU2Vz",
-            "c2lvbkRlc2NyaXB0aW9uEhEKCXJvb21fbmFtZRgGIAEoCRIqCgZhZ2VudHMY",
-            "ByADKAsyGi5saXZla2l0LlJvb21BZ2VudERpc3BhdGNoEhwKFHBhcnRpY2lw",
-            "YW50X2lkZW50aXR5GAggASgJEkAKEHBhcnRpY2lwYW50X25hbWUYCSABKAlC",
-            "JojsLAGS7CwePHJlZGFjdGVkICh7eyAuU2l6ZSB9fSBieXRlcyk+EkQKFHBh",
-            "cnRpY2lwYW50X21ldGFkYXRhGAogASgJQiaI7CwBkuwsHjxyZWRhY3RlZCAo",
-            "e3sgLlNpemUgfX0gYnl0ZXMpPhKFAQoWcGFydGljaXBhbnRfYXR0cmlidXRl",
-            "cxgLIAMoCzI9LmxpdmVraXQuQWNjZXB0V2hhdHNBcHBDYWxsUmVxdWVzdC5Q",
-            "YXJ0aWNpcGFudEF0dHJpYnV0ZXNFbnRyeUImiOwsAZLsLB48cmVkYWN0ZWQg",
-            "KHt7IC5TaXplIH19IGJ5dGVzKT4SGwoTZGVzdGluYXRpb25fY291bnRyeRgM",
-            "IAEoCRo8ChpQYXJ0aWNpcGFudEF0dHJpYnV0ZXNFbnRyeRILCgNrZXkYASAB",
-            "KAkSDQoFdmFsdWUYAiABKAk6AjgBIi8KGkFjY2VwdFdoYXRzQXBwQ2FsbFJl",
-            "c3BvbnNlEhEKCXJvb21fbmFtZRgBIAEoCSJbCgxXaGF0c0FwcENhbGwSGAoQ",
-            "d2hhdHNhcHBfY2FsbF9pZBgBIAEoCRIxCglkaXJlY3Rpb24YAiABKA4yHi5s",
-            "aXZla2l0LldoYXRzQXBwQ2FsbERpcmVjdGlvbipiChVXaGF0c0FwcENhbGxE",
-            "aXJlY3Rpb24SIwofV0hBVFNBUFBfQ0FMTF9ESVJFQ1RJT05fSU5CT1VORBAA",
-            "EiQKIFdIQVRTQVBQX0NBTExfRElSRUNUSU9OX09VVEJPVU5EEAJCRlojZ2l0",
-            "aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1MaXZlS2l0LlBy",
-            "b3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
+            "CiBsaXZla2l0X2Nvbm5lY3Rvcl93aGF0c2FwcC5wcm90bxIHbGl2ZWtpdBoe",
+            "Z29vZ2xlL3Byb3RvYnVmL2R1cmF0aW9uLnByb3RvGhxsaXZla2l0X2FnZW50",
+            "X2Rpc3BhdGNoLnByb3RvGhFsaXZla2l0X3J0Yy5wcm90bxoUbG9nZ2VyL29w",
+            "dGlvbnMucHJvdG8i5wUKF0RpYWxXaGF0c0FwcENhbGxSZXF1ZXN0EjsKGHdo",
+            "YXRzYXBwX3Bob25lX251bWJlcl9pZBgBIAEoCUIZmuwsFXdoYXRzYXBwUGhv",
+            "bmVOdW1iZXJJRBImChh3aGF0c2FwcF90b19waG9uZV9udW1iZXIYAiABKAlC",
+            "BIjsLAESHgoQd2hhdHNhcHBfYXBpX2tleRgDIAEoCUIEiOwsARIiChp3aGF0",
+            "c2FwcF9jbG91ZF9hcGlfdmVyc2lvbhgMIAEoCRIpCiF3aGF0c2FwcF9iaXpf",
+            "b3BhcXVlX2NhbGxiYWNrX2RhdGEYBCABKAkSEQoJcm9vbV9uYW1lGAUgASgJ",
+            "EioKBmFnZW50cxgGIAMoCzIaLmxpdmVraXQuUm9vbUFnZW50RGlzcGF0Y2gS",
+            "HAoUcGFydGljaXBhbnRfaWRlbnRpdHkYByABKAkSQAoQcGFydGljaXBhbnRf",
+            "bmFtZRgIIAEoCUImiOwsAZLsLB48cmVkYWN0ZWQgKHt7IC5TaXplIH19IGJ5",
+            "dGVzKT4SRAoUcGFydGljaXBhbnRfbWV0YWRhdGEYCSABKAlCJojsLAGS7Cwe",
+            "PHJlZGFjdGVkICh7eyAuU2l6ZSB9fSBieXRlcyk+EoMBChZwYXJ0aWNpcGFu",
+            "dF9hdHRyaWJ1dGVzGAogAygLMjsubGl2ZWtpdC5EaWFsV2hhdHNBcHBDYWxs",
+            "UmVxdWVzdC5QYXJ0aWNpcGFudEF0dHJpYnV0ZXNFbnRyeUImiOwsAZLsLB48",
+            "cmVkYWN0ZWQgKHt7IC5TaXplIH19IGJ5dGVzKT4SGwoTZGVzdGluYXRpb25f",
+            "Y291bnRyeRgLIAEoCRIyCg9yaW5naW5nX3RpbWVvdXQYDSABKAsyGS5nb29n",
+            "bGUucHJvdG9idWYuRHVyYXRpb24aPAoaUGFydGljaXBhbnRBdHRyaWJ1dGVz",
+            "RW50cnkSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASJbChhEaWFs",
+            "V2hhdHNBcHBDYWxsUmVzcG9uc2USLAoQd2hhdHNhcHBfY2FsbF9pZBgBIAEo",
+            "CUISmuwsDndoYXRzYXBwQ2FsbElEEhEKCXJvb21fbmFtZRgCIAEoCSKBAgod",
+            "RGlzY29ubmVjdFdoYXRzQXBwQ2FsbFJlcXVlc3QSLAoQd2hhdHNhcHBfY2Fs",
+            "bF9pZBgBIAEoCUISmuwsDndoYXRzYXBwQ2FsbElEEh4KEHdoYXRzYXBwX2Fw",
+            "aV9rZXkYAiABKAlCBIjsLAESUgoRZGlzY29ubmVjdF9yZWFzb24YAyABKA4y",
+            "Ny5saXZla2l0LkRpc2Nvbm5lY3RXaGF0c0FwcENhbGxSZXF1ZXN0LkRpc2Nv",
+            "bm5lY3RSZWFzb24iPgoQRGlzY29ubmVjdFJlYXNvbhIWChJCVVNJTkVTU19J",
+            "TklUSUFURUQQABISCg5VU0VSX0lOSVRJQVRFRBABIiAKHkRpc2Nvbm5lY3RX",
+            "aGF0c0FwcENhbGxSZXNwb25zZSJ0ChpDb25uZWN0V2hhdHNBcHBDYWxsUmVx",
+            "dWVzdBIsChB3aGF0c2FwcF9jYWxsX2lkGAEgASgJQhKa7CwOd2hhdHNhcHBD",
+            "YWxsSUQSKAoDc2RwGAIgASgLMhsubGl2ZWtpdC5TZXNzaW9uRGVzY3JpcHRp",
+            "b24iHQobQ29ubmVjdFdoYXRzQXBwQ2FsbFJlc3BvbnNlIrgGChlBY2NlcHRX",
+            "aGF0c0FwcENhbGxSZXF1ZXN0EjsKGHdoYXRzYXBwX3Bob25lX251bWJlcl9p",
+            "ZBgBIAEoCUIZmuwsFXdoYXRzYXBwUGhvbmVOdW1iZXJJRBIeChB3aGF0c2Fw",
+            "cF9hcGlfa2V5GAIgASgJQgSI7CwBEiIKGndoYXRzYXBwX2Nsb3VkX2FwaV92",
+            "ZXJzaW9uGA0gASgJEiwKEHdoYXRzYXBwX2NhbGxfaWQYAyABKAlCEprsLA53",
+            "aGF0c2FwcENhbGxJRBIpCiF3aGF0c2FwcF9iaXpfb3BhcXVlX2NhbGxiYWNr",
+            "X2RhdGEYBCABKAkSKAoDc2RwGAUgASgLMhsubGl2ZWtpdC5TZXNzaW9uRGVz",
+            "Y3JpcHRpb24SEQoJcm9vbV9uYW1lGAYgASgJEioKBmFnZW50cxgHIAMoCzIa",
+            "LmxpdmVraXQuUm9vbUFnZW50RGlzcGF0Y2gSHAoUcGFydGljaXBhbnRfaWRl",
+            "bnRpdHkYCCABKAkSQAoQcGFydGljaXBhbnRfbmFtZRgJIAEoCUImiOwsAZLs",
+            "LB48cmVkYWN0ZWQgKHt7IC5TaXplIH19IGJ5dGVzKT4SRAoUcGFydGljaXBh",
+            "bnRfbWV0YWRhdGEYCiABKAlCJojsLAGS7CwePHJlZGFjdGVkICh7eyAuU2l6",
+            "ZSB9fSBieXRlcyk+EoUBChZwYXJ0aWNpcGFudF9hdHRyaWJ1dGVzGAsgAygL",
+            "Mj0ubGl2ZWtpdC5BY2NlcHRXaGF0c0FwcENhbGxSZXF1ZXN0LlBhcnRpY2lw",
+            "YW50QXR0cmlidXRlc0VudHJ5QiaI7CwBkuwsHjxyZWRhY3RlZCAoe3sgLlNp",
+            "emUgfX0gYnl0ZXMpPhIbChNkZXN0aW5hdGlvbl9jb3VudHJ5GAwgASgJEjIK",
+            "D3JpbmdpbmdfdGltZW91dBgOIAEoCzIZLmdvb2dsZS5wcm90b2J1Zi5EdXJh",
+            "dGlvbhIbChN3YWl0X3VudGlsX2Fuc3dlcmVkGA8gASgIGjwKGlBhcnRpY2lw",
+            "YW50QXR0cmlidXRlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEo",
+            "CToCOAEiLwoaQWNjZXB0V2hhdHNBcHBDYWxsUmVzcG9uc2USEQoJcm9vbV9u",
+            "YW1lGAEgASgJIm8KDFdoYXRzQXBwQ2FsbBIsChB3aGF0c2FwcF9jYWxsX2lk",
+            "GAEgASgJQhKa7CwOd2hhdHNhcHBDYWxsSUQSMQoJZGlyZWN0aW9uGAIgASgO",
+            "Mh4ubGl2ZWtpdC5XaGF0c0FwcENhbGxEaXJlY3Rpb24qYgoVV2hhdHNBcHBD",
+            "YWxsRGlyZWN0aW9uEiMKH1dIQVRTQVBQX0NBTExfRElSRUNUSU9OX0lOQk9V",
+            "TkQQABIkCiBXSEFUU0FQUF9DQUxMX0RJUkVDVElPTl9PVVRCT1VORBACQkZa",
+            "I2dpdGh1Yi5jb20vbGl2ZWtpdC9wcm90b2NvbC9saXZla2l0qgINTGl2ZUtp",
+            "dC5Qcm90b+oCDkxpdmVLaXQ6OlByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitAgentDispatchReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitRtcReflection.Descriptor, global::Logger.OptionsReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitAgentDispatchReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitRtcReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.OptionsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.WhatsAppCallDirection), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DialWhatsAppCallRequest), global::Livekit.Server.Sdk.Dotnet.DialWhatsAppCallRequest.Parser, new[]{ "WhatsappPhoneNumberId", "WhatsappToPhoneNumber", "WhatsappApiKey", "WhatsappCloudApiVersion", "WhatsappBizOpaqueCallbackData", "RoomName", "Agents", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "ParticipantAttributes", "DestinationCountry" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DialWhatsAppCallRequest), global::Livekit.Server.Sdk.Dotnet.DialWhatsAppCallRequest.Parser, new[]{ "WhatsappPhoneNumberId", "WhatsappToPhoneNumber", "WhatsappApiKey", "WhatsappCloudApiVersion", "WhatsappBizOpaqueCallbackData", "RoomName", "Agents", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "ParticipantAttributes", "DestinationCountry", "RingingTimeout" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DialWhatsAppCallResponse), global::Livekit.Server.Sdk.Dotnet.DialWhatsAppCallResponse.Parser, new[]{ "WhatsappCallId", "RoomName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DisconnectWhatsAppCallRequest), global::Livekit.Server.Sdk.Dotnet.DisconnectWhatsAppCallRequest.Parser, new[]{ "WhatsappCallId", "WhatsappApiKey", "DisconnectReason" }, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.DisconnectWhatsAppCallRequest.Types.DisconnectReason) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DisconnectWhatsAppCallResponse), global::Livekit.Server.Sdk.Dotnet.DisconnectWhatsAppCallResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ConnectWhatsAppCallRequest), global::Livekit.Server.Sdk.Dotnet.ConnectWhatsAppCallRequest.Parser, new[]{ "WhatsappCallId", "Sdp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ConnectWhatsAppCallResponse), global::Livekit.Server.Sdk.Dotnet.ConnectWhatsAppCallResponse.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AcceptWhatsAppCallRequest), global::Livekit.Server.Sdk.Dotnet.AcceptWhatsAppCallRequest.Parser, new[]{ "WhatsappPhoneNumberId", "WhatsappApiKey", "WhatsappCloudApiVersion", "WhatsappCallId", "WhatsappBizOpaqueCallbackData", "Sdp", "RoomName", "Agents", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "ParticipantAttributes", "DestinationCountry" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AcceptWhatsAppCallRequest), global::Livekit.Server.Sdk.Dotnet.AcceptWhatsAppCallRequest.Parser, new[]{ "WhatsappPhoneNumberId", "WhatsappApiKey", "WhatsappCloudApiVersion", "WhatsappCallId", "WhatsappBizOpaqueCallbackData", "Sdp", "RoomName", "Agents", "ParticipantIdentity", "ParticipantName", "ParticipantMetadata", "ParticipantAttributes", "DestinationCountry", "RingingTimeout", "WaitUntilAnswered" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AcceptWhatsAppCallResponse), global::Livekit.Server.Sdk.Dotnet.AcceptWhatsAppCallResponse.Parser, new[]{ "RoomName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WhatsAppCall), global::Livekit.Server.Sdk.Dotnet.WhatsAppCall.Parser, new[]{ "WhatsappCallId", "Direction" }, null, null, null, null)
           }));
@@ -147,6 +154,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       participantMetadata_ = other.participantMetadata_;
       participantAttributes_ = other.participantAttributes_.Clone();
       destinationCountry_ = other.destinationCountry_;
+      ringingTimeout_ = other.ringingTimeout_ != null ? other.ringingTimeout_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -335,6 +343,21 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "ringing_timeout" field.</summary>
+    public const int RingingTimeoutFieldNumber = 13;
+    private global::Google.Protobuf.WellKnownTypes.Duration ringingTimeout_;
+    /// <summary>
+    /// Max time for the callee to answer the call.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Duration RingingTimeout {
+      get { return ringingTimeout_; }
+      set {
+        ringingTimeout_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -362,6 +385,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (ParticipantMetadata != other.ParticipantMetadata) return false;
       if (!ParticipantAttributes.Equals(other.ParticipantAttributes)) return false;
       if (DestinationCountry != other.DestinationCountry) return false;
+      if (!object.Equals(RingingTimeout, other.RingingTimeout)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -381,6 +405,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (ParticipantMetadata.Length != 0) hash ^= ParticipantMetadata.GetHashCode();
       hash ^= ParticipantAttributes.GetHashCode();
       if (DestinationCountry.Length != 0) hash ^= DestinationCountry.GetHashCode();
+      if (ringingTimeout_ != null) hash ^= RingingTimeout.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -441,6 +466,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(98);
         output.WriteString(WhatsappCloudApiVersion);
       }
+      if (ringingTimeout_ != null) {
+        output.WriteRawTag(106);
+        output.WriteMessage(RingingTimeout);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -493,6 +522,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(98);
         output.WriteString(WhatsappCloudApiVersion);
       }
+      if (ringingTimeout_ != null) {
+        output.WriteRawTag(106);
+        output.WriteMessage(RingingTimeout);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -534,6 +567,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       size += participantAttributes_.CalculateSize(_map_participantAttributes_codec);
       if (DestinationCountry.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(DestinationCountry);
+      }
+      if (ringingTimeout_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RingingTimeout);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -578,6 +614,12 @@ namespace Livekit.Server.Sdk.Dotnet {
       participantAttributes_.Add(other.participantAttributes_);
       if (other.DestinationCountry.Length != 0) {
         DestinationCountry = other.DestinationCountry;
+      }
+      if (other.ringingTimeout_ != null) {
+        if (ringingTimeout_ == null) {
+          RingingTimeout = new global::Google.Protobuf.WellKnownTypes.Duration();
+        }
+        RingingTimeout.MergeFrom(other.RingingTimeout);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -642,6 +684,13 @@ namespace Livekit.Server.Sdk.Dotnet {
             WhatsappCloudApiVersion = input.ReadString();
             break;
           }
+          case 106: {
+            if (ringingTimeout_ == null) {
+              RingingTimeout = new global::Google.Protobuf.WellKnownTypes.Duration();
+            }
+            input.ReadMessage(RingingTimeout);
+            break;
+          }
         }
       }
     #endif
@@ -703,6 +752,13 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 98: {
             WhatsappCloudApiVersion = input.ReadString();
+            break;
+          }
+          case 106: {
+            if (ringingTimeout_ == null) {
+              RingingTimeout = new global::Google.Protobuf.WellKnownTypes.Duration();
+            }
+            input.ReadMessage(RingingTimeout);
             break;
           }
         }
@@ -1834,6 +1890,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       participantMetadata_ = other.participantMetadata_;
       participantAttributes_ = other.participantAttributes_.Clone();
       destinationCountry_ = other.destinationCountry_;
+      ringingTimeout_ = other.ringingTimeout_ != null ? other.ringingTimeout_.Clone() : null;
+      waitUntilAnswered_ = other.waitUntilAnswered_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2038,6 +2096,36 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "ringing_timeout" field.</summary>
+    public const int RingingTimeoutFieldNumber = 14;
+    private global::Google.Protobuf.WellKnownTypes.Duration ringingTimeout_;
+    /// <summary>
+    /// Max time for the callee to answer the call.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Duration RingingTimeout {
+      get { return ringingTimeout_; }
+      set {
+        ringingTimeout_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "wait_until_answered" field.</summary>
+    public const int WaitUntilAnsweredFieldNumber = 15;
+    private bool waitUntilAnswered_;
+    /// <summary>
+    /// Wait for the answer for the call before returning.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool WaitUntilAnswered {
+      get { return waitUntilAnswered_; }
+      set {
+        waitUntilAnswered_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2066,6 +2154,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (ParticipantMetadata != other.ParticipantMetadata) return false;
       if (!ParticipantAttributes.Equals(other.ParticipantAttributes)) return false;
       if (DestinationCountry != other.DestinationCountry) return false;
+      if (!object.Equals(RingingTimeout, other.RingingTimeout)) return false;
+      if (WaitUntilAnswered != other.WaitUntilAnswered) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2086,6 +2176,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (ParticipantMetadata.Length != 0) hash ^= ParticipantMetadata.GetHashCode();
       hash ^= ParticipantAttributes.GetHashCode();
       if (DestinationCountry.Length != 0) hash ^= DestinationCountry.GetHashCode();
+      if (ringingTimeout_ != null) hash ^= RingingTimeout.GetHashCode();
+      if (WaitUntilAnswered != false) hash ^= WaitUntilAnswered.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2150,6 +2242,14 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(106);
         output.WriteString(WhatsappCloudApiVersion);
       }
+      if (ringingTimeout_ != null) {
+        output.WriteRawTag(114);
+        output.WriteMessage(RingingTimeout);
+      }
+      if (WaitUntilAnswered != false) {
+        output.WriteRawTag(120);
+        output.WriteBool(WaitUntilAnswered);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2206,6 +2306,14 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(106);
         output.WriteString(WhatsappCloudApiVersion);
       }
+      if (ringingTimeout_ != null) {
+        output.WriteRawTag(114);
+        output.WriteMessage(RingingTimeout);
+      }
+      if (WaitUntilAnswered != false) {
+        output.WriteRawTag(120);
+        output.WriteBool(WaitUntilAnswered);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2250,6 +2358,12 @@ namespace Livekit.Server.Sdk.Dotnet {
       size += participantAttributes_.CalculateSize(_map_participantAttributes_codec);
       if (DestinationCountry.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(DestinationCountry);
+      }
+      if (ringingTimeout_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RingingTimeout);
+      }
+      if (WaitUntilAnswered != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2300,6 +2414,15 @@ namespace Livekit.Server.Sdk.Dotnet {
       participantAttributes_.Add(other.participantAttributes_);
       if (other.DestinationCountry.Length != 0) {
         DestinationCountry = other.DestinationCountry;
+      }
+      if (other.ringingTimeout_ != null) {
+        if (ringingTimeout_ == null) {
+          RingingTimeout = new global::Google.Protobuf.WellKnownTypes.Duration();
+        }
+        RingingTimeout.MergeFrom(other.RingingTimeout);
+      }
+      if (other.WaitUntilAnswered != false) {
+        WaitUntilAnswered = other.WaitUntilAnswered;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2371,6 +2494,17 @@ namespace Livekit.Server.Sdk.Dotnet {
             WhatsappCloudApiVersion = input.ReadString();
             break;
           }
+          case 114: {
+            if (ringingTimeout_ == null) {
+              RingingTimeout = new global::Google.Protobuf.WellKnownTypes.Duration();
+            }
+            input.ReadMessage(RingingTimeout);
+            break;
+          }
+          case 120: {
+            WaitUntilAnswered = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -2439,6 +2573,17 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 106: {
             WhatsappCloudApiVersion = input.ReadString();
+            break;
+          }
+          case 114: {
+            if (ringingTimeout_ == null) {
+              RingingTimeout = new global::Google.Protobuf.WellKnownTypes.Duration();
+            }
+            input.ReadMessage(RingingTimeout);
+            break;
+          }
+          case 120: {
+            WaitUntilAnswered = input.ReadBool();
             break;
           }
         }
