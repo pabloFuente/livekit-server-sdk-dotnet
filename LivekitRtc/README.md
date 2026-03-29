@@ -250,17 +250,17 @@ To upgrade the version of the `rust-sdks` Git submodule:
 ```bash
 cd rust-sdks
 git fetch --all
-git checkout <COMMIT_HASH/TAG/BRANCH>
+git checkout <COMMIT_HASH/TAG/BRANCH> # e.g. git checkout livekit-ffi/v0.12.50
 cd ..
-git add rust-sdks
-git commit -m "Update rust-sdks to <VERSION>"
-git push
+./generate_proto.sh
+dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 ```
 
-Then it may be necessary to re-generate the proto files to actually reflect the changes in rust-sdks:
+Then commit:
 
 ```bash
-./generate_proto.sh
+git commit -m "Update rust-sdks to <VERSION>"
+git push
 ```
 
 ## Perform release
