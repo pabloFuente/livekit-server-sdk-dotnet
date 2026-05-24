@@ -25,91 +25,96 @@ namespace LiveKit.Proto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChF2aWRlb19mcmFtZS5wcm90bxINbGl2ZWtpdC5wcm90bxoMaGFuZGxlLnBy",
-            "b3RvGgt0cmFjay5wcm90byKlAQoVTmV3VmlkZW9TdHJlYW1SZXF1ZXN0EhQK",
+            "b3RvGgt0cmFjay5wcm90byLAAQoVTmV3VmlkZW9TdHJlYW1SZXF1ZXN0EhQK",
             "DHRyYWNrX2hhbmRsZRgBIAIoBBIsCgR0eXBlGAIgAigOMh4ubGl2ZWtpdC5w",
             "cm90by5WaWRlb1N0cmVhbVR5cGUSLgoGZm9ybWF0GAMgASgOMh4ubGl2ZWtp",
             "dC5wcm90by5WaWRlb0J1ZmZlclR5cGUSGAoQbm9ybWFsaXplX3N0cmlkZRgE",
-            "IAEoCCJJChZOZXdWaWRlb1N0cmVhbVJlc3BvbnNlEi8KBnN0cmVhbRgBIAIo",
-            "CzIfLmxpdmVraXQucHJvdG8uT3duZWRWaWRlb1N0cmVhbSLpAQohVmlkZW9T",
-            "dHJlYW1Gcm9tUGFydGljaXBhbnRSZXF1ZXN0EhoKEnBhcnRpY2lwYW50X2hh",
-            "bmRsZRgBIAIoBBIsCgR0eXBlGAIgAigOMh4ubGl2ZWtpdC5wcm90by5WaWRl",
-            "b1N0cmVhbVR5cGUSMAoMdHJhY2tfc291cmNlGAMgAigOMhoubGl2ZWtpdC5w",
-            "cm90by5UcmFja1NvdXJjZRIuCgZmb3JtYXQYBCABKA4yHi5saXZla2l0LnBy",
-            "b3RvLlZpZGVvQnVmZmVyVHlwZRIYChBub3JtYWxpemVfc3RyaWRlGAUgASgI",
-            "IlUKIlZpZGVvU3RyZWFtRnJvbVBhcnRpY2lwYW50UmVzcG9uc2USLwoGc3Ry",
-            "ZWFtGAEgAigLMh8ubGl2ZWtpdC5wcm90by5Pd25lZFZpZGVvU3RyZWFtIpYB",
-            "ChVOZXdWaWRlb1NvdXJjZVJlcXVlc3QSLAoEdHlwZRgBIAIoDjIeLmxpdmVr",
-            "aXQucHJvdG8uVmlkZW9Tb3VyY2VUeXBlEjgKCnJlc29sdXRpb24YAiACKAsy",
-            "JC5saXZla2l0LnByb3RvLlZpZGVvU291cmNlUmVzb2x1dGlvbhIVCg1pc19z",
-            "Y3JlZW5jYXN0GAMgASgIIkkKFk5ld1ZpZGVvU291cmNlUmVzcG9uc2USLwoG",
-            "c291cmNlGAEgAigLMh8ubGl2ZWtpdC5wcm90by5Pd25lZFZpZGVvU291cmNl",
-            "IqcBChhDYXB0dXJlVmlkZW9GcmFtZVJlcXVlc3QSFQoNc291cmNlX2hhbmRs",
-            "ZRgBIAIoBBIuCgZidWZmZXIYAiACKAsyHi5saXZla2l0LnByb3RvLlZpZGVv",
-            "QnVmZmVySW5mbxIUCgx0aW1lc3RhbXBfdXMYAyACKAMSLgoIcm90YXRpb24Y",
-            "BCACKA4yHC5saXZla2l0LnByb3RvLlZpZGVvUm90YXRpb24iGwoZQ2FwdHVy",
-            "ZVZpZGVvRnJhbWVSZXNwb25zZSKHAQoTVmlkZW9Db252ZXJ0UmVxdWVzdBIO",
-            "CgZmbGlwX3kYASABKAgSLgoGYnVmZmVyGAIgAigLMh4ubGl2ZWtpdC5wcm90",
-            "by5WaWRlb0J1ZmZlckluZm8SMAoIZHN0X3R5cGUYAyACKA4yHi5saXZla2l0",
-            "LnByb3RvLlZpZGVvQnVmZmVyVHlwZSJlChRWaWRlb0NvbnZlcnRSZXNwb25z",
-            "ZRIPCgVlcnJvchgBIAEoCUgAEjEKBmJ1ZmZlchgCIAEoCzIfLmxpdmVraXQu",
-            "cHJvdG8uT3duZWRWaWRlb0J1ZmZlckgAQgkKB21lc3NhZ2UiRAoPVmlkZW9S",
-            "ZXNvbHV0aW9uEg0KBXdpZHRoGAEgAigNEg4KBmhlaWdodBgCIAIoDRISCgpm",
-            "cmFtZV9yYXRlGAMgAigBIoMCCg9WaWRlb0J1ZmZlckluZm8SLAoEdHlwZRgB",
-            "IAIoDjIeLmxpdmVraXQucHJvdG8uVmlkZW9CdWZmZXJUeXBlEg0KBXdpZHRo",
-            "GAIgAigNEg4KBmhlaWdodBgDIAIoDRIQCghkYXRhX3B0chgEIAIoBBIOCgZz",
-            "dHJpZGUYBiABKA0SQAoKY29tcG9uZW50cxgHIAMoCzIsLmxpdmVraXQucHJv",
-            "dG8uVmlkZW9CdWZmZXJJbmZvLkNvbXBvbmVudEluZm8aPwoNQ29tcG9uZW50",
-            "SW5mbxIQCghkYXRhX3B0chgBIAIoBBIOCgZzdHJpZGUYAiACKA0SDAoEc2l6",
-            "ZRgDIAIoDSJvChBPd25lZFZpZGVvQnVmZmVyEi0KBmhhbmRsZRgBIAIoCzId",
-            "LmxpdmVraXQucHJvdG8uRmZpT3duZWRIYW5kbGUSLAoEaW5mbxgCIAIoCzIe",
-            "LmxpdmVraXQucHJvdG8uVmlkZW9CdWZmZXJJbmZvIj8KD1ZpZGVvU3RyZWFt",
-            "SW5mbxIsCgR0eXBlGAEgAigOMh4ubGl2ZWtpdC5wcm90by5WaWRlb1N0cmVh",
-            "bVR5cGUibwoQT3duZWRWaWRlb1N0cmVhbRItCgZoYW5kbGUYASACKAsyHS5s",
+            "IAEoCBIZChFxdWV1ZV9zaXplX2ZyYW1lcxgFIAEoDSJJChZOZXdWaWRlb1N0",
+            "cmVhbVJlc3BvbnNlEi8KBnN0cmVhbRgBIAIoCzIfLmxpdmVraXQucHJvdG8u",
+            "T3duZWRWaWRlb1N0cmVhbSKEAgohVmlkZW9TdHJlYW1Gcm9tUGFydGljaXBh",
+            "bnRSZXF1ZXN0EhoKEnBhcnRpY2lwYW50X2hhbmRsZRgBIAIoBBIsCgR0eXBl",
+            "GAIgAigOMh4ubGl2ZWtpdC5wcm90by5WaWRlb1N0cmVhbVR5cGUSMAoMdHJh",
+            "Y2tfc291cmNlGAMgAigOMhoubGl2ZWtpdC5wcm90by5UcmFja1NvdXJjZRIu",
+            "CgZmb3JtYXQYBCABKA4yHi5saXZla2l0LnByb3RvLlZpZGVvQnVmZmVyVHlw",
+            "ZRIYChBub3JtYWxpemVfc3RyaWRlGAUgASgIEhkKEXF1ZXVlX3NpemVfZnJh",
+            "bWVzGAYgASgNIlUKIlZpZGVvU3RyZWFtRnJvbVBhcnRpY2lwYW50UmVzcG9u",
+            "c2USLwoGc3RyZWFtGAEgAigLMh8ubGl2ZWtpdC5wcm90by5Pd25lZFZpZGVv",
+            "U3RyZWFtIpYBChVOZXdWaWRlb1NvdXJjZVJlcXVlc3QSLAoEdHlwZRgBIAIo",
+            "DjIeLmxpdmVraXQucHJvdG8uVmlkZW9Tb3VyY2VUeXBlEjgKCnJlc29sdXRp",
+            "b24YAiACKAsyJC5saXZla2l0LnByb3RvLlZpZGVvU291cmNlUmVzb2x1dGlv",
+            "bhIVCg1pc19zY3JlZW5jYXN0GAMgASgIIkkKFk5ld1ZpZGVvU291cmNlUmVz",
+            "cG9uc2USLwoGc291cmNlGAEgAigLMh8ubGl2ZWtpdC5wcm90by5Pd25lZFZp",
+            "ZGVvU291cmNlItcBChhDYXB0dXJlVmlkZW9GcmFtZVJlcXVlc3QSFQoNc291",
+            "cmNlX2hhbmRsZRgBIAIoBBIuCgZidWZmZXIYAiACKAsyHi5saXZla2l0LnBy",
+            "b3RvLlZpZGVvQnVmZmVySW5mbxIUCgx0aW1lc3RhbXBfdXMYAyACKAMSLgoI",
+            "cm90YXRpb24YBCACKA4yHC5saXZla2l0LnByb3RvLlZpZGVvUm90YXRpb24S",
+            "LgoIbWV0YWRhdGEYBSABKAsyHC5saXZla2l0LnByb3RvLkZyYW1lTWV0YWRh",
+            "dGEiGwoZQ2FwdHVyZVZpZGVvRnJhbWVSZXNwb25zZSKHAQoTVmlkZW9Db252",
+            "ZXJ0UmVxdWVzdBIOCgZmbGlwX3kYASABKAgSLgoGYnVmZmVyGAIgAigLMh4u",
+            "bGl2ZWtpdC5wcm90by5WaWRlb0J1ZmZlckluZm8SMAoIZHN0X3R5cGUYAyAC",
+            "KA4yHi5saXZla2l0LnByb3RvLlZpZGVvQnVmZmVyVHlwZSJlChRWaWRlb0Nv",
+            "bnZlcnRSZXNwb25zZRIPCgVlcnJvchgBIAEoCUgAEjEKBmJ1ZmZlchgCIAEo",
+            "CzIfLmxpdmVraXQucHJvdG8uT3duZWRWaWRlb0J1ZmZlckgAQgkKB21lc3Nh",
+            "Z2UiRAoPVmlkZW9SZXNvbHV0aW9uEg0KBXdpZHRoGAEgAigNEg4KBmhlaWdo",
+            "dBgCIAIoDRISCgpmcmFtZV9yYXRlGAMgAigBIoMCCg9WaWRlb0J1ZmZlcklu",
+            "Zm8SLAoEdHlwZRgBIAIoDjIeLmxpdmVraXQucHJvdG8uVmlkZW9CdWZmZXJU",
+            "eXBlEg0KBXdpZHRoGAIgAigNEg4KBmhlaWdodBgDIAIoDRIQCghkYXRhX3B0",
+            "chgEIAIoBBIOCgZzdHJpZGUYBiABKA0SQAoKY29tcG9uZW50cxgHIAMoCzIs",
+            "LmxpdmVraXQucHJvdG8uVmlkZW9CdWZmZXJJbmZvLkNvbXBvbmVudEluZm8a",
+            "PwoNQ29tcG9uZW50SW5mbxIQCghkYXRhX3B0chgBIAIoBBIOCgZzdHJpZGUY",
+            "AiACKA0SDAoEc2l6ZRgDIAIoDSJvChBPd25lZFZpZGVvQnVmZmVyEi0KBmhh",
+            "bmRsZRgBIAIoCzIdLmxpdmVraXQucHJvdG8uRmZpT3duZWRIYW5kbGUSLAoE",
+            "aW5mbxgCIAIoCzIeLmxpdmVraXQucHJvdG8uVmlkZW9CdWZmZXJJbmZvIjkK",
+            "DUZyYW1lTWV0YWRhdGESFgoOdXNlcl90aW1lc3RhbXAYASABKAQSEAoIZnJh",
+            "bWVfaWQYAiABKA0iPwoPVmlkZW9TdHJlYW1JbmZvEiwKBHR5cGUYASACKA4y",
+            "Hi5saXZla2l0LnByb3RvLlZpZGVvU3RyZWFtVHlwZSJvChBPd25lZFZpZGVv",
+            "U3RyZWFtEi0KBmhhbmRsZRgBIAIoCzIdLmxpdmVraXQucHJvdG8uRmZpT3du",
+            "ZWRIYW5kbGUSLAoEaW5mbxgCIAIoCzIeLmxpdmVraXQucHJvdG8uVmlkZW9T",
+            "dHJlYW1JbmZvIp8BChBWaWRlb1N0cmVhbUV2ZW50EhUKDXN0cmVhbV9oYW5k",
+            "bGUYASACKAQSOwoOZnJhbWVfcmVjZWl2ZWQYAiABKAsyIS5saXZla2l0LnBy",
+            "b3RvLlZpZGVvRnJhbWVSZWNlaXZlZEgAEiwKA2VvcxgDIAEoCzIdLmxpdmVr",
+            "aXQucHJvdG8uVmlkZW9TdHJlYW1FT1NIAEIJCgdtZXNzYWdlIrsBChJWaWRl",
+            "b0ZyYW1lUmVjZWl2ZWQSLwoGYnVmZmVyGAEgAigLMh8ubGl2ZWtpdC5wcm90",
+            "by5Pd25lZFZpZGVvQnVmZmVyEhQKDHRpbWVzdGFtcF91cxgCIAIoAxIuCghy",
+            "b3RhdGlvbhgDIAIoDjIcLmxpdmVraXQucHJvdG8uVmlkZW9Sb3RhdGlvbhIu",
+            "CghtZXRhZGF0YRgEIAEoCzIcLmxpdmVraXQucHJvdG8uRnJhbWVNZXRhZGF0",
+            "YSIQCg5WaWRlb1N0cmVhbUVPUyI2ChVWaWRlb1NvdXJjZVJlc29sdXRpb24S",
+            "DQoFd2lkdGgYASACKA0SDgoGaGVpZ2h0GAIgAigNIj8KD1ZpZGVvU291cmNl",
+            "SW5mbxIsCgR0eXBlGAEgAigOMh4ubGl2ZWtpdC5wcm90by5WaWRlb1NvdXJj",
+            "ZVR5cGUibwoQT3duZWRWaWRlb1NvdXJjZRItCgZoYW5kbGUYASACKAsyHS5s",
             "aXZla2l0LnByb3RvLkZmaU93bmVkSGFuZGxlEiwKBGluZm8YAiACKAsyHi5s",
-            "aXZla2l0LnByb3RvLlZpZGVvU3RyZWFtSW5mbyKfAQoQVmlkZW9TdHJlYW1F",
-            "dmVudBIVCg1zdHJlYW1faGFuZGxlGAEgAigEEjsKDmZyYW1lX3JlY2VpdmVk",
-            "GAIgASgLMiEubGl2ZWtpdC5wcm90by5WaWRlb0ZyYW1lUmVjZWl2ZWRIABIs",
-            "CgNlb3MYAyABKAsyHS5saXZla2l0LnByb3RvLlZpZGVvU3RyZWFtRU9TSABC",
-            "CQoHbWVzc2FnZSKLAQoSVmlkZW9GcmFtZVJlY2VpdmVkEi8KBmJ1ZmZlchgB",
-            "IAIoCzIfLmxpdmVraXQucHJvdG8uT3duZWRWaWRlb0J1ZmZlchIUCgx0aW1l",
-            "c3RhbXBfdXMYAiACKAMSLgoIcm90YXRpb24YAyACKA4yHC5saXZla2l0LnBy",
-            "b3RvLlZpZGVvUm90YXRpb24iEAoOVmlkZW9TdHJlYW1FT1MiNgoVVmlkZW9T",
-            "b3VyY2VSZXNvbHV0aW9uEg0KBXdpZHRoGAEgAigNEg4KBmhlaWdodBgCIAIo",
-            "DSI/Cg9WaWRlb1NvdXJjZUluZm8SLAoEdHlwZRgBIAIoDjIeLmxpdmVraXQu",
-            "cHJvdG8uVmlkZW9Tb3VyY2VUeXBlIm8KEE93bmVkVmlkZW9Tb3VyY2USLQoG",
-            "aGFuZGxlGAEgAigLMh0ubGl2ZWtpdC5wcm90by5GZmlPd25lZEhhbmRsZRIs",
-            "CgRpbmZvGAIgAigLMh4ubGl2ZWtpdC5wcm90by5WaWRlb1NvdXJjZUluZm8q",
-            "OwoKVmlkZW9Db2RlYxIHCgNWUDgQABIICgRIMjY0EAESBwoDQVYxEAISBwoD",
-            "VlA5EAMSCAoESDI2NRAEKmwKDVZpZGVvUm90YXRpb24SFAoQVklERU9fUk9U",
-            "QVRJT05fMBAAEhUKEVZJREVPX1JPVEFUSU9OXzkwEAESFgoSVklERU9fUk9U",
-            "QVRJT05fMTgwEAISFgoSVklERU9fUk9UQVRJT05fMjcwEAMqgQEKD1ZpZGVv",
-            "QnVmZmVyVHlwZRIICgRSR0JBEAASCAoEQUJHUhABEggKBEFSR0IQAhIICgRC",
-            "R1JBEAMSCQoFUkdCMjQQBBIICgRJNDIwEAUSCQoFSTQyMEEQBhIICgRJNDIy",
-            "EAcSCAoESTQ0NBAIEggKBEkwMTAQCRIICgROVjEyEAoqWQoPVmlkZW9TdHJl",
-            "YW1UeXBlEhcKE1ZJREVPX1NUUkVBTV9OQVRJVkUQABIWChJWSURFT19TVFJF",
-            "QU1fV0VCR0wQARIVChFWSURFT19TVFJFQU1fSFRNTBACKioKD1ZpZGVvU291",
-            "cmNlVHlwZRIXChNWSURFT19TT1VSQ0VfTkFUSVZFEABCEKoCDUxpdmVLaXQu",
-            "UHJvdG8="));
+            "aXZla2l0LnByb3RvLlZpZGVvU291cmNlSW5mbyo7CgpWaWRlb0NvZGVjEgcK",
+            "A1ZQOBAAEggKBEgyNjQQARIHCgNBVjEQAhIHCgNWUDkQAxIICgRIMjY1EAQq",
+            "bAoNVmlkZW9Sb3RhdGlvbhIUChBWSURFT19ST1RBVElPTl8wEAASFQoRVklE",
+            "RU9fUk9UQVRJT05fOTAQARIWChJWSURFT19ST1RBVElPTl8xODAQAhIWChJW",
+            "SURFT19ST1RBVElPTl8yNzAQAyqBAQoPVmlkZW9CdWZmZXJUeXBlEggKBFJH",
+            "QkEQABIICgRBQkdSEAESCAoEQVJHQhACEggKBEJHUkEQAxIJCgVSR0IyNBAE",
+            "EggKBEk0MjAQBRIJCgVJNDIwQRAGEggKBEk0MjIQBxIICgRJNDQ0EAgSCAoE",
+            "STAxMBAJEggKBE5WMTIQCipZCg9WaWRlb1N0cmVhbVR5cGUSFwoTVklERU9f",
+            "U1RSRUFNX05BVElWRRAAEhYKElZJREVPX1NUUkVBTV9XRUJHTBABEhUKEVZJ",
+            "REVPX1NUUkVBTV9IVE1MEAIqKgoPVmlkZW9Tb3VyY2VUeXBlEhcKE1ZJREVP",
+            "X1NPVVJDRV9OQVRJVkUQAEIQqgINTGl2ZUtpdC5Qcm90bw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::LiveKit.Proto.HandleReflection.Descriptor, global::LiveKit.Proto.TrackReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::LiveKit.Proto.VideoCodec), typeof(global::LiveKit.Proto.VideoRotation), typeof(global::LiveKit.Proto.VideoBufferType), typeof(global::LiveKit.Proto.VideoStreamType), typeof(global::LiveKit.Proto.VideoSourceType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.NewVideoStreamRequest), global::LiveKit.Proto.NewVideoStreamRequest.Parser, new[]{ "TrackHandle", "Type", "Format", "NormalizeStride" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.NewVideoStreamRequest), global::LiveKit.Proto.NewVideoStreamRequest.Parser, new[]{ "TrackHandle", "Type", "Format", "NormalizeStride", "QueueSizeFrames" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.NewVideoStreamResponse), global::LiveKit.Proto.NewVideoStreamResponse.Parser, new[]{ "Stream" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoStreamFromParticipantRequest), global::LiveKit.Proto.VideoStreamFromParticipantRequest.Parser, new[]{ "ParticipantHandle", "Type", "TrackSource", "Format", "NormalizeStride" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoStreamFromParticipantRequest), global::LiveKit.Proto.VideoStreamFromParticipantRequest.Parser, new[]{ "ParticipantHandle", "Type", "TrackSource", "Format", "NormalizeStride", "QueueSizeFrames" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoStreamFromParticipantResponse), global::LiveKit.Proto.VideoStreamFromParticipantResponse.Parser, new[]{ "Stream" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.NewVideoSourceRequest), global::LiveKit.Proto.NewVideoSourceRequest.Parser, new[]{ "Type", "Resolution", "IsScreencast" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.NewVideoSourceResponse), global::LiveKit.Proto.NewVideoSourceResponse.Parser, new[]{ "Source" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.CaptureVideoFrameRequest), global::LiveKit.Proto.CaptureVideoFrameRequest.Parser, new[]{ "SourceHandle", "Buffer", "TimestampUs", "Rotation" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.CaptureVideoFrameRequest), global::LiveKit.Proto.CaptureVideoFrameRequest.Parser, new[]{ "SourceHandle", "Buffer", "TimestampUs", "Rotation", "Metadata" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.CaptureVideoFrameResponse), global::LiveKit.Proto.CaptureVideoFrameResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoConvertRequest), global::LiveKit.Proto.VideoConvertRequest.Parser, new[]{ "FlipY", "Buffer", "DstType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoConvertResponse), global::LiveKit.Proto.VideoConvertResponse.Parser, new[]{ "Error", "Buffer" }, new[]{ "Message" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoResolution), global::LiveKit.Proto.VideoResolution.Parser, new[]{ "Width", "Height", "FrameRate" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoBufferInfo), global::LiveKit.Proto.VideoBufferInfo.Parser, new[]{ "Type", "Width", "Height", "DataPtr", "Stride", "Components" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoBufferInfo.Types.ComponentInfo), global::LiveKit.Proto.VideoBufferInfo.Types.ComponentInfo.Parser, new[]{ "DataPtr", "Stride", "Size" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.OwnedVideoBuffer), global::LiveKit.Proto.OwnedVideoBuffer.Parser, new[]{ "Handle", "Info" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.FrameMetadata), global::LiveKit.Proto.FrameMetadata.Parser, new[]{ "UserTimestamp", "FrameId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoStreamInfo), global::LiveKit.Proto.VideoStreamInfo.Parser, new[]{ "Type" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.OwnedVideoStream), global::LiveKit.Proto.OwnedVideoStream.Parser, new[]{ "Handle", "Info" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoStreamEvent), global::LiveKit.Proto.VideoStreamEvent.Parser, new[]{ "StreamHandle", "FrameReceived", "Eos" }, new[]{ "Message" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoFrameReceived), global::LiveKit.Proto.VideoFrameReceived.Parser, new[]{ "Buffer", "TimestampUs", "Rotation" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoFrameReceived), global::LiveKit.Proto.VideoFrameReceived.Parser, new[]{ "Buffer", "TimestampUs", "Rotation", "Metadata" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoStreamEOS), global::LiveKit.Proto.VideoStreamEOS.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoSourceResolution), global::LiveKit.Proto.VideoSourceResolution.Parser, new[]{ "Width", "Height" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::LiveKit.Proto.VideoSourceInfo), global::LiveKit.Proto.VideoSourceInfo.Parser, new[]{ "Type" }, null, null, null, null),
@@ -210,6 +215,7 @@ namespace LiveKit.Proto {
       type_ = other.type_;
       format_ = other.format_;
       normalizeStride_ = other.normalizeStride_;
+      queueSizeFrames_ = other.queueSizeFrames_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -333,6 +339,43 @@ namespace LiveKit.Proto {
       _hasBits0 &= ~8;
     }
 
+    /// <summary>Field number for the "queue_size_frames" field.</summary>
+    public const int QueueSizeFramesFieldNumber = 5;
+    private readonly static uint QueueSizeFramesDefaultValue = 0;
+
+    private uint queueSizeFrames_;
+    /// <summary>
+    /// Maximum number of queued WebRTC sink frames on the receive path. Omit this
+    /// field to use the default bounded queue size of 1 frame. Set it to 0 to
+    /// request unbounded buffering.
+    ///
+    /// If your application consumes both audio and video, keep the queue sizing
+    /// strategy coordinated across both streams. Using a much larger queue, or
+    /// unbounded buffering, for only one of them can increase end-to-end latency
+    /// for that stream and cause audio/video drift.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint QueueSizeFrames {
+      get { if ((_hasBits0 & 16) != 0) { return queueSizeFrames_; } else { return QueueSizeFramesDefaultValue; } }
+      set {
+        _hasBits0 |= 16;
+        queueSizeFrames_ = value;
+      }
+    }
+    /// <summary>Gets whether the "queue_size_frames" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasQueueSizeFrames {
+      get { return (_hasBits0 & 16) != 0; }
+    }
+    /// <summary>Clears the value of the "queue_size_frames" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearQueueSizeFrames() {
+      _hasBits0 &= ~16;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -352,6 +395,7 @@ namespace LiveKit.Proto {
       if (Type != other.Type) return false;
       if (Format != other.Format) return false;
       if (NormalizeStride != other.NormalizeStride) return false;
+      if (QueueSizeFrames != other.QueueSizeFrames) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -363,6 +407,7 @@ namespace LiveKit.Proto {
       if (HasType) hash ^= Type.GetHashCode();
       if (HasFormat) hash ^= Format.GetHashCode();
       if (HasNormalizeStride) hash ^= NormalizeStride.GetHashCode();
+      if (HasQueueSizeFrames) hash ^= QueueSizeFrames.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -397,6 +442,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(32);
         output.WriteBool(NormalizeStride);
       }
+      if (HasQueueSizeFrames) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(QueueSizeFrames);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -423,6 +472,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(32);
         output.WriteBool(NormalizeStride);
       }
+      if (HasQueueSizeFrames) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(QueueSizeFrames);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -444,6 +497,9 @@ namespace LiveKit.Proto {
       }
       if (HasNormalizeStride) {
         size += 1 + 1;
+      }
+      if (HasQueueSizeFrames) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(QueueSizeFrames);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -468,6 +524,9 @@ namespace LiveKit.Proto {
       }
       if (other.HasNormalizeStride) {
         NormalizeStride = other.NormalizeStride;
+      }
+      if (other.HasQueueSizeFrames) {
+        QueueSizeFrames = other.QueueSizeFrames;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -500,6 +559,10 @@ namespace LiveKit.Proto {
             NormalizeStride = input.ReadBool();
             break;
           }
+          case 40: {
+            QueueSizeFrames = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -529,6 +592,10 @@ namespace LiveKit.Proto {
           }
           case 32: {
             NormalizeStride = input.ReadBool();
+            break;
+          }
+          case 40: {
+            QueueSizeFrames = input.ReadUInt32();
             break;
           }
         }
@@ -780,6 +847,7 @@ namespace LiveKit.Proto {
       trackSource_ = other.trackSource_;
       format_ = other.format_;
       normalizeStride_ = other.normalizeStride_;
+      queueSizeFrames_ = other.queueSizeFrames_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -924,6 +992,43 @@ namespace LiveKit.Proto {
       _hasBits0 &= ~16;
     }
 
+    /// <summary>Field number for the "queue_size_frames" field.</summary>
+    public const int QueueSizeFramesFieldNumber = 6;
+    private readonly static uint QueueSizeFramesDefaultValue = 0;
+
+    private uint queueSizeFrames_;
+    /// <summary>
+    /// Maximum number of queued WebRTC sink frames on the receive path. Omit this
+    /// field to use the default bounded queue size of 1 frame. Set it to 0 to
+    /// request unbounded buffering.
+    ///
+    /// If your application consumes both audio and video, keep the queue sizing
+    /// strategy coordinated across both streams. Using a much larger queue, or
+    /// unbounded buffering, for only one of them can increase end-to-end latency
+    /// for that stream and cause audio/video drift.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint QueueSizeFrames {
+      get { if ((_hasBits0 & 32) != 0) { return queueSizeFrames_; } else { return QueueSizeFramesDefaultValue; } }
+      set {
+        _hasBits0 |= 32;
+        queueSizeFrames_ = value;
+      }
+    }
+    /// <summary>Gets whether the "queue_size_frames" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasQueueSizeFrames {
+      get { return (_hasBits0 & 32) != 0; }
+    }
+    /// <summary>Clears the value of the "queue_size_frames" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearQueueSizeFrames() {
+      _hasBits0 &= ~32;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -944,6 +1049,7 @@ namespace LiveKit.Proto {
       if (TrackSource != other.TrackSource) return false;
       if (Format != other.Format) return false;
       if (NormalizeStride != other.NormalizeStride) return false;
+      if (QueueSizeFrames != other.QueueSizeFrames) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -956,6 +1062,7 @@ namespace LiveKit.Proto {
       if (HasTrackSource) hash ^= TrackSource.GetHashCode();
       if (HasFormat) hash ^= Format.GetHashCode();
       if (HasNormalizeStride) hash ^= NormalizeStride.GetHashCode();
+      if (HasQueueSizeFrames) hash ^= QueueSizeFrames.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -994,6 +1101,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(40);
         output.WriteBool(NormalizeStride);
       }
+      if (HasQueueSizeFrames) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(QueueSizeFrames);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1024,6 +1135,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(40);
         output.WriteBool(NormalizeStride);
       }
+      if (HasQueueSizeFrames) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(QueueSizeFrames);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1048,6 +1163,9 @@ namespace LiveKit.Proto {
       }
       if (HasNormalizeStride) {
         size += 1 + 1;
+      }
+      if (HasQueueSizeFrames) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(QueueSizeFrames);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1075,6 +1193,9 @@ namespace LiveKit.Proto {
       }
       if (other.HasNormalizeStride) {
         NormalizeStride = other.NormalizeStride;
+      }
+      if (other.HasQueueSizeFrames) {
+        QueueSizeFrames = other.QueueSizeFrames;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1111,6 +1232,10 @@ namespace LiveKit.Proto {
             NormalizeStride = input.ReadBool();
             break;
           }
+          case 48: {
+            QueueSizeFrames = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -1144,6 +1269,10 @@ namespace LiveKit.Proto {
           }
           case 40: {
             NormalizeStride = input.ReadBool();
+            break;
+          }
+          case 48: {
+            QueueSizeFrames = input.ReadUInt32();
             break;
           }
         }
@@ -1904,6 +2033,7 @@ namespace LiveKit.Proto {
       buffer_ = other.buffer_ != null ? other.buffer_.Clone() : null;
       timestampUs_ = other.timestampUs_;
       rotation_ = other.rotation_;
+      metadata_ = other.metadata_ != null ? other.metadata_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2009,6 +2139,18 @@ namespace LiveKit.Proto {
       _hasBits0 &= ~4;
     }
 
+    /// <summary>Field number for the "metadata" field.</summary>
+    public const int MetadataFieldNumber = 5;
+    private global::LiveKit.Proto.FrameMetadata metadata_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::LiveKit.Proto.FrameMetadata Metadata {
+      get { return metadata_; }
+      set {
+        metadata_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2028,6 +2170,7 @@ namespace LiveKit.Proto {
       if (!object.Equals(Buffer, other.Buffer)) return false;
       if (TimestampUs != other.TimestampUs) return false;
       if (Rotation != other.Rotation) return false;
+      if (!object.Equals(Metadata, other.Metadata)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2039,6 +2182,7 @@ namespace LiveKit.Proto {
       if (buffer_ != null) hash ^= Buffer.GetHashCode();
       if (HasTimestampUs) hash ^= TimestampUs.GetHashCode();
       if (HasRotation) hash ^= Rotation.GetHashCode();
+      if (metadata_ != null) hash ^= Metadata.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2073,6 +2217,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(32);
         output.WriteEnum((int) Rotation);
       }
+      if (metadata_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Metadata);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2099,6 +2247,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(32);
         output.WriteEnum((int) Rotation);
       }
+      if (metadata_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Metadata);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2120,6 +2272,9 @@ namespace LiveKit.Proto {
       }
       if (HasRotation) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Rotation);
+      }
+      if (metadata_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Metadata);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2147,6 +2302,12 @@ namespace LiveKit.Proto {
       }
       if (other.HasRotation) {
         Rotation = other.Rotation;
+      }
+      if (other.metadata_ != null) {
+        if (metadata_ == null) {
+          Metadata = new global::LiveKit.Proto.FrameMetadata();
+        }
+        Metadata.MergeFrom(other.Metadata);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2182,6 +2343,13 @@ namespace LiveKit.Proto {
             Rotation = (global::LiveKit.Proto.VideoRotation) input.ReadEnum();
             break;
           }
+          case 42: {
+            if (metadata_ == null) {
+              Metadata = new global::LiveKit.Proto.FrameMetadata();
+            }
+            input.ReadMessage(Metadata);
+            break;
+          }
         }
       }
     #endif
@@ -2214,6 +2382,13 @@ namespace LiveKit.Proto {
           }
           case 32: {
             Rotation = (global::LiveKit.Proto.VideoRotation) input.ReadEnum();
+            break;
+          }
+          case 42: {
+            if (metadata_ == null) {
+              Metadata = new global::LiveKit.Proto.FrameMetadata();
+            }
+            input.ReadMessage(Metadata);
             break;
           }
         }
@@ -4280,6 +4455,264 @@ namespace LiveKit.Proto {
 
   }
 
+  public sealed partial class FrameMetadata : pb::IMessage<FrameMetadata>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<FrameMetadata> _parser = new pb::MessageParser<FrameMetadata>(() => new FrameMetadata());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<FrameMetadata> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public FrameMetadata() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public FrameMetadata(FrameMetadata other) : this() {
+      _hasBits0 = other._hasBits0;
+      userTimestamp_ = other.userTimestamp_;
+      frameId_ = other.frameId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public FrameMetadata Clone() {
+      return new FrameMetadata(this);
+    }
+
+    /// <summary>Field number for the "user_timestamp" field.</summary>
+    public const int UserTimestampFieldNumber = 1;
+    private readonly static ulong UserTimestampDefaultValue = 0UL;
+
+    private ulong userTimestamp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong UserTimestamp {
+      get { if ((_hasBits0 & 1) != 0) { return userTimestamp_; } else { return UserTimestampDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        userTimestamp_ = value;
+      }
+    }
+    /// <summary>Gets whether the "user_timestamp" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasUserTimestamp {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "user_timestamp" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearUserTimestamp() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "frame_id" field.</summary>
+    public const int FrameIdFieldNumber = 2;
+    private readonly static uint FrameIdDefaultValue = 0;
+
+    private uint frameId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint FrameId {
+      get { if ((_hasBits0 & 2) != 0) { return frameId_; } else { return FrameIdDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        frameId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "frame_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasFrameId {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "frame_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearFrameId() {
+      _hasBits0 &= ~2;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as FrameMetadata);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(FrameMetadata other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (UserTimestamp != other.UserTimestamp) return false;
+      if (FrameId != other.FrameId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasUserTimestamp) hash ^= UserTimestamp.GetHashCode();
+      if (HasFrameId) hash ^= FrameId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasUserTimestamp) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(UserTimestamp);
+      }
+      if (HasFrameId) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(FrameId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasUserTimestamp) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(UserTimestamp);
+      }
+      if (HasFrameId) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(FrameId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasUserTimestamp) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(UserTimestamp);
+      }
+      if (HasFrameId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(FrameId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(FrameMetadata other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasUserTimestamp) {
+        UserTimestamp = other.UserTimestamp;
+      }
+      if (other.HasFrameId) {
+        FrameId = other.FrameId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            UserTimestamp = input.ReadUInt64();
+            break;
+          }
+          case 16: {
+            FrameId = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            UserTimestamp = input.ReadUInt64();
+            break;
+          }
+          case 16: {
+            FrameId = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class VideoStreamInfo : pb::IMessage<VideoStreamInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4295,7 +4728,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[13]; }
+      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4500,7 +4933,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[14]; }
+      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4745,7 +5178,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[15]; }
+      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5084,7 +5517,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[16]; }
+      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5108,6 +5541,7 @@ namespace LiveKit.Proto {
       buffer_ = other.buffer_ != null ? other.buffer_.Clone() : null;
       timestampUs_ = other.timestampUs_;
       rotation_ = other.rotation_;
+      metadata_ = other.metadata_ != null ? other.metadata_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -5186,6 +5620,18 @@ namespace LiveKit.Proto {
       _hasBits0 &= ~2;
     }
 
+    /// <summary>Field number for the "metadata" field.</summary>
+    public const int MetadataFieldNumber = 4;
+    private global::LiveKit.Proto.FrameMetadata metadata_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::LiveKit.Proto.FrameMetadata Metadata {
+      get { return metadata_; }
+      set {
+        metadata_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -5204,6 +5650,7 @@ namespace LiveKit.Proto {
       if (!object.Equals(Buffer, other.Buffer)) return false;
       if (TimestampUs != other.TimestampUs) return false;
       if (Rotation != other.Rotation) return false;
+      if (!object.Equals(Metadata, other.Metadata)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5214,6 +5661,7 @@ namespace LiveKit.Proto {
       if (buffer_ != null) hash ^= Buffer.GetHashCode();
       if (HasTimestampUs) hash ^= TimestampUs.GetHashCode();
       if (HasRotation) hash ^= Rotation.GetHashCode();
+      if (metadata_ != null) hash ^= Metadata.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5244,6 +5692,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(24);
         output.WriteEnum((int) Rotation);
       }
+      if (metadata_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Metadata);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5266,6 +5718,10 @@ namespace LiveKit.Proto {
         output.WriteRawTag(24);
         output.WriteEnum((int) Rotation);
       }
+      if (metadata_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Metadata);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5284,6 +5740,9 @@ namespace LiveKit.Proto {
       }
       if (HasRotation) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Rotation);
+      }
+      if (metadata_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Metadata);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -5308,6 +5767,12 @@ namespace LiveKit.Proto {
       }
       if (other.HasRotation) {
         Rotation = other.Rotation;
+      }
+      if (other.metadata_ != null) {
+        if (metadata_ == null) {
+          Metadata = new global::LiveKit.Proto.FrameMetadata();
+        }
+        Metadata.MergeFrom(other.Metadata);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -5337,6 +5802,13 @@ namespace LiveKit.Proto {
           }
           case 24: {
             Rotation = (global::LiveKit.Proto.VideoRotation) input.ReadEnum();
+            break;
+          }
+          case 34: {
+            if (metadata_ == null) {
+              Metadata = new global::LiveKit.Proto.FrameMetadata();
+            }
+            input.ReadMessage(Metadata);
             break;
           }
         }
@@ -5369,6 +5841,13 @@ namespace LiveKit.Proto {
             Rotation = (global::LiveKit.Proto.VideoRotation) input.ReadEnum();
             break;
           }
+          case 34: {
+            if (metadata_ == null) {
+              Metadata = new global::LiveKit.Proto.FrameMetadata();
+            }
+            input.ReadMessage(Metadata);
+            break;
+          }
         }
       }
     }
@@ -5390,7 +5869,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[17]; }
+      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5543,7 +6022,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[18]; }
+      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5801,7 +6280,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[19]; }
+      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6006,7 +6485,7 @@ namespace LiveKit.Proto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[20]; }
+      get { return global::LiveKit.Proto.VideoFrameReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
