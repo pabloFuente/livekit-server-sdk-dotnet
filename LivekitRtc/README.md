@@ -265,7 +265,7 @@ git push
 
 ## Perform release
 
-1. Create a commit for the new version updating the `<Version>` property in `LivekitRtc.csproj`.
+1. Create a commit [like this](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/c3c813904cb45745249294450fda406c56f293e5) updating the version.
 2. Make sure to run script `./build_local.sh` to properly format all files with csharpier. Commit any changes in the repo after the script finishes.
 3. Create a [new release in GitHub](https://github.com/pabloFuente/livekit-server-sdk-dotnet/releases/new) with:
    - Release title `rtc-X.Y.Z`

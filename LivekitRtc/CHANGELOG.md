@@ -1,5 +1,9 @@
 # Changelog (Release Notes)
 
+## 0.1.3
+
+- Update rust-sdks to [livekit-ffi/v0.12.60](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.12.60)
+
 ## 0.1.2
 
 - Update rust-sdks to [livekit-ffi/v0.12.50](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.12.50)
