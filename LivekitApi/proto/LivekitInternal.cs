@@ -83,40 +83,43 @@ namespace Livekit.Server.Sdk.Dotnet {
             "cGFydGljaXBhbnRfcnRjX2Nvbm5lY3RlZBgSIAEoAhIcChRwYXJ0aWNpcGFu",
             "dF9ydGNfaW5pdBgTIAEoAhIgChhwYXJ0aWNpcGFudF9ydGNfY2FuY2VsZWQY",
             "GiABKAISEAoIY3B1X2xvYWQYFCABKAISEwoLbWVtb3J5X2xvYWQYFSABKAIS",
-            "EwoLbWVtb3J5X3VzZWQYFiABKAISFAoMbWVtb3J5X3RvdGFsGBcgASgCIvoF",
+            "EwoLbWVtb3J5X3VzZWQYFiABKAISFAoMbWVtb3J5X3RvdGFsGBcgASgCIvgF",
             "CgxTdGFydFNlc3Npb24SEQoJcm9vbV9uYW1lGAEgASgJEhAKCGlkZW50aXR5",
-            "GAIgASgJEicKDWNvbm5lY3Rpb25faWQYAyABKAlCEJrsLAxjb25uZWN0aW9u",
-            "SUQSEQoJcmVjb25uZWN0GAQgASgIEhYKDmF1dG9fc3Vic2NyaWJlGAkgASgI",
-            "EiYKGWF1dG9fc3Vic2NyaWJlX2RhdGFfdHJhY2sYGSABKAhIAIgBARISCgZo",
-            "aWRkZW4YCiABKAhCAhgBEiMKBmNsaWVudBgLIAEoCzITLmxpdmVraXQuQ2xp",
-            "ZW50SW5mbxIUCghyZWNvcmRlchgMIAEoCEICGAESDAoEbmFtZRgNIAEoCRIT",
-            "CgtncmFudHNfanNvbhgOIAEoCRIXCg9hZGFwdGl2ZV9zdHJlYW0YDyABKAgS",
-            "KQoOcGFydGljaXBhbnRfaWQYECABKAlCEZrsLA1wYXJ0aWNpcGFudElEEjIK",
-            "EHJlY29ubmVjdF9yZWFzb24YESABKA4yGC5saXZla2l0LlJlY29ubmVjdFJl",
-            "YXNvbhIjChZzdWJzY3JpYmVyX2FsbG93X3BhdXNlGBIgASgISAGIAQESGAoQ",
-            "ZGlzYWJsZV9pY2VfbGl0ZRgTIAEoCBIvCgtjcmVhdGVfcm9vbRgUIAEoCzIa",
-            "LmxpdmVraXQuQ3JlYXRlUm9vbVJlcXVlc3QSNAoSYWRkX3RyYWNrX3JlcXVl",
-            "c3RzGBUgAygLMhgubGl2ZWtpdC5BZGRUcmFja1JlcXVlc3QSNAoPcHVibGlz",
-            "aGVyX29mZmVyGBYgASgLMhsubGl2ZWtpdC5TZXNzaW9uRGVzY3JpcHRpb24S",
-            "JgoKc3luY19zdGF0ZRgXIAEoCzISLmxpdmVraXQuU3luY1N0YXRlEiIKGnVz",
-            "ZV9zaW5nbGVfcGVlcl9jb25uZWN0aW9uGBggASgIQhwKGl9hdXRvX3N1YnNj",
-            "cmliZV9kYXRhX3RyYWNrQhkKF19zdWJzY3JpYmVyX2FsbG93X3BhdXNlIowC",
-            "CgxSb29tSW50ZXJuYWwSLgoMdHJhY2tfZWdyZXNzGAEgASgLMhgubGl2ZWtp",
-            "dC5BdXRvVHJhY2tFZ3Jlc3MSOgoScGFydGljaXBhbnRfZWdyZXNzGAIgASgL",
-            "Mh4ubGl2ZWtpdC5BdXRvUGFydGljaXBhbnRFZ3Jlc3MSLAoNcGxheW91dF9k",
-            "ZWxheRgDIAEoCzIVLmxpdmVraXQuUGxheW91dERlbGF5EjQKEGFnZW50X2Rp",
-            "c3BhdGNoZXMYBSADKAsyGi5saXZla2l0LlJvb21BZ2VudERpc3BhdGNoEhQK",
-            "DHN5bmNfc3RyZWFtcxgEIAEoCBIWCg5yZXBsYXlfZW5hYmxlZBgGIAEoCCJ+",
-            "CglJQ0VDb25maWcSOAoVcHJlZmVyZW5jZV9zdWJzY3JpYmVyGAEgASgOMhku",
-            "bGl2ZWtpdC5JQ0VDYW5kaWRhdGVUeXBlEjcKFHByZWZlcmVuY2VfcHVibGlz",
-            "aGVyGAIgASgOMhkubGl2ZWtpdC5JQ0VDYW5kaWRhdGVUeXBlKnYKCE5vZGVU",
-            "eXBlEgoKBlNFUlZFUhAAEg4KCkNPTlRST0xMRVIQARIJCgVNRURJQRACEggK",
-            "BFRVUk4QBBILCgdTV0VFUEVSEAUSDAoIRElSRUNUT1IQBhIQCgxIT1NURURf",
-            "QUdFTlQQBxIMCghTRVRUSU5HUxAIKjwKCU5vZGVTdGF0ZRIPCgtTVEFSVElO",
-            "R19VUBAAEgsKB1NFUlZJTkcQARIRCg1TSFVUVElOR19ET1dOEAIqOgoQSUNF",
-            "Q2FuZGlkYXRlVHlwZRIMCghJQ1RfTk9ORRAAEgsKB0lDVF9UQ1AQARILCgdJ",
-            "Q1RfVExTEAJCRlojZ2l0aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVr",
-            "aXSqAg1MaXZlS2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
+            "GAIgASgJEiYKDWNvbm5lY3Rpb25faWQYAyABKAlCD7pQDGNvbm5lY3Rpb25J",
+            "RBIRCglyZWNvbm5lY3QYBCABKAgSFgoOYXV0b19zdWJzY3JpYmUYCSABKAgS",
+            "JgoZYXV0b19zdWJzY3JpYmVfZGF0YV90cmFjaxgZIAEoCEgAiAEBEhIKBmhp",
+            "ZGRlbhgKIAEoCEICGAESIwoGY2xpZW50GAsgASgLMhMubGl2ZWtpdC5DbGll",
+            "bnRJbmZvEhQKCHJlY29yZGVyGAwgASgIQgIYARIMCgRuYW1lGA0gASgJEhMK",
+            "C2dyYW50c19qc29uGA4gASgJEhcKD2FkYXB0aXZlX3N0cmVhbRgPIAEoCBIo",
+            "Cg5wYXJ0aWNpcGFudF9pZBgQIAEoCUIQulANcGFydGljaXBhbnRJRBIyChBy",
+            "ZWNvbm5lY3RfcmVhc29uGBEgASgOMhgubGl2ZWtpdC5SZWNvbm5lY3RSZWFz",
+            "b24SIwoWc3Vic2NyaWJlcl9hbGxvd19wYXVzZRgSIAEoCEgBiAEBEhgKEGRp",
+            "c2FibGVfaWNlX2xpdGUYEyABKAgSLwoLY3JlYXRlX3Jvb20YFCABKAsyGi5s",
+            "aXZla2l0LkNyZWF0ZVJvb21SZXF1ZXN0EjQKEmFkZF90cmFja19yZXF1ZXN0",
+            "cxgVIAMoCzIYLmxpdmVraXQuQWRkVHJhY2tSZXF1ZXN0EjQKD3B1Ymxpc2hl",
+            "cl9vZmZlchgWIAEoCzIbLmxpdmVraXQuU2Vzc2lvbkRlc2NyaXB0aW9uEiYK",
+            "CnN5bmNfc3RhdGUYFyABKAsyEi5saXZla2l0LlN5bmNTdGF0ZRIiChp1c2Vf",
+            "c2luZ2xlX3BlZXJfY29ubmVjdGlvbhgYIAEoCEIcChpfYXV0b19zdWJzY3Jp",
+            "YmVfZGF0YV90cmFja0IZChdfc3Vic2NyaWJlcl9hbGxvd19wYXVzZSL9AgoM",
+            "Um9vbUludGVybmFsEi4KDHRyYWNrX2VncmVzcxgBIAEoCzIYLmxpdmVraXQu",
+            "QXV0b1RyYWNrRWdyZXNzEjoKEnBhcnRpY2lwYW50X2VncmVzcxgCIAEoCzIe",
+            "LmxpdmVraXQuQXV0b1BhcnRpY2lwYW50RWdyZXNzEiwKDXBsYXlvdXRfZGVs",
+            "YXkYAyABKAsyFS5saXZla2l0LlBsYXlvdXREZWxheRI0ChBhZ2VudF9kaXNw",
+            "YXRjaGVzGAUgAygLMhoubGl2ZWtpdC5Sb29tQWdlbnREaXNwYXRjaBIUCgxz",
+            "eW5jX3N0cmVhbXMYBCABKAgSFgoOcmVwbGF5X2VuYWJsZWQYBiABKAgSEwoL",
+            "ZXhwb3J0X3Jvb20YByABKAgSLQoEdGFncxgIIAMoCzIfLmxpdmVraXQuUm9v",
+            "bUludGVybmFsLlRhZ3NFbnRyeRorCglUYWdzRW50cnkSCwoDa2V5GAEgASgJ",
+            "Eg0KBXZhbHVlGAIgASgJOgI4ASJ+CglJQ0VDb25maWcSOAoVcHJlZmVyZW5j",
+            "ZV9zdWJzY3JpYmVyGAEgASgOMhkubGl2ZWtpdC5JQ0VDYW5kaWRhdGVUeXBl",
+            "EjcKFHByZWZlcmVuY2VfcHVibGlzaGVyGAIgASgOMhkubGl2ZWtpdC5JQ0VD",
+            "YW5kaWRhdGVUeXBlKnYKCE5vZGVUeXBlEgoKBlNFUlZFUhAAEg4KCkNPTlRS",
+            "T0xMRVIQARIJCgVNRURJQRACEggKBFRVUk4QBBILCgdTV0VFUEVSEAUSDAoI",
+            "RElSRUNUT1IQBhIQCgxIT1NURURfQUdFTlQQBxIMCghTRVRUSU5HUxAIKksK",
+            "CU5vZGVTdGF0ZRIPCgtTVEFSVElOR19VUBAAEgsKB1NFUlZJTkcQARIRCg1T",
+            "SFVUVElOR19ET1dOEAISDQoJU1VTUEVOREVEEAMqOgoQSUNFQ2FuZGlkYXRl",
+            "VHlwZRIMCghJQ1RfTk9ORRAAEgsKB0lDVF9UQ1AQARILCgdJQ1RfVExTEAJC",
+            "RlojZ2l0aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1MaXZl",
+            "S2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitAgentDispatchReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitRoomReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitRtcReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.OptionsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.NodeType), typeof(global::Livekit.Server.Sdk.Dotnet.NodeState), typeof(global::Livekit.Server.Sdk.Dotnet.ICECandidateType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -124,7 +127,7 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.NodeStats), global::Livekit.Server.Sdk.Dotnet.NodeStats.Parser, new[]{ "StartedAt", "UpdatedAt", "NumRooms", "NumClients", "NumTracksIn", "NumTracksOut", "NumTrackPublishAttempts", "TrackPublishAttemptsPerSec", "NumTrackPublishSuccess", "TrackPublishSuccessPerSec", "NumTrackPublishCancels", "NumTrackSubscribeAttempts", "TrackSubscribeAttemptsPerSec", "NumTrackSubscribeSuccess", "TrackSubscribeSuccessPerSec", "NumTrackSubscribeCancels", "BytesIn", "BytesOut", "PacketsIn", "PacketsOut", "NackTotal", "BytesInPerSec", "BytesOutPerSec", "PacketsInPerSec", "PacketsOutPerSec", "NackPerSec", "NumCpus", "LoadAvgLast1Min", "LoadAvgLast5Min", "LoadAvgLast15Min", "CpuLoad", "MemoryLoad", "MemoryTotal", "MemoryUsed", "SysPacketsOut", "SysPacketsDropped", "SysPacketsOutPerSec", "SysPacketsDroppedPerSec", "SysPacketsDroppedPctPerSec", "RetransmitBytesOut", "RetransmitPacketsOut", "RetransmitBytesOutPerSec", "RetransmitPacketsOutPerSec", "ParticipantSignalConnected", "ParticipantSignalConnectedPerSec", "ParticipantRtcConnected", "ParticipantRtcConnectedPerSec", "ParticipantRtcInit", "ParticipantRtcInitPerSec", "ParticipantRtcCanceled", "ForwardLatency", "ForwardJitter", "Rates" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.NodeStatsRate), global::Livekit.Server.Sdk.Dotnet.NodeStatsRate.Parser, new[]{ "StartedAt", "EndedAt", "Duration", "TrackPublishAttempts", "TrackPublishSuccess", "TrackPublishCancels", "TrackSubscribeAttempts", "TrackSubscribeSuccess", "TrackSubscribeCancels", "BytesIn", "BytesOut", "PacketsIn", "PacketsOut", "NackTotal", "SysPacketsOut", "SysPacketsDropped", "RetransmitBytesOut", "RetransmitPacketsOut", "ParticipantSignalConnected", "ParticipantRtcConnected", "ParticipantRtcInit", "ParticipantRtcCanceled", "CpuLoad", "MemoryLoad", "MemoryUsed", "MemoryTotal" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.StartSession), global::Livekit.Server.Sdk.Dotnet.StartSession.Parser, new[]{ "RoomName", "Identity", "ConnectionId", "Reconnect", "AutoSubscribe", "AutoSubscribeDataTrack", "Hidden", "Client", "Recorder", "Name", "GrantsJson", "AdaptiveStream", "ParticipantId", "ReconnectReason", "SubscriberAllowPause", "DisableIceLite", "CreateRoom", "AddTrackRequests", "PublisherOffer", "SyncState", "UseSinglePeerConnection" }, new[]{ "AutoSubscribeDataTrack", "SubscriberAllowPause" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomInternal), global::Livekit.Server.Sdk.Dotnet.RoomInternal.Parser, new[]{ "TrackEgress", "ParticipantEgress", "PlayoutDelay", "AgentDispatches", "SyncStreams", "ReplayEnabled" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomInternal), global::Livekit.Server.Sdk.Dotnet.RoomInternal.Parser, new[]{ "TrackEgress", "ParticipantEgress", "PlayoutDelay", "AgentDispatches", "SyncStreams", "ReplayEnabled", "ExportRoom", "Tags" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ICEConfig), global::Livekit.Server.Sdk.Dotnet.ICEConfig.Parser, new[]{ "PreferenceSubscriber", "PreferencePublisher" }, null, null, null, null)
           }));
     }
@@ -147,6 +150,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [pbr::OriginalName("STARTING_UP")] StartingUp = 0,
     [pbr::OriginalName("SERVING")] Serving = 1,
     [pbr::OriginalName("SHUTTING_DOWN")] ShuttingDown = 2,
+    [pbr::OriginalName("SUSPENDED")] Suspended = 3,
   }
 
   public enum ICECandidateType {
@@ -4877,6 +4881,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       agentDispatches_ = other.agentDispatches_.Clone();
       syncStreams_ = other.syncStreams_;
       replayEnabled_ = other.replayEnabled_;
+      exportRoom_ = other.exportRoom_;
+      tags_ = other.tags_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4957,6 +4963,29 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "export_room" field.</summary>
+    public const int ExportRoomFieldNumber = 7;
+    private bool exportRoom_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool ExportRoom {
+      get { return exportRoom_; }
+      set {
+        exportRoom_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "tags" field.</summary>
+    public const int TagsFieldNumber = 8;
+    private static readonly pbc::MapField<string, string>.Codec _map_tags_codec
+        = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForString(18, ""), 66);
+    private readonly pbc::MapField<string, string> tags_ = new pbc::MapField<string, string>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::MapField<string, string> Tags {
+      get { return tags_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -4978,6 +5007,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       if(!agentDispatches_.Equals(other.agentDispatches_)) return false;
       if (SyncStreams != other.SyncStreams) return false;
       if (ReplayEnabled != other.ReplayEnabled) return false;
+      if (ExportRoom != other.ExportRoom) return false;
+      if (!Tags.Equals(other.Tags)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4991,6 +5022,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       hash ^= agentDispatches_.GetHashCode();
       if (SyncStreams != false) hash ^= SyncStreams.GetHashCode();
       if (ReplayEnabled != false) hash ^= ReplayEnabled.GetHashCode();
+      if (ExportRoom != false) hash ^= ExportRoom.GetHashCode();
+      hash ^= Tags.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5030,6 +5063,11 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(48);
         output.WriteBool(ReplayEnabled);
       }
+      if (ExportRoom != false) {
+        output.WriteRawTag(56);
+        output.WriteBool(ExportRoom);
+      }
+      tags_.WriteTo(output, _map_tags_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5061,6 +5099,11 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(48);
         output.WriteBool(ReplayEnabled);
       }
+      if (ExportRoom != false) {
+        output.WriteRawTag(56);
+        output.WriteBool(ExportRoom);
+      }
+      tags_.WriteTo(ref output, _map_tags_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5087,6 +5130,10 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (ReplayEnabled != false) {
         size += 1 + 1;
       }
+      if (ExportRoom != false) {
+        size += 1 + 1;
+      }
+      size += tags_.CalculateSize(_map_tags_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -5124,6 +5171,10 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.ReplayEnabled != false) {
         ReplayEnabled = other.ReplayEnabled;
       }
+      if (other.ExportRoom != false) {
+        ExportRoom = other.ExportRoom;
+      }
+      tags_.Add(other.tags_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -5172,6 +5223,14 @@ namespace Livekit.Server.Sdk.Dotnet {
             ReplayEnabled = input.ReadBool();
             break;
           }
+          case 56: {
+            ExportRoom = input.ReadBool();
+            break;
+          }
+          case 66: {
+            tags_.AddEntriesFrom(input, _map_tags_codec);
+            break;
+          }
         }
       }
     #endif
@@ -5218,6 +5277,14 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 48: {
             ReplayEnabled = input.ReadBool();
+            break;
+          }
+          case 56: {
+            ExportRoom = input.ReadBool();
+            break;
+          }
+          case 66: {
+            tags_.AddEntriesFrom(ref input, _map_tags_codec);
             break;
           }
         }

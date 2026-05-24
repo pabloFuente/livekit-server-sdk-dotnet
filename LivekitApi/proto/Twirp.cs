@@ -59,7 +59,8 @@ public class Twirp {
     }
   }
 
-  // start recording or streaming a room, participant, or tracks
+  // Unified StartEgress RPC
+  // rpc StartEgress(StartEgressRequest) returns (EgressInfo);
   public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartRoomCompositeEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest req) {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartRoomCompositeEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
@@ -80,22 +81,22 @@ public class Twirp {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.TrackEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartTrackEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
 
-  // update web composite layout
+  // Update url/template or stream outputs
+  // rpc UpdateEgress(UpdateEgressRequest) returns (EgressInfo);
   public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> UpdateLayout(HttpClient client, global::Livekit.Server.Sdk.Dotnet.UpdateLayoutRequest req) {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateLayoutRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/UpdateLayout", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
 
-  // add or remove stream endpoints
   public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> UpdateStream(HttpClient client, global::Livekit.Server.Sdk.Dotnet.UpdateStreamRequest req) {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateStreamRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/UpdateStream", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
 
-  // list available egress
+  // List available egress
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ListEgressResponse> ListEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ListEgressRequest req) {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ListEgressRequest, global::Livekit.Server.Sdk.Dotnet.ListEgressResponse>(client, "twirp/livekit.Egress/ListEgress", req, global::Livekit.Server.Sdk.Dotnet.ListEgressResponse.Parser.ParseFrom);
   }
 
-  // stop a recording or stream
+  // Stop a recording or stream
   public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StopEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.StopEgressRequest req) {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.StopEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StopEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
@@ -170,8 +171,8 @@ public class Twirp {
   }
 
   // Cloud-only
-  // Forward a connected participant's track(s) to another room. Requires `roomAdmin` and `destinationRoom`. The forwarding will 
-  // stop when the participant leaves the room or `RemoveParticipant` has been called in the destination room. 
+  // Forward a connected participant's track(s) to another room. Requires `roomAdmin` and `destinationRoom`. The forwarding will
+  // stop when the participant leaves the room or `RemoveParticipant` has been called in the destination room.
   // A participant can be forwarded to multiple rooms. The destination room will be created if it does not exist.
   public static async Task<global::Livekit.Server.Sdk.Dotnet.ForwardParticipantResponse> ForwardParticipant(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ForwardParticipantRequest req) {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ForwardParticipantRequest, global::Livekit.Server.Sdk.Dotnet.ForwardParticipantResponse>(client, "twirp/livekit.RoomService/ForwardParticipant", req, global::Livekit.Server.Sdk.Dotnet.ForwardParticipantResponse.Parser.ParseFrom);

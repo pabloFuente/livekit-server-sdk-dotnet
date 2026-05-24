@@ -25,12 +25,12 @@ namespace Livekit.Server.Sdk.Dotnet {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChRsb2dnZXIvb3B0aW9ucy5wcm90bxIGbG9nZ2VyGiBnb29nbGUvcHJvdG9i",
-            "dWYvZGVzY3JpcHRvci5wcm90bzovCgZyZWRhY3QSHS5nb29nbGUucHJvdG9i",
-            "dWYuRmllbGRPcHRpb25zGMHNBSABKAg6NgoNcmVkYWN0X2Zvcm1hdBIdLmdv",
-            "b2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMYws0FIAEoCTotCgRuYW1lEh0u",
-            "Z29vZ2xlLnByb3RvYnVmLkZpZWxkT3B0aW9ucxjDzQUgASgJQk1aKmdpdGh1",
-            "Yi5jb20vbGl2ZWtpdC9wcm90b2NvbC9saXZla2l0L2xvZ2dlcqoCDUxpdmVL",
-            "aXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
+            "dWYvZGVzY3JpcHRvci5wcm90bzouCgZyZWRhY3QSHS5nb29nbGUucHJvdG9i",
+            "dWYuRmllbGRPcHRpb25zGIUKIAEoCDo1Cg1yZWRhY3RfZm9ybWF0Eh0uZ29v",
+            "Z2xlLnByb3RvYnVmLkZpZWxkT3B0aW9ucxiGCiABKAk6LAoEbmFtZRIdLmdv",
+            "b2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMYhwogASgJQk1aKmdpdGh1Yi5j",
+            "b20vbGl2ZWtpdC9wcm90b2NvbC9saXZla2l0L2xvZ2dlcqoCDUxpdmVLaXQu",
+            "UHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pb::Extension[] { OptionsExtensions.Redact, OptionsExtensions.RedactFormat, OptionsExtensions.Name }, null));
@@ -41,11 +41,11 @@ namespace Livekit.Server.Sdk.Dotnet {
   /// <summary>Holder for extension identifiers generated from the top level of logger/options.proto</summary>
   public static partial class OptionsExtensions {
     public static readonly pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, bool> Redact =
-      new pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, bool>(91841, pb::FieldCodec.ForBool(734728, false));
+      new pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, bool>(1285, pb::FieldCodec.ForBool(10280, false));
     public static readonly pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, string> RedactFormat =
-      new pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, string>(91842, pb::FieldCodec.ForString(734738, ""));
+      new pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, string>(1286, pb::FieldCodec.ForString(10290, ""));
     public static readonly pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, string> Name =
-      new pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, string>(91843, pb::FieldCodec.ForString(734746, ""));
+      new pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, string>(1287, pb::FieldCodec.ForString(10298, ""));
   }
 
 }

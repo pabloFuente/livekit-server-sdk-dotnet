@@ -25,44 +25,64 @@ namespace Livekit.Server.Sdk.Dotnet {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChxsaXZla2l0X2FnZW50X2Rpc3BhdGNoLnByb3RvEgdsaXZla2l0GhNsaXZl",
-            "a2l0X2FnZW50LnByb3RvGhRsb2dnZXIvb3B0aW9ucy5wcm90byJWChpDcmVh",
-            "dGVBZ2VudERpc3BhdGNoUmVxdWVzdBISCgphZ2VudF9uYW1lGAEgASgJEgwK",
-            "BHJvb20YAiABKAkSFgoIbWV0YWRhdGEYAyABKAlCBIjsLAEiPwoRUm9vbUFn",
-            "ZW50RGlzcGF0Y2gSEgoKYWdlbnRfbmFtZRgBIAEoCRIWCghtZXRhZGF0YRgC",
-            "IAEoCUIEiOwsASJPChpEZWxldGVBZ2VudERpc3BhdGNoUmVxdWVzdBIjCgtk",
-            "aXNwYXRjaF9pZBgBIAEoCUIOmuwsCmRpc3BhdGNoSUQSDAoEcm9vbRgCIAEo",
-            "CSJNChhMaXN0QWdlbnREaXNwYXRjaFJlcXVlc3QSIwoLZGlzcGF0Y2hfaWQY",
-            "ASABKAlCDprsLApkaXNwYXRjaElEEgwKBHJvb20YAiABKAkiTQoZTGlzdEFn",
-            "ZW50RGlzcGF0Y2hSZXNwb25zZRIwChBhZ2VudF9kaXNwYXRjaGVzGAEgAygL",
-            "MhYubGl2ZWtpdC5BZ2VudERpc3BhdGNoIoEBCg1BZ2VudERpc3BhdGNoEgoK",
-            "AmlkGAEgASgJEhIKCmFnZW50X25hbWUYAiABKAkSDAoEcm9vbRgDIAEoCRIW",
-            "CghtZXRhZGF0YRgEIAEoCUIEiOwsARIqCgVzdGF0ZRgFIAEoCzIbLmxpdmVr",
-            "aXQuQWdlbnREaXNwYXRjaFN0YXRlIlgKEkFnZW50RGlzcGF0Y2hTdGF0ZRIa",
-            "CgRqb2JzGAEgAygLMgwubGl2ZWtpdC5Kb2ISEgoKY3JlYXRlZF9hdBgCIAEo",
-            "AxISCgpkZWxldGVkX2F0GAMgASgDMosCChRBZ2VudERpc3BhdGNoU2Vydmlj",
-            "ZRJNCg5DcmVhdGVEaXNwYXRjaBIjLmxpdmVraXQuQ3JlYXRlQWdlbnREaXNw",
-            "YXRjaFJlcXVlc3QaFi5saXZla2l0LkFnZW50RGlzcGF0Y2gSTQoORGVsZXRl",
-            "RGlzcGF0Y2gSIy5saXZla2l0LkRlbGV0ZUFnZW50RGlzcGF0Y2hSZXF1ZXN0",
-            "GhYubGl2ZWtpdC5BZ2VudERpc3BhdGNoElUKDExpc3REaXNwYXRjaBIhLmxp",
-            "dmVraXQuTGlzdEFnZW50RGlzcGF0Y2hSZXF1ZXN0GiIubGl2ZWtpdC5MaXN0",
-            "QWdlbnREaXNwYXRjaFJlc3BvbnNlQkZaI2dpdGh1Yi5jb20vbGl2ZWtpdC9w",
-            "cm90b2NvbC9saXZla2l0qgINTGl2ZUtpdC5Qcm90b+oCDkxpdmVLaXQ6OlBy",
-            "b3RvYgZwcm90bzM="));
+            "a2l0X2FnZW50LnByb3RvGhRsb2dnZXIvb3B0aW9ucy5wcm90byKcAQoaQ3Jl",
+            "YXRlQWdlbnREaXNwYXRjaFJlcXVlc3QSEgoKYWdlbnRfbmFtZRgBIAEoCRIM",
+            "CgRyb29tGAIgASgJEhUKCG1ldGFkYXRhGAMgASgJQgOoUAESMQoOcmVzdGFy",
+            "dF9wb2xpY3kYBCABKA4yGS5saXZla2l0LkpvYlJlc3RhcnRQb2xpY3kSEgoK",
+            "ZGVwbG95bWVudBgFIAEoCSKFAQoRUm9vbUFnZW50RGlzcGF0Y2gSEgoKYWdl",
+            "bnRfbmFtZRgBIAEoCRIVCghtZXRhZGF0YRgCIAEoCUIDqFABEjEKDnJlc3Rh",
+            "cnRfcG9saWN5GAMgASgOMhkubGl2ZWtpdC5Kb2JSZXN0YXJ0UG9saWN5EhIK",
+            "CmRlcGxveW1lbnQYBCABKAkiTgoaRGVsZXRlQWdlbnREaXNwYXRjaFJlcXVl",
+            "c3QSIgoLZGlzcGF0Y2hfaWQYASABKAlCDbpQCmRpc3BhdGNoSUQSDAoEcm9v",
+            "bRgCIAEoCSJMChhMaXN0QWdlbnREaXNwYXRjaFJlcXVlc3QSIgoLZGlzcGF0",
+            "Y2hfaWQYASABKAlCDbpQCmRpc3BhdGNoSUQSDAoEcm9vbRgCIAEoCSJNChlM",
+            "aXN0QWdlbnREaXNwYXRjaFJlc3BvbnNlEjAKEGFnZW50X2Rpc3BhdGNoZXMY",
+            "ASADKAsyFi5saXZla2l0LkFnZW50RGlzcGF0Y2gixwEKDUFnZW50RGlzcGF0",
+            "Y2gSCgoCaWQYASABKAkSEgoKYWdlbnRfbmFtZRgCIAEoCRIMCgRyb29tGAMg",
+            "ASgJEhUKCG1ldGFkYXRhGAQgASgJQgOoUAESKgoFc3RhdGUYBSABKAsyGy5s",
+            "aXZla2l0LkFnZW50RGlzcGF0Y2hTdGF0ZRIxCg5yZXN0YXJ0X3BvbGljeRgG",
+            "IAEoDjIZLmxpdmVraXQuSm9iUmVzdGFydFBvbGljeRISCgpkZXBsb3ltZW50",
+            "GAcgASgJIlgKEkFnZW50RGlzcGF0Y2hTdGF0ZRIaCgRqb2JzGAEgAygLMgwu",
+            "bGl2ZWtpdC5Kb2ISEgoKY3JlYXRlZF9hdBgCIAEoAxISCgpkZWxldGVkX2F0",
+            "GAMgASgDKjUKEEpvYlJlc3RhcnRQb2xpY3kSEgoOSlJQX09OX0ZBSUxVUkUQ",
+            "ABINCglKUlBfTkVWRVIQATKLAgoUQWdlbnREaXNwYXRjaFNlcnZpY2USTQoO",
+            "Q3JlYXRlRGlzcGF0Y2gSIy5saXZla2l0LkNyZWF0ZUFnZW50RGlzcGF0Y2hS",
+            "ZXF1ZXN0GhYubGl2ZWtpdC5BZ2VudERpc3BhdGNoEk0KDkRlbGV0ZURpc3Bh",
+            "dGNoEiMubGl2ZWtpdC5EZWxldGVBZ2VudERpc3BhdGNoUmVxdWVzdBoWLmxp",
+            "dmVraXQuQWdlbnREaXNwYXRjaBJVCgxMaXN0RGlzcGF0Y2gSIS5saXZla2l0",
+            "Lkxpc3RBZ2VudERpc3BhdGNoUmVxdWVzdBoiLmxpdmVraXQuTGlzdEFnZW50",
+            "RGlzcGF0Y2hSZXNwb25zZUJGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9j",
+            "b2wvbGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.OptionsReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest.Parser, new[]{ "AgentName", "Room", "Metadata" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomAgentDispatch), global::Livekit.Server.Sdk.Dotnet.RoomAgentDispatch.Parser, new[]{ "AgentName", "Metadata" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest.Parser, new[]{ "AgentName", "Room", "Metadata", "RestartPolicy", "Deployment" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomAgentDispatch), global::Livekit.Server.Sdk.Dotnet.RoomAgentDispatch.Parser, new[]{ "AgentName", "Metadata", "RestartPolicy", "Deployment" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DeleteAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.DeleteAgentDispatchRequest.Parser, new[]{ "DispatchId", "Room" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchRequest.Parser, new[]{ "DispatchId", "Room" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchResponse), global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchResponse.Parser, new[]{ "AgentDispatches" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AgentDispatch), global::Livekit.Server.Sdk.Dotnet.AgentDispatch.Parser, new[]{ "Id", "AgentName", "Room", "Metadata", "State" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AgentDispatch), global::Livekit.Server.Sdk.Dotnet.AgentDispatch.Parser, new[]{ "Id", "AgentName", "Room", "Metadata", "State", "RestartPolicy", "Deployment" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AgentDispatchState), global::Livekit.Server.Sdk.Dotnet.AgentDispatchState.Parser, new[]{ "Jobs", "CreatedAt", "DeletedAt" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
+  #region Enums
+  public enum JobRestartPolicy {
+    /// <summary>
+    /// restart when the job fails (default)
+    /// </summary>
+    [pbr::OriginalName("JRP_ON_FAILURE")] JrpOnFailure = 0,
+    /// <summary>
+    /// never restart
+    /// </summary>
+    [pbr::OriginalName("JRP_NEVER")] JrpNever = 1,
+  }
+
+  #endregion
+
   #region Messages
   public sealed partial class CreateAgentDispatchRequest : pb::IMessage<CreateAgentDispatchRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -101,6 +121,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       agentName_ = other.agentName_;
       room_ = other.room_;
       metadata_ = other.metadata_;
+      restartPolicy_ = other.restartPolicy_;
+      deployment_ = other.deployment_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -146,6 +168,33 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "restart_policy" field.</summary>
+    public const int RestartPolicyFieldNumber = 4;
+    private global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy restartPolicy_ = global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure;
+    /// <summary>
+    /// cloud only
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy RestartPolicy {
+      get { return restartPolicy_; }
+      set {
+        restartPolicy_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "deployment" field.</summary>
+    public const int DeploymentFieldNumber = 5;
+    private string deployment_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Deployment {
+      get { return deployment_; }
+      set {
+        deployment_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -164,6 +213,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (AgentName != other.AgentName) return false;
       if (Room != other.Room) return false;
       if (Metadata != other.Metadata) return false;
+      if (RestartPolicy != other.RestartPolicy) return false;
+      if (Deployment != other.Deployment) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -174,6 +225,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (AgentName.Length != 0) hash ^= AgentName.GetHashCode();
       if (Room.Length != 0) hash ^= Room.GetHashCode();
       if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
+      if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) hash ^= RestartPolicy.GetHashCode();
+      if (Deployment.Length != 0) hash ^= Deployment.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -204,6 +257,14 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(26);
         output.WriteString(Metadata);
       }
+      if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) {
+        output.WriteRawTag(32);
+        output.WriteEnum((int) RestartPolicy);
+      }
+      if (Deployment.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Deployment);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -226,6 +287,14 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(26);
         output.WriteString(Metadata);
       }
+      if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) {
+        output.WriteRawTag(32);
+        output.WriteEnum((int) RestartPolicy);
+      }
+      if (Deployment.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Deployment);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -244,6 +313,12 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (Metadata.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Metadata);
+      }
+      if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) RestartPolicy);
+      }
+      if (Deployment.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Deployment);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -265,6 +340,12 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (other.Metadata.Length != 0) {
         Metadata = other.Metadata;
+      }
+      if (other.RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) {
+        RestartPolicy = other.RestartPolicy;
+      }
+      if (other.Deployment.Length != 0) {
+        Deployment = other.Deployment;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -293,6 +374,14 @@ namespace Livekit.Server.Sdk.Dotnet {
             Metadata = input.ReadString();
             break;
           }
+          case 32: {
+            RestartPolicy = (global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy) input.ReadEnum();
+            break;
+          }
+          case 42: {
+            Deployment = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -318,6 +407,14 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 26: {
             Metadata = input.ReadString();
+            break;
+          }
+          case 32: {
+            RestartPolicy = (global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy) input.ReadEnum();
+            break;
+          }
+          case 42: {
+            Deployment = input.ReadString();
             break;
           }
         }
@@ -363,6 +460,8 @@ namespace Livekit.Server.Sdk.Dotnet {
     public RoomAgentDispatch(RoomAgentDispatch other) : this() {
       agentName_ = other.agentName_;
       metadata_ = other.metadata_;
+      restartPolicy_ = other.restartPolicy_;
+      deployment_ = other.deployment_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -396,6 +495,33 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "restart_policy" field.</summary>
+    public const int RestartPolicyFieldNumber = 3;
+    private global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy restartPolicy_ = global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure;
+    /// <summary>
+    /// cloud only
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy RestartPolicy {
+      get { return restartPolicy_; }
+      set {
+        restartPolicy_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "deployment" field.</summary>
+    public const int DeploymentFieldNumber = 4;
+    private string deployment_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Deployment {
+      get { return deployment_; }
+      set {
+        deployment_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -413,6 +539,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (AgentName != other.AgentName) return false;
       if (Metadata != other.Metadata) return false;
+      if (RestartPolicy != other.RestartPolicy) return false;
+      if (Deployment != other.Deployment) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -422,6 +550,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       int hash = 1;
       if (AgentName.Length != 0) hash ^= AgentName.GetHashCode();
       if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
+      if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) hash ^= RestartPolicy.GetHashCode();
+      if (Deployment.Length != 0) hash ^= Deployment.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -448,6 +578,14 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(18);
         output.WriteString(Metadata);
       }
+      if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) RestartPolicy);
+      }
+      if (Deployment.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Deployment);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -466,6 +604,14 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(18);
         output.WriteString(Metadata);
       }
+      if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) RestartPolicy);
+      }
+      if (Deployment.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Deployment);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -481,6 +627,12 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (Metadata.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Metadata);
+      }
+      if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) RestartPolicy);
+      }
+      if (Deployment.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Deployment);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -499,6 +651,12 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (other.Metadata.Length != 0) {
         Metadata = other.Metadata;
+      }
+      if (other.RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) {
+        RestartPolicy = other.RestartPolicy;
+      }
+      if (other.Deployment.Length != 0) {
+        Deployment = other.Deployment;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -523,6 +681,14 @@ namespace Livekit.Server.Sdk.Dotnet {
             Metadata = input.ReadString();
             break;
           }
+          case 24: {
+            RestartPolicy = (global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy) input.ReadEnum();
+            break;
+          }
+          case 34: {
+            Deployment = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -544,6 +710,14 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 18: {
             Metadata = input.ReadString();
+            break;
+          }
+          case 24: {
+            RestartPolicy = (global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy) input.ReadEnum();
+            break;
+          }
+          case 34: {
+            Deployment = input.ReadString();
             break;
           }
         }
@@ -1228,6 +1402,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       room_ = other.room_;
       metadata_ = other.metadata_;
       state_ = other.state_ != null ? other.state_.Clone() : null;
+      restartPolicy_ = other.restartPolicy_;
+      deployment_ = other.deployment_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1297,6 +1473,33 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "restart_policy" field.</summary>
+    public const int RestartPolicyFieldNumber = 6;
+    private global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy restartPolicy_ = global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure;
+    /// <summary>
+    /// cloud only
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy RestartPolicy {
+      get { return restartPolicy_; }
+      set {
+        restartPolicy_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "deployment" field.</summary>
+    public const int DeploymentFieldNumber = 7;
+    private string deployment_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Deployment {
+      get { return deployment_; }
+      set {
+        deployment_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1317,6 +1520,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (Room != other.Room) return false;
       if (Metadata != other.Metadata) return false;
       if (!object.Equals(State, other.State)) return false;
+      if (RestartPolicy != other.RestartPolicy) return false;
+      if (Deployment != other.Deployment) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1329,6 +1534,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (Room.Length != 0) hash ^= Room.GetHashCode();
       if (Metadata.Length != 0) hash ^= Metadata.GetHashCode();
       if (state_ != null) hash ^= State.GetHashCode();
+      if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) hash ^= RestartPolicy.GetHashCode();
+      if (Deployment.Length != 0) hash ^= Deployment.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1367,6 +1574,14 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(42);
         output.WriteMessage(State);
       }
+      if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) {
+        output.WriteRawTag(48);
+        output.WriteEnum((int) RestartPolicy);
+      }
+      if (Deployment.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(Deployment);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1397,6 +1612,14 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(42);
         output.WriteMessage(State);
       }
+      if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) {
+        output.WriteRawTag(48);
+        output.WriteEnum((int) RestartPolicy);
+      }
+      if (Deployment.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(Deployment);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1421,6 +1644,12 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (state_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(State);
+      }
+      if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) RestartPolicy);
+      }
+      if (Deployment.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Deployment);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1451,6 +1680,12 @@ namespace Livekit.Server.Sdk.Dotnet {
           State = new global::Livekit.Server.Sdk.Dotnet.AgentDispatchState();
         }
         State.MergeFrom(other.State);
+      }
+      if (other.RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) {
+        RestartPolicy = other.RestartPolicy;
+      }
+      if (other.Deployment.Length != 0) {
+        Deployment = other.Deployment;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1490,6 +1725,14 @@ namespace Livekit.Server.Sdk.Dotnet {
             input.ReadMessage(State);
             break;
           }
+          case 48: {
+            RestartPolicy = (global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy) input.ReadEnum();
+            break;
+          }
+          case 58: {
+            Deployment = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -1526,6 +1769,14 @@ namespace Livekit.Server.Sdk.Dotnet {
               State = new global::Livekit.Server.Sdk.Dotnet.AgentDispatchState();
             }
             input.ReadMessage(State);
+            break;
+          }
+          case 48: {
+            RestartPolicy = (global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy) input.ReadEnum();
+            break;
+          }
+          case 58: {
+            Deployment = input.ReadString();
             break;
           }
         }

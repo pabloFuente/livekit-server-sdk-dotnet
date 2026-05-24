@@ -43,34 +43,36 @@ namespace Livekit.Server.Sdk.Dotnet {
             "ZS5wcm90b2J1Zi5UaW1lc3RhbXASQQoYbm9ybWFsaXplZF9lbmRfdGltZXN0",
             "YW1wGAcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEgBiAEBEhAK",
             "CG1ldGFkYXRhGAggASgJEgsKA3JpZBgJIAEoDUITChFfZW5kX3RpbWVzdGFt",
-            "cF9tc0IbChlfbm9ybWFsaXplZF9lbmRfdGltZXN0YW1wIuoBChZNZXRyaWNz",
-            "UmVjb3JkaW5nSGVhZGVyEhsKB3Jvb21faWQYASABKAlCCprsLAZyb29tSUQS",
-            "EAoIZHVyYXRpb24YAyABKAQSLgoKc3RhcnRfdGltZRgEIAEoCzIaLmdvb2ds",
-            "ZS5wcm90b2J1Zi5UaW1lc3RhbXASQAoJcm9vbV90YWdzGAUgAygLMi0ubGl2",
-            "ZWtpdC5NZXRyaWNzUmVjb3JkaW5nSGVhZGVyLlJvb21UYWdzRW50cnkaLwoN",
-            "Um9vbVRhZ3NFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgB",
-            "KoEHCgtNZXRyaWNMYWJlbBITCg9BR0VOVFNfTExNX1RURlQQABITCg9BR0VO",
-            "VFNfU1RUX1RURlQQARITCg9BR0VOVFNfVFRTX1RURkIQAhIoCiRDTElFTlRf",
-            "VklERU9fU1VCU0NSSUJFUl9GUkVFWkVfQ09VTlQQAxIxCi1DTElFTlRfVklE",
-            "RU9fU1VCU0NSSUJFUl9UT1RBTF9GUkVFWkVfRFVSQVRJT04QBBInCiNDTElF",
-            "TlRfVklERU9fU1VCU0NSSUJFUl9QQVVTRV9DT1VOVBAFEjEKLUNMSUVOVF9W",
-            "SURFT19TVUJTQ1JJQkVSX1RPVEFMX1BBVVNFU19EVVJBVElPThAGEi0KKUNM",
-            "SUVOVF9BVURJT19TVUJTQ1JJQkVSX0NPTkNFQUxFRF9TQU1QTEVTEAcSNAow",
-            "Q0xJRU5UX0FVRElPX1NVQlNDUklCRVJfU0lMRU5UX0NPTkNFQUxFRF9TQU1Q",
-            "TEVTEAgSLgoqQ0xJRU5UX0FVRElPX1NVQlNDUklCRVJfQ09OQ0VBTE1FTlRf",
-            "RVZFTlRTEAkSLgoqQ0xJRU5UX0FVRElPX1NVQlNDUklCRVJfSU5URVJSVVBU",
-            "SU9OX0NPVU5UEAoSNwozQ0xJRU5UX0FVRElPX1NVQlNDUklCRVJfVE9UQUxf",
-            "SU5URVJSVVBUSU9OX0RVUkFUSU9OEAsSKQolQ0xJRU5UX1NVQlNDUklCRVJf",
-            "SklUVEVSX0JVRkZFUl9ERUxBWRAMEjEKLUNMSUVOVF9TVUJTQ1JJQkVSX0pJ",
-            "VFRFUl9CVUZGRVJfRU1JVFRFRF9DT1VOVBANEkAKPENMSUVOVF9WSURFT19Q",
-            "VUJMSVNIRVJfUVVBTElUWV9MSU1JVEFUSU9OX0RVUkFUSU9OX0JBTkRXSURU",
-            "SBAOEjoKNkNMSUVOVF9WSURFT19QVUJMSVNIRVJfUVVBTElUWV9MSU1JVEFU",
-            "SU9OX0RVUkFUSU9OX0NQVRAPEjwKOENMSUVOVF9WSURFT19QVUJMSVNIRVJf",
-            "UVVBTElUWV9MSU1JVEFUSU9OX0RVUkFUSU9OX09USEVSEBASEQoNUFVCTElT",
-            "SEVSX1JUVBAREhMKD1NFUlZFUl9NRVNIX1JUVBASEhIKDlNVQlNDUklCRVJf",
-            "UlRUEBMSJgohTUVUUklDX0xBQkVMX1BSRURFRklORURfTUFYX1ZBTFVFEIAg",
-            "QkZaI2dpdGh1Yi5jb20vbGl2ZWtpdC9wcm90b2NvbC9saXZla2l0qgINTGl2",
-            "ZUtpdC5Qcm90b+oCDkxpdmVLaXQ6OlByb3RvYgZwcm90bzM="));
+            "cF9tc0IbChlfbm9ybWFsaXplZF9lbmRfdGltZXN0YW1wIrECChZNZXRyaWNz",
+            "UmVjb3JkaW5nSGVhZGVyEhoKB3Jvb21faWQYASABKAlCCbpQBnJvb21JRBIQ",
+            "CghkdXJhdGlvbhgDIAEoBBIuCgpzdGFydF90aW1lGAQgASgLMhouZ29vZ2xl",
+            "LnByb3RvYnVmLlRpbWVzdGFtcBJACglyb29tX3RhZ3MYBSADKAsyLS5saXZl",
+            "a2l0Lk1ldHJpY3NSZWNvcmRpbmdIZWFkZXIuUm9vbVRhZ3NFbnRyeRIRCgly",
+            "b29tX25hbWUYBiABKAkSMwoPcm9vbV9zdGFydF90aW1lGAcgASgLMhouZ29v",
+            "Z2xlLnByb3RvYnVmLlRpbWVzdGFtcBovCg1Sb29tVGFnc0VudHJ5EgsKA2tl",
+            "eRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEqgQcKC01ldHJpY0xhYmVsEhMK",
+            "D0FHRU5UU19MTE1fVFRGVBAAEhMKD0FHRU5UU19TVFRfVFRGVBABEhMKD0FH",
+            "RU5UU19UVFNfVFRGQhACEigKJENMSUVOVF9WSURFT19TVUJTQ1JJQkVSX0ZS",
+            "RUVaRV9DT1VOVBADEjEKLUNMSUVOVF9WSURFT19TVUJTQ1JJQkVSX1RPVEFM",
+            "X0ZSRUVaRV9EVVJBVElPThAEEicKI0NMSUVOVF9WSURFT19TVUJTQ1JJQkVS",
+            "X1BBVVNFX0NPVU5UEAUSMQotQ0xJRU5UX1ZJREVPX1NVQlNDUklCRVJfVE9U",
+            "QUxfUEFVU0VTX0RVUkFUSU9OEAYSLQopQ0xJRU5UX0FVRElPX1NVQlNDUklC",
+            "RVJfQ09OQ0VBTEVEX1NBTVBMRVMQBxI0CjBDTElFTlRfQVVESU9fU1VCU0NS",
+            "SUJFUl9TSUxFTlRfQ09OQ0VBTEVEX1NBTVBMRVMQCBIuCipDTElFTlRfQVVE",
+            "SU9fU1VCU0NSSUJFUl9DT05DRUFMTUVOVF9FVkVOVFMQCRIuCipDTElFTlRf",
+            "QVVESU9fU1VCU0NSSUJFUl9JTlRFUlJVUFRJT05fQ09VTlQQChI3CjNDTElF",
+            "TlRfQVVESU9fU1VCU0NSSUJFUl9UT1RBTF9JTlRFUlJVUFRJT05fRFVSQVRJ",
+            "T04QCxIpCiVDTElFTlRfU1VCU0NSSUJFUl9KSVRURVJfQlVGRkVSX0RFTEFZ",
+            "EAwSMQotQ0xJRU5UX1NVQlNDUklCRVJfSklUVEVSX0JVRkZFUl9FTUlUVEVE",
+            "X0NPVU5UEA0SQAo8Q0xJRU5UX1ZJREVPX1BVQkxJU0hFUl9RVUFMSVRZX0xJ",
+            "TUlUQVRJT05fRFVSQVRJT05fQkFORFdJRFRIEA4SOgo2Q0xJRU5UX1ZJREVP",
+            "X1BVQkxJU0hFUl9RVUFMSVRZX0xJTUlUQVRJT05fRFVSQVRJT05fQ1BVEA8S",
+            "PAo4Q0xJRU5UX1ZJREVPX1BVQkxJU0hFUl9RVUFMSVRZX0xJTUlUQVRJT05f",
+            "RFVSQVRJT05fT1RIRVIQEBIRCg1QVUJMSVNIRVJfUlRUEBESEwoPU0VSVkVS",
+            "X01FU0hfUlRUEBISEgoOU1VCU0NSSUJFUl9SVFQQExImCiFNRVRSSUNfTEFC",
+            "RUxfUFJFREVGSU5FRF9NQVhfVkFMVUUQgCBCRlojZ2l0aHViLmNvbS9saXZl",
+            "a2l0L3Byb3RvY29sL2xpdmVraXSqAg1MaXZlS2l0LlByb3Rv6gIOTGl2ZUtp",
+            "dDo6UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.OptionsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.MetricLabel), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -78,7 +80,7 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.TimeSeriesMetric), global::Livekit.Server.Sdk.Dotnet.TimeSeriesMetric.Parser, new[]{ "Label", "ParticipantIdentity", "TrackSid", "Samples", "Rid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.MetricSample), global::Livekit.Server.Sdk.Dotnet.MetricSample.Parser, new[]{ "TimestampMs", "NormalizedTimestamp", "Value" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.EventMetric), global::Livekit.Server.Sdk.Dotnet.EventMetric.Parser, new[]{ "Label", "ParticipantIdentity", "TrackSid", "StartTimestampMs", "EndTimestampMs", "NormalizedStartTimestamp", "NormalizedEndTimestamp", "Metadata", "Rid" }, new[]{ "EndTimestampMs", "NormalizedEndTimestamp" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.MetricsRecordingHeader), global::Livekit.Server.Sdk.Dotnet.MetricsRecordingHeader.Parser, new[]{ "RoomId", "Duration", "StartTime", "RoomTags" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.MetricsRecordingHeader), global::Livekit.Server.Sdk.Dotnet.MetricsRecordingHeader.Parser, new[]{ "RoomId", "Duration", "StartTime", "RoomTags", "RoomName", "RoomStartTime" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, })
           }));
     }
     #endregion
@@ -1684,6 +1686,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       duration_ = other.duration_;
       startTime_ = other.startTime_ != null ? other.startTime_.Clone() : null;
       roomTags_ = other.roomTags_.Clone();
+      roomName_ = other.roomName_;
+      roomStartTime_ = other.roomStartTime_ != null ? other.roomStartTime_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1743,6 +1747,30 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return roomTags_; }
     }
 
+    /// <summary>Field number for the "room_name" field.</summary>
+    public const int RoomNameFieldNumber = 6;
+    private string roomName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string RoomName {
+      get { return roomName_; }
+      set {
+        roomName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "room_start_time" field.</summary>
+    public const int RoomStartTimeFieldNumber = 7;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp roomStartTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp RoomStartTime {
+      get { return roomStartTime_; }
+      set {
+        roomStartTime_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1762,6 +1790,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (Duration != other.Duration) return false;
       if (!object.Equals(StartTime, other.StartTime)) return false;
       if (!RoomTags.Equals(other.RoomTags)) return false;
+      if (RoomName != other.RoomName) return false;
+      if (!object.Equals(RoomStartTime, other.RoomStartTime)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1773,6 +1803,8 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (Duration != 0UL) hash ^= Duration.GetHashCode();
       if (startTime_ != null) hash ^= StartTime.GetHashCode();
       hash ^= RoomTags.GetHashCode();
+      if (RoomName.Length != 0) hash ^= RoomName.GetHashCode();
+      if (roomStartTime_ != null) hash ^= RoomStartTime.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1804,6 +1836,14 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteMessage(StartTime);
       }
       roomTags_.WriteTo(output, _map_roomTags_codec);
+      if (RoomName.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(RoomName);
+      }
+      if (roomStartTime_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(RoomStartTime);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1827,6 +1867,14 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteMessage(StartTime);
       }
       roomTags_.WriteTo(ref output, _map_roomTags_codec);
+      if (RoomName.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(RoomName);
+      }
+      if (roomStartTime_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(RoomStartTime);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1847,6 +1895,12 @@ namespace Livekit.Server.Sdk.Dotnet {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(StartTime);
       }
       size += roomTags_.CalculateSize(_map_roomTags_codec);
+      if (RoomName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RoomName);
+      }
+      if (roomStartTime_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(RoomStartTime);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1872,6 +1926,15 @@ namespace Livekit.Server.Sdk.Dotnet {
         StartTime.MergeFrom(other.StartTime);
       }
       roomTags_.Add(other.roomTags_);
+      if (other.RoomName.Length != 0) {
+        RoomName = other.RoomName;
+      }
+      if (other.roomStartTime_ != null) {
+        if (roomStartTime_ == null) {
+          RoomStartTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        RoomStartTime.MergeFrom(other.RoomStartTime);
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1906,6 +1969,17 @@ namespace Livekit.Server.Sdk.Dotnet {
             roomTags_.AddEntriesFrom(input, _map_roomTags_codec);
             break;
           }
+          case 50: {
+            RoomName = input.ReadString();
+            break;
+          }
+          case 58: {
+            if (roomStartTime_ == null) {
+              RoomStartTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(RoomStartTime);
+            break;
+          }
         }
       }
     #endif
@@ -1938,6 +2012,17 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 42: {
             roomTags_.AddEntriesFrom(ref input, _map_roomTags_codec);
+            break;
+          }
+          case 50: {
+            RoomName = input.ReadString();
+            break;
+          }
+          case 58: {
+            if (roomStartTime_ == null) {
+              RoomStartTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(RoomStartTime);
             break;
           }
         }
