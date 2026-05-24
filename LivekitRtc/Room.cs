@@ -646,6 +646,17 @@ namespace LiveKit.Rtc
 
             ConnectionState = Proto.ConnectionState.ConnConnected;
             DispatchEvent(() => ConnectionStateChanged?.Invoke(this, ConnectionState));
+
+            // Release the FFI room event gate after our listener and local state are ready.
+            var readyRequest = new FfiRequest
+            {
+                ReadyForRoomEvent = new ReadyForRoomEventRequest
+                {
+                    RoomHandle = _roomHandle!.HandleId,
+                },
+            };
+            FfiClient.Instance.SendRequest(readyRequest);
+
             DispatchEvent(() => Connected?.Invoke(this, EventArgs.Empty));
         }
 
