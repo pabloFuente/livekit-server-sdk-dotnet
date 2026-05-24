@@ -79,8 +79,7 @@ rtp_port: 10000-20000";
     public ServiceClientFixture()
     {
         // Redis
-        redisContainer = new ContainerBuilder()
-            .WithImage(REDIS_IMAGE)
+        redisContainer = new ContainerBuilder(REDIS_IMAGE)
             .WithName("redis")
             .WithPortBinding(6379, 6379)
             .WithAutoRemove(true)
@@ -88,8 +87,7 @@ rtp_port: 10000-20000";
             .Build();
         redisContainer.StartAsync().Wait();
         // Livekit server
-        livekitServerContainer = new ContainerBuilder()
-            .WithImage(LIVEKIT_SERVER_IMAGE)
+        livekitServerContainer = new ContainerBuilder(LIVEKIT_SERVER_IMAGE)
             .WithName("livekit-server")
             .WithAutoRemove(true)
             .WithEnvironment("LIVEKIT_KEYS", TEST_API_KEY + ": " + TEST_API_SECRET)
@@ -113,8 +111,7 @@ rtp_port: 10000-20000";
                 .Replace("{WS_URL}", "ws://" + livekitServerContainer.IpAddress + ":7880")
                 .Replace("{REDIS_ADDRESS}", redisContainer.IpAddress + ":6379")
         );
-        egressContainer = new ContainerBuilder()
-            .WithImage(LIVEKIT_EGRESS_IMAGE)
+        egressContainer = new ContainerBuilder(LIVEKIT_EGRESS_IMAGE)
             .WithName("egress")
             .WithAutoRemove(true)
             .WithBindMount(egressConfigPath, "/config.yaml")
@@ -138,8 +135,7 @@ rtp_port: 10000-20000";
                 .Replace("{WS_URL}", "ws://" + livekitServerContainer.IpAddress + ":7880")
                 .Replace("{REDIS_ADDRESS}", redisContainer.IpAddress + ":6379")
         );
-        ingressContainer = new ContainerBuilder()
-            .WithImage(LIVEKIT_INGRESS_IMAGE)
+        ingressContainer = new ContainerBuilder(LIVEKIT_INGRESS_IMAGE)
             .WithName("ingress")
             .WithAutoRemove(true)
             .WithBindMount(ingressConfigPath, "/config.yaml")
@@ -159,8 +155,7 @@ rtp_port: 10000-20000";
         sipYaml = sipYaml
             .Replace("{WS_URL}", "ws://" + livekitServerContainer.IpAddress + ":7880")
             .Replace("{REDIS_ADDRESS}", redisContainer.IpAddress + ":6379");
-        sipContainer = new ContainerBuilder()
-            .WithImage(LIVEKIT_SIP_IMAGE)
+        sipContainer = new ContainerBuilder(LIVEKIT_SIP_IMAGE)
             .WithName("sip")
             .WithAutoRemove(true)
             .WithEnvironment("SIP_CONFIG_BODY", sipYaml)
@@ -264,8 +259,7 @@ rtp_port: 10000-20000";
             TEST_API_SECRET,
         };
         commands = commands.Concat(args).ToArray();
-        var lkContainerBuilder = new ContainerBuilder()
-            .WithImage(LIVEKIT_CLI_IMAGE)
+        var lkContainerBuilder = new ContainerBuilder(LIVEKIT_CLI_IMAGE)
             .WithAutoRemove(true)
             .DependsOn(livekitServerContainer)
             .WithCommand(commands);
@@ -288,8 +282,8 @@ rtp_port: 10000-20000";
 
 public class TestHttpMessageHandler : HttpMessageHandler
 {
-    public HttpRequestMessage LastRequest { get; private set; }
-    public HttpResponseMessage LastResponse { get; private set; }
+    public HttpRequestMessage? LastRequest { get; private set; }
+    public HttpResponseMessage? LastResponse { get; private set; }
 
     protected override Task<HttpResponseMessage> SendAsync(
         HttpRequestMessage request,
