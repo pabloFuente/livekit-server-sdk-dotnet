@@ -42,6 +42,9 @@
     <PackageReference Include="System.Threading.Channels" Version="10.0.10" />
   </ItemGroup>
   <ItemGroup>
+    <InternalsVisibleTo Include="LivekitRtc.Tests" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
   <!-- Native library content files for different platforms - for NuGet package -->

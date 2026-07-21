@@ -863,4 +863,90 @@ public class E2EETests : IAsyncLifetime
 
         Log("E2EE encryption state events test completed");
     }
+
+    [Fact]
+    public async Task E2EE_EnabledOptions_ActuallyCreatesFrameCryptors()
+    {
+        // Regression test for https://github.com/pabloFuente/livekit-server-sdk-dotnet/issues/97.
+        //
+        // When RoomOptions.ToProto() dropped the E2EE options, the FFI never enabled encryption
+        // and media was sent in plaintext. Because WebRTC transcodes audio through Opus, the
+        // correlation-based tests in this file cannot distinguish "encrypted" from "plaintext",
+        // so this test asserts something the FFI only does when E2EE is genuinely applied: it
+        // creates enabled frame cryptors for the encrypted tracks.
+        Log("Starting E2EE frame cryptor creation test");
+
+        const string roomName = "e2ee-frame-cryptor-room";
+        const string participant1 = "e2ee-fc-publisher";
+        const string participant2 = "e2ee-fc-receiver";
+
+        var sharedKey = new byte[32];
+        new Random(42).NextBytes(sharedKey);
+
+        var token1 = _fixture.CreateToken(participant1, roomName);
+        var token2 = _fixture.CreateToken(participant2, roomName);
+
+        var e2eeOptions = new E2EEOptions
+        {
+            KeyProviderOptions = new KeyProviderOptions { SharedKey = sharedKey },
+        };
+
+        _room1 = new Room();
+        _room2 = new Room();
+
+        var trackSubscribed = new TaskCompletionSource<RemoteTrack>();
+        _room2.TrackSubscribed += (sender, e) => trackSubscribed.TrySetResult(e.Track);
+
+        await _room1.ConnectAsync(
+            _fixture.LiveKitUrl,
+            token1,
+            new RoomOptions { E2EE = e2eeOptions }
+        );
+        await _room2.ConnectAsync(
+            _fixture.LiveKitUrl,
+            token2,
+            new RoomOptions { E2EE = e2eeOptions }
+        );
+        Log("Both participants connected with E2EE");
+
+        Assert.NotNull(_room1.E2EEManager);
+        Assert.NotNull(_room2.E2EEManager);
+
+        // Publish an audio track from participant 1 and wait until participant 2 subscribes,
+        // so that frame cryptors have been created on both the sending and receiving ends.
+        var audioSource = new AudioSource(48000, 1);
+        var audioTrack = LocalAudioTrack.Create("fc-audio", audioSource);
+        var publication = await _room1.LocalParticipant!.PublishTrackAsync(audioTrack);
+        Log($"Audio track published: {publication.Sid}");
+
+        var receivedTrack = await trackSubscribed.Task.WaitAsync(TimeSpan.FromSeconds(10));
+        Log($"Track subscribed on receiver: {receivedTrack.Sid}");
+        await Task.Delay(500);
+
+        var publisherCryptors = _room1.E2EEManager!.GetFrameCryptors();
+        var receiverCryptors = _room2.E2EEManager!.GetFrameCryptors();
+        Log(
+            $"Frame cryptors — publisher: {publisherCryptors.Count}, receiver: {receiverCryptors.Count}"
+        );
+
+        // With the bug present, ToProto() drops the E2EE options, the FFI configures no
+        // encryption, and no frame cryptors are ever created -> these collections are empty.
+        Assert.NotEmpty(publisherCryptors);
+        Assert.NotEmpty(receiverCryptors);
+        Assert.All(
+            publisherCryptors,
+            cryptor => Assert.True(cryptor.Enabled, "publisher frame cryptor should be enabled")
+        );
+        Assert.All(
+            receiverCryptors,
+            cryptor => Assert.True(cryptor.Enabled, "receiver frame cryptor should be enabled")
+        );
+        Log("✓ Enabled frame cryptors created on both ends — E2EE is actually applied");
+
+        await _room1.LocalParticipant!.UnpublishTrackAsync(publication.Sid);
+        audioTrack.Dispose();
+        audioSource.Dispose();
+
+        Log("E2EE frame cryptor creation test completed");
+    }
 }

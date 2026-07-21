@@ -27,6 +27,12 @@ namespace LiveKit.Rtc
         /// Default failure tolerance (-1 means unlimited).
         /// </summary>
         public const int FailureTolerance = -1;
+
+        /// <summary>
+        /// Default key ring size. Must be greater than zero: a value of 0 makes the FFI
+        /// create an empty key ring, and no frames are ever delivered.
+        /// </summary>
+        public const int KeyRingSize = 16;
     }
 
     /// <summary>
@@ -53,6 +59,11 @@ namespace LiveKit.Rtc
         /// Gets or sets the failure tolerance.
         /// </summary>
         public int FailureTolerance { get; set; } = E2EEDefaults.FailureTolerance;
+
+        /// <summary>
+        /// Gets or sets the key ring size. Must be greater than zero.
+        /// </summary>
+        public int KeyRingSize { get; set; } = E2EEDefaults.KeyRingSize;
     }
 
     /// <summary>
@@ -85,6 +96,10 @@ namespace LiveKit.Rtc
                     RatchetSalt = Google.Protobuf.ByteString.CopyFrom(
                         KeyProviderOptions.RatchetSalt
                     ),
+                    // A key ring size of 0 makes the FFI create an empty key ring, after which
+                    // no frames are ever delivered, so it must always be sent as a positive value.
+                    KeyRingSize = KeyProviderOptions.KeyRingSize,
+                    KeyDerivationFunction = LiveKit.Proto.KeyDerivationFunction.Pbkdf2,
                 },
             };
 

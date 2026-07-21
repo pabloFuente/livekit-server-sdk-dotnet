@@ -41,13 +41,22 @@ namespace LiveKit.Rtc
 
         internal Proto.RoomOptions ToProto()
         {
-            return new Proto.RoomOptions
+            var proto = new Proto.RoomOptions
             {
                 AutoSubscribe = AutoSubscribe,
                 Dynacast = Dynacast,
                 AdaptiveStream = AdaptiveStream,
                 JoinRetries = JoinRetries,
             };
+
+            // Without this the FFI ConnectRequest carries no E2EE configuration, the Rust SDK
+            // never attaches frame cryptors, and media is silently sent/received in plaintext.
+            if (E2EE != null)
+            {
+                proto.Encryption = E2EE.ToProto();
+            }
+
+            return proto;
         }
     }
 
