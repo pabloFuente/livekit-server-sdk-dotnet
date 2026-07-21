@@ -307,7 +307,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             Twirp.Exception ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
                 await sipClient.CreateSIPParticipant(request)
             );
-            Assert.EndsWith("missing sip trunk id", ex.Message);
+            Assert.EndsWith("missing sip trunk id and sip number", ex.Message);
 
             request.SipTrunkId = "non-existing-trunk";
 
