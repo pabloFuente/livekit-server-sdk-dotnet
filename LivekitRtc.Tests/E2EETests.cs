@@ -264,175 +264,219 @@ public class E2EETests : IAsyncLifetime
         Log("E2EE shared key test completed successfully");
     }
 
+
     [Fact]
-    public async Task E2EE_DifferentKeys_ParticipantCannotDecrypt()
+    public async Task E2EE_TonePreservedWithCorrectKey_NoiseWithWrongKey()
     {
-        Log("Starting E2EE different keys test - verifying wrong keys produce noise");
+        // A single publisher sends a continuous 440Hz sine wave. One receiver has the correct
+        // key, another has a wrong key. We measure, in the FREQUENCY domain, how much energy
+        // each receiver recovered at 440Hz relative to off-tone control frequencies.
+        //
+        // Frequency-domain (Goertzel) measurement is invariant to the delay and phase shift that
+        // Opus transcoding introduces. A naive time-domain, sample-aligned correlation cannot tell
+        // encrypted from plaintext for exactly that reason (a correctly received tone no longer
+        // lines up sample-for-sample with the reference after Opus). The correct-key receiver must
+        // recover a dominant tone; the wrong-key receiver must not. The relative assertion
+        // (good >> bad) also fails under the original bug, where plaintext would let the wrong-key
+        // receiver recover the tone just as well.
+        Log("Starting E2EE tone-preservation test (frequency-domain)");
 
-        const string roomName = "e2ee-different-keys-room";
-        const string participant1 = "e2ee-publisher-key1";
-        const string participant2 = "e2ee-receiver-key2";
+        const string roomName = "e2ee-tone-room";
+        const int sampleRate = 48000;
+        const int toneHz = 440;
 
-        // Generate two different encryption keys
+        E2EEOptions Opts(byte[] key) =>
+            new E2EEOptions { KeyProviderOptions = new KeyProviderOptions { SharedKey = key } };
+
         var key1 = new byte[32];
         var key2 = new byte[32];
         new Random(42).NextBytes(key1);
         new Random(84).NextBytes(key2);
-        Log($"Generated key1: {Convert.ToBase64String(key1)}");
-        Log($"Generated key2 (different): {Convert.ToBase64String(key2)}");
 
-        var token1 = _fixture.CreateToken(participant1, roomName);
-        var token2 = _fixture.CreateToken(participant2, roomName);
+        var tokenPub = _fixture.CreateToken("e2ee-tone-pub", roomName);
+        var tokenGood = _fixture.CreateToken("e2ee-tone-good", roomName);
+        var tokenBad = _fixture.CreateToken("e2ee-tone-bad", roomName);
 
-        // Configure E2EE with DIFFERENT keys
-        var e2eeOptions1 = new E2EEOptions
+        _room1 = new Room(); // publisher (key1)
+        _room2 = new Room(); // correct-key receiver (key1)
+        _room3 = new Room(); // wrong-key receiver (key2)
+
+        var goodTrackTcs = new TaskCompletionSource<RemoteAudioTrack>();
+        var badTrackTcs = new TaskCompletionSource<RemoteAudioTrack>();
+        _room2.TrackSubscribed += (s, e) =>
         {
-            KeyProviderOptions = new KeyProviderOptions { SharedKey = key1 },
+            if (e.Track is RemoteAudioTrack t)
+                goodTrackTcs.TrySetResult(t);
+        };
+        _room3.TrackSubscribed += (s, e) =>
+        {
+            if (e.Track is RemoteAudioTrack t)
+                badTrackTcs.TrySetResult(t);
         };
 
-        var e2eeOptions2 = new E2EEOptions
-        {
-            KeyProviderOptions = new KeyProviderOptions { SharedKey = key2 },
-        };
-
-        _room1 = new Room();
-        _room2 = new Room();
-
-        var audioTrackReceived = new TaskCompletionSource<RemoteAudioTrack>();
-        _room2.TrackSubscribed += (sender, e) =>
-        {
-            Log($"Track subscribed on participant2: {e.Track.Sid}");
-            if (e.Track is RemoteAudioTrack audioTrack)
-            {
-                audioTrackReceived.TrySetResult(audioTrack);
-            }
-        };
-
-        // Connect with different keys
         await _room1.ConnectAsync(
             _fixture.LiveKitUrl,
-            token1,
-            new RoomOptions { E2EE = e2eeOptions1 }
+            tokenPub,
+            new RoomOptions { E2EE = Opts(key1) }
         );
-        Log($"Participant1 connected with key1");
-
         await _room2.ConnectAsync(
             _fixture.LiveKitUrl,
-            token2,
-            new RoomOptions { E2EE = e2eeOptions2 }
+            tokenGood,
+            new RoomOptions { E2EE = Opts(key1) }
         );
-        Log($"Participant2 connected with key2 (different)");
+        await _room3.ConnectAsync(
+            _fixture.LiveKitUrl,
+            tokenBad,
+            new RoomOptions { E2EE = Opts(key2) }
+        );
+        Log("Publisher + correct-key + wrong-key receivers connected");
 
         await Task.Delay(1000);
 
-        // Publish audio from participant 1 with a known pattern: 440Hz sine wave
-        var audioSource = new AudioSource(48000, 1);
-        var audioTrack = LocalAudioTrack.Create("encrypted-audio-key1", audioSource);
+        // Publish a continuous (phase-continuous across frames) 440Hz sine wave.
+        var audioSource = new AudioSource(sampleRate, 1);
+        var audioTrack = LocalAudioTrack.Create("e2ee-tone", audioSource);
         var publication = await _room1.LocalParticipant!.PublishTrackAsync(audioTrack);
-        Log($"Audio track published with key1: {publication.Sid}");
+        Log($"Tone track published: {publication.Sid}");
 
-        // Generate 440Hz sine wave pattern
-        var sentAudioData = new short[480];
-        for (int i = 0; i < sentAudioData.Length; i++)
-        {
-            sentAudioData[i] = (short)(Math.Sin(2 * Math.PI * 440 * i / 48000) * 10000);
-        }
-        Log("Created test pattern: 440Hz sine wave (should become noise with wrong key)");
-
-        // Wait for track to be received
-        var receivedTrack = await audioTrackReceived.Task.WaitAsync(TimeSpan.FromSeconds(10));
-        Log($"Audio track received on participant2 with wrong key");
-
-        Assert.NotNull(receivedTrack);
-
-        // Create audio stream to receive the wrongly decrypted frames
-        using var audioStream = new AudioStream(receivedTrack);
-        Log("Created AudioStream to receive wrongly-decrypted frames");
-
-        // Keep sending audio frames in the background
-        var sendingFrames = true;
+        var sending = true;
+        long n = 0;
         var sendTask = Task.Run(async () =>
         {
-            while (sendingFrames)
+            while (Volatile.Read(ref sending))
             {
-                var audioFrame = new AudioFrame(sentAudioData, 48000, 1, 480);
-                await audioSource.CaptureFrameAsync(audioFrame);
+                var data = new short[480];
+                for (int i = 0; i < data.Length; i++, n++)
+                    data[i] = (short)(Math.Sin(2 * Math.PI * toneHz * n / sampleRate) * 10000);
+                await audioSource.CaptureFrameAsync(new AudioFrame(data, sampleRate, 1, 480));
                 await Task.Delay(10);
             }
         });
 
-        // Try to receive and verify the frame is NOT the original 440Hz pattern
-        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-        AudioFrameEvent? receivedFrameInfo = null;
-        int framesReceived = 0;
-        await foreach (var evt in audioStream.WithCancellation(cts.Token))
-        {
-            framesReceived++;
-            receivedFrameInfo = evt;
+        var goodTrack = await goodTrackTcs.Task.WaitAsync(TimeSpan.FromSeconds(10));
+        var badTrack = await badTrackTcs.Task.WaitAsync(TimeSpan.FromSeconds(10));
+        Log("Both receivers subscribed to the tone track");
 
-            // Check several frames to find one with data
-            var samples = evt.Frame.DataBytes.ToArray();
-            bool hasData = false;
-            for (int i = 0; i < Math.Min(samples.Length / 2, 50); i++)
-            {
-                short sample = BitConverter.ToInt16(samples, i * 2);
-                if (sample != 0)
-                {
-                    hasData = true;
-                    break;
-                }
-            }
+        using var goodStream = new AudioStream(goodTrack);
+        using var badStream = new AudioStream(badTrack);
 
-            if (hasData || framesReceived >= 20)
-            {
-                break;
-            }
-        }
+        // Collect from both receivers concurrently while the tone keeps playing.
+        var goodCollect = CollectSamples(goodStream, 9600, 8, TimeSpan.FromSeconds(10));
+        var badCollect = CollectSamples(badStream, 9600, 8, TimeSpan.FromSeconds(10));
+        await Task.WhenAll(goodCollect, badCollect);
+        var (goodSamples, goodRate) = goodCollect.Result;
+        var (badSamples, badRate) = badCollect.Result;
 
-        sendingFrames = false;
+        Volatile.Write(ref sending, false);
         await sendTask;
 
-        Assert.NotNull(receivedFrameInfo);
-        var frame = receivedFrameInfo.Value.Frame;
-        Log($"Received wrongly-decrypted audio frame after {framesReceived} attempts");
-
-        // Verify the received audio does NOT match the 440Hz sine wave pattern
-        // With wrong decryption key, the audio should be noise/corrupted, not a clean sine wave
-        var receivedSamples = frame.DataBytes.ToArray();
-
-        // Calculate correlation with expected 440Hz pattern
-        // A correctly decrypted 440Hz sine wave would have high correlation
-        // Noise/corrupted data would have low correlation
-        double correlation = 0;
-        int samplesChecked = 0;
-        for (int i = 0; i < Math.Min(receivedSamples.Length / 2, 100); i++)
-        {
-            short receivedSample = BitConverter.ToInt16(receivedSamples, i * 2);
-            short expectedSample = (short)(Math.Sin(2 * Math.PI * 440 * i / 48000) * 10000);
-
-            // Normalized dot product
-            correlation += (receivedSample * expectedSample) / (10000.0 * 10000.0);
-            samplesChecked++;
-        }
-        correlation = Math.Abs(correlation / samplesChecked);
-
         Log(
-            $"Correlation with 440Hz pattern: {correlation:F3} (close to 0 = noise, close to 1 = original signal)"
+            $"Collected — correct key: {goodSamples.Length} samples @ {goodRate}Hz, "
+                + $"wrong key: {badSamples.Length} samples @ {badRate}Hz"
         );
 
-        // With wrong key, correlation should be very low (close to random noise)
+        double snrGood = TonalSnr(goodSamples, goodRate, toneHz);
+        double snrBad = TonalSnr(badSamples, badRate, toneHz);
+        Log($"Tonal SNR — correct key: {snrGood:F1}, wrong key: {snrBad:F1}");
+
+        // The correct-key receiver must recover the tone as the dominant spectral component.
         Assert.True(
-            correlation < 0.5,
-            $"Wrongly decrypted audio should be noise (low correlation), but got {correlation:F3}"
+            snrGood > 10,
+            $"correct-key receiver should recover the {toneHz}Hz tone (snr={snrGood:F1})"
         );
-        Log("✓ Verified: Wrong decryption key produces noise, not original 440Hz signal!");
+        // The wrong-key receiver must not — and, crucially, must be far weaker than the correct
+        // one. Under issue #97 (plaintext) the wrong-key receiver would also recover the tone,
+        // collapsing this ratio.
+        Assert.True(
+            snrGood > snrBad * 8,
+            $"correct-key SNR ({snrGood:F1}) must dominate wrong-key SNR ({snrBad:F1})"
+        );
+        Log("✓ Tone recovered with the correct key and absent with the wrong key");
 
-        // Clean up
         await _room1.LocalParticipant!.UnpublishTrackAsync(publication.Sid);
         audioTrack.Dispose();
         audioSource.Dispose();
 
-        Log("E2EE different keys test completed - wrong key produces noise as expected");
+        Log("E2EE tone-preservation test completed");
+    }
+
+    /// <summary>
+    /// Reads decoded PCM (int16 mono) from an <see cref="AudioStream"/> until at least
+    /// <paramref name="minSamples"/> have been gathered or the timeout elapses, discarding the
+    /// first <paramref name="skipFrames"/> frames to avoid codec/jitter-buffer warm-up. Returning
+    /// few or no samples (on timeout) is a valid outcome: with a wrong key the receiver may get
+    /// no decodable audio at all.
+    /// </summary>
+    private static async Task<(short[] samples, int sampleRate)> CollectSamples(
+        AudioStream stream,
+        int minSamples,
+        int skipFrames,
+        TimeSpan timeout
+    )
+    {
+        var buf = new List<short>(minSamples);
+        int frame = 0;
+        int sampleRate = 48000;
+        using var cts = new CancellationTokenSource(timeout);
+        try
+        {
+            await foreach (var evt in stream.WithCancellation(cts.Token))
+            {
+                if (frame++ < skipFrames)
+                    continue;
+                sampleRate = evt.Frame.SampleRate;
+                var bytes = evt.Frame.DataBytes.ToArray();
+                for (int i = 0; i + 1 < bytes.Length; i += 2)
+                    buf.Add(BitConverter.ToInt16(bytes, i));
+                if (buf.Count >= minSamples)
+                    break;
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            // Timed out; return whatever arrived.
+        }
+        return (buf.ToArray(), sampleRate);
+    }
+
+    /// <summary>
+    /// Signal power at a single frequency using the generalized Goertzel algorithm, normalized by
+    /// sample count. Uses magnitude only, so it is invariant to the phase shift and delay that
+    /// Opus transcoding introduces.
+    /// </summary>
+    private static double GoertzelPower(short[] x, double hz, int sampleRate)
+    {
+        if (x.Length == 0)
+            return 0;
+        double coeff = 2.0 * Math.Cos(2.0 * Math.PI * hz / sampleRate);
+        double s1 = 0,
+            s2 = 0;
+        foreach (var sample in x)
+        {
+            double s0 = sample + coeff * s1 - s2;
+            s2 = s1;
+            s1 = s0;
+        }
+        return (s1 * s1 + s2 * s2 - coeff * s1 * s2) / x.Length;
+    }
+
+    /// <summary>
+    /// Ratio of energy at <paramref name="toneHz"/> to the mean energy at a few off-tone control
+    /// frequencies. High when the tone dominates (correct decryption), near zero for silence or
+    /// broadband noise (wrong key). Returns 0 when there is not enough audio to analyze.
+    /// </summary>
+    private static double TonalSnr(short[] x, int sampleRate, double toneHz)
+    {
+        if (x.Length < 1024)
+            return 0;
+        double sig = GoertzelPower(x, toneHz, sampleRate);
+        double noise =
+            (
+                GoertzelPower(x, 997, sampleRate)
+                + GoertzelPower(x, 1499, sampleRate)
+                + GoertzelPower(x, 2003, sampleRate)
+            ) / 3.0;
+        return sig / (noise + 1e-9);
     }
 
     [Fact]
