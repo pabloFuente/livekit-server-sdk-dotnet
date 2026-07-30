@@ -120,6 +120,11 @@ namespace LiveKit.Rtc
                 };
             }
 
+            if (options.Codec.HasValue)
+            {
+                protoOptions.VideoCodec = (Proto.VideoCodec)options.Codec.Value;
+            }
+
             if (options.VideoEncoding != null)
             {
                 protoOptions.VideoEncoding = new Proto.VideoEncoding
@@ -1141,6 +1146,11 @@ namespace LiveKit.Rtc
     /// </summary>
     public class TrackPublishOptions
     {
+        /// <summary>
+        /// Video codec type
+        /// </summary>
+        public VideoCodec? Codec { get; set; }
+
         /// <summary>
         /// Video encoding settings.
         /// </summary>
