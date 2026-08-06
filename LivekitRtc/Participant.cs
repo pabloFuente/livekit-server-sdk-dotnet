@@ -242,7 +242,11 @@ namespace LiveKit.Rtc
             await Room.FfiEventLock.WaitAsync(cancellationToken);
             try
             {
-                _trackPublications.Remove(trackSid);
+                if (_trackPublications.TryGetValue(trackSid, out var localPublication))
+                {
+                    _trackPublications.Remove(trackSid);
+                    localPublication.Handle.Dispose();
+                }
             }
             finally
             {
