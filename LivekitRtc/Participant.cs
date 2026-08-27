@@ -106,36 +106,13 @@ namespace LiveKit.Rtc
         {
             options ??= new TrackPublishOptions();
 
-            var protoOptions = new Proto.TrackPublishOptions
-            {
-                Source = (Proto.TrackSource)options.Source,
-                Simulcast = options.Simulcast,
-            };
-
-            if (options.AudioEncoding != null)
-            {
-                protoOptions.AudioEncoding = new Proto.AudioEncoding
-                {
-                    MaxBitrate = options.AudioEncoding.MaxBitrate,
-                };
-            }
-
-            if (options.VideoEncoding != null)
-            {
-                protoOptions.VideoEncoding = new Proto.VideoEncoding
-                {
-                    MaxBitrate = options.VideoEncoding.MaxBitrate,
-                    MaxFramerate = options.VideoEncoding.MaxFramerate,
-                };
-            }
-
             var request = new FfiRequest
             {
                 PublishTrack = new PublishTrackRequest
                 {
                     LocalParticipantHandle = Handle.HandleId,
                     TrackHandle = track.Handle.HandleId,
-                    Options = protoOptions,
+                    Options = options.ToProto(),
                 },
             };
 
@@ -1152,6 +1129,24 @@ namespace LiveKit.Rtc
         public AudioEncodingOptions? AudioEncoding { get; set; }
 
         /// <summary>
+        /// Preferred codec for video tracks (VP8, H264, AV1, VP9...). When
+        /// null, the SDK default codec (VP8) is used.
+        /// </summary>
+        public Proto.VideoCodec? VideoCodec { get; set; }
+
+        /// <summary>
+        /// Whether to enable DTX (discontinuous transmission) for audio
+        /// tracks. When null, the SDK default (enabled) is used.
+        /// </summary>
+        public bool? Dtx { get; set; }
+
+        /// <summary>
+        /// Whether to enable RED (redundant encoding) for audio tracks. When
+        /// null, the SDK default (enabled) is used.
+        /// </summary>
+        public bool? Red { get; set; }
+
+        /// <summary>
         /// Whether to enable simulcast for video tracks.
         /// </summary>
         public bool Simulcast { get; set; } = true;
@@ -1160,6 +1155,91 @@ namespace LiveKit.Rtc
         /// Track source.
         /// </summary>
         public Proto.TrackSource Source { get; set; } = Proto.TrackSource.SourceUnknown;
+
+        /// <summary>
+        /// Name of the stream the track belongs to, used to group tracks
+        /// together (e.g. camera and screen share with their audios). When
+        /// null, the server infers it from the track source.
+        /// </summary>
+        public string? Stream { get; set; }
+
+        /// <summary>
+        /// Whether to use the preconnect audio buffer for this track. When
+        /// null, the SDK default (disabled) is used.
+        /// </summary>
+        public bool? PreconnectBuffer { get; set; }
+
+        /// <summary>
+        /// Packet-trailer metadata features to enable for this track (user
+        /// timestamps, frame IDs...).
+        /// </summary>
+        public IList<Proto.PacketTrailerFeature>? PacketTrailerFeatures { get; set; }
+
+        /// <summary>
+        /// RTP scalability mode (e.g. "L3T3_KEY"). When set, a single RTP
+        /// encoding is produced with this mode, enabling true SVC for codecs
+        /// that support it (VP9, AV1). Has no effect for VP8/H264.
+        /// </summary>
+        public string? ScalabilityMode { get; set; }
+
+        internal Proto.TrackPublishOptions ToProto()
+        {
+            var proto = new Proto.TrackPublishOptions { Source = Source, Simulcast = Simulcast };
+
+            if (VideoCodec != null)
+            {
+                proto.VideoCodec = VideoCodec.Value;
+            }
+
+            if (Dtx != null)
+            {
+                proto.Dtx = Dtx.Value;
+            }
+
+            if (Red != null)
+            {
+                proto.Red = Red.Value;
+            }
+
+            if (Stream != null)
+            {
+                proto.Stream = Stream;
+            }
+
+            if (PreconnectBuffer != null)
+            {
+                proto.PreconnectBuffer = PreconnectBuffer.Value;
+            }
+
+            if (PacketTrailerFeatures != null)
+            {
+                proto.PacketTrailerFeatures.AddRange(PacketTrailerFeatures);
+            }
+
+            if (ScalabilityMode != null)
+            {
+                proto.ScalabilityMode = ScalabilityMode;
+            }
+
+            if (AudioEncoding != null)
+            {
+                proto.AudioEncoding = new Proto.AudioEncoding
+                {
+                    MaxBitrate = AudioEncoding.MaxBitrate,
+                };
+            }
+
+            if (VideoEncoding != null)
+            {
+                proto.VideoEncoding = new Proto.VideoEncoding
+                {
+                    MaxBitrate = VideoEncoding.MaxBitrate,
+                    MaxFramerate = VideoEncoding.MaxFramerate,
+                };
+            }
+
+            return proto;
+        }
     }
 
     /// <summary>

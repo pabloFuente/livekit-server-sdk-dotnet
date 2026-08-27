@@ -1,5 +1,15 @@
 # Changelog (Release Notes)
 
+## 0.1.4
+
+- Add all the missing `TrackPublishOptions` fields, reaching parity with the Node/Python/Rust
+  RTC SDKs: `VideoCodec` (select the codec of published video tracks: VP8, H264, AV1, VP9...),
+  `Dtx`, `Red`, `Stream`, `PreconnectBuffer`, `PacketTrailerFeatures` and `ScalabilityMode`
+  (SVC publishing for VP9/AV1). All new options are nullable and unset keeps the previous
+  behavior (the SDK defaults). The `TrackPublishOptions` → `Proto.TrackPublishOptions`
+  mapping is now covered by unit tests, including a parity guard that fails when a future
+  FFI proto regeneration introduces fields not exposed by the SDK.
+
 ## 0.1.3
 
 - Update rust-sdks to [livekit-ffi/v0.12.60](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.12.60)

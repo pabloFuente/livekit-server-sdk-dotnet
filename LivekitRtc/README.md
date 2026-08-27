@@ -98,7 +98,12 @@ await audioSource.CaptureFrameAsync(audioFrame);
 ```csharp
 var videoSource = new VideoSource(1920, 1080);
 var videoTrack = LocalVideoTrack.Create("my-video", videoSource);
-await room.LocalParticipant!.PublishTrackAsync(videoTrack);
+await room.LocalParticipant!.PublishTrackAsync(videoTrack, new TrackPublishOptions
+{
+    VideoCodec = Proto.VideoCodec.H264, // VP8 (default), H264, AV1, VP9...
+    Simulcast = true,
+    Source = Proto.TrackSource.SourceCamera,
+});
 
 // Capture video frames
 var videoData = new byte[1920 * 1080 * 4]; // RGBA
