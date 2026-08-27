@@ -290,9 +290,21 @@ namespace LiveKit.Rtc.Tests
         [Fact]
         public async Task LocalTrackPublished_Unpublished_MassiveSimultaneousStressTest()
         {
-            const int TRACK_COUNT = 100; // Publish 100 tracks simultaneously
+            const int TRACK_COUNT = 100;
+
+            // LiveKit server caps concurrent in-flight track publications per participant
+            // (cMaxPendingTracks = 20). Exceeding it makes the server reject the extra AddTrack
+            // requests with LIMIT_EXCEEDED. Publish in batches that stay within the cap.
+            const int PUBLISH_BATCH_SIZE = 20;
+
+            const int SAMPLE_RATE = 48000;
+            const int NUM_CHANNELS = 1;
+            const int SAMPLES_PER_FRAME = 480; // 10ms at 48kHz
+            const int PENDING_DRAIN_DELAY_MS = 300;
+
             _output.WriteLine(
-                $"[{DateTime.Now:HH:mm:ss.fff}] Starting massive simultaneous track stress test with {TRACK_COUNT} tracks"
+                $"[{DateTime.Now:HH:mm:ss.fff}] Starting massive track stress test with {TRACK_COUNT} tracks "
+                    + $"in batches of {PUBLISH_BATCH_SIZE}"
             );
 
             using var room = new Room();
@@ -335,17 +347,47 @@ namespace LiveKit.Rtc.Tests
 
             _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Created {TRACK_COUNT} audio tracks");
 
-            // STRESS TEST 1: Publish ALL tracks simultaneously
-            var publishTasks = audioTracks
-                .Select(track =>
-                    room.LocalParticipant!.PublishTrackAsync(track, new TrackPublishOptions())
-                )
-                .ToArray();
-
+            // STRESS TEST 1: Publish all tracks, PUBLISH_BATCH_SIZE at a time
             _output.WriteLine(
-                $"[{DateTime.Now:HH:mm:ss.fff}] Publishing {TRACK_COUNT} tracks simultaneously..."
+                $"[{DateTime.Now:HH:mm:ss.fff}] Publishing {TRACK_COUNT} tracks in batches of {PUBLISH_BATCH_SIZE}..."
             );
-            var publications = await Task.WhenAll(publishTasks);
+
+            var publications = new List<LocalTrackPublication>();
+            for (int offset = 0; offset < TRACK_COUNT; offset += PUBLISH_BATCH_SIZE)
+            {
+                var batch = audioTracks.Skip(offset).Take(PUBLISH_BATCH_SIZE);
+                var batchPublications = await Task.WhenAll(
+                    batch.Select(track =>
+                        room.LocalParticipant!.PublishTrackAsync(track, new TrackPublishOptions())
+                    )
+                );
+                publications.AddRange(batchPublications);
+
+                // Push one frame per freshly published track. The server only
+                // promotes a track out of pendingTracks once RTP media actually
+                // arrives for it; without this the batch permanently occupies
+                // the pending slots and every later batch is rejected.
+                for (int i = offset; i < offset + PUBLISH_BATCH_SIZE && i < TRACK_COUNT; i++)
+                {
+                    audioSources[i]
+                        .CaptureFrame(
+                            new AudioFrame(
+                                new short[SAMPLES_PER_FRAME],
+                                SAMPLE_RATE,
+                                NUM_CHANNELS,
+                                SAMPLES_PER_FRAME
+                            )
+                        );
+                }
+
+                // Give the server a moment to receive that media and free the slots.
+                await Task.Delay(PENDING_DRAIN_DELAY_MS);
+
+                _output.WriteLine(
+                    $"[{DateTime.Now:HH:mm:ss.fff}] Published {publications.Count}/{TRACK_COUNT} tracks"
+                );
+            }
+
             _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] All {TRACK_COUNT} tracks published");
 
             // Wait for ALL LocalTrackPublished events (with generous timeout due to volume)
