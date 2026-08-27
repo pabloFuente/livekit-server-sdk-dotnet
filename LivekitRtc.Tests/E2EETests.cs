@@ -264,7 +264,6 @@ public class E2EETests : IAsyncLifetime
         Log("E2EE shared key test completed successfully");
     }
 
-
     [Fact]
     public async Task E2EE_TonePreservedWithCorrectKey_NoiseWithWrongKey()
     {

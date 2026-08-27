@@ -30,7 +30,9 @@ public class TrackPublishOptionsMappingTests
         Assert.False(proto.HasStream);
         Assert.False(proto.HasPreconnectBuffer);
         Assert.False(proto.HasScalabilityMode);
-        Assert.Empty(proto.PacketTrailerFeatures);
+        Assert.False(proto.HasVideoEncoder);
+        Assert.False(proto.HasDegradationPreference);
+        Assert.Empty(proto.FrameMetadataFeatures);
         Assert.True(proto.Simulcast);
         Assert.Equal(Proto.TrackSource.SourceUnknown, proto.Source);
         Assert.Null(proto.VideoEncoding);
@@ -67,12 +69,14 @@ public class TrackPublishOptionsMappingTests
         Assert.Equal(
             new[]
             {
-                Proto.PacketTrailerFeature.PtfUserTimestamp,
-                Proto.PacketTrailerFeature.PtfFrameId,
+                Proto.FrameMetadataFeature.FmfUserTimestamp,
+                Proto.FrameMetadataFeature.FmfFrameId,
             },
-            proto.PacketTrailerFeatures
+            proto.FrameMetadataFeatures
         );
         Assert.Equal("L3T3_KEY", proto.ScalabilityMode);
+        Assert.Equal(Proto.VideoEncoderBackend.EncoderBackendHardware, proto.VideoEncoder);
+        Assert.Equal(Proto.DegradationPreference.MaintainFramerate, proto.DegradationPreference);
         Assert.Equal(1_500_000u, proto.VideoEncoding.MaxBitrate);
         Assert.Equal(30u, proto.VideoEncoding.MaxFramerate);
         Assert.Equal(64_000u, proto.AudioEncoding.MaxBitrate);
@@ -119,11 +123,13 @@ public class TrackPublishOptionsMappingTests
             Source = Proto.TrackSource.SourceCamera,
             Stream = "my-stream",
             PreconnectBuffer = true,
-            PacketTrailerFeatures = new List<Proto.PacketTrailerFeature>
+            FrameMetadataFeatures = new List<Proto.FrameMetadataFeature>
             {
-                Proto.PacketTrailerFeature.PtfUserTimestamp,
-                Proto.PacketTrailerFeature.PtfFrameId,
+                Proto.FrameMetadataFeature.FmfUserTimestamp,
+                Proto.FrameMetadataFeature.FmfFrameId,
             },
             ScalabilityMode = "L3T3_KEY",
+            VideoEncoder = Proto.VideoEncoderBackend.EncoderBackendHardware,
+            DegradationPreference = Proto.DegradationPreference.MaintainFramerate,
         };
 }

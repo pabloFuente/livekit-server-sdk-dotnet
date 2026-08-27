@@ -253,12 +253,13 @@ dotnet build
 To upgrade the version of the `rust-sdks` Git submodule:
 
 ```bash
-cd rust-sdks
+cd LivekitRtc/rust-sdks
 git fetch --all
-git checkout <COMMIT_HASH/TAG/BRANCH> # e.g. git checkout livekit-ffi/v0.12.50
-cd ..
+git checkout <VERSION_TAG> # e.g. git checkout livekit-ffi/v0.12.76
+cd ../..
 ./generate_proto.sh
 dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+./download_ffi.sh <VERSION_TAG> # e.g. ./download_ffi.sh livekit-ffi/v0.12.76
 ```
 
 Then commit:

@@ -1170,10 +1170,10 @@ namespace LiveKit.Rtc
         public bool? PreconnectBuffer { get; set; }
 
         /// <summary>
-        /// Packet-trailer metadata features to enable for this track (user
-        /// timestamps, frame IDs...).
+        /// Per-frame metadata features to enable for this track (user
+        /// timestamps, frame IDs, user data...).
         /// </summary>
-        public IList<Proto.PacketTrailerFeature>? PacketTrailerFeatures { get; set; }
+        public IList<Proto.FrameMetadataFeature>? FrameMetadataFeatures { get; set; }
 
         /// <summary>
         /// RTP scalability mode (e.g. "L3T3_KEY"). When set, a single RTP
@@ -1181,6 +1181,19 @@ namespace LiveKit.Rtc
         /// that support it (VP9, AV1). Has no effect for VP8/H264.
         /// </summary>
         public string? ScalabilityMode { get; set; }
+
+        /// <summary>
+        /// Preferred encoder backend to use when publishing a video track.
+        /// When null, the backend is chosen automatically.
+        /// </summary>
+        public Proto.VideoEncoderBackend? VideoEncoder { get; set; }
+
+        /// <summary>
+        /// Controls how the encoder trades off between resolution and
+        /// framerate when bandwidth is constrained. When null, the SDK default
+        /// (maintain resolution) is used.
+        /// </summary>
+        public Proto.DegradationPreference? DegradationPreference { get; set; }
 
         internal Proto.TrackPublishOptions ToProto()
         {
@@ -1211,14 +1224,24 @@ namespace LiveKit.Rtc
                 proto.PreconnectBuffer = PreconnectBuffer.Value;
             }
 
-            if (PacketTrailerFeatures != null)
+            if (FrameMetadataFeatures != null)
             {
-                proto.PacketTrailerFeatures.AddRange(PacketTrailerFeatures);
+                proto.FrameMetadataFeatures.AddRange(FrameMetadataFeatures);
             }
 
             if (ScalabilityMode != null)
             {
                 proto.ScalabilityMode = ScalabilityMode;
+            }
+
+            if (VideoEncoder != null)
+            {
+                proto.VideoEncoder = VideoEncoder.Value;
+            }
+
+            if (DegradationPreference != null)
+            {
+                proto.DegradationPreference = DegradationPreference.Value;
             }
 
             if (AudioEncoding != null)
