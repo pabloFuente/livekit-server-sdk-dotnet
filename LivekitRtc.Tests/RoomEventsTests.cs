@@ -300,7 +300,8 @@ namespace LiveKit.Rtc.Tests
             const int SAMPLE_RATE = 48000;
             const int NUM_CHANNELS = 1;
             const int SAMPLES_PER_FRAME = 480; // 10ms at 48kHz
-            const int PENDING_DRAIN_DELAY_MS = 300;
+            const int PENDING_DRAIN_MS = 1500;
+            const int FRAME_INTERVAL_MS = 10;
 
             _output.WriteLine(
                 $"[{DateTime.Now:HH:mm:ss.fff}] Starting massive track stress test with {TRACK_COUNT} tracks "
@@ -363,25 +364,29 @@ namespace LiveKit.Rtc.Tests
                 );
                 publications.AddRange(batchPublications);
 
-                // Push one frame per freshly published track. The server only
-                // promotes a track out of pendingTracks once RTP media actually
-                // arrives for it; without this the batch permanently occupies
-                // the pending slots and every later batch is rejected.
-                for (int i = offset; i < offset + PUBLISH_BATCH_SIZE && i < TRACK_COUNT; i++)
+                // The server only promotes a track out of pendingTracks once RTP media
+                // actually arrives for it, and early packets can be lost while the new
+                // transceivers are still negotiating. Pump media on every published
+                // track for a short window so any straggler gets repeated chances -
+                // a leaked pending slot is never reclaimed and would make a later
+                // batch fail with LIMIT_EXCEEDED.
+                var drainDeadline = DateTime.Now.AddMilliseconds(PENDING_DRAIN_MS);
+                while (DateTime.Now < drainDeadline)
                 {
-                    audioSources[i]
-                        .CaptureFrame(
-                            new AudioFrame(
-                                new short[SAMPLES_PER_FRAME],
-                                SAMPLE_RATE,
-                                NUM_CHANNELS,
-                                SAMPLES_PER_FRAME
-                            )
-                        );
+                    for (int i = 0; i < publications.Count; i++)
+                    {
+                        audioSources[i]
+                            .CaptureFrame(
+                                new AudioFrame(
+                                    new short[SAMPLES_PER_FRAME],
+                                    SAMPLE_RATE,
+                                    NUM_CHANNELS,
+                                    SAMPLES_PER_FRAME
+                                )
+                            );
+                    }
+                    await Task.Delay(FRAME_INTERVAL_MS);
                 }
-
-                // Give the server a moment to receive that media and free the slots.
-                await Task.Delay(PENDING_DRAIN_DELAY_MS);
 
                 _output.WriteLine(
                     $"[{DateTime.Now:HH:mm:ss.fff}] Published {publications.Count}/{TRACK_COUNT} tracks"
