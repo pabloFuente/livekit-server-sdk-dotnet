@@ -60,25 +60,8 @@ public class Twirp {
   }
 
   // Unified StartEgress RPC
-  // rpc StartEgress(StartEgressRequest) returns (EgressInfo);
-  public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartRoomCompositeEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartRoomCompositeEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
-  }
-
-  public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartWebEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.WebEgressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.WebEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartWebEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
-  }
-
-  public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartParticipantEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartParticipantEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
-  }
-
-  public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartTrackCompositeEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.TrackCompositeEgressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.TrackCompositeEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartTrackCompositeEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
-  }
-
-  public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartTrackEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.TrackEgressRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.TrackEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartTrackEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
+  public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.StartEgressRequest req) {
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.StartEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
 
   // Update url/template or stream outputs
@@ -99,6 +82,27 @@ public class Twirp {
   // Stop a recording or stream
   public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StopEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.StopEgressRequest req) {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.StopEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StopEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
+  }
+
+  // TODO: deprecate
+  public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartRoomCompositeEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest req) {
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartRoomCompositeEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
+  }
+
+  public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartWebEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.WebEgressRequest req) {
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.WebEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartWebEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
+  }
+
+  public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartParticipantEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest req) {
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartParticipantEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
+  }
+
+  public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartTrackCompositeEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.TrackCompositeEgressRequest req) {
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.TrackCompositeEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartTrackCompositeEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
+  }
+
+  public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> StartTrackEgress(HttpClient client, global::Livekit.Server.Sdk.Dotnet.TrackEgressRequest req) {
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.TrackEgressRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/StartTrackEgress", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
 
   public static async Task<global::Livekit.Server.Sdk.Dotnet.AgentDispatch> CreateDispatch(HttpClient client, global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest req) {

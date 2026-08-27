@@ -25,28 +25,56 @@ namespace Livekit.Server.Sdk.Dotnet {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChRsb2dnZXIvb3B0aW9ucy5wcm90bxIGbG9nZ2VyGiBnb29nbGUvcHJvdG9i",
-            "dWYvZGVzY3JpcHRvci5wcm90bzouCgZyZWRhY3QSHS5nb29nbGUucHJvdG9i",
-            "dWYuRmllbGRPcHRpb25zGIUKIAEoCDo1Cg1yZWRhY3RfZm9ybWF0Eh0uZ29v",
-            "Z2xlLnByb3RvYnVmLkZpZWxkT3B0aW9ucxiGCiABKAk6LAoEbmFtZRIdLmdv",
-            "b2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMYhwogASgJQk1aKmdpdGh1Yi5j",
-            "b20vbGl2ZWtpdC9wcm90b2NvbC9saXZla2l0L2xvZ2dlcqoCDUxpdmVLaXQu",
-            "UHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
+            "dWYvZGVzY3JpcHRvci5wcm90bypXCgtTZW5zaXRpdml0eRIbChdTRU5TSVRJ",
+            "VklUWV9VTlNQRUNJRklFRBAAEhMKD1NFTlNJVElWSVRZX1BJSRABEhYKElNF",
+            "TlNJVElWSVRZX1NFQ1JFVBACOjUKDXJlZGFjdF9mb3JtYXQSHS5nb29nbGUu",
+            "cHJvdG9idWYuRmllbGRPcHRpb25zGIYKIAEoCTosCgRuYW1lEh0uZ29vZ2xl",
+            "LnByb3RvYnVmLkZpZWxkT3B0aW9ucxiHCiABKAk6SAoLc2Vuc2l0aXZpdHkS",
+            "HS5nb29nbGUucHJvdG9idWYuRmllbGRPcHRpb25zGIgKIAEoDjITLmxvZ2dl",
+            "ci5TZW5zaXRpdml0eUJNWipnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wv",
+            "bGl2ZWtpdC9sb2dnZXKqAg1MaXZlS2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJv",
+            "dG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pb::Extension[] { OptionsExtensions.Redact, OptionsExtensions.RedactFormat, OptionsExtensions.Name }, null));
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.Sensitivity), }, new pb::Extension[] { OptionsExtensions.RedactFormat, OptionsExtensions.Name, OptionsExtensions.Sensitivity }, null));
     }
     #endregion
 
   }
   /// <summary>Holder for extension identifiers generated from the top level of logger/options.proto</summary>
   public static partial class OptionsExtensions {
-    public static readonly pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, bool> Redact =
-      new pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, bool>(1285, pb::FieldCodec.ForBool(10280, false));
     public static readonly pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, string> RedactFormat =
       new pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, string>(1286, pb::FieldCodec.ForString(10290, ""));
     public static readonly pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, string> Name =
       new pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, string>(1287, pb::FieldCodec.ForString(10298, ""));
+    public static readonly pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, global::Livekit.Server.Sdk.Dotnet.Sensitivity> Sensitivity =
+      new pb::Extension<global::Google.Protobuf.Reflection.FieldOptions, global::Livekit.Server.Sdk.Dotnet.Sensitivity>(1288, pb::FieldCodec.ForEnum(10304, x => (int) x, x => (global::Livekit.Server.Sdk.Dotnet.Sensitivity) x, global::Livekit.Server.Sdk.Dotnet.Sensitivity.Unspecified));
   }
+
+  #region Enums
+  public enum Sensitivity {
+    /// <summary>
+    /// Unannotated default — safe to log.
+    /// Identifiers, IDs, timestamps, enums, status fields.
+    /// </summary>
+    [pbr::OriginalName("SENSITIVITY_UNSPECIFIED")] Unspecified = 0,
+    /// <summary>
+    /// User-identifying or user-controlled data: display names, phone numbers,
+    /// metadata, attributes, custom headers, auth usernames, semi-public account
+    /// identifiers (AWS role ARNs, Azure account names).
+    /// Redacted by logger.Proto(); exposed by logger.UnredactedProto() for
+    /// operator-facing observability events.
+    /// </summary>
+    [pbr::OriginalName("SENSITIVITY_PII")] Pii = 1,
+    /// <summary>
+    /// Credentials and authentication material: passwords, access keys, session
+    /// tokens, signing keys, API keys, ICE credentials.
+    /// ALWAYS redacted, including by logger.UnredactedProto().
+    /// </summary>
+    [pbr::OriginalName("SENSITIVITY_SECRET")] Secret = 2,
+  }
+
+  #endregion
 
 }
 
