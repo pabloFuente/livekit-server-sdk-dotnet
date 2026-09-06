@@ -103,12 +103,34 @@ namespace LiveKit.Rtc.Tests
 
             using var room = new Room();
 
-            var stateChanges = new List<Proto.ConnectionState>();
+            // Room's event chain dispatches ConnectionStateChanged asynchronously. Record states
+            // in a thread-safe queue and wait for the expected state instead of asserting right away
+            var stateChanges =
+                new System.Collections.Concurrent.ConcurrentQueue<Proto.ConnectionState>();
+            var connectedTcs = new TaskCompletionSource<bool>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            var disconnectedTcs = new TaskCompletionSource<bool>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
 
             room.ConnectionStateChanged += (sender, state) =>
             {
                 _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] ConnectionStateChanged: {state}");
-                stateChanges.Add(state);
+                stateChanges.Enqueue(state);
+                if (state == Proto.ConnectionState.ConnConnected)
+                {
+                    connectedTcs.TrySetResult(true);
+                }
+                else if (
+                    state == Proto.ConnectionState.ConnDisconnected
+                    && connectedTcs.Task.IsCompleted
+                )
+                {
+                    // ConnectAsync also reports Disconnected as its initial state; only the one
+                    // following Connected is the result of DisconnectAsync
+                    disconnectedTcs.TrySetResult(true);
+                }
             };
 
             room.Reconnecting += (sender, args) =>
@@ -125,6 +147,7 @@ namespace LiveKit.Rtc.Tests
             await room.ConnectAsync(_fixture.LiveKitUrl, token);
 
             // Verify we got Connected state
+            await connectedTcs.Task.WaitAsync(TimeSpan.FromSeconds(10));
             Assert.Contains(Proto.ConnectionState.ConnConnected, stateChanges);
             _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Verified Connected state");
 
@@ -133,8 +156,15 @@ namespace LiveKit.Rtc.Tests
 
             await room.DisconnectAsync();
 
-            // Verify we got Disconnected state
-            Assert.Contains(Proto.ConnectionState.ConnDisconnected, stateChanges);
+            // Verify we got Disconnected state after the Connected one
+            await disconnectedTcs.Task.WaitAsync(TimeSpan.FromSeconds(10));
+            var states = stateChanges.ToArray();
+            Assert.Contains(Proto.ConnectionState.ConnDisconnected, states);
+            Assert.True(
+                Array.LastIndexOf(states, Proto.ConnectionState.ConnDisconnected)
+                    > Array.IndexOf(states, Proto.ConnectionState.ConnConnected),
+                "Disconnected state should be reported after Connected state"
+            );
             _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Test completed successfully!");
         }
 

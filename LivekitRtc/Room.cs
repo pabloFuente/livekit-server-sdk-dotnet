@@ -1065,10 +1065,33 @@ namespace LiveKit.Rtc
             {
                 try
                 {
-                    var publication = await RequireLocalTrackPublication(evt.PublicationSid);
+                    var localParticipant = LocalParticipant;
+                    if (localParticipant == null)
+                        throw new InvalidOperationException("Local participant not available");
+
+                    // Retrieve the publication directly from the local participant's unpublished tracks.
+                    // Protected by Room.FfiEventLock.
+                    LocalTrackPublication? publication;
+                    await _ffiEventLock.WaitAsync();
+                    try
+                    {
+                        publication = localParticipant.TakeUnpublishedTrackPublication(
+                            evt.PublicationSid
+                        );
+                    }
+                    finally
+                    {
+                        _ffiEventLock.Release();
+                    }
+
+                    if (publication == null)
+                        throw new InvalidOperationException(
+                            $"Publication {evt.PublicationSid} not found"
+                        );
+
                     LocalTrackUnpublished?.Invoke(
                         this,
-                        new LocalTrackPublishedEventArgs(publication, LocalParticipant)
+                        new LocalTrackPublishedEventArgs(publication, localParticipant)
                     );
                 }
                 catch (Exception ex)

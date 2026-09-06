@@ -88,8 +88,35 @@ namespace LiveKit.Rtc
         private readonly Dictionary<string, RpcMethodHandler> _rpcHandlers =
             new Dictionary<string, RpcMethodHandler>();
 
+        // Publications that UnpublishTrackAsync already removed, but whose
+        // Room.LocalTrackUnpublished event has not arrived yet. The FFI may deliver the event after
+        // UnpublishTrackAsync has already removed the publication from _trackPublications. This
+        // collection allows the event to be raised with the proper LocalTrackPublication.
+        // Protected by Room.FfiEventLock.
+        private readonly Dictionary<
+            string,
+            LocalTrackPublication
+        > _publicationsPendingUnpublishedEvent = new Dictionary<string, LocalTrackPublication>();
+
         internal LocalParticipant(FfiHandle handle, ParticipantInfo? info, Room room)
             : base(handle, info, room) { }
+
+        /// <summary>
+        /// Resolves and removes the publication a LocalTrackUnpublished room event refers to,
+        /// whether it is still in <see cref="Participant.TrackPublications"/> or was already
+        /// removed by <see cref="UnpublishTrackAsync"/>. The caller must hold Room.FfiEventLock.
+        /// </summary>
+        /// <param name="trackSid">The SID of the unpublished track.</param>
+        /// <returns>The publication, or null if the SID is unknown.</returns>
+        internal LocalTrackPublication? TakeUnpublishedTrackPublication(string trackSid)
+        {
+            if (_trackPublications.Remove(trackSid, out var publication))
+                return publication as LocalTrackPublication;
+
+            return _publicationsPendingUnpublishedEvent.Remove(trackSid, out var pending)
+                ? pending
+                : null;
+        }
 
         /// <summary>
         /// Publishes a track to the room.
@@ -214,7 +241,17 @@ namespace LiveKit.Rtc
             await Room.FfiEventLock.WaitAsync(cancellationToken);
             try
             {
-                _trackPublications.Remove(trackSid);
+                // If the LocalTrackUnpublished room event has not been processed yet, hand the
+                // publication over to it instead of dropping it, so the event can still be raised
+                // with the publication after it leaves TrackPublications. If the room event was
+                // processed first, it has already removed the publication and there is nothing to do.
+                if (
+                    _trackPublications.Remove(trackSid, out var removed)
+                    && removed is LocalTrackPublication localPublication
+                )
+                {
+                    _publicationsPendingUnpublishedEvent[trackSid] = localPublication;
+                }
             }
             finally
             {

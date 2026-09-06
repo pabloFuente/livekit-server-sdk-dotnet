@@ -1,5 +1,15 @@
 # Changelog (Release Notes)
 
+## Unreleased
+
+- Fix `Room.LocalTrackUnpublished` being dropped (logged as
+  `[WARN] RoomEvent.LocalTrackUnpublished: Publication ... not found`) when the FFI
+  `UnpublishTrack` callback was processed before the matching `LocalTrackUnpublished` room
+  event. `LocalParticipant.UnpublishTrackAsync` now hands the removed publication over to the
+  room event instead of dropping it, and the event handler no longer retries the lookup, which
+  used to stall the room's FIFO event chain for up to 500ms per miss and delay every following
+  event. Most visible when unpublishing many tracks at once.
+
 ## 0.1.4
 
 - Update rust-sdks to [livekit-ffi/v0.12.76](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.12.76)
