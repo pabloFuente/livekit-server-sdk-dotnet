@@ -38,7 +38,7 @@
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Google.Protobuf" Version="3.36.1" />
+    <PackageReference Include="Google.Protobuf" Version="3.36.2" />
     <PackageReference Include="System.Threading.Channels" Version="10.0.12" />
   </ItemGroup>
   <ItemGroup>
