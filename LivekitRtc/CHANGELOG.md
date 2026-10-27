@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Fix a possible native access violation (process crash) when capturing audio or video frames.
+  The frame's managed sample/pixel array was only pinned while the pointer handed to the FFI was
+  built, not while the capture request was serialized and sent, so a compacting garbage
+  collection in between could move the array and leave the native side reading a stale pointer.
+  `AudioSource.CaptureFrameAsync`, `VideoSource.CaptureFrame` and `VideoFrame.Convert` now keep
+  the buffer (and, for planar video formats, every plane pointer) pinned through request
+  serialization and the native call.
 - Fix `Room.LocalTrackUnpublished` being dropped (logged as
   `[WARN] RoomEvent.LocalTrackUnpublished: Publication ... not found`) when the FFI
   `UnpublishTrack` callback was processed before the matching `LocalTrackUnpublished` room
