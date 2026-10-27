@@ -174,7 +174,17 @@ namespace LiveKit.Rtc
             // The FFI reads the pixels synchronously, before SendRequest returns and the result
             // is an independent native buffer, so the pin only needs to cover the request.
             var response = WithPinnedBuffer(buffer =>
-                FfiClient.Instance.SendRequest(
+            {
+                // Unlike capture (and libwebrtc), the FFI's I010 converter reads each plane as a u16
+                // slice of size / 2 samples and requires samples >= stride * rows, so it expects
+                // strides in samples rather than bytes.
+                if (_type == VideoBufferType.I010)
+                {
+                    foreach (var component in buffer.Components)
+                        component.Stride /= 2;
+                }
+
+                return FfiClient.Instance.SendRequest(
                     new FfiRequest
                     {
                         VideoConvert = new VideoConvertRequest
@@ -184,8 +194,8 @@ namespace LiveKit.Rtc
                             Buffer = buffer,
                         },
                     }
-                )
-            );
+                );
+            });
 
             if (!string.IsNullOrEmpty(response.VideoConvert?.Error))
             {
@@ -300,6 +310,11 @@ namespace LiveKit.Rtc
             }
         }
 
+        /// <summary>
+        /// Describes the planes of a buffer starting at <paramref name="addr"/> the way the FFI
+        /// expects them. Derived from <see cref="GetPlaneInfosLocal"/> so both always agree.
+        /// Packed formats have no planes.
+        /// </summary>
         private static List<VideoBufferInfo.Types.ComponentInfo> GetPlaneInfos(
             ulong addr,
             VideoBufferType type,
@@ -308,72 +323,17 @@ namespace LiveKit.Rtc
         )
         {
             var result = new List<VideoBufferInfo.Types.ComponentInfo>();
-
-            switch (type)
+            foreach (var plane in GetPlaneInfosLocal(type, width, height))
             {
-                case VideoBufferType.I420:
-                {
-                    int chromaWidth = (width + 1) / 2;
-                    int chromaHeight = (height + 1) / 2;
-
-                    ulong ySize = (ulong)(width * height);
-                    ulong uvSize = (ulong)(chromaWidth * chromaHeight);
-
-                    result.Add(
-                        new VideoBufferInfo.Types.ComponentInfo
-                        {
-                            DataPtr = addr,
-                            Stride = (uint)width,
-                            Size = (uint)ySize,
-                        }
-                    );
-                    result.Add(
-                        new VideoBufferInfo.Types.ComponentInfo
-                        {
-                            DataPtr = addr + ySize,
-                            Stride = (uint)chromaWidth,
-                            Size = (uint)uvSize,
-                        }
-                    );
-                    result.Add(
-                        new VideoBufferInfo.Types.ComponentInfo
-                        {
-                            DataPtr = addr + ySize + uvSize,
-                            Stride = (uint)chromaWidth,
-                            Size = (uint)uvSize,
-                        }
-                    );
-                    break;
-                }
-
-                case VideoBufferType.Nv12:
-                {
-                    int chromaWidth = (width + 1) / 2;
-                    int chromaHeight = (height + 1) / 2;
-
-                    ulong ySize = (ulong)(width * height);
-                    ulong uvSize = (ulong)(chromaWidth * chromaHeight * 2);
-
-                    result.Add(
-                        new VideoBufferInfo.Types.ComponentInfo
-                        {
-                            DataPtr = addr,
-                            Stride = (uint)width,
-                            Size = (uint)ySize,
-                        }
-                    );
-                    result.Add(
-                        new VideoBufferInfo.Types.ComponentInfo
-                        {
-                            DataPtr = addr + ySize,
-                            Stride = (uint)(chromaWidth * 2),
-                            Size = (uint)uvSize,
-                        }
-                    );
-                    break;
-                }
+                result.Add(
+                    new VideoBufferInfo.Types.ComponentInfo
+                    {
+                        DataPtr = addr + (ulong)plane.Offset,
+                        Stride = (uint)plane.Stride,
+                        Size = (uint)plane.Size,
+                    }
+                );
             }
-
             return result;
         }
 
@@ -531,6 +491,42 @@ namespace LiveKit.Rtc
                             Offset = planeSize * 2,
                             Size = planeSize,
                             Stride = width,
+                        }
+                    );
+                    break;
+                }
+
+                case VideoBufferType.I010:
+                {
+                    // 16-bit samples: strides and sizes are in bytes.
+                    int chromaWidth = (width + 1) / 2;
+                    int chromaHeight = (height + 1) / 2;
+
+                    int ySize = width * height * 2;
+                    int uvSize = chromaWidth * chromaHeight * 2;
+
+                    result.Add(
+                        new PlaneInfo
+                        {
+                            Offset = 0,
+                            Size = ySize,
+                            Stride = width * 2,
+                        }
+                    );
+                    result.Add(
+                        new PlaneInfo
+                        {
+                            Offset = ySize,
+                            Size = uvSize,
+                            Stride = chromaWidth * 2,
+                        }
+                    );
+                    result.Add(
+                        new PlaneInfo
+                        {
+                            Offset = ySize + uvSize,
+                            Size = uvSize,
+                            Stride = chromaWidth * 2,
                         }
                     );
                     break;

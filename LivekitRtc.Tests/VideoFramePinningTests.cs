@@ -12,6 +12,10 @@ public class VideoFramePinningTests
     [Theory]
     [InlineData(VideoBufferType.Rgba, 64, 48, 0)]
     [InlineData(VideoBufferType.I420, 64, 48, 3)]
+    [InlineData(VideoBufferType.I420A, 64, 48, 4)]
+    [InlineData(VideoBufferType.I422, 64, 48, 3)]
+    [InlineData(VideoBufferType.I444, 64, 48, 3)]
+    [InlineData(VideoBufferType.I010, 64, 48, 3)]
     [InlineData(VideoBufferType.Nv12, 64, 48, 2)]
     public void WithPinnedBuffer_KeepsPixelsValidThroughSerializationAndCompactingGc(
         VideoBufferType type,
@@ -112,6 +116,10 @@ public class VideoFramePinningTests
     [Theory]
     [InlineData(VideoBufferType.Rgba)]
     [InlineData(VideoBufferType.I420)]
+    [InlineData(VideoBufferType.I420A)]
+    [InlineData(VideoBufferType.I422)]
+    [InlineData(VideoBufferType.I444)]
+    [InlineData(VideoBufferType.I010)]
     [InlineData(VideoBufferType.Nv12)]
     public void CaptureFrame_ThroughNativeFfi_DoesNotThrow(VideoBufferType type)
     {

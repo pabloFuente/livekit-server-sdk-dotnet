@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Fix process crash (native panic `index out of bounds: the len is 0 but the index is 0`) when
+  converting or capturing video frames in the `I420A`, `I422`, `I444` and `I010` formats.
+  `VideoFrame` only described the planes of `I420` and `NV12` buffers to the FFI, so the native
+  side found no planes for the other planar formats. All planar formats are now described from a
+  single plane table that is shared with `VideoFrame.GetPlane`, which also makes `GetPlane` work for
+  `I010`.
 - Fix a possible native access violation (process crash) when capturing audio or video frames.
   The frame's managed sample/pixel array was only pinned while the pointer handed to the FFI was
   built, not while the capture request was serialized and sent, so a compacting garbage
