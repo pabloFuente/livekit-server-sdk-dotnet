@@ -95,9 +95,10 @@ namespace LiveKit.Rtc
         }
 
         /// <summary>
-        /// Creates a proto info object for FFI communication.
+        /// Pins the pixels while a synchronous FFI operation consumes the buffer.
+        /// The callback must not retain the buffer or plane pointers after returning.
         /// </summary>
-        internal VideoBufferInfo ToProtoInfo()
+        internal TResult WithPinnedBuffer<TResult>(Func<VideoBufferInfo, TResult> callback)
         {
             unsafe
             {
@@ -119,7 +120,7 @@ namespace LiveKit.Rtc
                         info.Components.Add(component);
                     }
 
-                    return info;
+                    return callback(info);
                 }
             }
         }
@@ -170,17 +171,21 @@ namespace LiveKit.Rtc
         /// <returns>A new VideoFrame in the target format.</returns>
         public VideoFrame Convert(VideoBufferType targetType, bool flipY = false)
         {
-            var request = new FfiRequest
-            {
-                VideoConvert = new VideoConvertRequest
-                {
-                    FlipY = flipY,
-                    DstType = (LiveKit.Proto.VideoBufferType)targetType,
-                    Buffer = ToProtoInfo(),
-                },
-            };
-
-            var response = FfiClient.Instance.SendRequest(request);
+            // The FFI reads the pixels synchronously, before SendRequest returns and the result
+            // is an independent native buffer, so the pin only needs to cover the request.
+            var response = WithPinnedBuffer(buffer =>
+                FfiClient.Instance.SendRequest(
+                    new FfiRequest
+                    {
+                        VideoConvert = new VideoConvertRequest
+                        {
+                            FlipY = flipY,
+                            DstType = (LiveKit.Proto.VideoBufferType)targetType,
+                            Buffer = buffer,
+                        },
+                    }
+                )
+            );
 
             if (!string.IsNullOrEmpty(response.VideoConvert?.Error))
             {

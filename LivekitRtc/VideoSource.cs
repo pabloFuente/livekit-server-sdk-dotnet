@@ -74,18 +74,22 @@ namespace LiveKit.Rtc
             if (_disposed)
                 throw new ObjectDisposedException(nameof(VideoSource));
 
-            var request = new FfiRequest
-            {
-                CaptureVideoFrame = new CaptureVideoFrameRequest
-                {
-                    SourceHandle = _handle.HandleId,
-                    Buffer = frame.ToProtoInfo(),
-                    Rotation = rotation,
-                    TimestampUs = timestampUs,
-                },
-            };
-
-            FfiClient.Instance.SendRequest(request);
+            // The FFI copies the pixels into its own buffer before SendRequest returns. Keep them
+            // pinned through request serialization and the native call.
+            frame.WithPinnedBuffer(buffer =>
+                FfiClient.Instance.SendRequest(
+                    new FfiRequest
+                    {
+                        CaptureVideoFrame = new CaptureVideoFrameRequest
+                        {
+                            SourceHandle = _handle.HandleId,
+                            Buffer = buffer,
+                            Rotation = rotation,
+                            TimestampUs = timestampUs,
+                        },
+                    }
+                )
+            );
         }
 
         /// <summary>
