@@ -129,17 +129,20 @@ namespace LiveKit.Rtc
             _ = Task.Delay(TimeSpan.FromSeconds(clampedQueueSize), _playoutCts.Token)
                 .ContinueWith(_ => ReleaseWaiter(), TaskContinuationOptions.OnlyOnRanToCompletion);
 
-            // Send capture request
-            var request = new FfiRequest
-            {
-                CaptureAudioFrame = new CaptureAudioFrameRequest
-                {
-                    SourceHandle = _handle.HandleId,
-                    Buffer = frame.ToProtoInfo(),
-                },
-            };
-
-            var response = FfiClient.Instance.SendRequest(request);
+            // The FFI copies the samples before SendRequest returns. Keep them pinned
+            // through request serialization and the native call, but not the callback wait.
+            var response = frame.WithPinnedBuffer(buffer =>
+                FfiClient.Instance.SendRequest(
+                    new FfiRequest
+                    {
+                        CaptureAudioFrame = new CaptureAudioFrameRequest
+                        {
+                            SourceHandle = _handle.HandleId,
+                            Buffer = buffer,
+                        },
+                    }
+                )
+            );
             var asyncId = response.CaptureAudioFrame.AsyncId;
 
             // Wait for the capture callback

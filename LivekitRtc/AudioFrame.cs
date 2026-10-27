@@ -140,21 +140,23 @@ namespace LiveKit.Rtc
         }
 
         /// <summary>
-        /// Creates a proto info object for FFI communication.
+        /// Pins the samples while a synchronous FFI operation consumes the buffer.
+        /// The callback must not retain the buffer pointer after returning.
         /// </summary>
-        internal AudioFrameBufferInfo ToProtoInfo()
+        internal TResult WithPinnedBuffer<TResult>(Func<AudioFrameBufferInfo, TResult> callback)
         {
             unsafe
             {
                 fixed (short* ptr = _data)
                 {
-                    return new AudioFrameBufferInfo
+                    var buffer = new AudioFrameBufferInfo
                     {
                         DataPtr = (ulong)ptr,
                         SampleRate = (uint)_sampleRate,
                         NumChannels = (uint)_numChannels,
                         SamplesPerChannel = (uint)_samplesPerChannel,
                     };
+                    return callback(buffer);
                 }
             }
         }
