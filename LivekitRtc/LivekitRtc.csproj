@@ -39,7 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.36.2" />
-    <PackageReference Include="System.Threading.Channels" Version="10.0.13" />
+    <PackageReference Include="System.Threading.Channels" Version="10.0.14" />
   </ItemGroup>
   <ItemGroup>
     <InternalsVisibleTo Include="LivekitRtc.Tests" />
