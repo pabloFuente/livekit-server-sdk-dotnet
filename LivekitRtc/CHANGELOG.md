@@ -22,6 +22,8 @@
   room event instead of dropping it, and the event handler no longer retries the lookup, which
   used to stall the room's FIFO event chain for up to 500ms per miss and delay every following
   event. Most visible when unpublishing many tracks at once.
+- The SDK version that the FFI sends to the LiveKit server as the client SDK version now
+  follows the package version in `LivekitRtc.csproj`. It was hard-coded to `0.1.0`.
 
 ## 0.1.4
 

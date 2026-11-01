@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -40,12 +41,41 @@ namespace LiveKit.Rtc.Internal
         /// </summary>
         public event EventHandler<FfiEvent>? EventReceived;
 
-        public const string SdkVersion = "0.1.0";
         public const string SdkName = "dotnet";
+
+        /// <summary>
+        /// SDK version reported to the FFI and sent to the LiveKit server as the client SDK
+        /// version. Read from the assembly, which the build stamps with the
+        /// <c>&lt;Version&gt;</c> property of LivekitRtc.csproj, so it never has to be updated
+        /// by hand on release.
+        /// </summary>
+        public static readonly string SdkVersion = ReadSdkVersion();
 
         private FfiClient()
         {
             _callbackDelegate = OnFfiCallback;
+        }
+
+        private static string ReadSdkVersion()
+        {
+            var assembly = typeof(FfiClient).Assembly;
+
+            // The informational version is the csproj <Version> as written (e.g. "0.1.4" or
+            // "0.2.0-beta.1"), plus "+<commit sha>" build metadata appended by SourceLink.
+            var informational = assembly
+                .GetCustomAttribute<AssemblyInformationalVersionAttribute>()
+                ?.InformationalVersion;
+            if (informational != null && informational.Length > 0)
+            {
+                var metadataStart = informational.IndexOf('+');
+                return metadataStart >= 0
+                    ? informational.Substring(0, metadataStart)
+                    : informational;
+            }
+
+            // Fallback: the four-part assembly version, trimmed to major.minor.patch
+            var version = assembly.GetName().Version;
+            return version == null ? "0.0.0" : $"{version.Major}.{version.Minor}.{version.Build}";
         }
 
         public void Initialize(bool captureLogs = false)
