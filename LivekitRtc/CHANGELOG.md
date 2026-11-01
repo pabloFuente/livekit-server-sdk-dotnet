@@ -26,6 +26,8 @@
 - The SDK version that the FFI sends to the LiveKit server as the client SDK version now
   follows the package version in `LivekitRtc.csproj`. It was hard-coded to `0.1.0`.
   [commit 8ce5332](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/8ce53323aedfa79d35091d3824e5ea982c7c3a7c)
+- The NuGet package now embeds this changelog as its release notes, as `Livekit.Server.Sdk.Dotnet`
+  already did.
 
 ## 0.1.4
 

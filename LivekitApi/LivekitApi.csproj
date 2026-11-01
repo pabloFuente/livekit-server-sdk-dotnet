@@ -38,7 +38,7 @@
     <ApiCompatGenerateSuppressionFile>true</ApiCompatGenerateSuppressionFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CSharpier.MSBuild" Version="1.1.2">
+    <PackageReference Include="CSharpier.MSBuild" Version="1.3.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

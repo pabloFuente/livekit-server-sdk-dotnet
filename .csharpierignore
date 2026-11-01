@@ -1,2 +1,4 @@
 # Vendored LiveKit Rust SDK submodule
 LivekitRtc/rust-sdks/
+# Vendored LiveKit protocol submodule
+protocol/
