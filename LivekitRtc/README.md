@@ -201,7 +201,7 @@ Prerequisites:
 
 - [.NET 8.0+ SDK](https://dotnet.microsoft.com/download/dotnet)
 - [protoc](https://github.com/protocolbuffers/protobuf/releases/latest)
-- [Rust 1.85.0+](https://www.rust-lang.org/tools/install) (only if also building native libraries from source)
+- [Rust](https://www.rust-lang.org/tools/install) (only if also building native libraries from source)
 
 ### 1. Get native FFI libraries
 
@@ -222,17 +222,27 @@ This downloads pre-compiled binaries from [LiveKit Rust SDK releases](https://gi
 If you want to modify the Rust/FFI code or use unreleased features. You will need:
 
 - [.NET 8.0+ SDK](https://dotnet.microsoft.com/download/dotnet)
-- [Rust 1.85.0+](https://www.rust-lang.org/tools/install)
+- [Rust](https://www.rust-lang.org/tools/install) installed with rustup. No specific version needs to be installed beforehand: `rust-sdks` pins its toolchain in file `rust-toolchain.toml` (e.g. Rust 1.97.1 for `livekit-ffi/v0.13.3`), and rustup installs it automatically the first time `cargo` runs inside `rust-sdks`.
 - [protoc](https://github.com/protocolbuffers/protobuf/releases/latest)
+- The platform-specific build dependencies listed in the [rust-sdks README](https://github.com/livekit/rust-sdks#building) (e.g. clang 21+ and some system libraries on Linux).
+
+The Rust build needs the nested submodules of `rust-sdks` (`livekit-protocol/protocol` and `yuv-sys/libyuv`). Option `--checkout` makes sure they are checked out, even if they have been disabled locally (see the note below):
 
 ```bash
-# From LivekitRtc directory
-git submodule update --init --recursive
-cd rust-sdks/livekit-ffi
+# From the root directory (livekit-server-sdk-dotnet/.)
+git submodule update --init --recursive --checkout LivekitRtc/rust-sdks
+cd LivekitRtc/rust-sdks/livekit-ffi
 cargo build --release
 ```
 
-After building, copy the native libraries from `target/release/` to the appropriate `runtimes/{rid}/native/` folders. Take into account that Rust builds for the host platform by default, so you may need to cross-compile for other platforms.
+The native library is generated in the workspace target folder `LivekitRtc/rust-sdks/target/release/` (`liblivekit_ffi.so` on Linux, `liblivekit_ffi.dylib` on macOS, `livekit_ffi.dll` on Windows). Copy it to the appropriate `runtimes/{rid}/native/` folder. For example, on Linux x64:
+
+```bash
+# From LivekitRtc directory
+cp rust-sdks/target/release/liblivekit_ffi.so runtimes/linux-x64/native/
+```
+
+Take into account that Rust builds for the host platform by default, so you may need to cross-compile for other platforms.
 
 ### 2. Generate Protocol Buffers
 

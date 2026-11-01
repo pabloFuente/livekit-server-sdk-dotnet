@@ -5,3 +5,4 @@
 [submodule "LivekitRtc/rust-sdks"]
 	path = LivekitRtc/rust-sdks
 	url = https://github.com/livekit/rust-sdks
+	ignore = dirty
