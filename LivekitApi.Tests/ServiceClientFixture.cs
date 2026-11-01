@@ -1,3 +1,4 @@
+using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Configurations;
 using DotNet.Testcontainers.Containers;
+using Newtonsoft.Json.Linq;
 
 namespace Livekit.Server.Sdk.Dotnet.Test;
 
@@ -285,12 +287,17 @@ public class TestHttpMessageHandler : HttpMessageHandler
     public HttpRequestMessage? LastRequest { get; private set; }
     public HttpResponseMessage? LastResponse { get; private set; }
 
-    protected override Task<HttpResponseMessage> SendAsync(
+    // Read while the request is in flight, as the client disposes the content afterwards
+    public byte[]? LastRequestBody { get; private set; }
+
+    protected override async Task<HttpResponseMessage> SendAsync(
         HttpRequestMessage request,
         CancellationToken cancellationToken
     )
     {
         LastRequest = request;
+        LastRequestBody =
+            request.Content != null ? await request.Content.ReadAsByteArrayAsync() : null;
 
         // Return an empty but valid protobuf message for any service client.
         var emptyContent = new ByteArrayContent(new byte[0]);
@@ -310,7 +317,19 @@ public class TestHttpMessageHandler : HttpMessageHandler
         response.Headers.Add("X-Test-Handler", "CustomHttpClientUsed");
         LastResponse = response;
 
-        return Task.FromResult(response);
+        return response;
+    }
+
+    // Video grant of the bearer token sent in the last request
+    public JObject LastVideoGrant()
+    {
+        Assert.NotNull(LastRequest?.Headers.Authorization);
+        var jwt = new JwtSecurityTokenHandler().ReadJwtToken(
+            LastRequest.Headers.Authorization.Parameter!
+        );
+        var videoPayload = jwt.Payload["video"]?.ToString();
+        Assert.NotNull(videoPayload);
+        return JObject.Parse(videoPayload);
     }
 }
 

@@ -18,6 +18,7 @@
   - [Ingress Service](#ingress-service)
   - [SIP Service](#sip-service)
   - [Agent Dispatch Service](#agent-dispatch-service)
+  - [Connector Service](#connector-service)
   - [Receiving Webhooks](#receiving-webhooks)
   - [Environment Variables](#environment-variables)
   - [Using a custom HttpClient](#using-a-custom-httpclient)
@@ -159,6 +160,22 @@ var rtmpRequest = new TrackCompositeEgressRequest
     },
 };
 EgressInfo rtmpEgress = await client.StartTrackCompositeEgress(rtmpRequest);
+
+// Starting any type of egress with the unified StartEgress API.
+// The source and outputs of the request determine the egress type.
+var request = new StartEgressRequest
+{
+    RoomName = "room-name",
+    Template = new TemplateSource { Layout = "grid" },
+    Outputs =
+    {
+        new Output
+        {
+            File = new FileOutput { FileType = EncodedFileType.Mp4, Filepath = "my-recording.mp4" },
+        },
+    },
+};
+EgressInfo egress = await client.StartEgress(request);
 ```
 
 ## Ingress Service
@@ -279,10 +296,13 @@ AgentDispatchServiceClient agentDispatchClient = new AgentDispatchServiceClient(
 var dispatchAgentRequest = new CreateAgentDispatchRequest
 {
     AgentName = "agent-name",
-    Room = "toom-name",
+    Room = "room-name",
     Metadata = "my-job-metadata",
 };
 AgentDispatch agentDispatch = await agentDispatchClient.CreateDispatch(dispatchAgentRequest);
+
+// Get an agent dispatch by its ID (null if it does not exist)
+AgentDispatch foundAgentDispatch = await agentDispatchClient.GetDispatch(agentDispatch.Id, "room-name");
 
 // List agent dispatches
 var listAgentDispatchesRequest = new ListAgentDispatchRequest { Room = "room-name" };
@@ -295,6 +315,48 @@ var deleteAgentDispatchRequest = new DeleteAgentDispatchRequest
     Room = "room-name",
 };
 AgentDispatch deletedAgentDispatch = await agentDispatchClient.DeleteDispatch(deleteAgentDispatchRequest);
+```
+
+## Connector Service
+
+`ConnectorServiceClient` is a .NET client to the Connector service, which connects [WhatsApp and Twilio](https://docs.livekit.io/telephony/connectors/) calls to LiveKit rooms. It is only available in LiveKit Cloud. Refer to [docs](https://docs.livekit.io/reference/telephony/connectors-api/) for more usage examples.
+
+```csharp
+using Livekit.Server.Sdk.Dotnet;
+
+ConnectorServiceClient connectorClient = new ConnectorServiceClient(
+    "https://my.livekit.instance",
+    "yourkey",
+    "yoursecret"
+);
+
+// Initiate an outbound WhatsApp call
+var dialRequest = new DialWhatsAppCallRequest
+{
+    WhatsappPhoneNumberId = "whatsapp-phone-number-id",
+    WhatsappToPhoneNumber = "+1234567890",
+    WhatsappApiKey = "whatsapp-api-key",
+    WhatsappCloudApiVersion = "23.0",
+    RoomName = "room-name",
+};
+DialWhatsAppCallResponse dialResponse = await connectorClient.DialWhatsAppCall(dialRequest);
+
+// Disconnect the WhatsApp call
+await connectorClient.DisconnectWhatsAppCall(
+    new DisconnectWhatsAppCallRequest
+    {
+        WhatsappCallId = dialResponse.WhatsappCallId,
+        WhatsappApiKey = "whatsapp-api-key",
+    }
+);
+
+// Connect a Twilio call to a room. Returns the WebSocket URL for the Twilio media stream
+var twilioRequest = new ConnectTwilioCallRequest
+{
+    TwilioCallDirection = ConnectTwilioCallRequest.Types.TwilioCallDirection.Inbound,
+    RoomName = "room-name",
+};
+ConnectTwilioCallResponse twilioResponse = await connectorClient.ConnectTwilioCall(twilioRequest);
 ```
 
 ## Receiving Webhooks

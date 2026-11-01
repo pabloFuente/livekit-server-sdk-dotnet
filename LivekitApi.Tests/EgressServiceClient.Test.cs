@@ -240,6 +240,41 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Fact]
         [Trait("Category", "Integration")]
         [Trait("Category", "EgressService")]
+        public async Task Start_Egress()
+        {
+            await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
+            await fixture.PublishVideoTrackInRoom(
+                roomClient,
+                TestConstants.ROOM_NAME,
+                TestConstants.PARTICIPANT_IDENTITY
+            );
+            var request = new StartEgressRequest
+            {
+                RoomName = TestConstants.ROOM_NAME,
+                Template = new TemplateSource(),
+                Outputs =
+                {
+                    new Output
+                    {
+                        File = new FileOutput
+                        {
+                            FileType = EncodedFileType.Mp4,
+                            Filepath =
+                                "/home/egress/" + new Random().Next(0, int.MaxValue) + "-test.mp4",
+                        },
+                    },
+                },
+            };
+            var egress = await egressClient.StartEgress(request);
+            await WaitUntilEgressIsActive(egress);
+            Assert.Equal(TestConstants.ROOM_NAME, egress.RoomName);
+            Assert.Equal(EgressInfo.RequestOneofCase.Egress, egress.RequestCase);
+            Assert.Single(egress.Egress.Outputs);
+        }
+
+        [Fact]
+        [Trait("Category", "Integration")]
+        [Trait("Category", "EgressService")]
         public async Task Update_Layout()
         {
             await fixture.PublishVideoTrackInRoom(

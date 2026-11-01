@@ -50,6 +50,7 @@ protoc -I "$API_PROTOCOL" --twirpcs_out=pathPrefix=twirp:"$API_OUT_CSHARP" \
     "$API_PROTOCOL"/livekit_sip.proto \
     "$API_PROTOCOL"/livekit_agent.proto \
     "$API_PROTOCOL"/livekit_agent_dispatch.proto \
+    "$API_PROTOCOL"/livekit_connector.proto \
     "$API_PROTOCOL"/livekit_webhook.proto \
     "$API_PROTOCOL"/livekit_models.proto \
     "$API_PROTOCOL"/livekit_metrics.proto \

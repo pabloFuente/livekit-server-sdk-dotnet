@@ -274,4 +274,24 @@ public class Twirp {
   public static async Task<global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantResponse> TransferSIPParticipant(HttpClient client, global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest req) {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest, global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantResponse>(client, "twirp/livekit.SIP/TransferSIPParticipant", req, global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantResponse.Parser.ParseFrom);
   }
+
+  public static async Task<global::Livekit.Server.Sdk.Dotnet.DialWhatsAppCallResponse> DialWhatsAppCall(HttpClient client, global::Livekit.Server.Sdk.Dotnet.DialWhatsAppCallRequest req) {
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.DialWhatsAppCallRequest, global::Livekit.Server.Sdk.Dotnet.DialWhatsAppCallResponse>(client, "twirp/livekit.Connector/DialWhatsAppCall", req, global::Livekit.Server.Sdk.Dotnet.DialWhatsAppCallResponse.Parser.ParseFrom);
+  }
+
+  public static async Task<global::Livekit.Server.Sdk.Dotnet.DisconnectWhatsAppCallResponse> DisconnectWhatsAppCall(HttpClient client, global::Livekit.Server.Sdk.Dotnet.DisconnectWhatsAppCallRequest req) {
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.DisconnectWhatsAppCallRequest, global::Livekit.Server.Sdk.Dotnet.DisconnectWhatsAppCallResponse>(client, "twirp/livekit.Connector/DisconnectWhatsAppCall", req, global::Livekit.Server.Sdk.Dotnet.DisconnectWhatsAppCallResponse.Parser.ParseFrom);
+  }
+
+  public static async Task<global::Livekit.Server.Sdk.Dotnet.ConnectWhatsAppCallResponse> ConnectWhatsAppCall(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ConnectWhatsAppCallRequest req) {
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ConnectWhatsAppCallRequest, global::Livekit.Server.Sdk.Dotnet.ConnectWhatsAppCallResponse>(client, "twirp/livekit.Connector/ConnectWhatsAppCall", req, global::Livekit.Server.Sdk.Dotnet.ConnectWhatsAppCallResponse.Parser.ParseFrom);
+  }
+
+  public static async Task<global::Livekit.Server.Sdk.Dotnet.AcceptWhatsAppCallResponse> AcceptWhatsAppCall(HttpClient client, global::Livekit.Server.Sdk.Dotnet.AcceptWhatsAppCallRequest req) {
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.AcceptWhatsAppCallRequest, global::Livekit.Server.Sdk.Dotnet.AcceptWhatsAppCallResponse>(client, "twirp/livekit.Connector/AcceptWhatsAppCall", req, global::Livekit.Server.Sdk.Dotnet.AcceptWhatsAppCallResponse.Parser.ParseFrom);
+  }
+
+  public static async Task<global::Livekit.Server.Sdk.Dotnet.ConnectTwilioCallResponse> ConnectTwilioCall(HttpClient client, global::Livekit.Server.Sdk.Dotnet.ConnectTwilioCallRequest req) {
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.ConnectTwilioCallRequest, global::Livekit.Server.Sdk.Dotnet.ConnectTwilioCallResponse>(client, "twirp/livekit.Connector/ConnectTwilioCall", req, global::Livekit.Server.Sdk.Dotnet.ConnectTwilioCallResponse.Parser.ParseFrom);
+  }
 }

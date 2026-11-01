@@ -40,5 +40,16 @@ namespace Livekit.Server.Sdk.Dotnet
             );
             return await Twirp.ListDispatch(httpClient, request);
         }
+
+        /// <summary>
+        /// Get an agent dispatch by its ID. Returns null if the dispatch does not exist.
+        /// </summary>
+        public async Task<AgentDispatch> GetDispatch(string dispatchId, string roomName)
+        {
+            var response = await ListDispatch(
+                new ListAgentDispatchRequest { DispatchId = dispatchId, Room = roomName }
+            );
+            return response.AgentDispatches.Count > 0 ? response.AgentDispatches[0] : null;
+        }
     }
 }

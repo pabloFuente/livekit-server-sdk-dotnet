@@ -1,5 +1,16 @@
 # Changelog (Release Notes)
 
+## 1.2.4
+
+- Update livekit/protocol to [v1.53.1](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.53.1)
+- New `ConnectorServiceClient` to connect [WhatsApp and Twilio](https://docs.livekit.io/telephony/connectors/) calls to LiveKit rooms (LiveKit Cloud only), with methods `DialWhatsAppCall`, `AcceptWhatsAppCall`, `ConnectWhatsAppCall`, `DisconnectWhatsAppCall` and `ConnectTwilioCall`. See [Connector Service](https://github.com/pabloFuente/livekit-server-sdk-dotnet/blob/main/LivekitApi/README.md#connector-service).
+- New method `EgressServiceClient.StartEgress` to start any type of egress with the unified egress API.
+- New method `AgentDispatchServiceClient.GetDispatch` to get an agent dispatch by its ID.
+- Breaking changes coming from livekit/protocol:
+  - `SipServiceClient.TransferSIPParticipant` now returns a `TransferSIPParticipantResponse` with the outcome of the transfer (`TransferId`, `Status`, `Reason` and `SipStatus`), instead of `Google.Protobuf.WellKnownTypes.Empty`.
+  - Type `UpdateEgressRequest` has been removed. It was not used by any API.
+  - The value of enum member `DataTrackExtensionID.DteiParticipantSid` changed from `1` to `255`.
+
 ## 1.2.3
 
 - Update livekit/protocol to [v1.50.4](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.50.4)

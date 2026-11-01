@@ -67,6 +67,18 @@ namespace Livekit.Server.Sdk.Dotnet
             return await Twirp.StartTrackEgress(httpClient, request);
         }
 
+        /// <summary>
+        /// Start any type of egress. The request's source and outputs determine the egress type.
+        /// </summary>
+        public async Task<EgressInfo> StartEgress(StartEgressRequest request)
+        {
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Bearer",
+                AuthHeader(new VideoGrants { RoomRecord = true })
+            );
+            return await Twirp.StartEgress(httpClient, request);
+        }
+
         public async Task<EgressInfo> UpdateLayout(UpdateLayoutRequest request)
         {
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
