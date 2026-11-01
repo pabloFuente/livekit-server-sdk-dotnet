@@ -10,7 +10,7 @@
   The SDK now completes that handshake and leaves the room in the background. In the same
   spirit, a `PublishTrackAsync` cancelled after the track was published now unpublishes it
   instead of leaving a track on the server the SDK does not know about, and an FFI callback
-  that races with a cancelled wait is kept for the reconciliation instead of being dropped.
+  that races with a cancelled wait is kept for the reconciliation instead of being dropped. [commit f2765fc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f2765fc14a0a5325be47fae3501a8fc866d53970)
 - Fix `Room.Disconnected` and `ConnectionStateChanged` (with `ConnDisconnected`) being raised
   twice on every `DisconnectAsync` (once from the FFI's own disconnected event, once from the
   method), always with `UnknownReason`. They are raised once, with the real reason
@@ -18,22 +18,22 @@
   `Room.LocalParticipant` and `Room.RemoteParticipants` stay readable inside the `Disconnected`
   handlers (they were cleared before the handlers ran). `ConnectAsync` no longer reports a
   spurious `ConnDisconnected` first, and `ConnectionStateChanged` carries the state at the time
-  of the change: a slow handler used to make `ConnReconnecting` vanish from the sequence.
+  of the change: a slow handler used to make `ConnReconnecting` vanish from the sequence. [commit f2765fc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f2765fc14a0a5325be47fae3501a8fc866d53970)
 - Fix `Room.TrackUnsubscribed`, `TrackMuted` and `TrackUnmuted` being dropped (logged as
   `[WARN] RoomEvent.TrackUnsubscribed: Participant ... not found`) when the remote participant
   leaves the room: the lookup ran on the event chain after `ParticipantDisconnected` had already
   removed the participant. Remote track events are now resolved on arrival. `LocalTrackPublished`
   and `LocalTrackSubscribed` no longer poll for the publication inside the event chain (up to
   500 ms of stall per miss, and a dropped event under thread-pool starvation): they wait for
-  `PublishTrackAsync` to register it.
+  `PublishTrackAsync` to register it. [commit f2765fc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f2765fc14a0a5325be47fae3501a8fc866d53970)
 - Fix `RemoteTrack.Sid`, `Name` and `IsMuted` never being set (the `TrackSubscribed` track
   always reported an empty SID), and local tracks reporting `TR_unknown` after
-  `PublishTrackAsync` instead of their publication's SID.
+  `PublishTrackAsync` instead of their publication's SID. [commit f2765fc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f2765fc14a0a5325be47fae3501a8fc866d53970)
 - Fix text data streams corrupting multi-byte characters (`€`, accented letters, CJK, emoji)
   that fell on a chunk boundary: chunks were cut every 15000 bytes regardless of UTF-8
   boundaries and decoded one by one, so a replacement character appeared at every boundary.
   Chunks are now split on character boundaries, and the reader joins a character split by
-  another sender.
+  another sender. [commit f2765fc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f2765fc14a0a5325be47fae3501a8fc866d53970)
 - Fix `TextStreamReader` and `ByteStreamReader` reads (`ReadAllAsync`, `await foreach`) waiting
   forever when the sender or the room disconnected before the stream was closed: they now throw
   `StreamException` once the buffered chunks are consumed. Text and byte stream handlers run on
@@ -42,30 +42,30 @@
   `ByteStreamWriter.Dispose()` now send the trailer (`using var writer = ...` used to leave the
   remote reader open forever; only `DisposeAsync` closed it); new
   `CloseAsync(reason, attributes, CancellationToken)` overloads; `StreamInfo.Size` is reported
-  for an announced size of 0.
+  for an announced size of 0. [commit f2765fc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f2765fc14a0a5325be47fae3501a8fc866d53970)
 - Fix `FrameCryptor.SetEnabled` and `SetKeyIndex` failing with
   `InvalidOperationException: FFI request failed: invalid handle`: the requests did not carry
   the track SID the FFI addresses the cryptor by. `FrameCryptor` now exposes `TrackSid` (set by
   `E2EEManager.GetFrameCryptors`) and has a constructor overload taking it. New
   `KeyProviderOptions.KeyDerivationFunction` (defaults to PBKDF2, as before); a null
-  `RatchetSalt` now falls back to the default salt instead of throwing.
+  `RatchetSalt` now falls back to the default salt instead of throwing. [commit f2765fc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f2765fc14a0a5325be47fae3501a8fc866d53970)
 - Fix `AudioSource.CaptureFrameAsync` throwing `TimeoutException` for frames longer than about
   10 s (a TTS clip, a file): the FFI only acknowledges a frame once it fits its queue, so the
   wait is now proportional to the frame. Fix `WaitForPlayoutAsync` never completing when another
   frame was captured meanwhile, and hanging after `Dispose`; cancelling one wait no longer
-  cancels the others.
+  cancels the others. [commit f2765fc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f2765fc14a0a5325be47fae3501a8fc866d53970)
 - Fix `AudioResampler.Flush()` returning a frame with zero samples before any audio was pushed,
   and ignoring resampling errors. `Push(AudioFrame)` now rejects frames with another channel
   count or sample rate (the output used to be garbage of half the duration), and push and flush
-  are safe to call from several threads.
+  are safe to call from several threads. [commit f2765fc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f2765fc14a0a5325be47fae3501a8fc866d53970)
 - Fix `DataTrackStream.ReadAsync` throwing `ChannelClosedException` when the stream is disposed
-  while a read is pending: it returns null, like at the end of the stream.
+  while a read is pending: it returns null, like at the end of the stream. [commit f2765fc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f2765fc14a0a5325be47fae3501a8fc866d53970)
 - Fix RPC: `RpcError.RpcData` was `""` instead of null when the remote error carried no data;
   the message and the full stack trace of an exception thrown by an RPC handler were sent to
   the remote caller, now only the built-in `Application error in method handler` crosses the
   wire and the exception is logged locally with `[ERROR]`, as the Node and Python SDKs do; and
   `PerformRpcAsync` surfaces the FFI's `RpcError` with `ResponseTimeout` instead of a generic
-  `TimeoutException` when `responseTimeout` elapses.
+  `TimeoutException` when `responseTimeout` elapses. [commit f2765fc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f2765fc14a0a5325be47fae3501a8fc866d53970)
 - Media delivery: `AudioStream` bounded buffers (`capacity > 0`) drop the oldest frame instead
   of the newest when the consumer falls behind, like `VideoStream` and the Python SDK; a frame
   processor that throws is logged with `[WARN]` (`Debug.WriteLine` was silent in Release
@@ -73,14 +73,14 @@
   byte loop on the FFI callback thread delayed every other event, 3 MB per 1080p frame); the
   frames the native side still emits right after a stream is disposed are released instead of
   leaked; and `AudioMixer` reads its sources concurrently (N stalled sources cost one timeout,
-  not N) and keeps a source that stalls for one round instead of removing it for good.
+  not N) and keeps a source that stalls for one round instead of removing it for good. [commit f2765fc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f2765fc14a0a5325be47fae3501a8fc866d53970)
 - Participants: new `Participant.Attributes` (kept current by `ParticipantAttributesChanged`,
   which left it stale), `Participant.State` and `Participant.DisconnectReason` (set before
   `ParticipantDisconnected` is raised). `Participant.TrackPublications` returns a snapshot:
   enumerating it while a track event was handled could throw `Collection was modified`.
   `LocalTrackPublication.WaitForSubscriptionAsync` continuations no longer run inline on the
   room's event chain (delaying the following events), and the wait is cancelled when the room
-  disconnects instead of hanging forever.
+  disconnects instead of hanging forever. [commit f2765fc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f2765fc14a0a5325be47fae3501a8fc866d53970)
 - Rooms and the FFI client: a connected `Room` that is never disposed no longer stays
   referenced by the process-wide FFI client (it listens from `ConnectAsync` to the disconnect);
   `Room.Dispose()` now delivers the teardown events like `DisconnectAsync` does; the FFI event
@@ -91,7 +91,7 @@
   message. `FfiClient.CopyBuffer` threw `EntryPointNotFoundException` (the native library has
   no such export) and is now implemented in managed code; `FfiClient.RetrievePtr` has the same
   problem and cannot be fixed (a pointer to a managed array is only valid while pinned), so it
-  is marked `[Obsolete]`.
+  is marked `[Obsolete]`. [commit f2765fc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f2765fc14a0a5325be47fae3501a8fc866d53970)
 
 ## 0.1.5
 
