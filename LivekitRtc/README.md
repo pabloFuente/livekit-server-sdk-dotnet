@@ -32,6 +32,7 @@
   - [Building from source](#building-from-source)
   - [Upgrade version of `rust-sdks`](#upgrade-version-of-rust-sdks)
   - [Perform release](#perform-release)
+  - [AI coding agents](#ai-coding-agents)
 
 ## Design principles
 
@@ -342,6 +343,9 @@ dotnet build
 
 ## Upgrade version of `rust-sdks`
 
+> [!TIP]
+> The `/sync-rust-sdks` skill runs this whole procedure, including exposing the new FFI features. See [AI coding agents](#ai-coding-agents).
+
 To upgrade the version of the `rust-sdks` Git submodule:
 
 ```bash
@@ -374,3 +378,24 @@ git push
 > The **`rtc-`** prefix in the tag is mandatory for the publish workflow to identify that it is a release for package **Livekit.Rtc.Dotnet** specifically.
 >
 > After creating the release, workflow [publish.yml](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/publish.yml) will automatically publish the new version to NuGet and will perform the necessary post-release tasks.
+
+## AI coding agents
+
+[CLAUDE.md](../CLAUDE.md) briefs AI coding agents on this repository, including how the FFI layer works. For this package the relevant tool is the `/sync-rust-sdks` [Claude Code](https://claude.com/claude-code) skill ([SKILL.md](../.claude/skills/sync-rust-sdks/SKILL.md)), which carries out the [`rust-sdks` upgrade](#upgrade-version-of-rust-sdks) end to end:
+
+1. Start from a clean working tree with `protoc`, `gh`, `curl` and `unzip` installed, and Docker running for the e2e tests.
+2. Open Claude Code at the repository root and run the skill with the target `livekit-ffi` version, or without one to take the latest release:
+
+   ```text
+   /sync-rust-sdks 0.13.4
+   ```
+
+3. The skill checks that the GitHub release carries the six native binaries, moves the submodule, reads the upstream changelog and the FFI proto diff, regenerates `LivekitRtc/Proto` with `./generate_proto.sh`, downloads the binaries with `download_ffi.sh` (it asks before overwriting them), fixes the build and runs the parity guards. It then stops at a checkpoint listing the relevant upstream changes, the proto members that forced fixes, and every new FFI request, callback, room event and option field with a proposal to expose it (with its Node and Python name) or to ignore it. Strike what you do not want and confirm.
+4. It exposes the confirmed features following the Node and Python RTC SDKs, with their mapping or e2e tests, README sections and changelog bullets under `## Unreleased`, then runs the no-Docker tests and the e2e classes for the areas the upstream diff touched.
+5. It ends with the test results (any `FFI Panic` or `[WARN] RoomEvent` line means the binaries and the protos disagree), the open decisions and the suggested commit, and never commits. Review the diff, commit everything as `Update "rust-sdks" to livekit-ffi/vX.Y.Z`, and follow [Perform release](#perform-release) when ready.
+
+A hook keeps `Proto/*.g.cs`, `runtimes/` and the submodule out of reach of agent edits. The coverage script also works on its own, from the repository root. It lists the `FfiRequest`, `FfiEvent` and `RoomEvent` cases that the hand-written sources do not send, read or handle yet:
+
+```bash
+python3 .claude/skills/sync-rust-sdks/scripts/ffi_coverage.py
+```

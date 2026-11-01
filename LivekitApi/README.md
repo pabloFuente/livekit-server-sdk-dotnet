@@ -30,6 +30,7 @@
   - [Perform release](#perform-release)
   - [GitHub Actions](#github-actions)
   - [Install as a local NuGet package](#install-as-a-local-nuget-package)
+  - [AI coding agents](#ai-coding-agents)
 
 # Installation
 
@@ -547,3 +548,27 @@ dotnet restore
 ```
 
 > **Note**: all this process is automated in the `build_local.sh` script. Tested in Unix systems.
+
+## AI coding agents
+
+[CLAUDE.md](../CLAUDE.md) briefs AI coding agents on this repository. For this package the relevant tool is the `/sync-protocol` [Claude Code](https://claude.com/claude-code) skill ([SKILL.md](../.claude/skills/sync-protocol/SKILL.md)), which carries out the [`livekit/protocol` upgrade](../README.md#upgrade-version-of-livekitprotocol) end to end:
+
+1. Start from a clean working tree with the tools listed in [Compile](#compile) installed, and Docker running if the integration tests should run too.
+2. Open Claude Code at the repository root and run the skill with the target version, or without one to take the latest `@livekit/protocol` release:
+
+   ```text
+   /sync-protocol 1.54.0
+   ```
+
+3. The skill moves the submodule, reads the upstream changelog and the proto diff, regenerates `LivekitApi/proto` with `./generate_proto.sh`, fixes the build and compares the proto RPCs with the ones the `*ServiceClient` classes wrap. It then stops at a checkpoint listing the relevant upstream changes, the proto files it added to `generate_proto.sh` (and the candidates it left out), the new RPCs it proposes to wrap with the client each one belongs to, and the breaking changes found. Strike what you do not want and confirm.
+4. It wraps the confirmed RPCs with the grants the Node and Python SDKs use, adds the unit tests (route and grants), an integration test when the OSS server supports the RPC, the README section and the changelog bullets under `## Unreleased`. Breaking changes forced by the protocol are recorded in `CompatibilitySuppressions.xml` and explained in the changelog under `Breaking changes coming from livekit/protocol`.
+5. It ends with the test results, the open decisions and the suggested commits, and never commits. Review the diff, commit as `Update livekit/protocol to vX.Y.Z` (the submodule pointer) and `Regenerate proto C# files` (everything else), and follow [Perform release](#perform-release) when ready.
+
+The skill's scripts also work on their own, from the repository root:
+
+```bash
+# .proto files in the submodule vs. the ones generate_proto.sh compiles
+python3 .claude/skills/sync-protocol/scripts/proto_inventory.py
+# proto RPCs vs. generated Twirp routes vs. RPCs wrapped by a *ServiceClient
+python3 .claude/skills/sync-protocol/scripts/api_coverage.py
+```

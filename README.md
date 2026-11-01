@@ -18,6 +18,7 @@ Use this SDK to add realtime video, audio and data features to your .NET app. By
   - [Build and test](#build-and-test)
   - [Perform release](#perform-release)
   - [Upgrade version of `livekit/protocol`](#upgrade-version-of-livekitprotocol)
+  - [AI coding agents](#ai-coding-agents)
 
 ## Packages
 
@@ -136,6 +137,9 @@ Releases are automated through GitHub Actions thanks to the [publish workflow](.
 
 ### Upgrade version of `livekit/protocol`
 
+> [!TIP]
+> The `/sync-protocol` skill runs this whole procedure, including wrapping the new RPCs. See [AI coding agents](LivekitApi/README.md#ai-coding-agents) in the package README.
+
 To upgrade the version of the `livekit/protocol` Git submodule:
 
 ```bash
@@ -167,6 +171,14 @@ dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:Gen
 ```
 
 This compatibility suppression file will allow packaging and publishing the SDK even with breaking changes. Once the new version is available in NuGet, the only thing left is to update in file `LivekitApi.csproj` property `<PackageValidationBaselineVersion>X.Y.Z</PackageValidationBaselineVersion>` to the new version (so the new reference for breaking changes is this new version), and delete `CompatibilitySuppressions.xml` (as it is no longer needed). Workflow [publish.yml](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/publish.yml) automatically does this as last step.
+
+### AI coding agents
+
+The repository ships guidance and tooling for AI coding agents, so the procedures above can be delegated to them:
+
+- [CLAUDE.md](CLAUDE.md) (also reachable as `AGENTS.md`) is the briefing an agent loads first: which files are generated and must never be edited by hand, how the submodules and the native binaries are coupled, the target framework constraints of each package, the build, format and test commands, and the changelog conventions.
+- [.claude/settings.json](.claude/settings.json) pre-approves the routine commands (`dotnet build`, `test` and `pack`, CSharpier, `./generate_proto.sh`, read-only git commands on the submodules), asks before `git commit`, `git push`, `git tag` and `download_ffi.sh`, and denies `dotnet nuget push` and `gh release`. Two hooks block edits to generated code, native binaries and submodules, and run CSharpier on every edited `.cs` or `.csproj` file.
+- Two [Claude Code](https://claude.com/claude-code) skills automate the upgrade procedures end to end: `/sync-protocol [version]` for `livekit/protocol` (step by step in [LivekitApi/README.md](LivekitApi/README.md#ai-coding-agents)) and `/sync-rust-sdks [version]` for `rust-sdks` (step by step in [LivekitRtc/README.md](LivekitRtc/README.md#ai-coding-agents)). Both regenerate, fix the build, surface the new upstream APIs, run the tests and write the changelog entry, then stop at a checkpoint for your decisions and leave the result uncommitted for review. Releases stay manual.
 
 ---
 
