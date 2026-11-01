@@ -29,8 +29,21 @@ namespace Livekit.Server.Sdk.Dotnet
             }
 
             httpClient = client ?? new HttpClient();
-            httpClient.BaseAddress = new Uri(host);
+            httpClient.BaseAddress = new Uri(WithTrailingSlash(host));
             httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("LiveKit .NET SDK");
+        }
+
+        // Twirp routes are relative ("twirp/livekit.X/Y") and System.Uri drops the last path
+        // segment of a base address without a trailing "/" when resolving a relative reference,
+        // so "https://my.server.com/livekit" would send requests to "https://my.server.com/twirp/...".
+        // Append the slash so hosts with a subpath work whether or not the caller added it.
+        private static string WithTrailingSlash(string host)
+        {
+            if (host == null || host.EndsWith("/", StringComparison.Ordinal))
+            {
+                return host;
+            }
+            return host + "/";
         }
 
         protected string AuthHeader(VideoGrants videoGrants)

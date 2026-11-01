@@ -18,6 +18,36 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             ServiceClientFixture.TEST_API_SECRET
         );
 
+        [Theory]
+        [Trait("Category", "Unit")]
+        [InlineData(
+            "http://localhost/my-subpath",
+            "/my-subpath/twirp/livekit.RoomService/ListRooms"
+        )]
+        [InlineData(
+            "http://localhost/my-subpath/",
+            "/my-subpath/twirp/livekit.RoomService/ListRooms"
+        )]
+        [InlineData("http://localhost", "/twirp/livekit.RoomService/ListRooms")]
+        public async Task Constructor_HostWithSubpath_KeepsSubpathInRoute(
+            string host,
+            string expectedPath
+        )
+        {
+            var handler = new TestHttpMessageHandler();
+            var service = new RoomServiceClient(
+                host,
+                "key",
+                "secretsecretsecretsecretsecretsecret",
+                new HttpClient(handler)
+            );
+
+            await service.ListRooms(new ListRoomsRequest());
+
+            Assert.NotNull(handler.LastRequest?.RequestUri);
+            Assert.Equal(expectedPath, handler.LastRequest.RequestUri.AbsolutePath);
+        }
+
         [Fact]
         public async Task Constructor_UsesCustomHttpClient_HeaderIsSent()
         {
