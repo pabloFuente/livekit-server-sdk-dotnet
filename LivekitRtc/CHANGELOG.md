@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Update rust-sdks to [livekit-ffi/v0.13.3](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.13.3) ([commit 1001476](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/10014763a5212503352f2a39477ae86acf8add87))
 - Fix process crash (native panic `index out of bounds: the len is 0 but the index is 0`) when
   converting or capturing video frames in the `I420A`, `I422`, `I444` and `I010` formats.
   `VideoFrame` only described the planes of `I420` and `NV12` buffers to the FFI, so the native
@@ -32,28 +33,28 @@
   returns a `LocalDataTrack` to push `DataTrackFrame`s on. Remote tracks arrive through the new
   `Room.DataTrackPublished` and `Room.DataTrackUnpublished` events (and are listed in
   `Room.RemoteDataTracks`); `RemoteDataTrack.Subscribe()` returns a `DataTrackStream` that can
-  be read with `await foreach` and ends when the track is unpublished.
+  be read with `await foreach` and ends when the track is unpublished. [commit a3147e8](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/a3147e8923ed76611550bd38050ed18588f6164b)
 - New `EncodedVideoSource` to publish pre-encoded video (H.264, VP8, ...) without re-encoding it:
   `LocalVideoTrack.Create(name, encodedSource)`, `CaptureFrame(EncodedVideoFrame)` and
-  `TakeFeedback()` for the key-frame and bitrate requests to forward to the encoder.
+  `TakeFeedback()` for the key-frame and bitrate requests to forward to the encoder. [commit a3147e8](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/a3147e8923ed76611550bd38050ed18588f6164b)
 - New subscriber-side controls on `RemoteTrackPublication`: `SetVideoQuality` (simulcast layer),
-  `SetEnabled` (pause receiving without unsubscribing) and `SetVideoDimensions`.
+  `SetEnabled` (pause receiving without unsubscribing) and `SetVideoDimensions`. [commit a3147e8](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/a3147e8923ed76611550bd38050ed18588f6164b)
 - New room events `ParticipantPermissionsChanged` (with the new `Participant.Permissions`
   property), `ParticipantActive`, `LocalTrackRepublished` (local publications are now updated in
   place and re-keyed after a full reconnect instead of going stale) and
   `DataChannelBufferedAmountLowThresholdChanged`, raised after the new
   `LocalParticipant.SetDataChannelBufferedAmountLowThreshold`. Bulk participant updates sent by
-  the server are now applied to the participant objects.
+  the server are now applied to the participant objects. [commit a3147e8](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/a3147e8923ed76611550bd38050ed18588f6164b)
 - New `Room.SimulateScenarioAsync(Proto.SimulateScenarioKind)` to force the reconnection paths
   from tests without touching the network: a full reconnect (the SDK rebuilds its session and
   republishes its local tracks, raising `LocalTrackRepublished`), a resume, a server-initiated
   leave... It mirrors `Room.simulate_scenario` in the Python SDK and `Room.simulateScenario` in
   the Node SDK. See
-  [Simulating Reconnections](https://github.com/pabloFuente/livekit-server-sdk-dotnet/blob/main/LivekitRtc/README.md#simulating-reconnections).
+  [Simulating Reconnections](https://github.com/pabloFuente/livekit-server-sdk-dotnet/blob/main/LivekitRtc/README.md#simulating-reconnections). [commit a3147e8](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/a3147e8923ed76611550bd38050ed18588f6164b)
 
 ## 0.1.4
 
-- Update rust-sdks to [livekit-ffi/v0.12.76](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.12.76)
+- Update rust-sdks to [livekit-ffi/v0.12.76](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.12.76) ([commit 36077cc](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/36077cc273bd2a8c0952aafc818ca65c77e2af53))
 - Add all the missing `TrackPublishOptions` fields, reaching parity with the Node/Python/Rust
   RTC SDKs: `VideoCodec` (select the codec of published video tracks: VP8, H264, AV1, VP9...),
   `Dtx`, `Red`, `Stream`, `PreconnectBuffer`, `FrameMetadataFeatures`, `ScalabilityMode`
@@ -61,20 +62,20 @@
   `DegradationPreference`. All new options are nullable and unset keeps the previous
   behavior (the SDK defaults). The `TrackPublishOptions` → `Proto.TrackPublishOptions`
   mapping is now covered by unit tests, including a parity guard that fails when a future
-  FFI proto regeneration introduces fields not exposed by the SDK.
+  FFI proto regeneration introduces fields not exposed by the SDK. [commit 3e3cfb4](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/3e3cfb459794d2b031d69bc58933bc833c2cb8d5)
 
 ## 0.1.3
 
-- Update rust-sdks to [livekit-ffi/v0.12.60](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.12.60)
+- Update rust-sdks to [livekit-ffi/v0.12.60](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.12.60) ([commit 65e5fc4](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/65e5fc4accdd8060cc8994c8e672161a9c4d9bd2))
 
 ## 0.1.2
 
-- Update rust-sdks to [livekit-ffi/v0.12.50](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.12.50)
+- Update rust-sdks to [livekit-ffi/v0.12.50](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.12.50) ([commit 5225cc6](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/5225cc60c9acaf98fbced1f11193b50f9cc2a228))
 
 ## 0.1.1
 
-- Update livekit/protocol to [v1.45.1](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.45.1)
+- Update livekit/protocol to [v1.45.1](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.45.1) ([commit b6f0054](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/b6f00545ef4f9c87f4b6e1915f140d7e0f6e512d))
 
 ## 0.1.0
 
-- Initial release of Livekit.Rtc.Dotnet SDK.
+- Initial release of Livekit.Rtc.Dotnet SDK. [commit d110d6c](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/d110d6c21d40b58f4af7f7f68f12e4d80d5dde93)
