@@ -85,27 +85,16 @@ if ! command -v protoc &> /dev/null; then
     exit 1
 fi
 
-# Create output directory
+# Create output directory if not exists and clean existing generated files
 mkdir -p "$RTC_OUT_CSHARP"
+rm -f "${RTC_OUT_CSHARP:?}"/*.g.cs
 
 # Generate C# files from FFI proto definitions
 protoc \
     -I="$RTC_PROTOCOL" \
     --csharp_out="$RTC_OUT_CSHARP" \
     --csharp_opt=file_extension=.g.cs \
-    "$RTC_PROTOCOL/audio_frame.proto" \
-    "$RTC_PROTOCOL/ffi.proto" \
-    "$RTC_PROTOCOL/handle.proto" \
-    "$RTC_PROTOCOL/participant.proto" \
-    "$RTC_PROTOCOL/room.proto" \
-    "$RTC_PROTOCOL/track.proto" \
-    "$RTC_PROTOCOL/track_publication.proto" \
-    "$RTC_PROTOCOL/video_frame.proto" \
-    "$RTC_PROTOCOL/e2ee.proto" \
-    "$RTC_PROTOCOL/stats.proto" \
-    "$RTC_PROTOCOL/rpc.proto" \
-    "$RTC_PROTOCOL/data_stream.proto" \
-    "$RTC_PROTOCOL/data_track.proto"
+    "$RTC_PROTOCOL"/*.proto
 
 echo "✓ LivekitRtc proto files generated successfully"
 echo ""
