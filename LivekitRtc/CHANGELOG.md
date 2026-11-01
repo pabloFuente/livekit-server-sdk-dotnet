@@ -1,6 +1,6 @@
 # Changelog (Release Notes)
 
-## Unreleased
+## 0.1.5
 
 - Update rust-sdks to [livekit-ffi/v0.13.3](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.13.3) ([commit 1001476](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/10014763a5212503352f2a39477ae86acf8add87))
 - Fix process crash (native panic `index out of bounds: the len is 0 but the index is 0`) when
