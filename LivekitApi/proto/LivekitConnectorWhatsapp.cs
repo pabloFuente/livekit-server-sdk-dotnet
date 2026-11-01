@@ -35,12 +35,12 @@ namespace Livekit.Server.Sdk.Dotnet {
             "cXVlX2NhbGxiYWNrX2RhdGEYBCABKAkSEQoJcm9vbV9uYW1lGAUgASgJEioK",
             "BmFnZW50cxgGIAMoCzIaLmxpdmVraXQuUm9vbUFnZW50RGlzcGF0Y2gSHAoU",
             "cGFydGljaXBhbnRfaWRlbnRpdHkYByABKAkSPgoQcGFydGljaXBhbnRfbmFt",
-            "ZRgIIAEoCUIkwFABslAePHJlZGFjdGVkICh7eyAuU2l6ZSB9fSBieXRlcyk+",
-            "EkIKFHBhcnRpY2lwYW50X21ldGFkYXRhGAkgASgJQiTAUAGyUB48cmVkYWN0",
-            "ZWQgKHt7IC5TaXplIH19IGJ5dGVzKT4SgQEKFnBhcnRpY2lwYW50X2F0dHJp",
+            "ZRgIIAEoCUIkslAePHJlZGFjdGVkICh7eyAuU2l6ZSB9fSBieXRlcyk+wFAB",
+            "EkIKFHBhcnRpY2lwYW50X21ldGFkYXRhGAkgASgJQiSyUB48cmVkYWN0ZWQg",
+            "KHt7IC5TaXplIH19IGJ5dGVzKT7AUAESgQEKFnBhcnRpY2lwYW50X2F0dHJp",
             "YnV0ZXMYCiADKAsyOy5saXZla2l0LkRpYWxXaGF0c0FwcENhbGxSZXF1ZXN0",
-            "LlBhcnRpY2lwYW50QXR0cmlidXRlc0VudHJ5QiTAUAGyUB48cmVkYWN0ZWQg",
-            "KHt7IC5TaXplIH19IGJ5dGVzKT4SGwoTZGVzdGluYXRpb25fY291bnRyeRgL",
+            "LlBhcnRpY2lwYW50QXR0cmlidXRlc0VudHJ5QiSyUB48cmVkYWN0ZWQgKHt7",
+            "IC5TaXplIH19IGJ5dGVzKT7AUAESGwoTZGVzdGluYXRpb25fY291bnRyeRgL",
             "IAEoCRIyCg9yaW5naW5nX3RpbWVvdXQYDSABKAsyGS5nb29nbGUucHJvdG9i",
             "dWYuRHVyYXRpb24aPAoaUGFydGljaXBhbnRBdHRyaWJ1dGVzRW50cnkSCwoD",
             "a2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASJaChhEaWFsV2hhdHNBcHBD",
@@ -65,12 +65,12 @@ namespace Livekit.Server.Sdk.Dotnet {
             "a2l0LlNlc3Npb25EZXNjcmlwdGlvbhIRCglyb29tX25hbWUYBiABKAkSKgoG",
             "YWdlbnRzGAcgAygLMhoubGl2ZWtpdC5Sb29tQWdlbnREaXNwYXRjaBIcChRw",
             "YXJ0aWNpcGFudF9pZGVudGl0eRgIIAEoCRI+ChBwYXJ0aWNpcGFudF9uYW1l",
-            "GAkgASgJQiTAUAGyUB48cmVkYWN0ZWQgKHt7IC5TaXplIH19IGJ5dGVzKT4S",
-            "QgoUcGFydGljaXBhbnRfbWV0YWRhdGEYCiABKAlCJMBQAbJQHjxyZWRhY3Rl",
-            "ZCAoe3sgLlNpemUgfX0gYnl0ZXMpPhKDAQoWcGFydGljaXBhbnRfYXR0cmli",
+            "GAkgASgJQiSyUB48cmVkYWN0ZWQgKHt7IC5TaXplIH19IGJ5dGVzKT7AUAES",
+            "QgoUcGFydGljaXBhbnRfbWV0YWRhdGEYCiABKAlCJLJQHjxyZWRhY3RlZCAo",
+            "e3sgLlNpemUgfX0gYnl0ZXMpPsBQARKDAQoWcGFydGljaXBhbnRfYXR0cmli",
             "dXRlcxgLIAMoCzI9LmxpdmVraXQuQWNjZXB0V2hhdHNBcHBDYWxsUmVxdWVz",
-            "dC5QYXJ0aWNpcGFudEF0dHJpYnV0ZXNFbnRyeUIkwFABslAePHJlZGFjdGVk",
-            "ICh7eyAuU2l6ZSB9fSBieXRlcyk+EhsKE2Rlc3RpbmF0aW9uX2NvdW50cnkY",
+            "dC5QYXJ0aWNpcGFudEF0dHJpYnV0ZXNFbnRyeUIkslAePHJlZGFjdGVkICh7",
+            "eyAuU2l6ZSB9fSBieXRlcyk+wFABEhsKE2Rlc3RpbmF0aW9uX2NvdW50cnkY",
             "DCABKAkSMgoPcmluZ2luZ190aW1lb3V0GA4gASgLMhkuZ29vZ2xlLnByb3Rv",
             "YnVmLkR1cmF0aW9uEhsKE3dhaXRfdW50aWxfYW5zd2VyZWQYDyABKAgaPAoa",
             "UGFydGljaXBhbnRBdHRyaWJ1dGVzRW50cnkSCwoDa2V5GAEgASgJEg0KBXZh",
@@ -108,6 +108,7 @@ namespace Livekit.Server.Sdk.Dotnet {
   #endregion
 
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DialWhatsAppCallRequest : pb::IMessage<DialWhatsAppCallRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -611,7 +612,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.ParticipantMetadata.Length != 0) {
         ParticipantMetadata = other.ParticipantMetadata;
       }
-      participantAttributes_.Add(other.participantAttributes_);
+      participantAttributes_.MergeFrom(other.participantAttributes_);
       if (other.DestinationCountry.Length != 0) {
         DestinationCountry = other.DestinationCountry;
       }
@@ -632,7 +633,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -702,7 +707,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -768,6 +777,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DialWhatsAppCallResponse : pb::IMessage<DialWhatsAppCallResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -958,7 +968,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -981,7 +995,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1000,6 +1018,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DisconnectWhatsAppCallRequest : pb::IMessage<DisconnectWhatsAppCallRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1224,7 +1243,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1251,7 +1274,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1297,6 +1324,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DisconnectWhatsAppCallResponse : pb::IMessage<DisconnectWhatsAppCallResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1423,7 +1451,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1438,7 +1470,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1449,6 +1485,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ConnectWhatsAppCallRequest : pb::IMessage<ConnectWhatsAppCallRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1675,7 +1712,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1705,7 +1746,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1731,6 +1776,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ConnectWhatsAppCallResponse : pb::IMessage<ConnectWhatsAppCallResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1857,7 +1903,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1872,7 +1922,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1883,6 +1937,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AcceptWhatsAppCallRequest : pb::IMessage<AcceptWhatsAppCallRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2451,7 +2506,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.ParticipantMetadata.Length != 0) {
         ParticipantMetadata = other.ParticipantMetadata;
       }
-      participantAttributes_.Add(other.participantAttributes_);
+      participantAttributes_.MergeFrom(other.participantAttributes_);
       if (other.DestinationCountry.Length != 0) {
         DestinationCountry = other.DestinationCountry;
       }
@@ -2475,7 +2530,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -2556,7 +2615,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -2633,6 +2696,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AcceptWhatsAppCallResponse : pb::IMessage<AcceptWhatsAppCallResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2791,7 +2855,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -2810,7 +2878,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -2825,6 +2897,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class WhatsAppCall : pb::IMessage<WhatsAppCall>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3015,7 +3088,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -3038,7 +3115,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;

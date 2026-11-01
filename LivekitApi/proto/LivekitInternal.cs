@@ -31,7 +31,7 @@ namespace Livekit.Server.Sdk.Dotnet {
             "AmlkGAEgASgJEgoKAmlwGAIgASgJEhAKCG51bV9jcHVzGAMgASgNEiEKBXN0",
             "YXRzGAQgASgLMhIubGl2ZWtpdC5Ob2RlU3RhdHMSHwoEdHlwZRgFIAEoDjIR",
             "LmxpdmVraXQuTm9kZVR5cGUSIQoFc3RhdGUYBiABKA4yEi5saXZla2l0Lk5v",
-            "ZGVTdGF0ZRIOCgZyZWdpb24YByABKAki8A0KCU5vZGVTdGF0cxISCgpzdGFy",
+            "ZGVTdGF0ZRIOCgZyZWdpb24YByABKAkilg4KCU5vZGVTdGF0cxISCgpzdGFy",
             "dGVkX2F0GAEgASgDEhIKCnVwZGF0ZWRfYXQYAiABKAMSEQoJbnVtX3Jvb21z",
             "GAMgASgFEhMKC251bV9jbGllbnRzGAQgASgFEhUKDW51bV90cmFja3NfaW4Y",
             "BSABKAUSFgoObnVtX3RyYWNrc19vdXQYBiABKAUSIgoabnVtX3RyYWNrX3B1",
@@ -69,70 +69,71 @@ namespace Livekit.Server.Sdk.Dotnet {
             "ARIcChRwYXJ0aWNpcGFudF9ydGNfaW5pdBguIAEoBBIoChxwYXJ0aWNpcGFu",
             "dF9ydGNfaW5pdF9wZXJfc2VjGC8gASgCQgIYARIgChhwYXJ0aWNpcGFudF9y",
             "dGNfY2FuY2VsZWQYNSABKAQSHgoWcGFydGljaXBhbnRfcnRjX2FjdGl2ZRg2",
-            "IAEoBBIXCg9mb3J3YXJkX2xhdGVuY3kYMCABKA0SFgoOZm9yd2FyZF9qaXR0",
-            "ZXIYMSABKA0SJQoFcmF0ZXMYMiADKAsyFi5saXZla2l0Lk5vZGVTdGF0c1Jh",
-            "dGUiqwYKDU5vZGVTdGF0c1JhdGUSEgoKc3RhcnRlZF9hdBgBIAEoAxIQCghl",
-            "bmRlZF9hdBgCIAEoAxIQCghkdXJhdGlvbhgDIAEoAxIeChZ0cmFja19wdWJs",
-            "aXNoX2F0dGVtcHRzGAQgASgCEh0KFXRyYWNrX3B1Ymxpc2hfc3VjY2VzcxgF",
-            "IAEoAhIdChV0cmFja19wdWJsaXNoX2NhbmNlbHMYGCABKAISIAoYdHJhY2tf",
-            "c3Vic2NyaWJlX2F0dGVtcHRzGAYgASgCEh8KF3RyYWNrX3N1YnNjcmliZV9z",
-            "dWNjZXNzGAcgASgCEh8KF3RyYWNrX3N1YnNjcmliZV9jYW5jZWxzGBkgASgC",
-            "EhAKCGJ5dGVzX2luGAggASgCEhEKCWJ5dGVzX291dBgJIAEoAhISCgpwYWNr",
-            "ZXRzX2luGAogASgCEhMKC3BhY2tldHNfb3V0GAsgASgCEhIKCm5hY2tfdG90",
-            "YWwYDCABKAISFwoPc3lzX3BhY2tldHNfb3V0GA0gASgCEhsKE3N5c19wYWNr",
-            "ZXRzX2Ryb3BwZWQYDiABKAISHAoUcmV0cmFuc21pdF9ieXRlc19vdXQYDyAB",
-            "KAISHgoWcmV0cmFuc21pdF9wYWNrZXRzX291dBgQIAEoAhIkChxwYXJ0aWNp",
-            "cGFudF9zaWduYWxfY29ubmVjdGVkGBEgASgCEiEKGXBhcnRpY2lwYW50X3Np",
-            "Z25hbF9mYWlsZWQYHCABKAISLAokcGFydGljaXBhbnRfc2lnbmFsX3ZhbGlk",
-            "YXRpb25fZmFpbGVkGB0gASgCEiEKGXBhcnRpY2lwYW50X3J0Y19jb25uZWN0",
-            "ZWQYEiABKAISHAoUcGFydGljaXBhbnRfcnRjX2luaXQYEyABKAISIAoYcGFy",
-            "dGljaXBhbnRfcnRjX2NhbmNlbGVkGBogASgCEh4KFnBhcnRpY2lwYW50X3J0",
-            "Y19hY3RpdmUYGyABKAISEAoIY3B1X2xvYWQYFCABKAISEwoLbWVtb3J5X2xv",
-            "YWQYFSABKAISEwoLbWVtb3J5X3VzZWQYFiABKAISFAoMbWVtb3J5X3RvdGFs",
-            "GBcgASgCIpIGCgxTdGFydFNlc3Npb24SEQoJcm9vbV9uYW1lGAEgASgJEhAK",
-            "CGlkZW50aXR5GAIgASgJEiYKDWNvbm5lY3Rpb25faWQYAyABKAlCD7pQDGNv",
-            "bm5lY3Rpb25JRBIRCglyZWNvbm5lY3QYBCABKAgSFgoOYXV0b19zdWJzY3Jp",
-            "YmUYCSABKAgSJgoZYXV0b19zdWJzY3JpYmVfZGF0YV90cmFjaxgZIAEoCEgA",
-            "iAEBEhIKBmhpZGRlbhgKIAEoCEICGAESIwoGY2xpZW50GAsgASgLMhMubGl2",
-            "ZWtpdC5DbGllbnRJbmZvEhQKCHJlY29yZGVyGAwgASgIQgIYARIMCgRuYW1l",
-            "GA0gASgJEhMKC2dyYW50c19qc29uGA4gASgJEhcKD2FkYXB0aXZlX3N0cmVh",
-            "bRgPIAEoCBIoCg5wYXJ0aWNpcGFudF9pZBgQIAEoCUIQulANcGFydGljaXBh",
-            "bnRJRBIyChByZWNvbm5lY3RfcmVhc29uGBEgASgOMhgubGl2ZWtpdC5SZWNv",
-            "bm5lY3RSZWFzb24SIwoWc3Vic2NyaWJlcl9hbGxvd19wYXVzZRgSIAEoCEgB",
-            "iAEBEhgKEGRpc2FibGVfaWNlX2xpdGUYEyABKAgSLwoLY3JlYXRlX3Jvb20Y",
-            "FCABKAsyGi5saXZla2l0LkNyZWF0ZVJvb21SZXF1ZXN0EjQKEmFkZF90cmFj",
-            "a19yZXF1ZXN0cxgVIAMoCzIYLmxpdmVraXQuQWRkVHJhY2tSZXF1ZXN0EjQK",
-            "D3B1Ymxpc2hlcl9vZmZlchgWIAEoCzIbLmxpdmVraXQuU2Vzc2lvbkRlc2Ny",
-            "aXB0aW9uEiYKCnN5bmNfc3RhdGUYFyABKAsyEi5saXZla2l0LlN5bmNTdGF0",
-            "ZRIiChp1c2Vfc2luZ2xlX3BlZXJfY29ubmVjdGlvbhgYIAEoCBIYChB0b2tl",
-            "bl9leHBpcmVzX2F0GBogASgDQhwKGl9hdXRvX3N1YnNjcmliZV9kYXRhX3Ry",
-            "YWNrQhkKF19zdWJzY3JpYmVyX2FsbG93X3BhdXNlIv0CCgxSb29tSW50ZXJu",
-            "YWwSLgoMdHJhY2tfZWdyZXNzGAEgASgLMhgubGl2ZWtpdC5BdXRvVHJhY2tF",
-            "Z3Jlc3MSOgoScGFydGljaXBhbnRfZWdyZXNzGAIgASgLMh4ubGl2ZWtpdC5B",
-            "dXRvUGFydGljaXBhbnRFZ3Jlc3MSLAoNcGxheW91dF9kZWxheRgDIAEoCzIV",
-            "LmxpdmVraXQuUGxheW91dERlbGF5EjQKEGFnZW50X2Rpc3BhdGNoZXMYBSAD",
-            "KAsyGi5saXZla2l0LlJvb21BZ2VudERpc3BhdGNoEhQKDHN5bmNfc3RyZWFt",
-            "cxgEIAEoCBIWCg5yZXBsYXlfZW5hYmxlZBgGIAEoCBITCgtleHBvcnRfcm9v",
-            "bRgHIAEoCBItCgR0YWdzGAggAygLMh8ubGl2ZWtpdC5Sb29tSW50ZXJuYWwu",
-            "VGFnc0VudHJ5GisKCVRhZ3NFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUY",
-            "AiABKAk6AjgBIn4KCUlDRUNvbmZpZxI4ChVwcmVmZXJlbmNlX3N1YnNjcmli",
-            "ZXIYASABKA4yGS5saXZla2l0LklDRUNhbmRpZGF0ZVR5cGUSNwoUcHJlZmVy",
-            "ZW5jZV9wdWJsaXNoZXIYAiABKA4yGS5saXZla2l0LklDRUNhbmRpZGF0ZVR5",
-            "cGUqdgoITm9kZVR5cGUSCgoGU0VSVkVSEAASDgoKQ09OVFJPTExFUhABEgkK",
-            "BU1FRElBEAISCAoEVFVSThAEEgsKB1NXRUVQRVIQBRIMCghESVJFQ1RPUhAG",
-            "EhAKDEhPU1RFRF9BR0VOVBAHEgwKCFNFVFRJTkdTEAgqSwoJTm9kZVN0YXRl",
-            "Eg8KC1NUQVJUSU5HX1VQEAASCwoHU0VSVklORxABEhEKDVNIVVRUSU5HX0RP",
-            "V04QAhINCglTVVNQRU5ERUQQAyo6ChBJQ0VDYW5kaWRhdGVUeXBlEgwKCElD",
-            "VF9OT05FEAASCwoHSUNUX1RDUBABEgsKB0lDVF9UTFMQAkJGWiNnaXRodWIu",
-            "Y29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/q",
-            "Ag5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
+            "IAEoBBIXCg9mb3J3YXJkX2xhdGVuY3kYMCABKA0SGgoOZm9yd2FyZF9qaXR0",
+            "ZXIYMSABKA1CAhgBEiAKGGZvcndhcmRfc2NoZWR1bGluZ19kZWxheRg5IAEo",
+            "DRIlCgVyYXRlcxgyIAMoCzIWLmxpdmVraXQuTm9kZVN0YXRzUmF0ZSKrBgoN",
+            "Tm9kZVN0YXRzUmF0ZRISCgpzdGFydGVkX2F0GAEgASgDEhAKCGVuZGVkX2F0",
+            "GAIgASgDEhAKCGR1cmF0aW9uGAMgASgDEh4KFnRyYWNrX3B1Ymxpc2hfYXR0",
+            "ZW1wdHMYBCABKAISHQoVdHJhY2tfcHVibGlzaF9zdWNjZXNzGAUgASgCEh0K",
+            "FXRyYWNrX3B1Ymxpc2hfY2FuY2VscxgYIAEoAhIgChh0cmFja19zdWJzY3Jp",
+            "YmVfYXR0ZW1wdHMYBiABKAISHwoXdHJhY2tfc3Vic2NyaWJlX3N1Y2Nlc3MY",
+            "ByABKAISHwoXdHJhY2tfc3Vic2NyaWJlX2NhbmNlbHMYGSABKAISEAoIYnl0",
+            "ZXNfaW4YCCABKAISEQoJYnl0ZXNfb3V0GAkgASgCEhIKCnBhY2tldHNfaW4Y",
+            "CiABKAISEwoLcGFja2V0c19vdXQYCyABKAISEgoKbmFja190b3RhbBgMIAEo",
+            "AhIXCg9zeXNfcGFja2V0c19vdXQYDSABKAISGwoTc3lzX3BhY2tldHNfZHJv",
+            "cHBlZBgOIAEoAhIcChRyZXRyYW5zbWl0X2J5dGVzX291dBgPIAEoAhIeChZy",
+            "ZXRyYW5zbWl0X3BhY2tldHNfb3V0GBAgASgCEiQKHHBhcnRpY2lwYW50X3Np",
+            "Z25hbF9jb25uZWN0ZWQYESABKAISIQoZcGFydGljaXBhbnRfc2lnbmFsX2Zh",
+            "aWxlZBgcIAEoAhIsCiRwYXJ0aWNpcGFudF9zaWduYWxfdmFsaWRhdGlvbl9m",
+            "YWlsZWQYHSABKAISIQoZcGFydGljaXBhbnRfcnRjX2Nvbm5lY3RlZBgSIAEo",
+            "AhIcChRwYXJ0aWNpcGFudF9ydGNfaW5pdBgTIAEoAhIgChhwYXJ0aWNpcGFu",
+            "dF9ydGNfY2FuY2VsZWQYGiABKAISHgoWcGFydGljaXBhbnRfcnRjX2FjdGl2",
+            "ZRgbIAEoAhIQCghjcHVfbG9hZBgUIAEoAhITCgttZW1vcnlfbG9hZBgVIAEo",
+            "AhITCgttZW1vcnlfdXNlZBgWIAEoAhIUCgxtZW1vcnlfdG90YWwYFyABKAIi",
+            "owYKDFN0YXJ0U2Vzc2lvbhIRCglyb29tX25hbWUYASABKAkSEAoIaWRlbnRp",
+            "dHkYAiABKAkSJgoNY29ubmVjdGlvbl9pZBgDIAEoCUIPulAMY29ubmVjdGlv",
+            "bklEEhEKCXJlY29ubmVjdBgEIAEoCBIWCg5hdXRvX3N1YnNjcmliZRgJIAEo",
+            "CBImChlhdXRvX3N1YnNjcmliZV9kYXRhX3RyYWNrGBkgASgISACIAQESEgoG",
+            "aGlkZGVuGAogASgIQgIYARIjCgZjbGllbnQYCyABKAsyEy5saXZla2l0LkNs",
+            "aWVudEluZm8SFAoIcmVjb3JkZXIYDCABKAhCAhgBEgwKBG5hbWUYDSABKAkS",
+            "EwoLZ3JhbnRzX2pzb24YDiABKAkSFwoPYWRhcHRpdmVfc3RyZWFtGA8gASgI",
+            "EigKDnBhcnRpY2lwYW50X2lkGBAgASgJQhC6UA1wYXJ0aWNpcGFudElEEjIK",
+            "EHJlY29ubmVjdF9yZWFzb24YESABKA4yGC5saXZla2l0LlJlY29ubmVjdFJl",
+            "YXNvbhIjChZzdWJzY3JpYmVyX2FsbG93X3BhdXNlGBIgASgISAGIAQESGAoQ",
+            "ZGlzYWJsZV9pY2VfbGl0ZRgTIAEoCBIvCgtjcmVhdGVfcm9vbRgUIAEoCzIa",
+            "LmxpdmVraXQuQ3JlYXRlUm9vbVJlcXVlc3QSNAoSYWRkX3RyYWNrX3JlcXVl",
+            "c3RzGBUgAygLMhgubGl2ZWtpdC5BZGRUcmFja1JlcXVlc3QSNAoPcHVibGlz",
+            "aGVyX29mZmVyGBYgASgLMhsubGl2ZWtpdC5TZXNzaW9uRGVzY3JpcHRpb24S",
+            "JgoKc3luY19zdGF0ZRgXIAEoCzISLmxpdmVraXQuU3luY1N0YXRlEiIKGnVz",
+            "ZV9zaW5nbGVfcGVlcl9jb25uZWN0aW9uGBggASgIEhgKEHRva2VuX2V4cGly",
+            "ZXNfYXQYGiABKAMSDwoHYXBpX2tleRgbIAEoCUIcChpfYXV0b19zdWJzY3Jp",
+            "YmVfZGF0YV90cmFja0IZChdfc3Vic2NyaWJlcl9hbGxvd19wYXVzZSL9AgoM",
+            "Um9vbUludGVybmFsEi4KDHRyYWNrX2VncmVzcxgBIAEoCzIYLmxpdmVraXQu",
+            "QXV0b1RyYWNrRWdyZXNzEjoKEnBhcnRpY2lwYW50X2VncmVzcxgCIAEoCzIe",
+            "LmxpdmVraXQuQXV0b1BhcnRpY2lwYW50RWdyZXNzEiwKDXBsYXlvdXRfZGVs",
+            "YXkYAyABKAsyFS5saXZla2l0LlBsYXlvdXREZWxheRI0ChBhZ2VudF9kaXNw",
+            "YXRjaGVzGAUgAygLMhoubGl2ZWtpdC5Sb29tQWdlbnREaXNwYXRjaBIUCgxz",
+            "eW5jX3N0cmVhbXMYBCABKAgSFgoOcmVwbGF5X2VuYWJsZWQYBiABKAgSEwoL",
+            "ZXhwb3J0X3Jvb20YByABKAgSLQoEdGFncxgIIAMoCzIfLmxpdmVraXQuUm9v",
+            "bUludGVybmFsLlRhZ3NFbnRyeRorCglUYWdzRW50cnkSCwoDa2V5GAEgASgJ",
+            "Eg0KBXZhbHVlGAIgASgJOgI4ASJ+CglJQ0VDb25maWcSOAoVcHJlZmVyZW5j",
+            "ZV9zdWJzY3JpYmVyGAEgASgOMhkubGl2ZWtpdC5JQ0VDYW5kaWRhdGVUeXBl",
+            "EjcKFHByZWZlcmVuY2VfcHVibGlzaGVyGAIgASgOMhkubGl2ZWtpdC5JQ0VD",
+            "YW5kaWRhdGVUeXBlKnYKCE5vZGVUeXBlEgoKBlNFUlZFUhAAEg4KCkNPTlRS",
+            "T0xMRVIQARIJCgVNRURJQRACEggKBFRVUk4QBBILCgdTV0VFUEVSEAUSDAoI",
+            "RElSRUNUT1IQBhIQCgxIT1NURURfQUdFTlQQBxIMCghTRVRUSU5HUxAIKksK",
+            "CU5vZGVTdGF0ZRIPCgtTVEFSVElOR19VUBAAEgsKB1NFUlZJTkcQARIRCg1T",
+            "SFVUVElOR19ET1dOEAISDQoJU1VTUEVOREVEEAMqOgoQSUNFQ2FuZGlkYXRl",
+            "VHlwZRIMCghJQ1RfTk9ORRAAEgsKB0lDVF9UQ1AQARILCgdJQ1RfVExTEAJC",
+            "RlojZ2l0aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1MaXZl",
+            "S2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitAgentDispatchReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitRoomReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitRtcReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.OptionsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.NodeType), typeof(global::Livekit.Server.Sdk.Dotnet.NodeState), typeof(global::Livekit.Server.Sdk.Dotnet.ICECandidateType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.Node), global::Livekit.Server.Sdk.Dotnet.Node.Parser, new[]{ "Id", "Ip", "NumCpus", "Stats", "Type", "State", "Region" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.NodeStats), global::Livekit.Server.Sdk.Dotnet.NodeStats.Parser, new[]{ "StartedAt", "UpdatedAt", "NumRooms", "NumClients", "NumTracksIn", "NumTracksOut", "NumTrackPublishAttempts", "TrackPublishAttemptsPerSec", "NumTrackPublishSuccess", "TrackPublishSuccessPerSec", "NumTrackPublishCancels", "NumTrackSubscribeAttempts", "TrackSubscribeAttemptsPerSec", "NumTrackSubscribeSuccess", "TrackSubscribeSuccessPerSec", "NumTrackSubscribeCancels", "BytesIn", "BytesOut", "PacketsIn", "PacketsOut", "NackTotal", "BytesInPerSec", "BytesOutPerSec", "PacketsInPerSec", "PacketsOutPerSec", "NackPerSec", "NumCpus", "LoadAvgLast1Min", "LoadAvgLast5Min", "LoadAvgLast15Min", "CpuLoad", "MemoryLoad", "MemoryTotal", "MemoryUsed", "SysPacketsOut", "SysPacketsDropped", "SysPacketsOutPerSec", "SysPacketsDroppedPerSec", "SysPacketsDroppedPctPerSec", "RetransmitBytesOut", "RetransmitPacketsOut", "RetransmitBytesOutPerSec", "RetransmitPacketsOutPerSec", "ParticipantSignalConnected", "ParticipantSignalConnectedPerSec", "ParticipantSignalFailed", "ParticipantSignalValidationFailed", "ParticipantRtcConnected", "ParticipantRtcConnectedPerSec", "ParticipantRtcInit", "ParticipantRtcInitPerSec", "ParticipantRtcCanceled", "ParticipantRtcActive", "ForwardLatency", "ForwardJitter", "Rates" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.NodeStats), global::Livekit.Server.Sdk.Dotnet.NodeStats.Parser, new[]{ "StartedAt", "UpdatedAt", "NumRooms", "NumClients", "NumTracksIn", "NumTracksOut", "NumTrackPublishAttempts", "TrackPublishAttemptsPerSec", "NumTrackPublishSuccess", "TrackPublishSuccessPerSec", "NumTrackPublishCancels", "NumTrackSubscribeAttempts", "TrackSubscribeAttemptsPerSec", "NumTrackSubscribeSuccess", "TrackSubscribeSuccessPerSec", "NumTrackSubscribeCancels", "BytesIn", "BytesOut", "PacketsIn", "PacketsOut", "NackTotal", "BytesInPerSec", "BytesOutPerSec", "PacketsInPerSec", "PacketsOutPerSec", "NackPerSec", "NumCpus", "LoadAvgLast1Min", "LoadAvgLast5Min", "LoadAvgLast15Min", "CpuLoad", "MemoryLoad", "MemoryTotal", "MemoryUsed", "SysPacketsOut", "SysPacketsDropped", "SysPacketsOutPerSec", "SysPacketsDroppedPerSec", "SysPacketsDroppedPctPerSec", "RetransmitBytesOut", "RetransmitPacketsOut", "RetransmitBytesOutPerSec", "RetransmitPacketsOutPerSec", "ParticipantSignalConnected", "ParticipantSignalConnectedPerSec", "ParticipantSignalFailed", "ParticipantSignalValidationFailed", "ParticipantRtcConnected", "ParticipantRtcConnectedPerSec", "ParticipantRtcInit", "ParticipantRtcInitPerSec", "ParticipantRtcCanceled", "ParticipantRtcActive", "ForwardLatency", "ForwardJitter", "ForwardSchedulingDelay", "Rates" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.NodeStatsRate), global::Livekit.Server.Sdk.Dotnet.NodeStatsRate.Parser, new[]{ "StartedAt", "EndedAt", "Duration", "TrackPublishAttempts", "TrackPublishSuccess", "TrackPublishCancels", "TrackSubscribeAttempts", "TrackSubscribeSuccess", "TrackSubscribeCancels", "BytesIn", "BytesOut", "PacketsIn", "PacketsOut", "NackTotal", "SysPacketsOut", "SysPacketsDropped", "RetransmitBytesOut", "RetransmitPacketsOut", "ParticipantSignalConnected", "ParticipantSignalFailed", "ParticipantSignalValidationFailed", "ParticipantRtcConnected", "ParticipantRtcInit", "ParticipantRtcCanceled", "ParticipantRtcActive", "CpuLoad", "MemoryLoad", "MemoryUsed", "MemoryTotal" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.StartSession), global::Livekit.Server.Sdk.Dotnet.StartSession.Parser, new[]{ "RoomName", "Identity", "ConnectionId", "Reconnect", "AutoSubscribe", "AutoSubscribeDataTrack", "Hidden", "Client", "Recorder", "Name", "GrantsJson", "AdaptiveStream", "ParticipantId", "ReconnectReason", "SubscriberAllowPause", "DisableIceLite", "CreateRoom", "AddTrackRequests", "PublisherOffer", "SyncState", "UseSinglePeerConnection", "TokenExpiresAt" }, new[]{ "AutoSubscribeDataTrack", "SubscriberAllowPause" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.StartSession), global::Livekit.Server.Sdk.Dotnet.StartSession.Parser, new[]{ "RoomName", "Identity", "ConnectionId", "Reconnect", "AutoSubscribe", "AutoSubscribeDataTrack", "Hidden", "Client", "Recorder", "Name", "GrantsJson", "AdaptiveStream", "ParticipantId", "ReconnectReason", "SubscriberAllowPause", "DisableIceLite", "CreateRoom", "AddTrackRequests", "PublisherOffer", "SyncState", "UseSinglePeerConnection", "TokenExpiresAt", "ApiKey" }, new[]{ "AutoSubscribeDataTrack", "SubscriberAllowPause" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomInternal), global::Livekit.Server.Sdk.Dotnet.RoomInternal.Parser, new[]{ "TrackEgress", "ParticipantEgress", "PlayoutDelay", "AgentDispatches", "SyncStreams", "ReplayEnabled", "ExportRoom", "Tags" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ICEConfig), global::Livekit.Server.Sdk.Dotnet.ICEConfig.Parser, new[]{ "PreferenceSubscriber", "PreferencePublisher" }, null, null, null, null)
           }));
@@ -168,6 +169,7 @@ namespace Livekit.Server.Sdk.Dotnet {
   #endregion
 
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Node : pb::IMessage<Node>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -500,7 +502,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -546,7 +552,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -588,6 +598,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class NodeStats : pb::IMessage<NodeStats>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -677,6 +688,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       participantRtcActive_ = other.participantRtcActive_;
       forwardLatency_ = other.forwardLatency_;
       forwardJitter_ = other.forwardJitter_;
+      forwardSchedulingDelay_ = other.forwardSchedulingDelay_;
       rates_ = other.rates_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1381,12 +1393,28 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// <summary>Field number for the "forward_jitter" field.</summary>
     public const int ForwardJitterFieldNumber = 49;
     private uint forwardJitter_;
+    [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint ForwardJitter {
       get { return forwardJitter_; }
       set {
         forwardJitter_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "forward_scheduling_delay" field.</summary>
+    public const int ForwardSchedulingDelayFieldNumber = 57;
+    private uint forwardSchedulingDelay_;
+    /// <summary>
+    /// p90 time from arrival to dequeue, in ns, for packets that found their forwarder idle
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint ForwardSchedulingDelay {
+      get { return forwardSchedulingDelay_; }
+      set {
+        forwardSchedulingDelay_ = value;
       }
     }
 
@@ -1471,6 +1499,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (ParticipantRtcActive != other.ParticipantRtcActive) return false;
       if (ForwardLatency != other.ForwardLatency) return false;
       if (ForwardJitter != other.ForwardJitter) return false;
+      if (ForwardSchedulingDelay != other.ForwardSchedulingDelay) return false;
       if(!rates_.Equals(other.rates_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1534,6 +1563,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (ParticipantRtcActive != 0UL) hash ^= ParticipantRtcActive.GetHashCode();
       if (ForwardLatency != 0) hash ^= ForwardLatency.GetHashCode();
       if (ForwardJitter != 0) hash ^= ForwardJitter.GetHashCode();
+      if (ForwardSchedulingDelay != 0) hash ^= ForwardSchedulingDelay.GetHashCode();
       hash ^= rates_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1774,6 +1804,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(192, 3);
         output.WriteUInt64(ParticipantSignalValidationFailed);
       }
+      if (ForwardSchedulingDelay != 0) {
+        output.WriteRawTag(200, 3);
+        output.WriteUInt32(ForwardSchedulingDelay);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2005,6 +2039,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(192, 3);
         output.WriteUInt64(ParticipantSignalValidationFailed);
       }
+      if (ForwardSchedulingDelay != 0) {
+        output.WriteRawTag(200, 3);
+        output.WriteUInt32(ForwardSchedulingDelay);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2179,6 +2217,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (ForwardJitter != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(ForwardJitter);
+      }
+      if (ForwardSchedulingDelay != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(ForwardSchedulingDelay);
       }
       size += rates_.CalculateSize(_repeated_rates_codec);
       if (_unknownFields != null) {
@@ -2358,6 +2399,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.ForwardJitter != 0) {
         ForwardJitter = other.ForwardJitter;
       }
+      if (other.ForwardSchedulingDelay != 0) {
+        ForwardSchedulingDelay = other.ForwardSchedulingDelay;
+      }
       rates_.Add(other.rates_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2370,7 +2414,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -2598,6 +2646,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             ParticipantSignalValidationFailed = input.ReadUInt64();
             break;
           }
+          case 456: {
+            ForwardSchedulingDelay = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -2609,7 +2661,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -2837,6 +2893,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             ParticipantSignalValidationFailed = input.ReadUInt64();
             break;
           }
+          case 456: {
+            ForwardSchedulingDelay = input.ReadUInt32();
+            break;
+          }
         }
       }
     }
@@ -2847,6 +2907,7 @@ namespace Livekit.Server.Sdk.Dotnet {
   /// <summary>
   /// rates of different node stats (per second)
   /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class NodeStatsRate : pb::IMessage<NodeStatsRate>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3817,7 +3878,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -3948,7 +4013,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -4075,6 +4144,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class StartSession : pb::IMessage<StartSession>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4133,6 +4203,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       syncState_ = other.syncState_ != null ? other.syncState_.Clone() : null;
       useSinglePeerConnection_ = other.useSinglePeerConnection_;
       tokenExpiresAt_ = other.tokenExpiresAt_;
+      apiKey_ = other.apiKey_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4207,11 +4278,13 @@ namespace Livekit.Server.Sdk.Dotnet {
 
     /// <summary>Field number for the "auto_subscribe_data_track" field.</summary>
     public const int AutoSubscribeDataTrackFieldNumber = 25;
+    private readonly static bool AutoSubscribeDataTrackDefaultValue = false;
+
     private bool autoSubscribeDataTrack_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool AutoSubscribeDataTrack {
-      get { if ((_hasBits0 & 2) != 0) { return autoSubscribeDataTrack_; } else { return false; } }
+      get { if ((_hasBits0 & 2) != 0) { return autoSubscribeDataTrack_; } else { return AutoSubscribeDataTrackDefaultValue; } }
       set {
         _hasBits0 |= 2;
         autoSubscribeDataTrack_ = value;
@@ -4336,11 +4409,13 @@ namespace Livekit.Server.Sdk.Dotnet {
 
     /// <summary>Field number for the "subscriber_allow_pause" field.</summary>
     public const int SubscriberAllowPauseFieldNumber = 18;
+    private readonly static bool SubscriberAllowPauseDefaultValue = false;
+
     private bool subscriberAllowPause_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool SubscriberAllowPause {
-      get { if ((_hasBits0 & 1) != 0) { return subscriberAllowPause_; } else { return false; } }
+      get { if ((_hasBits0 & 1) != 0) { return subscriberAllowPause_; } else { return SubscriberAllowPauseDefaultValue; } }
       set {
         _hasBits0 |= 1;
         subscriberAllowPause_ = value;
@@ -4442,6 +4517,21 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "api_key" field.</summary>
+    public const int ApiKeyFieldNumber = 27;
+    private string apiKey_ = "";
+    /// <summary>
+    /// API key that issued the join token, for correlating sessions with the key
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ApiKey {
+      get { return apiKey_; }
+      set {
+        apiKey_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -4479,6 +4569,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (!object.Equals(SyncState, other.SyncState)) return false;
       if (UseSinglePeerConnection != other.UseSinglePeerConnection) return false;
       if (TokenExpiresAt != other.TokenExpiresAt) return false;
+      if (ApiKey != other.ApiKey) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4508,6 +4599,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (syncState_ != null) hash ^= SyncState.GetHashCode();
       if (UseSinglePeerConnection != false) hash ^= UseSinglePeerConnection.GetHashCode();
       if (TokenExpiresAt != 0L) hash ^= TokenExpiresAt.GetHashCode();
+      if (ApiKey.Length != 0) hash ^= ApiKey.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4611,6 +4703,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(208, 1);
         output.WriteInt64(TokenExpiresAt);
       }
+      if (ApiKey.Length != 0) {
+        output.WriteRawTag(218, 1);
+        output.WriteString(ApiKey);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4706,6 +4802,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(208, 1);
         output.WriteInt64(TokenExpiresAt);
       }
+      if (ApiKey.Length != 0) {
+        output.WriteRawTag(218, 1);
+        output.WriteString(ApiKey);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4779,6 +4879,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (TokenExpiresAt != 0L) {
         size += 2 + pb::CodedOutputStream.ComputeInt64Size(TokenExpiresAt);
+      }
+      if (ApiKey.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(ApiKey);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4868,6 +4971,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.TokenExpiresAt != 0L) {
         TokenExpiresAt = other.TokenExpiresAt;
       }
+      if (other.ApiKey.Length != 0) {
+        ApiKey = other.ApiKey;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -4879,7 +4985,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -4983,6 +5093,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             TokenExpiresAt = input.ReadInt64();
             break;
           }
+          case 218: {
+            ApiKey = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -4994,7 +5108,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -5098,6 +5216,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             TokenExpiresAt = input.ReadInt64();
             break;
           }
+          case 218: {
+            ApiKey = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -5108,6 +5230,7 @@ namespace Livekit.Server.Sdk.Dotnet {
   /// <summary>
   /// room info that should not be returned to clients
   /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RoomInternal : pb::IMessage<RoomInternal>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5441,7 +5564,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.ExportRoom != false) {
         ExportRoom = other.ExportRoom;
       }
-      tags_.Add(other.tags_);
+      tags_.MergeFrom(other.tags_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -5453,7 +5576,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -5509,7 +5636,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -5561,6 +5692,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ICEConfig : pb::IMessage<ICEConfig>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5745,7 +5877,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -5768,7 +5904,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;

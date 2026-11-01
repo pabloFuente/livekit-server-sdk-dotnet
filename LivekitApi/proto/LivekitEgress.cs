@@ -67,231 +67,232 @@ namespace Livekit.Server.Sdk.Dotnet {
             "dmVraXQuSW1hZ2VPdXRwdXRIABInCgdzdG9yYWdlGAYgASgLMhYubGl2ZWtp",
             "dC5TdG9yYWdlQ29uZmlnQggKBmNvbmZpZyJlCgpGaWxlT3V0cHV0EisKCWZp",
             "bGVfdHlwZRgBIAEoDjIYLmxpdmVraXQuRW5jb2RlZEZpbGVUeXBlEhAKCGZp",
-            "bGVwYXRoGAIgASgJEhgKEGRpc2FibGVfbWFuaWZlc3QYAyABKAgiRwoMU3Ry",
+            "bGVwYXRoGAIgASgJEhgKEGRpc2FibGVfbWFuaWZlc3QYAyABKAgieQoMU3Ry",
             "ZWFtT3V0cHV0EikKCHByb3RvY29sGAEgASgOMhcubGl2ZWtpdC5TdHJlYW1Q",
-            "cm90b2NvbBIMCgR1cmxzGAIgAygJIqADChNTZWdtZW50ZWRGaWxlT3V0cHV0",
-            "EjAKCHByb3RvY29sGAEgASgOMh4ubGl2ZWtpdC5TZWdtZW50ZWRGaWxlUHJv",
-            "dG9jb2wSFwoPZmlsZW5hbWVfcHJlZml4GAIgASgJEhUKDXBsYXlsaXN0X25h",
-            "bWUYAyABKAkSGgoSbGl2ZV9wbGF5bGlzdF9uYW1lGAsgASgJEhgKEHNlZ21l",
-            "bnRfZHVyYXRpb24YBCABKA0SNQoPZmlsZW5hbWVfc3VmZml4GAogASgOMhwu",
-            "bGl2ZWtpdC5TZWdtZW50ZWRGaWxlU3VmZml4EhgKEGRpc2FibGVfbWFuaWZl",
-            "c3QYCCABKAgSHwoCczMYBSABKAsyES5saXZla2l0LlMzVXBsb2FkSAASIQoD",
-            "Z2NwGAYgASgLMhIubGl2ZWtpdC5HQ1BVcGxvYWRIABIpCgVhenVyZRgHIAEo",
-            "CzIYLmxpdmVraXQuQXp1cmVCbG9iVXBsb2FkSAASJwoGYWxpT1NTGAkgASgL",
-            "MhUubGl2ZWtpdC5BbGlPU1NVcGxvYWRIAEIICgZvdXRwdXQi+AIKC0ltYWdl",
-            "T3V0cHV0EhgKEGNhcHR1cmVfaW50ZXJ2YWwYASABKA0SDQoFd2lkdGgYAiAB",
-            "KAUSDgoGaGVpZ2h0GAMgASgFEhcKD2ZpbGVuYW1lX3ByZWZpeBgEIAEoCRIx",
-            "Cg9maWxlbmFtZV9zdWZmaXgYBSABKA4yGC5saXZla2l0LkltYWdlRmlsZVN1",
-            "ZmZpeBIoCgtpbWFnZV9jb2RlYxgGIAEoDjITLmxpdmVraXQuSW1hZ2VDb2Rl",
-            "YxIYChBkaXNhYmxlX21hbmlmZXN0GAcgASgIEh8KAnMzGAggASgLMhEubGl2",
-            "ZWtpdC5TM1VwbG9hZEgAEiEKA2djcBgJIAEoCzISLmxpdmVraXQuR0NQVXBs",
-            "b2FkSAASKQoFYXp1cmUYCiABKAsyGC5saXZla2l0LkF6dXJlQmxvYlVwbG9h",
-            "ZEgAEicKBmFsaU9TUxgLIAEoCzIVLmxpdmVraXQuQWxpT1NTVXBsb2FkSABC",
-            "CAoGb3V0cHV0IrMBCg1TdG9yYWdlQ29uZmlnEh8KAnMzGAEgASgLMhEubGl2",
-            "ZWtpdC5TM1VwbG9hZEgAEiEKA2djcBgCIAEoCzISLmxpdmVraXQuR0NQVXBs",
-            "b2FkSAASKQoFYXp1cmUYAyABKAsyGC5saXZla2l0LkF6dXJlQmxvYlVwbG9h",
-            "ZEgAEicKBmFsaU9TUxgEIAEoCzIVLmxpdmVraXQuQWxpT1NTVXBsb2FkSABC",
-            "CgoIcHJvdmlkZXIiwQMKCFMzVXBsb2FkEhcKCmFjY2Vzc19rZXkYASABKAlC",
-            "A8BQAhITCgZzZWNyZXQYAiABKAlCA8BQAhIaCg1zZXNzaW9uX3Rva2VuGAsg",
-            "ASgJQgPAUAISHAoPYXNzdW1lX3JvbGVfYXJuGAwgASgJQgPAUAESOwoXYXNz",
-            "dW1lX3JvbGVfZXh0ZXJuYWxfaWQYDSABKAlCGsBQArpQFGFzc3VtZVJvbGVF",
-            "eHRlcm5hbElEEg4KBnJlZ2lvbhgDIAEoCRIQCghlbmRwb2ludBgEIAEoCRIO",
-            "CgZidWNrZXQYBSABKAkSGAoQZm9yY2VfcGF0aF9zdHlsZRgGIAEoCBI2Cght",
-            "ZXRhZGF0YRgHIAMoCzIfLmxpdmVraXQuUzNVcGxvYWQuTWV0YWRhdGFFbnRy",
-            "eUIDwFABEhQKB3RhZ2dpbmcYCCABKAlCA8BQARIgChNjb250ZW50X2Rpc3Bv",
-            "c2l0aW9uGAkgASgJQgPAUAESIwoFcHJveHkYCiABKAsyFC5saXZla2l0LlBy",
-            "b3h5Q29uZmlnGi8KDU1ldGFkYXRhRW50cnkSCwoDa2V5GAEgASgJEg0KBXZh",
-            "bHVlGAIgASgJOgI4ASJaCglHQ1BVcGxvYWQSGAoLY3JlZGVudGlhbHMYASAB",
-            "KAlCA8BQAhIOCgZidWNrZXQYAiABKAkSIwoFcHJveHkYAyABKAsyFC5saXZl",
-            "a2l0LlByb3h5Q29uZmlnIl4KD0F6dXJlQmxvYlVwbG9hZBIZCgxhY2NvdW50",
-            "X25hbWUYASABKAlCA8BQARIYCgthY2NvdW50X2tleRgCIAEoCUIDwFACEhYK",
-            "DmNvbnRhaW5lcl9uYW1lGAMgASgJIm4KDEFsaU9TU1VwbG9hZBIXCgphY2Nl",
-            "c3Nfa2V5GAEgASgJQgPAUAISEwoGc2VjcmV0GAIgASgJQgPAUAISDgoGcmVn",
-            "aW9uGAMgASgJEhAKCGVuZHBvaW50GAQgASgJEg4KBmJ1Y2tldBgFIAEoCSJD",
-            "CgtQcm94eUNvbmZpZxILCgN1cmwYASABKAkSEAoIdXNlcm5hbWUYAiABKAkS",
-            "FQoIcGFzc3dvcmQYAyABKAlCA8BQAiKEAQoRTGlzdEVncmVzc1JlcXVlc3QS",
-            "EQoJcm9vbV9uYW1lGAEgASgJEh4KCWVncmVzc19pZBgCIAEoCUILulAIZWdy",
-            "ZXNzSUQSDgoGYWN0aXZlGAMgASgIEiwKCnBhZ2VfdG9rZW4YBCABKAsyGC5s",
-            "aXZla2l0LlRva2VuUGFnaW5hdGlvbiJrChJMaXN0RWdyZXNzUmVzcG9uc2US",
-            "IgoFaXRlbXMYASADKAsyEy5saXZla2l0LkVncmVzc0luZm8SMQoPbmV4dF9w",
-            "YWdlX3Rva2VuGAIgASgLMhgubGl2ZWtpdC5Ub2tlblBhZ2luYXRpb24ihwEK",
-            "E1VwZGF0ZUVncmVzc1JlcXVlc3QSHgoJZWdyZXNzX2lkGAEgASgJQgu6UAhl",
-            "Z3Jlc3NJRBILCgN1cmwYAiABKAkSDgoGbGF5b3V0GAMgASgJEhcKD2FkZF9z",
-            "dHJlYW1fdXJscxgEIAMoCRIaChJyZW1vdmVfc3RyZWFtX3VybHMYBSADKAki",
-            "MwoRU3RvcEVncmVzc1JlcXVlc3QSHgoJZWdyZXNzX2lkGAEgASgJQgu6UAhl",
-            "Z3Jlc3NJRCKqCAoKRWdyZXNzSW5mbxIeCgllZ3Jlc3NfaWQYASABKAlCC7pQ",
-            "CGVncmVzc0lEEhoKB3Jvb21faWQYAiABKAlCCbpQBnJvb21JRBIRCglyb29t",
-            "X25hbWUYDSABKAkSLgoLc291cmNlX3R5cGUYGiABKA4yGS5saXZla2l0LkVn",
-            "cmVzc1NvdXJjZVR5cGUSJQoGc3RhdHVzGAMgASgOMhUubGl2ZWtpdC5FZ3Jl",
-            "c3NTdGF0dXMSEgoKc3RhcnRlZF9hdBgKIAEoAxIQCghlbmRlZF9hdBgLIAEo",
-            "AxISCgp1cGRhdGVkX2F0GBIgASgDEi0KBmVncmVzcxgdIAEoCzIbLmxpdmVr",
-            "aXQuU3RhcnRFZ3Jlc3NSZXF1ZXN0SAASLgoGcmVwbGF5GB4gASgLMhwubGl2",
-            "ZWtpdC5FeHBvcnRSZXBsYXlSZXF1ZXN0SAASPQoOcm9vbV9jb21wb3NpdGUY",
-            "BCABKAsyIy5saXZla2l0LlJvb21Db21wb3NpdGVFZ3Jlc3NSZXF1ZXN0SAAS",
-            "KAoDd2ViGA4gASgLMhkubGl2ZWtpdC5XZWJFZ3Jlc3NSZXF1ZXN0SAASOAoL",
-            "cGFydGljaXBhbnQYEyABKAsyIS5saXZla2l0LlBhcnRpY2lwYW50RWdyZXNz",
-            "UmVxdWVzdEgAEj8KD3RyYWNrX2NvbXBvc2l0ZRgFIAEoCzIkLmxpdmVraXQu",
-            "VHJhY2tDb21wb3NpdGVFZ3Jlc3NSZXF1ZXN0SAASLAoFdHJhY2sYBiABKAsy",
-            "Gy5saXZla2l0LlRyYWNrRWdyZXNzUmVxdWVzdEgAEisKDnN0cmVhbV9yZXN1",
-            "bHRzGA8gAygLMhMubGl2ZWtpdC5TdHJlYW1JbmZvEicKDGZpbGVfcmVzdWx0",
-            "cxgQIAMoCzIRLmxpdmVraXQuRmlsZUluZm8SLgoPc2VnbWVudF9yZXN1bHRz",
-            "GBEgAygLMhUubGl2ZWtpdC5TZWdtZW50c0luZm8SKgoNaW1hZ2VfcmVzdWx0",
-            "cxgUIAMoCzITLmxpdmVraXQuSW1hZ2VzSW5mbxINCgVlcnJvchgJIAEoCRIS",
-            "CgplcnJvcl9jb2RlGBYgASgFEg8KB2RldGFpbHMYFSABKAkSGQoRbWFuaWZl",
-            "c3RfbG9jYXRpb24YFyABKAkSGwoTYmFja3VwX3N0b3JhZ2VfdXNlZBgZIAEo",
-            "CBITCgtyZXRyeV9jb3VudBgbIAEoBRItCgZzdHJlYW0YByABKAsyFy5saXZl",
-            "a2l0LlN0cmVhbUluZm9MaXN0QgIYAUgBEiUKBGZpbGUYCCABKAsyES5saXZl",
-            "a2l0LkZpbGVJbmZvQgIYAUgBEi0KCHNlZ21lbnRzGAwgASgLMhUubGl2ZWtp",
-            "dC5TZWdtZW50c0luZm9CAhgBSAFCCQoHcmVxdWVzdEIICgZyZXN1bHQi5AEK",
-            "ClN0cmVhbUluZm8SCwoDdXJsGAEgASgJEhIKCnN0YXJ0ZWRfYXQYAiABKAMS",
-            "EAoIZW5kZWRfYXQYAyABKAMSEAoIZHVyYXRpb24YBCABKAMSKgoGc3RhdHVz",
-            "GAUgASgOMhoubGl2ZWtpdC5TdHJlYW1JbmZvLlN0YXR1cxINCgVlcnJvchgG",
-            "IAEoCRIVCg1sYXN0X3JldHJ5X2F0GAcgASgDEg8KB3JldHJpZXMYCCABKA0i",
-            "LgoGU3RhdHVzEgoKBkFDVElWRRAAEgwKCEZJTklTSEVEEAESCgoGRkFJTEVE",
-            "EAIidAoIRmlsZUluZm8SEAoIZmlsZW5hbWUYASABKAkSEgoKc3RhcnRlZF9h",
-            "dBgCIAEoAxIQCghlbmRlZF9hdBgDIAEoAxIQCghkdXJhdGlvbhgGIAEoAxIM",
-            "CgRzaXplGAQgASgDEhAKCGxvY2F0aW9uGAUgASgJItkBCgxTZWdtZW50c0lu",
-            "Zm8SFQoNcGxheWxpc3RfbmFtZRgBIAEoCRIaChJsaXZlX3BsYXlsaXN0X25h",
-            "bWUYCCABKAkSEAoIZHVyYXRpb24YAiABKAMSDAoEc2l6ZRgDIAEoAxIZChFw",
-            "bGF5bGlzdF9sb2NhdGlvbhgEIAEoCRIeChZsaXZlX3BsYXlsaXN0X2xvY2F0",
-            "aW9uGAkgASgJEhUKDXNlZ21lbnRfY291bnQYBSABKAMSEgoKc3RhcnRlZF9h",
-            "dBgGIAEoAxIQCghlbmRlZF9hdBgHIAEoAyJgCgpJbWFnZXNJbmZvEhcKD2Zp",
-            "bGVuYW1lX3ByZWZpeBgEIAEoCRITCgtpbWFnZV9jb3VudBgBIAEoAxISCgpz",
-            "dGFydGVkX2F0GAIgASgDEhAKCGVuZGVkX2F0GAMgASgDIusBChVBdXRvUGFy",
-            "dGljaXBhbnRFZ3Jlc3MSMAoGcHJlc2V0GAEgASgOMh4ubGl2ZWtpdC5FbmNv",
-            "ZGluZ09wdGlvbnNQcmVzZXRIABIsCghhZHZhbmNlZBgCIAEoCzIYLmxpdmVr",
-            "aXQuRW5jb2RpbmdPcHRpb25zSAASMAoMZmlsZV9vdXRwdXRzGAMgAygLMhou",
-            "bGl2ZWtpdC5FbmNvZGVkRmlsZU91dHB1dBI1Cg9zZWdtZW50X291dHB1dHMY",
-            "BCADKAsyHC5saXZla2l0LlNlZ21lbnRlZEZpbGVPdXRwdXRCCQoHb3B0aW9u",
-            "cyLfAQoPQXV0b1RyYWNrRWdyZXNzEhAKCGZpbGVwYXRoGAEgASgJEhgKEGRp",
-            "c2FibGVfbWFuaWZlc3QYBSABKAgSHwoCczMYAiABKAsyES5saXZla2l0LlMz",
-            "VXBsb2FkSAASIQoDZ2NwGAMgASgLMhIubGl2ZWtpdC5HQ1BVcGxvYWRIABIp",
-            "CgVhenVyZRgEIAEoCzIYLmxpdmVraXQuQXp1cmVCbG9iVXBsb2FkSAASJwoG",
-            "YWxpT1NTGAYgASgLMhUubGl2ZWtpdC5BbGlPU1NVcGxvYWRIAEIICgZvdXRw",
-            "dXQixwMKE0V4cG9ydFJlcGxheVJlcXVlc3QSHgoJcmVwbGF5X2lkGAEgASgJ",
-            "Qgu6UAhyZXBsYXlJRBIXCg9zdGFydF9vZmZzZXRfbXMYAiABKAMSFQoNZW5k",
-            "X29mZnNldF9tcxgDIAEoAxIrCgh0ZW1wbGF0ZRgEIAEoCzIXLmxpdmVraXQu",
-            "VGVtcGxhdGVTb3VyY2VIABIhCgN3ZWIYBSABKAsyEi5saXZla2l0LldlYlNv",
-            "dXJjZUgAEiUKBW1lZGlhGAYgASgLMhQubGl2ZWtpdC5NZWRpYVNvdXJjZUgA",
-            "EjAKBnByZXNldBgHIAEoDjIeLmxpdmVraXQuRW5jb2RpbmdPcHRpb25zUHJl",
-            "c2V0SAESLAoIYWR2YW5jZWQYCCABKAsyGC5saXZla2l0LkVuY29kaW5nT3B0",
-            "aW9uc0gBEiAKB291dHB1dHMYCSADKAsyDy5saXZla2l0Lk91dHB1dBInCgdz",
-            "dG9yYWdlGAogASgLMhYubGl2ZWtpdC5TdG9yYWdlQ29uZmlnEigKCHdlYmhv",
-            "b2tzGAsgAygLMhYubGl2ZWtpdC5XZWJob29rQ29uZmlnQggKBnNvdXJjZUIK",
-            "CghlbmNvZGluZyKjBQoaUm9vbUNvbXBvc2l0ZUVncmVzc1JlcXVlc3QSEQoJ",
-            "cm9vbV9uYW1lGAEgASgJEg4KBmxheW91dBgCIAEoCRISCgphdWRpb19vbmx5",
-            "GAMgASgIEioKDGF1ZGlvX21peGluZxgPIAEoDjIULmxpdmVraXQuQXVkaW9N",
-            "aXhpbmcSEgoKdmlkZW9fb25seRgEIAEoCBIXCg9jdXN0b21fYmFzZV91cmwY",
-            "BSABKAkSLgoEZmlsZRgGIAEoCzIaLmxpdmVraXQuRW5jb2RlZEZpbGVPdXRw",
-            "dXRCAhgBSAASKwoGc3RyZWFtGAcgASgLMhUubGl2ZWtpdC5TdHJlYW1PdXRw",
-            "dXRCAhgBSAASNAoIc2VnbWVudHMYCiABKAsyHC5saXZla2l0LlNlZ21lbnRl",
-            "ZEZpbGVPdXRwdXRCAhgBSAASMAoGcHJlc2V0GAggASgOMh4ubGl2ZWtpdC5F",
-            "bmNvZGluZ09wdGlvbnNQcmVzZXRIARIsCghhZHZhbmNlZBgJIAEoCzIYLmxp",
-            "dmVraXQuRW5jb2RpbmdPcHRpb25zSAESMAoMZmlsZV9vdXRwdXRzGAsgAygL",
-            "MhoubGl2ZWtpdC5FbmNvZGVkRmlsZU91dHB1dBItCg5zdHJlYW1fb3V0cHV0",
-            "cxgMIAMoCzIVLmxpdmVraXQuU3RyZWFtT3V0cHV0EjUKD3NlZ21lbnRfb3V0",
-            "cHV0cxgNIAMoCzIcLmxpdmVraXQuU2VnbWVudGVkRmlsZU91dHB1dBIrCg1p",
-            "bWFnZV9vdXRwdXRzGA4gAygLMhQubGl2ZWtpdC5JbWFnZU91dHB1dBIoCgh3",
-            "ZWJob29rcxgQIAMoCzIWLmxpdmVraXQuV2ViaG9va0NvbmZpZ0IICgZvdXRw",
-            "dXRCCQoHb3B0aW9ucyLaBAoQV2ViRWdyZXNzUmVxdWVzdBILCgN1cmwYASAB",
-            "KAkSEgoKYXVkaW9fb25seRgCIAEoCBISCgp2aWRlb19vbmx5GAMgASgIEhoK",
-            "EmF3YWl0X3N0YXJ0X3NpZ25hbBgMIAEoCBIuCgRmaWxlGAQgASgLMhoubGl2",
-            "ZWtpdC5FbmNvZGVkRmlsZU91dHB1dEICGAFIABIrCgZzdHJlYW0YBSABKAsy",
-            "FS5saXZla2l0LlN0cmVhbU91dHB1dEICGAFIABI0CghzZWdtZW50cxgGIAEo",
-            "CzIcLmxpdmVraXQuU2VnbWVudGVkRmlsZU91dHB1dEICGAFIABIwCgZwcmVz",
-            "ZXQYByABKA4yHi5saXZla2l0LkVuY29kaW5nT3B0aW9uc1ByZXNldEgBEiwK",
-            "CGFkdmFuY2VkGAggASgLMhgubGl2ZWtpdC5FbmNvZGluZ09wdGlvbnNIARIw",
-            "CgxmaWxlX291dHB1dHMYCSADKAsyGi5saXZla2l0LkVuY29kZWRGaWxlT3V0",
-            "cHV0Ei0KDnN0cmVhbV9vdXRwdXRzGAogAygLMhUubGl2ZWtpdC5TdHJlYW1P",
-            "dXRwdXQSNQoPc2VnbWVudF9vdXRwdXRzGAsgAygLMhwubGl2ZWtpdC5TZWdt",
-            "ZW50ZWRGaWxlT3V0cHV0EisKDWltYWdlX291dHB1dHMYDSADKAsyFC5saXZl",
-            "a2l0LkltYWdlT3V0cHV0EigKCHdlYmhvb2tzGA4gAygLMhYubGl2ZWtpdC5X",
-            "ZWJob29rQ29uZmlnQggKBm91dHB1dEIJCgdvcHRpb25zIq8DChhQYXJ0aWNp",
-            "cGFudEVncmVzc1JlcXVlc3QSEQoJcm9vbV9uYW1lGAEgASgJEhAKCGlkZW50",
-            "aXR5GAIgASgJEhQKDHNjcmVlbl9zaGFyZRgDIAEoCBIwCgZwcmVzZXQYBCAB",
-            "KA4yHi5saXZla2l0LkVuY29kaW5nT3B0aW9uc1ByZXNldEgAEiwKCGFkdmFu",
-            "Y2VkGAUgASgLMhgubGl2ZWtpdC5FbmNvZGluZ09wdGlvbnNIABIwCgxmaWxl",
-            "X291dHB1dHMYBiADKAsyGi5saXZla2l0LkVuY29kZWRGaWxlT3V0cHV0Ei0K",
-            "DnN0cmVhbV9vdXRwdXRzGAcgAygLMhUubGl2ZWtpdC5TdHJlYW1PdXRwdXQS",
-            "NQoPc2VnbWVudF9vdXRwdXRzGAggAygLMhwubGl2ZWtpdC5TZWdtZW50ZWRG",
-            "aWxlT3V0cHV0EisKDWltYWdlX291dHB1dHMYCSADKAsyFC5saXZla2l0Lklt",
-            "YWdlT3V0cHV0EigKCHdlYmhvb2tzGAogAygLMhYubGl2ZWtpdC5XZWJob29r",
-            "Q29uZmlnQgkKB29wdGlvbnMi+QQKG1RyYWNrQ29tcG9zaXRlRWdyZXNzUmVx",
-            "dWVzdBIRCglyb29tX25hbWUYASABKAkSJwoOYXVkaW9fdHJhY2tfaWQYAiAB",
-            "KAlCD7pQDGF1ZGlvVHJhY2tJRBInCg52aWRlb190cmFja19pZBgDIAEoCUIP",
-            "ulAMdmlkZW9UcmFja0lEEi4KBGZpbGUYBCABKAsyGi5saXZla2l0LkVuY29k",
-            "ZWRGaWxlT3V0cHV0QgIYAUgAEisKBnN0cmVhbRgFIAEoCzIVLmxpdmVraXQu",
-            "U3RyZWFtT3V0cHV0QgIYAUgAEjQKCHNlZ21lbnRzGAggASgLMhwubGl2ZWtp",
-            "dC5TZWdtZW50ZWRGaWxlT3V0cHV0QgIYAUgAEjAKBnByZXNldBgGIAEoDjIe",
-            "LmxpdmVraXQuRW5jb2RpbmdPcHRpb25zUHJlc2V0SAESLAoIYWR2YW5jZWQY",
-            "ByABKAsyGC5saXZla2l0LkVuY29kaW5nT3B0aW9uc0gBEjAKDGZpbGVfb3V0",
-            "cHV0cxgLIAMoCzIaLmxpdmVraXQuRW5jb2RlZEZpbGVPdXRwdXQSLQoOc3Ry",
-            "ZWFtX291dHB1dHMYDCADKAsyFS5saXZla2l0LlN0cmVhbU91dHB1dBI1Cg9z",
-            "ZWdtZW50X291dHB1dHMYDSADKAsyHC5saXZla2l0LlNlZ21lbnRlZEZpbGVP",
-            "dXRwdXQSKwoNaW1hZ2Vfb3V0cHV0cxgOIAMoCzIULmxpdmVraXQuSW1hZ2VP",
-            "dXRwdXQSKAoId2ViaG9va3MYDyADKAsyFi5saXZla2l0LldlYmhvb2tDb25m",
-            "aWdCCAoGb3V0cHV0QgkKB29wdGlvbnMivQEKElRyYWNrRWdyZXNzUmVxdWVz",
-            "dBIRCglyb29tX25hbWUYASABKAkSHAoIdHJhY2tfaWQYAiABKAlCCrpQB3Ry",
-            "YWNrSUQSKQoEZmlsZRgDIAEoCzIZLmxpdmVraXQuRGlyZWN0RmlsZU91dHB1",
-            "dEgAEhcKDXdlYnNvY2tldF91cmwYBCABKAlIABIoCgh3ZWJob29rcxgFIAMo",
-            "CzIWLmxpdmVraXQuV2ViaG9va0NvbmZpZ0IICgZvdXRwdXQi4AEKEERpcmVj",
-            "dEZpbGVPdXRwdXQSEAoIZmlsZXBhdGgYASABKAkSGAoQZGlzYWJsZV9tYW5p",
-            "ZmVzdBgFIAEoCBIfCgJzMxgCIAEoCzIRLmxpdmVraXQuUzNVcGxvYWRIABIh",
-            "CgNnY3AYAyABKAsyEi5saXZla2l0LkdDUFVwbG9hZEgAEikKBWF6dXJlGAQg",
-            "ASgLMhgubGl2ZWtpdC5BenVyZUJsb2JVcGxvYWRIABInCgZhbGlPU1MYBiAB",
-            "KAsyFS5saXZla2l0LkFsaU9TU1VwbG9hZEgAQggKBm91dHB1dCKOAgoRRW5j",
-            "b2RlZEZpbGVPdXRwdXQSKwoJZmlsZV90eXBlGAEgASgOMhgubGl2ZWtpdC5F",
-            "bmNvZGVkRmlsZVR5cGUSEAoIZmlsZXBhdGgYAiABKAkSGAoQZGlzYWJsZV9t",
-            "YW5pZmVzdBgGIAEoCBIfCgJzMxgDIAEoCzIRLmxpdmVraXQuUzNVcGxvYWRI",
-            "ABIhCgNnY3AYBCABKAsyEi5saXZla2l0LkdDUFVwbG9hZEgAEikKBWF6dXJl",
-            "GAUgASgLMhgubGl2ZWtpdC5BenVyZUJsb2JVcGxvYWRIABInCgZhbGlPU1MY",
-            "ByABKAsyFS5saXZla2l0LkFsaU9TU1VwbG9hZEgAQggKBm91dHB1dCJFChNV",
-            "cGRhdGVMYXlvdXRSZXF1ZXN0Eh4KCWVncmVzc19pZBgBIAEoCUILulAIZWdy",
-            "ZXNzSUQSDgoGbGF5b3V0GAIgASgJImoKE1VwZGF0ZVN0cmVhbVJlcXVlc3QS",
-            "HgoJZWdyZXNzX2lkGAEgASgJQgu6UAhlZ3Jlc3NJRBIXCg9hZGRfb3V0cHV0",
-            "X3VybHMYAiADKAkSGgoScmVtb3ZlX291dHB1dF91cmxzGAMgAygJIjMKDlN0",
-            "cmVhbUluZm9MaXN0EiEKBGluZm8YASADKAsyEy5saXZla2l0LlN0cmVhbUlu",
-            "Zm8qVwoMQXVkaW9DaGFubmVsEhYKEkFVRElPX0NIQU5ORUxfQk9USBAAEhYK",
-            "EkFVRElPX0NIQU5ORUxfTEVGVBABEhcKE0FVRElPX0NIQU5ORUxfUklHSFQQ",
-            "AirPAQoVRW5jb2RpbmdPcHRpb25zUHJlc2V0EhAKDEgyNjRfNzIwUF8zMBAA",
-            "EhAKDEgyNjRfNzIwUF82MBABEhEKDUgyNjRfMTA4MFBfMzAQAhIRCg1IMjY0",
-            "XzEwODBQXzYwEAMSGQoVUE9SVFJBSVRfSDI2NF83MjBQXzMwEAQSGQoVUE9S",
-            "VFJBSVRfSDI2NF83MjBQXzYwEAUSGgoWUE9SVFJBSVRfSDI2NF8xMDgwUF8z",
-            "MBAGEhoKFlBPUlRSQUlUX0gyNjRfMTA4MFBfNjAQBypCCg9FbmNvZGVkRmls",
-            "ZVR5cGUSFAoQREVGQVVMVF9GSUxFVFlQRRAAEgcKA01QNBABEgcKA09HRxAC",
-            "EgcKA01QMxADKkgKDlN0cmVhbVByb3RvY29sEhQKEERFRkFVTFRfUFJPVE9D",
-            "T0wQABIICgRSVE1QEAESBwoDU1JUEAISDQoJV0VCU09DS0VUEAMqTgoVU2Vn",
-            "bWVudGVkRmlsZVByb3RvY29sEiMKH0RFRkFVTFRfU0VHTUVOVEVEX0ZJTEVf",
-            "UFJPVE9DT0wQABIQCgxITFNfUFJPVE9DT0wQASovChNTZWdtZW50ZWRGaWxl",
-            "U3VmZml4EgkKBUlOREVYEAASDQoJVElNRVNUQU1QEAEqZgoPSW1hZ2VGaWxl",
-            "U3VmZml4EhYKEklNQUdFX1NVRkZJWF9JTkRFWBAAEhoKFklNQUdFX1NVRkZJ",
-            "WF9USU1FU1RBTVAQARIfChtJTUFHRV9TVUZGSVhfTk9ORV9PVkVSV1JJVEUQ",
-            "AipKChBFZ3Jlc3NTb3VyY2VUeXBlEhoKFkVHUkVTU19TT1VSQ0VfVFlQRV9X",
-            "RUIQABIaChZFR1JFU1NfU09VUkNFX1RZUEVfU0RLEAEqnwEKDEVncmVzc1N0",
-            "YXR1cxITCg9FR1JFU1NfU1RBUlRJTkcQABIRCg1FR1JFU1NfQUNUSVZFEAES",
-            "EQoNRUdSRVNTX0VORElORxACEhMKD0VHUkVTU19DT01QTEVURRADEhEKDUVH",
-            "UkVTU19GQUlMRUQQBBISCg5FR1JFU1NfQUJPUlRFRBAFEhgKFEVHUkVTU19M",
-            "SU1JVF9SRUFDSEVEEAYqVQoLQXVkaW9NaXhpbmcSEgoOREVGQVVMVF9NSVhJ",
-            "TkcQABIWChJEVUFMX0NIQU5ORUxfQUdFTlQQARIaChZEVUFMX0NIQU5ORUxf",
-            "QUxURVJOQVRFEAIy3QUKBkVncmVzcxI/CgtTdGFydEVncmVzcxIbLmxpdmVr",
-            "aXQuU3RhcnRFZ3Jlc3NSZXF1ZXN0GhMubGl2ZWtpdC5FZ3Jlc3NJbmZvEkEK",
-            "DFVwZGF0ZUxheW91dBIcLmxpdmVraXQuVXBkYXRlTGF5b3V0UmVxdWVzdBoT",
-            "LmxpdmVraXQuRWdyZXNzSW5mbxJBCgxVcGRhdGVTdHJlYW0SHC5saXZla2l0",
-            "LlVwZGF0ZVN0cmVhbVJlcXVlc3QaEy5saXZla2l0LkVncmVzc0luZm8SRQoK",
-            "TGlzdEVncmVzcxIaLmxpdmVraXQuTGlzdEVncmVzc1JlcXVlc3QaGy5saXZl",
-            "a2l0Lkxpc3RFZ3Jlc3NSZXNwb25zZRI9CgpTdG9wRWdyZXNzEhoubGl2ZWtp",
-            "dC5TdG9wRWdyZXNzUmVxdWVzdBoTLmxpdmVraXQuRWdyZXNzSW5mbxJUChhT",
-            "dGFydFJvb21Db21wb3NpdGVFZ3Jlc3MSIy5saXZla2l0LlJvb21Db21wb3Np",
-            "dGVFZ3Jlc3NSZXF1ZXN0GhMubGl2ZWtpdC5FZ3Jlc3NJbmZvEkAKDlN0YXJ0",
-            "V2ViRWdyZXNzEhkubGl2ZWtpdC5XZWJFZ3Jlc3NSZXF1ZXN0GhMubGl2ZWtp",
-            "dC5FZ3Jlc3NJbmZvElAKFlN0YXJ0UGFydGljaXBhbnRFZ3Jlc3MSIS5saXZl",
-            "a2l0LlBhcnRpY2lwYW50RWdyZXNzUmVxdWVzdBoTLmxpdmVraXQuRWdyZXNz",
-            "SW5mbxJWChlTdGFydFRyYWNrQ29tcG9zaXRlRWdyZXNzEiQubGl2ZWtpdC5U",
-            "cmFja0NvbXBvc2l0ZUVncmVzc1JlcXVlc3QaEy5saXZla2l0LkVncmVzc0lu",
-            "Zm8SRAoQU3RhcnRUcmFja0VncmVzcxIbLmxpdmVraXQuVHJhY2tFZ3Jlc3NS",
-            "ZXF1ZXN0GhMubGl2ZWtpdC5FZ3Jlc3NJbmZvQkZaI2dpdGh1Yi5jb20vbGl2",
-            "ZWtpdC9wcm90b2NvbC9saXZla2l0qgINTGl2ZUtpdC5Qcm90b+oCDkxpdmVL",
-            "aXQ6OlByb3RvYgZwcm90bzM="));
+            "cm90b2NvbBIMCgR1cmxzGAIgAygJEjAKDGRlc3RpbmF0aW9ucxgDIAMoCzIa",
+            "LmxpdmVraXQuU3RyZWFtRGVzdGluYXRpb24iLAoRU3RyZWFtRGVzdGluYXRp",
+            "b24SCgoCaWQYASABKAkSCwoDdXJsGAIgASgJIqADChNTZWdtZW50ZWRGaWxl",
+            "T3V0cHV0EjAKCHByb3RvY29sGAEgASgOMh4ubGl2ZWtpdC5TZWdtZW50ZWRG",
+            "aWxlUHJvdG9jb2wSFwoPZmlsZW5hbWVfcHJlZml4GAIgASgJEhUKDXBsYXls",
+            "aXN0X25hbWUYAyABKAkSGgoSbGl2ZV9wbGF5bGlzdF9uYW1lGAsgASgJEhgK",
+            "EHNlZ21lbnRfZHVyYXRpb24YBCABKA0SNQoPZmlsZW5hbWVfc3VmZml4GAog",
+            "ASgOMhwubGl2ZWtpdC5TZWdtZW50ZWRGaWxlU3VmZml4EhgKEGRpc2FibGVf",
+            "bWFuaWZlc3QYCCABKAgSHwoCczMYBSABKAsyES5saXZla2l0LlMzVXBsb2Fk",
+            "SAASIQoDZ2NwGAYgASgLMhIubGl2ZWtpdC5HQ1BVcGxvYWRIABIpCgVhenVy",
+            "ZRgHIAEoCzIYLmxpdmVraXQuQXp1cmVCbG9iVXBsb2FkSAASJwoGYWxpT1NT",
+            "GAkgASgLMhUubGl2ZWtpdC5BbGlPU1NVcGxvYWRIAEIICgZvdXRwdXQi+AIK",
+            "C0ltYWdlT3V0cHV0EhgKEGNhcHR1cmVfaW50ZXJ2YWwYASABKA0SDQoFd2lk",
+            "dGgYAiABKAUSDgoGaGVpZ2h0GAMgASgFEhcKD2ZpbGVuYW1lX3ByZWZpeBgE",
+            "IAEoCRIxCg9maWxlbmFtZV9zdWZmaXgYBSABKA4yGC5saXZla2l0LkltYWdl",
+            "RmlsZVN1ZmZpeBIoCgtpbWFnZV9jb2RlYxgGIAEoDjITLmxpdmVraXQuSW1h",
+            "Z2VDb2RlYxIYChBkaXNhYmxlX21hbmlmZXN0GAcgASgIEh8KAnMzGAggASgL",
+            "MhEubGl2ZWtpdC5TM1VwbG9hZEgAEiEKA2djcBgJIAEoCzISLmxpdmVraXQu",
+            "R0NQVXBsb2FkSAASKQoFYXp1cmUYCiABKAsyGC5saXZla2l0LkF6dXJlQmxv",
+            "YlVwbG9hZEgAEicKBmFsaU9TUxgLIAEoCzIVLmxpdmVraXQuQWxpT1NTVXBs",
+            "b2FkSABCCAoGb3V0cHV0IrMBCg1TdG9yYWdlQ29uZmlnEh8KAnMzGAEgASgL",
+            "MhEubGl2ZWtpdC5TM1VwbG9hZEgAEiEKA2djcBgCIAEoCzISLmxpdmVraXQu",
+            "R0NQVXBsb2FkSAASKQoFYXp1cmUYAyABKAsyGC5saXZla2l0LkF6dXJlQmxv",
+            "YlVwbG9hZEgAEicKBmFsaU9TUxgEIAEoCzIVLmxpdmVraXQuQWxpT1NTVXBs",
+            "b2FkSABCCgoIcHJvdmlkZXIiwQMKCFMzVXBsb2FkEhcKCmFjY2Vzc19rZXkY",
+            "ASABKAlCA8BQAhITCgZzZWNyZXQYAiABKAlCA8BQAhIaCg1zZXNzaW9uX3Rv",
+            "a2VuGAsgASgJQgPAUAISHAoPYXNzdW1lX3JvbGVfYXJuGAwgASgJQgPAUAES",
+            "OwoXYXNzdW1lX3JvbGVfZXh0ZXJuYWxfaWQYDSABKAlCGrpQFGFzc3VtZVJv",
+            "bGVFeHRlcm5hbElEwFACEg4KBnJlZ2lvbhgDIAEoCRIQCghlbmRwb2ludBgE",
+            "IAEoCRIOCgZidWNrZXQYBSABKAkSGAoQZm9yY2VfcGF0aF9zdHlsZRgGIAEo",
+            "CBI2CghtZXRhZGF0YRgHIAMoCzIfLmxpdmVraXQuUzNVcGxvYWQuTWV0YWRh",
+            "dGFFbnRyeUIDwFABEhQKB3RhZ2dpbmcYCCABKAlCA8BQARIgChNjb250ZW50",
+            "X2Rpc3Bvc2l0aW9uGAkgASgJQgPAUAESIwoFcHJveHkYCiABKAsyFC5saXZl",
+            "a2l0LlByb3h5Q29uZmlnGi8KDU1ldGFkYXRhRW50cnkSCwoDa2V5GAEgASgJ",
+            "Eg0KBXZhbHVlGAIgASgJOgI4ASJaCglHQ1BVcGxvYWQSGAoLY3JlZGVudGlh",
+            "bHMYASABKAlCA8BQAhIOCgZidWNrZXQYAiABKAkSIwoFcHJveHkYAyABKAsy",
+            "FC5saXZla2l0LlByb3h5Q29uZmlnIl4KD0F6dXJlQmxvYlVwbG9hZBIZCgxh",
+            "Y2NvdW50X25hbWUYASABKAlCA8BQARIYCgthY2NvdW50X2tleRgCIAEoCUID",
+            "wFACEhYKDmNvbnRhaW5lcl9uYW1lGAMgASgJIm4KDEFsaU9TU1VwbG9hZBIX",
+            "CgphY2Nlc3Nfa2V5GAEgASgJQgPAUAISEwoGc2VjcmV0GAIgASgJQgPAUAIS",
+            "DgoGcmVnaW9uGAMgASgJEhAKCGVuZHBvaW50GAQgASgJEg4KBmJ1Y2tldBgF",
+            "IAEoCSJDCgtQcm94eUNvbmZpZxILCgN1cmwYASABKAkSEAoIdXNlcm5hbWUY",
+            "AiABKAkSFQoIcGFzc3dvcmQYAyABKAlCA8BQAiKEAQoRTGlzdEVncmVzc1Jl",
+            "cXVlc3QSEQoJcm9vbV9uYW1lGAEgASgJEh4KCWVncmVzc19pZBgCIAEoCUIL",
+            "ulAIZWdyZXNzSUQSDgoGYWN0aXZlGAMgASgIEiwKCnBhZ2VfdG9rZW4YBCAB",
+            "KAsyGC5saXZla2l0LlRva2VuUGFnaW5hdGlvbiJrChJMaXN0RWdyZXNzUmVz",
+            "cG9uc2USIgoFaXRlbXMYASADKAsyEy5saXZla2l0LkVncmVzc0luZm8SMQoP",
+            "bmV4dF9wYWdlX3Rva2VuGAIgASgLMhgubGl2ZWtpdC5Ub2tlblBhZ2luYXRp",
+            "b24iMwoRU3RvcEVncmVzc1JlcXVlc3QSHgoJZWdyZXNzX2lkGAEgASgJQgu6",
+            "UAhlZ3Jlc3NJRCKqCAoKRWdyZXNzSW5mbxIeCgllZ3Jlc3NfaWQYASABKAlC",
+            "C7pQCGVncmVzc0lEEhoKB3Jvb21faWQYAiABKAlCCbpQBnJvb21JRBIRCgly",
+            "b29tX25hbWUYDSABKAkSLgoLc291cmNlX3R5cGUYGiABKA4yGS5saXZla2l0",
+            "LkVncmVzc1NvdXJjZVR5cGUSJQoGc3RhdHVzGAMgASgOMhUubGl2ZWtpdC5F",
+            "Z3Jlc3NTdGF0dXMSEgoKc3RhcnRlZF9hdBgKIAEoAxIQCghlbmRlZF9hdBgL",
+            "IAEoAxISCgp1cGRhdGVkX2F0GBIgASgDEi0KBmVncmVzcxgdIAEoCzIbLmxp",
+            "dmVraXQuU3RhcnRFZ3Jlc3NSZXF1ZXN0SAASLgoGcmVwbGF5GB4gASgLMhwu",
+            "bGl2ZWtpdC5FeHBvcnRSZXBsYXlSZXF1ZXN0SAASPQoOcm9vbV9jb21wb3Np",
+            "dGUYBCABKAsyIy5saXZla2l0LlJvb21Db21wb3NpdGVFZ3Jlc3NSZXF1ZXN0",
+            "SAASKAoDd2ViGA4gASgLMhkubGl2ZWtpdC5XZWJFZ3Jlc3NSZXF1ZXN0SAAS",
+            "OAoLcGFydGljaXBhbnQYEyABKAsyIS5saXZla2l0LlBhcnRpY2lwYW50RWdy",
+            "ZXNzUmVxdWVzdEgAEj8KD3RyYWNrX2NvbXBvc2l0ZRgFIAEoCzIkLmxpdmVr",
+            "aXQuVHJhY2tDb21wb3NpdGVFZ3Jlc3NSZXF1ZXN0SAASLAoFdHJhY2sYBiAB",
+            "KAsyGy5saXZla2l0LlRyYWNrRWdyZXNzUmVxdWVzdEgAEisKDnN0cmVhbV9y",
+            "ZXN1bHRzGA8gAygLMhMubGl2ZWtpdC5TdHJlYW1JbmZvEicKDGZpbGVfcmVz",
+            "dWx0cxgQIAMoCzIRLmxpdmVraXQuRmlsZUluZm8SLgoPc2VnbWVudF9yZXN1",
+            "bHRzGBEgAygLMhUubGl2ZWtpdC5TZWdtZW50c0luZm8SKgoNaW1hZ2VfcmVz",
+            "dWx0cxgUIAMoCzITLmxpdmVraXQuSW1hZ2VzSW5mbxINCgVlcnJvchgJIAEo",
+            "CRISCgplcnJvcl9jb2RlGBYgASgFEg8KB2RldGFpbHMYFSABKAkSGQoRbWFu",
+            "aWZlc3RfbG9jYXRpb24YFyABKAkSGwoTYmFja3VwX3N0b3JhZ2VfdXNlZBgZ",
+            "IAEoCBITCgtyZXRyeV9jb3VudBgbIAEoBRItCgZzdHJlYW0YByABKAsyFy5s",
+            "aXZla2l0LlN0cmVhbUluZm9MaXN0QgIYAUgBEiUKBGZpbGUYCCABKAsyES5s",
+            "aXZla2l0LkZpbGVJbmZvQgIYAUgBEi0KCHNlZ21lbnRzGAwgASgLMhUubGl2",
+            "ZWtpdC5TZWdtZW50c0luZm9CAhgBSAFCCQoHcmVxdWVzdEIICgZyZXN1bHQi",
+            "8AEKClN0cmVhbUluZm8SCwoDdXJsGAEgASgJEhIKCnN0YXJ0ZWRfYXQYAiAB",
+            "KAMSEAoIZW5kZWRfYXQYAyABKAMSEAoIZHVyYXRpb24YBCABKAMSKgoGc3Rh",
+            "dHVzGAUgASgOMhoubGl2ZWtpdC5TdHJlYW1JbmZvLlN0YXR1cxINCgVlcnJv",
+            "chgGIAEoCRIVCg1sYXN0X3JldHJ5X2F0GAcgASgDEg8KB3JldHJpZXMYCCAB",
+            "KA0SCgoCaWQYCSABKAkiLgoGU3RhdHVzEgoKBkFDVElWRRAAEgwKCEZJTklT",
+            "SEVEEAESCgoGRkFJTEVEEAIidAoIRmlsZUluZm8SEAoIZmlsZW5hbWUYASAB",
+            "KAkSEgoKc3RhcnRlZF9hdBgCIAEoAxIQCghlbmRlZF9hdBgDIAEoAxIQCghk",
+            "dXJhdGlvbhgGIAEoAxIMCgRzaXplGAQgASgDEhAKCGxvY2F0aW9uGAUgASgJ",
+            "ItkBCgxTZWdtZW50c0luZm8SFQoNcGxheWxpc3RfbmFtZRgBIAEoCRIaChJs",
+            "aXZlX3BsYXlsaXN0X25hbWUYCCABKAkSEAoIZHVyYXRpb24YAiABKAMSDAoE",
+            "c2l6ZRgDIAEoAxIZChFwbGF5bGlzdF9sb2NhdGlvbhgEIAEoCRIeChZsaXZl",
+            "X3BsYXlsaXN0X2xvY2F0aW9uGAkgASgJEhUKDXNlZ21lbnRfY291bnQYBSAB",
+            "KAMSEgoKc3RhcnRlZF9hdBgGIAEoAxIQCghlbmRlZF9hdBgHIAEoAyJgCgpJ",
+            "bWFnZXNJbmZvEhcKD2ZpbGVuYW1lX3ByZWZpeBgEIAEoCRITCgtpbWFnZV9j",
+            "b3VudBgBIAEoAxISCgpzdGFydGVkX2F0GAIgASgDEhAKCGVuZGVkX2F0GAMg",
+            "ASgDIusBChVBdXRvUGFydGljaXBhbnRFZ3Jlc3MSMAoGcHJlc2V0GAEgASgO",
+            "Mh4ubGl2ZWtpdC5FbmNvZGluZ09wdGlvbnNQcmVzZXRIABIsCghhZHZhbmNl",
+            "ZBgCIAEoCzIYLmxpdmVraXQuRW5jb2RpbmdPcHRpb25zSAASMAoMZmlsZV9v",
+            "dXRwdXRzGAMgAygLMhoubGl2ZWtpdC5FbmNvZGVkRmlsZU91dHB1dBI1Cg9z",
+            "ZWdtZW50X291dHB1dHMYBCADKAsyHC5saXZla2l0LlNlZ21lbnRlZEZpbGVP",
+            "dXRwdXRCCQoHb3B0aW9ucyLfAQoPQXV0b1RyYWNrRWdyZXNzEhAKCGZpbGVw",
+            "YXRoGAEgASgJEhgKEGRpc2FibGVfbWFuaWZlc3QYBSABKAgSHwoCczMYAiAB",
+            "KAsyES5saXZla2l0LlMzVXBsb2FkSAASIQoDZ2NwGAMgASgLMhIubGl2ZWtp",
+            "dC5HQ1BVcGxvYWRIABIpCgVhenVyZRgEIAEoCzIYLmxpdmVraXQuQXp1cmVC",
+            "bG9iVXBsb2FkSAASJwoGYWxpT1NTGAYgASgLMhUubGl2ZWtpdC5BbGlPU1NV",
+            "cGxvYWRIAEIICgZvdXRwdXQixwMKE0V4cG9ydFJlcGxheVJlcXVlc3QSHgoJ",
+            "cmVwbGF5X2lkGAEgASgJQgu6UAhyZXBsYXlJRBIXCg9zdGFydF9vZmZzZXRf",
+            "bXMYAiABKAMSFQoNZW5kX29mZnNldF9tcxgDIAEoAxIrCgh0ZW1wbGF0ZRgE",
+            "IAEoCzIXLmxpdmVraXQuVGVtcGxhdGVTb3VyY2VIABIhCgN3ZWIYBSABKAsy",
+            "Ei5saXZla2l0LldlYlNvdXJjZUgAEiUKBW1lZGlhGAYgASgLMhQubGl2ZWtp",
+            "dC5NZWRpYVNvdXJjZUgAEjAKBnByZXNldBgHIAEoDjIeLmxpdmVraXQuRW5j",
+            "b2RpbmdPcHRpb25zUHJlc2V0SAESLAoIYWR2YW5jZWQYCCABKAsyGC5saXZl",
+            "a2l0LkVuY29kaW5nT3B0aW9uc0gBEiAKB291dHB1dHMYCSADKAsyDy5saXZl",
+            "a2l0Lk91dHB1dBInCgdzdG9yYWdlGAogASgLMhYubGl2ZWtpdC5TdG9yYWdl",
+            "Q29uZmlnEigKCHdlYmhvb2tzGAsgAygLMhYubGl2ZWtpdC5XZWJob29rQ29u",
+            "ZmlnQggKBnNvdXJjZUIKCghlbmNvZGluZyKjBQoaUm9vbUNvbXBvc2l0ZUVn",
+            "cmVzc1JlcXVlc3QSEQoJcm9vbV9uYW1lGAEgASgJEg4KBmxheW91dBgCIAEo",
+            "CRISCgphdWRpb19vbmx5GAMgASgIEioKDGF1ZGlvX21peGluZxgPIAEoDjIU",
+            "LmxpdmVraXQuQXVkaW9NaXhpbmcSEgoKdmlkZW9fb25seRgEIAEoCBIXCg9j",
+            "dXN0b21fYmFzZV91cmwYBSABKAkSLgoEZmlsZRgGIAEoCzIaLmxpdmVraXQu",
+            "RW5jb2RlZEZpbGVPdXRwdXRCAhgBSAASKwoGc3RyZWFtGAcgASgLMhUubGl2",
+            "ZWtpdC5TdHJlYW1PdXRwdXRCAhgBSAASNAoIc2VnbWVudHMYCiABKAsyHC5s",
+            "aXZla2l0LlNlZ21lbnRlZEZpbGVPdXRwdXRCAhgBSAASMAoGcHJlc2V0GAgg",
+            "ASgOMh4ubGl2ZWtpdC5FbmNvZGluZ09wdGlvbnNQcmVzZXRIARIsCghhZHZh",
+            "bmNlZBgJIAEoCzIYLmxpdmVraXQuRW5jb2RpbmdPcHRpb25zSAESMAoMZmls",
+            "ZV9vdXRwdXRzGAsgAygLMhoubGl2ZWtpdC5FbmNvZGVkRmlsZU91dHB1dBIt",
+            "Cg5zdHJlYW1fb3V0cHV0cxgMIAMoCzIVLmxpdmVraXQuU3RyZWFtT3V0cHV0",
+            "EjUKD3NlZ21lbnRfb3V0cHV0cxgNIAMoCzIcLmxpdmVraXQuU2VnbWVudGVk",
+            "RmlsZU91dHB1dBIrCg1pbWFnZV9vdXRwdXRzGA4gAygLMhQubGl2ZWtpdC5J",
+            "bWFnZU91dHB1dBIoCgh3ZWJob29rcxgQIAMoCzIWLmxpdmVraXQuV2ViaG9v",
+            "a0NvbmZpZ0IICgZvdXRwdXRCCQoHb3B0aW9ucyLaBAoQV2ViRWdyZXNzUmVx",
+            "dWVzdBILCgN1cmwYASABKAkSEgoKYXVkaW9fb25seRgCIAEoCBISCgp2aWRl",
+            "b19vbmx5GAMgASgIEhoKEmF3YWl0X3N0YXJ0X3NpZ25hbBgMIAEoCBIuCgRm",
+            "aWxlGAQgASgLMhoubGl2ZWtpdC5FbmNvZGVkRmlsZU91dHB1dEICGAFIABIr",
+            "CgZzdHJlYW0YBSABKAsyFS5saXZla2l0LlN0cmVhbU91dHB1dEICGAFIABI0",
+            "CghzZWdtZW50cxgGIAEoCzIcLmxpdmVraXQuU2VnbWVudGVkRmlsZU91dHB1",
+            "dEICGAFIABIwCgZwcmVzZXQYByABKA4yHi5saXZla2l0LkVuY29kaW5nT3B0",
+            "aW9uc1ByZXNldEgBEiwKCGFkdmFuY2VkGAggASgLMhgubGl2ZWtpdC5FbmNv",
+            "ZGluZ09wdGlvbnNIARIwCgxmaWxlX291dHB1dHMYCSADKAsyGi5saXZla2l0",
+            "LkVuY29kZWRGaWxlT3V0cHV0Ei0KDnN0cmVhbV9vdXRwdXRzGAogAygLMhUu",
+            "bGl2ZWtpdC5TdHJlYW1PdXRwdXQSNQoPc2VnbWVudF9vdXRwdXRzGAsgAygL",
+            "MhwubGl2ZWtpdC5TZWdtZW50ZWRGaWxlT3V0cHV0EisKDWltYWdlX291dHB1",
+            "dHMYDSADKAsyFC5saXZla2l0LkltYWdlT3V0cHV0EigKCHdlYmhvb2tzGA4g",
+            "AygLMhYubGl2ZWtpdC5XZWJob29rQ29uZmlnQggKBm91dHB1dEIJCgdvcHRp",
+            "b25zIq8DChhQYXJ0aWNpcGFudEVncmVzc1JlcXVlc3QSEQoJcm9vbV9uYW1l",
+            "GAEgASgJEhAKCGlkZW50aXR5GAIgASgJEhQKDHNjcmVlbl9zaGFyZRgDIAEo",
+            "CBIwCgZwcmVzZXQYBCABKA4yHi5saXZla2l0LkVuY29kaW5nT3B0aW9uc1By",
+            "ZXNldEgAEiwKCGFkdmFuY2VkGAUgASgLMhgubGl2ZWtpdC5FbmNvZGluZ09w",
+            "dGlvbnNIABIwCgxmaWxlX291dHB1dHMYBiADKAsyGi5saXZla2l0LkVuY29k",
+            "ZWRGaWxlT3V0cHV0Ei0KDnN0cmVhbV9vdXRwdXRzGAcgAygLMhUubGl2ZWtp",
+            "dC5TdHJlYW1PdXRwdXQSNQoPc2VnbWVudF9vdXRwdXRzGAggAygLMhwubGl2",
+            "ZWtpdC5TZWdtZW50ZWRGaWxlT3V0cHV0EisKDWltYWdlX291dHB1dHMYCSAD",
+            "KAsyFC5saXZla2l0LkltYWdlT3V0cHV0EigKCHdlYmhvb2tzGAogAygLMhYu",
+            "bGl2ZWtpdC5XZWJob29rQ29uZmlnQgkKB29wdGlvbnMi+QQKG1RyYWNrQ29t",
+            "cG9zaXRlRWdyZXNzUmVxdWVzdBIRCglyb29tX25hbWUYASABKAkSJwoOYXVk",
+            "aW9fdHJhY2tfaWQYAiABKAlCD7pQDGF1ZGlvVHJhY2tJRBInCg52aWRlb190",
+            "cmFja19pZBgDIAEoCUIPulAMdmlkZW9UcmFja0lEEi4KBGZpbGUYBCABKAsy",
+            "Gi5saXZla2l0LkVuY29kZWRGaWxlT3V0cHV0QgIYAUgAEisKBnN0cmVhbRgF",
+            "IAEoCzIVLmxpdmVraXQuU3RyZWFtT3V0cHV0QgIYAUgAEjQKCHNlZ21lbnRz",
+            "GAggASgLMhwubGl2ZWtpdC5TZWdtZW50ZWRGaWxlT3V0cHV0QgIYAUgAEjAK",
+            "BnByZXNldBgGIAEoDjIeLmxpdmVraXQuRW5jb2RpbmdPcHRpb25zUHJlc2V0",
+            "SAESLAoIYWR2YW5jZWQYByABKAsyGC5saXZla2l0LkVuY29kaW5nT3B0aW9u",
+            "c0gBEjAKDGZpbGVfb3V0cHV0cxgLIAMoCzIaLmxpdmVraXQuRW5jb2RlZEZp",
+            "bGVPdXRwdXQSLQoOc3RyZWFtX291dHB1dHMYDCADKAsyFS5saXZla2l0LlN0",
+            "cmVhbU91dHB1dBI1Cg9zZWdtZW50X291dHB1dHMYDSADKAsyHC5saXZla2l0",
+            "LlNlZ21lbnRlZEZpbGVPdXRwdXQSKwoNaW1hZ2Vfb3V0cHV0cxgOIAMoCzIU",
+            "LmxpdmVraXQuSW1hZ2VPdXRwdXQSKAoId2ViaG9va3MYDyADKAsyFi5saXZl",
+            "a2l0LldlYmhvb2tDb25maWdCCAoGb3V0cHV0QgkKB29wdGlvbnMivQEKElRy",
+            "YWNrRWdyZXNzUmVxdWVzdBIRCglyb29tX25hbWUYASABKAkSHAoIdHJhY2tf",
+            "aWQYAiABKAlCCrpQB3RyYWNrSUQSKQoEZmlsZRgDIAEoCzIZLmxpdmVraXQu",
+            "RGlyZWN0RmlsZU91dHB1dEgAEhcKDXdlYnNvY2tldF91cmwYBCABKAlIABIo",
+            "Cgh3ZWJob29rcxgFIAMoCzIWLmxpdmVraXQuV2ViaG9va0NvbmZpZ0IICgZv",
+            "dXRwdXQi4AEKEERpcmVjdEZpbGVPdXRwdXQSEAoIZmlsZXBhdGgYASABKAkS",
+            "GAoQZGlzYWJsZV9tYW5pZmVzdBgFIAEoCBIfCgJzMxgCIAEoCzIRLmxpdmVr",
+            "aXQuUzNVcGxvYWRIABIhCgNnY3AYAyABKAsyEi5saXZla2l0LkdDUFVwbG9h",
+            "ZEgAEikKBWF6dXJlGAQgASgLMhgubGl2ZWtpdC5BenVyZUJsb2JVcGxvYWRI",
+            "ABInCgZhbGlPU1MYBiABKAsyFS5saXZla2l0LkFsaU9TU1VwbG9hZEgAQggK",
+            "Bm91dHB1dCKOAgoRRW5jb2RlZEZpbGVPdXRwdXQSKwoJZmlsZV90eXBlGAEg",
+            "ASgOMhgubGl2ZWtpdC5FbmNvZGVkRmlsZVR5cGUSEAoIZmlsZXBhdGgYAiAB",
+            "KAkSGAoQZGlzYWJsZV9tYW5pZmVzdBgGIAEoCBIfCgJzMxgDIAEoCzIRLmxp",
+            "dmVraXQuUzNVcGxvYWRIABIhCgNnY3AYBCABKAsyEi5saXZla2l0LkdDUFVw",
+            "bG9hZEgAEikKBWF6dXJlGAUgASgLMhgubGl2ZWtpdC5BenVyZUJsb2JVcGxv",
+            "YWRIABInCgZhbGlPU1MYByABKAsyFS5saXZla2l0LkFsaU9TU1VwbG9hZEgA",
+            "QggKBm91dHB1dCJFChNVcGRhdGVMYXlvdXRSZXF1ZXN0Eh4KCWVncmVzc19p",
+            "ZBgBIAEoCUILulAIZWdyZXNzSUQSDgoGbGF5b3V0GAIgASgJIqABChNVcGRh",
+            "dGVTdHJlYW1SZXF1ZXN0Eh4KCWVncmVzc19pZBgBIAEoCUILulAIZWdyZXNz",
+            "SUQSFwoPYWRkX291dHB1dF91cmxzGAIgAygJEhoKEnJlbW92ZV9vdXRwdXRf",
+            "dXJscxgDIAMoCRI0ChBhZGRfZGVzdGluYXRpb25zGAQgAygLMhoubGl2ZWtp",
+            "dC5TdHJlYW1EZXN0aW5hdGlvbiIzCg5TdHJlYW1JbmZvTGlzdBIhCgRpbmZv",
+            "GAEgAygLMhMubGl2ZWtpdC5TdHJlYW1JbmZvKlcKDEF1ZGlvQ2hhbm5lbBIW",
+            "ChJBVURJT19DSEFOTkVMX0JPVEgQABIWChJBVURJT19DSEFOTkVMX0xFRlQQ",
+            "ARIXChNBVURJT19DSEFOTkVMX1JJR0hUEAIq4AEKFUVuY29kaW5nT3B0aW9u",
+            "c1ByZXNldBIQCgxIMjY0XzcyMFBfMzAQABIQCgxIMjY0XzcyMFBfNjAQARIR",
+            "Cg1IMjY0XzEwODBQXzMwEAISEQoNSDI2NF8xMDgwUF82MBADEhkKFVBPUlRS",
+            "QUlUX0gyNjRfNzIwUF8zMBAEEhkKFVBPUlRSQUlUX0gyNjRfNzIwUF82MBAF",
+            "EhoKFlBPUlRSQUlUX0gyNjRfMTA4MFBfMzAQBhIaChZQT1JUUkFJVF9IMjY0",
+            "XzEwODBQXzYwEAcSDwoLUEFTU1RIUk9VR0gQCCpCCg9FbmNvZGVkRmlsZVR5",
+            "cGUSFAoQREVGQVVMVF9GSUxFVFlQRRAAEgcKA01QNBABEgcKA09HRxACEgcK",
+            "A01QMxADKkgKDlN0cmVhbVByb3RvY29sEhQKEERFRkFVTFRfUFJPVE9DT0wQ",
+            "ABIICgRSVE1QEAESBwoDU1JUEAISDQoJV0VCU09DS0VUEAMqZQoVU2VnbWVu",
+            "dGVkRmlsZVByb3RvY29sEiMKH0RFRkFVTFRfU0VHTUVOVEVEX0ZJTEVfUFJP",
+            "VE9DT0wQABIQCgxITFNfUFJPVE9DT0wQARIVChFITFNfRk1QNF9QUk9UT0NP",
+            "TBACKi8KE1NlZ21lbnRlZEZpbGVTdWZmaXgSCQoFSU5ERVgQABINCglUSU1F",
+            "U1RBTVAQASpmCg9JbWFnZUZpbGVTdWZmaXgSFgoSSU1BR0VfU1VGRklYX0lO",
+            "REVYEAASGgoWSU1BR0VfU1VGRklYX1RJTUVTVEFNUBABEh8KG0lNQUdFX1NV",
+            "RkZJWF9OT05FX09WRVJXUklURRACKkoKEEVncmVzc1NvdXJjZVR5cGUSGgoW",
+            "RUdSRVNTX1NPVVJDRV9UWVBFX1dFQhAAEhoKFkVHUkVTU19TT1VSQ0VfVFlQ",
+            "RV9TREsQASqfAQoMRWdyZXNzU3RhdHVzEhMKD0VHUkVTU19TVEFSVElORxAA",
+            "EhEKDUVHUkVTU19BQ1RJVkUQARIRCg1FR1JFU1NfRU5ESU5HEAISEwoPRUdS",
+            "RVNTX0NPTVBMRVRFEAMSEQoNRUdSRVNTX0ZBSUxFRBAEEhIKDkVHUkVTU19B",
+            "Qk9SVEVEEAUSGAoURUdSRVNTX0xJTUlUX1JFQUNIRUQQBipVCgtBdWRpb01p",
+            "eGluZxISCg5ERUZBVUxUX01JWElORxAAEhYKEkRVQUxfQ0hBTk5FTF9BR0VO",
+            "VBABEhoKFkRVQUxfQ0hBTk5FTF9BTFRFUk5BVEUQAjLdBQoGRWdyZXNzEj8K",
+            "C1N0YXJ0RWdyZXNzEhsubGl2ZWtpdC5TdGFydEVncmVzc1JlcXVlc3QaEy5s",
+            "aXZla2l0LkVncmVzc0luZm8SQQoMVXBkYXRlTGF5b3V0EhwubGl2ZWtpdC5V",
+            "cGRhdGVMYXlvdXRSZXF1ZXN0GhMubGl2ZWtpdC5FZ3Jlc3NJbmZvEkEKDFVw",
+            "ZGF0ZVN0cmVhbRIcLmxpdmVraXQuVXBkYXRlU3RyZWFtUmVxdWVzdBoTLmxp",
+            "dmVraXQuRWdyZXNzSW5mbxJFCgpMaXN0RWdyZXNzEhoubGl2ZWtpdC5MaXN0",
+            "RWdyZXNzUmVxdWVzdBobLmxpdmVraXQuTGlzdEVncmVzc1Jlc3BvbnNlEj0K",
+            "ClN0b3BFZ3Jlc3MSGi5saXZla2l0LlN0b3BFZ3Jlc3NSZXF1ZXN0GhMubGl2",
+            "ZWtpdC5FZ3Jlc3NJbmZvElQKGFN0YXJ0Um9vbUNvbXBvc2l0ZUVncmVzcxIj",
+            "LmxpdmVraXQuUm9vbUNvbXBvc2l0ZUVncmVzc1JlcXVlc3QaEy5saXZla2l0",
+            "LkVncmVzc0luZm8SQAoOU3RhcnRXZWJFZ3Jlc3MSGS5saXZla2l0LldlYkVn",
+            "cmVzc1JlcXVlc3QaEy5saXZla2l0LkVncmVzc0luZm8SUAoWU3RhcnRQYXJ0",
+            "aWNpcGFudEVncmVzcxIhLmxpdmVraXQuUGFydGljaXBhbnRFZ3Jlc3NSZXF1",
+            "ZXN0GhMubGl2ZWtpdC5FZ3Jlc3NJbmZvElYKGVN0YXJ0VHJhY2tDb21wb3Np",
+            "dGVFZ3Jlc3MSJC5saXZla2l0LlRyYWNrQ29tcG9zaXRlRWdyZXNzUmVxdWVz",
+            "dBoTLmxpdmVraXQuRWdyZXNzSW5mbxJEChBTdGFydFRyYWNrRWdyZXNzEhsu",
+            "bGl2ZWtpdC5UcmFja0VncmVzc1JlcXVlc3QaEy5saXZla2l0LkVncmVzc0lu",
+            "Zm9CRlojZ2l0aHViLmNvbS9saXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1M",
+            "aXZlS2l0LlByb3Rv6gIOTGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.OptionsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.AudioChannel), typeof(global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset), typeof(global::Livekit.Server.Sdk.Dotnet.EncodedFileType), typeof(global::Livekit.Server.Sdk.Dotnet.StreamProtocol), typeof(global::Livekit.Server.Sdk.Dotnet.SegmentedFileProtocol), typeof(global::Livekit.Server.Sdk.Dotnet.SegmentedFileSuffix), typeof(global::Livekit.Server.Sdk.Dotnet.ImageFileSuffix), typeof(global::Livekit.Server.Sdk.Dotnet.EgressSourceType), typeof(global::Livekit.Server.Sdk.Dotnet.EgressStatus), typeof(global::Livekit.Server.Sdk.Dotnet.AudioMixing), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -307,7 +308,8 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.EncodingOptions), global::Livekit.Server.Sdk.Dotnet.EncodingOptions.Parser, new[]{ "Width", "Height", "Depth", "Framerate", "AudioCodec", "AudioBitrate", "AudioFrequency", "VideoCodec", "VideoBitrate", "KeyFrameInterval", "AudioQuality", "VideoQuality" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.Output), global::Livekit.Server.Sdk.Dotnet.Output.Parser, new[]{ "File", "Stream", "Segments", "Images", "Storage" }, new[]{ "Config" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.FileOutput), global::Livekit.Server.Sdk.Dotnet.FileOutput.Parser, new[]{ "FileType", "Filepath", "DisableManifest" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.StreamOutput), global::Livekit.Server.Sdk.Dotnet.StreamOutput.Parser, new[]{ "Protocol", "Urls" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.StreamOutput), global::Livekit.Server.Sdk.Dotnet.StreamOutput.Parser, new[]{ "Protocol", "Urls", "Destinations" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.StreamDestination), global::Livekit.Server.Sdk.Dotnet.StreamDestination.Parser, new[]{ "Id", "Url" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SegmentedFileOutput), global::Livekit.Server.Sdk.Dotnet.SegmentedFileOutput.Parser, new[]{ "Protocol", "FilenamePrefix", "PlaylistName", "LivePlaylistName", "SegmentDuration", "FilenameSuffix", "DisableManifest", "S3", "Gcp", "Azure", "AliOSS" }, new[]{ "Output" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ImageOutput), global::Livekit.Server.Sdk.Dotnet.ImageOutput.Parser, new[]{ "CaptureInterval", "Width", "Height", "FilenamePrefix", "FilenameSuffix", "ImageCodec", "DisableManifest", "S3", "Gcp", "Azure", "AliOSS" }, new[]{ "Output" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.StorageConfig), global::Livekit.Server.Sdk.Dotnet.StorageConfig.Parser, new[]{ "S3", "Gcp", "Azure", "AliOSS" }, new[]{ "Provider" }, null, null, null),
@@ -318,10 +320,9 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ProxyConfig), global::Livekit.Server.Sdk.Dotnet.ProxyConfig.Parser, new[]{ "Url", "Username", "Password" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListEgressRequest), global::Livekit.Server.Sdk.Dotnet.ListEgressRequest.Parser, new[]{ "RoomName", "EgressId", "Active", "PageToken" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListEgressResponse), global::Livekit.Server.Sdk.Dotnet.ListEgressResponse.Parser, new[]{ "Items", "NextPageToken" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateEgressRequest), global::Livekit.Server.Sdk.Dotnet.UpdateEgressRequest.Parser, new[]{ "EgressId", "Url", "Layout", "AddStreamUrls", "RemoveStreamUrls" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.StopEgressRequest), global::Livekit.Server.Sdk.Dotnet.StopEgressRequest.Parser, new[]{ "EgressId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.EgressInfo), global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser, new[]{ "EgressId", "RoomId", "RoomName", "SourceType", "Status", "StartedAt", "EndedAt", "UpdatedAt", "Egress", "Replay", "RoomComposite", "Web", "Participant", "TrackComposite", "Track", "StreamResults", "FileResults", "SegmentResults", "ImageResults", "Error", "ErrorCode", "Details", "ManifestLocation", "BackupStorageUsed", "RetryCount", "Stream", "File", "Segments" }, new[]{ "Request", "Result" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.StreamInfo), global::Livekit.Server.Sdk.Dotnet.StreamInfo.Parser, new[]{ "Url", "StartedAt", "EndedAt", "Duration", "Status", "Error", "LastRetryAt", "Retries" }, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.StreamInfo.Types.Status) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.StreamInfo), global::Livekit.Server.Sdk.Dotnet.StreamInfo.Parser, new[]{ "Url", "StartedAt", "EndedAt", "Duration", "Status", "Error", "LastRetryAt", "Retries", "Id" }, null, new[]{ typeof(global::Livekit.Server.Sdk.Dotnet.StreamInfo.Types.Status) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.FileInfo), global::Livekit.Server.Sdk.Dotnet.FileInfo.Parser, new[]{ "Filename", "StartedAt", "EndedAt", "Duration", "Size", "Location" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.SegmentsInfo), global::Livekit.Server.Sdk.Dotnet.SegmentsInfo.Parser, new[]{ "PlaylistName", "LivePlaylistName", "Duration", "Size", "PlaylistLocation", "LivePlaylistLocation", "SegmentCount", "StartedAt", "EndedAt" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ImagesInfo), global::Livekit.Server.Sdk.Dotnet.ImagesInfo.Parser, new[]{ "FilenamePrefix", "ImageCount", "StartedAt", "EndedAt" }, null, null, null, null),
@@ -336,7 +337,7 @@ namespace Livekit.Server.Sdk.Dotnet {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DirectFileOutput), global::Livekit.Server.Sdk.Dotnet.DirectFileOutput.Parser, new[]{ "Filepath", "DisableManifest", "S3", "Gcp", "Azure", "AliOSS" }, new[]{ "Output" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.EncodedFileOutput), global::Livekit.Server.Sdk.Dotnet.EncodedFileOutput.Parser, new[]{ "FileType", "Filepath", "DisableManifest", "S3", "Gcp", "Azure", "AliOSS" }, new[]{ "Output" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateLayoutRequest), global::Livekit.Server.Sdk.Dotnet.UpdateLayoutRequest.Parser, new[]{ "EgressId", "Layout" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateStreamRequest), global::Livekit.Server.Sdk.Dotnet.UpdateStreamRequest.Parser, new[]{ "EgressId", "AddOutputUrls", "RemoveOutputUrls" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.UpdateStreamRequest), global::Livekit.Server.Sdk.Dotnet.UpdateStreamRequest.Parser, new[]{ "EgressId", "AddOutputUrls", "RemoveOutputUrls", "AddDestinations" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.StreamInfoList), global::Livekit.Server.Sdk.Dotnet.StreamInfoList.Parser, new[]{ "Info" }, null, null, null, null)
           }));
     }
@@ -383,6 +384,10 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// 1080x1920, 60fps, 6000kbps, H.264_MAIN / OPUS
     /// </summary>
     [pbr::OriginalName("PORTRAIT_H264_1080P_60")] PortraitH2641080P60 = 7,
+    /// <summary>
+    /// Skip transcoding. Valid only when specifying a single track with MediaSource
+    /// </summary>
+    [pbr::OriginalName("PASSTHROUGH")] Passthrough = 8,
   }
 
   public enum EncodedFileType {
@@ -407,7 +412,14 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   public enum SegmentedFileProtocol {
     [pbr::OriginalName("DEFAULT_SEGMENTED_FILE_PROTOCOL")] DefaultSegmentedFileProtocol = 0,
+    /// <summary>
+    /// MPEG-TS segments
+    /// </summary>
     [pbr::OriginalName("HLS_PROTOCOL")] HlsProtocol = 1,
+    /// <summary>
+    /// fragmented MP4 segments
+    /// </summary>
+    [pbr::OriginalName("HLS_FMP4_PROTOCOL")] HlsFmp4Protocol = 2,
   }
 
   public enum SegmentedFileSuffix {
@@ -448,6 +460,7 @@ namespace Livekit.Server.Sdk.Dotnet {
   #endregion
 
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class StartEgressRequest : pb::IMessage<StartEgressRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -569,10 +582,24 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset Preset {
-      get { return encodingCase_ == EncodingOneofCase.Preset ? (global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset) encoding_ : global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset.H264720P30; }
+      get { return HasPreset ? (global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset) encoding_ : global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset.H264720P30; }
       set {
         encoding_ = value;
         encodingCase_ = EncodingOneofCase.Preset;
+      }
+    }
+    /// <summary>Gets whether the "preset" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPreset {
+      get { return encodingCase_ == EncodingOneofCase.Preset; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "preset" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPreset() {
+      if (HasPreset) {
+        ClearEncoding();
       }
     }
 
@@ -711,7 +738,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (sourceCase_ == SourceOneofCase.Template) hash ^= Template.GetHashCode();
       if (sourceCase_ == SourceOneofCase.Web) hash ^= Web.GetHashCode();
       if (sourceCase_ == SourceOneofCase.Media) hash ^= Media.GetHashCode();
-      if (encodingCase_ == EncodingOneofCase.Preset) hash ^= Preset.GetHashCode();
+      if (HasPreset) hash ^= Preset.GetHashCode();
       if (encodingCase_ == EncodingOneofCase.Advanced) hash ^= Advanced.GetHashCode();
       hash ^= outputs_.GetHashCode();
       if (storage_ != null) hash ^= Storage.GetHashCode();
@@ -752,7 +779,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(34);
         output.WriteMessage(Media);
       }
-      if (encodingCase_ == EncodingOneofCase.Preset) {
+      if (HasPreset) {
         output.WriteRawTag(40);
         output.WriteEnum((int) Preset);
       }
@@ -792,7 +819,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(34);
         output.WriteMessage(Media);
       }
-      if (encodingCase_ == EncodingOneofCase.Preset) {
+      if (HasPreset) {
         output.WriteRawTag(40);
         output.WriteEnum((int) Preset);
       }
@@ -828,7 +855,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (sourceCase_ == SourceOneofCase.Media) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Media);
       }
-      if (encodingCase_ == EncodingOneofCase.Preset) {
+      if (HasPreset) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Preset);
       }
       if (encodingCase_ == EncodingOneofCase.Advanced) {
@@ -906,7 +933,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -981,7 +1012,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1056,6 +1091,7 @@ namespace Livekit.Server.Sdk.Dotnet {
   /// Room composite recording via layout template.
   /// Service generates token, constructs recorder URL, awaits start signal.
   /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class TemplateSource : pb::IMessage<TemplateSource>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1298,7 +1334,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1329,7 +1369,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1359,6 +1403,7 @@ namespace Livekit.Server.Sdk.Dotnet {
   /// <summary>
   /// Record a custom URL via headless browser.
   /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class WebSource : pb::IMessage<WebSource>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1601,7 +1646,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1632,7 +1681,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1663,6 +1716,7 @@ namespace Livekit.Server.Sdk.Dotnet {
   /// Capture tracks directly from a room via SDK.
   /// Unifies deprecated Participant, TrackComposite, and Track egress.
   /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class MediaSource : pb::IMessage<MediaSource>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1721,10 +1775,24 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string VideoTrackId {
-      get { return videoCase_ == VideoOneofCase.VideoTrackId ? (string) video_ : ""; }
+      get { return HasVideoTrackId ? (string) video_ : ""; }
       set {
         video_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
         videoCase_ = VideoOneofCase.VideoTrackId;
+      }
+    }
+    /// <summary>Gets whether the "video_track_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasVideoTrackId {
+      get { return videoCase_ == VideoOneofCase.VideoTrackId; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "video_track_id" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearVideoTrackId() {
+      if (HasVideoTrackId) {
+        ClearVideo();
       }
     }
 
@@ -1802,7 +1870,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (videoCase_ == VideoOneofCase.VideoTrackId) hash ^= VideoTrackId.GetHashCode();
+      if (HasVideoTrackId) hash ^= VideoTrackId.GetHashCode();
       if (videoCase_ == VideoOneofCase.ParticipantVideo) hash ^= ParticipantVideo.GetHashCode();
       if (audio_ != null) hash ^= Audio.GetHashCode();
       hash ^= (int) videoCase_;
@@ -1824,7 +1892,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (videoCase_ == VideoOneofCase.VideoTrackId) {
+      if (HasVideoTrackId) {
         output.WriteRawTag(10);
         output.WriteString(VideoTrackId);
       }
@@ -1846,7 +1914,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (videoCase_ == VideoOneofCase.VideoTrackId) {
+      if (HasVideoTrackId) {
         output.WriteRawTag(10);
         output.WriteString(VideoTrackId);
       }
@@ -1868,7 +1936,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (videoCase_ == VideoOneofCase.VideoTrackId) {
+      if (HasVideoTrackId) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(VideoTrackId);
       }
       if (videoCase_ == VideoOneofCase.ParticipantVideo) {
@@ -1918,7 +1986,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1953,7 +2025,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1984,6 +2060,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ParticipantVideo : pb::IMessage<ParticipantVideo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2168,7 +2245,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -2191,7 +2272,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -2214,6 +2299,7 @@ namespace Livekit.Server.Sdk.Dotnet {
   /// Unified audio selection and channel routing.
   /// Each route specifies both which audio to capture and which channel to output to.
   /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AudioConfig : pb::IMessage<AudioConfig>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2390,7 +2476,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -2413,7 +2503,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -2432,6 +2526,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AudioRoute : pb::IMessage<AudioRoute>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2493,10 +2588,24 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string TrackId {
-      get { return matchCase_ == MatchOneofCase.TrackId ? (string) match_ : ""; }
+      get { return HasTrackId ? (string) match_ : ""; }
       set {
         match_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
         matchCase_ = MatchOneofCase.TrackId;
+      }
+    }
+    /// <summary>Gets whether the "track_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasTrackId {
+      get { return matchCase_ == MatchOneofCase.TrackId; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "track_id" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearTrackId() {
+      if (HasTrackId) {
+        ClearMatch();
       }
     }
 
@@ -2505,10 +2614,24 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string ParticipantIdentity {
-      get { return matchCase_ == MatchOneofCase.ParticipantIdentity ? (string) match_ : ""; }
+      get { return HasParticipantIdentity ? (string) match_ : ""; }
       set {
         match_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
         matchCase_ = MatchOneofCase.ParticipantIdentity;
+      }
+    }
+    /// <summary>Gets whether the "participant_identity" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasParticipantIdentity {
+      get { return matchCase_ == MatchOneofCase.ParticipantIdentity; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "participant_identity" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearParticipantIdentity() {
+      if (HasParticipantIdentity) {
+        ClearMatch();
       }
     }
 
@@ -2517,10 +2640,24 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind ParticipantKind {
-      get { return matchCase_ == MatchOneofCase.ParticipantKind ? (global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind) match_ : global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind.Standard; }
+      get { return HasParticipantKind ? (global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind) match_ : global::Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind.Standard; }
       set {
         match_ = value;
         matchCase_ = MatchOneofCase.ParticipantKind;
+      }
+    }
+    /// <summary>Gets whether the "participant_kind" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasParticipantKind {
+      get { return matchCase_ == MatchOneofCase.ParticipantKind; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "participant_kind" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearParticipantKind() {
+      if (HasParticipantKind) {
+        ClearMatch();
       }
     }
 
@@ -2585,9 +2722,9 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (matchCase_ == MatchOneofCase.TrackId) hash ^= TrackId.GetHashCode();
-      if (matchCase_ == MatchOneofCase.ParticipantIdentity) hash ^= ParticipantIdentity.GetHashCode();
-      if (matchCase_ == MatchOneofCase.ParticipantKind) hash ^= ParticipantKind.GetHashCode();
+      if (HasTrackId) hash ^= TrackId.GetHashCode();
+      if (HasParticipantIdentity) hash ^= ParticipantIdentity.GetHashCode();
+      if (HasParticipantKind) hash ^= ParticipantKind.GetHashCode();
       if (Channel != global::Livekit.Server.Sdk.Dotnet.AudioChannel.Both) hash ^= Channel.GetHashCode();
       hash ^= (int) matchCase_;
       if (_unknownFields != null) {
@@ -2608,15 +2745,15 @@ namespace Livekit.Server.Sdk.Dotnet {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (matchCase_ == MatchOneofCase.TrackId) {
+      if (HasTrackId) {
         output.WriteRawTag(10);
         output.WriteString(TrackId);
       }
-      if (matchCase_ == MatchOneofCase.ParticipantIdentity) {
+      if (HasParticipantIdentity) {
         output.WriteRawTag(18);
         output.WriteString(ParticipantIdentity);
       }
-      if (matchCase_ == MatchOneofCase.ParticipantKind) {
+      if (HasParticipantKind) {
         output.WriteRawTag(24);
         output.WriteEnum((int) ParticipantKind);
       }
@@ -2634,15 +2771,15 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (matchCase_ == MatchOneofCase.TrackId) {
+      if (HasTrackId) {
         output.WriteRawTag(10);
         output.WriteString(TrackId);
       }
-      if (matchCase_ == MatchOneofCase.ParticipantIdentity) {
+      if (HasParticipantIdentity) {
         output.WriteRawTag(18);
         output.WriteString(ParticipantIdentity);
       }
-      if (matchCase_ == MatchOneofCase.ParticipantKind) {
+      if (HasParticipantKind) {
         output.WriteRawTag(24);
         output.WriteEnum((int) ParticipantKind);
       }
@@ -2660,13 +2797,13 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (matchCase_ == MatchOneofCase.TrackId) {
+      if (HasTrackId) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(TrackId);
       }
-      if (matchCase_ == MatchOneofCase.ParticipantIdentity) {
+      if (HasParticipantIdentity) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ParticipantIdentity);
       }
-      if (matchCase_ == MatchOneofCase.ParticipantKind) {
+      if (HasParticipantKind) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ParticipantKind);
       }
       if (Channel != global::Livekit.Server.Sdk.Dotnet.AudioChannel.Both) {
@@ -2710,7 +2847,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -2742,7 +2883,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -2770,6 +2915,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DataConfig : pb::IMessage<DataConfig>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2943,7 +3089,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -2966,7 +3116,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -2985,6 +3139,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DataSelector : pb::IMessage<DataSelector>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3042,10 +3197,24 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string TrackId {
-      get { return matchCase_ == MatchOneofCase.TrackId ? (string) match_ : ""; }
+      get { return HasTrackId ? (string) match_ : ""; }
       set {
         match_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
         matchCase_ = MatchOneofCase.TrackId;
+      }
+    }
+    /// <summary>Gets whether the "track_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasTrackId {
+      get { return matchCase_ == MatchOneofCase.TrackId; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "track_id" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearTrackId() {
+      if (HasTrackId) {
+        ClearMatch();
       }
     }
 
@@ -3054,10 +3223,24 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string ParticipantIdentity {
-      get { return matchCase_ == MatchOneofCase.ParticipantIdentity ? (string) match_ : ""; }
+      get { return HasParticipantIdentity ? (string) match_ : ""; }
       set {
         match_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
         matchCase_ = MatchOneofCase.ParticipantIdentity;
+      }
+    }
+    /// <summary>Gets whether the "participant_identity" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasParticipantIdentity {
+      get { return matchCase_ == MatchOneofCase.ParticipantIdentity; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "participant_identity" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearParticipantIdentity() {
+      if (HasParticipantIdentity) {
+        ClearMatch();
       }
     }
 
@@ -3107,8 +3290,8 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (matchCase_ == MatchOneofCase.TrackId) hash ^= TrackId.GetHashCode();
-      if (matchCase_ == MatchOneofCase.ParticipantIdentity) hash ^= ParticipantIdentity.GetHashCode();
+      if (HasTrackId) hash ^= TrackId.GetHashCode();
+      if (HasParticipantIdentity) hash ^= ParticipantIdentity.GetHashCode();
       hash ^= (int) matchCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3128,11 +3311,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (matchCase_ == MatchOneofCase.TrackId) {
+      if (HasTrackId) {
         output.WriteRawTag(10);
         output.WriteString(TrackId);
       }
-      if (matchCase_ == MatchOneofCase.ParticipantIdentity) {
+      if (HasParticipantIdentity) {
         output.WriteRawTag(18);
         output.WriteString(ParticipantIdentity);
       }
@@ -3146,11 +3329,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (matchCase_ == MatchOneofCase.TrackId) {
+      if (HasTrackId) {
         output.WriteRawTag(10);
         output.WriteString(TrackId);
       }
-      if (matchCase_ == MatchOneofCase.ParticipantIdentity) {
+      if (HasParticipantIdentity) {
         output.WriteRawTag(18);
         output.WriteString(ParticipantIdentity);
       }
@@ -3164,10 +3347,10 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (matchCase_ == MatchOneofCase.TrackId) {
+      if (HasTrackId) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(TrackId);
       }
-      if (matchCase_ == MatchOneofCase.ParticipantIdentity) {
+      if (HasParticipantIdentity) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ParticipantIdentity);
       }
       if (_unknownFields != null) {
@@ -3202,7 +3385,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -3225,7 +3412,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -3244,6 +3435,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class EncodingOptions : pb::IMessage<EncodingOptions>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3756,7 +3948,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -3819,7 +4015,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -3878,6 +4078,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class Output : pb::IMessage<Output>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4209,7 +4410,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -4267,7 +4472,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -4325,6 +4534,7 @@ namespace Livekit.Server.Sdk.Dotnet {
   /// Unified file output — replaces v1 EncodedFileOutput and DirectFileOutput.
   /// Whether transcoded depends on encoding options on the request.
   /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class FileOutput : pb::IMessage<FileOutput>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4538,7 +4748,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -4565,7 +4779,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -4588,6 +4806,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class StreamOutput : pb::IMessage<StreamOutput>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4624,6 +4843,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     public StreamOutput(StreamOutput other) : this() {
       protocol_ = other.protocol_;
       urls_ = other.urls_.Clone();
+      destinations_ = other.destinations_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4654,12 +4874,26 @@ namespace Livekit.Server.Sdk.Dotnet {
         = pb::FieldCodec.ForString(18);
     private readonly pbc::RepeatedField<string> urls_ = new pbc::RepeatedField<string>();
     /// <summary>
-    /// required
+    /// urls or destinations required
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<string> Urls {
       get { return urls_; }
+    }
+
+    /// <summary>Field number for the "destinations" field.</summary>
+    public const int DestinationsFieldNumber = 3;
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.StreamDestination> _repeated_destinations_codec
+        = pb::FieldCodec.ForMessage(26, global::Livekit.Server.Sdk.Dotnet.StreamDestination.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.StreamDestination> destinations_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.StreamDestination>();
+    /// <summary>
+    /// urls or destinations required
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.StreamDestination> Destinations {
+      get { return destinations_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4679,6 +4913,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (Protocol != other.Protocol) return false;
       if(!urls_.Equals(other.urls_)) return false;
+      if(!destinations_.Equals(other.destinations_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4688,6 +4923,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       int hash = 1;
       if (Protocol != global::Livekit.Server.Sdk.Dotnet.StreamProtocol.DefaultProtocol) hash ^= Protocol.GetHashCode();
       hash ^= urls_.GetHashCode();
+      hash ^= destinations_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4711,6 +4947,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteEnum((int) Protocol);
       }
       urls_.WriteTo(output, _repeated_urls_codec);
+      destinations_.WriteTo(output, _repeated_destinations_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4726,6 +4963,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteEnum((int) Protocol);
       }
       urls_.WriteTo(ref output, _repeated_urls_codec);
+      destinations_.WriteTo(ref output, _repeated_destinations_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4740,6 +4978,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Protocol);
       }
       size += urls_.CalculateSize(_repeated_urls_codec);
+      size += destinations_.CalculateSize(_repeated_destinations_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -4756,6 +4995,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         Protocol = other.Protocol;
       }
       urls_.Add(other.urls_);
+      destinations_.Add(other.destinations_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -4767,7 +5007,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -4777,6 +5021,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 18: {
             urls_.AddEntriesFrom(input, _repeated_urls_codec);
+            break;
+          }
+          case 26: {
+            destinations_.AddEntriesFrom(input, _repeated_destinations_codec);
             break;
           }
         }
@@ -4790,7 +5038,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -4800,6 +5052,251 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 18: {
             urls_.AddEntriesFrom(ref input, _repeated_urls_codec);
+            break;
+          }
+          case 26: {
+            destinations_.AddEntriesFrom(ref input, _repeated_destinations_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class StreamDestination : pb::IMessage<StreamDestination>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<StreamDestination> _parser = new pb::MessageParser<StreamDestination>(() => new StreamDestination());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<StreamDestination> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public StreamDestination() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public StreamDestination(StreamDestination other) : this() {
+      id_ = other.id_;
+      url_ = other.url_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public StreamDestination Clone() {
+      return new StreamDestination(this);
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private string id_ = "";
+    /// <summary>
+    /// required
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Id {
+      get { return id_; }
+      set {
+        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "url" field.</summary>
+    public const int UrlFieldNumber = 2;
+    private string url_ = "";
+    /// <summary>
+    /// required
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Url {
+      get { return url_; }
+      set {
+        url_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as StreamDestination);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(StreamDestination other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Id != other.Id) return false;
+      if (Url != other.Url) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Id.Length != 0) hash ^= Id.GetHashCode();
+      if (Url.Length != 0) hash ^= Url.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Id.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Id);
+      }
+      if (Url.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Url);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Id.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Id);
+      }
+      if (Url.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Url);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Id.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      }
+      if (Url.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Url);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(StreamDestination other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Id.Length != 0) {
+        Id = other.Id;
+      }
+      if (other.Url.Length != 0) {
+        Url = other.Url;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Id = input.ReadString();
+            break;
+          }
+          case 18: {
+            Url = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Id = input.ReadString();
+            break;
+          }
+          case 18: {
+            Url = input.ReadString();
             break;
           }
         }
@@ -4812,6 +5309,7 @@ namespace Livekit.Server.Sdk.Dotnet {
   /// <summary>
   /// Used to generate HLS segments or other kind of segmented output
   /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class SegmentedFileOutput : pb::IMessage<SegmentedFileOutput>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4826,7 +5324,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5329,7 +5827,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -5408,7 +5910,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -5486,6 +5992,7 @@ namespace Livekit.Server.Sdk.Dotnet {
   /// <summary>
   /// Capture images at a specified interval
   /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ImageOutput : pb::IMessage<ImageOutput>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5500,7 +6007,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6003,7 +6510,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -6082,7 +6593,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -6157,6 +6672,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class StorageConfig : pb::IMessage<StorageConfig>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6171,7 +6687,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6450,7 +6966,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -6501,7 +7021,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -6548,6 +7072,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class S3Upload : pb::IMessage<S3Upload>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6562,7 +7087,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7028,7 +7553,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.ForcePathStyle != false) {
         ForcePathStyle = other.ForcePathStyle;
       }
-      metadata_.Add(other.metadata_);
+      metadata_.MergeFrom(other.metadata_);
       if (other.Tagging.Length != 0) {
         Tagging = other.Tagging;
       }
@@ -7052,7 +7577,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -7122,7 +7651,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -7188,6 +7721,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class GCPUpload : pb::IMessage<GCPUpload>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7202,7 +7736,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[17]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7407,7 +7941,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -7437,7 +7975,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -7463,6 +8005,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AzureBlobUpload : pb::IMessage<AzureBlobUpload>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7477,7 +8020,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7676,7 +8219,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -7703,7 +8250,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -7726,6 +8277,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AliOSSUpload : pb::IMessage<AliOSSUpload>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7740,7 +8292,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[19]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7997,7 +8549,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -8032,7 +8588,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -8063,6 +8623,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ProxyConfig : pb::IMessage<ProxyConfig>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -8077,7 +8638,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[20]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8276,7 +8837,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -8303,7 +8868,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -8326,6 +8895,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListEgressRequest : pb::IMessage<ListEgressRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -8340,7 +8910,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[21]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8583,7 +9153,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -8617,7 +9191,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -8647,6 +9225,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListEgressResponse : pb::IMessage<ListEgressResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -8661,7 +9240,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[22]; }
+      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8826,7 +9405,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -8852,7 +9435,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -8874,321 +9461,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
-  public sealed partial class UpdateEgressRequest : pb::IMessage<UpdateEgressRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<UpdateEgressRequest> _parser = new pb::MessageParser<UpdateEgressRequest>(() => new UpdateEgressRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<UpdateEgressRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor.MessageTypes[23]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public UpdateEgressRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public UpdateEgressRequest(UpdateEgressRequest other) : this() {
-      egressId_ = other.egressId_;
-      url_ = other.url_;
-      layout_ = other.layout_;
-      addStreamUrls_ = other.addStreamUrls_.Clone();
-      removeStreamUrls_ = other.removeStreamUrls_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public UpdateEgressRequest Clone() {
-      return new UpdateEgressRequest(this);
-    }
-
-    /// <summary>Field number for the "egress_id" field.</summary>
-    public const int EgressIdFieldNumber = 1;
-    private string egressId_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string EgressId {
-      get { return egressId_; }
-      set {
-        egressId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "url" field.</summary>
-    public const int UrlFieldNumber = 2;
-    private string url_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Url {
-      get { return url_; }
-      set {
-        url_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "layout" field.</summary>
-    public const int LayoutFieldNumber = 3;
-    private string layout_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Layout {
-      get { return layout_; }
-      set {
-        layout_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "add_stream_urls" field.</summary>
-    public const int AddStreamUrlsFieldNumber = 4;
-    private static readonly pb::FieldCodec<string> _repeated_addStreamUrls_codec
-        = pb::FieldCodec.ForString(34);
-    private readonly pbc::RepeatedField<string> addStreamUrls_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<string> AddStreamUrls {
-      get { return addStreamUrls_; }
-    }
-
-    /// <summary>Field number for the "remove_stream_urls" field.</summary>
-    public const int RemoveStreamUrlsFieldNumber = 5;
-    private static readonly pb::FieldCodec<string> _repeated_removeStreamUrls_codec
-        = pb::FieldCodec.ForString(42);
-    private readonly pbc::RepeatedField<string> removeStreamUrls_ = new pbc::RepeatedField<string>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<string> RemoveStreamUrls {
-      get { return removeStreamUrls_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as UpdateEgressRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(UpdateEgressRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (EgressId != other.EgressId) return false;
-      if (Url != other.Url) return false;
-      if (Layout != other.Layout) return false;
-      if(!addStreamUrls_.Equals(other.addStreamUrls_)) return false;
-      if(!removeStreamUrls_.Equals(other.removeStreamUrls_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (EgressId.Length != 0) hash ^= EgressId.GetHashCode();
-      if (Url.Length != 0) hash ^= Url.GetHashCode();
-      if (Layout.Length != 0) hash ^= Layout.GetHashCode();
-      hash ^= addStreamUrls_.GetHashCode();
-      hash ^= removeStreamUrls_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (EgressId.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(EgressId);
-      }
-      if (Url.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Url);
-      }
-      if (Layout.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Layout);
-      }
-      addStreamUrls_.WriteTo(output, _repeated_addStreamUrls_codec);
-      removeStreamUrls_.WriteTo(output, _repeated_removeStreamUrls_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (EgressId.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(EgressId);
-      }
-      if (Url.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Url);
-      }
-      if (Layout.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Layout);
-      }
-      addStreamUrls_.WriteTo(ref output, _repeated_addStreamUrls_codec);
-      removeStreamUrls_.WriteTo(ref output, _repeated_removeStreamUrls_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (EgressId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(EgressId);
-      }
-      if (Url.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Url);
-      }
-      if (Layout.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Layout);
-      }
-      size += addStreamUrls_.CalculateSize(_repeated_addStreamUrls_codec);
-      size += removeStreamUrls_.CalculateSize(_repeated_removeStreamUrls_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(UpdateEgressRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.EgressId.Length != 0) {
-        EgressId = other.EgressId;
-      }
-      if (other.Url.Length != 0) {
-        Url = other.Url;
-      }
-      if (other.Layout.Length != 0) {
-        Layout = other.Layout;
-      }
-      addStreamUrls_.Add(other.addStreamUrls_);
-      removeStreamUrls_.Add(other.removeStreamUrls_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            EgressId = input.ReadString();
-            break;
-          }
-          case 18: {
-            Url = input.ReadString();
-            break;
-          }
-          case 26: {
-            Layout = input.ReadString();
-            break;
-          }
-          case 34: {
-            addStreamUrls_.AddEntriesFrom(input, _repeated_addStreamUrls_codec);
-            break;
-          }
-          case 42: {
-            removeStreamUrls_.AddEntriesFrom(input, _repeated_removeStreamUrls_codec);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            EgressId = input.ReadString();
-            break;
-          }
-          case 18: {
-            Url = input.ReadString();
-            break;
-          }
-          case 26: {
-            Layout = input.ReadString();
-            break;
-          }
-          case 34: {
-            addStreamUrls_.AddEntriesFrom(ref input, _repeated_addStreamUrls_codec);
-            break;
-          }
-          case 42: {
-            removeStreamUrls_.AddEntriesFrom(ref input, _repeated_removeStreamUrls_codec);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class StopEgressRequest : pb::IMessage<StopEgressRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -9344,7 +9617,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -9363,7 +9640,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -9378,6 +9659,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class EgressInfo : pb::IMessage<EgressInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -10392,7 +10674,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -10569,7 +10855,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -10742,6 +11032,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class StreamInfo : pb::IMessage<StreamInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -10784,6 +11075,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       error_ = other.error_;
       lastRetryAt_ = other.lastRetryAt_;
       retries_ = other.retries_;
+      id_ = other.id_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -10889,6 +11181,21 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 9;
+    private string id_ = "";
+    /// <summary>
+    /// StreamDestination.id this stream was started from; empty for plain urls
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Id {
+      get { return id_; }
+      set {
+        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -10912,6 +11219,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (Error != other.Error) return false;
       if (LastRetryAt != other.LastRetryAt) return false;
       if (Retries != other.Retries) return false;
+      if (Id != other.Id) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -10927,6 +11235,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (Error.Length != 0) hash ^= Error.GetHashCode();
       if (LastRetryAt != 0L) hash ^= LastRetryAt.GetHashCode();
       if (Retries != 0) hash ^= Retries.GetHashCode();
+      if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -10977,6 +11286,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(64);
         output.WriteUInt32(Retries);
       }
+      if (Id.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(Id);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -11019,6 +11332,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(64);
         output.WriteUInt32(Retries);
       }
+      if (Id.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(Id);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -11052,6 +11369,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (Retries != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Retries);
+      }
+      if (Id.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -11089,6 +11409,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.Retries != 0) {
         Retries = other.Retries;
       }
+      if (other.Id.Length != 0) {
+        Id = other.Id;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -11100,7 +11423,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -11136,6 +11463,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             Retries = input.ReadUInt32();
             break;
           }
+          case 74: {
+            Id = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -11147,7 +11478,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -11183,6 +11518,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             Retries = input.ReadUInt32();
             break;
           }
+          case 74: {
+            Id = input.ReadString();
+            break;
+          }
         }
       }
     }
@@ -11204,6 +11543,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class FileInfo : pb::IMessage<FileInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -11504,7 +11844,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -11543,7 +11887,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -11578,6 +11926,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class SegmentsInfo : pb::IMessage<SegmentsInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -11965,7 +12314,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -12016,7 +12369,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -12063,6 +12420,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ImagesInfo : pb::IMessage<ImagesInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -12305,7 +12663,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -12336,7 +12698,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -12363,6 +12729,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AutoParticipantEgress : pb::IMessage<AutoParticipantEgress>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -12425,10 +12792,24 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset Preset {
-      get { return optionsCase_ == OptionsOneofCase.Preset ? (global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset) options_ : global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset.H264720P30; }
+      get { return HasPreset ? (global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset) options_ : global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset.H264720P30; }
       set {
         options_ = value;
         optionsCase_ = OptionsOneofCase.Preset;
+      }
+    }
+    /// <summary>Gets whether the "preset" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPreset {
+      get { return optionsCase_ == OptionsOneofCase.Preset; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "preset" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPreset() {
+      if (HasPreset) {
+        ClearOptions();
       }
     }
 
@@ -12517,7 +12898,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (optionsCase_ == OptionsOneofCase.Preset) hash ^= Preset.GetHashCode();
+      if (HasPreset) hash ^= Preset.GetHashCode();
       if (optionsCase_ == OptionsOneofCase.Advanced) hash ^= Advanced.GetHashCode();
       hash ^= fileOutputs_.GetHashCode();
       hash ^= segmentOutputs_.GetHashCode();
@@ -12540,7 +12921,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Preset);
       }
@@ -12560,7 +12941,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Preset);
       }
@@ -12580,7 +12961,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Preset);
       }
       if (optionsCase_ == OptionsOneofCase.Advanced) {
@@ -12625,7 +13006,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -12662,7 +13047,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -12695,6 +13084,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AutoTrackEgress : pb::IMessage<AutoTrackEgress>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -13052,7 +13442,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -13111,7 +13505,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -13166,6 +13564,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ExportReplayRequest : pb::IMessage<ExportReplayRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -13313,10 +13712,24 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset Preset {
-      get { return encodingCase_ == EncodingOneofCase.Preset ? (global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset) encoding_ : global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset.H264720P30; }
+      get { return HasPreset ? (global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset) encoding_ : global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset.H264720P30; }
       set {
         encoding_ = value;
         encodingCase_ = EncodingOneofCase.Preset;
+      }
+    }
+    /// <summary>Gets whether the "preset" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPreset {
+      get { return encodingCase_ == EncodingOneofCase.Preset; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "preset" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPreset() {
+      if (HasPreset) {
+        ClearEncoding();
       }
     }
 
@@ -13450,7 +13863,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (sourceCase_ == SourceOneofCase.Template) hash ^= Template.GetHashCode();
       if (sourceCase_ == SourceOneofCase.Web) hash ^= Web.GetHashCode();
       if (sourceCase_ == SourceOneofCase.Media) hash ^= Media.GetHashCode();
-      if (encodingCase_ == EncodingOneofCase.Preset) hash ^= Preset.GetHashCode();
+      if (HasPreset) hash ^= Preset.GetHashCode();
       if (encodingCase_ == EncodingOneofCase.Advanced) hash ^= Advanced.GetHashCode();
       hash ^= outputs_.GetHashCode();
       if (storage_ != null) hash ^= Storage.GetHashCode();
@@ -13499,7 +13912,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(50);
         output.WriteMessage(Media);
       }
-      if (encodingCase_ == EncodingOneofCase.Preset) {
+      if (HasPreset) {
         output.WriteRawTag(56);
         output.WriteEnum((int) Preset);
       }
@@ -13547,7 +13960,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(50);
         output.WriteMessage(Media);
       }
-      if (encodingCase_ == EncodingOneofCase.Preset) {
+      if (HasPreset) {
         output.WriteRawTag(56);
         output.WriteEnum((int) Preset);
       }
@@ -13589,7 +14002,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (sourceCase_ == SourceOneofCase.Media) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Media);
       }
-      if (encodingCase_ == EncodingOneofCase.Preset) {
+      if (HasPreset) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Preset);
       }
       if (encodingCase_ == EncodingOneofCase.Advanced) {
@@ -13673,7 +14086,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -13756,7 +14173,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -13835,6 +14256,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RoomCompositeEgressRequest : pb::IMessage<RoomCompositeEgressRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -14026,10 +14448,24 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset Preset {
-      get { return optionsCase_ == OptionsOneofCase.Preset ? (global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset) options_ : global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset.H264720P30; }
+      get { return HasPreset ? (global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset) options_ : global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset.H264720P30; }
       set {
         options_ = value;
         optionsCase_ = OptionsOneofCase.Preset;
+      }
+    }
+    /// <summary>Gets whether the "preset" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPreset {
+      get { return optionsCase_ == OptionsOneofCase.Preset; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "preset" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPreset() {
+      if (HasPreset) {
+        ClearOptions();
       }
     }
 
@@ -14192,7 +14628,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (outputCase_ == OutputOneofCase.File) hash ^= File.GetHashCode();
       if (outputCase_ == OutputOneofCase.Stream) hash ^= Stream.GetHashCode();
       if (outputCase_ == OutputOneofCase.Segments) hash ^= Segments.GetHashCode();
-      if (optionsCase_ == OptionsOneofCase.Preset) hash ^= Preset.GetHashCode();
+      if (HasPreset) hash ^= Preset.GetHashCode();
       if (optionsCase_ == OptionsOneofCase.Advanced) hash ^= Advanced.GetHashCode();
       hash ^= fileOutputs_.GetHashCode();
       hash ^= streamOutputs_.GetHashCode();
@@ -14247,7 +14683,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(58);
         output.WriteMessage(Stream);
       }
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         output.WriteRawTag(64);
         output.WriteEnum((int) Preset);
       }
@@ -14306,7 +14742,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(58);
         output.WriteMessage(Stream);
       }
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         output.WriteRawTag(64);
         output.WriteEnum((int) Preset);
       }
@@ -14364,7 +14800,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (outputCase_ == OutputOneofCase.Segments) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Segments);
       }
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Preset);
       }
       if (optionsCase_ == OptionsOneofCase.Advanced) {
@@ -14454,7 +14890,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -14554,7 +14994,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -14650,6 +15094,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class WebEgressRequest : pb::IMessage<WebEgressRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -14815,10 +15260,24 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset Preset {
-      get { return optionsCase_ == OptionsOneofCase.Preset ? (global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset) options_ : global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset.H264720P30; }
+      get { return HasPreset ? (global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset) options_ : global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset.H264720P30; }
       set {
         options_ = value;
         optionsCase_ = OptionsOneofCase.Preset;
+      }
+    }
+    /// <summary>Gets whether the "preset" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPreset {
+      get { return optionsCase_ == OptionsOneofCase.Preset; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "preset" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPreset() {
+      if (HasPreset) {
+        ClearOptions();
       }
     }
 
@@ -14977,7 +15436,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (outputCase_ == OutputOneofCase.File) hash ^= File.GetHashCode();
       if (outputCase_ == OutputOneofCase.Stream) hash ^= Stream.GetHashCode();
       if (outputCase_ == OutputOneofCase.Segments) hash ^= Segments.GetHashCode();
-      if (optionsCase_ == OptionsOneofCase.Preset) hash ^= Preset.GetHashCode();
+      if (HasPreset) hash ^= Preset.GetHashCode();
       if (optionsCase_ == OptionsOneofCase.Advanced) hash ^= Advanced.GetHashCode();
       hash ^= fileOutputs_.GetHashCode();
       hash ^= streamOutputs_.GetHashCode();
@@ -15028,7 +15487,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(50);
         output.WriteMessage(Segments);
       }
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         output.WriteRawTag(56);
         output.WriteEnum((int) Preset);
       }
@@ -15079,7 +15538,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(50);
         output.WriteMessage(Segments);
       }
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         output.WriteRawTag(56);
         output.WriteEnum((int) Preset);
       }
@@ -15127,7 +15586,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (outputCase_ == OutputOneofCase.Segments) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Segments);
       }
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Preset);
       }
       if (optionsCase_ == OptionsOneofCase.Advanced) {
@@ -15211,7 +15670,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -15303,7 +15766,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -15391,6 +15858,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ParticipantEgressRequest : pb::IMessage<ParticipantEgressRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -15492,10 +15960,24 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset Preset {
-      get { return optionsCase_ == OptionsOneofCase.Preset ? (global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset) options_ : global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset.H264720P30; }
+      get { return HasPreset ? (global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset) options_ : global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset.H264720P30; }
       set {
         options_ = value;
         optionsCase_ = OptionsOneofCase.Preset;
+      }
+    }
+    /// <summary>Gets whether the "preset" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPreset {
+      get { return optionsCase_ == OptionsOneofCase.Preset; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "preset" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPreset() {
+      if (HasPreset) {
+        ClearOptions();
       }
     }
 
@@ -15623,7 +16105,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (RoomName.Length != 0) hash ^= RoomName.GetHashCode();
       if (Identity.Length != 0) hash ^= Identity.GetHashCode();
       if (ScreenShare != false) hash ^= ScreenShare.GetHashCode();
-      if (optionsCase_ == OptionsOneofCase.Preset) hash ^= Preset.GetHashCode();
+      if (HasPreset) hash ^= Preset.GetHashCode();
       if (optionsCase_ == OptionsOneofCase.Advanced) hash ^= Advanced.GetHashCode();
       hash ^= fileOutputs_.GetHashCode();
       hash ^= streamOutputs_.GetHashCode();
@@ -15661,7 +16143,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(24);
         output.WriteBool(ScreenShare);
       }
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         output.WriteRawTag(32);
         output.WriteEnum((int) Preset);
       }
@@ -15696,7 +16178,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(24);
         output.WriteBool(ScreenShare);
       }
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         output.WriteRawTag(32);
         output.WriteEnum((int) Preset);
       }
@@ -15728,7 +16210,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (ScreenShare != false) {
         size += 1 + 1;
       }
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Preset);
       }
       if (optionsCase_ == OptionsOneofCase.Advanced) {
@@ -15788,7 +16270,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -15849,7 +16335,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -15906,6 +16396,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class TrackCompositeEgressRequest : pb::IMessage<TrackCompositeEgressRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -16058,10 +16549,24 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset Preset {
-      get { return optionsCase_ == OptionsOneofCase.Preset ? (global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset) options_ : global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset.H264720P30; }
+      get { return HasPreset ? (global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset) options_ : global::Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset.H264720P30; }
       set {
         options_ = value;
         optionsCase_ = OptionsOneofCase.Preset;
+      }
+    }
+    /// <summary>Gets whether the "preset" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPreset {
+      get { return optionsCase_ == OptionsOneofCase.Preset; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "preset" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPreset() {
+      if (HasPreset) {
+        ClearOptions();
       }
     }
 
@@ -16218,7 +16723,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (outputCase_ == OutputOneofCase.File) hash ^= File.GetHashCode();
       if (outputCase_ == OutputOneofCase.Stream) hash ^= Stream.GetHashCode();
       if (outputCase_ == OutputOneofCase.Segments) hash ^= Segments.GetHashCode();
-      if (optionsCase_ == OptionsOneofCase.Preset) hash ^= Preset.GetHashCode();
+      if (HasPreset) hash ^= Preset.GetHashCode();
       if (optionsCase_ == OptionsOneofCase.Advanced) hash ^= Advanced.GetHashCode();
       hash ^= fileOutputs_.GetHashCode();
       hash ^= streamOutputs_.GetHashCode();
@@ -16265,7 +16770,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(42);
         output.WriteMessage(Stream);
       }
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         output.WriteRawTag(48);
         output.WriteEnum((int) Preset);
       }
@@ -16312,7 +16817,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(42);
         output.WriteMessage(Stream);
       }
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         output.WriteRawTag(48);
         output.WriteEnum((int) Preset);
       }
@@ -16357,7 +16862,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (outputCase_ == OutputOneofCase.Segments) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Segments);
       }
-      if (optionsCase_ == OptionsOneofCase.Preset) {
+      if (HasPreset) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Preset);
       }
       if (optionsCase_ == OptionsOneofCase.Advanced) {
@@ -16438,7 +16943,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -16526,7 +17035,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -16610,6 +17123,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class TrackEgressRequest : pb::IMessage<TrackEgressRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -16706,10 +17220,24 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string WebsocketUrl {
-      get { return outputCase_ == OutputOneofCase.WebsocketUrl ? (string) output_ : ""; }
+      get { return HasWebsocketUrl ? (string) output_ : ""; }
       set {
         output_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
         outputCase_ = OutputOneofCase.WebsocketUrl;
+      }
+    }
+    /// <summary>Gets whether the "websocket_url" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasWebsocketUrl {
+      get { return outputCase_ == OutputOneofCase.WebsocketUrl; }
+    }
+    /// <summary> Clears the value of the oneof if it's currently set to "websocket_url" </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearWebsocketUrl() {
+      if (HasWebsocketUrl) {
+        ClearOutput();
       }
     }
 
@@ -16776,7 +17304,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (RoomName.Length != 0) hash ^= RoomName.GetHashCode();
       if (TrackId.Length != 0) hash ^= TrackId.GetHashCode();
       if (outputCase_ == OutputOneofCase.File) hash ^= File.GetHashCode();
-      if (outputCase_ == OutputOneofCase.WebsocketUrl) hash ^= WebsocketUrl.GetHashCode();
+      if (HasWebsocketUrl) hash ^= WebsocketUrl.GetHashCode();
       hash ^= webhooks_.GetHashCode();
       hash ^= (int) outputCase_;
       if (_unknownFields != null) {
@@ -16809,7 +17337,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(26);
         output.WriteMessage(File);
       }
-      if (outputCase_ == OutputOneofCase.WebsocketUrl) {
+      if (HasWebsocketUrl) {
         output.WriteRawTag(34);
         output.WriteString(WebsocketUrl);
       }
@@ -16836,7 +17364,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(26);
         output.WriteMessage(File);
       }
-      if (outputCase_ == OutputOneofCase.WebsocketUrl) {
+      if (HasWebsocketUrl) {
         output.WriteRawTag(34);
         output.WriteString(WebsocketUrl);
       }
@@ -16860,7 +17388,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (outputCase_ == OutputOneofCase.File) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(File);
       }
-      if (outputCase_ == OutputOneofCase.WebsocketUrl) {
+      if (HasWebsocketUrl) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(WebsocketUrl);
       }
       size += webhooks_.CalculateSize(_repeated_webhooks_codec);
@@ -16906,7 +17434,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -16946,7 +17478,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -16982,6 +17518,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DirectFileOutput : pb::IMessage<DirectFileOutput>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -17333,7 +17870,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -17392,7 +17933,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -17447,6 +17992,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class EncodedFileOutput : pb::IMessage<EncodedFileOutput>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -17827,7 +18373,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -17890,7 +18440,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -17949,6 +18503,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class UpdateLayoutRequest : pb::IMessage<UpdateLayoutRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -18133,7 +18688,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -18156,7 +18715,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -18175,6 +18738,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class UpdateStreamRequest : pb::IMessage<UpdateStreamRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -18212,6 +18776,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       egressId_ = other.egressId_;
       addOutputUrls_ = other.addOutputUrls_.Clone();
       removeOutputUrls_ = other.removeOutputUrls_.Clone();
+      addDestinations_ = other.addDestinations_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -18255,6 +18820,17 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return removeOutputUrls_; }
     }
 
+    /// <summary>Field number for the "add_destinations" field.</summary>
+    public const int AddDestinationsFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::Livekit.Server.Sdk.Dotnet.StreamDestination> _repeated_addDestinations_codec
+        = pb::FieldCodec.ForMessage(34, global::Livekit.Server.Sdk.Dotnet.StreamDestination.Parser);
+    private readonly pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.StreamDestination> addDestinations_ = new pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.StreamDestination>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::Livekit.Server.Sdk.Dotnet.StreamDestination> AddDestinations {
+      get { return addDestinations_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -18273,6 +18849,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (EgressId != other.EgressId) return false;
       if(!addOutputUrls_.Equals(other.addOutputUrls_)) return false;
       if(!removeOutputUrls_.Equals(other.removeOutputUrls_)) return false;
+      if(!addDestinations_.Equals(other.addDestinations_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -18283,6 +18860,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (EgressId.Length != 0) hash ^= EgressId.GetHashCode();
       hash ^= addOutputUrls_.GetHashCode();
       hash ^= removeOutputUrls_.GetHashCode();
+      hash ^= addDestinations_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -18307,6 +18885,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       addOutputUrls_.WriteTo(output, _repeated_addOutputUrls_codec);
       removeOutputUrls_.WriteTo(output, _repeated_removeOutputUrls_codec);
+      addDestinations_.WriteTo(output, _repeated_addDestinations_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -18323,6 +18902,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       addOutputUrls_.WriteTo(ref output, _repeated_addOutputUrls_codec);
       removeOutputUrls_.WriteTo(ref output, _repeated_removeOutputUrls_codec);
+      addDestinations_.WriteTo(ref output, _repeated_addDestinations_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -18338,6 +18918,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       size += addOutputUrls_.CalculateSize(_repeated_addOutputUrls_codec);
       size += removeOutputUrls_.CalculateSize(_repeated_removeOutputUrls_codec);
+      size += addDestinations_.CalculateSize(_repeated_addDestinations_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -18355,6 +18936,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       addOutputUrls_.Add(other.addOutputUrls_);
       removeOutputUrls_.Add(other.removeOutputUrls_);
+      addDestinations_.Add(other.addDestinations_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -18366,7 +18948,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -18382,6 +18968,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             removeOutputUrls_.AddEntriesFrom(input, _repeated_removeOutputUrls_codec);
             break;
           }
+          case 34: {
+            addDestinations_.AddEntriesFrom(input, _repeated_addDestinations_codec);
+            break;
+          }
         }
       }
     #endif
@@ -18393,7 +18983,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -18409,6 +19003,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             removeOutputUrls_.AddEntriesFrom(ref input, _repeated_removeOutputUrls_codec);
             break;
           }
+          case 34: {
+            addDestinations_.AddEntriesFrom(ref input, _repeated_addDestinations_codec);
+            break;
+          }
         }
       }
     }
@@ -18416,6 +19014,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class StreamInfoList : pb::IMessage<StreamInfoList>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -18560,7 +19159,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -18579,7 +19182,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;

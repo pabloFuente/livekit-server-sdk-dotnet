@@ -1,7 +1,6 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using Google.Protobuf.WellKnownTypes;
 
 namespace Livekit.Server.Sdk.Dotnet
 {
@@ -183,7 +182,9 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Transfer a SIP participant to a different room.
         /// </summary>
-        public async Task<Empty> TransferSIPParticipant(TransferSIPParticipantRequest request)
+        public async Task<TransferSIPParticipantResponse> TransferSIPParticipant(
+            TransferSIPParticipantRequest request
+        )
         {
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Bearer",

@@ -31,12 +31,12 @@ namespace Livekit.Server.Sdk.Dotnet {
             "bFJlcXVlc3QuVHdpbGlvQ2FsbERpcmVjdGlvbhIRCglyb29tX25hbWUYAiAB",
             "KAkSKgoGYWdlbnRzGAMgAygLMhoubGl2ZWtpdC5Sb29tQWdlbnREaXNwYXRj",
             "aBIcChRwYXJ0aWNpcGFudF9pZGVudGl0eRgEIAEoCRI+ChBwYXJ0aWNpcGFu",
-            "dF9uYW1lGAUgASgJQiTAUAGyUB48cmVkYWN0ZWQgKHt7IC5TaXplIH19IGJ5",
-            "dGVzKT4SQgoUcGFydGljaXBhbnRfbWV0YWRhdGEYBiABKAlCJMBQAbJQHjxy",
-            "ZWRhY3RlZCAoe3sgLlNpemUgfX0gYnl0ZXMpPhKCAQoWcGFydGljaXBhbnRf",
+            "dF9uYW1lGAUgASgJQiSyUB48cmVkYWN0ZWQgKHt7IC5TaXplIH19IGJ5dGVz",
+            "KT7AUAESQgoUcGFydGljaXBhbnRfbWV0YWRhdGEYBiABKAlCJLJQHjxyZWRh",
+            "Y3RlZCAoe3sgLlNpemUgfX0gYnl0ZXMpPsBQARKCAQoWcGFydGljaXBhbnRf",
             "YXR0cmlidXRlcxgHIAMoCzI8LmxpdmVraXQuQ29ubmVjdFR3aWxpb0NhbGxS",
-            "ZXF1ZXN0LlBhcnRpY2lwYW50QXR0cmlidXRlc0VudHJ5QiTAUAGyUB48cmVk",
-            "YWN0ZWQgKHt7IC5TaXplIH19IGJ5dGVzKT4SGwoTZGVzdGluYXRpb25fY291",
+            "ZXF1ZXN0LlBhcnRpY2lwYW50QXR0cmlidXRlc0VudHJ5QiSyUB48cmVkYWN0",
+            "ZWQgKHt7IC5TaXplIH19IGJ5dGVzKT7AUAESGwoTZGVzdGluYXRpb25fY291",
             "bnRyeRgIIAEoCRo8ChpQYXJ0aWNpcGFudEF0dHJpYnV0ZXNFbnRyeRILCgNr",
             "ZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIlwKE1R3aWxpb0NhbGxEaXJl",
             "Y3Rpb24SIQodVFdJTElPX0NBTExfRElSRUNUSU9OX0lOQk9VTkQQABIiCh5U",
@@ -55,6 +55,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ConnectTwilioCallRequest : pb::IMessage<ConnectTwilioCallRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -401,7 +402,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.ParticipantMetadata.Length != 0) {
         ParticipantMetadata = other.ParticipantMetadata;
       }
-      participantAttributes_.Add(other.participantAttributes_);
+      participantAttributes_.MergeFrom(other.participantAttributes_);
       if (other.DestinationCountry.Length != 0) {
         DestinationCountry = other.DestinationCountry;
       }
@@ -416,7 +417,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -463,7 +468,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -525,6 +534,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ConnectTwilioCallResponse : pb::IMessage<ConnectTwilioCallResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -683,7 +693,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -702,7 +716,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;

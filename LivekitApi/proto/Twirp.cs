@@ -65,7 +65,6 @@ public class Twirp {
   }
 
   // Update url/template or stream outputs
-  // rpc UpdateEgress(UpdateEgressRequest) returns (EgressInfo);
   public static async Task<global::Livekit.Server.Sdk.Dotnet.EgressInfo> UpdateLayout(HttpClient client, global::Livekit.Server.Sdk.Dotnet.UpdateLayoutRequest req) {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.UpdateLayoutRequest, global::Livekit.Server.Sdk.Dotnet.EgressInfo>(client, "twirp/livekit.Egress/UpdateLayout", req, global::Livekit.Server.Sdk.Dotnet.EgressInfo.Parser.ParseFrom);
   }
@@ -272,7 +271,7 @@ public class Twirp {
     return await DoRequest<global::Livekit.Server.Sdk.Dotnet.CreateSIPParticipantRequest, global::Livekit.Server.Sdk.Dotnet.SIPParticipantInfo>(client, "twirp/livekit.SIP/CreateSIPParticipant", req, global::Livekit.Server.Sdk.Dotnet.SIPParticipantInfo.Parser.ParseFrom);
   }
 
-  public static async Task<Google.Protobuf.WellKnownTypes.Empty> TransferSIPParticipant(HttpClient client, global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest req) {
-    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest, Google.Protobuf.WellKnownTypes.Empty>(client, "twirp/livekit.SIP/TransferSIPParticipant", req, Google.Protobuf.WellKnownTypes.Empty.Parser.ParseFrom);
+  public static async Task<global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantResponse> TransferSIPParticipant(HttpClient client, global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest req) {
+    return await DoRequest<global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest, global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantResponse>(client, "twirp/livekit.SIP/TransferSIPParticipant", req, global::Livekit.Server.Sdk.Dotnet.TransferSIPParticipantResponse.Parser.ParseFrom);
   }
 }

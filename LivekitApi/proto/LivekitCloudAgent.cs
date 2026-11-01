@@ -28,180 +28,181 @@ namespace Livekit.Server.Sdk.Dotnet {
             "cHJvdG9idWYvdGltZXN0YW1wLnByb3RvGhRsb2dnZXIvb3B0aW9ucy5wcm90",
             "byJxCgpBZ2VudEV2ZW50EiUKBHR5cGUYASABKA4yFy5saXZla2l0LkFnZW50",
             "RXZlbnRUeXBlEg0KBWNvdW50GAIgASgFEi0KCXRpbWVzdGFtcBgDIAEoCzIa",
-            "Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAixwEKC0FnZW50U2VjcmV0EgwK",
-            "BG5hbWUYASABKAkSDQoFdmFsdWUYAiABKAwSLgoKY3JlYXRlZF9hdBgDIAEo",
-            "CzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoKdXBkYXRlZF9hdBgE",
-            "IAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASJgoEa2luZBgFIAEo",
-            "DjIYLmxpdmVraXQuQWdlbnRTZWNyZXRLaW5kEhMKC2RlcGxveW1lbnRzGAYg",
-            "AygJIqkBChJDcmVhdGVBZ2VudFJlcXVlc3QSFgoKYWdlbnRfbmFtZRgBIAEo",
-            "CUICGAESJQoHc2VjcmV0cxgCIAMoCzIULmxpdmVraXQuQWdlbnRTZWNyZXQS",
-            "FAoIcmVwbGljYXMYAyABKAVCAhgBEhgKDG1heF9yZXBsaWNhcxgEIAEoBUIC",
-            "GAESEwoHY3B1X3JlcRgFIAEoCUICGAESDwoHcmVnaW9ucxgGIAMoCSLjAQoT",
-            "Q3JlYXRlQWdlbnRSZXNwb25zZRIcCghhZ2VudF9pZBgBIAEoCUIKulAHYWdl",
-            "bnRJRBISCgphZ2VudF9uYW1lGAIgASgJEg4KBnN0YXR1cxgDIAEoCRIPCgd2",
-            "ZXJzaW9uGAQgASgJEhUKDXByZXNpZ25lZF91cmwYBSABKAkSCwoDdGFnGAYg",
-            "ASgJEhYKDnNlcnZlcl9yZWdpb25zGAcgAygJEj0KFnByZXNpZ25lZF9wb3N0",
-            "X3JlcXVlc3QYCCABKAsyHS5saXZla2l0LlByZXNpZ25lZFBvc3RSZXF1ZXN0",
-            "Ik4KFENyZWF0ZUFnZW50VjJSZXF1ZXN0EiUKB3NlY3JldHMYASADKAsyFC5s",
-            "aXZla2l0LkFnZW50U2VjcmV0Eg8KB3JlZ2lvbnMYAiADKAkiXQoVQ3JlYXRl",
-            "QWdlbnRWMlJlc3BvbnNlEhwKCGFnZW50X2lkGAEgASgJQgq6UAdhZ2VudElE",
-            "Eg4KBnN0YXR1cxgCIAEoCRIWCg5zZXJ2ZXJfcmVnaW9ucxgDIAMoCSJjChNQ",
-            "cm9tb3RlQWdlbnRSZXF1ZXN0EhwKCGFnZW50X2lkGAEgASgJQgq6UAdhZ2Vu",
-            "dElEEhYKDnNyY19kZXBsb3ltZW50GAIgASgJEhYKDmRzdF9kZXBsb3ltZW50",
-            "GAMgASgJIpsBChRQcm9tb3RlQWdlbnRSZXNwb25zZRIPCgdzdWNjZXNzGAEg",
-            "ASgIEg8KB21lc3NhZ2UYAiABKAkSHAoIYWdlbnRfaWQYAyABKAlCCrpQB2Fn",
-            "ZW50SUQSFgoOc3JjX2RlcGxveW1lbnQYBCABKAkSFgoOZHN0X2RlcGxveW1l",
-            "bnQYBSABKAkSEwoLdmVyc2lvbl90YWcYBiABKAkijQEKFFByZXNpZ25lZFBv",
-            "c3RSZXF1ZXN0EgsKA3VybBgBIAEoCRI5CgZ2YWx1ZXMYAiADKAsyKS5saXZl",
-            "a2l0LlByZXNpZ25lZFBvc3RSZXF1ZXN0LlZhbHVlc0VudHJ5Gi0KC1ZhbHVl",
-            "c0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEivQMKD0Fn",
-            "ZW50RGVwbG95bWVudBIOCgZyZWdpb24YASABKAkSHAoIYWdlbnRfaWQYAiAB",
-            "KAlCCrpQB2FnZW50SUQSDgoGc3RhdHVzGAMgASgJEhAKCHJlcGxpY2FzGAQg",
-            "ASgFEhQKDG1pbl9yZXBsaWNhcxgFIAEoBRIUCgxtYXhfcmVwbGljYXMYBiAB",
-            "KAUSDwoHY3B1X3JlcRgHIAEoCRIPCgdjdXJfY3B1GAggASgJEg8KB2N1cl9t",
-            "ZW0YCSABKAkSDwoHbWVtX3JlcRgKIAEoCRIRCgltZW1fbGltaXQYCyABKAkS",
-            "EQoJY3B1X2xpbWl0GAwgASgJEhUKDXNlcnZlcl9yZWdpb24YDSABKAkSIwoG",
-            "ZXZlbnRzGA4gAygLMhMubGl2ZWtpdC5BZ2VudEV2ZW50EhIKCmRlcGxveW1l",
-            "bnQYDyABKAkSDwoHdmVyc2lvbhgQIAEoCRISCgphZ2VudF9uYW1lGBEgASgJ",
-            "EhoKEmRlcGxveW1lbnRfZW5hYmxlZBgSIAEoCBIzCg9sYXN0X3NjcmFwZWRf",
-            "YXQYEyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wItsBCglBZ2Vu",
-            "dEluZm8SHAoIYWdlbnRfaWQYASABKAlCCrpQB2FnZW50SUQSEgoKYWdlbnRf",
-            "bmFtZRgCIAEoCRIPCgd2ZXJzaW9uGAMgASgJEjMKEWFnZW50X2RlcGxveW1l",
-            "bnRzGAQgAygLMhgubGl2ZWtpdC5BZ2VudERlcGxveW1lbnQSJQoHc2VjcmV0",
-            "cxgFIAMoCzIULmxpdmVraXQuQWdlbnRTZWNyZXQSLwoLZGVwbG95ZWRfYXQY",
-            "BiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wIkUKEUxpc3RBZ2Vu",
-            "dHNSZXF1ZXN0EhIKCmFnZW50X25hbWUYASABKAkSHAoIYWdlbnRfaWQYAiAB",
-            "KAlCCrpQB2FnZW50SUQiOAoSTGlzdEFnZW50c1Jlc3BvbnNlEiIKBmFnZW50",
-            "cxgBIAMoCzISLmxpdmVraXQuQWdlbnRJbmZvIsACCgxBZ2VudFZlcnNpb24S",
-            "DwoHdmVyc2lvbhgBIAEoCRIPCgdjdXJyZW50GAIgASgIEi4KCmNyZWF0ZWRf",
-            "YXQYAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi8KC2RlcGxv",
-            "eWVkX2F0GAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBI5Cgph",
-            "dHRyaWJ1dGVzGAUgAygLMiUubGl2ZWtpdC5BZ2VudFZlcnNpb24uQXR0cmli",
-            "dXRlc0VudHJ5Eg4KBnN0YXR1cxgGIAEoCRINCgVvd25lchgHIAEoCRIQCghk",
-            "cmFpbmluZxgIIAEoCBIOCgZhY3RpdmUYCSABKAgaMQoPQXR0cmlidXRlc0Vu",
-            "dHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiTAoYTGlzdEFn",
-            "ZW50VmVyc2lvbnNSZXF1ZXN0EhwKCGFnZW50X2lkGAEgASgJQgq6UAdhZ2Vu",
-            "dElEEhIKCmFnZW50X25hbWUYAiABKAkiRAoZTGlzdEFnZW50VmVyc2lvbnNS",
-            "ZXNwb25zZRInCgh2ZXJzaW9ucxgBIAMoCzIVLmxpdmVraXQuQWdlbnRWZXJz",
-            "aW9uIscBChJVcGRhdGVBZ2VudFJlcXVlc3QSHAoIYWdlbnRfaWQYASABKAlC",
-            "CrpQB2FnZW50SUQSFgoKYWdlbnRfbmFtZRgCIAEoCUICGAESFAoIcmVwbGlj",
-            "YXMYAyABKAVCAhgBEhgKDG1heF9yZXBsaWNhcxgEIAEoBUICGAESEwoHY3B1",
-            "X3JlcRgFIAEoCUICGAESDwoHcmVnaW9ucxgGIAMoCRIlCgdzZWNyZXRzGAcg",
-            "AygLMhQubGl2ZWtpdC5BZ2VudFNlY3JldCI3ChNVcGRhdGVBZ2VudFJlc3Bv",
-            "bnNlEg8KB3N1Y2Nlc3MYASABKAgSDwoHbWVzc2FnZRgCIAEoCSIzChNSZXN0",
-            "YXJ0QWdlbnRSZXF1ZXN0EhwKCGFnZW50X2lkGAEgASgJQgq6UAdhZ2VudElE",
-            "IjgKFFJlc3RhcnRBZ2VudFJlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgSDwoH",
-            "bWVzc2FnZRgCIAEoCSK+AgoSRGVwbG95QWdlbnRSZXF1ZXN0EhwKCGFnZW50",
+            "Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAizAEKC0FnZW50U2VjcmV0EgwK",
+            "BG5hbWUYASABKAkSEgoFdmFsdWUYAiABKAxCA8BQAhIuCgpjcmVhdGVkX2F0",
+            "GAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVk",
+            "X2F0GAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBImCgRraW5k",
+            "GAUgASgOMhgubGl2ZWtpdC5BZ2VudFNlY3JldEtpbmQSEwoLZGVwbG95bWVu",
+            "dHMYBiADKAkiqQEKEkNyZWF0ZUFnZW50UmVxdWVzdBIWCgphZ2VudF9uYW1l",
+            "GAEgASgJQgIYARIlCgdzZWNyZXRzGAIgAygLMhQubGl2ZWtpdC5BZ2VudFNl",
+            "Y3JldBIUCghyZXBsaWNhcxgDIAEoBUICGAESGAoMbWF4X3JlcGxpY2FzGAQg",
+            "ASgFQgIYARITCgdjcHVfcmVxGAUgASgJQgIYARIPCgdyZWdpb25zGAYgAygJ",
+            "IuMBChNDcmVhdGVBZ2VudFJlc3BvbnNlEhwKCGFnZW50X2lkGAEgASgJQgq6",
+            "UAdhZ2VudElEEhIKCmFnZW50X25hbWUYAiABKAkSDgoGc3RhdHVzGAMgASgJ",
+            "Eg8KB3ZlcnNpb24YBCABKAkSFQoNcHJlc2lnbmVkX3VybBgFIAEoCRILCgN0",
+            "YWcYBiABKAkSFgoOc2VydmVyX3JlZ2lvbnMYByADKAkSPQoWcHJlc2lnbmVk",
+            "X3Bvc3RfcmVxdWVzdBgIIAEoCzIdLmxpdmVraXQuUHJlc2lnbmVkUG9zdFJl",
+            "cXVlc3QiTgoUQ3JlYXRlQWdlbnRWMlJlcXVlc3QSJQoHc2VjcmV0cxgBIAMo",
+            "CzIULmxpdmVraXQuQWdlbnRTZWNyZXQSDwoHcmVnaW9ucxgCIAMoCSJdChVD",
+            "cmVhdGVBZ2VudFYyUmVzcG9uc2USHAoIYWdlbnRfaWQYASABKAlCCrpQB2Fn",
+            "ZW50SUQSDgoGc3RhdHVzGAIgASgJEhYKDnNlcnZlcl9yZWdpb25zGAMgAygJ",
+            "ImMKE1Byb21vdGVBZ2VudFJlcXVlc3QSHAoIYWdlbnRfaWQYASABKAlCCrpQ",
+            "B2FnZW50SUQSFgoOc3JjX2RlcGxveW1lbnQYAiABKAkSFgoOZHN0X2RlcGxv",
+            "eW1lbnQYAyABKAkimwEKFFByb21vdGVBZ2VudFJlc3BvbnNlEg8KB3N1Y2Nl",
+            "c3MYASABKAgSDwoHbWVzc2FnZRgCIAEoCRIcCghhZ2VudF9pZBgDIAEoCUIK",
+            "ulAHYWdlbnRJRBIWCg5zcmNfZGVwbG95bWVudBgEIAEoCRIWCg5kc3RfZGVw",
+            "bG95bWVudBgFIAEoCRITCgt2ZXJzaW9uX3RhZxgGIAEoCSKSAQoUUHJlc2ln",
+            "bmVkUG9zdFJlcXVlc3QSCwoDdXJsGAEgASgJEj4KBnZhbHVlcxgCIAMoCzIp",
+            "LmxpdmVraXQuUHJlc2lnbmVkUG9zdFJlcXVlc3QuVmFsdWVzRW50cnlCA8BQ",
+            "AhotCgtWYWx1ZXNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6",
+            "AjgBIr0DCg9BZ2VudERlcGxveW1lbnQSDgoGcmVnaW9uGAEgASgJEhwKCGFn",
+            "ZW50X2lkGAIgASgJQgq6UAdhZ2VudElEEg4KBnN0YXR1cxgDIAEoCRIQCghy",
+            "ZXBsaWNhcxgEIAEoBRIUCgxtaW5fcmVwbGljYXMYBSABKAUSFAoMbWF4X3Jl",
+            "cGxpY2FzGAYgASgFEg8KB2NwdV9yZXEYByABKAkSDwoHY3VyX2NwdRgIIAEo",
+            "CRIPCgdjdXJfbWVtGAkgASgJEg8KB21lbV9yZXEYCiABKAkSEQoJbWVtX2xp",
+            "bWl0GAsgASgJEhEKCWNwdV9saW1pdBgMIAEoCRIVCg1zZXJ2ZXJfcmVnaW9u",
+            "GA0gASgJEiMKBmV2ZW50cxgOIAMoCzITLmxpdmVraXQuQWdlbnRFdmVudBIS",
+            "CgpkZXBsb3ltZW50GA8gASgJEg8KB3ZlcnNpb24YECABKAkSEgoKYWdlbnRf",
+            "bmFtZRgRIAEoCRIaChJkZXBsb3ltZW50X2VuYWJsZWQYEiABKAgSMwoPbGFz",
+            "dF9zY3JhcGVkX2F0GBMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFt",
+            "cCLbAQoJQWdlbnRJbmZvEhwKCGFnZW50X2lkGAEgASgJQgq6UAdhZ2VudElE",
+            "EhIKCmFnZW50X25hbWUYAiABKAkSDwoHdmVyc2lvbhgDIAEoCRIzChFhZ2Vu",
+            "dF9kZXBsb3ltZW50cxgEIAMoCzIYLmxpdmVraXQuQWdlbnREZXBsb3ltZW50",
+            "EiUKB3NlY3JldHMYBSADKAsyFC5saXZla2l0LkFnZW50U2VjcmV0Ei8KC2Rl",
+            "cGxveWVkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCJF",
+            "ChFMaXN0QWdlbnRzUmVxdWVzdBISCgphZ2VudF9uYW1lGAEgASgJEhwKCGFn",
+            "ZW50X2lkGAIgASgJQgq6UAdhZ2VudElEIjgKEkxpc3RBZ2VudHNSZXNwb25z",
+            "ZRIiCgZhZ2VudHMYASADKAsyEi5saXZla2l0LkFnZW50SW5mbyLAAgoMQWdl",
+            "bnRWZXJzaW9uEg8KB3ZlcnNpb24YASABKAkSDwoHY3VycmVudBgCIAEoCBIu",
+            "CgpjcmVhdGVkX2F0GAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFt",
+            "cBIvCgtkZXBsb3llZF9hdBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1l",
+            "c3RhbXASOQoKYXR0cmlidXRlcxgFIAMoCzIlLmxpdmVraXQuQWdlbnRWZXJz",
+            "aW9uLkF0dHJpYnV0ZXNFbnRyeRIOCgZzdGF0dXMYBiABKAkSDQoFb3duZXIY",
+            "ByABKAkSEAoIZHJhaW5pbmcYCCABKAgSDgoGYWN0aXZlGAkgASgIGjEKD0F0",
+            "dHJpYnV0ZXNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgB",
+            "IkwKGExpc3RBZ2VudFZlcnNpb25zUmVxdWVzdBIcCghhZ2VudF9pZBgBIAEo",
+            "CUIKulAHYWdlbnRJRBISCgphZ2VudF9uYW1lGAIgASgJIkQKGUxpc3RBZ2Vu",
+            "dFZlcnNpb25zUmVzcG9uc2USJwoIdmVyc2lvbnMYASADKAsyFS5saXZla2l0",
+            "LkFnZW50VmVyc2lvbiLHAQoSVXBkYXRlQWdlbnRSZXF1ZXN0EhwKCGFnZW50",
             "X2lkGAEgASgJQgq6UAdhZ2VudElEEhYKCmFnZW50X25hbWUYAiABKAlCAhgB",
-            "EiUKB3NlY3JldHMYAyADKAsyFC5saXZla2l0LkFnZW50U2VjcmV0EhQKCHJl",
-            "cGxpY2FzGAQgASgFQgIYARIYCgxtYXhfcmVwbGljYXMYBSABKAVCAhgBEhMK",
-            "B2NwdV9yZXEYBiABKAlCAhgBEhIKCmRlcGxveW1lbnQYByABKAkSPwoKYXR0",
-            "cmlidXRlcxgIIAMoCzIrLmxpdmVraXQuRGVwbG95QWdlbnRSZXF1ZXN0LkF0",
-            "dHJpYnV0ZXNFbnRyeRoxCg9BdHRyaWJ1dGVzRW50cnkSCwoDa2V5GAEgASgJ",
-            "Eg0KBXZhbHVlGAIgASgJOgI4ASLQAQoTRGVwbG95QWdlbnRSZXNwb25zZRIP",
-            "CgdzdWNjZXNzGAEgASgIEg8KB21lc3NhZ2UYAiABKAkSHAoIYWdlbnRfaWQY",
-            "AyABKAlCCrpQB2FnZW50SUQSGQoNcHJlc2lnbmVkX3VybBgEIAEoCUICGAES",
-            "CwoDdGFnGAUgASgJEj0KFnByZXNpZ25lZF9wb3N0X3JlcXVlc3QYBiABKAsy",
-            "HS5saXZla2l0LlByZXNpZ25lZFBvc3RSZXF1ZXN0EhIKCmRlcGxveW1lbnQY",
-            "ByABKAki5QEKFERlcGxveUFnZW50VjJSZXF1ZXN0EhwKCGFnZW50X2lkGAEg",
-            "ASgJQgq6UAdhZ2VudElEEiUKB3NlY3JldHMYAiADKAsyFC5saXZla2l0LkFn",
-            "ZW50U2VjcmV0EhIKCmRlcGxveW1lbnQYAyABKAkSQQoKYXR0cmlidXRlcxgE",
-            "IAMoCzItLmxpdmVraXQuRGVwbG95QWdlbnRWMlJlcXVlc3QuQXR0cmlidXRl",
-            "c0VudHJ5GjEKD0F0dHJpYnV0ZXNFbnRyeRILCgNrZXkYASABKAkSDQoFdmFs",
-            "dWUYAiABKAk6AjgBIq4BChVEZXBsb3lBZ2VudFYyUmVzcG9uc2USDwoHc3Vj",
-            "Y2VzcxgBIAEoCBIPCgdtZXNzYWdlGAIgASgJEhwKCGFnZW50X2lkGAMgASgJ",
-            "Qgq6UAdhZ2VudElEEgsKA3RhZxgEIAEoCRI0Cg1wcmVzaWduZWRfcmVxGAUg",
-            "ASgLMh0ubGl2ZWtpdC5QcmVzaWduZWRQb3N0UmVxdWVzdBISCgpkZXBsb3lt",
-            "ZW50GAYgASgJIpcBChlVcGRhdGVBZ2VudFNlY3JldHNSZXF1ZXN0EhwKCGFn",
-            "ZW50X2lkGAEgASgJQgq6UAdhZ2VudElEEhIKCmFnZW50X25hbWUYAiABKAkS",
-            "EQoJb3ZlcndyaXRlGAMgASgIEiUKB3NlY3JldHMYBCADKAsyFC5saXZla2l0",
-            "LkFnZW50U2VjcmV0Eg4KBnJlbW92ZRgFIAMoCSI+ChpVcGRhdGVBZ2VudFNl",
-            "Y3JldHNSZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIEg8KB21lc3NhZ2UYAiAB",
-            "KAkiWQoUUm9sbGJhY2tBZ2VudFJlcXVlc3QSHAoIYWdlbnRfaWQYASABKAlC",
-            "CrpQB2FnZW50SUQSEgoKYWdlbnRfbmFtZRgCIAEoCRIPCgd2ZXJzaW9uGAMg",
-            "ASgJIjkKFVJvbGxiYWNrQWdlbnRSZXNwb25zZRIPCgdzdWNjZXNzGAEgASgI",
-            "Eg8KB21lc3NhZ2UYAiABKAkiWgoSRGVsZXRlQWdlbnRSZXF1ZXN0EhwKCGFn",
-            "ZW50X2lkGAEgASgJQgq6UAdhZ2VudElEEhIKCmFnZW50X25hbWUYAiABKAkS",
-            "EgoKZGVwbG95bWVudBgDIAEoCSI3ChNEZWxldGVBZ2VudFJlc3BvbnNlEg8K",
-            "B3N1Y2Nlc3MYASABKAgSDwoHbWVzc2FnZRgCIAEoCSJLChdMaXN0QWdlbnRT",
-            "ZWNyZXRzUmVxdWVzdBIcCghhZ2VudF9pZBgBIAEoCUIKulAHYWdlbnRJRBIS",
-            "CgphZ2VudF9uYW1lGAIgASgJIkEKGExpc3RBZ2VudFNlY3JldHNSZXNwb25z",
-            "ZRIlCgdzZWNyZXRzGAEgAygLMhQubGl2ZWtpdC5BZ2VudFNlY3JldCIsCg1T",
-            "ZXR0aW5nc1BhcmFtEgwKBG5hbWUYASABKAkSDQoFdmFsdWUYAiABKAkiQAoW",
-            "Q2xpZW50U2V0dGluZ3NSZXNwb25zZRImCgZwYXJhbXMYASADKAsyFi5saXZl",
-            "a2l0LlNldHRpbmdzUGFyYW0iFwoVQ2xpZW50U2V0dGluZ3NSZXF1ZXN0IokC",
-            "CgtQcml2YXRlTGluaxIpCg9wcml2YXRlX2xpbmtfaWQYASABKAlCELpQDXBy",
-            "aXZhdGVMaW5rSUQSDAoEbmFtZRgCIAEoCRIOCgZyZWdpb24YBCABKAkSDAoE",
-            "cG9ydBgFIAEoDRIQCghlbmRwb2ludBgGIAEoCRIbChNjb25uZWN0aW9uX2Vu",
-            "ZHBvaW50GAcgASgJEhQKDGNsb3VkX3JlZ2lvbhgIIAEoCRIxCgNhd3MYAyAB",
-            "KAsyHi5saXZla2l0LlByaXZhdGVMaW5rLkFXU0NvbmZpZ0ICGAFIABohCglB",
-            "V1NDb25maWcSFAoIZW5kcG9pbnQYASABKAlCAhgBQggKBmNvbmZpZyLoAgoR",
-            "UHJpdmF0ZUxpbmtTdGF0dXMSMQoGc3RhdHVzGAEgASgOMiEubGl2ZWtpdC5Q",
-            "cml2YXRlTGlua1N0YXR1cy5TdGF0dXMSLgoKdXBkYXRlZF9hdBgCIAEoCzIa",
-            "Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASDgoGcmVhc29uGAMgASgJIt8B",
-            "CgZTdGF0dXMSHwobUFJJVkFURV9MSU5LX1NUQVRVU19VTktOT1dOEAASJAog",
-            "UFJJVkFURV9MSU5LX1NUQVRVU19QUk9WSVNJT05JTkcQARIoCiRQUklWQVRF",
-            "X0xJTktfU1RBVFVTX1BFTkRJTkdfQVBQUk9WQUwQAhIfChtQUklWQVRFX0xJ",
-            "TktfU1RBVFVTX0hFQUxUSFkQAxIhCh1QUklWQVRFX0xJTktfU1RBVFVTX1VO",
-            "SEVBTFRIWRAEEiAKHFBSSVZBVEVfTElOS19TVEFUVVNfQVBQUk9WRUQQBSL9",
-            "AQoYQ3JlYXRlUHJpdmF0ZUxpbmtSZXF1ZXN0EgwKBG5hbWUYASABKAkSDgoG",
-            "cmVnaW9uGAMgASgJEgwKBHBvcnQYBCABKA0SEAoIZW5kcG9pbnQYBSABKAkS",
-            "GQoMY2xvdWRfcmVnaW9uGAYgASgJSAGIAQESRAoDYXdzGAIgASgLMjEubGl2",
-            "ZWtpdC5DcmVhdGVQcml2YXRlTGlua1JlcXVlc3QuQVdTQ3JlYXRlQ29uZmln",
-            "QgIYAUgAGicKD0FXU0NyZWF0ZUNvbmZpZxIUCghlbmRwb2ludBgBIAEoCUIC",
-            "GAFCCAoGY29uZmlnQg8KDV9jbG91ZF9yZWdpb24iRwoZQ3JlYXRlUHJpdmF0",
-            "ZUxpbmtSZXNwb25zZRIqCgxwcml2YXRlX2xpbmsYASABKAsyFC5saXZla2l0",
-            "LlByaXZhdGVMaW5rIkYKGURlc3Ryb3lQcml2YXRlTGlua1JlcXVlc3QSKQoP",
-            "cHJpdmF0ZV9saW5rX2lkGAEgASgJQhC6UA1wcml2YXRlTGlua0lEIhwKGkRl",
-            "c3Ryb3lQcml2YXRlTGlua1Jlc3BvbnNlIhkKF0xpc3RQcml2YXRlTGlua3NS",
-            "ZXF1ZXN0Ij8KGExpc3RQcml2YXRlTGlua3NSZXNwb25zZRIjCgVpdGVtcxgB",
-            "IAMoCzIULmxpdmVraXQuUHJpdmF0ZUxpbmsiSAobR2V0UHJpdmF0ZUxpbmtT",
-            "dGF0dXNSZXF1ZXN0EikKD3ByaXZhdGVfbGlua19pZBgBIAEoCUIQulANcHJp",
-            "dmF0ZUxpbmtJRCJJChxHZXRQcml2YXRlTGlua1N0YXR1c1Jlc3BvbnNlEikK",
-            "BXZhbHVlGAEgASgLMhoubGl2ZWtpdC5Qcml2YXRlTGlua1N0YXR1cypvCg9B",
-            "Z2VudFNlY3JldEtpbmQSHQoZQUdFTlRfU0VDUkVUX0tJTkRfVU5LTk9XThAA",
-            "EiEKHUFHRU5UX1NFQ1JFVF9LSU5EX0VOVklST05NRU5UEAESGgoWQUdFTlRf",
-            "U0VDUkVUX0tJTkRfRklMRRACKroBCg5BZ2VudEV2ZW50VHlwZRIcChhBR0VO",
-            "VF9FVkVOVF9UWVBFX1VOS05PV04QABIoCiRBR0VOVF9FVkVOVF9UWVBFX0FQ",
-            "UExJQ0FUSU9OX0NSQVNIRUQQARIuCipBR0VOVF9FVkVOVF9UWVBFX1JFU1RB",
-            "UlRFRF9ISUdIX0RJU0tfVVNBR0UQAhIwCixBR0VOVF9FVkVOVF9UWVBFX1JF",
-            "U1RBUlRFRF9ISUdIX01FTU9SWV9VU0FHRRADMowMCgpDbG91ZEFnZW50EkoK",
-            "C0NyZWF0ZUFnZW50EhsubGl2ZWtpdC5DcmVhdGVBZ2VudFJlcXVlc3QaHC5s",
-            "aXZla2l0LkNyZWF0ZUFnZW50UmVzcG9uc2UiABJQCg1DcmVhdGVBZ2VudFYy",
-            "Eh0ubGl2ZWtpdC5DcmVhdGVBZ2VudFYyUmVxdWVzdBoeLmxpdmVraXQuQ3Jl",
-            "YXRlQWdlbnRWMlJlc3BvbnNlIgASTQoMUHJvbW90ZUFnZW50EhwubGl2ZWtp",
-            "dC5Qcm9tb3RlQWdlbnRSZXF1ZXN0Gh0ubGl2ZWtpdC5Qcm9tb3RlQWdlbnRS",
-            "ZXNwb25zZSIAEkcKCkxpc3RBZ2VudHMSGi5saXZla2l0Lkxpc3RBZ2VudHNS",
-            "ZXF1ZXN0GhsubGl2ZWtpdC5MaXN0QWdlbnRzUmVzcG9uc2UiABJcChFMaXN0",
-            "QWdlbnRWZXJzaW9ucxIhLmxpdmVraXQuTGlzdEFnZW50VmVyc2lvbnNSZXF1",
-            "ZXN0GiIubGl2ZWtpdC5MaXN0QWdlbnRWZXJzaW9uc1Jlc3BvbnNlIgASWQoQ",
-            "TGlzdEFnZW50U2VjcmV0cxIgLmxpdmVraXQuTGlzdEFnZW50U2VjcmV0c1Jl",
-            "cXVlc3QaIS5saXZla2l0Lkxpc3RBZ2VudFNlY3JldHNSZXNwb25zZSIAEkoK",
-            "C1VwZGF0ZUFnZW50EhsubGl2ZWtpdC5VcGRhdGVBZ2VudFJlcXVlc3QaHC5s",
-            "aXZla2l0LlVwZGF0ZUFnZW50UmVzcG9uc2UiABJNCgxSZXN0YXJ0QWdlbnQS",
-            "HC5saXZla2l0LlJlc3RhcnRBZ2VudFJlcXVlc3QaHS5saXZla2l0LlJlc3Rh",
-            "cnRBZ2VudFJlc3BvbnNlIgASSgoLRGVwbG95QWdlbnQSGy5saXZla2l0LkRl",
-            "cGxveUFnZW50UmVxdWVzdBocLmxpdmVraXQuRGVwbG95QWdlbnRSZXNwb25z",
-            "ZSIAElAKDURlcGxveUFnZW50VjISHS5saXZla2l0LkRlcGxveUFnZW50VjJS",
-            "ZXF1ZXN0Gh4ubGl2ZWtpdC5EZXBsb3lBZ2VudFYyUmVzcG9uc2UiABJfChJV",
-            "cGRhdGVBZ2VudFNlY3JldHMSIi5saXZla2l0LlVwZGF0ZUFnZW50U2VjcmV0",
-            "c1JlcXVlc3QaIy5saXZla2l0LlVwZGF0ZUFnZW50U2VjcmV0c1Jlc3BvbnNl",
-            "IgASUAoNUm9sbGJhY2tBZ2VudBIdLmxpdmVraXQuUm9sbGJhY2tBZ2VudFJl",
-            "cXVlc3QaHi5saXZla2l0LlJvbGxiYWNrQWdlbnRSZXNwb25zZSIAEkoKC0Rl",
-            "bGV0ZUFnZW50EhsubGl2ZWtpdC5EZWxldGVBZ2VudFJlcXVlc3QaHC5saXZl",
-            "a2l0LkRlbGV0ZUFnZW50UmVzcG9uc2UiABJWChFHZXRDbGllbnRTZXR0aW5n",
-            "cxIeLmxpdmVraXQuQ2xpZW50U2V0dGluZ3NSZXF1ZXN0Gh8ubGl2ZWtpdC5D",
-            "bGllbnRTZXR0aW5nc1Jlc3BvbnNlIgASXAoRQ3JlYXRlUHJpdmF0ZUxpbmsS",
-            "IS5saXZla2l0LkNyZWF0ZVByaXZhdGVMaW5rUmVxdWVzdBoiLmxpdmVraXQu",
-            "Q3JlYXRlUHJpdmF0ZUxpbmtSZXNwb25zZSIAEl8KEkRlc3Ryb3lQcml2YXRl",
-            "TGluaxIiLmxpdmVraXQuRGVzdHJveVByaXZhdGVMaW5rUmVxdWVzdBojLmxp",
-            "dmVraXQuRGVzdHJveVByaXZhdGVMaW5rUmVzcG9uc2UiABJZChBMaXN0UHJp",
-            "dmF0ZUxpbmtzEiAubGl2ZWtpdC5MaXN0UHJpdmF0ZUxpbmtzUmVxdWVzdBoh",
-            "LmxpdmVraXQuTGlzdFByaXZhdGVMaW5rc1Jlc3BvbnNlIgASZQoUR2V0UHJp",
-            "dmF0ZUxpbmtTdGF0dXMSJC5saXZla2l0LkdldFByaXZhdGVMaW5rU3RhdHVz",
-            "UmVxdWVzdBolLmxpdmVraXQuR2V0UHJpdmF0ZUxpbmtTdGF0dXNSZXNwb25z",
-            "ZSIAQkZaI2dpdGh1Yi5jb20vbGl2ZWtpdC9wcm90b2NvbC9saXZla2l0qgIN",
-            "TGl2ZUtpdC5Qcm90b+oCDkxpdmVLaXQ6OlByb3RvYgZwcm90bzM="));
+            "EhQKCHJlcGxpY2FzGAMgASgFQgIYARIYCgxtYXhfcmVwbGljYXMYBCABKAVC",
+            "AhgBEhMKB2NwdV9yZXEYBSABKAlCAhgBEg8KB3JlZ2lvbnMYBiADKAkSJQoH",
+            "c2VjcmV0cxgHIAMoCzIULmxpdmVraXQuQWdlbnRTZWNyZXQiNwoTVXBkYXRl",
+            "QWdlbnRSZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIEg8KB21lc3NhZ2UYAiAB",
+            "KAkiMwoTUmVzdGFydEFnZW50UmVxdWVzdBIcCghhZ2VudF9pZBgBIAEoCUIK",
+            "ulAHYWdlbnRJRCI4ChRSZXN0YXJ0QWdlbnRSZXNwb25zZRIPCgdzdWNjZXNz",
+            "GAEgASgIEg8KB21lc3NhZ2UYAiABKAkivgIKEkRlcGxveUFnZW50UmVxdWVz",
+            "dBIcCghhZ2VudF9pZBgBIAEoCUIKulAHYWdlbnRJRBIWCgphZ2VudF9uYW1l",
+            "GAIgASgJQgIYARIlCgdzZWNyZXRzGAMgAygLMhQubGl2ZWtpdC5BZ2VudFNl",
+            "Y3JldBIUCghyZXBsaWNhcxgEIAEoBUICGAESGAoMbWF4X3JlcGxpY2FzGAUg",
+            "ASgFQgIYARITCgdjcHVfcmVxGAYgASgJQgIYARISCgpkZXBsb3ltZW50GAcg",
+            "ASgJEj8KCmF0dHJpYnV0ZXMYCCADKAsyKy5saXZla2l0LkRlcGxveUFnZW50",
+            "UmVxdWVzdC5BdHRyaWJ1dGVzRW50cnkaMQoPQXR0cmlidXRlc0VudHJ5EgsK",
+            "A2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEi0AEKE0RlcGxveUFnZW50",
+            "UmVzcG9uc2USDwoHc3VjY2VzcxgBIAEoCBIPCgdtZXNzYWdlGAIgASgJEhwK",
+            "CGFnZW50X2lkGAMgASgJQgq6UAdhZ2VudElEEhkKDXByZXNpZ25lZF91cmwY",
+            "BCABKAlCAhgBEgsKA3RhZxgFIAEoCRI9ChZwcmVzaWduZWRfcG9zdF9yZXF1",
+            "ZXN0GAYgASgLMh0ubGl2ZWtpdC5QcmVzaWduZWRQb3N0UmVxdWVzdBISCgpk",
+            "ZXBsb3ltZW50GAcgASgJIuUBChREZXBsb3lBZ2VudFYyUmVxdWVzdBIcCghh",
+            "Z2VudF9pZBgBIAEoCUIKulAHYWdlbnRJRBIlCgdzZWNyZXRzGAIgAygLMhQu",
+            "bGl2ZWtpdC5BZ2VudFNlY3JldBISCgpkZXBsb3ltZW50GAMgASgJEkEKCmF0",
+            "dHJpYnV0ZXMYBCADKAsyLS5saXZla2l0LkRlcGxveUFnZW50VjJSZXF1ZXN0",
+            "LkF0dHJpYnV0ZXNFbnRyeRoxCg9BdHRyaWJ1dGVzRW50cnkSCwoDa2V5GAEg",
+            "ASgJEg0KBXZhbHVlGAIgASgJOgI4ASKuAQoVRGVwbG95QWdlbnRWMlJlc3Bv",
+            "bnNlEg8KB3N1Y2Nlc3MYASABKAgSDwoHbWVzc2FnZRgCIAEoCRIcCghhZ2Vu",
+            "dF9pZBgDIAEoCUIKulAHYWdlbnRJRBILCgN0YWcYBCABKAkSNAoNcHJlc2ln",
+            "bmVkX3JlcRgFIAEoCzIdLmxpdmVraXQuUHJlc2lnbmVkUG9zdFJlcXVlc3QS",
+            "EgoKZGVwbG95bWVudBgGIAEoCSKXAQoZVXBkYXRlQWdlbnRTZWNyZXRzUmVx",
+            "dWVzdBIcCghhZ2VudF9pZBgBIAEoCUIKulAHYWdlbnRJRBISCgphZ2VudF9u",
+            "YW1lGAIgASgJEhEKCW92ZXJ3cml0ZRgDIAEoCBIlCgdzZWNyZXRzGAQgAygL",
+            "MhQubGl2ZWtpdC5BZ2VudFNlY3JldBIOCgZyZW1vdmUYBSADKAkiPgoaVXBk",
+            "YXRlQWdlbnRTZWNyZXRzUmVzcG9uc2USDwoHc3VjY2VzcxgBIAEoCBIPCgdt",
+            "ZXNzYWdlGAIgASgJIlkKFFJvbGxiYWNrQWdlbnRSZXF1ZXN0EhwKCGFnZW50",
+            "X2lkGAEgASgJQgq6UAdhZ2VudElEEhIKCmFnZW50X25hbWUYAiABKAkSDwoH",
+            "dmVyc2lvbhgDIAEoCSI5ChVSb2xsYmFja0FnZW50UmVzcG9uc2USDwoHc3Vj",
+            "Y2VzcxgBIAEoCBIPCgdtZXNzYWdlGAIgASgJIloKEkRlbGV0ZUFnZW50UmVx",
+            "dWVzdBIcCghhZ2VudF9pZBgBIAEoCUIKulAHYWdlbnRJRBISCgphZ2VudF9u",
+            "YW1lGAIgASgJEhIKCmRlcGxveW1lbnQYAyABKAkiNwoTRGVsZXRlQWdlbnRS",
+            "ZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIEg8KB21lc3NhZ2UYAiABKAkiSwoX",
+            "TGlzdEFnZW50U2VjcmV0c1JlcXVlc3QSHAoIYWdlbnRfaWQYASABKAlCCrpQ",
+            "B2FnZW50SUQSEgoKYWdlbnRfbmFtZRgCIAEoCSJBChhMaXN0QWdlbnRTZWNy",
+            "ZXRzUmVzcG9uc2USJQoHc2VjcmV0cxgBIAMoCzIULmxpdmVraXQuQWdlbnRT",
+            "ZWNyZXQiLAoNU2V0dGluZ3NQYXJhbRIMCgRuYW1lGAEgASgJEg0KBXZhbHVl",
+            "GAIgASgJIkAKFkNsaWVudFNldHRpbmdzUmVzcG9uc2USJgoGcGFyYW1zGAEg",
+            "AygLMhYubGl2ZWtpdC5TZXR0aW5nc1BhcmFtIhcKFUNsaWVudFNldHRpbmdz",
+            "UmVxdWVzdCKJAgoLUHJpdmF0ZUxpbmsSKQoPcHJpdmF0ZV9saW5rX2lkGAEg",
+            "ASgJQhC6UA1wcml2YXRlTGlua0lEEgwKBG5hbWUYAiABKAkSDgoGcmVnaW9u",
+            "GAQgASgJEgwKBHBvcnQYBSABKA0SEAoIZW5kcG9pbnQYBiABKAkSGwoTY29u",
+            "bmVjdGlvbl9lbmRwb2ludBgHIAEoCRIUCgxjbG91ZF9yZWdpb24YCCABKAkS",
+            "MQoDYXdzGAMgASgLMh4ubGl2ZWtpdC5Qcml2YXRlTGluay5BV1NDb25maWdC",
+            "AhgBSAAaIQoJQVdTQ29uZmlnEhQKCGVuZHBvaW50GAEgASgJQgIYAUIICgZj",
+            "b25maWci6AIKEVByaXZhdGVMaW5rU3RhdHVzEjEKBnN0YXR1cxgBIAEoDjIh",
+            "LmxpdmVraXQuUHJpdmF0ZUxpbmtTdGF0dXMuU3RhdHVzEi4KCnVwZGF0ZWRf",
+            "YXQYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEg4KBnJlYXNv",
+            "bhgDIAEoCSLfAQoGU3RhdHVzEh8KG1BSSVZBVEVfTElOS19TVEFUVVNfVU5L",
+            "Tk9XThAAEiQKIFBSSVZBVEVfTElOS19TVEFUVVNfUFJPVklTSU9OSU5HEAES",
+            "KAokUFJJVkFURV9MSU5LX1NUQVRVU19QRU5ESU5HX0FQUFJPVkFMEAISHwob",
+            "UFJJVkFURV9MSU5LX1NUQVRVU19IRUFMVEhZEAMSIQodUFJJVkFURV9MSU5L",
+            "X1NUQVRVU19VTkhFQUxUSFkQBBIgChxQUklWQVRFX0xJTktfU1RBVFVTX0FQ",
+            "UFJPVkVEEAUi/QEKGENyZWF0ZVByaXZhdGVMaW5rUmVxdWVzdBIMCgRuYW1l",
+            "GAEgASgJEg4KBnJlZ2lvbhgDIAEoCRIMCgRwb3J0GAQgASgNEhAKCGVuZHBv",
+            "aW50GAUgASgJEhkKDGNsb3VkX3JlZ2lvbhgGIAEoCUgBiAEBEkQKA2F3cxgC",
+            "IAEoCzIxLmxpdmVraXQuQ3JlYXRlUHJpdmF0ZUxpbmtSZXF1ZXN0LkFXU0Ny",
+            "ZWF0ZUNvbmZpZ0ICGAFIABonCg9BV1NDcmVhdGVDb25maWcSFAoIZW5kcG9p",
+            "bnQYASABKAlCAhgBQggKBmNvbmZpZ0IPCg1fY2xvdWRfcmVnaW9uIkcKGUNy",
+            "ZWF0ZVByaXZhdGVMaW5rUmVzcG9uc2USKgoMcHJpdmF0ZV9saW5rGAEgASgL",
+            "MhQubGl2ZWtpdC5Qcml2YXRlTGluayJGChlEZXN0cm95UHJpdmF0ZUxpbmtS",
+            "ZXF1ZXN0EikKD3ByaXZhdGVfbGlua19pZBgBIAEoCUIQulANcHJpdmF0ZUxp",
+            "bmtJRCIcChpEZXN0cm95UHJpdmF0ZUxpbmtSZXNwb25zZSIZChdMaXN0UHJp",
+            "dmF0ZUxpbmtzUmVxdWVzdCI/ChhMaXN0UHJpdmF0ZUxpbmtzUmVzcG9uc2US",
+            "IwoFaXRlbXMYASADKAsyFC5saXZla2l0LlByaXZhdGVMaW5rIkgKG0dldFBy",
+            "aXZhdGVMaW5rU3RhdHVzUmVxdWVzdBIpCg9wcml2YXRlX2xpbmtfaWQYASAB",
+            "KAlCELpQDXByaXZhdGVMaW5rSUQiSQocR2V0UHJpdmF0ZUxpbmtTdGF0dXNS",
+            "ZXNwb25zZRIpCgV2YWx1ZRgBIAEoCzIaLmxpdmVraXQuUHJpdmF0ZUxpbmtT",
+            "dGF0dXMqbwoPQWdlbnRTZWNyZXRLaW5kEh0KGUFHRU5UX1NFQ1JFVF9LSU5E",
+            "X1VOS05PV04QABIhCh1BR0VOVF9TRUNSRVRfS0lORF9FTlZJUk9OTUVOVBAB",
+            "EhoKFkFHRU5UX1NFQ1JFVF9LSU5EX0ZJTEUQAiq6AQoOQWdlbnRFdmVudFR5",
+            "cGUSHAoYQUdFTlRfRVZFTlRfVFlQRV9VTktOT1dOEAASKAokQUdFTlRfRVZF",
+            "TlRfVFlQRV9BUFBMSUNBVElPTl9DUkFTSEVEEAESLgoqQUdFTlRfRVZFTlRf",
+            "VFlQRV9SRVNUQVJURURfSElHSF9ESVNLX1VTQUdFEAISMAosQUdFTlRfRVZF",
+            "TlRfVFlQRV9SRVNUQVJURURfSElHSF9NRU1PUllfVVNBR0UQAzKMDAoKQ2xv",
+            "dWRBZ2VudBJKCgtDcmVhdGVBZ2VudBIbLmxpdmVraXQuQ3JlYXRlQWdlbnRS",
+            "ZXF1ZXN0GhwubGl2ZWtpdC5DcmVhdGVBZ2VudFJlc3BvbnNlIgASUAoNQ3Jl",
+            "YXRlQWdlbnRWMhIdLmxpdmVraXQuQ3JlYXRlQWdlbnRWMlJlcXVlc3QaHi5s",
+            "aXZla2l0LkNyZWF0ZUFnZW50VjJSZXNwb25zZSIAEk0KDFByb21vdGVBZ2Vu",
+            "dBIcLmxpdmVraXQuUHJvbW90ZUFnZW50UmVxdWVzdBodLmxpdmVraXQuUHJv",
+            "bW90ZUFnZW50UmVzcG9uc2UiABJHCgpMaXN0QWdlbnRzEhoubGl2ZWtpdC5M",
+            "aXN0QWdlbnRzUmVxdWVzdBobLmxpdmVraXQuTGlzdEFnZW50c1Jlc3BvbnNl",
+            "IgASXAoRTGlzdEFnZW50VmVyc2lvbnMSIS5saXZla2l0Lkxpc3RBZ2VudFZl",
+            "cnNpb25zUmVxdWVzdBoiLmxpdmVraXQuTGlzdEFnZW50VmVyc2lvbnNSZXNw",
+            "b25zZSIAElkKEExpc3RBZ2VudFNlY3JldHMSIC5saXZla2l0Lkxpc3RBZ2Vu",
+            "dFNlY3JldHNSZXF1ZXN0GiEubGl2ZWtpdC5MaXN0QWdlbnRTZWNyZXRzUmVz",
+            "cG9uc2UiABJKCgtVcGRhdGVBZ2VudBIbLmxpdmVraXQuVXBkYXRlQWdlbnRS",
+            "ZXF1ZXN0GhwubGl2ZWtpdC5VcGRhdGVBZ2VudFJlc3BvbnNlIgASTQoMUmVz",
+            "dGFydEFnZW50EhwubGl2ZWtpdC5SZXN0YXJ0QWdlbnRSZXF1ZXN0Gh0ubGl2",
+            "ZWtpdC5SZXN0YXJ0QWdlbnRSZXNwb25zZSIAEkoKC0RlcGxveUFnZW50Ehsu",
+            "bGl2ZWtpdC5EZXBsb3lBZ2VudFJlcXVlc3QaHC5saXZla2l0LkRlcGxveUFn",
+            "ZW50UmVzcG9uc2UiABJQCg1EZXBsb3lBZ2VudFYyEh0ubGl2ZWtpdC5EZXBs",
+            "b3lBZ2VudFYyUmVxdWVzdBoeLmxpdmVraXQuRGVwbG95QWdlbnRWMlJlc3Bv",
+            "bnNlIgASXwoSVXBkYXRlQWdlbnRTZWNyZXRzEiIubGl2ZWtpdC5VcGRhdGVB",
+            "Z2VudFNlY3JldHNSZXF1ZXN0GiMubGl2ZWtpdC5VcGRhdGVBZ2VudFNlY3Jl",
+            "dHNSZXNwb25zZSIAElAKDVJvbGxiYWNrQWdlbnQSHS5saXZla2l0LlJvbGxi",
+            "YWNrQWdlbnRSZXF1ZXN0Gh4ubGl2ZWtpdC5Sb2xsYmFja0FnZW50UmVzcG9u",
+            "c2UiABJKCgtEZWxldGVBZ2VudBIbLmxpdmVraXQuRGVsZXRlQWdlbnRSZXF1",
+            "ZXN0GhwubGl2ZWtpdC5EZWxldGVBZ2VudFJlc3BvbnNlIgASVgoRR2V0Q2xp",
+            "ZW50U2V0dGluZ3MSHi5saXZla2l0LkNsaWVudFNldHRpbmdzUmVxdWVzdBof",
+            "LmxpdmVraXQuQ2xpZW50U2V0dGluZ3NSZXNwb25zZSIAElwKEUNyZWF0ZVBy",
+            "aXZhdGVMaW5rEiEubGl2ZWtpdC5DcmVhdGVQcml2YXRlTGlua1JlcXVlc3Qa",
+            "Ii5saXZla2l0LkNyZWF0ZVByaXZhdGVMaW5rUmVzcG9uc2UiABJfChJEZXN0",
+            "cm95UHJpdmF0ZUxpbmsSIi5saXZla2l0LkRlc3Ryb3lQcml2YXRlTGlua1Jl",
+            "cXVlc3QaIy5saXZla2l0LkRlc3Ryb3lQcml2YXRlTGlua1Jlc3BvbnNlIgAS",
+            "WQoQTGlzdFByaXZhdGVMaW5rcxIgLmxpdmVraXQuTGlzdFByaXZhdGVMaW5r",
+            "c1JlcXVlc3QaIS5saXZla2l0Lkxpc3RQcml2YXRlTGlua3NSZXNwb25zZSIA",
+            "EmUKFEdldFByaXZhdGVMaW5rU3RhdHVzEiQubGl2ZWtpdC5HZXRQcml2YXRl",
+            "TGlua1N0YXR1c1JlcXVlc3QaJS5saXZla2l0LkdldFByaXZhdGVMaW5rU3Rh",
+            "dHVzUmVzcG9uc2UiAEJGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wv",
+            "bGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJv",
+            "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.OptionsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.AgentSecretKind), typeof(global::Livekit.Server.Sdk.Dotnet.AgentEventType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -272,6 +273,7 @@ namespace Livekit.Server.Sdk.Dotnet {
   #endregion
 
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AgentEvent : pb::IMessage<AgentEvent>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -488,7 +490,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -518,7 +524,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -544,6 +554,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AgentSecret : pb::IMessage<AgentSecret>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -839,7 +850,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -884,7 +899,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -925,6 +944,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CreateAgentRequest : pb::IMessage<CreateAgentRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1207,7 +1227,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1246,7 +1270,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1281,6 +1309,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CreateAgentResponse : pb::IMessage<CreateAgentResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1631,7 +1660,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1681,7 +1714,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1727,6 +1764,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CreateAgentV2Request : pb::IMessage<CreateAgentV2Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1889,7 +1927,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -1912,7 +1954,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -1931,6 +1977,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CreateAgentV2Response : pb::IMessage<CreateAgentV2Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2133,7 +2180,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -2160,7 +2211,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -2183,6 +2238,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class PromoteAgentRequest : pb::IMessage<PromoteAgentRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2396,7 +2452,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -2423,7 +2483,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -2446,6 +2510,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class PromoteAgentResponse : pb::IMessage<PromoteAgentResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2746,7 +2811,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -2785,7 +2854,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -2820,6 +2893,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class PresignedPostRequest : pb::IMessage<PresignedPostRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2981,7 +3055,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.Url.Length != 0) {
         Url = other.Url;
       }
-      values_.Add(other.values_);
+      values_.MergeFrom(other.values_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2993,7 +3067,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -3016,7 +3094,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -3035,6 +3117,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AgentDeployment : pb::IMessage<AgentDeployment>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3704,7 +3787,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -3798,7 +3885,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -3888,6 +3979,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AgentInfo : pb::IMessage<AgentInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4169,7 +4261,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -4211,7 +4307,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -4249,6 +4349,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListAgentsRequest : pb::IMessage<ListAgentsRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4433,7 +4534,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -4456,7 +4561,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -4475,6 +4584,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListAgentsResponse : pb::IMessage<ListAgentsResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4619,7 +4729,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -4638,7 +4752,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -4653,6 +4771,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class AgentVersion : pb::IMessage<AgentVersion>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5011,7 +5130,7 @@ namespace Livekit.Server.Sdk.Dotnet {
         }
         DeployedAt.MergeFrom(other.DeployedAt);
       }
-      attributes_.Add(other.attributes_);
+      attributes_.MergeFrom(other.attributes_);
       if (other.Status.Length != 0) {
         Status = other.Status;
       }
@@ -5035,7 +5154,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -5092,7 +5215,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -5145,6 +5272,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListAgentVersionsRequest : pb::IMessage<ListAgentVersionsRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5329,7 +5457,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -5352,7 +5484,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -5371,6 +5507,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListAgentVersionsResponse : pb::IMessage<ListAgentVersionsResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5515,7 +5652,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -5534,7 +5675,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -5549,6 +5694,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class UpdateAgentRequest : pb::IMessage<UpdateAgentRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5860,7 +6006,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -5903,7 +6053,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -5942,6 +6096,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class UpdateAgentResponse : pb::IMessage<UpdateAgentResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6126,7 +6281,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -6149,7 +6308,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -6168,6 +6331,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RestartAgentRequest : pb::IMessage<RestartAgentRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6323,7 +6487,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -6342,7 +6510,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -6357,6 +6529,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RestartAgentResponse : pb::IMessage<RestartAgentResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6541,7 +6714,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -6564,7 +6741,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -6583,6 +6764,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DeployAgentRequest : pb::IMessage<DeployAgentRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6911,7 +7093,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.Deployment.Length != 0) {
         Deployment = other.Deployment;
       }
-      attributes_.Add(other.attributes_);
+      attributes_.MergeFrom(other.attributes_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -6923,7 +7105,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -6970,7 +7156,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -7013,6 +7203,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DeployAgentResponse : pb::IMessage<DeployAgentResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7346,7 +7537,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -7392,7 +7587,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -7434,6 +7633,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DeployAgentV2Request : pb::IMessage<DeployAgentV2Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7642,7 +7842,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (other.Deployment.Length != 0) {
         Deployment = other.Deployment;
       }
-      attributes_.Add(other.attributes_);
+      attributes_.MergeFrom(other.attributes_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -7654,7 +7854,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -7685,7 +7889,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -7712,6 +7920,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DeployAgentV2Response : pb::IMessage<DeployAgentV2Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -8015,7 +8224,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -8057,7 +8270,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -8095,6 +8312,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class UpdateAgentSecretsRequest : pb::IMessage<UpdateAgentSecretsRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -8344,7 +8562,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -8379,7 +8601,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -8410,6 +8636,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class UpdateAgentSecretsResponse : pb::IMessage<UpdateAgentSecretsResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -8594,7 +8821,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -8617,7 +8848,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -8636,6 +8871,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RollbackAgentRequest : pb::IMessage<RollbackAgentRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -8849,7 +9085,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -8876,7 +9116,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -8899,6 +9143,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class RollbackAgentResponse : pb::IMessage<RollbackAgentResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -9083,7 +9328,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -9106,7 +9355,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -9125,6 +9378,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DeleteAgentRequest : pb::IMessage<DeleteAgentRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -9341,7 +9595,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -9368,7 +9626,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -9391,6 +9653,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DeleteAgentResponse : pb::IMessage<DeleteAgentResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -9575,7 +9838,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -9598,7 +9865,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -9617,6 +9888,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListAgentSecretsRequest : pb::IMessage<ListAgentSecretsRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -9801,7 +10073,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -9824,7 +10100,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -9843,6 +10123,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListAgentSecretsResponse : pb::IMessage<ListAgentSecretsResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -9987,7 +10268,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -10006,7 +10291,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -10021,6 +10310,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class SettingsParam : pb::IMessage<SettingsParam>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -10205,7 +10495,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -10228,7 +10522,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -10247,6 +10545,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ClientSettingsResponse : pb::IMessage<ClientSettingsResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -10391,7 +10690,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -10410,7 +10713,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -10425,6 +10732,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ClientSettingsRequest : pb::IMessage<ClientSettingsRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -10551,7 +10859,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -10566,7 +10878,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -10577,6 +10893,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class PrivateLink : pb::IMessage<PrivateLink>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -10969,7 +11286,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -11021,7 +11342,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -11072,6 +11397,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class AWSConfig : pb::IMessage<AWSConfig>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -11231,7 +11557,11 @@ namespace Livekit.Server.Sdk.Dotnet {
         #else
           uint tag;
           while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
+          if ((tag & 7) == 4) {
+            // Abort on any end group tag.
+            return;
+          }
+          switch(tag) {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
@@ -11250,7 +11580,11 @@ namespace Livekit.Server.Sdk.Dotnet {
         void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
           uint tag;
           while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
+          if ((tag & 7) == 4) {
+            // Abort on any end group tag.
+            return;
+          }
+          switch(tag) {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
@@ -11270,6 +11604,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class PrivateLinkStatus : pb::IMessage<PrivateLinkStatus>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -11486,7 +11821,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -11516,7 +11855,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -11559,6 +11902,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CreatePrivateLinkRequest : pb::IMessage<CreatePrivateLinkRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -11663,11 +12007,13 @@ namespace Livekit.Server.Sdk.Dotnet {
 
     /// <summary>Field number for the "cloud_region" field.</summary>
     public const int CloudRegionFieldNumber = 6;
+    private readonly static string CloudRegionDefaultValue = "";
+
     private string cloudRegion_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string CloudRegion {
-      get { return cloudRegion_ ?? ""; }
+      get { return cloudRegion_ ?? CloudRegionDefaultValue; }
       set {
         cloudRegion_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
@@ -11905,7 +12251,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -11949,7 +12299,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -11992,6 +12346,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class AWSCreateConfig : pb::IMessage<AWSCreateConfig>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -12148,7 +12503,11 @@ namespace Livekit.Server.Sdk.Dotnet {
         #else
           uint tag;
           while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
+          if ((tag & 7) == 4) {
+            // Abort on any end group tag.
+            return;
+          }
+          switch(tag) {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
                 break;
@@ -12167,7 +12526,11 @@ namespace Livekit.Server.Sdk.Dotnet {
         void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
           uint tag;
           while ((tag = input.ReadTag()) != 0) {
-            switch(tag) {
+          if ((tag & 7) == 4) {
+            // Abort on any end group tag.
+            return;
+          }
+          switch(tag) {
               default:
                 _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
                 break;
@@ -12187,6 +12550,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CreatePrivateLinkResponse : pb::IMessage<CreatePrivateLinkResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -12345,7 +12709,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -12367,7 +12735,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -12385,6 +12757,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DestroyPrivateLinkRequest : pb::IMessage<DestroyPrivateLinkRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -12540,7 +12913,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -12559,7 +12936,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -12574,6 +12955,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class DestroyPrivateLinkResponse : pb::IMessage<DestroyPrivateLinkResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -12700,7 +13082,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -12715,7 +13101,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -12726,6 +13116,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListPrivateLinksRequest : pb::IMessage<ListPrivateLinksRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -12852,7 +13243,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -12867,7 +13262,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -12878,6 +13277,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ListPrivateLinksResponse : pb::IMessage<ListPrivateLinksResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -13022,7 +13422,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -13041,7 +13445,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -13056,6 +13464,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class GetPrivateLinkStatusRequest : pb::IMessage<GetPrivateLinkStatusRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -13211,7 +13620,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -13230,7 +13643,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -13245,6 +13662,7 @@ namespace Livekit.Server.Sdk.Dotnet {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class GetPrivateLinkStatusResponse : pb::IMessage<GetPrivateLinkStatusResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -13403,7 +13821,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -13425,7 +13847,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;

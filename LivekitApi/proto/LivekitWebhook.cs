@@ -26,25 +26,28 @@ namespace Livekit.Server.Sdk.Dotnet {
           string.Concat(
             "ChVsaXZla2l0X3dlYmhvb2sucHJvdG8SB2xpdmVraXQaFGxpdmVraXRfbW9k",
             "ZWxzLnByb3RvGhRsaXZla2l0X2VncmVzcy5wcm90bxoVbGl2ZWtpdF9pbmdy",
-            "ZXNzLnByb3RvIpsCCgxXZWJob29rRXZlbnQSDQoFZXZlbnQYASABKAkSGwoE",
-            "cm9vbRgCIAEoCzINLmxpdmVraXQuUm9vbRItCgtwYXJ0aWNpcGFudBgDIAEo",
-            "CzIYLmxpdmVraXQuUGFydGljaXBhbnRJbmZvEigKC2VncmVzc19pbmZvGAkg",
-            "ASgLMhMubGl2ZWtpdC5FZ3Jlc3NJbmZvEioKDGluZ3Jlc3NfaW5mbxgKIAEo",
-            "CzIULmxpdmVraXQuSW5ncmVzc0luZm8SIQoFdHJhY2sYCCABKAsyEi5saXZl",
-            "a2l0LlRyYWNrSW5mbxIKCgJpZBgGIAEoCRISCgpjcmVhdGVkX2F0GAcgASgD",
-            "EhcKC251bV9kcm9wcGVkGAsgASgFQgIYAUJGWiNnaXRodWIuY29tL2xpdmVr",
-            "aXQvcHJvdG9jb2wvbGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0",
-            "OjpQcm90b2IGcHJvdG8z"));
+            "ZXNzLnByb3RvGhNsaXZla2l0X2FnZW50LnByb3RvIucCCgxXZWJob29rRXZl",
+            "bnQSDQoFZXZlbnQYASABKAkSGwoEcm9vbRgCIAEoCzINLmxpdmVraXQuUm9v",
+            "bRItCgtwYXJ0aWNpcGFudBgDIAEoCzIYLmxpdmVraXQuUGFydGljaXBhbnRJ",
+            "bmZvEigKC2VncmVzc19pbmZvGAkgASgLMhMubGl2ZWtpdC5FZ3Jlc3NJbmZv",
+            "EioKDGluZ3Jlc3NfaW5mbxgKIAEoCzIULmxpdmVraXQuSW5ncmVzc0luZm8S",
+            "IQoFdHJhY2sYCCABKAsyEi5saXZla2l0LlRyYWNrSW5mbxIZCgNqb2IYDCAB",
+            "KAsyDC5saXZla2l0LkpvYhIKCgJpZBgGIAEoCRISCgpjcmVhdGVkX2F0GAcg",
+            "ASgDEhcKC251bV9kcm9wcGVkGAsgASgFQgIYARIvCg9yb29tX2VuZF9yZWFz",
+            "b24YDSABKA4yFi5saXZla2l0LlJvb21FbmRSZWFzb25CRlojZ2l0aHViLmNv",
+            "bS9saXZla2l0L3Byb3RvY29sL2xpdmVraXSqAg1MaXZlS2l0LlByb3Rv6gIO",
+            "TGl2ZUtpdDo6UHJvdG9iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitIngressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WebhookEvent), global::Livekit.Server.Sdk.Dotnet.WebhookEvent.Parser, new[]{ "Event", "Room", "Participant", "EgressInfo", "IngressInfo", "Track", "Id", "CreatedAt", "NumDropped" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.WebhookEvent), global::Livekit.Server.Sdk.Dotnet.WebhookEvent.Parser, new[]{ "Event", "Room", "Participant", "EgressInfo", "IngressInfo", "Track", "Job", "Id", "CreatedAt", "NumDropped", "RoomEndReason" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class WebhookEvent : pb::IMessage<WebhookEvent>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -85,9 +88,11 @@ namespace Livekit.Server.Sdk.Dotnet {
       egressInfo_ = other.egressInfo_ != null ? other.egressInfo_.Clone() : null;
       ingressInfo_ = other.ingressInfo_ != null ? other.ingressInfo_.Clone() : null;
       track_ = other.track_ != null ? other.track_.Clone() : null;
+      job_ = other.job_ != null ? other.job_.Clone() : null;
       id_ = other.id_;
       createdAt_ = other.createdAt_;
       numDropped_ = other.numDropped_;
+      roomEndReason_ = other.roomEndReason_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -103,7 +108,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// <summary>
     /// one of room_started, room_finished, participant_joined, participant_left, participant_connection_aborted,
     /// track_published, track_unpublished, egress_started, egress_updated, egress_ended,
-    /// ingress_started, ingress_ended
+    /// ingress_started, ingress_ended, agent_job_pending, agent_job_started, agent_job_ended
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -186,6 +191,21 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "job" field.</summary>
+    public const int JobFieldNumber = 12;
+    private global::Livekit.Server.Sdk.Dotnet.Job job_;
+    /// <summary>
+    /// set when event is agent_job_*
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.Job Job {
+      get { return job_; }
+      set {
+        job_ = value;
+      }
+    }
+
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 6;
     private string id_ = "";
@@ -229,6 +249,21 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "room_end_reason" field.</summary>
+    public const int RoomEndReasonFieldNumber = 13;
+    private global::Livekit.Server.Sdk.Dotnet.RoomEndReason roomEndReason_ = global::Livekit.Server.Sdk.Dotnet.RoomEndReason.RoomEndUnknown;
+    /// <summary>
+    /// set when event is room_finished
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.RoomEndReason RoomEndReason {
+      get { return roomEndReason_; }
+      set {
+        roomEndReason_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -250,9 +285,11 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (!object.Equals(EgressInfo, other.EgressInfo)) return false;
       if (!object.Equals(IngressInfo, other.IngressInfo)) return false;
       if (!object.Equals(Track, other.Track)) return false;
+      if (!object.Equals(Job, other.Job)) return false;
       if (Id != other.Id) return false;
       if (CreatedAt != other.CreatedAt) return false;
       if (NumDropped != other.NumDropped) return false;
+      if (RoomEndReason != other.RoomEndReason) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -266,9 +303,11 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (egressInfo_ != null) hash ^= EgressInfo.GetHashCode();
       if (ingressInfo_ != null) hash ^= IngressInfo.GetHashCode();
       if (track_ != null) hash ^= Track.GetHashCode();
+      if (job_ != null) hash ^= Job.GetHashCode();
       if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (CreatedAt != 0L) hash ^= CreatedAt.GetHashCode();
       if (NumDropped != 0) hash ^= NumDropped.GetHashCode();
+      if (RoomEndReason != global::Livekit.Server.Sdk.Dotnet.RoomEndReason.RoomEndUnknown) hash ^= RoomEndReason.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -323,6 +362,14 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(88);
         output.WriteInt32(NumDropped);
       }
+      if (job_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(Job);
+      }
+      if (RoomEndReason != global::Livekit.Server.Sdk.Dotnet.RoomEndReason.RoomEndUnknown) {
+        output.WriteRawTag(104);
+        output.WriteEnum((int) RoomEndReason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -369,6 +416,14 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(88);
         output.WriteInt32(NumDropped);
       }
+      if (job_ != null) {
+        output.WriteRawTag(98);
+        output.WriteMessage(Job);
+      }
+      if (RoomEndReason != global::Livekit.Server.Sdk.Dotnet.RoomEndReason.RoomEndUnknown) {
+        output.WriteRawTag(104);
+        output.WriteEnum((int) RoomEndReason);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -397,6 +452,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (track_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Track);
       }
+      if (job_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Job);
+      }
       if (Id.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
       }
@@ -405,6 +463,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (NumDropped != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(NumDropped);
+      }
+      if (RoomEndReason != global::Livekit.Server.Sdk.Dotnet.RoomEndReason.RoomEndUnknown) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) RoomEndReason);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -451,6 +512,12 @@ namespace Livekit.Server.Sdk.Dotnet {
         }
         Track.MergeFrom(other.Track);
       }
+      if (other.job_ != null) {
+        if (job_ == null) {
+          Job = new global::Livekit.Server.Sdk.Dotnet.Job();
+        }
+        Job.MergeFrom(other.Job);
+      }
       if (other.Id.Length != 0) {
         Id = other.Id;
       }
@@ -459,6 +526,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (other.NumDropped != 0) {
         NumDropped = other.NumDropped;
+      }
+      if (other.RoomEndReason != global::Livekit.Server.Sdk.Dotnet.RoomEndReason.RoomEndUnknown) {
+        RoomEndReason = other.RoomEndReason;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -471,7 +541,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
@@ -526,6 +600,17 @@ namespace Livekit.Server.Sdk.Dotnet {
             NumDropped = input.ReadInt32();
             break;
           }
+          case 98: {
+            if (job_ == null) {
+              Job = new global::Livekit.Server.Sdk.Dotnet.Job();
+            }
+            input.ReadMessage(Job);
+            break;
+          }
+          case 104: {
+            RoomEndReason = (global::Livekit.Server.Sdk.Dotnet.RoomEndReason) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -537,7 +622,11 @@ namespace Livekit.Server.Sdk.Dotnet {
     void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
@@ -590,6 +679,17 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 88: {
             NumDropped = input.ReadInt32();
+            break;
+          }
+          case 98: {
+            if (job_ == null) {
+              Job = new global::Livekit.Server.Sdk.Dotnet.Job();
+            }
+            input.ReadMessage(Job);
+            break;
+          }
+          case 104: {
+            RoomEndReason = (global::Livekit.Server.Sdk.Dotnet.RoomEndReason) input.ReadEnum();
             break;
           }
         }
