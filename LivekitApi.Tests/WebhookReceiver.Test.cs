@@ -67,12 +67,21 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             var token = new AccessToken(TEST_API_KEY, TEST_API_SECRET).WithSha256(hash64);
             var jwt = token.ToJwt();
             Assert.Throws<InvalidJsonException>(() => receiver.Receive(body, jwt));
-            // Not a valid WebhookEvent proto message
-            body = "{\"wrong_field\": \"wrong_value\"}";
+            // Unknown fields are ignored by default (a newer server may add fields)...
+            body = "{\"event\": \"room_started\", \"id\": \"EV_1\", \"brandNewField\": \"x\"}";
             hash64 = ComputeBase64Sha256(body);
             token = new AccessToken(TEST_API_KEY, TEST_API_SECRET).WithSha256(hash64);
             jwt = token.ToJwt();
-            Assert.Throws<InvalidProtocolBufferException>(() => receiver.Receive(body, jwt));
+            Assert.Equal("room_started", receiver.Receive(body, jwt).Event);
+            // ...unless asked otherwise
+            Assert.Throws<InvalidProtocolBufferException>(() =>
+                receiver.Receive(body, jwt, ignoreUnknownFields: false)
+            );
+            // The raw bytes can be passed too (that is what the server hashes)
+            Assert.Equal(
+                "EV_1",
+                receiver.Receive(System.Text.Encoding.UTF8.GetBytes(body), jwt).Id
+            );
         }
 
         [Fact]

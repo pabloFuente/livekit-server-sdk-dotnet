@@ -1,5 +1,4 @@
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Livekit.Server.Sdk.Dotnet
@@ -16,8 +15,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public ConnectorServiceClient(
             string host,
-            string apiKey,
-            string apiSecret,
+            string apiKey = null,
+            string apiSecret = null,
             HttpClient client = null
         )
             : base(host, apiKey, apiSecret, client) { }
@@ -29,11 +28,13 @@ namespace Livekit.Server.Sdk.Dotnet
             DialWhatsAppCallRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomCreate = true })
-            );
-            return await Twirp.DialWhatsAppCall(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Connector/DialWhatsAppCall",
+                    request,
+                    DialWhatsAppCallResponse.Parser,
+                    AuthHeader(new VideoGrants { RoomCreate = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -43,11 +44,13 @@ namespace Livekit.Server.Sdk.Dotnet
             DisconnectWhatsAppCallRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomCreate = true })
-            );
-            return await Twirp.DisconnectWhatsAppCall(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Connector/DisconnectWhatsAppCall",
+                    request,
+                    DisconnectWhatsAppCallResponse.Parser,
+                    AuthHeader(new VideoGrants { RoomCreate = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -57,11 +60,13 @@ namespace Livekit.Server.Sdk.Dotnet
             ConnectWhatsAppCallRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomCreate = true })
-            );
-            return await Twirp.ConnectWhatsAppCall(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Connector/ConnectWhatsAppCall",
+                    request,
+                    ConnectWhatsAppCallResponse.Parser,
+                    AuthHeader(new VideoGrants { RoomCreate = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -71,11 +76,13 @@ namespace Livekit.Server.Sdk.Dotnet
             AcceptWhatsAppCallRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomCreate = true })
-            );
-            return await Twirp.AcceptWhatsAppCall(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Connector/AcceptWhatsAppCall",
+                    request,
+                    AcceptWhatsAppCallResponse.Parser,
+                    AuthHeader(new VideoGrants { RoomCreate = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -85,11 +92,13 @@ namespace Livekit.Server.Sdk.Dotnet
             ConnectTwilioCallRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomCreate = true })
-            );
-            return await Twirp.ConnectTwilioCall(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Connector/ConnectTwilioCall",
+                    request,
+                    ConnectTwilioCallResponse.Parser,
+                    AuthHeader(new VideoGrants { RoomCreate = true })
+                )
+                .ConfigureAwait(false);
         }
     }
 }

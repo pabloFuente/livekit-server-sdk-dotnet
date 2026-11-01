@@ -1,5 +1,4 @@
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Livekit.Server.Sdk.Dotnet
@@ -8,23 +7,25 @@ namespace Livekit.Server.Sdk.Dotnet
     {
         public SipServiceClient(
             string host,
-            string apiKey,
-            string apiSecret,
+            string apiKey = null,
+            string apiSecret = null,
             HttpClient client = null
         )
             : base(host, apiKey, apiSecret, client) { }
 
         [System.Obsolete(
-            "This method is obsolete. Call ListSipInboundTrunk or ListSipOutboundTrunk instead.",
+            "This method is obsolete. Call ListSIPInboundTrunk or ListSIPOutboundTrunk instead.",
             false
         )]
         public async Task<ListSIPTrunkResponse> ListSIPTrunk(ListSIPTrunkRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-            );
-            return await Twirp.ListSIPTrunk(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/ListSIPTrunk",
+                    request,
+                    ListSIPTrunkResponse.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -34,11 +35,13 @@ namespace Livekit.Server.Sdk.Dotnet
             CreateSIPInboundTrunkRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-            );
-            return await Twirp.CreateSIPInboundTrunk(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/CreateSIPInboundTrunk",
+                    request,
+                    SIPInboundTrunkInfo.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -48,11 +51,13 @@ namespace Livekit.Server.Sdk.Dotnet
             CreateSIPOutboundTrunkRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-            );
-            return await Twirp.CreateSIPOutboundTrunk(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/CreateSIPOutboundTrunk",
+                    request,
+                    SIPOutboundTrunkInfo.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -62,11 +67,13 @@ namespace Livekit.Server.Sdk.Dotnet
             GetSIPInboundTrunkRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-            );
-            return await Twirp.GetSIPInboundTrunk(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/GetSIPInboundTrunk",
+                    request,
+                    GetSIPInboundTrunkResponse.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -76,11 +83,13 @@ namespace Livekit.Server.Sdk.Dotnet
             GetSIPOutboundTrunkRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-            );
-            return await Twirp.GetSIPOutboundTrunk(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/GetSIPOutboundTrunk",
+                    request,
+                    GetSIPOutboundTrunkResponse.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -90,11 +99,13 @@ namespace Livekit.Server.Sdk.Dotnet
             ListSIPInboundTrunkRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-            );
-            return await Twirp.ListSIPInboundTrunk(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/ListSIPInboundTrunk",
+                    request,
+                    ListSIPInboundTrunkResponse.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -104,11 +115,13 @@ namespace Livekit.Server.Sdk.Dotnet
             ListSIPOutboundTrunkRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-            );
-            return await Twirp.ListSIPOutboundTrunk(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/ListSIPOutboundTrunk",
+                    request,
+                    ListSIPOutboundTrunkResponse.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -116,11 +129,13 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public async Task<SIPTrunkInfo> DeleteSIPTrunk(DeleteSIPTrunkRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-            );
-            return await Twirp.DeleteSIPTrunk(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/DeleteSIPTrunk",
+                    request,
+                    SIPTrunkInfo.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -130,11 +145,13 @@ namespace Livekit.Server.Sdk.Dotnet
             CreateSIPDispatchRuleRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-            );
-            return await Twirp.CreateSIPDispatchRule(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/CreateSIPDispatchRule",
+                    request,
+                    SIPDispatchRuleInfo.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -144,11 +161,13 @@ namespace Livekit.Server.Sdk.Dotnet
             ListSIPDispatchRuleRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-            );
-            return await Twirp.ListSIPDispatchRule(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/ListSIPDispatchRule",
+                    request,
+                    ListSIPDispatchRuleResponse.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -158,11 +177,13 @@ namespace Livekit.Server.Sdk.Dotnet
             DeleteSIPDispatchRuleRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-            );
-            return await Twirp.DeleteSIPDispatchRule(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/DeleteSIPDispatchRule",
+                    request,
+                    SIPDispatchRuleInfo.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -172,11 +193,13 @@ namespace Livekit.Server.Sdk.Dotnet
             CreateSIPParticipantRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Call = true })
-            );
-            return await Twirp.CreateSIPParticipant(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/CreateSIPParticipant",
+                    request,
+                    SIPParticipantInfo.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Call = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -186,14 +209,16 @@ namespace Livekit.Server.Sdk.Dotnet
             TransferSIPParticipantRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(
-                    new VideoGrants { RoomAdmin = true, Room = request.RoomName },
-                    new SIPGrants { Call = true }
+            return await SendAsync(
+                    "twirp/livekit.SIP/TransferSIPParticipant",
+                    request,
+                    TransferSIPParticipantResponse.Parser,
+                    AuthHeader(
+                        new VideoGrants { RoomAdmin = true, Room = request.RoomName },
+                        new SIPGrants { Call = true }
+                    )
                 )
-            );
-            return await Twirp.TransferSIPParticipant(httpClient, request);
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -203,11 +228,13 @@ namespace Livekit.Server.Sdk.Dotnet
             UpdateSIPInboundTrunkRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-            );
-            return await Twirp.UpdateSIPInboundTrunk(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/UpdateSIPInboundTrunk",
+                    request,
+                    SIPInboundTrunkInfo.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -217,11 +244,13 @@ namespace Livekit.Server.Sdk.Dotnet
             UpdateSIPOutboundTrunkRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-            );
-            return await Twirp.UpdateSIPOutboundTrunk(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/UpdateSIPOutboundTrunk",
+                    request,
+                    SIPOutboundTrunkInfo.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -231,11 +260,13 @@ namespace Livekit.Server.Sdk.Dotnet
             UpdateSIPDispatchRuleRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
-            );
-            return await Twirp.UpdateSIPDispatchRule(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.SIP/UpdateSIPDispatchRule",
+                    request,
+                    SIPDispatchRuleInfo.Parser,
+                    AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
+                )
+                .ConfigureAwait(false);
         }
     }
 }

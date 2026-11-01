@@ -1,5 +1,4 @@
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Google.Protobuf;
 
@@ -19,8 +18,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public RoomServiceClient(
             string host,
-            string apiKey,
-            string apiSecret,
+            string apiKey = null,
+            string apiSecret = null,
             HttpClient client = null
         )
             : base(host, apiKey, apiSecret, client) { }
@@ -32,11 +31,13 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public async Task<Room> CreateRoom(CreateRoomRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomCreate = true })
-            );
-            return await Twirp.CreateRoom(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.RoomService/CreateRoom",
+                    request,
+                    Room.Parser,
+                    AuthHeader(new VideoGrants { RoomCreate = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -44,11 +45,13 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public async Task<ListRoomsResponse> ListRooms(ListRoomsRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomList = true })
-            );
-            return await Twirp.ListRooms(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.RoomService/ListRooms",
+                    request,
+                    ListRoomsResponse.Parser,
+                    AuthHeader(new VideoGrants { RoomList = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -56,11 +59,13 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public async Task<DeleteRoomResponse> DeleteRoom(DeleteRoomRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomCreate = true })
-            );
-            return await Twirp.DeleteRoom(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.RoomService/DeleteRoom",
+                    request,
+                    DeleteRoomResponse.Parser,
+                    AuthHeader(new VideoGrants { RoomCreate = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -70,11 +75,13 @@ namespace Livekit.Server.Sdk.Dotnet
             ListParticipantsRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
-            );
-            return await Twirp.ListParticipants(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.RoomService/ListParticipants",
+                    request,
+                    ListParticipantsResponse.Parser,
+                    AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -82,11 +89,13 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public async Task<ParticipantInfo> GetParticipant(RoomParticipantIdentity request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
-            );
-            return await Twirp.GetParticipant(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.RoomService/GetParticipant",
+                    request,
+                    ParticipantInfo.Parser,
+                    AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -97,11 +106,13 @@ namespace Livekit.Server.Sdk.Dotnet
             RoomParticipantIdentity request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
-            );
-            return await Twirp.RemoveParticipant(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.RoomService/RemoveParticipant",
+                    request,
+                    RemoveParticipantResponse.Parser,
+                    AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -109,11 +120,13 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public async Task<MuteRoomTrackResponse> MutePublishedTrack(MuteRoomTrackRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
-            );
-            return await Twirp.MutePublishedTrack(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.RoomService/MutePublishedTrack",
+                    request,
+                    MuteRoomTrackResponse.Parser,
+                    AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -121,11 +134,13 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public async Task<ParticipantInfo> UpdateParticipant(UpdateParticipantRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
-            );
-            return await Twirp.UpdateParticipant(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.RoomService/UpdateParticipant",
+                    request,
+                    ParticipantInfo.Parser,
+                    AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -135,11 +150,13 @@ namespace Livekit.Server.Sdk.Dotnet
             UpdateSubscriptionsRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
-            );
-            return await Twirp.UpdateSubscriptions(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.RoomService/UpdateSubscriptions",
+                    request,
+                    UpdateSubscriptionsResponse.Parser,
+                    AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -149,11 +166,13 @@ namespace Livekit.Server.Sdk.Dotnet
         {
             // Add random nonce to request
             request.Nonce = ByteString.CopyFrom(System.Guid.NewGuid().ToByteArray());
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
-            );
-            return await Twirp.SendData(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.RoomService/SendData",
+                    request,
+                    SendDataResponse.Parser,
+                    AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -161,11 +180,13 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public async Task<Room> UpdateRoomMetadata(UpdateRoomMetadataRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
-            );
-            return await Twirp.UpdateRoomMetadata(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.RoomService/UpdateRoomMetadata",
+                    request,
+                    Room.Parser,
+                    AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -180,18 +201,20 @@ namespace Livekit.Server.Sdk.Dotnet
             ForwardParticipantRequest request
         )
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(
-                    new VideoGrants
-                    {
-                        RoomAdmin = true,
-                        Room = request.Room,
-                        DestinationRoom = request.DestinationRoom,
-                    }
+            return await SendAsync(
+                    "twirp/livekit.RoomService/ForwardParticipant",
+                    request,
+                    ForwardParticipantResponse.Parser,
+                    AuthHeader(
+                        new VideoGrants
+                        {
+                            RoomAdmin = true,
+                            Room = request.Room,
+                            DestinationRoom = request.DestinationRoom,
+                        }
+                    )
                 )
-            );
-            return await Twirp.ForwardParticipant(httpClient, request);
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -201,18 +224,20 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public async Task<MoveParticipantResponse> MoveParticipant(MoveParticipantRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(
-                    new VideoGrants
-                    {
-                        RoomAdmin = true,
-                        Room = request.Room,
-                        DestinationRoom = request.DestinationRoom,
-                    }
+            return await SendAsync(
+                    "twirp/livekit.RoomService/MoveParticipant",
+                    request,
+                    MoveParticipantResponse.Parser,
+                    AuthHeader(
+                        new VideoGrants
+                        {
+                            RoomAdmin = true,
+                            Room = request.Room,
+                            DestinationRoom = request.DestinationRoom,
+                        }
+                    )
                 )
-            );
-            return await Twirp.MoveParticipant(httpClient, request);
+                .ConfigureAwait(false);
         }
     }
 }

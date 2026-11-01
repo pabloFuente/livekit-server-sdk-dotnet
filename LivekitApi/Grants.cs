@@ -42,6 +42,11 @@ namespace Livekit.Server.Sdk.Dotnet
         public bool CanSubscribeMetrics { get; set; } = false;
 
         /// <summary>
+        /// Allow participant to manage an agent session via RemoteSession.
+        /// </summary>
+        public bool CanManageAgentSession { get; set; } = false;
+
+        /// <summary>
         /// By default, a participant is not allowed to update its own metadata.
         /// </summary>
         public bool CanUpdateOwnMetadata { get; set; } = false;
@@ -110,12 +115,38 @@ namespace Livekit.Server.Sdk.Dotnet
         public bool Call { get; set; } = false;
     }
 
+    public class InferenceGrants
+    {
+        /// <summary>
+        /// Permission to perform inference.
+        /// </summary>
+        public bool Perform { get; set; } = false;
+    }
+
+    public class ObservabilityGrants
+    {
+        /// <summary>
+        /// Permission to publish observability data.
+        /// </summary>
+        public bool Write { get; set; } = false;
+    }
+
     public class ClaimsModel
     {
         public string Identity { get; set; } = "";
         public string Name { get; set; } = "";
         public VideoGrants Video { get; set; } = new VideoGrants();
         public SIPGrants Sip { get; set; } = new SIPGrants();
+
+        /// <summary>
+        /// Inference grants, null when the token has none.
+        /// </summary>
+        public InferenceGrants Inference { get; set; }
+
+        /// <summary>
+        /// Observability grants, null when the token has none.
+        /// </summary>
+        public ObservabilityGrants Observability { get; set; }
         public string Metadata { get; set; } = "";
         public string Sha256 { get; set; } = "";
         public string Kind { get; set; } = "";

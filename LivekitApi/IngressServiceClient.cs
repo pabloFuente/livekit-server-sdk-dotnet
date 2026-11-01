@@ -1,5 +1,4 @@
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Livekit.Server.Sdk.Dotnet
@@ -16,8 +15,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public IngressServiceClient(
             string host,
-            string apiKey,
-            string apiSecret,
+            string apiKey = null,
+            string apiSecret = null,
             HttpClient client = null
         )
             : base(host, apiKey, apiSecret, client) { }
@@ -27,11 +26,13 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public async Task<IngressInfo> CreateIngress(CreateIngressRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { IngressAdmin = true })
-            );
-            return await Twirp.CreateIngress(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Ingress/CreateIngress",
+                    request,
+                    IngressInfo.Parser,
+                    AuthHeader(new VideoGrants { IngressAdmin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -39,29 +40,35 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public async Task<IngressInfo> UpdateIngress(UpdateIngressRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { IngressAdmin = true })
-            );
-            return await Twirp.UpdateIngress(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Ingress/UpdateIngress",
+                    request,
+                    IngressInfo.Parser,
+                    AuthHeader(new VideoGrants { IngressAdmin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         public async Task<ListIngressResponse> ListIngress(ListIngressRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { IngressAdmin = true })
-            );
-            return await Twirp.ListIngress(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Ingress/ListIngress",
+                    request,
+                    ListIngressResponse.Parser,
+                    AuthHeader(new VideoGrants { IngressAdmin = true })
+                )
+                .ConfigureAwait(false);
         }
 
         public async Task<IngressInfo> DeleteIngress(DeleteIngressRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { IngressAdmin = true })
-            );
-            return await Twirp.DeleteIngress(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Ingress/DeleteIngress",
+                    request,
+                    IngressInfo.Parser,
+                    AuthHeader(new VideoGrants { IngressAdmin = true })
+                )
+                .ConfigureAwait(false);
         }
     }
 }

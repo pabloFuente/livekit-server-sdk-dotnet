@@ -1,5 +1,4 @@
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Livekit.Server.Sdk.Dotnet
@@ -16,55 +15,65 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public EgressServiceClient(
             string host,
-            string apiKey,
-            string apiSecret,
+            string apiKey = null,
+            string apiSecret = null,
             HttpClient client = null
         )
             : base(host, apiKey, apiSecret, client) { }
 
         public async Task<EgressInfo> StartRoomCompositeEgress(RoomCompositeEgressRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomRecord = true })
-            );
-            return await Twirp.StartRoomCompositeEgress(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Egress/StartRoomCompositeEgress",
+                    request,
+                    EgressInfo.Parser,
+                    AuthHeader(new VideoGrants { RoomRecord = true })
+                )
+                .ConfigureAwait(false);
         }
 
         public async Task<EgressInfo> StartWebEgress(WebEgressRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomRecord = true })
-            );
-            return await Twirp.StartWebEgress(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Egress/StartWebEgress",
+                    request,
+                    EgressInfo.Parser,
+                    AuthHeader(new VideoGrants { RoomRecord = true })
+                )
+                .ConfigureAwait(false);
         }
 
         public async Task<EgressInfo> StartParticipantEgress(ParticipantEgressRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomRecord = true })
-            );
-            return await Twirp.StartParticipantEgress(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Egress/StartParticipantEgress",
+                    request,
+                    EgressInfo.Parser,
+                    AuthHeader(new VideoGrants { RoomRecord = true })
+                )
+                .ConfigureAwait(false);
         }
 
         public async Task<EgressInfo> StartTrackCompositeEgress(TrackCompositeEgressRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomRecord = true })
-            );
-            return await Twirp.StartTrackCompositeEgress(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Egress/StartTrackCompositeEgress",
+                    request,
+                    EgressInfo.Parser,
+                    AuthHeader(new VideoGrants { RoomRecord = true })
+                )
+                .ConfigureAwait(false);
         }
 
         public async Task<EgressInfo> StartTrackEgress(TrackEgressRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomRecord = true })
-            );
-            return await Twirp.StartTrackEgress(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Egress/StartTrackEgress",
+                    request,
+                    EgressInfo.Parser,
+                    AuthHeader(new VideoGrants { RoomRecord = true })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -72,47 +81,57 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public async Task<EgressInfo> StartEgress(StartEgressRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomRecord = true })
-            );
-            return await Twirp.StartEgress(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Egress/StartEgress",
+                    request,
+                    EgressInfo.Parser,
+                    AuthHeader(new VideoGrants { RoomRecord = true })
+                )
+                .ConfigureAwait(false);
         }
 
         public async Task<EgressInfo> UpdateLayout(UpdateLayoutRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomRecord = true })
-            );
-            return await Twirp.UpdateLayout(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Egress/UpdateLayout",
+                    request,
+                    EgressInfo.Parser,
+                    AuthHeader(new VideoGrants { RoomRecord = true })
+                )
+                .ConfigureAwait(false);
         }
 
         public async Task<EgressInfo> UpdateStream(UpdateStreamRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomRecord = true })
-            );
-            return await Twirp.UpdateStream(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Egress/UpdateStream",
+                    request,
+                    EgressInfo.Parser,
+                    AuthHeader(new VideoGrants { RoomRecord = true })
+                )
+                .ConfigureAwait(false);
         }
 
         public async Task<ListEgressResponse> ListEgress(ListEgressRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomRecord = true })
-            );
-            return await Twirp.ListEgress(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Egress/ListEgress",
+                    request,
+                    ListEgressResponse.Parser,
+                    AuthHeader(new VideoGrants { RoomRecord = true })
+                )
+                .ConfigureAwait(false);
         }
 
         public async Task<EgressInfo> StopEgress(StopEgressRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomRecord = true })
-            );
-            return await Twirp.StopEgress(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.Egress/StopEgress",
+                    request,
+                    EgressInfo.Parser,
+                    AuthHeader(new VideoGrants { RoomRecord = true })
+                )
+                .ConfigureAwait(false);
         }
     }
 }

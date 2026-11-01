@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -34,15 +35,15 @@ namespace Livekit.Server.Sdk.Dotnet
             this.apiKey = apiKey ?? Environment.GetEnvironmentVariable("LIVEKIT_API_KEY");
             this.apiSecret = apiSecret ?? Environment.GetEnvironmentVariable("LIVEKIT_API_SECRET");
 
-            if (string.IsNullOrEmpty(apiKey) || string.IsNullOrEmpty(apiSecret))
+            if (string.IsNullOrEmpty(this.apiKey) || string.IsNullOrEmpty(this.apiSecret))
             {
                 throw new ArgumentException("apiKey and apiSecret must be set");
             }
-            if (Encoding.Default.GetBytes(apiSecret).Length < 32)
+            if (Encoding.UTF8.GetBytes(this.apiSecret).Length < 32)
             {
                 throw new ArgumentException(
                     "apiSecret must be at least 256 bits long. Currently it is "
-                        + Encoding.Default.GetBytes(apiSecret).Length * 8
+                        + Encoding.UTF8.GetBytes(this.apiSecret).Length * 8
                         + " bits long"
                 );
             }
@@ -71,6 +72,17 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
+        /// Used to specify an expiration time, with an explicit offset (a <see cref="DateTime"/>
+        /// of kind <c>Unspecified</c> would be read as local time).
+        /// If set, takes preference over the value set with <see cref="WithTtl"/>.
+        /// </summary>
+        public AccessToken WithExpiration(DateTimeOffset expiration)
+        {
+            this.expiration = expiration.UtcDateTime;
+            return this;
+        }
+
+        /// <summary>
         /// Date specifying the time before which this token is invalid.
         /// If not set, the token is valid immediately after creation.
         /// <see href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.5"/>
@@ -78,6 +90,16 @@ namespace Livekit.Server.Sdk.Dotnet
         public AccessToken WithNotBefore(DateTime notBefore)
         {
             this.notBefore = notBefore;
+            return this;
+        }
+
+        /// <summary>
+        /// Date specifying the time before which this token is invalid, with an explicit offset
+        /// (a <see cref="DateTime"/> of kind <c>Unspecified</c> would be read as local time).
+        /// </summary>
+        public AccessToken WithNotBefore(DateTimeOffset notBefore)
+        {
+            this.notBefore = notBefore.UtcDateTime;
             return this;
         }
 
@@ -100,6 +122,24 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
+        /// Adds <see cref="InferenceGrants"/> to this token.
+        /// </summary>
+        public AccessToken WithInferenceGrants(InferenceGrants grants)
+        {
+            Claims.Inference = grants;
+            return this;
+        }
+
+        /// <summary>
+        /// Adds <see cref="ObservabilityGrants"/> to this token.
+        /// </summary>
+        public AccessToken WithObservabilityGrants(ObservabilityGrants grants)
+        {
+            Claims.Observability = grants;
+            return this;
+        }
+
+        /// <summary>
         /// Unique identity of the user, required for room join tokens.
         /// </summary>
         public AccessToken WithIdentity(string identity)
@@ -114,7 +154,7 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         public AccessToken WithKind(ParticipantInfo.Types.Kind kind)
         {
-            Claims.Kind = kind.ToString().ToLower();
+            Claims.Kind = kind.ToString().ToLowerInvariant();
             return this;
         }
 
@@ -173,43 +213,64 @@ namespace Livekit.Server.Sdk.Dotnet
         {
             var video = Claims.Video;
             if (
-                video.RoomJoin
+                video != null
+                && video.RoomJoin
                 && (string.IsNullOrEmpty(Claims.Identity) || string.IsNullOrEmpty(video.Room))
             )
             {
                 throw new ArgumentException("identity and room must be set when joining a room");
             }
 
+            // Whole seconds, like the other LiveKit SDKs: the JWT spec defines these claims as
+            // numeric dates, and a fractional value would be formatted with the current culture.
             var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-            var initUtc = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
             var exp =
                 expiration == DateTime.MinValue
-                    ? now + ttl.TotalSeconds
-                    : expiration.ToUniversalTime().Subtract(initUtc).TotalSeconds;
+                    ? now + (long)ttl.TotalSeconds
+                    : ToUnixSeconds(expiration);
 
-            var nbf =
-                notBefore == DateTime.MinValue
-                    ? now
-                    : notBefore.ToUniversalTime().Subtract(initUtc).TotalSeconds;
+            var nbf = notBefore == DateTime.MinValue ? now : ToUnixSeconds(notBefore);
 
             var jwtClaims = new Dictionary<string, object>
             {
-                { "sub", Claims.Identity },
-                { "jti", Claims.Identity },
+                { "sub", Claims.Identity ?? "" },
+                { "jti", Claims.Identity ?? "" },
                 { "iss", apiKey },
                 { "nbf", nbf },
                 { "iat", now },
                 { "exp", exp },
             };
 
-            jwtClaims["video"] = ConvertClaimsKeysToCamelCase(Claims.Video);
-            jwtClaims["sip"] = ConvertClaimsKeysToCamelCase(Claims.Sip);
-            jwtClaims["name"] = Claims.Name;
-            jwtClaims["metadata"] = Claims.Metadata;
-            jwtClaims["sha256"] = Claims.Sha256;
-            jwtClaims["kind"] = Claims.Kind;
+            jwtClaims["video"] = ConvertClaimsKeysToCamelCase(Claims.Video ?? new VideoGrants());
+            jwtClaims["sip"] = ConvertClaimsKeysToCamelCase(Claims.Sip ?? new SIPGrants());
+            if (Claims.Inference != null)
+            {
+                jwtClaims["inference"] = ConvertClaimsKeysToCamelCase(Claims.Inference);
+            }
+            if (Claims.Observability != null)
+            {
+                jwtClaims["observability"] = ConvertClaimsKeysToCamelCase(Claims.Observability);
+            }
 
+            // Optional claims are only written when set, like the other LiveKit SDKs do (the
+            // server marks them omitempty). A null value used to throw a NullReferenceException.
+            if (!string.IsNullOrEmpty(Claims.Name))
+            {
+                jwtClaims["name"] = Claims.Name;
+            }
+            if (!string.IsNullOrEmpty(Claims.Metadata))
+            {
+                jwtClaims["metadata"] = Claims.Metadata;
+            }
+            if (!string.IsNullOrEmpty(Claims.Sha256))
+            {
+                jwtClaims["sha256"] = Claims.Sha256;
+            }
+            if (!string.IsNullOrEmpty(Claims.Kind))
+            {
+                jwtClaims["kind"] = Claims.Kind;
+            }
             if (Claims.Attributes != null && Claims.Attributes.Count > 0)
             {
                 jwtClaims["attributes"] = Claims.Attributes;
@@ -218,7 +279,7 @@ namespace Livekit.Server.Sdk.Dotnet
             {
                 jwtClaims["roomPreset"] = Claims.RoomPreset;
             }
-            if (Claims.RoomConfig != null)
+            if (Claims.RoomConfig != null && Claims.RoomConfig.CalculateSize() > 0)
             {
                 jwtClaims["roomConfig"] = Claims.RoomConfig;
             }
@@ -232,13 +293,31 @@ namespace Livekit.Server.Sdk.Dotnet
                         claims.Add(new Claim(kv.Key, val));
                         break;
                     case int val:
-                        claims.Add(new Claim(kv.Key, val.ToString(), ClaimValueTypes.Integer64));
+                        claims.Add(
+                            new Claim(
+                                kv.Key,
+                                val.ToString(CultureInfo.InvariantCulture),
+                                ClaimValueTypes.Integer64
+                            )
+                        );
                         break;
                     case long val:
-                        claims.Add(new Claim(kv.Key, val.ToString(), ClaimValueTypes.Integer64));
+                        claims.Add(
+                            new Claim(
+                                kv.Key,
+                                val.ToString(CultureInfo.InvariantCulture),
+                                ClaimValueTypes.Integer64
+                            )
+                        );
                         break;
                     case double val:
-                        claims.Add(new Claim(kv.Key, val.ToString(), ClaimValueTypes.Double));
+                        claims.Add(
+                            new Claim(
+                                kv.Key,
+                                val.ToString(CultureInfo.InvariantCulture),
+                                ClaimValueTypes.Double
+                            )
+                        );
                         break;
                     case bool val:
                         claims.Add(new Claim(kv.Key, val.ToString(), ClaimValueTypes.Boolean));
@@ -275,16 +354,45 @@ namespace Livekit.Server.Sdk.Dotnet
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
+        // Empty strings and lists are omitted, like the other LiveKit SDKs do (the server treats
+        // them as unset anyway)
         private static Dictionary<string, object> ConvertClaimsKeysToCamelCase(object obj)
         {
-            return obj.GetType()
-                .GetProperties()
-                .ToDictionary(prop => PascalToCamelCase(prop.Name), prop => prop.GetValue(obj));
+            var result = new Dictionary<string, object>();
+            foreach (var prop in obj.GetType().GetProperties())
+            {
+                var value = prop.GetValue(obj);
+                if (value == null)
+                {
+                    continue;
+                }
+                if (value is string s && s.Length == 0)
+                {
+                    continue;
+                }
+                if (value is System.Collections.ICollection c && c.Count == 0)
+                {
+                    continue;
+                }
+                result[PascalToCamelCase(prop.Name)] = value;
+            }
+            return result;
         }
 
         private static string PascalToCamelCase(string str)
         {
-            return char.ToLower(str[0]) + str.Substring(1);
+            return char.ToLowerInvariant(str[0]) + str.Substring(1);
+        }
+
+        private static long ToUnixSeconds(DateTime dateTime)
+        {
+            return (long)
+                Math.Floor(
+                    dateTime
+                        .ToUniversalTime()
+                        .Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc))
+                        .TotalSeconds
+                );
         }
     }
 
@@ -303,15 +411,15 @@ namespace Livekit.Server.Sdk.Dotnet
             this.apiSecret = apiSecret ?? Environment.GetEnvironmentVariable("LIVEKIT_API_SECRET");
             this.leeway = leeway ?? Constants.DefaultLeeway;
 
-            if (string.IsNullOrEmpty(apiKey) || string.IsNullOrEmpty(apiSecret))
+            if (string.IsNullOrEmpty(this.apiKey) || string.IsNullOrEmpty(this.apiSecret))
             {
                 throw new ArgumentException("apiKey and apiSecret must be set");
             }
-            if (Encoding.Default.GetBytes(apiSecret).Length < 32)
+            if (Encoding.UTF8.GetBytes(this.apiSecret).Length < 32)
             {
                 throw new ArgumentException(
                     "apiSecret must be at least 256 bits long. Currently it is "
-                        + Encoding.Default.GetBytes(apiSecret).Length * 8
+                        + Encoding.UTF8.GetBytes(this.apiSecret).Length * 8
                         + " bits long"
                 );
             }
@@ -328,6 +436,8 @@ namespace Livekit.Server.Sdk.Dotnet
                 ValidateLifetime = true,
                 ValidateAudience = false,
                 ClockSkew = leeway,
+                // LiveKit tokens are always HS256 (the Python SDK pins the algorithm too)
+                ValidAlgorithms = new[] { SecurityAlgorithms.HmacSha256 },
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -336,7 +446,10 @@ namespace Livekit.Server.Sdk.Dotnet
                 validationParameters,
                 out var securityToken
             );
-            var claims = principal.Claims.ToDictionary(claim => claim.Type, claim => claim.Value);
+            // A JSON array claim yields one Claim per element: keep the first instead of throwing
+            var claims = principal
+                .Claims.GroupBy(claim => claim.Type)
+                .ToDictionary(group => group.Key, group => group.First().Value);
             var decodedSecurityToken = (JwtSecurityToken)securityToken;
 
             var video = new VideoGrants();
@@ -350,12 +463,21 @@ namespace Livekit.Server.Sdk.Dotnet
                 ? JsonConvert.DeserializeObject<SIPGrants>(sipClaim)
                 : new SIPGrants();
 
+            var inference = claims.TryGetValue("inference", out var inferenceClaim)
+                ? JsonConvert.DeserializeObject<InferenceGrants>(inferenceClaim)
+                : null;
+            var observability = claims.TryGetValue("observability", out var observabilityClaim)
+                ? JsonConvert.DeserializeObject<ObservabilityGrants>(observabilityClaim)
+                : null;
+
             var claimsModel = new ClaimsModel
             {
                 Identity = decodedSecurityToken.Subject != null ? decodedSecurityToken.Subject : "",
                 Name = claims.TryGetValue("name", out var name) ? name : "",
                 Video = video,
                 Sip = sip,
+                Inference = inference,
+                Observability = observability,
                 Metadata = claims.TryGetValue("metadata", out var metadata) ? metadata : "",
                 Sha256 = claims.TryGetValue("sha256", out var sha256) ? sha256 : "",
                 Kind = claims.TryGetValue("kind", out var kind) ? kind : "",
@@ -370,9 +492,11 @@ namespace Livekit.Server.Sdk.Dotnet
             }
             if (claims.TryGetValue("roomConfig", out var roomConfig))
             {
-                claimsModel.RoomConfig = JsonConvert.DeserializeObject<RoomConfiguration>(
-                    roomConfig
-                );
+                // Written with the protobuf JSON formatter (enum names, oneofs...): read it back
+                // with the protobuf JSON parser, not with Newtonsoft
+                claimsModel.RoomConfig = new JsonParser(
+                    JsonParser.Settings.Default.WithIgnoreUnknownFields(true)
+                ).Parse<RoomConfiguration>(roomConfig);
             }
 
             return claimsModel;

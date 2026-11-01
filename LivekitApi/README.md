@@ -22,6 +22,7 @@
   - [Receiving Webhooks](#receiving-webhooks)
   - [Environment Variables](#environment-variables)
   - [Using a custom HttpClient](#using-a-custom-httpclient)
+  - [Handling errors](#handling-errors)
 - [Example app](#example-app)
 - [For developers of the SDK](#for-developers-of-the-sdk)
   - [Clone repository](#clone-repository)
@@ -393,14 +394,21 @@ app.MapPost("/webhook-endpoint", async (HttpRequest request) => {
 
 ## Environment Variables
 
-You may store credentials in environment variables. If api-key or api-secret is not passed in when creating an `AccessToken`, `RoomServiceClient` (or any other service client) the values in the following env vars will be used:
+You may store credentials in environment variables. If api-key or api-secret is not passed in when creating an `AccessToken`, `TokenVerifier`, `WebhookReceiver`, `RoomServiceClient` (or any other service client) the values in the following env vars will be used:
 
 - `LIVEKIT_API_KEY`
 - `LIVEKIT_API_SECRET`
 
+```csharp
+var token = new AccessToken().WithIdentity("identity").WithGrants(new VideoGrants { RoomJoin = true, Room = "room" });
+var roomService = new RoomServiceClient("https://your-livekit-server");
+```
+
 ## Using a custom HttpClient
 
 You can provide a custom `HttpClient` when creating any of the service clients. This allows you to customize settings such as timeouts, headers, or proxy configurations.
+
+The SDK never modifies the `HttpClient` you pass: it does not set its `BaseAddress` or its default headers. The LiveKit host, the bearer token signed for each call and the SDK user agent are set on each request instead. The same instance (for example one obtained from `IHttpClientFactory`) can therefore be shared between several service clients, even for different LiveKit servers, and with the rest of your application, and it may already have sent requests.
 
 ```csharp
 using System;
@@ -429,6 +437,22 @@ var roomService = new RoomServiceClient(
     "your-api-secret",
     httpClient
 );
+```
+
+## Handling errors
+
+Errors returned by the LiveKit server are raised as `TwirpException` (a subclass of the generated `Twirp.Exception`) with the Twirp error code, the HTTP status and the `meta` map of the error:
+
+```csharp
+try
+{
+    await roomService.DeleteRoom(new DeleteRoomRequest { Room = "missing" });
+}
+catch (TwirpException e)
+{
+    Console.WriteLine($"{e.Type} ({e.Status}): {e.Message}");
+    if (e.Meta.TryGetValue("sip_status_code", out var sipStatus)) { /* SIP calls */ }
+}
 ```
 
 # Example app

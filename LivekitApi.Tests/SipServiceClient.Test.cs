@@ -122,7 +122,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Trait("Category", "SipService")]
         public async Task Create_Sip_Inbound_Trunk_Exceptions()
         {
-            Twirp.Exception ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
+            Twirp.Exception ex = await Assert.ThrowsAnyAsync<Twirp.Exception>(async () =>
                 await sipClient.CreateSIPInboundTrunk(
                     new CreateSIPInboundTrunkRequest { Trunk = new SIPInboundTrunkInfo { } }
                 )
@@ -163,13 +163,13 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Trait("Category", "SipService")]
         public async Task Create_Sip_Outbound_Trunk_Exceptions()
         {
-            Twirp.Exception ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
+            Twirp.Exception ex = await Assert.ThrowsAnyAsync<Twirp.Exception>(async () =>
                 await sipClient.CreateSIPOutboundTrunk(
                     new CreateSIPOutboundTrunkRequest { Trunk = new SIPOutboundTrunkInfo { } }
                 )
             );
             Assert.EndsWith("no trunk numbers specified", ex.Message);
-            ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
+            ex = await Assert.ThrowsAnyAsync<Twirp.Exception>(async () =>
                 await sipClient.CreateSIPOutboundTrunk(
                     new CreateSIPOutboundTrunkRequest
                     {
@@ -178,7 +178,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
                 )
             );
             Assert.EndsWith("no trunk numbers specified", ex.Message);
-            ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
+            ex = await Assert.ThrowsAnyAsync<Twirp.Exception>(async () =>
                 await sipClient.CreateSIPOutboundTrunk(
                     new CreateSIPOutboundTrunkRequest
                     {
@@ -304,28 +304,28 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         {
             CreateSIPParticipantRequest request = new CreateSIPParticipantRequest { };
 
-            Twirp.Exception ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
+            Twirp.Exception ex = await Assert.ThrowsAnyAsync<Twirp.Exception>(async () =>
                 await sipClient.CreateSIPParticipant(request)
             );
             Assert.EndsWith("missing sip trunk id and sip number", ex.Message);
 
             request.SipTrunkId = "non-existing-trunk";
 
-            ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
+            ex = await Assert.ThrowsAnyAsync<Twirp.Exception>(async () =>
                 await sipClient.CreateSIPParticipant(request)
             );
             Assert.Equal("missing sip callee number", ex.Message);
 
             request.SipCallTo = "+3333";
 
-            ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
+            ex = await Assert.ThrowsAnyAsync<Twirp.Exception>(async () =>
                 await sipClient.CreateSIPParticipant(request)
             );
             Assert.EndsWith("missing room name", ex.Message);
 
             request.RoomName = TestConstants.ROOM_NAME;
 
-            ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
+            ex = await Assert.ThrowsAnyAsync<Twirp.Exception>(async () =>
                 await sipClient.CreateSIPParticipant(request)
             );
             Assert.EndsWith("requested sip trunk does not exist", ex.Message);
@@ -416,14 +416,14 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
             var transferRequest = new TransferSIPParticipantRequest { };
 
-            Twirp.Exception ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
+            Twirp.Exception ex = await Assert.ThrowsAnyAsync<Twirp.Exception>(async () =>
                 await sipClient.TransferSIPParticipant(transferRequest)
             );
             Assert.EndsWith("Missing room name", ex.Message);
 
             transferRequest.RoomName = TestConstants.ROOM_NAME;
 
-            ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
+            ex = await Assert.ThrowsAnyAsync<Twirp.Exception>(async () =>
                 await sipClient.TransferSIPParticipant(transferRequest)
             );
             Assert.EndsWith("Missing participant identity", ex.Message);
@@ -432,13 +432,13 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             transferRequest.TransferTo = "+14155550100";
             transferRequest.PlayDialtone = false;
 
-            ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
+            ex = await Assert.ThrowsAnyAsync<Twirp.Exception>(async () =>
                 await sipClient.TransferSIPParticipant(transferRequest)
             );
             Assert.Matches(@"transfer_to must be a valid SIP(\(s\))? or TEL", ex.Message);
 
             transferRequest.TransferTo = "tel:+14155550100";
-            ex = await Assert.ThrowsAsync<Twirp.Exception>(async () =>
+            ex = await Assert.ThrowsAnyAsync<Twirp.Exception>(async () =>
                 await sipClient.TransferSIPParticipant(transferRequest)
             );
             Assert.True(

@@ -1,5 +1,4 @@
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Livekit.Server.Sdk.Dotnet
@@ -8,37 +7,43 @@ namespace Livekit.Server.Sdk.Dotnet
     {
         public AgentDispatchServiceClient(
             string host,
-            string apiKey,
-            string apiSecret,
+            string apiKey = null,
+            string apiSecret = null,
             HttpClient client = null
         )
             : base(host, apiKey, apiSecret, client) { }
 
         public async Task<AgentDispatch> CreateDispatch(CreateAgentDispatchRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
-            );
-            return await Twirp.CreateDispatch(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.AgentDispatchService/CreateDispatch",
+                    request,
+                    AgentDispatch.Parser,
+                    AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
+                )
+                .ConfigureAwait(false);
         }
 
         public async Task<AgentDispatch> DeleteDispatch(DeleteAgentDispatchRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
-            );
-            return await Twirp.DeleteDispatch(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.AgentDispatchService/DeleteDispatch",
+                    request,
+                    AgentDispatch.Parser,
+                    AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
+                )
+                .ConfigureAwait(false);
         }
 
         public async Task<ListAgentDispatchResponse> ListDispatch(ListAgentDispatchRequest request)
         {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                "Bearer",
-                AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
-            );
-            return await Twirp.ListDispatch(httpClient, request);
+            return await SendAsync(
+                    "twirp/livekit.AgentDispatchService/ListDispatch",
+                    request,
+                    ListAgentDispatchResponse.Parser,
+                    AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
+                )
+                .ConfigureAwait(false);
         }
 
         /// <summary>
