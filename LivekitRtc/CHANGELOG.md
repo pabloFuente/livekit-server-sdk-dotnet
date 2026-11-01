@@ -7,23 +7,25 @@
   `VideoFrame` only described the planes of `I420` and `NV12` buffers to the FFI, so the native
   side found no planes for the other planar formats. All planar formats are now described from a
   single plane table that is shared with `VideoFrame.GetPlane`, which also makes `GetPlane` work for
-  `I010`.
+  `I010`. [commit 026961e](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/026961e5fa1367fdac9d1954db456cd2f374b4e3)
 - Fix a possible native access violation (process crash) when capturing audio or video frames.
   The frame's managed sample/pixel array was only pinned while the pointer handed to the FFI was
   built, not while the capture request was serialized and sent, so a compacting garbage
   collection in between could move the array and leave the native side reading a stale pointer.
   `AudioSource.CaptureFrameAsync`, `VideoSource.CaptureFrame` and `VideoFrame.Convert` now keep
   the buffer (and, for planar video formats, every plane pointer) pinned through request
-  serialization and the native call.
+  serialization and the native call. [PR #143](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/143) (audio) and
+  [PR #144](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/144) (video).
 - Fix `Room.LocalTrackUnpublished` being dropped (logged as
   `[WARN] RoomEvent.LocalTrackUnpublished: Publication ... not found`) when the FFI
   `UnpublishTrack` callback was processed before the matching `LocalTrackUnpublished` room
   event. `LocalParticipant.UnpublishTrackAsync` now hands the removed publication over to the
   room event instead of dropping it, and the event handler no longer retries the lookup, which
   used to stall the room's FIFO event chain for up to 500ms per miss and delay every following
-  event. Most visible when unpublishing many tracks at once.
+  event. Most visible when unpublishing many tracks at once. [commit 18d3966](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/18d3966a9c742e0f99a659b0d40ec0b538dd43f2)
 - The SDK version that the FFI sends to the LiveKit server as the client SDK version now
   follows the package version in `LivekitRtc.csproj`. It was hard-coded to `0.1.0`.
+  [commit 8ce5332](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/8ce53323aedfa79d35091d3824e5ea982c7c3a7c)
 
 ## 0.1.4
 
