@@ -28,6 +28,28 @@
   [commit 8ce5332](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/8ce53323aedfa79d35091d3824e5ea982c7c3a7c)
 - The NuGet package now embeds this changelog as its release notes, as `Livekit.Server.Sdk.Dotnet`
   already did. [commit 880a38e](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/880a38e82783fa5a797e80f82af94f0286f0cf66)
+- Data tracks, reaching parity with the Python RTC SDK: `LocalParticipant.PublishDataTrackAsync`
+  returns a `LocalDataTrack` to push `DataTrackFrame`s on. Remote tracks arrive through the new
+  `Room.DataTrackPublished` and `Room.DataTrackUnpublished` events (and are listed in
+  `Room.RemoteDataTracks`); `RemoteDataTrack.Subscribe()` returns a `DataTrackStream` that can
+  be read with `await foreach` and ends when the track is unpublished.
+- New `EncodedVideoSource` to publish pre-encoded video (H.264, VP8, ...) without re-encoding it:
+  `LocalVideoTrack.Create(name, encodedSource)`, `CaptureFrame(EncodedVideoFrame)` and
+  `TakeFeedback()` for the key-frame and bitrate requests to forward to the encoder.
+- New subscriber-side controls on `RemoteTrackPublication`: `SetVideoQuality` (simulcast layer),
+  `SetEnabled` (pause receiving without unsubscribing) and `SetVideoDimensions`.
+- New room events `ParticipantPermissionsChanged` (with the new `Participant.Permissions`
+  property), `ParticipantActive`, `LocalTrackRepublished` (local publications are now updated in
+  place and re-keyed after a full reconnect instead of going stale) and
+  `DataChannelBufferedAmountLowThresholdChanged`, raised after the new
+  `LocalParticipant.SetDataChannelBufferedAmountLowThreshold`. Bulk participant updates sent by
+  the server are now applied to the participant objects.
+- New `Room.SimulateScenarioAsync(Proto.SimulateScenarioKind)` to force the reconnection paths
+  from tests without touching the network: a full reconnect (the SDK rebuilds its session and
+  republishes its local tracks, raising `LocalTrackRepublished`), a resume, a server-initiated
+  leave... It mirrors `Room.simulate_scenario` in the Python SDK and `Room.simulateScenario` in
+  the Node SDK. See
+  [Simulating Reconnections](https://github.com/pabloFuente/livekit-server-sdk-dotnet/blob/main/LivekitRtc/README.md#simulating-reconnections).
 
 ## 0.1.4
 

@@ -28,73 +28,6 @@ namespace LiveKit.Rtc.Tests
         public Task DisposeAsync() => Task.CompletedTask;
 
         [Fact]
-        public async Task ParticipantConnected_Disconnected_EventsFire()
-        {
-            _output.WriteLine(
-                $"[{DateTime.Now:HH:mm:ss.fff}] Starting ParticipantConnected_Disconnected test"
-            );
-
-            using var room1 = new Room();
-            using var room2 = new Room();
-
-            var participantConnectedTcs = new TaskCompletionSource<Participant>();
-            var participantDisconnectedTcs = new TaskCompletionSource<Participant>();
-
-            room1.ParticipantConnected += (sender, participant) =>
-            {
-                _output.WriteLine(
-                    $"[{DateTime.Now:HH:mm:ss.fff}] Room1 received ParticipantConnected: {participant.Identity}"
-                );
-                participantConnectedTcs.TrySetResult(participant);
-            };
-
-            room1.ParticipantDisconnected += (sender, participant) =>
-            {
-                _output.WriteLine(
-                    $"[{DateTime.Now:HH:mm:ss.fff}] Room1 received ParticipantDisconnected: {participant.Identity}"
-                );
-                participantDisconnectedTcs.TrySetResult(participant);
-            };
-
-            // Connect both participants
-            var token1 = _fixture.CreateToken("participant1", "test-room");
-            var token2 = _fixture.CreateToken("participant2", "test-room");
-
-            await room1.ConnectAsync(_fixture.LiveKitUrl, token1);
-            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Room1 connected");
-
-            await room2.ConnectAsync(_fixture.LiveKitUrl, token2);
-            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Room2 connected");
-
-            // Wait for ParticipantConnected event
-            using var cts1 = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-            var connectedParticipant = await participantConnectedTcs.Task.WaitAsync(cts1.Token);
-            Assert.NotNull(connectedParticipant);
-            Assert.Equal("participant2", connectedParticipant.Identity);
-            _output.WriteLine(
-                $"[{DateTime.Now:HH:mm:ss.fff}] ParticipantConnected event fired successfully"
-            );
-
-            // Disconnect participant2
-            await room2.DisconnectAsync();
-            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Room2 disconnected");
-
-            // Wait for ParticipantDisconnected event
-            using var cts2 = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-            var disconnectedParticipant = await participantDisconnectedTcs.Task.WaitAsync(
-                cts2.Token
-            );
-            Assert.NotNull(disconnectedParticipant);
-            Assert.Equal("participant2", disconnectedParticipant.Identity);
-            _output.WriteLine(
-                $"[{DateTime.Now:HH:mm:ss.fff}] ParticipantDisconnected event fired successfully"
-            );
-
-            await room1.DisconnectAsync();
-            _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Test completed successfully!");
-        }
-
-        [Fact]
         public async Task ConnectionStateChanged_Reconnecting_Reconnected_EventsFire()
         {
             _output.WriteLine(
@@ -133,14 +66,23 @@ namespace LiveKit.Rtc.Tests
                 }
             };
 
+            var reconnectingTcs = new TaskCompletionSource<bool>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            var reconnectedTcs = new TaskCompletionSource<bool>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+
             room.Reconnecting += (sender, args) =>
             {
                 _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Reconnecting event fired");
+                reconnectingTcs.TrySetResult(true);
             };
 
             room.Reconnected += (sender, args) =>
             {
                 _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Reconnected event fired");
+                reconnectedTcs.TrySetResult(true);
             };
 
             var token = _fixture.CreateToken("test-participant", "test-room");
@@ -151,8 +93,32 @@ namespace LiveKit.Rtc.Tests
             Assert.Contains(Proto.ConnectionState.ConnConnected, stateChanges);
             _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Verified Connected state");
 
-            // Note: Testing actual reconnection would require network manipulation
-            // which is complex in a unit test. We've verified the event handlers exist.
+            // Force a full reconnect through the FFI instead of manipulating the network
+            await room.SimulateScenarioAsync(Proto.SimulateScenarioKind.SimulateFullReconnect);
+            await reconnectingTcs.Task.WaitAsync(TimeSpan.FromSeconds(15));
+            await reconnectedTcs.Task.WaitAsync(TimeSpan.FromSeconds(15));
+            _output.WriteLine(
+                $"[{DateTime.Now:HH:mm:ss.fff}] Verified Reconnecting and Reconnected events"
+            );
+
+            // The Connected state that follows Reconnecting is dispatched before the Reconnected
+            // event on the same chain, so it is already recorded here
+            var statesAfterReconnect = stateChanges.ToArray();
+            var reconnectingIndex = Array.IndexOf(
+                statesAfterReconnect,
+                Proto.ConnectionState.ConnReconnecting
+            );
+            Assert.True(
+                reconnectingIndex
+                    > Array.IndexOf(statesAfterReconnect, Proto.ConnectionState.ConnConnected),
+                "Reconnecting state should be reported after the first Connected state"
+            );
+            Assert.True(
+                Array.LastIndexOf(statesAfterReconnect, Proto.ConnectionState.ConnConnected)
+                    > reconnectingIndex,
+                "Connected state should be reported again after the Reconnecting state"
+            );
+            Assert.True(room.IsConnected);
 
             await room.DisconnectAsync();
 
@@ -563,265 +529,6 @@ namespace LiveKit.Rtc.Tests
             _output.WriteLine(
                 $"[{DateTime.Now:HH:mm:ss.fff}] LocalTrackSubscribed test completed successfully"
             );
-        }
-
-        [Fact]
-        public async Task ParticipantMetadataChanged_EventFires_WhenParticipantUpdatesMetadata()
-        {
-            _output.WriteLine(
-                $"[{DateTime.Now:HH:mm:ss.fff}] Starting ParticipantMetadataChanged test"
-            );
-
-            using var room1 = new Room();
-            using var room2 = new Room();
-
-            var participantConnectedTcs = new TaskCompletionSource<Participant>();
-            var metadataChangedTcs = new TaskCompletionSource<Participant>();
-
-            room1.ParticipantConnected += (sender, participant) =>
-            {
-                if (participant.Identity == "participant2")
-                {
-                    _output.WriteLine(
-                        $"[{DateTime.Now:HH:mm:ss.fff}] Participant2 connected to room1"
-                    );
-                    participantConnectedTcs.TrySetResult(participant);
-                }
-            };
-
-            room1.ParticipantMetadataChanged += (sender, participant) =>
-            {
-                _output.WriteLine(
-                    $"[{DateTime.Now:HH:mm:ss.fff}] ParticipantMetadataChanged event fired for participant: {participant.Identity}"
-                );
-                metadataChangedTcs.TrySetResult(participant);
-            };
-
-            var token1 = _fixture.CreateToken("participant1", "test-room");
-            var token2 = new Livekit.Server.Sdk.Dotnet.AccessToken(
-                RtcTestFixture.API_KEY,
-                RtcTestFixture.API_SECRET
-            )
-                .WithIdentity("participant2")
-                .WithName("participant2")
-                .WithGrants(
-                    new Livekit.Server.Sdk.Dotnet.VideoGrants
-                    {
-                        RoomJoin = true,
-                        Room = "test-room",
-                        CanUpdateOwnMetadata = true,
-                    }
-                )
-                .ToJwt();
-
-            await room1.ConnectAsync(_fixture.LiveKitUrl, token1);
-            await room2.ConnectAsync(_fixture.LiveKitUrl, token2);
-
-            // Wait for room1 to see participant2
-            using var connectCts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-            await participantConnectedTcs.Task.WaitAsync(connectCts.Token);
-            _output.WriteLine(
-                $"[{DateTime.Now:HH:mm:ss.fff}] Room1 sees participant2, proceeding with metadata update"
-            );
-
-            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-            cts.Token.Register(() =>
-                metadataChangedTcs.TrySetException(
-                    new TimeoutException("ParticipantMetadataChanged event did not fire")
-                )
-            );
-
-            await room2.LocalParticipant!.SetMetadataAsync("test-metadata");
-
-            var participant = await metadataChangedTcs.Task;
-            Assert.Equal("participant2", participant.Identity);
-            Assert.Equal("test-metadata", participant.Metadata);
-
-            await room1.DisconnectAsync();
-            await room2.DisconnectAsync();
-
-            _output.WriteLine(
-                $"[{DateTime.Now:HH:mm:ss.fff}] ParticipantMetadataChanged test completed successfully"
-            );
-        }
-
-        [Fact]
-        public async Task ParticipantNameChanged_EventFires_WhenParticipantUpdatesName()
-        {
-            _output.WriteLine(
-                $"[{DateTime.Now:HH:mm:ss.fff}] Starting ParticipantNameChanged test"
-            );
-
-            using var room1 = new Room();
-            using var room2 = new Room();
-
-            var participantConnectedTcs = new TaskCompletionSource<Participant>();
-            var nameChangedTcs = new TaskCompletionSource<Participant>();
-
-            room1.ParticipantConnected += (sender, participant) =>
-            {
-                if (participant.Identity == "participant2")
-                {
-                    _output.WriteLine(
-                        $"[{DateTime.Now:HH:mm:ss.fff}] Participant2 connected to room1"
-                    );
-                    participantConnectedTcs.TrySetResult(participant);
-                }
-            };
-
-            room1.ParticipantNameChanged += (sender, participant) =>
-            {
-                _output.WriteLine(
-                    $"[{DateTime.Now:HH:mm:ss.fff}] ParticipantNameChanged event fired for participant: {participant.Identity}"
-                );
-                nameChangedTcs.TrySetResult(participant);
-            };
-
-            var token1 = _fixture.CreateToken("participant1", "test-room");
-            var token2 = new Livekit.Server.Sdk.Dotnet.AccessToken(
-                RtcTestFixture.API_KEY,
-                RtcTestFixture.API_SECRET
-            )
-                .WithIdentity("participant2")
-                .WithName("participant2")
-                .WithGrants(
-                    new Livekit.Server.Sdk.Dotnet.VideoGrants
-                    {
-                        RoomJoin = true,
-                        Room = "test-room",
-                        CanUpdateOwnMetadata = true,
-                    }
-                )
-                .ToJwt();
-
-            await room1.ConnectAsync(_fixture.LiveKitUrl, token1);
-            await room2.ConnectAsync(_fixture.LiveKitUrl, token2);
-
-            // Wait for room1 to see participant2
-            using var connectCts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-            await participantConnectedTcs.Task.WaitAsync(connectCts.Token);
-            _output.WriteLine(
-                $"[{DateTime.Now:HH:mm:ss.fff}] Room1 sees participant2, proceeding with name update"
-            );
-
-            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-            cts.Token.Register(() =>
-                nameChangedTcs.TrySetException(
-                    new TimeoutException("ParticipantNameChanged event did not fire")
-                )
-            );
-
-            await room2.LocalParticipant!.SetNameAsync("test-name");
-
-            var participant = await nameChangedTcs.Task;
-            Assert.Equal("participant2", participant.Identity);
-            Assert.Equal("test-name", participant.Name);
-
-            await room1.DisconnectAsync();
-            await room2.DisconnectAsync();
-
-            _output.WriteLine(
-                $"[{DateTime.Now:HH:mm:ss.fff}] ParticipantNameChanged test completed successfully"
-            );
-        }
-
-        [Fact]
-        public async Task ParticipantAttributesChanged_EventFires_WhenParticipantUpdatesAttributes()
-        {
-            _output.WriteLine(
-                $"[{DateTime.Now:HH:mm:ss.fff}] Starting ParticipantAttributesChanged test"
-            );
-
-            using var room1 = new Room();
-            using var room2 = new Room();
-
-            var participantConnectedTcs = new TaskCompletionSource<Participant>();
-            var attributesChangedTcs =
-                new TaskCompletionSource<ParticipantAttributesChangedEventArgs>();
-
-            room1.ParticipantConnected += (sender, participant) =>
-            {
-                if (participant.Identity == "participant2")
-                {
-                    _output.WriteLine(
-                        $"[{DateTime.Now:HH:mm:ss.fff}] Participant2 connected to room1"
-                    );
-                    participantConnectedTcs.TrySetResult(participant);
-                }
-            };
-
-            room1.ParticipantAttributesChanged += (sender, e) =>
-            {
-                _output.WriteLine(
-                    $"[{DateTime.Now:HH:mm:ss.fff}] ParticipantAttributesChanged event fired for participant: {e.Participant.Identity}"
-                );
-                attributesChangedTcs.TrySetResult(e);
-            };
-
-            var token1 = _fixture.CreateToken("participant1", "test-room");
-            var token2 = new Livekit.Server.Sdk.Dotnet.AccessToken(
-                RtcTestFixture.API_KEY,
-                RtcTestFixture.API_SECRET
-            )
-                .WithIdentity("participant2")
-                .WithName("participant2")
-                .WithGrants(
-                    new Livekit.Server.Sdk.Dotnet.VideoGrants
-                    {
-                        RoomJoin = true,
-                        Room = "test-room",
-                        CanUpdateOwnMetadata = true,
-                    }
-                )
-                .ToJwt();
-
-            await room1.ConnectAsync(_fixture.LiveKitUrl, token1);
-            await room2.ConnectAsync(_fixture.LiveKitUrl, token2);
-
-            // Wait for room1 to see participant2
-            using var connectCts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-            await participantConnectedTcs.Task.WaitAsync(connectCts.Token);
-            _output.WriteLine(
-                $"[{DateTime.Now:HH:mm:ss.fff}] Room1 sees participant2, proceeding with attributes update"
-            );
-
-            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-            cts.Token.Register(() =>
-                attributesChangedTcs.TrySetException(
-                    new TimeoutException("ParticipantAttributesChanged event did not fire")
-                )
-            );
-
-            var testAttributes = new Dictionary<string, string>
-            {
-                { "key1", "value1" },
-                { "key2", "value2" },
-            };
-            await room2.LocalParticipant!.SetAttributesAsync(testAttributes);
-
-            var eventArgs = await attributesChangedTcs.Task;
-            Assert.Equal("participant2", eventArgs.Participant.Identity);
-            Assert.Equal(2, eventArgs.Attributes.Count);
-            Assert.Equal("value1", eventArgs.Attributes["key1"]);
-            Assert.Equal("value2", eventArgs.Attributes["key2"]);
-            Assert.Equal(2, eventArgs.ChangedAttributes.Count);
-            Assert.Equal("value1", eventArgs.ChangedAttributes["key1"]);
-            Assert.Equal("value2", eventArgs.ChangedAttributes["key2"]);
-
-            await room1.DisconnectAsync();
-            await room2.DisconnectAsync();
-
-            _output.WriteLine(
-                $"[{DateTime.Now:HH:mm:ss.fff}] ParticipantAttributesChanged test completed successfully"
-            );
-        }
-
-        [Fact]
-        public void ParticipantEncryptionStatusChanged_HandlerRegistered_NoExceptions()
-        {
-            using var room = new Room();
-            room.ParticipantEncryptionStatusChanged += (sender, e) => { };
-            Assert.True(true, "Handler registered successfully");
         }
 
         [Fact]

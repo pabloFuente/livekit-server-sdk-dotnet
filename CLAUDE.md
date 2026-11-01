@@ -106,7 +106,7 @@ dotnet tool restore && dotnet csharpier format . # format; `dotnet csharpier che
 dotnet test LivekitApi.Tests --filter "Category=Unit"         # no Docker
 dotnet test LivekitApi.Tests --filter "Category=Integration"  # Docker
 dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~RoomEventsTests"                 # one class
-dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~RoomEventsTests.ParticipantConnected_Disconnected_EventsFire"  # one test
+dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~ParticipantEventsTests.ParticipantConnected_Disconnected_EventsFire"  # one test
 dotnet test LivekitRtc.Tests --logger "console;verbosity=detailed"   # show ITestOutputHelper output
 dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg   # runs package validation
 ```
@@ -153,8 +153,9 @@ Both test projects are xUnit on `net8.0`. Integration tests start real services 
 
 - There are no Category traits. Classes that take `RtcTestFixture` need Docker; the rest
   (`AudioFramePinningTests`, `VideoFramePinningTests`, `VideoFramePlanesTests`,
-  `TrackPublishOptionsMappingTests`, `E2EEOptionsMappingTests`, `SdkVersionTests`, `FfiClientTest`,
-  `AudioCaptureMinimalTest`) do not. `FfiClientTest`, `AudioCaptureMinimalTest` and the two
+  `TrackPublishOptionsMappingTests`, `E2EEOptionsMappingTests`, `SdkVersionTests`,
+  `DataTrackFrameTests`, `EncodedVideoSourceTests`, `FfiClientTest`, `AudioCaptureMinimalTest`) do
+  not. `FfiClientTest`, `AudioCaptureMinimalTest`, `EncodedVideoSourceTests` and the two
   `VideoFrame*Tests` load the native library for the host RID; the others are pure managed code.
 - `RtcTestFixture` starts, per fixture instance, a private network with redis,
   `livekit/livekit-server:latest`, nginx serving `LivekitRtc.Tests/web/*.html` and
@@ -166,6 +167,10 @@ Both test projects are xUnit on `net8.0`. Integration tests start real services 
   (see [LivekitRtc.Tests/README_LOCAL_CHROME.md](LivekitRtc.Tests/README_LOCAL_CHROME.md)).
 - If Testcontainers fails to pull its `ryuk` reaper image, set `TESTCONTAINERS_RYUK_DISABLED=true`;
   the fixtures dispose their containers explicitly anyway.
+- Reconnection paths need no network manipulation:
+  `Room.SimulateScenarioAsync(Proto.SimulateScenarioKind.SimulateFullReconnect)` forces a full
+  reconnect (`Reconnecting`, one `LocalTrackRepublished` per local track, `Reconnected`) and
+  `SimulateSignalReconnect` a resume. `RoomEventsTests` and `ParticipantEventsTests` use it.
 - A line like `[WARN] RoomEvent.<Name>: ... not found` in test output means the SDK dropped a room
   event. Treat it as a bug signal, not noise.
 - Do not prove E2EE with time-domain audio correlation: Opus transcoding already breaks

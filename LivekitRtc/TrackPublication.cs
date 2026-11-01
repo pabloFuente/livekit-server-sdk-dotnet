@@ -1,5 +1,6 @@
 // author: https://github.com/pabloFuente
 
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using LiveKit.Proto;
@@ -197,6 +198,80 @@ namespace LiveKit.Rtc
             };
 
             FfiClient.Instance.SendRequest(request);
+        }
+
+        /// <summary>
+        /// For simulcast video tracks, requests a specific layer from the server:
+        /// <c>Low</c> (q), <c>Medium</c> (h) or <c>High</c> (f).
+        /// </summary>
+        /// <param name="quality">The layer to receive.</param>
+        /// <exception cref="InvalidOperationException">
+        /// The publication is not a video track, or it is not simulcasted (selecting a layer requires
+        /// multiple layers).
+        /// </exception>
+        public void SetVideoQuality(Proto.VideoQuality quality)
+        {
+            if (Kind != Proto.TrackKind.KindVideo)
+                throw new InvalidOperationException(
+                    $"SetVideoQuality is only supported on video publications (sid={Sid})"
+                );
+            if (!Simulcasted)
+                throw new InvalidOperationException(
+                    $"SetVideoQuality requires a simulcasted publication (sid={Sid})"
+                );
+
+            FfiClient.Instance.SendRequest(
+                new FfiRequest
+                {
+                    SetRemoteTrackPublicationQuality = new SetRemoteTrackPublicationQualityRequest
+                    {
+                        TrackPublicationHandle = Handle.HandleId,
+                        Quality = quality,
+                    },
+                }
+            );
+        }
+
+        /// <summary>
+        /// Enables or disables the subscribed track without unsubscribing. While disabled the server
+        /// stops sending its media, which saves bandwidth when the track is not needed for a while
+        /// (for example a video that is not being rendered).
+        /// </summary>
+        /// <param name="enabled">False to pause receiving, true to resume.</param>
+        public void SetEnabled(bool enabled)
+        {
+            FfiClient.Instance.SendRequest(
+                new FfiRequest
+                {
+                    EnableRemoteTrackPublication = new EnableRemoteTrackPublicationRequest
+                    {
+                        TrackPublicationHandle = Handle.HandleId,
+                        Enabled = enabled,
+                    },
+                }
+            );
+        }
+
+        /// <summary>
+        /// Tells the server the dimensions at which this video track is consumed, so it can pick the
+        /// most appropriate simulcast layer.
+        /// </summary>
+        /// <param name="width">Width in pixels.</param>
+        /// <param name="height">Height in pixels.</param>
+        public void SetVideoDimensions(uint width, uint height)
+        {
+            FfiClient.Instance.SendRequest(
+                new FfiRequest
+                {
+                    UpdateRemoteTrackPublicationDimension =
+                        new UpdateRemoteTrackPublicationDimensionRequest
+                        {
+                            TrackPublicationHandle = Handle.HandleId,
+                            Width = width,
+                            Height = height,
+                        },
+                }
+            );
         }
     }
 }

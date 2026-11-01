@@ -21,6 +21,10 @@
   - [Event Handling](#event-handling)
   - [End-to-End Encryption](#end-to-end-encryption)
   - [RPC Communication](#rpc-communication)
+  - [Data Tracks](#data-tracks)
+  - [Publishing Pre-encoded Video](#publishing-pre-encoded-video)
+  - [Controlling Remote Tracks](#controlling-remote-tracks)
+  - [Simulating Reconnections](#simulating-reconnections)
 - [Example apps](#example-apps)
 - [For developers of the SDK](#for-developers-of-the-sdk)
   - [Clone repository](#clone-repository)
@@ -41,15 +45,15 @@ This library is crafted based on three core principles:
 
 ### Real-Time Media
 
-Publish and subscribe to audio/video tracks with full programmatic control. Process frames in real-time, mix audio sources, and build custom media pipelines. Perfect for server-side processing.
+Publish and subscribe to audio/video tracks with full programmatic control. Process frames in real-time, mix audio sources, publish pre-encoded video without re-encoding it, and build custom media pipelines. Perfect for server-side processing.
 
 ### Data & Communication
 
-Send reliable or lossy data messages, implement RPC request-response patterns, and build real-time chat with topic-based channels. Full control over data flow between participants.
+Send reliable or lossy data messages, stream application frames over data tracks, implement RPC request-response patterns, and build real-time chat with topic-based channels. Full control over data flow between participants.
 
 ### Room & Participant Management
 
-Active speaker detection, transcription support, connection quality monitoring, and 25+ event types for comprehensive room state management.
+Active speaker detection, transcription support, connection quality monitoring, permission changes, and 30+ event types for comprehensive room state management.
 
 ### Security & Encryption
 
@@ -140,6 +144,15 @@ room.DataReceived += (sender, e) => {
     var message = Encoding.UTF8.GetString(e.Data);
     Console.WriteLine($"Data from {e.Participant.Identity}: {message}");
 };
+
+room.ParticipantPermissionsChanged += (sender, e) => {
+    Console.WriteLine($"{e.Participant.Identity} can publish: {e.Permissions?.CanPublish}");
+};
+
+room.LocalTrackRepublished += (sender, e) => {
+    // After a full reconnect the publication keeps its object but gets a new SID
+    Console.WriteLine($"{e.PreviousSid} is now {e.Publication.Sid}");
+};
 ```
 
 ### End-to-End Encryption
@@ -172,6 +185,75 @@ var response = await room.LocalParticipant!.PerformRpcAsync(
     responseTimeout: 5
 );
 ```
+
+### Data Tracks
+
+Data tracks stream application frames (telemetry, sensor data, game state...) from one publisher to any number of subscribers. Unlike data messages they are a named, subscribable track; frames are not buffered for subscribers that join later.
+
+```csharp
+// Publisher
+var dataTrack = await room.LocalParticipant!.PublishDataTrackAsync("telemetry");
+dataTrack.TryPush(new DataTrackFrame(payload, userTimestamp: 42)); // PushFrameException if it cannot be sent
+dataTrack.Unpublish();
+
+// Subscriber
+room.DataTrackPublished += async (sender, remoteTrack) => {
+    Console.WriteLine($"{remoteTrack.PublisherIdentity} published {remoteTrack.Info.Name}");
+    using var stream = remoteTrack.Subscribe();
+    await foreach (var frame in stream) { // ends when the track is unpublished
+        Console.WriteLine($"{frame.Payload.Length} bytes, timestamp {frame.UserTimestamp}");
+    }
+};
+room.DataTrackUnpublished += (sender, e) => Console.WriteLine($"{e.Sid} unpublished");
+```
+
+### Publishing Pre-encoded Video
+
+Publish video that is already encoded (for example H.264 from a hardware encoder or a demuxed file) without decoding and re-encoding it:
+
+```csharp
+using var source = new EncodedVideoSource(1280, 720);
+var track = LocalVideoTrack.Create("camera", source);
+await room.LocalParticipant!.PublishTrackAsync(track, new TrackPublishOptions {
+    VideoCodec = Proto.VideoCodec.H264,
+    VideoEncoder = Proto.VideoEncoderBackend.EncoderBackendPreEncoded,
+    Simulcast = false,
+});
+
+// Feed complete access units at the playback rate (Annex B for H.264/H.265)
+source.CaptureFrame(new EncodedVideoFrame(
+    accessUnit, 1280, 720, Proto.VideoCodec.H264, Proto.EncodedFrameType.EncodedFrameKey, timestampUs));
+
+// Forward encoder feedback (key frame requests, bitrate targets) to your encoder
+var feedback = source.TakeFeedback();
+if (feedback.KeyframeRequested) encoder.RequestKeyFrame();
+```
+
+### Controlling Remote Tracks
+
+```csharp
+room.TrackSubscribed += (sender, e) => {
+    var publication = e.Publication;
+    publication.SetVideoQuality(Proto.VideoQuality.Low); // simulcast layer (video only)
+    publication.SetVideoDimensions(640, 360);            // let the server pick the layer for this size
+    publication.SetEnabled(false);                       // pause receiving without unsubscribing
+};
+```
+
+### Simulating Reconnections
+
+`Room.SimulateScenarioAsync` forces, from a test, the reconnection paths that are otherwise only reachable through network failures. The task completes once the SDK has started the scenario; the reconnection itself is observed through the room events.
+
+```csharp
+// Full reconnect: the SDK rebuilds its session and republishes the local tracks.
+// Raises Reconnecting, then one LocalTrackRepublished per local track, then Reconnected.
+await room.SimulateScenarioAsync(Proto.SimulateScenarioKind.SimulateFullReconnect);
+
+// Resume: only the signaling connection is re-established and the publications are kept.
+await room.SimulateScenarioAsync(Proto.SimulateScenarioKind.SimulateSignalReconnect);
+```
+
+See `Proto.SimulateScenarioKind` for the other variants (server-initiated leave, node failure, migration...).
 
 # Example apps
 

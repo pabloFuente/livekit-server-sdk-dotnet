@@ -83,6 +83,10 @@ namespace LiveKit.Rtc
             new Dictionary<string, ByteStreamReader>();
         private readonly StreamHandlerRegistry _streamHandlers = new StreamHandlerRegistry();
 
+        // Remote data tracks by SID, delivered by DataTrackPublished. Protected by _lock.
+        private readonly Dictionary<string, RemoteDataTrack> _remoteDataTracks =
+            new Dictionary<string, RemoteDataTrack>();
+
         /// <summary>
         /// Room session ID (assigned by the server).
         /// </summary>
@@ -335,6 +339,55 @@ namespace LiveKit.Rtc
         /// Event raised when the access token is refreshed.
         /// </summary>
         public event EventHandler<string>? TokenRefreshed;
+
+        /// <summary>
+        /// Raised when the permissions of a participant (local or remote) change.
+        /// <see cref="Participant.Permissions"/> is already updated when the event fires.
+        /// </summary>
+        public event EventHandler<ParticipantPermissionsChangedEventArgs>? ParticipantPermissionsChanged;
+
+        /// <summary>
+        /// Raised when a remote participant becomes active and is ready to receive data messages.
+        /// </summary>
+        public event EventHandler<RemoteParticipant>? ParticipantActive;
+
+        /// <summary>
+        /// Raised when the SDK re-published a local track during a full reconnect. The publication
+        /// object is updated in place with the new server-assigned SIDs; the previous SID is passed
+        /// so state keyed by it can be reconciled.
+        /// </summary>
+        public event EventHandler<LocalTrackRepublishedEventArgs>? LocalTrackRepublished;
+
+        /// <summary>
+        /// Raised when a remote participant publishes a data track. Subscribe to it with
+        /// <see cref="RemoteDataTrack.Subscribe"/>.
+        /// </summary>
+        public event EventHandler<RemoteDataTrack>? DataTrackPublished;
+
+        /// <summary>
+        /// Raised when a remote data track is unpublished.
+        /// </summary>
+        public event EventHandler<DataTrackUnpublishedEventArgs>? DataTrackUnpublished;
+
+        /// <summary>
+        /// Raised after <see cref="LocalParticipant.SetDataChannelBufferedAmountLowThreshold"/>
+        /// changed the threshold of a data channel.
+        /// </summary>
+        public event EventHandler<DataChannelBufferedAmountLowThresholdChangedEventArgs>? DataChannelBufferedAmountLowThresholdChanged;
+
+        /// <summary>
+        /// Data tracks currently published by remote participants, by SID.
+        /// </summary>
+        public IReadOnlyDictionary<string, RemoteDataTrack> RemoteDataTracks
+        {
+            get
+            {
+                lock (_lock)
+                {
+                    return new Dictionary<string, RemoteDataTrack>(_remoteDataTracks);
+                }
+            }
+        }
 
         #endregion
 
@@ -701,6 +754,58 @@ namespace LiveKit.Rtc
         }
 
         /// <summary>
+        /// Forces a reconnection scenario, for tests. With
+        /// <see cref="Proto.SimulateScenarioKind.SimulateFullReconnect"/> the SDK rebuilds its session
+        /// and republishes the local tracks: <see cref="Reconnecting"/> fires, then one
+        /// <see cref="LocalTrackRepublished"/> per published track, then <see cref="Reconnected"/>.
+        /// With <see cref="Proto.SimulateScenarioKind.SimulateSignalReconnect"/> only the signaling
+        /// connection is re-established (a resume) and the publications are kept. See
+        /// <see cref="Proto.SimulateScenarioKind"/> for the other variants. The returned task completes
+        /// once the SDK has started the scenario, not when the reconnection has finished: observe that
+        /// through the room events.
+        /// </summary>
+        /// <param name="scenario">The scenario to simulate.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <exception cref="InvalidOperationException">Thrown when not connected to a room.</exception>
+        /// <exception cref="RoomException">Thrown when the SDK reports that the scenario failed.</exception>
+        public async Task SimulateScenarioAsync(
+            Proto.SimulateScenarioKind scenario,
+            CancellationToken cancellationToken = default
+        )
+        {
+            if (!IsConnected || _roomHandle == null)
+                throw new InvalidOperationException("Not connected to a room");
+
+            var response = FfiClient.Instance.SendRequest(
+                new FfiRequest
+                {
+                    SimulateScenario = new SimulateScenarioRequest
+                    {
+                        RoomHandle = _roomHandle.HandleId,
+                        Scenario = scenario,
+                    },
+                }
+            );
+
+            if (response.SimulateScenario == null)
+                throw new InvalidOperationException("Invalid simulate scenario response");
+
+            var asyncId = response.SimulateScenario.AsyncId;
+
+            var callbackEvent = await FfiClient.Instance.WaitForEventAsync(
+                e =>
+                    e.MessageCase == FfiEvent.MessageOneofCase.SimulateScenario
+                    && e.SimulateScenario?.AsyncId == asyncId,
+                TimeSpan.FromSeconds(30),
+                cancellationToken
+            );
+
+            var callback = callbackEvent.SimulateScenario!;
+            if (callback.HasError && !string.IsNullOrEmpty(callback.Error))
+                throw new RoomException($"Simulate scenario failed: {callback.Error}");
+        }
+
+        /// <summary>
         /// Gets RTC statistics for the current session.
         /// </summary>
         /// <returns>RTC statistics containing publisher and subscriber stats.</returns>
@@ -978,6 +1083,34 @@ namespace LiveKit.Rtc
                     {
                         HandleStreamTrailer(roomEvent.StreamTrailerReceived.Trailer);
                     }
+                    break;
+
+                case RoomEvent.MessageOneofCase.ParticipantPermissionChanged:
+                    HandleParticipantPermissionChanged(roomEvent.ParticipantPermissionChanged);
+                    break;
+
+                case RoomEvent.MessageOneofCase.ParticipantActive:
+                    HandleParticipantActive(roomEvent.ParticipantActive);
+                    break;
+
+                case RoomEvent.MessageOneofCase.ParticipantsUpdated:
+                    HandleParticipantsUpdated(roomEvent.ParticipantsUpdated);
+                    break;
+
+                case RoomEvent.MessageOneofCase.LocalTrackRepublished:
+                    HandleLocalTrackRepublished(roomEvent.LocalTrackRepublished);
+                    break;
+
+                case RoomEvent.MessageOneofCase.DataTrackPublished:
+                    HandleDataTrackPublished(roomEvent.DataTrackPublished);
+                    break;
+
+                case RoomEvent.MessageOneofCase.DataTrackUnpublished:
+                    HandleDataTrackUnpublished(roomEvent.DataTrackUnpublished);
+                    break;
+
+                case RoomEvent.MessageOneofCase.DataChannelLowThresholdChanged:
+                    HandleDataChannelLowThresholdChanged(roomEvent.DataChannelLowThresholdChanged);
                     break;
 
                 case RoomEvent.MessageOneofCase.Disconnected:
@@ -1741,6 +1874,155 @@ namespace LiveKit.Rtc
             }
         }
 
+        private void HandleParticipantPermissionChanged(Proto.ParticipantPermissionChanged evt)
+        {
+            if (string.IsNullOrEmpty(evt?.ParticipantIdentity))
+                return;
+
+            var participant = GetParticipantByIdentity(evt.ParticipantIdentity);
+            if (participant == null)
+                return;
+
+            var permissions = evt.Permission;
+            participant._info.Permission = permissions;
+            DispatchEvent(() =>
+                ParticipantPermissionsChanged?.Invoke(
+                    this,
+                    new ParticipantPermissionsChangedEventArgs(participant, permissions)
+                )
+            );
+        }
+
+        private void HandleParticipantActive(Proto.ParticipantActive evt)
+        {
+            if (string.IsNullOrEmpty(evt?.ParticipantIdentity))
+                return;
+
+            RemoteParticipant? participant;
+            lock (_lock)
+            {
+                if (!_remoteParticipants.TryGetValue(evt.ParticipantIdentity, out participant))
+                    return;
+            }
+
+            participant._info.State = Proto.ParticipantState.Active;
+            DispatchEvent(() => ParticipantActive?.Invoke(this, participant));
+        }
+
+        private void HandleParticipantsUpdated(Proto.ParticipantsUpdated evt)
+        {
+            if (evt == null)
+                return;
+
+            // Bulk refresh of participant infos; no public event, like the Node and Python SDKs
+            foreach (var info in evt.Participants)
+            {
+                if (info == null)
+                    continue;
+                GetParticipantByIdentity(info.Identity)?.UpdateInfo(info);
+            }
+        }
+
+        private void HandleLocalTrackRepublished(Proto.LocalTrackRepublished evt)
+        {
+            if (
+                LocalParticipant == null
+                || string.IsNullOrEmpty(evt?.PreviousSid)
+                || evt.Info == null
+            )
+                return;
+
+            DispatchEvent(async () =>
+            {
+                var localParticipant = LocalParticipant;
+                if (localParticipant == null)
+                    return;
+
+                // Protected by Room.FfiEventLock, like the unpublish bookkeeping.
+                LocalTrackPublication? publication;
+                await _ffiEventLock.WaitAsync();
+                try
+                {
+                    publication = localParticipant.RepublishTrackPublication(
+                        evt.PreviousSid,
+                        evt.Info
+                    );
+                }
+                finally
+                {
+                    _ffiEventLock.Release();
+                }
+
+                if (publication == null)
+                {
+                    Console.Error.WriteLine(
+                        $"[WARN] RoomEvent.LocalTrackRepublished: previous publication not found: {evt.PreviousSid}"
+                    );
+                    return;
+                }
+
+                LocalTrackRepublished?.Invoke(
+                    this,
+                    new LocalTrackRepublishedEventArgs(
+                        publication,
+                        evt.PreviousSid,
+                        localParticipant
+                    )
+                );
+            });
+        }
+
+        private void HandleDataTrackPublished(Proto.DataTrackPublished evt)
+        {
+            if (evt?.Track?.Handle == null || evt.Track.Info == null)
+                return;
+
+            var track = new RemoteDataTrack(evt.Track);
+            lock (_lock)
+            {
+                _remoteDataTracks[track.Info.Sid] = track;
+            }
+
+            DispatchEvent(() => DataTrackPublished?.Invoke(this, track));
+        }
+
+        private void HandleDataTrackUnpublished(Proto.DataTrackUnpublished evt)
+        {
+            if (string.IsNullOrEmpty(evt?.Sid))
+                return;
+
+            RemoteDataTrack? track;
+            lock (_lock)
+            {
+                _remoteDataTracks.Remove(evt.Sid, out track);
+            }
+
+            DispatchEvent(() =>
+                DataTrackUnpublished?.Invoke(
+                    this,
+                    new DataTrackUnpublishedEventArgs(evt.Sid, track)
+                )
+            );
+        }
+
+        private void HandleDataChannelLowThresholdChanged(
+            Proto.DataChannelBufferedAmountLowThresholdChanged evt
+        )
+        {
+            if (evt == null)
+                return;
+
+            DispatchEvent(() =>
+                DataChannelBufferedAmountLowThresholdChanged?.Invoke(
+                    this,
+                    new DataChannelBufferedAmountLowThresholdChangedEventArgs(
+                        evt.Kind,
+                        evt.Threshold
+                    )
+                )
+            );
+        }
+
         private void CleanupOnDisconnect()
         {
             ConnectionState = Proto.ConnectionState.ConnDisconnected;
@@ -1752,6 +2034,7 @@ namespace LiveKit.Rtc
                 _remoteParticipants.Clear();
                 _textStreamReaders.Clear();
                 _byteStreamReaders.Clear();
+                _remoteDataTracks.Clear();
             }
 
             _roomHandle?.Dispose();

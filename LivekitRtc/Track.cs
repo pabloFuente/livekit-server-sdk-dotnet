@@ -18,6 +18,11 @@ namespace LiveKit.Rtc
         /// </summary>
         public string Sid { get; protected set; } = string.Empty;
 
+        internal void UpdateSid(string sid)
+        {
+            Sid = sid;
+        }
+
         /// <summary>
         /// Track name.
         /// </summary>
@@ -196,12 +201,30 @@ namespace LiveKit.Rtc
         /// <returns>A new local video track.</returns>
         public static LocalVideoTrack Create(string name, VideoSource source)
         {
+            return Create(name, source.Handle);
+        }
+
+        /// <summary>
+        /// Creates a new local video track from a source of pre-encoded frames. Publish it with
+        /// the codec of the frames, <c>VideoEncoder = EncoderBackendPreEncoded</c> and
+        /// <c>Simulcast = false</c> in <see cref="TrackPublishOptions"/>.
+        /// </summary>
+        /// <param name="name">The track name.</param>
+        /// <param name="source">The encoded video source to use.</param>
+        /// <returns>A new local video track.</returns>
+        public static LocalVideoTrack Create(string name, EncodedVideoSource source)
+        {
+            return Create(name, source.Handle);
+        }
+
+        private static LocalVideoTrack Create(string name, FfiHandle sourceHandle)
+        {
             var request = new FfiRequest
             {
                 CreateVideoTrack = new CreateVideoTrackRequest
                 {
                     Name = name,
-                    SourceHandle = source.Handle.HandleId,
+                    SourceHandle = sourceHandle.HandleId,
                 },
             };
 

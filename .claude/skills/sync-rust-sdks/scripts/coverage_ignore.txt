@@ -3,9 +3,10 @@
 # name that ffi_coverage.py prints. '*' is a wildcard. Always add a reason, so the next
 # /sync-rust-sdks run knows why.
 #
-# Candidates found on the first run (livekit-ffi/v0.13.3), grouped by the reason they would be
-# ignored for. All commented out: uncomment what the maintainer decides to skip; everything that
-# stays commented keeps showing up as "unused", i.e. as a parity gap still to be evaluated.
+# Candidates found on livekit-ffi/v0.13.3 (after the November 2026 parity work: data tracks,
+# encoded video, remote publication controls and the participant events are implemented), grouped
+# by the reason they would be ignored for. All commented out: uncomment what the maintainer decides
+# to skip; everything that stays commented keeps showing up as "unused".
 #
 # --- Desktop-client features (OS audio devices, screen/camera capture sources). Not a server-side
 # --- SDK concern.
@@ -69,8 +70,6 @@
 # --- Diagnostics / internals.
 # FfiRequest/Dispose                 # FfiClient calls livekit_ffi_dispose directly
 # FfiEvent/Dispose
-# FfiRequest/SimulateScenario        # test-only scenario injection
-# FfiEvent/SimulateScenario
 # FfiRequest/GetStats                # per-track stats; the SDK exposes GetSessionStats only
 # FfiEvent/GetStats
 # FfiEvent/TrackEvent                # empty message upstream
@@ -78,33 +77,9 @@
 # RoomEvent/ConnectionStateChanged   # the SDK raises its own ConnectionStateChanged from the
 #                                    # connect/disconnect/reconnect events
 #
-# --- Likely parity gaps rather than things to ignore. Evaluate against the Node/Python RTC SDKs
-# --- before deciding: data tracks, encoded video sources, remote track controls, new room events.
-# FfiRequest/PublishDataTrack
-# FfiRequest/LocalDataTrackTryPush
-# FfiRequest/LocalDataTrackUnpublish
-# FfiRequest/LocalDataTrackIsPublished
-# FfiRequest/SubscribeDataTrack
-# FfiRequest/RemoteDataTrackIsPublished
-# FfiRequest/DataTrackStreamRead
-# FfiRequest/RemoteDataTrackSetPipelineOptions
-# FfiRequest/DefineSchema
+# --- Not exposed by the reference SDKs (Python, Node) either. Revisit when they add it.
+# FfiRequest/DefineSchema            # data track schema definitions
 # FfiRequest/GetSchema
-# FfiEvent/PublishDataTrack
-# FfiEvent/DataTrackStreamEvent
 # FfiEvent/DefineSchema
 # FfiEvent/GetSchema
-# RoomEvent/DataTrackPublished
-# RoomEvent/DataTrackUnpublished
-# FfiRequest/CaptureEncodedVideoFrame
-# FfiRequest/TakeEncodedVideoSourceFeedback
-# FfiRequest/EnableRemoteTrack
-# FfiRequest/EnableRemoteTrackPublication
-# FfiRequest/UpdateRemoteTrackPublicationDimension
-# FfiRequest/SetRemoteTrackPublicationQuality
-# FfiRequest/SetDataChannelBufferedAmountLowThreshold
-# RoomEvent/DataChannelLowThresholdChanged
-# RoomEvent/ParticipantsUpdated
-# RoomEvent/ParticipantPermissionChanged
-# RoomEvent/ParticipantActive
-# RoomEvent/LocalTrackRepublished
+# FfiRequest/EnableRemoteTrack       # track-level enable; RemoteTrackPublication.SetEnabled covers it

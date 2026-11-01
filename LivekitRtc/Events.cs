@@ -397,4 +397,108 @@ namespace LiveKit.Rtc
             Segments = segments;
         }
     }
+
+    /// <summary>
+    /// Event arguments for participant permissions changed events.
+    /// </summary>
+    public class ParticipantPermissionsChangedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// The participant whose permissions changed (local or remote).
+        /// </summary>
+        public Participant Participant { get; }
+
+        /// <summary>
+        /// The new permissions, or null if the server cleared them.
+        /// </summary>
+        public Proto.ParticipantPermission? Permissions { get; }
+
+        internal ParticipantPermissionsChangedEventArgs(
+            Participant participant,
+            Proto.ParticipantPermission? permissions
+        )
+        {
+            Participant = participant;
+            Permissions = permissions;
+        }
+    }
+
+    /// <summary>
+    /// Event arguments for local track republished events.
+    /// </summary>
+    public class LocalTrackRepublishedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// The publication, already updated in place with the new server-assigned SIDs.
+        /// </summary>
+        public LocalTrackPublication Publication { get; }
+
+        /// <summary>
+        /// The SID the publication had before the reconnect, for reconciling state keyed by it.
+        /// </summary>
+        public string PreviousSid { get; }
+
+        /// <summary>
+        /// The local participant.
+        /// </summary>
+        public LocalParticipant Participant { get; }
+
+        internal LocalTrackRepublishedEventArgs(
+            LocalTrackPublication publication,
+            string previousSid,
+            LocalParticipant participant
+        )
+        {
+            Publication = publication;
+            PreviousSid = previousSid;
+            Participant = participant;
+        }
+    }
+
+    /// <summary>
+    /// Event arguments for data track unpublished events.
+    /// </summary>
+    public class DataTrackUnpublishedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// SID of the unpublished data track.
+        /// </summary>
+        public string Sid { get; }
+
+        /// <summary>
+        /// The remote data track, if it was delivered earlier by <see cref="Room.DataTrackPublished"/>.
+        /// </summary>
+        public RemoteDataTrack? Track { get; }
+
+        internal DataTrackUnpublishedEventArgs(string sid, RemoteDataTrack? track)
+        {
+            Sid = sid;
+            Track = track;
+        }
+    }
+
+    /// <summary>
+    /// Event arguments for data channel buffered-amount-low threshold changed events.
+    /// </summary>
+    public class DataChannelBufferedAmountLowThresholdChangedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// The data channel whose threshold changed.
+        /// </summary>
+        public Proto.DataPacketKind Kind { get; }
+
+        /// <summary>
+        /// The new threshold in bytes.
+        /// </summary>
+        public ulong Threshold { get; }
+
+        internal DataChannelBufferedAmountLowThresholdChangedEventArgs(
+            Proto.DataPacketKind kind,
+            ulong threshold
+        )
+        {
+            Kind = kind;
+            Threshold = threshold;
+        }
+    }
 }

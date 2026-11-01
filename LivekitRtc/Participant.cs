@@ -46,6 +46,12 @@ namespace LiveKit.Rtc
         public Proto.ParticipantKind Kind => _info.Kind;
 
         /// <summary>
+        /// The participant's permissions in the room, or null if the server has not sent them.
+        /// Updated before <see cref="Room.ParticipantPermissionsChanged"/> is raised.
+        /// </summary>
+        public Proto.ParticipantPermission? Permissions => _info.Permission;
+
+        /// <summary>
         /// Track publications by this participant.
         /// </summary>
         protected readonly Dictionary<string, TrackPublication> _trackPublications;
@@ -116,6 +122,32 @@ namespace LiveKit.Rtc
             return _publicationsPendingUnpublishedEvent.Remove(trackSid, out var pending)
                 ? pending
                 : null;
+        }
+
+        /// <summary>
+        /// Applies a LocalTrackRepublished room event: the SDK re-published the track during a full
+        /// reconnect and the server issued new SIDs. The existing publication object is updated in
+        /// place (so cached references stay valid) and re-keyed under its new SID. The caller must
+        /// hold Room.FfiEventLock.
+        /// </summary>
+        /// <param name="previousSid">The SID the publication had before the reconnect.</param>
+        /// <param name="info">The new publication info.</param>
+        /// <returns>The updated publication, or null if the previous SID is unknown.</returns>
+        internal LocalTrackPublication? RepublishTrackPublication(
+            string previousSid,
+            TrackPublicationInfo info
+        )
+        {
+            if (!_trackPublications.Remove(previousSid, out var existing))
+                return null;
+            if (!(existing is LocalTrackPublication publication))
+                return null;
+
+            publication.UpdateInfo(info);
+            _trackPublications[publication.Sid] = publication;
+            // Keep the local-track invariant (track.Sid == publication.Sid) across the republish
+            publication.Track?.UpdateSid(publication.Sid);
+            return publication;
         }
 
         /// <summary>
@@ -313,6 +345,88 @@ namespace LiveKit.Rtc
                     $"Failed to publish data: {publishEvent.PublishData.Error}"
                 );
             }
+        }
+
+        /// <summary>
+        /// Publishes a data track. Push frames on the returned track with
+        /// <see cref="LocalDataTrack.TryPush"/>; remote participants receive it through
+        /// <see cref="Room.DataTrackPublished"/>.
+        /// </summary>
+        /// <param name="name">
+        /// The track name, used by other participants to identify it. Must not be empty and must be
+        /// unique per publisher.
+        /// </param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>The published data track.</returns>
+        /// <exception cref="PublishDataTrackException">The track could not be published.</exception>
+        public async Task<LocalDataTrack> PublishDataTrackAsync(
+            string name,
+            CancellationToken cancellationToken = default
+        )
+        {
+            if (string.IsNullOrEmpty(name))
+                throw new ArgumentException("Data track name must not be empty", nameof(name));
+
+            var response = FfiClient.Instance.SendRequest(
+                new FfiRequest
+                {
+                    PublishDataTrack = new PublishDataTrackRequest
+                    {
+                        LocalParticipantHandle = Handle.HandleId,
+                        Options = new DataTrackOptions { Name = name },
+                    },
+                }
+            );
+
+            if (response.PublishDataTrack == null)
+                throw new InvalidOperationException("Invalid publish data track response");
+
+            var asyncId = response.PublishDataTrack.AsyncId;
+
+            var publishEvent = await FfiClient.Instance.WaitForEventAsync(
+                e =>
+                    e.MessageCase == FfiEvent.MessageOneofCase.PublishDataTrack
+                    && e.PublishDataTrack?.AsyncId == asyncId,
+                TimeSpan.FromSeconds(30),
+                cancellationToken
+            );
+
+            var callback = publishEvent.PublishDataTrack!;
+            if (callback.ResultCase == PublishDataTrackCallback.ResultOneofCase.Error)
+            {
+                throw new PublishDataTrackException(callback.Error.Code, callback.Error.Message);
+            }
+            if (callback.Track?.Handle == null || callback.Track.Info == null)
+            {
+                throw new RoomException("Publish data track callback has no track");
+            }
+
+            return new LocalDataTrack(callback.Track);
+        }
+
+        /// <summary>
+        /// Sets the buffered-amount-low threshold of the lossy or reliable data channel. The room
+        /// raises <see cref="Room.DataChannelBufferedAmountLowThresholdChanged"/> once applied.
+        /// </summary>
+        /// <param name="threshold">The new threshold in bytes.</param>
+        /// <param name="kind">The data channel to configure.</param>
+        public void SetDataChannelBufferedAmountLowThreshold(
+            ulong threshold,
+            Proto.DataPacketKind kind
+        )
+        {
+            FfiClient.Instance.SendRequest(
+                new FfiRequest
+                {
+                    SetDataChannelBufferedAmountLowThreshold =
+                        new SetDataChannelBufferedAmountLowThresholdRequest
+                        {
+                            LocalParticipantHandle = Handle.HandleId,
+                            Threshold = threshold,
+                            Kind = kind,
+                        },
+                }
+            );
         }
 
         /// <summary>

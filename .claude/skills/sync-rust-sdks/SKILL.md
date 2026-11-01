@@ -111,7 +111,7 @@ Match the Node (`livekit/node-sdks`, `packages/livekit-rtc`) and Python (`liveki
 ```bash
 # No Docker. These load the new native library through the FFI, so they also prove that the
 # binary for this host platform initialises and answers requests.
-dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~FfiClientTest|FullyQualifiedName~SdkVersionTests|FullyQualifiedName~AudioCaptureMinimalTest|FullyQualifiedName~PinningTests|FullyQualifiedName~VideoFramePlanesTests|FullyQualifiedName~MappingTests"
+dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~FfiClientTest|FullyQualifiedName~SdkVersionTests|FullyQualifiedName~AudioCaptureMinimalTest|FullyQualifiedName~PinningTests|FullyQualifiedName~VideoFramePlanesTests|FullyQualifiedName~MappingTests|FullyQualifiedName~EncodedVideoSourceTests|FullyQualifiedName~DataTrackFrameTests"
 
 # Docker (Testcontainers). RoomEventsTests connects two participants through the new binary and
 # protos end to end and is the minimum; add the classes for the areas the upstream diff touched
