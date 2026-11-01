@@ -130,7 +130,7 @@ dotnet test LivekitRtc.Tests/LivekitRtc.Tests.csproj
 
 ### Perform release
 
-Releases are automated through GitHub Actions thanks to the [publish workflow](.github/workflows/publish.yml). Both packages `Livekit.Server.Sdk.Dotnet` and `Livekit.Rtc.Dotnet` can be released independently. Checkout how to do so:
+Releases are automated through GitHub Actions thanks to the [publish workflow](.github/workflows/publish.yml). Both packages `Livekit.Server.Sdk.Dotnet` and `Livekit.Rtc.Dotnet` can be released independently. The workflow publishes with [NuGet Trusted Publishing](https://learn.microsoft.com/nuget/nuget-org/trusted-publishing): nuget.org keeps a policy for this repository and `publish.yml`, scoped to the two package IDs, and the `NUGET_USER` repository secret holds the nuget.org user name; no API key is stored. Checkout how to do so:
 
 - [Release Livekit.Server.Sdk.Dotnet](LivekitApi/README.md#perform-release)
 - [Release Livekit.Rtc.Dotnet](LivekitRtc/README.md#perform-release)

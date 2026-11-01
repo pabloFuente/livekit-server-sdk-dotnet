@@ -154,9 +154,11 @@ Both test projects are xUnit on `net8.0`. Integration tests start real services 
 - There are no Category traits. Classes that take `RtcTestFixture` need Docker; the rest
   (`AudioFramePinningTests`, `VideoFramePinningTests`, `VideoFramePlanesTests`,
   `TrackPublishOptionsMappingTests`, `E2EEOptionsMappingTests`, `SdkVersionTests`,
-  `DataTrackFrameTests`, `EncodedVideoSourceTests`, `FfiClientTest`, `AudioCaptureMinimalTest`) do
-  not. `FfiClientTest`, `AudioCaptureMinimalTest`, `EncodedVideoSourceTests` and the two
-  `VideoFrame*Tests` load the native library for the host RID; the others are pure managed code.
+  `DataTrackFrameTests`, `EncodedVideoSourceTests`, `RpcErrorTests`, `FfiClientTest`,
+  `AudioCaptureMinimalTest`, `AudioSourcePlayoutTests`, `AudioResamplerTests`) do not.
+  `FfiClientTest`, `AudioCaptureMinimalTest`, `AudioSourcePlayoutTests`, `AudioResamplerTests`,
+  `EncodedVideoSourceTests` and the two `VideoFrame*Tests` load the native library for the host
+  RID; the others are pure managed code.
 - `RtcTestFixture` starts, per fixture instance, a private network with redis,
   `livekit/livekit-server:latest`, nginx serving `LivekitRtc.Tests/web/*.html` and
   `selenium/standalone-chrome`. The HTML pages load `livekit-client` from unpkg, so the browser
@@ -171,8 +173,11 @@ Both test projects are xUnit on `net8.0`. Integration tests start real services 
   `Room.SimulateScenarioAsync(Proto.SimulateScenarioKind.SimulateFullReconnect)` forces a full
   reconnect (`Reconnecting`, one `LocalTrackRepublished` per local track, `Reconnected`) and
   `SimulateSignalReconnect` a resume. `RoomEventsTests` and `ParticipantEventsTests` use it.
-- A line like `[WARN] RoomEvent.<Name>: ... not found` in test output means the SDK dropped a room
-  event. Treat it as a bug signal, not noise.
+- A line like `[WARN] RoomEvent.<Name>: ... not found` on the SDK's stderr means the SDK dropped a
+  room event. Treat it as a bug signal, not noise. `dotnet test` does not show the test host's
+  stderr (neither the console nor the trx logger): set `LIVEKIT_TEST_STDERR_FILE=<path>` and the
+  test assembly tees stderr into that file (`LivekitRtc.Tests/SdkStderrCapture.cs`), then grep it
+  for `[WARN]` and `[ERROR]`.
 - Do not prove E2EE with time-domain audio correlation: Opus transcoding already breaks
   sample alignment, so such a test passes with plaintext media too. Assert something the FFI only
   does with encryption on (`Room.E2EEManager.GetFrameCryptors()`), or compare tone power in the
@@ -205,8 +210,8 @@ Both test projects are xUnit on `net8.0`. Integration tests start real services 
   must be wrapped so it gets dropped. Resource owners (`Room`, tracks, sources, streams, the
   resampler) implement `IDisposable`; `Participant` and `TrackPublication` rely on the
   `SafeHandle` finalizer.
-- Managed buffers whose pointer is handed to the FFI (`RetrievePtr`, frame capture, frame
-  conversion) must stay pinned until the request has actually been sent, not just while the pointer
+- Managed buffers whose pointer is handed to the FFI (frame capture, frame conversion,
+  resampling) must stay pinned until the request has actually been sent, not just while the pointer
   is computed. See `AudioSource.CaptureFrameAsync`, `VideoSource.CaptureFrame`, `VideoFrame` and
   the `*PinningTests`.
 - `VideoFrame` describes every planar format through one plane table (`GetPlaneInfosLocal`),
@@ -228,8 +233,13 @@ Both test projects are xUnit on `net8.0`. Integration tests start real services 
 ## Conventions in the API SDK
 
 - One `XServiceClient : BaseService` per Twirp service. Each method builds the minimal JWT grants
-  for that RPC with `AuthHeader(new VideoGrants { ... })` (plus `SIPGrants` for SIP), sets the
-  `Authorization` header, and calls the generated `Twirp.<Method>(httpClient, request)`. Which grant
+  for that RPC with `AuthHeader(new VideoGrants { ... })` (plus `SIPGrants` for SIP) and calls
+  `SendAsync("twirp/livekit.<Service>/<Method>", request, <Response>.Parser, token)` from
+  `BaseService`, which builds one `HttpRequestMessage` per call (host, bearer token, user agent)
+  and raises `TwirpException` on errors. The clients do not call the generated `Twirp` class; it
+  stays in the package for external callers. Routes are copied from `Twirp.cs`, and
+  `api_coverage.py` matches those literals. Never write the token to
+  `httpClient.DefaultRequestHeaders` (concurrent calls would swap tokens). Which grant
   each RPC needs is copied, never invented, from the reference SDKs (`livekit/node-sdks`
   `packages/livekit-server-sdk`, `livekit/python-sdks` `livekit-api`, `livekit/server-sdk-go`).
 - Request and response types are the generated protobuf messages; do not wrap them in custom DTOs.
@@ -239,9 +249,12 @@ Both test projects are xUnit on `net8.0`. Integration tests start real services 
   instead of failing and never catches a break. Never change or remove a public signature in
   hand-written code: add an overload instead. The only acceptable breaks are the ones forced by
   `livekit/protocol` (see the upgrade section).
-- Every client accepts an optional `HttpClient`; the SDK sets `BaseAddress` and the User-Agent on
-  it. Twirp routes are relative (`twirp/livekit.X/Y`) and `BaseService` appends the trailing `/`
-  to the host; together that is what makes base-URL subpaths (`https://host/livekit`) work.
+- Every client accepts an optional `HttpClient`, which the SDK never modifies (it may be shared or
+  already in use): the host, token and User-Agent go on each request. Twirp routes are relative
+  (`twirp/livekit.X/Y`) and `BaseService` appends the trailing `/` to the host before resolving
+  them; that is what makes base-URL subpaths (`https://host/livekit`) work. `apiKey`/`apiSecret`
+  fall back to `LIVEKIT_API_KEY`/`LIVEKIT_API_SECRET` when omitted, as do `AccessToken`,
+  `TokenVerifier` and `WebhookReceiver`.
 - A new client method needs: a unit test asserting route and grants, an integration test when the
   service runs locally, a section in `LivekitApi/README.md` (the changelog links to it), and a
   changelog entry.
@@ -301,7 +314,10 @@ Both test projects are xUnit on `net8.0`. Integration tests start real services 
   never hard-code a version string in code.
 - Publishing happens when the maintainer creates a GitHub release whose tag is `api-X.Y.Z` or
   `rtc-X.Y.Z` (the prefix selects the package). `publish.yml` packs, validates, tests, pushes to
-  NuGet, then commits `Post steps release <tag>` to `main`. Agents do not create tags or releases
+  NuGet, then commits `Post steps release <tag>` to `main`. The push uses NuGet Trusted
+  Publishing (`NuGet/login` exchanges the job's OIDC token for a short-lived key): nuget.org holds
+  a policy for this repository and workflow file scoped to the two package IDs, and the
+  `NUGET_USER` repository secret holds the nuget.org user name. There is no long-lived API key. Agents do not create tags or releases
   and never run `dotnet nuget push`; `.claude/settings.json` denies `gh release` and
   `dotnet nuget push` and asks before `git tag`.
 - Tags without a prefix (`1.0.2` ... `1.2.0`) are old API releases from before the RTC package existed.

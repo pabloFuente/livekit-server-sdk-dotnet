@@ -111,7 +111,7 @@ Match the Node (`livekit/node-sdks`, `packages/livekit-rtc`) and Python (`liveki
 ```bash
 # No Docker. These load the new native library through the FFI, so they also prove that the
 # binary for this host platform initialises and answers requests.
-dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~FfiClientTest|FullyQualifiedName~SdkVersionTests|FullyQualifiedName~AudioCaptureMinimalTest|FullyQualifiedName~PinningTests|FullyQualifiedName~VideoFramePlanesTests|FullyQualifiedName~MappingTests|FullyQualifiedName~EncodedVideoSourceTests|FullyQualifiedName~DataTrackFrameTests"
+dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~FfiClientTest|FullyQualifiedName~SdkVersionTests|FullyQualifiedName~AudioCaptureMinimalTest|FullyQualifiedName~PinningTests|FullyQualifiedName~VideoFramePlanesTests|FullyQualifiedName~MappingTests|FullyQualifiedName~EncodedVideoSourceTests|FullyQualifiedName~DataTrackFrameTests|FullyQualifiedName~AudioSourcePlayoutTests|FullyQualifiedName~AudioResamplerTests|FullyQualifiedName~RpcErrorTests"
 
 # Docker (Testcontainers). RoomEventsTests connects two participants through the new binary and
 # protos end to end and is the minimum; add the classes for the areas the upstream diff touched
@@ -122,7 +122,7 @@ dotnet csharpier check .
 ```
 
 - If Testcontainers cannot pull its `ryuk` image, set `TESTCONTAINERS_RYUK_DISABLED=true`.
-- Read the output, not just the pass count: an `FFI Panic:` line, or `[WARN] RoomEvent.<Name>: ... not found` lines, mean the binary and the SDK disagree. Report them with the evidence instead of editing tests to make them pass.
+- Read the SDK's stderr, not just the pass count: an `FFI Panic:` line, or `[WARN] RoomEvent.<Name>: ... not found` lines, mean the binary and the SDK disagree. `dotnet test` does not show the test host's stderr: run with `LIVEKIT_TEST_STDERR_FILE=/tmp/sdk-stderr.log` (the test assembly tees stderr there) and `grep -c '\[WARN\]\|\[ERROR\]\|FFI Panic' /tmp/sdk-stderr.log` afterwards. Report findings with the evidence instead of editing tests to make them pass.
 - If Docker is unavailable, say so explicitly in the final report; the no-Docker set is not sufficient proof for a native bump.
 
 ## Phase 9: CHANGELOG

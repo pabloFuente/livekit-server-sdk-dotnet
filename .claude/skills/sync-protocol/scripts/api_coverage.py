@@ -7,7 +7,8 @@ Three layers are compared:
   1. proto    - every `service` / `rpc` declared in protocol/protobufs/*.proto
   2. Twirp.cs - the generated stubs (LivekitApi/proto/Twirp.cs), keyed by their
                 "twirp/<package>.<Service>/<Method>" route
-  3. clients  - the hand-written LivekitApi/*ServiceClient.cs wrappers (calls to Twirp.X)
+  3. clients  - the hand-written LivekitApi/*ServiceClient.cs wrappers (the
+                "twirp/<package>.<Service>/<Method>" route each one passes to SendAsync)
 
 Usage (from the repo root):
   python3 .claude/skills/sync-protocol/scripts/api_coverage.py [--json]
@@ -31,7 +32,7 @@ RE_SERVICE = re.compile(r"^\s*service\s+(\w+)\s*\{", re.M)
 RE_RPC = re.compile(r"\brpc\s+(\w+)\s*\(\s*(stream\s+)?([\w.]+)\s*\)\s*returns\s*\(\s*(stream\s+)?([\w.]+)\s*\)")
 RE_TWIRP_METHOD = re.compile(r"public static async Task<[^>]+>\s+(\w+)\s*\(HttpClient")
 RE_TWIRP_ROUTE = re.compile(r'"twirp/([\w.]+)/(\w+)"')
-RE_CLIENT_CALL = re.compile(r"\bTwirp\.(\w+)\s*\(")
+RE_CLIENT_CALL = re.compile(r'"twirp/[\w.]+/(\w+)"')
 RE_DEPRECATED = re.compile(r"option\s*\(\s*deprecated\s*\)|deprecated\s*=\s*true")
 
 
