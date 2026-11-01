@@ -97,6 +97,7 @@ jobs:
   deploy:
     permissions:
       contents: write
+      id-token: write # NuGet Trusted Publishing
     # Publish only when creating a GitHub Release
     # https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository
     # You can update this logic if you want to manage releases differently
@@ -114,13 +115,20 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v4
 
+      # NuGet Trusted Publishing: exchange this workflow's OIDC token for a short-lived API key
+      - name: Log in to NuGet (Trusted Publishing)
+        id: nuget-login
+        uses: NuGet/login@v1
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
       # Publish all NuGet packages to NuGet.org
       # Use --skip-duplicate to prevent errors if a package with the same version already exists.
       # If you retry a failed workflow, already published packages will be skipped without error.
       - name: Publish NuGet package
         run: |
           for file in "${{ env.NuGetDirectory }}"/*.nupkg; do
-            dotnet nuget push "$file" --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+            dotnet nuget push "$file" --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
           done
 
       - uses: actions/checkout@v4
