@@ -1,0 +1,11 @@
+# RPCs that Livekit.Server.Sdk.Dotnet intentionally does NOT wrap.
+# One route per line: <package>.<Service>/<Method>, or <package>.<Service>/* for a whole service.
+# '*' is a wildcard. Always add a reason, so the next /sync-protocol run knows why.
+#
+# Candidates found on the first run (protocol 1.53.1). Uncomment the ones you decide to skip:
+#
+# livekit.Replay/*            # cloud_replay.proto, LiveKit Cloud internal
+# livekit.AgentSimulation/*   # livekit_agent_simulation.proto, agent evals tooling
+# livekit.CloudAgent/*        # livekit_cloud_agent.proto, managed by the lk CLI
+# livekit.PhoneNumberService/*  # livekit_phone_number.proto is compiled but not in the Twirp list; LiveKit Cloud only
+# livekit.RoomService/PerformRpc  # generated in Twirp.cs, wrapped by no *ServiceClient

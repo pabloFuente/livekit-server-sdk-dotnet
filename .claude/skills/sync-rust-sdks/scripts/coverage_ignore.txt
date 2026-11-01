@@ -1,0 +1,110 @@
+# FFI oneof cases that Livekit.Rtc.Dotnet intentionally does NOT use.
+# One key per line: FfiRequest/<Case>, FfiEvent/<Case> or RoomEvent/<Case>, using the C# case
+# name that ffi_coverage.py prints. '*' is a wildcard. Always add a reason, so the next
+# /sync-rust-sdks run knows why.
+#
+# Candidates found on the first run (livekit-ffi/v0.13.3), grouped by the reason they would be
+# ignored for. All commented out: uncomment what the maintainer decides to skip; everything that
+# stays commented keeps showing up as "unused", i.e. as a parity gap still to be evaluated.
+#
+# --- Desktop-client features (OS audio devices, screen/camera capture sources). Not a server-side
+# --- SDK concern.
+# FfiRequest/NewPlatformAudio
+# FfiRequest/GetAudioDevices
+# FfiRequest/SetRecordingDevice
+# FfiRequest/SetPlayoutDevice
+# FfiRequest/StartRecording
+# FfiRequest/StopRecording
+# FfiRequest/NewCaptureSource
+# FfiRequest/StartCapture
+# FfiRequest/StopCapture
+# FfiRequest/JoinCapture
+# FfiEvent/NewCaptureSource
+# FfiEvent/JoinCapture
+#
+# --- Rust-side data stream readers/writers. The SDK implements text/byte streams in C#
+# --- (DataStream.cs) on top of SendStreamHeader/Chunk/Trailer and the stream_*_received room
+# --- events, like the Node SDK does.
+# FfiRequest/ByteReadIncremental
+# FfiRequest/ByteReadAll
+# FfiRequest/ByteWriteToFile
+# FfiRequest/TextReadIncremental
+# FfiRequest/TextReadAll
+# FfiRequest/SendFile
+# FfiRequest/SendText
+# FfiRequest/SendBytes
+# FfiRequest/ByteStreamOpen
+# FfiRequest/ByteStreamWrite
+# FfiRequest/ByteStreamClose
+# FfiRequest/TextStreamOpen
+# FfiRequest/TextStreamWrite
+# FfiRequest/TextStreamClose
+# FfiEvent/ByteStreamReaderEvent
+# FfiEvent/ByteStreamReaderReadAll
+# FfiEvent/ByteStreamReaderWriteToFile
+# FfiEvent/ByteStreamOpen
+# FfiEvent/ByteStreamWriterWrite
+# FfiEvent/ByteStreamWriterClose
+# FfiEvent/SendFile
+# FfiEvent/TextStreamReaderEvent
+# FfiEvent/TextStreamReaderReadAll
+# FfiEvent/TextStreamOpen
+# FfiEvent/TextStreamWriterWrite
+# FfiEvent/TextStreamWriterClose
+# FfiEvent/SendText
+# FfiEvent/SendBytes
+# RoomEvent/ByteStreamOpened
+# RoomEvent/TextStreamOpened
+#
+# --- Audio processing the SDK does not expose: WebRTC APM, audio filter plugins (noise
+# --- cancellation plugins), and the legacy resampler (AudioResampler.cs uses the SoX one).
+# FfiRequest/LoadAudioFilterPlugin
+# FfiRequest/NewApm
+# FfiRequest/ApmProcessStream
+# FfiRequest/ApmProcessReverseStream
+# FfiRequest/ApmSetStreamDelay
+# FfiRequest/NewAudioResampler
+# FfiRequest/RemixAndResample
+#
+# --- Diagnostics / internals.
+# FfiRequest/Dispose                 # FfiClient calls livekit_ffi_dispose directly
+# FfiEvent/Dispose
+# FfiRequest/SimulateScenario        # test-only scenario injection
+# FfiEvent/SimulateScenario
+# FfiRequest/GetStats                # per-track stats; the SDK exposes GetSessionStats only
+# FfiEvent/GetStats
+# FfiEvent/TrackEvent                # empty message upstream
+# RoomEvent/Eos                      # end of the room event stream, nothing to surface
+# RoomEvent/ConnectionStateChanged   # the SDK raises its own ConnectionStateChanged from the
+#                                    # connect/disconnect/reconnect events
+#
+# --- Likely parity gaps rather than things to ignore. Evaluate against the Node/Python RTC SDKs
+# --- before deciding: data tracks, encoded video sources, remote track controls, new room events.
+# FfiRequest/PublishDataTrack
+# FfiRequest/LocalDataTrackTryPush
+# FfiRequest/LocalDataTrackUnpublish
+# FfiRequest/LocalDataTrackIsPublished
+# FfiRequest/SubscribeDataTrack
+# FfiRequest/RemoteDataTrackIsPublished
+# FfiRequest/DataTrackStreamRead
+# FfiRequest/RemoteDataTrackSetPipelineOptions
+# FfiRequest/DefineSchema
+# FfiRequest/GetSchema
+# FfiEvent/PublishDataTrack
+# FfiEvent/DataTrackStreamEvent
+# FfiEvent/DefineSchema
+# FfiEvent/GetSchema
+# RoomEvent/DataTrackPublished
+# RoomEvent/DataTrackUnpublished
+# FfiRequest/CaptureEncodedVideoFrame
+# FfiRequest/TakeEncodedVideoSourceFeedback
+# FfiRequest/EnableRemoteTrack
+# FfiRequest/EnableRemoteTrackPublication
+# FfiRequest/UpdateRemoteTrackPublicationDimension
+# FfiRequest/SetRemoteTrackPublicationQuality
+# FfiRequest/SetDataChannelBufferedAmountLowThreshold
+# RoomEvent/DataChannelLowThresholdChanged
+# RoomEvent/ParticipantsUpdated
+# RoomEvent/ParticipantPermissionChanged
+# RoomEvent/ParticipantActive
+# RoomEvent/LocalTrackRepublished

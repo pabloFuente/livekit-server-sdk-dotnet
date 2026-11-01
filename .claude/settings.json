@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(dotnet build:*)",
+      "Bash(dotnet restore:*)",
+      "Bash(dotnet test:*)",
+      "Bash(dotnet pack:*)",
+      "Bash(dotnet tool restore)",
+      "Bash(dotnet csharpier:*)",
+      "Bash(./generate_proto.sh)",
+      "Bash(python3 .claude/skills/sync-protocol/scripts/api_coverage.py:*)",
+      "Bash(python3 .claude/skills/sync-protocol/scripts/proto_inventory.py:*)",
+      "Bash(python3 .claude/skills/sync-rust-sdks/scripts/ffi_coverage.py:*)",
+      "Bash(git -C protocol fetch:*)",
+      "Bash(git -C protocol describe:*)",
+      "Bash(git -C protocol tag -l:*)",
+      "Bash(git -C protocol log:*)",
+      "Bash(git -C protocol diff:*)",
+      "Bash(git -C protocol rev-parse:*)",
+      "Bash(git -C LivekitRtc/rust-sdks fetch:*)",
+      "Bash(git -C LivekitRtc/rust-sdks describe:*)",
+      "Bash(git -C LivekitRtc/rust-sdks tag -l:*)",
+      "Bash(git -C LivekitRtc/rust-sdks log:*)",
+      "Bash(git -C LivekitRtc/rust-sdks diff:*)",
+      "Bash(git -C LivekitRtc/rust-sdks rev-parse:*)",
+      "Bash(git submodule update:*)"
+    ],
+    "ask": [
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git tag:*)",
+      "Bash(LivekitRtc/download_ffi.sh:*)",
+      "Bash(./LivekitRtc/download_ffi.sh:*)"
+    ],
+    "deny": [
+      "Bash(dotnet nuget push:*)",
+      "Bash(gh release:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/guard-generated.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/format-dotnet.sh",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}
