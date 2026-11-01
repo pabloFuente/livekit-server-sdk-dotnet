@@ -135,6 +135,8 @@ namespace LiveKit.Rtc.Internal
             CallingConvention = CallingConvention.Cdecl,
             EntryPoint = "livekit_copy_buffer"
         )]
+        // Not exported by livekit-ffi (only initialize, dispose, request and drop_handle are):
+        // FfiClient.CopyBuffer is implemented in managed code
         internal static extern unsafe void CopyBuffer(ulong ptr, UIntPtr len, byte* dst);
 
         /// <summary>

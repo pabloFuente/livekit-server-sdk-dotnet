@@ -568,7 +568,11 @@ namespace LiveKit.Rtc.Tests
             });
 
             Assert.Equal(RpcErrorCode.ApplicationError, (RpcErrorCode)exception.Code);
-            Assert.Contains("Application error", exception.Message);
+            // Only the built-in message crosses the wire: the handler's exception message and
+            // stack trace stay in the responder's process, like the Node and Python SDKs
+            Assert.Equal("Application error in method handler", exception.Message);
+            Assert.DoesNotContain("Something went wrong", exception.Message);
+            Assert.Null(exception.RpcData);
             Log($"Generic exception converted to ApplicationError: {exception.Message}");
         }
 

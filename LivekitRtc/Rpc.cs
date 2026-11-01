@@ -193,7 +193,9 @@ namespace LiveKit.Rtc
         /// <returns>A new RpcError instance.</returns>
         internal static RpcError FromProto(LiveKit.Proto.RpcError proto)
         {
-            return new RpcError((int)proto.Code, proto.Message, proto.Data);
+            // The FFI always sets the field, as "" when the remote sent no data
+            var data = proto.HasData && proto.Data.Length > 0 ? proto.Data : null;
+            return new RpcError((int)proto.Code, proto.Message, data);
         }
 
         /// <summary>

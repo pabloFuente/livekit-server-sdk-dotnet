@@ -88,8 +88,10 @@ namespace LiveKit.Rtc
     /// </summary>
     public class LocalTrackPublication : TrackPublication
     {
+        // RunContinuationsAsynchronously: ResolveFirstSubscription runs on the room's event chain,
+        // and the code awaiting WaitForSubscriptionAsync must not run inline there.
         private readonly TaskCompletionSource<bool> _firstSubscription =
-            new TaskCompletionSource<bool>();
+            new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
 
         /// <summary>
         /// The local participant that owns this publication.
@@ -130,7 +132,9 @@ namespace LiveKit.Rtc
             }
             else
             {
-                var tcs = new TaskCompletionSource<bool>();
+                var tcs = new TaskCompletionSource<bool>(
+                    TaskCreationOptions.RunContinuationsAsynchronously
+                );
                 using (cancellationToken.Register(() => tcs.TrySetCanceled()))
                 {
                     var completedTask = await Task.WhenAny(_firstSubscription.Task, tcs.Task);
@@ -145,6 +149,15 @@ namespace LiveKit.Rtc
         internal void ResolveFirstSubscription()
         {
             _firstSubscription.TrySetResult(true);
+        }
+
+        /// <summary>
+        /// Cancels a pending <see cref="WaitForSubscriptionAsync"/>: the room disconnected, so no
+        /// subscription can come anymore.
+        /// </summary>
+        internal void CancelFirstSubscription()
+        {
+            _firstSubscription.TrySetCanceled();
         }
     }
 

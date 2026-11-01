@@ -64,6 +64,14 @@ namespace LiveKit.Rtc
         /// Gets or sets the key ring size. Must be greater than zero.
         /// </summary>
         public int KeyRingSize { get; set; } = E2EEDefaults.KeyRingSize;
+
+        /// <summary>
+        /// Key derivation function used to derive the frame keys. Defaults to PBKDF2, the default
+        /// of every LiveKit SDK, so it only needs changing to interoperate with a client configured
+        /// otherwise.
+        /// </summary>
+        public Proto.KeyDerivationFunction KeyDerivationFunction { get; set; } =
+            Proto.KeyDerivationFunction.Pbkdf2;
     }
 
     /// <summary>
@@ -94,12 +102,12 @@ namespace LiveKit.Rtc
                     RatchetWindowSize = KeyProviderOptions.RatchetWindowSize,
                     FailureTolerance = KeyProviderOptions.FailureTolerance,
                     RatchetSalt = Google.Protobuf.ByteString.CopyFrom(
-                        KeyProviderOptions.RatchetSalt
+                        KeyProviderOptions.RatchetSalt ?? E2EEDefaults.RatchetSalt
                     ),
                     // A key ring size of 0 makes the FFI create an empty key ring, after which
                     // no frames are ever delivered, so it must always be sent as a positive value.
                     KeyRingSize = KeyProviderOptions.KeyRingSize,
-                    KeyDerivationFunction = LiveKit.Proto.KeyDerivationFunction.Pbkdf2,
+                    KeyDerivationFunction = KeyProviderOptions.KeyDerivationFunction,
                 },
             };
 
@@ -298,11 +306,14 @@ namespace LiveKit.Rtc
     {
         private readonly ulong _roomHandle;
         private readonly string _participantIdentity;
+        private readonly string _trackSid;
         private int _keyIndex;
         private bool _enabled;
 
         /// <summary>
-        /// Initializes a new frame cryptor.
+        /// Initializes a new frame cryptor without a track SID. <see cref="SetEnabled"/> and
+        /// <see cref="SetKeyIndex"/> need the track SID to address the cryptor in the FFI; use
+        /// the overload that takes it (<see cref="E2EEManager.GetFrameCryptors"/> does).
         /// </summary>
         /// <param name="roomHandle">The room handle.</param>
         /// <param name="participantIdentity">The participant identity.</param>
@@ -314,12 +325,35 @@ namespace LiveKit.Rtc
             int keyIndex,
             bool enabled
         )
+            : this(roomHandle, participantIdentity, string.Empty, keyIndex, enabled) { }
+
+        /// <summary>
+        /// Initializes a new frame cryptor.
+        /// </summary>
+        /// <param name="roomHandle">The room handle.</param>
+        /// <param name="participantIdentity">The participant identity.</param>
+        /// <param name="trackSid">The SID of the track the cryptor encrypts or decrypts.</param>
+        /// <param name="keyIndex">The key index.</param>
+        /// <param name="enabled">Whether encryption is enabled.</param>
+        public FrameCryptor(
+            ulong roomHandle,
+            string participantIdentity,
+            string trackSid,
+            int keyIndex,
+            bool enabled
+        )
         {
             _roomHandle = roomHandle;
             _participantIdentity = participantIdentity;
+            _trackSid = trackSid ?? string.Empty;
             _keyIndex = keyIndex;
             _enabled = enabled;
         }
+
+        /// <summary>
+        /// Gets the SID of the track this cryptor encrypts or decrypts.
+        /// </summary>
+        public string TrackSid => _trackSid;
 
         /// <summary>
         /// Gets the participant identity.
@@ -352,6 +386,7 @@ namespace LiveKit.Rtc
                     CryptorSetEnabled = new FrameCryptorSetEnabledRequest
                     {
                         ParticipantIdentity = _participantIdentity,
+                        TrackSid = _trackSid,
                         Enabled = enabled,
                     },
                 },
@@ -376,6 +411,7 @@ namespace LiveKit.Rtc
                     CryptorSetKeyIndex = new FrameCryptorSetKeyIndexRequest
                     {
                         ParticipantIdentity = _participantIdentity,
+                        TrackSid = _trackSid,
                         KeyIndex = keyIndex,
                     },
                 },
@@ -471,6 +507,7 @@ namespace LiveKit.Rtc
                     new FrameCryptor(
                         _roomHandle,
                         cryptor.ParticipantIdentity,
+                        cryptor.TrackSid,
                         cryptor.KeyIndex,
                         cryptor.Enabled
                     )

@@ -306,10 +306,22 @@ namespace LiveKit.Rtc
                     var streamsToRemove = new List<IAudioStreamSource>();
                     bool anyData = false;
 
+                    // Read every stream concurrently: N stalled streams must cost one timeout,
+                    // not N, or the output falls behind real time
+                    var contributionTasks =
+                        new List<
+                            Task<(short[] data, short[] buffer, bool hadData, bool exhausted)>
+                        >();
                     foreach (var stream in currentStreams)
                     {
-                        var (data, buffer, hadData, exhausted) = await GetContributionAsync(stream)
-                            .ConfigureAwait(false);
+                        contributionTasks.Add(GetContributionAsync(stream).AsTask());
+                    }
+                    var results = await Task.WhenAll(contributionTasks).ConfigureAwait(false);
+
+                    for (int i = 0; i < currentStreams.Count; i++)
+                    {
+                        var stream = currentStreams[i];
+                        var (data, buffer, hadData, exhausted) = results[i];
 
                         lock (_lock)
                         {
@@ -390,6 +402,10 @@ namespace LiveKit.Rtc
                     var frame = await stream.ReadAsync(linkedCts.Token).ConfigureAwait(false);
                     if (frame == null)
                     {
+                        // Sources that map cancellation to null (AudioStream.ReadAsync does) are
+                        // only stalled when our timeout fired, not finished: keep them in the mix
+                        if (timeoutCts.IsCancellationRequested || _cts.IsCancellationRequested)
+                            break;
                         exhausted = true;
                         break;
                     }

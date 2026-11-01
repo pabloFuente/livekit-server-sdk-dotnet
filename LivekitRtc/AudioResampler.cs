@@ -18,6 +18,10 @@ namespace LiveKit.Rtc
         private readonly uint _inputRate;
         private readonly uint _outputRate;
         private readonly uint _numChannels;
+
+        // The FFI returns a pointer into the resampler's own output buffer, which the next
+        // Push/Flush overwrites: the request and the copy must not interleave between threads.
+        private readonly object _lock = new object();
         private bool _disposed;
 
         /// <summary>
@@ -88,6 +92,16 @@ namespace LiveKit.Rtc
         {
             if (frame == null)
                 throw new ArgumentNullException(nameof(frame));
+            if (frame.NumChannels != _numChannels)
+                throw new ArgumentException(
+                    $"The resampler takes {_numChannels}-channel audio, the frame has {frame.NumChannels} channels",
+                    nameof(frame)
+                );
+            if (frame.SampleRate != _inputRate)
+                throw new ArgumentException(
+                    $"The resampler takes {_inputRate} Hz audio, the frame is {frame.SampleRate} Hz",
+                    nameof(frame)
+                );
             return Push(frame.DataBytes);
         }
 
@@ -104,50 +118,51 @@ namespace LiveKit.Rtc
             if (data == null || data.Length == 0)
                 return new List<AudioFrame>();
 
-            fixed (byte* dataPtr = data)
-            {
-                var request = new FfiRequest
+            lock (_lock)
+                fixed (byte* dataPtr = data)
                 {
-                    PushSoxResampler = new PushSoxResamplerRequest
+                    var request = new FfiRequest
                     {
-                        ResamplerHandle = _handle.HandleId,
-                        DataPtr = (ulong)dataPtr,
-                        Size = (uint)data.Length,
-                    },
-                };
+                        PushSoxResampler = new PushSoxResamplerRequest
+                        {
+                            ResamplerHandle = _handle.HandleId,
+                            DataPtr = (ulong)dataPtr,
+                            Size = (uint)data.Length,
+                        },
+                    };
 
-                var response = FfiClient.Instance.SendRequest(request);
+                    var response = FfiClient.Instance.SendRequest(request);
 
-                if (!string.IsNullOrEmpty(response.PushSoxResampler.Error))
-                {
-                    throw new InvalidOperationException(
-                        $"Resampling failed: {response.PushSoxResampler.Error}"
+                    if (!string.IsNullOrEmpty(response.PushSoxResampler.Error))
+                    {
+                        throw new InvalidOperationException(
+                            $"Resampling failed: {response.PushSoxResampler.Error}"
+                        );
+                    }
+
+                    if (response.PushSoxResampler.OutputPtr == 0)
+                    {
+                        return new List<AudioFrame>();
+                    }
+
+                    var outputData = new byte[response.PushSoxResampler.Size];
+                    Marshal.Copy(
+                        (IntPtr)response.PushSoxResampler.OutputPtr,
+                        outputData,
+                        0,
+                        (int)response.PushSoxResampler.Size
                     );
+
+                    var samplesPerChannel = outputData.Length / ((int)_numChannels * sizeof(short));
+                    var frame = new AudioFrame(
+                        outputData,
+                        (int)_outputRate,
+                        (int)_numChannels,
+                        samplesPerChannel
+                    );
+
+                    return new List<AudioFrame> { frame };
                 }
-
-                if (response.PushSoxResampler.OutputPtr == 0)
-                {
-                    return new List<AudioFrame>();
-                }
-
-                var outputData = new byte[response.PushSoxResampler.Size];
-                Marshal.Copy(
-                    (IntPtr)response.PushSoxResampler.OutputPtr,
-                    outputData,
-                    0,
-                    (int)response.PushSoxResampler.Size
-                );
-
-                var samplesPerChannel = outputData.Length / ((int)_numChannels * sizeof(short));
-                var frame = new AudioFrame(
-                    outputData,
-                    (int)_outputRate,
-                    (int)_numChannels,
-                    samplesPerChannel
-                );
-
-                return new List<AudioFrame> { frame };
-            }
         }
 
         /// <summary>
@@ -168,30 +183,44 @@ namespace LiveKit.Rtc
                 },
             };
 
-            var response = FfiClient.Instance.SendRequest(request);
-
-            if (response.FlushSoxResampler.OutputPtr == 0)
+            lock (_lock)
             {
-                return new List<AudioFrame>();
+                var response = FfiClient.Instance.SendRequest(request);
+
+                if (!string.IsNullOrEmpty(response.FlushSoxResampler.Error))
+                {
+                    throw new InvalidOperationException(
+                        $"Resampling failed: {response.FlushSoxResampler.Error}"
+                    );
+                }
+
+                // An empty flush returns a valid pointer with a size of 0: no frame to return
+                if (
+                    response.FlushSoxResampler.OutputPtr == 0
+                    || response.FlushSoxResampler.Size == 0
+                )
+                {
+                    return new List<AudioFrame>();
+                }
+
+                var outputData = new byte[response.FlushSoxResampler.Size];
+                Marshal.Copy(
+                    (IntPtr)response.FlushSoxResampler.OutputPtr,
+                    outputData,
+                    0,
+                    (int)response.FlushSoxResampler.Size
+                );
+
+                var samplesPerChannel = outputData.Length / ((int)_numChannels * sizeof(short));
+                var frame = new AudioFrame(
+                    outputData,
+                    (int)_outputRate,
+                    (int)_numChannels,
+                    samplesPerChannel
+                );
+
+                return new List<AudioFrame> { frame };
             }
-
-            var outputData = new byte[response.FlushSoxResampler.Size];
-            Marshal.Copy(
-                (IntPtr)response.FlushSoxResampler.OutputPtr,
-                outputData,
-                0,
-                (int)response.FlushSoxResampler.Size
-            );
-
-            var samplesPerChannel = outputData.Length / ((int)_numChannels * sizeof(short));
-            var frame = new AudioFrame(
-                outputData,
-                (int)_outputRate,
-                (int)_numChannels,
-                samplesPerChannel
-            );
-
-            return new List<AudioFrame> { frame };
         }
 
         /// <inheritdoc />

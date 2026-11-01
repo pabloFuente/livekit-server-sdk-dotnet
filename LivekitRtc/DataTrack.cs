@@ -449,9 +449,19 @@ namespace LiveKit.Rtc
 
                 while (true)
                 {
-                    var evt = await _events
-                        .Reader.ReadAsync(cancellationToken)
-                        .ConfigureAwait(false);
+                    DataTrackStreamEvent evt;
+                    try
+                    {
+                        evt = await _events
+                            .Reader.ReadAsync(cancellationToken)
+                            .ConfigureAwait(false);
+                    }
+                    catch (ChannelClosedException)
+                    {
+                        // Disposed from another thread while waiting: the stream is over
+                        _ended = true;
+                        return null;
+                    }
 
                     switch (evt.DetailCase)
                     {

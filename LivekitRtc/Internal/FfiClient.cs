@@ -224,23 +224,79 @@ namespace LiveKit.Rtc.Internal
                         }
                     }
 
-                    // If no one is waiting for this specifically, queue it
-                    if (toTrigger.Count == 0)
+                    // If no one is waiting for this specifically, queue it, unless it is a kind
+                    // that is only ever consumed through EventReceived (room, track and stream
+                    // fan-out events): those would fill the queue, evict pending callbacks and
+                    // make every wait scan a thousand stale frames.
+                    if (toTrigger.Count == 0 && IsClaimable(ffiEvent))
                     {
-                        _eventQueue.Add(ffiEvent);
-                        if (_eventQueue.Count > 1000)
-                            _eventQueue.RemoveAt(0); // Circular buffer: remove oldest
+                        Enqueue(ffiEvent);
                     }
                 }
 
                 // Trigger TaskCompletionSources and Events OUTSIDE the lock to prevent deadlocks
                 foreach (var tcs in toTrigger)
-                    tcs.TrySetResult(ffiEvent);
-                EventReceived?.Invoke(this, ffiEvent);
+                {
+                    // The waiter may have been cancelled or timed out meanwhile: keep the event
+                    // for a later wait on the same predicate instead of dropping it.
+                    if (!tcs.TrySetResult(ffiEvent))
+                    {
+                        lock (_lock)
+                        {
+                            Enqueue(ffiEvent);
+                        }
+                    }
+                }
+                RaiseEventReceived(ffiEvent);
             }
             catch (Exception ex)
             {
                 Console.Error.WriteLine($"Error in FFI Callback: {ex}");
+            }
+        }
+
+        // Caller holds _lock
+        private void Enqueue(FfiEvent ffiEvent)
+        {
+            _eventQueue.Add(ffiEvent);
+            if (_eventQueue.Count > 1000)
+                _eventQueue.RemoveAt(0); // Circular buffer: remove oldest
+        }
+
+        private static bool IsClaimable(FfiEvent ffiEvent)
+        {
+            switch (ffiEvent.MessageCase)
+            {
+                case FfiEvent.MessageOneofCase.RoomEvent:
+                case FfiEvent.MessageOneofCase.TrackEvent:
+                case FfiEvent.MessageOneofCase.AudioStreamEvent:
+                case FfiEvent.MessageOneofCase.VideoStreamEvent:
+                case FfiEvent.MessageOneofCase.DataTrackStreamEvent:
+                case FfiEvent.MessageOneofCase.RpcMethodInvocation:
+                    return false;
+                default:
+                    return true;
+            }
+        }
+
+        // One throwing subscriber must not hide the event from the others (a second Room, the
+        // audio and video streams...)
+        private void RaiseEventReceived(FfiEvent ffiEvent)
+        {
+            var handlers = EventReceived;
+            if (handlers == null)
+                return;
+
+            foreach (var handler in handlers.GetInvocationList())
+            {
+                try
+                {
+                    ((EventHandler<FfiEvent>)handler)(this, ffiEvent);
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine($"[ERROR] FFI event subscriber threw: {ex}");
+                }
             }
         }
 
@@ -256,14 +312,29 @@ namespace LiveKit.Rtc.Internal
             Console.WriteLine($"[{level}] {record.Target} - {record.Message}");
         }
 
-        public unsafe byte[] CopyBuffer(ulong ptr, int len)
+        /// <summary>
+        /// Copies <paramref name="len"/> bytes from native memory. Implemented in managed code:
+        /// the native library has no copy entry point (calling the old binding threw
+        /// <see cref="EntryPointNotFoundException"/>).
+        /// </summary>
+        public byte[] CopyBuffer(ulong ptr, int len)
         {
             byte[] buffer = new byte[len];
-            fixed (byte* dst = buffer)
-                NativeMethods.CopyBuffer(ptr, (UIntPtr)len, dst);
+            if (len > 0)
+            {
+                Marshal.Copy((IntPtr)ptr, buffer, 0, len);
+            }
             return buffer;
         }
 
+        /// <summary>
+        /// Never worked: the native library has no such entry point, and a pointer to a managed
+        /// array is only valid while the array is pinned. Pin the buffer around the request
+        /// instead (see <c>AudioFrame.WithPinnedBuffer</c>).
+        /// </summary>
+        [Obsolete(
+            "The native entry point does not exist and the returned pointer would not be pinned. Pin the buffer with 'fixed' around the FFI request instead."
+        )]
         public unsafe ulong RetrievePtr(byte[] data)
         {
             fixed (byte* ptr = data)

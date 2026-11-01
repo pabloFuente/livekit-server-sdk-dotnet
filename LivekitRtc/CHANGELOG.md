@@ -1,5 +1,98 @@
 # Changelog (Release Notes)
 
+## Unreleased
+
+- Fix the process terminating (`FFI Panic` followed by exit code 1) in two situations: calling
+  `LocalParticipant.UnpublishTrackAsync` with something that is not a track SID (a track name,
+  an empty string, a remote track's SID, which was always empty), which now throws
+  `ArgumentException`; and cancelling or timing out `Room.ConnectAsync` once the FFI had
+  connected, which left a handshake unanswered that the FFI waits 15 s for before panicking.
+  The SDK now completes that handshake and leaves the room in the background. In the same
+  spirit, a `PublishTrackAsync` cancelled after the track was published now unpublishes it
+  instead of leaving a track on the server the SDK does not know about, and an FFI callback
+  that races with a cancelled wait is kept for the reconciliation instead of being dropped.
+- Fix `Room.Disconnected` and `ConnectionStateChanged` (with `ConnDisconnected`) being raised
+  twice on every `DisconnectAsync` (once from the FFI's own disconnected event, once from the
+  method), always with `UnknownReason`. They are raised once, with the real reason
+  (`ClientInitiated`, `RoomDeleted`, `DuplicateIdentity`, `ParticipantRemoved`...), and
+  `Room.LocalParticipant` and `Room.RemoteParticipants` stay readable inside the `Disconnected`
+  handlers (they were cleared before the handlers ran). `ConnectAsync` no longer reports a
+  spurious `ConnDisconnected` first, and `ConnectionStateChanged` carries the state at the time
+  of the change: a slow handler used to make `ConnReconnecting` vanish from the sequence.
+- Fix `Room.TrackUnsubscribed`, `TrackMuted` and `TrackUnmuted` being dropped (logged as
+  `[WARN] RoomEvent.TrackUnsubscribed: Participant ... not found`) when the remote participant
+  leaves the room: the lookup ran on the event chain after `ParticipantDisconnected` had already
+  removed the participant. Remote track events are now resolved on arrival. `LocalTrackPublished`
+  and `LocalTrackSubscribed` no longer poll for the publication inside the event chain (up to
+  500 ms of stall per miss, and a dropped event under thread-pool starvation): they wait for
+  `PublishTrackAsync` to register it.
+- Fix `RemoteTrack.Sid`, `Name` and `IsMuted` never being set (the `TrackSubscribed` track
+  always reported an empty SID), and local tracks reporting `TR_unknown` after
+  `PublishTrackAsync` instead of their publication's SID.
+- Fix text data streams corrupting multi-byte characters (`€`, accented letters, CJK, emoji)
+  that fell on a chunk boundary: chunks were cut every 15000 bytes regardless of UTF-8
+  boundaries and decoded one by one, so a replacement character appeared at every boundary.
+  Chunks are now split on character boundaries, and the reader joins a character split by
+  another sender.
+- Fix `TextStreamReader` and `ByteStreamReader` reads (`ReadAllAsync`, `await foreach`) waiting
+  forever when the sender or the room disconnected before the stream was closed: they now throw
+  `StreamException` once the buffered chunks are consumed. Text and byte stream handlers run on
+  the thread pool instead of the FFI callback thread: a handler that blocked on `ReadAllAsync`
+  deadlocked, and stalled every FFI event of the process. `TextStreamWriter.Dispose()` and
+  `ByteStreamWriter.Dispose()` now send the trailer (`using var writer = ...` used to leave the
+  remote reader open forever; only `DisposeAsync` closed it); new
+  `CloseAsync(reason, attributes, CancellationToken)` overloads; `StreamInfo.Size` is reported
+  for an announced size of 0.
+- Fix `FrameCryptor.SetEnabled` and `SetKeyIndex` failing with
+  `InvalidOperationException: FFI request failed: invalid handle`: the requests did not carry
+  the track SID the FFI addresses the cryptor by. `FrameCryptor` now exposes `TrackSid` (set by
+  `E2EEManager.GetFrameCryptors`) and has a constructor overload taking it. New
+  `KeyProviderOptions.KeyDerivationFunction` (defaults to PBKDF2, as before); a null
+  `RatchetSalt` now falls back to the default salt instead of throwing.
+- Fix `AudioSource.CaptureFrameAsync` throwing `TimeoutException` for frames longer than about
+  10 s (a TTS clip, a file): the FFI only acknowledges a frame once it fits its queue, so the
+  wait is now proportional to the frame. Fix `WaitForPlayoutAsync` never completing when another
+  frame was captured meanwhile, and hanging after `Dispose`; cancelling one wait no longer
+  cancels the others.
+- Fix `AudioResampler.Flush()` returning a frame with zero samples before any audio was pushed,
+  and ignoring resampling errors. `Push(AudioFrame)` now rejects frames with another channel
+  count or sample rate (the output used to be garbage of half the duration), and push and flush
+  are safe to call from several threads.
+- Fix `DataTrackStream.ReadAsync` throwing `ChannelClosedException` when the stream is disposed
+  while a read is pending: it returns null, like at the end of the stream.
+- Fix RPC: `RpcError.RpcData` was `""` instead of null when the remote error carried no data;
+  the message and the full stack trace of an exception thrown by an RPC handler were sent to
+  the remote caller, now only the built-in `Application error in method handler` crosses the
+  wire and the exception is logged locally with `[ERROR]`, as the Node and Python SDKs do; and
+  `PerformRpcAsync` surfaces the FFI's `RpcError` with `ResponseTimeout` instead of a generic
+  `TimeoutException` when `responseTimeout` elapses.
+- Media delivery: `AudioStream` bounded buffers (`capacity > 0`) drop the oldest frame instead
+  of the newest when the consumer falls behind, like `VideoStream` and the Python SDK; a frame
+  processor that throws is logged with `[WARN]` (`Debug.WriteLine` was silent in Release
+  builds); audio and video frames and data packets are block-copied out of native memory (a
+  byte loop on the FFI callback thread delayed every other event, 3 MB per 1080p frame); the
+  frames the native side still emits right after a stream is disposed are released instead of
+  leaked; and `AudioMixer` reads its sources concurrently (N stalled sources cost one timeout,
+  not N) and keeps a source that stalls for one round instead of removing it for good.
+- Participants: new `Participant.Attributes` (kept current by `ParticipantAttributesChanged`,
+  which left it stale), `Participant.State` and `Participant.DisconnectReason` (set before
+  `ParticipantDisconnected` is raised). `Participant.TrackPublications` returns a snapshot:
+  enumerating it while a track event was handled could throw `Collection was modified`.
+  `LocalTrackPublication.WaitForSubscriptionAsync` continuations no longer run inline on the
+  room's event chain (delaying the following events), and the wait is cancelled when the room
+  disconnects instead of hanging forever.
+- Rooms and the FFI client: a connected `Room` that is never disposed no longer stays
+  referenced by the process-wide FFI client (it listens from `ConnectAsync` to the disconnect);
+  `Room.Dispose()` now delivers the teardown events like `DisconnectAsync` does; the FFI event
+  queue no longer fills up with media frames, which made every request wait scan a thousand
+  stale events and could evict a pending callback (spurious `TimeoutException` under media
+  load); one throwing event subscriber no longer hides the event from the other rooms and
+  streams; and handler exceptions are logged with their type and stack trace, not only the
+  message. `FfiClient.CopyBuffer` threw `EntryPointNotFoundException` (the native library has
+  no such export) and is now implemented in managed code; `FfiClient.RetrievePtr` has the same
+  problem and cannot be fixed (a pointer to a managed array is only valid while pinned), so it
+  is marked `[Obsolete]`.
+
 ## 0.1.5
 
 - Update rust-sdks to [livekit-ffi/v0.13.3](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.13.3) ([commit 1001476](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/10014763a5212503352f2a39477ae86acf8add87))

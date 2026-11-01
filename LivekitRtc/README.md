@@ -21,6 +21,7 @@
   - [Event Handling](#event-handling)
   - [End-to-End Encryption](#end-to-end-encryption)
   - [RPC Communication](#rpc-communication)
+  - [Text and Byte Streams](#text-and-byte-streams)
   - [Data Tracks](#data-tracks)
   - [Publishing Pre-encoded Video](#publishing-pre-encoded-video)
   - [Controlling Remote Tracks](#controlling-remote-tracks)
@@ -154,6 +155,16 @@ room.LocalTrackRepublished += (sender, e) => {
     // After a full reconnect the publication keeps its object but gets a new SID
     Console.WriteLine($"{e.PreviousSid} is now {e.Publication.Sid}");
 };
+
+room.ParticipantDisconnected += (sender, participant) => {
+    Console.WriteLine($"{participant.Identity} left: {participant.DisconnectReason}");
+};
+
+room.Disconnected += (sender, reason) => {
+    // ClientInitiated, RoomDeleted, DuplicateIdentity, ParticipantRemoved...
+    // LocalParticipant and RemoteParticipants are still readable here
+    Console.WriteLine($"Disconnected: {reason}");
+};
 ```
 
 ### End-to-End Encryption
@@ -185,6 +196,24 @@ var response = await room.LocalParticipant!.PerformRpcAsync(
     payload: "{}",
     responseTimeout: 5
 );
+```
+
+### Text and Byte Streams
+
+```csharp
+// Receiver: handlers run on the thread pool, so they may also read synchronously
+room.RegisterTextStreamHandler("chat", async (reader, senderIdentity) => {
+    try {
+        var text = await reader.ReadAllAsync();
+        Console.WriteLine($"{senderIdentity}: {text}");
+    } catch (StreamException) {
+        // The sender or the room disconnected before the stream was closed
+    }
+});
+
+// Sender: multi-byte characters are never split across chunks
+await using var writer = await room.LocalParticipant!.StreamTextAsync(topic: "chat");
+await writer.WriteAsync("Hello 🎉"); // closed (trailer sent) when disposed, or with CloseAsync()
 ```
 
 ### Data Tracks

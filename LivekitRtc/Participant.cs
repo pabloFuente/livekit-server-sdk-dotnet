@@ -1,7 +1,9 @@
 // author: https://github.com/pabloFuente
 
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -52,15 +54,48 @@ namespace LiveKit.Rtc
         public Proto.ParticipantPermission? Permissions => _info.Permission;
 
         /// <summary>
-        /// Track publications by this participant.
+        /// Participant attributes, as last reported by the server.
+        /// </summary>
+        public IReadOnlyDictionary<string, string> Attributes
+        {
+            get
+            {
+                var info = _info;
+                return new Dictionary<string, string>(info.Attributes);
+            }
+        }
+
+        /// <summary>
+        /// Connection state of the participant.
+        /// </summary>
+        public Proto.ParticipantState State => _info.State;
+
+        /// <summary>
+        /// Why the participant left, set before <see cref="Room.ParticipantDisconnected"/> is raised.
+        /// </summary>
+        public Proto.DisconnectReason DisconnectReason => _info.DisconnectReason;
+
+        /// <summary>
+        /// Track publications by this participant. The FFI callback thread mutates it, so every
+        /// access goes through <see cref="PublicationsLock"/>.
         /// </summary>
         protected readonly Dictionary<string, TrackPublication> _trackPublications;
 
+        internal readonly object PublicationsLock = new object();
+
         /// <summary>
-        /// Gets all track publications by this participant.
+        /// Gets all track publications by this participant (a snapshot).
         /// </summary>
-        public IReadOnlyDictionary<string, TrackPublication> TrackPublications =>
-            _trackPublications;
+        public IReadOnlyDictionary<string, TrackPublication> TrackPublications
+        {
+            get
+            {
+                lock (PublicationsLock)
+                {
+                    return new Dictionary<string, TrackPublication>(_trackPublications);
+                }
+            }
+        }
 
         internal Participant(FfiHandle handle, ParticipantInfo? info, Room room)
         {
@@ -82,7 +117,10 @@ namespace LiveKit.Rtc
         /// <returns>The track publication, or null if not found.</returns>
         public TrackPublication? GetTrackPublication(string sid)
         {
-            return _trackPublications.TryGetValue(sid, out var pub) ? pub : null;
+            lock (PublicationsLock)
+            {
+                return _trackPublications.TryGetValue(sid, out var pub) ? pub : null;
+            }
         }
     }
 
@@ -91,8 +129,19 @@ namespace LiveKit.Rtc
     /// </summary>
     public class LocalParticipant : Participant
     {
-        private readonly Dictionary<string, RpcMethodHandler> _rpcHandlers =
-            new Dictionary<string, RpcMethodHandler>();
+        // Registered on user threads, read from the Task.Run that serves each invocation
+        private readonly ConcurrentDictionary<string, RpcMethodHandler> _rpcHandlers =
+            new ConcurrentDictionary<string, RpcMethodHandler>();
+
+        // LocalTrackPublished/Subscribed room events can be processed before PublishTrackAsync
+        // has registered the publication (the FFI sends the callback first, but its continuation
+        // runs on the thread pool). The event handlers wait here instead of polling.
+        // Protected by Room.FfiEventLock.
+        private readonly Dictionary<
+            string,
+            TaskCompletionSource<LocalTrackPublication>
+        > _pendingPublicationWaiters =
+            new Dictionary<string, TaskCompletionSource<LocalTrackPublication>>();
 
         // Publications that UnpublishTrackAsync already removed, but whose
         // Room.LocalTrackUnpublished event has not arrived yet. The FFI may deliver the event after
@@ -116,12 +165,83 @@ namespace LiveKit.Rtc
         /// <returns>The publication, or null if the SID is unknown.</returns>
         internal LocalTrackPublication? TakeUnpublishedTrackPublication(string trackSid)
         {
-            if (_trackPublications.Remove(trackSid, out var publication))
-                return publication as LocalTrackPublication;
+            lock (PublicationsLock)
+            {
+                if (_trackPublications.Remove(trackSid, out var publication))
+                    return publication as LocalTrackPublication;
+            }
 
             return _publicationsPendingUnpublishedEvent.Remove(trackSid, out var pending)
                 ? pending
                 : null;
+        }
+
+        /// <summary>
+        /// Returns the local publication with the given SID, waiting for
+        /// <see cref="PublishTrackAsync"/> to register it if it has not yet. Null after the timeout.
+        /// </summary>
+        internal async Task<LocalTrackPublication?> WaitForPublicationAsync(
+            string trackSid,
+            TimeSpan timeout
+        )
+        {
+            TaskCompletionSource<LocalTrackPublication> waiter;
+            await Room.FfiEventLock.WaitAsync().ConfigureAwait(false);
+            try
+            {
+                lock (PublicationsLock)
+                {
+                    if (
+                        _trackPublications.TryGetValue(trackSid, out var existing)
+                        && existing is LocalTrackPublication found
+                    )
+                        return found;
+                }
+                if (!_pendingPublicationWaiters.TryGetValue(trackSid, out waiter))
+                {
+                    waiter = new TaskCompletionSource<LocalTrackPublication>(
+                        TaskCreationOptions.RunContinuationsAsynchronously
+                    );
+                    _pendingPublicationWaiters[trackSid] = waiter;
+                }
+            }
+            finally
+            {
+                Room.FfiEventLock.Release();
+            }
+
+            using var timeoutCts = new CancellationTokenSource(timeout);
+            using (timeoutCts.Token.Register(() => waiter.TrySetCanceled()))
+            {
+                try
+                {
+                    return await waiter.Task.ConfigureAwait(false);
+                }
+                catch (OperationCanceledException)
+                {
+                    await Room.FfiEventLock.WaitAsync().ConfigureAwait(false);
+                    try
+                    {
+                        _pendingPublicationWaiters.Remove(trackSid);
+                    }
+                    finally
+                    {
+                        Room.FfiEventLock.Release();
+                    }
+                    return null;
+                }
+            }
+        }
+
+        /// <summary>
+        /// The room disconnected: nobody will subscribe to the local tracks anymore.
+        /// </summary>
+        internal void CancelPendingSubscriptionWaits()
+        {
+            foreach (var publication in TrackPublications.Values.OfType<LocalTrackPublication>())
+            {
+                publication.CancelFirstSubscription();
+            }
         }
 
         /// <summary>
@@ -138,16 +258,19 @@ namespace LiveKit.Rtc
             TrackPublicationInfo info
         )
         {
-            if (!_trackPublications.Remove(previousSid, out var existing))
-                return null;
-            if (!(existing is LocalTrackPublication publication))
-                return null;
+            lock (PublicationsLock)
+            {
+                if (!_trackPublications.Remove(previousSid, out var existing))
+                    return null;
+                if (!(existing is LocalTrackPublication publication))
+                    return null;
 
-            publication.UpdateInfo(info);
-            _trackPublications[publication.Sid] = publication;
-            // Keep the local-track invariant (track.Sid == publication.Sid) across the republish
-            publication.Track?.UpdateSid(publication.Sid);
-            return publication;
+                publication.UpdateInfo(info);
+                _trackPublications[publication.Sid] = publication;
+                // Keep the local-track invariant (track.Sid == publication.Sid) across the republish
+                publication.Track?.UpdateSid(publication.Sid);
+                return publication;
+            }
         }
 
         /// <summary>
@@ -183,13 +306,24 @@ namespace LiveKit.Rtc
             var asyncId = response.PublishTrack.AsyncId;
 
             // Wait for publish callback (don't hold lock during wait)
-            var publishEvent = await FfiClient.Instance.WaitForEventAsync(
-                e =>
-                    e.MessageCase == FfiEvent.MessageOneofCase.PublishTrack
-                    && e.PublishTrack?.AsyncId == asyncId,
-                TimeSpan.FromSeconds(30),
-                cancellationToken
-            );
+            FfiEvent publishEvent;
+            try
+            {
+                publishEvent = await FfiClient.Instance.WaitForEventAsync(
+                    e =>
+                        e.MessageCase == FfiEvent.MessageOneofCase.PublishTrack
+                        && e.PublishTrack?.AsyncId == asyncId,
+                    TimeSpan.FromSeconds(30),
+                    cancellationToken
+                );
+            }
+            catch (Exception ex) when (ex is OperationCanceledException || ex is TimeoutException)
+            {
+                // The FFI may still publish the track; it would then be live on the server but
+                // unknown to this SDK. Undo it when its callback arrives.
+                _ = ReconcileAbandonedPublishAsync(asyncId);
+                throw;
+            }
 
             var callback = publishEvent.PublishTrack!;
 
@@ -211,18 +345,56 @@ namespace LiveKit.Rtc
             );
 
             localPublication.Track = track;
+            // A freshly created local track reports "TR_unknown" until it is published
+            track.UpdateSid(localPublication.Sid);
 
-            // Acquire lock only for modifying state (matches Node SDK pattern)
-            await Room.FfiEventLock.WaitAsync(cancellationToken);
+            // Acquire lock only for modifying state (matches Node SDK pattern). Not cancellable:
+            // the track is published, so it must be registered.
+            await Room.FfiEventLock.WaitAsync();
             try
             {
-                _trackPublications[localPublication.Sid] = localPublication;
+                lock (PublicationsLock)
+                {
+                    _trackPublications[localPublication.Sid] = localPublication;
+                }
+                if (_pendingPublicationWaiters.Remove(localPublication.Sid, out var waiter))
+                {
+                    waiter.TrySetResult(localPublication);
+                }
                 return localPublication;
             }
             finally
             {
                 // Release lock - now FFI events can be processed
                 Room.FfiEventLock.Release();
+            }
+        }
+
+        private async Task ReconcileAbandonedPublishAsync(ulong asyncId)
+        {
+            try
+            {
+                var publishEvent = await FfiClient.Instance.WaitForEventAsync(
+                    e =>
+                        e.MessageCase == FfiEvent.MessageOneofCase.PublishTrack
+                        && e.PublishTrack?.AsyncId == asyncId,
+                    TimeSpan.FromSeconds(60)
+                );
+                var publication = publishEvent.PublishTrack?.Publication;
+                if (publishEvent.PublishTrack?.HasError == true || publication?.Info == null)
+                    return;
+
+                using var handle = FfiHandle.FromId(publication.Handle.Id);
+                Console.Error.WriteLine(
+                    $"[WARN] PublishTrackAsync was cancelled after track {publication.Info.Sid} was published: unpublishing it"
+                );
+                await UnpublishTrackAsync(publication.Info.Sid);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(
+                    $"[WARN] Could not reconcile a cancelled PublishTrackAsync: {ex.Message}"
+                );
             }
         }
 
@@ -236,6 +408,17 @@ namespace LiveKit.Rtc
             CancellationToken cancellationToken = default
         )
         {
+            // The FFI unwraps the SID conversion: anything but a "TR_..." SID panics the native
+            // side, which terminates the process
+            if (
+                string.IsNullOrEmpty(trackSid)
+                || !trackSid.StartsWith("TR_", StringComparison.Ordinal)
+            )
+                throw new ArgumentException(
+                    $"'{trackSid}' is not a track SID (expected 'TR_...'), use publication.Sid",
+                    nameof(trackSid)
+                );
+
             var request = new FfiRequest
             {
                 UnpublishTrack = new UnpublishTrackRequest
@@ -277,10 +460,12 @@ namespace LiveKit.Rtc
                 // publication over to it instead of dropping it, so the event can still be raised
                 // with the publication after it leaves TrackPublications. If the room event was
                 // processed first, it has already removed the publication and there is nothing to do.
-                if (
-                    _trackPublications.Remove(trackSid, out var removed)
-                    && removed is LocalTrackPublication localPublication
-                )
+                TrackPublication? removed;
+                lock (PublicationsLock)
+                {
+                    _trackPublications.Remove(trackSid, out removed);
+                }
+                if (removed is LocalTrackPublication localPublication)
                 {
                     _publicationsPendingUnpublishedEvent[trackSid] = localPublication;
                 }
@@ -1052,11 +1237,13 @@ namespace LiveKit.Rtc
             var response = FfiClient.Instance.SendRequest(request);
             var asyncId = response.PerformRpc?.AsyncId ?? 0;
 
+            // The FFI reports its own ResponseTimeout error after responseTimeout (15 s by
+            // default); wait longer than that so callers get the RpcError, not a TimeoutException
             var callback = await FfiClient.Instance.WaitForEventAsync(
                 e =>
                     e.MessageCase == FfiEvent.MessageOneofCase.PerformRpc
                     && e.PerformRpc?.AsyncId == asyncId,
-                TimeSpan.FromSeconds(responseTimeout ?? 30)
+                TimeSpan.FromSeconds((responseTimeout ?? 15) + 15)
             );
 
             if (callback.PerformRpc?.Error != null)
@@ -1107,7 +1294,7 @@ namespace LiveKit.Rtc
             if (string.IsNullOrEmpty(method))
                 return;
 
-            _rpcHandlers.Remove(method);
+            _rpcHandlers.TryRemove(method, out _);
 
             var request = new FfiRequest
             {
@@ -1163,11 +1350,10 @@ namespace LiveKit.Rtc
                 }
                 catch (Exception ex)
                 {
-                    responseError = new RpcError(
-                        RpcErrorCode.ApplicationError,
-                        $"Application error: {ex.Message}",
-                        ex.StackTrace
-                    );
+                    // Like the Node and Python SDKs, the caller only learns that the handler
+                    // failed: the message and the stack trace stay in this process
+                    Console.Error.WriteLine($"[ERROR] RPC handler for '{method}' threw: {ex}");
+                    responseError = RpcError.BuiltIn(RpcErrorCode.ApplicationError);
                 }
             }
 
@@ -1255,12 +1441,18 @@ namespace LiveKit.Rtc
                 this
             );
 
-            _trackPublications[publication.Sid] = publication;
+            lock (PublicationsLock)
+            {
+                _trackPublications[publication.Sid] = publication;
+            }
         }
 
         internal void RemovePublication(string sid)
         {
-            _trackPublications.Remove(sid);
+            lock (PublicationsLock)
+            {
+                _trackPublications.Remove(sid);
+            }
         }
     }
 

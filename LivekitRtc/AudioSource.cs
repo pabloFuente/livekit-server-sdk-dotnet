@@ -21,6 +21,10 @@ namespace LiveKit.Rtc
         private readonly FfiHandle _handle;
         private readonly Stopwatch _stopwatch = new Stopwatch();
 
+        private readonly int _queueSizeMs;
+
+        // Playout bookkeeping, shared by CaptureFrameAsync, the drain timer and Dispose
+        private readonly object _playoutLock = new object();
         private double _lastCapture;
         private double _queueSize;
         private TaskCompletionSource<bool>? _playoutTcs;
@@ -37,6 +41,7 @@ namespace LiveKit.Rtc
         {
             _sampleRate = sampleRate;
             _numChannels = numChannels;
+            _queueSizeMs = queueSizeMs;
             _stopwatch.Start();
 
             var request = new FfiRequest
@@ -109,24 +114,28 @@ namespace LiveKit.Rtc
             if (frame.SamplesPerChannel == 0 || _disposed)
                 return;
 
-            double now = _stopwatch.Elapsed.TotalSeconds;
-            double elapsed = _lastCapture == 0.0 ? 0.0 : now - _lastCapture;
-            _queueSize += (double)frame.SamplesPerChannel / _sampleRate - elapsed;
-            _lastCapture = now;
+            var frameDuration = (double)frame.SamplesPerChannel / _sampleRate;
+            CancellationTokenSource playoutCts;
+            double drainDelaySeconds;
+            lock (_playoutLock)
+            {
+                double now = _stopwatch.Elapsed.TotalSeconds;
+                double elapsed = _lastCapture == 0.0 ? 0.0 : now - _lastCapture;
+                _queueSize += frameDuration - elapsed;
+                _lastCapture = now;
 
-            // Cancel any existing playout timer
-            _playoutCts?.Cancel();
+                // Restart the drain timer; anyone already waiting for the playout keeps waiting on
+                // the same task (a new one per capture would strand earlier waiters)
+                _playoutCts?.Cancel();
+                _playoutCts?.Dispose();
+                _playoutTcs ??= new TaskCompletionSource<bool>(
+                    TaskCreationOptions.RunContinuationsAsynchronously
+                );
+                playoutCts = _playoutCts = new CancellationTokenSource();
+                drainDelaySeconds = Math.Max(0.0, Math.Min(_queueSize, int.MaxValue / 1000.0 - 1));
+            }
 
-            // Set up new playout waiter
-            _playoutTcs = new TaskCompletionSource<bool>();
-            _playoutCts = new CancellationTokenSource();
-
-            // Schedule release after queue empties (clamp queueSize to valid int range)
-            double clampedQueueSize = Math.Max(
-                0.0,
-                Math.Min(_queueSize, int.MaxValue / 1000.0 - 1)
-            );
-            _ = Task.Delay(TimeSpan.FromSeconds(clampedQueueSize), _playoutCts.Token)
+            _ = Task.Delay(TimeSpan.FromSeconds(drainDelaySeconds), playoutCts.Token)
                 .ContinueWith(_ => ReleaseWaiter(), TaskContinuationOptions.OnlyOnRanToCompletion);
 
             // The FFI copies the samples before SendRequest returns. Keep them pinned
@@ -145,10 +154,16 @@ namespace LiveKit.Rtc
             );
             var asyncId = response.CaptureAudioFrame.AsyncId;
 
-            // Wait for the capture callback
+            // The callback only arrives once the whole frame has been accepted into the native
+            // queue, which for a long frame takes about its duration minus the queue size: wait
+            // for that plus a margin instead of a fixed 10 s (which rejected 15 s clips).
+            var timeout =
+                TimeSpan.FromSeconds(10)
+                + TimeSpan.FromSeconds(frameDuration)
+                + TimeSpan.FromMilliseconds(_queueSizeMs);
             var callbackEvent = await FfiClient.Instance.WaitForEventAsync(
                 e => e.CaptureAudioFrame?.AsyncId == asyncId,
-                TimeSpan.FromSeconds(10),
+                timeout,
                 cancellationToken
             );
 
@@ -174,23 +189,42 @@ namespace LiveKit.Rtc
         /// </summary>
         public async Task WaitForPlayoutAsync(CancellationToken cancellationToken = default)
         {
-            if (_playoutTcs == null)
+            Task playout;
+            lock (_playoutLock)
+            {
+                if (_playoutTcs == null)
+                    return;
+                playout = _playoutTcs.Task;
+            }
+
+            if (!cancellationToken.CanBeCanceled)
+            {
+                await playout.ConfigureAwait(false);
                 return;
+            }
 
-            using var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(
-                cancellationToken
+            // Cancel this wait only, not the shared playout task of the other waiters
+            var cancelled = new TaskCompletionSource<bool>(
+                TaskCreationOptions.RunContinuationsAsynchronously
             );
-            linkedCts.Token.Register(() => _playoutTcs?.TrySetCanceled());
-
-            await _playoutTcs.Task.ConfigureAwait(false);
+            using (cancellationToken.Register(() => cancelled.TrySetCanceled(cancellationToken)))
+            {
+                var completed = await Task.WhenAny(playout, cancelled.Task).ConfigureAwait(false);
+                await completed.ConfigureAwait(false);
+            }
         }
 
         private void ReleaseWaiter()
         {
-            _playoutTcs?.TrySetResult(true);
-            _lastCapture = 0.0;
-            _queueSize = 0.0;
-            _playoutTcs = null;
+            TaskCompletionSource<bool>? waiter;
+            lock (_playoutLock)
+            {
+                waiter = _playoutTcs;
+                _playoutTcs = null;
+                _lastCapture = 0.0;
+                _queueSize = 0.0;
+            }
+            waiter?.TrySetResult(true);
         }
 
         /// <summary>
@@ -222,8 +256,14 @@ namespace LiveKit.Rtc
                 return;
             _disposed = true;
 
-            _playoutCts?.Cancel();
-            _playoutCts?.Dispose();
+            // Nothing will play out anymore: do not leave WaitForPlayoutAsync callers hanging
+            lock (_playoutLock)
+            {
+                _playoutCts?.Cancel();
+                _playoutCts?.Dispose();
+                _playoutCts = null;
+            }
+            ReleaseWaiter();
             _handle.Dispose();
         }
     }

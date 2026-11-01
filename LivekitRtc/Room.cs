@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using LiveKit.Proto;
@@ -70,6 +71,10 @@ namespace LiveKit.Rtc
         private readonly object _lock = new object();
         private readonly SemaphoreSlim _ffiEventLock = new SemaphoreSlim(1, 1);
         private bool _disposed;
+
+        // CleanupOnDisconnect runs at most once per connection: DisconnectAsync and the FFI's
+        // Disconnected room event both reach it
+        private int _cleanedUp;
         private E2EEManager? _e2eeManager;
 
         // Serial Task Queue for event dispatching to ensure ordering and prevent deadlocks
@@ -448,9 +453,7 @@ namespace LiveKit.Rtc
                         }
                         catch (Exception ex)
                         {
-                            Console.Error.WriteLine(
-                                $"[ERROR] Room event handler exception: {ex.Message}"
-                            );
+                            Console.Error.WriteLine($"[ERROR] Room event handler exception: {ex}");
                         }
                     },
                     TaskScheduler.Default
@@ -474,7 +477,7 @@ namespace LiveKit.Rtc
                             catch (Exception ex)
                             {
                                 Console.Error.WriteLine(
-                                    $"[ERROR] Room event handler exception: {ex.Message}"
+                                    $"[ERROR] Room event handler exception: {ex}"
                                 );
                             }
                         },
@@ -484,105 +487,23 @@ namespace LiveKit.Rtc
             }
         }
 
-        private async Task<T?> RetryUntilFound<T>(
-            Func<T?> retrievalFunc,
-            int maxRetries = 20,
-            int delayMs = 25
-        )
-            where T : class
-        {
-            for (int i = 0; i < maxRetries; i++)
-            {
-                var result = retrievalFunc();
-                if (result != null)
-                    return result;
-
-                await Task.Delay(delayMs);
-            }
-
-            return null;
-        }
-
-        private async Task<LocalTrackPublication> RequireLocalTrackPublication(string trackSid)
-        {
-            if (LocalParticipant == null)
-                throw new InvalidOperationException("Local participant not available");
-
-            var publication = await RetryUntilFound(() =>
-            {
-                _ffiEventLock.Wait();
-                try
-                {
-                    return LocalParticipant.GetTrackPublication(trackSid) as LocalTrackPublication;
-                }
-                finally
-                {
-                    _ffiEventLock.Release();
-                }
-            });
-
-            if (publication == null)
-                throw new InvalidOperationException($"Publication {trackSid} not found");
-
-            return publication;
-        }
-
-        private async Task<(
-            RemoteParticipant participant,
-            RemoteTrackPublication publication
-        )> RequireRemoteTrackPublication(string participantIdentity, string trackSid)
-        {
-            RemoteParticipant? participant;
-            lock (_lock)
-            {
-                if (!_remoteParticipants.TryGetValue(participantIdentity, out participant))
-                    throw new InvalidOperationException(
-                        $"Participant {participantIdentity} not found"
-                    );
-            }
-
-            var publication = await RetryUntilFound(() =>
-                participant.GetTrackPublication(trackSid) as RemoteTrackPublication
-            );
-
-            if (publication == null)
-                throw new InvalidOperationException(
-                    $"Publication {trackSid} not found for participant {participantIdentity}"
-                );
-
-            return (participant, publication);
-        }
-
-        private async Task<(
-            Participant participant,
-            TrackPublication publication
-        )> RequireTrackPublication(string participantIdentity, string trackSid)
-        {
-            Participant? participant = GetParticipantByIdentity(participantIdentity);
-            if (participant == null)
-                throw new InvalidOperationException($"Participant {participantIdentity} not found");
-
-            var publication = await RetryUntilFound(() =>
-                participant.GetTrackPublication(trackSid)
-            );
-
-            if (publication == null)
-                throw new InvalidOperationException(
-                    $"Publication {trackSid} not found for participant {participantIdentity}"
-                );
-
-            return (participant, publication);
-        }
-
         /// <summary>
         /// Creates a new Room instance.
         /// </summary>
         public Room()
         {
             _remoteParticipants = new Dictionary<string, RemoteParticipant>();
+        }
 
-            // Subscribe to FFI events
-            FfiClient.Instance.EventReceived += OnFfiEvent;
+        // Reports a state once per change, with the value at the time of the change (the
+        // handler may run later, when the state has already moved on)
+        private void UpdateConnectionState(Proto.ConnectionState newState)
+        {
+            if (ConnectionState == newState)
+                return;
+            ConnectionState = newState;
+            var state = newState;
+            DispatchEvent(() => ConnectionStateChanged?.Invoke(this, state));
         }
 
         /// <summary>
@@ -608,10 +529,12 @@ namespace LiveKit.Rtc
 
             options ??= new RoomOptions();
 
-            // Proto only has 3 states: ConnDisconnected, ConnConnected, ConnReconnecting
-            // Application-level "connecting" is handled by being != ConnDisconnected
-            ConnectionState = Proto.ConnectionState.ConnDisconnected;
-            DispatchEvent(() => ConnectionStateChanged?.Invoke(this, ConnectionState));
+            // Listen to FFI events for the lifetime of this connection (CleanupOnDisconnect
+            // unsubscribes): a Room that is never disposed must not stay in the process-wide
+            // FfiClient forever
+            FfiClient.Instance.EventReceived -= OnFfiEvent;
+            FfiClient.Instance.EventReceived += OnFfiEvent;
+            Interlocked.Exchange(ref _cleanedUp, 0);
 
             // Send connect request
             var request = new FfiRequest
@@ -632,20 +555,33 @@ namespace LiveKit.Rtc
             var asyncId = response.Connect.AsyncId;
 
             // Wait for connect callback
-            var connectEvent = await FfiClient.Instance.WaitForEventAsync(
-                e =>
-                    e.MessageCase == FfiEvent.MessageOneofCase.Connect
-                    && e.Connect?.AsyncId == asyncId,
-                TimeSpan.FromSeconds(30),
-                cancellationToken
-            );
+            FfiEvent connectEvent;
+            try
+            {
+                connectEvent = await FfiClient.Instance.WaitForEventAsync(
+                    e =>
+                        e.MessageCase == FfiEvent.MessageOneofCase.Connect
+                        && e.Connect?.AsyncId == asyncId,
+                    TimeSpan.FromSeconds(30),
+                    cancellationToken
+                );
+            }
+            catch (Exception ex) when (ex is OperationCanceledException || ex is TimeoutException)
+            {
+                // The FFI may still complete the connection. It then waits for ReadyForRoomEvent
+                // and, if it never comes, panics, which terminates the process. Finish the
+                // handshake and leave the room in the background.
+                FfiClient.Instance.EventReceived -= OnFfiEvent;
+                _ = AbandonConnectAsync(asyncId);
+                throw;
+            }
 
             var callback = connectEvent.Connect!;
 
             if (!string.IsNullOrEmpty(callback.Error))
             {
-                ConnectionState = Proto.ConnectionState.ConnDisconnected;
-                DispatchEvent(() => ConnectionStateChanged?.Invoke(this, ConnectionState));
+                FfiClient.Instance.EventReceived -= OnFfiEvent;
+                UpdateConnectionState(Proto.ConnectionState.ConnDisconnected);
                 throw new RoomException($"Failed to connect: {callback.Error}");
             }
 
@@ -653,7 +589,16 @@ namespace LiveKit.Rtc
             var result = callback.Result;
             if (result == null)
             {
+                FfiClient.Instance.EventReceived -= OnFfiEvent;
                 throw new RoomException("Connect callback has no result");
+            }
+
+            if (_disposed)
+            {
+                // Disposed while connecting: nothing may keep the native room alive
+                FfiClient.Instance.EventReceived -= OnFfiEvent;
+                _ = ReleaseAbandonedConnectionAsync(result);
+                throw new ObjectDisposedException(nameof(Room));
             }
 
             // Store room handle and info
@@ -706,8 +651,7 @@ namespace LiveKit.Rtc
                 }
             }
 
-            ConnectionState = Proto.ConnectionState.ConnConnected;
-            DispatchEvent(() => ConnectionStateChanged?.Invoke(this, ConnectionState));
+            UpdateConnectionState(Proto.ConnectionState.ConnConnected);
 
             // Release the FFI room event gate after our listener and local state are ready.
             var readyRequest = new FfiRequest
@@ -722,6 +666,101 @@ namespace LiveKit.Rtc
             DispatchEvent(() => Connected?.Invoke(this, EventArgs.Empty));
         }
 
+        // A connect that the caller gave up on (cancellation, timeout) but that the FFI may still
+        // complete: wait for its callback, then release the room properly.
+        private async Task AbandonConnectAsync(ulong asyncId)
+        {
+            try
+            {
+                var connectEvent = await FfiClient.Instance.WaitForEventAsync(
+                    e =>
+                        e.MessageCase == FfiEvent.MessageOneofCase.Connect
+                        && e.Connect?.AsyncId == asyncId,
+                    TimeSpan.FromSeconds(60)
+                );
+                var result = connectEvent.Connect?.Result;
+                if (result != null && string.IsNullOrEmpty(connectEvent.Connect?.Error))
+                {
+                    await ReleaseAbandonedConnectionAsync(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(
+                    $"[WARN] Could not release an abandoned room connection: {ex.Message}"
+                );
+            }
+        }
+
+        private static async Task ReleaseAbandonedConnectionAsync(
+            ConnectCallback.Types.Result result
+        )
+        {
+            var handles = new List<ulong>();
+            if (result.Room?.Handle != null)
+                handles.Add(result.Room.Handle.Id);
+            if (result.LocalParticipant?.Handle != null)
+                handles.Add(result.LocalParticipant.Handle.Id);
+            foreach (var participant in result.Participants)
+            {
+                if (participant.Participant?.Handle != null)
+                    handles.Add(participant.Participant.Handle.Id);
+                foreach (var publication in participant.Publications)
+                {
+                    if (publication.Handle != null)
+                        handles.Add(publication.Handle.Id);
+                }
+            }
+
+            try
+            {
+                var roomHandleId = result.Room?.Handle?.Id ?? 0;
+                if (roomHandleId != 0)
+                {
+                    // The FFI forwards nothing (and panics after 15 s) until it gets this
+                    FfiClient.Instance.SendRequest(
+                        new FfiRequest
+                        {
+                            ReadyForRoomEvent = new ReadyForRoomEventRequest
+                            {
+                                RoomHandle = roomHandleId,
+                            },
+                        }
+                    );
+                    var response = FfiClient.Instance.SendRequest(
+                        new FfiRequest
+                        {
+                            Disconnect = new DisconnectRequest
+                            {
+                                RoomHandle = roomHandleId,
+                                Reason = Proto.DisconnectReason.ClientInitiated,
+                            },
+                        }
+                    );
+                    var asyncId = response.Disconnect?.AsyncId ?? 0;
+                    await FfiClient.Instance.WaitForEventAsync(
+                        e =>
+                            e.MessageCase == FfiEvent.MessageOneofCase.Disconnect
+                            && e.Disconnect?.AsyncId == asyncId,
+                        TimeSpan.FromSeconds(10)
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(
+                    $"[WARN] Could not release an abandoned room connection: {ex.Message}"
+                );
+            }
+            finally
+            {
+                foreach (var id in handles)
+                {
+                    FfiHandle.FromId(id).Dispose();
+                }
+            }
+        }
+
         /// <summary>
         /// Disconnects from the room.
         /// </summary>
@@ -732,7 +771,11 @@ namespace LiveKit.Rtc
 
             var request = new FfiRequest
             {
-                Disconnect = new DisconnectRequest { RoomHandle = _roomHandle.HandleId },
+                Disconnect = new DisconnectRequest
+                {
+                    RoomHandle = _roomHandle.HandleId,
+                    Reason = Proto.DisconnectReason.ClientInitiated,
+                },
             };
 
             var response = FfiClient.Instance.SendRequest(request);
@@ -742,15 +785,21 @@ namespace LiveKit.Rtc
 
             var asyncId = response.Disconnect.AsyncId;
 
-            // Wait for disconnect callback
-            await FfiClient.Instance.WaitForEventAsync(
-                e =>
-                    e.MessageCase == FfiEvent.MessageOneofCase.Disconnect
-                    && e.Disconnect?.AsyncId == asyncId,
-                TimeSpan.FromSeconds(10)
-            );
-
-            CleanupOnDisconnect();
+            try
+            {
+                // Wait for disconnect callback
+                await FfiClient.Instance.WaitForEventAsync(
+                    e =>
+                        e.MessageCase == FfiEvent.MessageOneofCase.Disconnect
+                        && e.Disconnect?.AsyncId == asyncId,
+                    TimeSpan.FromSeconds(10)
+                );
+            }
+            finally
+            {
+                // Even if the callback never came: the room must not stay "connected"
+                CleanupOnDisconnect(Proto.DisconnectReason.ClientInitiated);
+            }
         }
 
         /// <summary>
@@ -913,11 +962,12 @@ namespace LiveKit.Rtc
             else if (e.MessageCase == FfiEvent.MessageOneofCase.RpcMethodInvocation)
             {
                 var invocation = e.RpcMethodInvocation;
-                if (invocation == null || LocalParticipant == null)
+                var localParticipant = LocalParticipant; // cleared by CleanupOnDisconnect meanwhile
+                if (invocation == null || localParticipant == null)
                     return;
 
                 // Check if this event is for our local participant
-                if (invocation.LocalParticipantHandle != LocalParticipant.Handle.HandleId)
+                if (invocation.LocalParticipantHandle != localParticipant.Handle.HandleId)
                     return;
 
                 // Fire and forget immediately. Do NOT use DispatchEvent.
@@ -926,7 +976,7 @@ namespace LiveKit.Rtc
                 {
                     try
                     {
-                        await LocalParticipant.HandleRpcMethodInvocationAsync(
+                        await localParticipant.HandleRpcMethodInvocationAsync(
                             invocation.InvocationId,
                             invocation.Method,
                             invocation.RequestId,
@@ -938,7 +988,7 @@ namespace LiveKit.Rtc
                     catch (Exception ex)
                     {
                         // Log error but don't crash
-                        Console.Error.WriteLine($"Error handling RPC invocation: {ex.Message}");
+                        Console.Error.WriteLine($"[ERROR] Error handling RPC invocation: {ex}");
                     }
                 });
             }
@@ -1114,18 +1164,18 @@ namespace LiveKit.Rtc
                     break;
 
                 case RoomEvent.MessageOneofCase.Disconnected:
-                    CleanupOnDisconnect();
+                    CleanupOnDisconnect(
+                        roomEvent.Disconnected?.Reason ?? Proto.DisconnectReason.UnknownReason
+                    );
                     break;
 
                 case RoomEvent.MessageOneofCase.Reconnecting:
-                    ConnectionState = Proto.ConnectionState.ConnReconnecting;
-                    DispatchEvent(() => ConnectionStateChanged?.Invoke(this, ConnectionState));
+                    UpdateConnectionState(Proto.ConnectionState.ConnReconnecting);
                     DispatchEvent(() => Reconnecting?.Invoke(this, EventArgs.Empty));
                     break;
 
                 case RoomEvent.MessageOneofCase.Reconnected:
-                    ConnectionState = Proto.ConnectionState.ConnConnected;
-                    DispatchEvent(() => ConnectionStateChanged?.Invoke(this, ConnectionState));
+                    UpdateConnectionState(Proto.ConnectionState.ConnConnected);
                     DispatchEvent(() => Reconnected?.Invoke(this, EventArgs.Empty));
                     break;
             }
@@ -1156,13 +1206,41 @@ namespace LiveKit.Rtc
                 return;
 
             RemoteParticipant? participant;
+            var textReaders = new List<TextStreamReader>();
+            var byteReaders = new List<ByteStreamReader>();
             lock (_lock)
             {
                 if (!_remoteParticipants.TryGetValue(evt.ParticipantIdentity, out participant))
                     return;
 
                 _remoteParticipants.Remove(evt.ParticipantIdentity);
+
+                // Its data streams will never get their trailer
+                foreach (var reader in _textStreamReaders.Values)
+                {
+                    if (reader.SenderIdentity == evt.ParticipantIdentity)
+                        textReaders.Add(reader);
+                }
+                foreach (var reader in _byteStreamReaders.Values)
+                {
+                    if (reader.SenderIdentity == evt.ParticipantIdentity)
+                        byteReaders.Add(reader);
+                }
+                foreach (var reader in textReaders)
+                    _textStreamReaders.Remove(reader.Info.StreamId);
+                foreach (var reader in byteReaders)
+                    _byteStreamReaders.Remove(reader.Info.StreamId);
             }
+
+            participant._info.DisconnectReason = evt.DisconnectReason;
+
+            var error = new StreamException(
+                $"Participant {evt.ParticipantIdentity} disconnected before closing the stream"
+            );
+            foreach (var reader in textReaders)
+                reader.Fail(error);
+            foreach (var reader in byteReaders)
+                reader.Fail(error);
 
             DispatchEvent(() => ParticipantDisconnected?.Invoke(this, participant));
         }
@@ -1172,20 +1250,26 @@ namespace LiveKit.Rtc
             if (LocalParticipant == null || string.IsNullOrEmpty(evt?.TrackSid))
                 return;
 
+            var localParticipant = LocalParticipant;
             DispatchEvent(async () =>
             {
-                try
+                // PublishTrackAsync registers the publication from its own continuation; wait
+                // for it instead of polling
+                var publication = await localParticipant.WaitForPublicationAsync(
+                    evt.TrackSid,
+                    TimeSpan.FromSeconds(10)
+                );
+                if (publication == null)
                 {
-                    var publication = await RequireLocalTrackPublication(evt.TrackSid);
-                    LocalTrackPublished?.Invoke(
-                        this,
-                        new LocalTrackPublishedEventArgs(publication, LocalParticipant)
+                    Console.Error.WriteLine(
+                        $"[WARN] RoomEvent.LocalTrackPublished: Publication {evt.TrackSid} not found"
                     );
+                    return;
                 }
-                catch (Exception ex)
-                {
-                    Console.Error.WriteLine($"[WARN] RoomEvent.LocalTrackPublished: {ex.Message}");
-                }
+                LocalTrackPublished?.Invoke(
+                    this,
+                    new LocalTrackPublishedEventArgs(publication, localParticipant)
+                );
             });
         }
 
@@ -1241,21 +1325,22 @@ namespace LiveKit.Rtc
             if (LocalParticipant == null || string.IsNullOrEmpty(evt?.TrackSid))
                 return;
 
+            var localParticipant = LocalParticipant;
             DispatchEvent(async () =>
             {
-                try
+                var publication = await localParticipant.WaitForPublicationAsync(
+                    evt.TrackSid,
+                    TimeSpan.FromSeconds(10)
+                );
+                if (publication == null)
                 {
-                    var publication = await RequireLocalTrackPublication(evt.TrackSid);
-                    publication.ResolveFirstSubscription();
-                    LocalTrackSubscribed?.Invoke(
-                        this,
-                        new LocalTrackSubscribedEventArgs(publication)
+                    Console.Error.WriteLine(
+                        $"[WARN] RoomEvent.LocalTrackSubscribed: Publication {evt.TrackSid} not found"
                     );
+                    return;
                 }
-                catch (Exception ex)
-                {
-                    Console.Error.WriteLine($"[WARN] RoomEvent.LocalTrackSubscribed: {ex.Message}");
-                }
+                publication.ResolveFirstSubscription();
+                LocalTrackSubscribed?.Invoke(this, new LocalTrackSubscribedEventArgs(publication));
             });
         }
 
@@ -1271,35 +1356,22 @@ namespace LiveKit.Rtc
                     return;
             }
 
-            // Add publication to participant
+            // Add publication to participant (synchronously, so later events can rely on it)
             participant.AddPublication(evt.Publication);
-
-            DispatchEvent(async () =>
+            var publication =
+                participant.GetTrackPublication(evt.Publication.Info?.Sid ?? "")
+                as RemoteTrackPublication;
+            if (publication == null)
             {
-                try
-                {
-                    // Retry logic: The FFI event might arrive before AddPublication
-                    // has finished updating the internal dictionary.
-                    var publication = await RetryUntilFound(() =>
-                        participant.GetTrackPublication(evt.Publication.Info?.Sid ?? "")
-                        as RemoteTrackPublication
-                    );
+                Console.Error.WriteLine(
+                    $"[WARN] RoomEvent.TrackPublished: Publication {evt.Publication.Info?.Sid} not found after AddPublication"
+                );
+                return;
+            }
 
-                    if (publication == null)
-                        throw new InvalidOperationException(
-                            $"Publication {evt.Publication.Info?.Sid} not found after AddPublication"
-                        );
-
-                    TrackPublished?.Invoke(
-                        this,
-                        new TrackPublishedEventArgs(publication, participant)
-                    );
-                }
-                catch (Exception ex)
-                {
-                    Console.Error.WriteLine($"[WARN] RoomEvent.TrackPublished: {ex.Message}");
-                }
-            });
+            DispatchEvent(() =>
+                TrackPublished?.Invoke(this, new TrackPublishedEventArgs(publication, participant))
+            );
         }
 
         private void HandleTrackUnpublished(Proto.TrackUnpublished evt)
@@ -1343,46 +1415,46 @@ namespace LiveKit.Rtc
                     return;
             }
 
-            // Create the remote track
             var trackInfo = evt.Track.Info;
             if (trackInfo == null)
                 return;
 
+            // The participant and the publication are resolved here, on the callback thread:
+            // a ParticipantDisconnected that follows would remove them before the chain runs
+            var publication =
+                participant.GetTrackPublication(trackInfo.Sid ?? "") as RemoteTrackPublication;
+            if (publication == null)
+            {
+                Console.Error.WriteLine(
+                    $"[WARN] RoomEvent.TrackSubscribed: Publication {trackInfo.Sid} not found for participant {evt.ParticipantIdentity}"
+                );
+                FfiHandle.FromId(evt.Track.Handle?.Id ?? 0).Dispose();
+                return;
+            }
+
             var handle = FfiHandle.FromId(evt.Track.Handle?.Id ?? 0);
             RemoteTrack? track = null;
-
             if (trackInfo.Kind == Proto.TrackKind.KindAudio)
             {
-                track = new RemoteAudioTrack(handle);
+                track = new RemoteAudioTrack(handle, evt.Track);
             }
             else if (trackInfo.Kind == Proto.TrackKind.KindVideo)
             {
-                track = new RemoteVideoTrack(handle);
+                track = new RemoteVideoTrack(handle, evt.Track);
             }
-
-            if (track != null)
+            if (track == null)
             {
-                DispatchEvent(async () =>
-                {
-                    try
-                    {
-                        var (participant, publication) = await RequireRemoteTrackPublication(
-                            evt.ParticipantIdentity,
-                            trackInfo.Sid ?? ""
-                        );
-
-                        publication.Track = track;
-                        TrackSubscribed?.Invoke(
-                            this,
-                            new TrackSubscribedEventArgs(track, publication, participant)
-                        );
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.Error.WriteLine($"[WARN] RoomEvent.TrackSubscribed: {ex.Message}");
-                    }
-                });
+                handle.Dispose();
+                return;
             }
+
+            publication.Track = track;
+            DispatchEvent(() =>
+                TrackSubscribed?.Invoke(
+                    this,
+                    new TrackSubscribedEventArgs(track, publication, participant)
+                )
+            );
         }
 
         private void HandleTrackUnsubscribed(Proto.TrackUnsubscribed evt)
@@ -1392,100 +1464,95 @@ namespace LiveKit.Rtc
             )
                 return;
 
-            DispatchEvent(async () =>
+            RemoteParticipant? participant;
+            lock (_lock)
             {
-                try
+                if (!_remoteParticipants.TryGetValue(evt.ParticipantIdentity, out participant))
                 {
-                    var (participant, publication) = await RequireRemoteTrackPublication(
-                        evt.ParticipantIdentity,
-                        evt.TrackSid
+                    Console.Error.WriteLine(
+                        $"[WARN] RoomEvent.TrackUnsubscribed: Participant {evt.ParticipantIdentity} not found"
                     );
+                    return;
+                }
+            }
 
-                    if (publication.Track == null)
-                        throw new InvalidOperationException(
-                            $"Track {evt.TrackSid} already unsubscribed"
-                        );
+            var publication =
+                participant.GetTrackPublication(evt.TrackSid) as RemoteTrackPublication;
+            var track = publication?.Track;
+            if (publication == null || track == null)
+            {
+                Console.Error.WriteLine(
+                    $"[WARN] RoomEvent.TrackUnsubscribed: Track {evt.TrackSid} of participant {evt.ParticipantIdentity} is not subscribed"
+                );
+                return;
+            }
 
-                    var track = publication.Track;
-                    TrackUnsubscribed?.Invoke(
-                        this,
-                        new TrackSubscribedEventArgs(track, publication, participant)
-                    );
-                    publication.Track = null;
-                }
-                catch (InvalidOperationException ex)
-                {
-                    // Silently ignore "not found for participant" errors during cleanup/disconnect
-                    // The participant or publication may have already been removed
-                    if (!ex.Message.Contains("not found for participant"))
-                    {
-                        Console.Error.WriteLine(
-                            $"[WARN] RoomEvent.TrackUnsubscribed: {ex.Message}"
-                        );
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.Error.WriteLine($"[WARN] RoomEvent.TrackUnsubscribed: {ex.Message}");
-                }
-            });
+            publication.Track = null;
+            DispatchEvent(() =>
+                TrackUnsubscribed?.Invoke(
+                    this,
+                    new TrackSubscribedEventArgs(track, publication, participant)
+                )
+            );
         }
 
         private void HandleTrackMuted(Proto.TrackMuted evt)
         {
-            if (
-                string.IsNullOrEmpty(evt?.ParticipantIdentity) || string.IsNullOrEmpty(evt.TrackSid)
-            )
-                return;
-
-            DispatchEvent(async () =>
-            {
-                try
-                {
-                    var (participant, publication) = await RequireTrackPublication(
-                        evt.ParticipantIdentity,
-                        evt.TrackSid
-                    );
-
-                    var updatedInfo = publication.Info;
-                    updatedInfo.Muted = true;
-                    publication.UpdateInfo(updatedInfo);
-
-                    TrackMuted?.Invoke(this, new TrackMutedEventArgs(publication, participant));
-                }
-                catch (Exception ex)
-                {
-                    Console.Error.WriteLine($"[WARN] RoomEvent.TrackMuted: {ex.Message}");
-                }
-            });
+            HandleTrackMuteChanged(evt?.ParticipantIdentity, evt?.TrackSid, muted: true);
         }
 
         private void HandleTrackUnmuted(Proto.TrackUnmuted evt)
         {
-            if (
-                string.IsNullOrEmpty(evt?.ParticipantIdentity) || string.IsNullOrEmpty(evt.TrackSid)
-            )
+            HandleTrackMuteChanged(evt?.ParticipantIdentity, evt?.TrackSid, muted: false);
+        }
+
+        private void HandleTrackMuteChanged(
+            string? participantIdentity,
+            string? trackSid,
+            bool muted
+        )
+        {
+            var eventName = muted ? "TrackMuted" : "TrackUnmuted";
+            if (string.IsNullOrEmpty(participantIdentity) || string.IsNullOrEmpty(trackSid))
                 return;
+
+            var participant = GetParticipantByIdentity(participantIdentity);
+            if (participant == null)
+            {
+                Console.Error.WriteLine(
+                    $"[WARN] RoomEvent.{eventName}: Participant {participantIdentity} not found"
+                );
+                return;
+            }
 
             DispatchEvent(async () =>
             {
-                try
+                var publication = participant.GetTrackPublication(trackSid);
+                if (publication == null && participant is LocalParticipant localParticipant)
                 {
-                    var (participant, publication) = await RequireTrackPublication(
-                        evt.ParticipantIdentity,
-                        evt.TrackSid
+                    // PublishTrackAsync may not have registered the publication yet
+                    publication = await localParticipant.WaitForPublicationAsync(
+                        trackSid,
+                        TimeSpan.FromSeconds(10)
                     );
-
-                    var updatedInfo = publication.Info;
-                    updatedInfo.Muted = false;
-                    publication.UpdateInfo(updatedInfo);
-
-                    TrackUnmuted?.Invoke(this, new TrackMutedEventArgs(publication, participant));
                 }
-                catch (Exception ex)
+                if (publication == null)
                 {
-                    Console.Error.WriteLine($"[WARN] RoomEvent.TrackUnmuted: {ex.Message}");
+                    Console.Error.WriteLine(
+                        $"[WARN] RoomEvent.{eventName}: Publication {trackSid} not found for participant {participantIdentity}"
+                    );
+                    return;
                 }
+
+                var updatedInfo = publication.Info;
+                updatedInfo.Muted = muted;
+                publication.UpdateInfo(updatedInfo);
+
+                var args = new TrackMutedEventArgs(publication, participant);
+                if (muted)
+                    TrackMuted?.Invoke(this, args);
+                else
+                    TrackUnmuted?.Invoke(this, args);
             });
         }
 
@@ -1541,25 +1608,18 @@ namespace LiveKit.Rtc
             {
                 topic = evt.User.Topic ?? string.Empty;
 
-                // Copy data from native memory
-                if (evt.User.Data?.Data != null)
+                // Copy data from native memory (block copy: this is the FFI callback thread)
+                var bufferInfo = evt.User.Data?.Data;
+                if (bufferInfo != null && bufferInfo.DataLen > 0)
                 {
-                    var bufferInfo = evt.User.Data.Data;
                     data = new byte[bufferInfo.DataLen];
-                    unsafe
-                    {
-                        var ptr = (byte*)bufferInfo.DataPtr;
-                        for (int i = 0; i < (int)bufferInfo.DataLen; i++)
-                        {
-                            data[i] = ptr[i];
-                        }
-                    }
+                    Marshal.Copy((IntPtr)bufferInfo.DataPtr, data, 0, (int)bufferInfo.DataLen);
+                }
 
-                    // Dispose the FFI handle
-                    if (evt.User.Data.Handle != null)
-                    {
-                        using var handle = FfiHandle.FromId(evt.User.Data.Handle.Id);
-                    }
+                // Release the native buffer whether or not it had data
+                if (evt.User.Data?.Handle != null)
+                {
+                    FfiHandle.FromId(evt.User.Data.Handle.Id).Dispose();
                 }
 
                 DispatchEvent(() =>
@@ -1645,6 +1705,10 @@ namespace LiveKit.Rtc
                 {
                     attributes[attr.Key] = attr.Value;
                 }
+
+                // Keep Participant.Attributes current, like the Node and Python SDKs
+                participant._info.Attributes.Clear();
+                participant._info.Attributes.Add(attributes);
 
                 var changedAttributes = new Dictionary<string, string>();
                 foreach (var attr in evt.ChangedAttributes)
@@ -1815,23 +1879,41 @@ namespace LiveKit.Rtc
             if (header.TextHeader != null)
             {
                 // Text stream
-                var reader = new TextStreamReader(header);
+                var reader = new TextStreamReader(header) { SenderIdentity = participantIdentity };
                 lock (_lock)
                 {
                     _textStreamReaders[header.StreamId] = reader;
                 }
-                _streamHandlers.Dispatch(reader, participantIdentity);
+                RunStreamHandler(() => _streamHandlers.Dispatch(reader, participantIdentity));
             }
             else if (header.ByteHeader != null)
             {
                 // Byte stream
-                var reader = new ByteStreamReader(header);
+                var reader = new ByteStreamReader(header) { SenderIdentity = participantIdentity };
                 lock (_lock)
                 {
                     _byteStreamReaders[header.StreamId] = reader;
                 }
-                _streamHandlers.Dispatch(reader, participantIdentity);
+                RunStreamHandler(() => _streamHandlers.Dispatch(reader, participantIdentity));
             }
+        }
+
+        // Stream handlers get their chunks from this same FFI callback thread, so they run on
+        // the thread pool (like RPC invocations): a handler that blocks on ReadAllAsync would
+        // otherwise deadlock and stall every FFI event in the process
+        private static void RunStreamHandler(Action dispatch)
+        {
+            _ = Task.Run(() =>
+            {
+                try
+                {
+                    dispatch();
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine($"[ERROR] Data stream handler exception: {ex}");
+                }
+            });
         }
 
         private void HandleStreamChunk(DataStream.Types.Chunk chunk)
@@ -2023,23 +2105,50 @@ namespace LiveKit.Rtc
             );
         }
 
-        private void CleanupOnDisconnect()
+        private void CleanupOnDisconnect(Proto.DisconnectReason reason)
         {
-            ConnectionState = Proto.ConnectionState.ConnDisconnected;
-            DispatchEvent(() => ConnectionStateChanged?.Invoke(this, ConnectionState));
-            DispatchEvent(() => Disconnected?.Invoke(this, Proto.DisconnectReason.UnknownReason));
+            if (Interlocked.Exchange(ref _cleanedUp, 1) == 1)
+                return;
 
-            lock (_lock)
-            {
-                _remoteParticipants.Clear();
-                _textStreamReaders.Clear();
-                _byteStreamReaders.Clear();
-                _remoteDataTracks.Clear();
-            }
-
-            _roomHandle?.Dispose();
+            // From here on IsConnected is false and OnFfiEvent ignores events for the old handle
+            var roomHandle = _roomHandle;
             _roomHandle = null;
-            LocalParticipant = null;
+
+            UpdateConnectionState(Proto.ConnectionState.ConnDisconnected);
+            DispatchEvent(() => Disconnected?.Invoke(this, reason));
+
+            // Clear the participant state only after the handlers above ran, so a Disconnected
+            // handler can still read LocalParticipant and RemoteParticipants
+            DispatchEvent(() =>
+            {
+                var textReaders = new List<TextStreamReader>();
+                var byteReaders = new List<ByteStreamReader>();
+                lock (_lock)
+                {
+                    _remoteParticipants.Clear();
+                    textReaders.AddRange(_textStreamReaders.Values);
+                    byteReaders.AddRange(_byteStreamReaders.Values);
+                    _textStreamReaders.Clear();
+                    _byteStreamReaders.Clear();
+                    _remoteDataTracks.Clear();
+                }
+
+                // Readers waiting for more chunks would otherwise wait forever
+                var error = new StreamException(
+                    "The room disconnected before the stream was closed"
+                );
+                foreach (var reader in textReaders)
+                    reader.Fail(error);
+                foreach (var reader in byteReaders)
+                    reader.Fail(error);
+
+                LocalParticipant?.CancelPendingSubscriptionWaits();
+                LocalParticipant = null;
+
+                FfiClient.Instance.EventReceived -= OnFfiEvent;
+            });
+
+            roomHandle?.Dispose();
         }
 
         /// <summary>
@@ -2051,8 +2160,8 @@ namespace LiveKit.Rtc
                 return;
             _disposed = true;
 
-            FfiClient.Instance.EventReceived -= OnFfiEvent;
-
+            // Disconnect while still listening, so the teardown events (LocalTrackUnpublished,
+            // TrackUnsubscribed, ParticipantDisconnected...) are delivered like DisconnectAsync does
             if (IsConnected)
             {
                 try
@@ -2065,6 +2174,7 @@ namespace LiveKit.Rtc
                 }
             }
 
+            FfiClient.Instance.EventReceived -= OnFfiEvent;
             _roomHandle?.Dispose();
         }
     }

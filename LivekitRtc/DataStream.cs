@@ -144,7 +144,16 @@ namespace LiveKit.Rtc
     {
         private readonly Channel<string> _channel;
         private readonly TextStreamInfo _info;
+
+        // Joins multi-byte characters that a sender split across two chunks
+        private readonly Decoder _decoder = Encoding.UTF8.GetDecoder();
+        private Exception? _error;
         private bool _disposed;
+
+        /// <summary>
+        /// Identity of the participant sending the stream.
+        /// </summary>
+        internal string SenderIdentity { get; set; } = string.Empty;
 
         /// <summary>
         /// Initializes a new text stream reader.
@@ -161,7 +170,7 @@ namespace LiveKit.Rtc
                 header.MimeType,
                 header.Topic,
                 header.Timestamp,
-                header.TotalLength > 0 ? (long?)header.TotalLength : null,
+                header.HasTotalLength ? (long?)header.TotalLength : null,
                 new Dictionary<string, string>(header.Attributes),
                 header.TextHeader?.AttachedStreamIds != null
                     ? new List<string>(header.TextHeader.AttachedStreamIds)
@@ -179,8 +188,13 @@ namespace LiveKit.Rtc
         /// </summary>
         internal void OnChunk(DataStream.Types.Chunk chunk)
         {
-            var text = chunk.Content.ToStringUtf8();
-            _channel.Writer.TryWrite(text);
+            var bytes = chunk.Content.ToByteArray();
+            var chars = new char[_decoder.GetCharCount(bytes, 0, bytes.Length, false)];
+            var count = _decoder.GetChars(bytes, 0, bytes.Length, chars, 0, false);
+            if (count > 0)
+            {
+                _channel.Writer.TryWrite(new string(chars, 0, count));
+            }
         }
 
         /// <summary>
@@ -195,7 +209,36 @@ namespace LiveKit.Rtc
                     _info.Attributes[attr.Key] = attr.Value;
                 }
             }
+
+            // Flush an incomplete trailing character, if any
+            var tail = new char[_decoder.GetCharCount(Array.Empty<byte>(), 0, 0, true)];
+            var count = _decoder.GetChars(Array.Empty<byte>(), 0, 0, tail, 0, true);
+            if (count > 0)
+            {
+                _channel.Writer.TryWrite(new string(tail, 0, count));
+            }
             _channel.Writer.TryComplete();
+        }
+
+        /// <summary>
+        /// Ends the stream abnormally (the sender or the room went away): pending and future reads
+        /// throw <see cref="StreamException"/> once the buffered chunks are consumed.
+        /// </summary>
+        internal void Fail(Exception error)
+        {
+            _error ??= error;
+            _channel.Writer.TryComplete();
+        }
+
+        private void ThrowIfFailed()
+        {
+            if (_error != null)
+            {
+                throw new StreamException(
+                    $"Data stream {_info.StreamId} ended abnormally: {_error.Message}",
+                    _error
+                );
+            }
         }
 
         /// <summary>
@@ -203,6 +246,7 @@ namespace LiveKit.Rtc
         /// </summary>
         /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>The next text chunk, or null if the stream is complete.</returns>
+        /// <exception cref="StreamException">The sender or the room went away before the stream was closed.</exception>
         public async ValueTask<string?> ReadAsync(CancellationToken cancellationToken = default)
         {
             try
@@ -214,6 +258,7 @@ namespace LiveKit.Rtc
                         return text;
                     }
                 }
+                ThrowIfFailed();
                 return null;
             }
             catch (OperationCanceledException)
@@ -222,6 +267,7 @@ namespace LiveKit.Rtc
             }
             catch (ChannelClosedException)
             {
+                ThrowIfFailed();
                 return null;
             }
         }
@@ -258,6 +304,7 @@ namespace LiveKit.Rtc
             {
                 yield return chunk;
             }
+            ThrowIfFailed();
         }
 
         /// <inheritdoc />
@@ -295,7 +342,13 @@ namespace LiveKit.Rtc
     {
         private readonly Channel<byte[]> _channel;
         private readonly ByteStreamInfo _info;
+        private Exception? _error;
         private bool _disposed;
+
+        /// <summary>
+        /// Identity of the participant sending the stream.
+        /// </summary>
+        internal string SenderIdentity { get; set; } = string.Empty;
 
         /// <summary>
         /// Initializes a new byte stream reader.
@@ -323,7 +376,7 @@ namespace LiveKit.Rtc
                 header.MimeType,
                 header.Topic,
                 header.Timestamp,
-                header.TotalLength > 0 ? (long?)header.TotalLength : null,
+                header.HasTotalLength ? (long?)header.TotalLength : null,
                 new Dictionary<string, string>(header.Attributes),
                 header.ByteHeader?.Name ?? string.Empty
             );
@@ -358,10 +411,32 @@ namespace LiveKit.Rtc
         }
 
         /// <summary>
+        /// Ends the stream abnormally (the sender or the room went away): pending and future reads
+        /// throw <see cref="StreamException"/> once the buffered chunks are consumed.
+        /// </summary>
+        internal void Fail(Exception error)
+        {
+            _error ??= error;
+            _channel.Writer.TryComplete();
+        }
+
+        private void ThrowIfFailed()
+        {
+            if (_error != null)
+            {
+                throw new StreamException(
+                    $"Data stream {_info.StreamId} ended abnormally: {_error.Message}",
+                    _error
+                );
+            }
+        }
+
+        /// <summary>
         /// Reads the next chunk of bytes.
         /// </summary>
         /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>The next byte chunk, or null if the stream is complete.</returns>
+        /// <exception cref="StreamException">The sender or the room went away before the stream was closed.</exception>
         public async ValueTask<ReadOnlyMemory<byte>?> ReadAsync(
             CancellationToken cancellationToken = default
         )
@@ -375,6 +450,7 @@ namespace LiveKit.Rtc
                         return data;
                     }
                 }
+                ThrowIfFailed();
                 return null;
             }
             catch (OperationCanceledException)
@@ -383,6 +459,7 @@ namespace LiveKit.Rtc
             }
             catch (ChannelClosedException)
             {
+                ThrowIfFailed();
                 return null;
             }
         }
@@ -431,6 +508,7 @@ namespace LiveKit.Rtc
             {
                 yield return chunk;
             }
+            ThrowIfFailed();
         }
 
         /// <inheritdoc />
@@ -553,15 +631,15 @@ namespace LiveKit.Rtc
         /// <returns>True if a handler was found and invoked, false otherwise.</returns>
         internal bool Dispatch(TextStreamReader reader, string participantIdentity)
         {
+            TextStreamHandler? handler;
             lock (_lock)
             {
-                if (_textStreamHandlers.TryGetValue(reader.Info.Topic, out var handler))
-                {
-                    handler?.Invoke(reader, participantIdentity);
-                    return true;
-                }
-                return false;
+                _textStreamHandlers.TryGetValue(reader.Info.Topic, out handler);
             }
+            if (handler == null)
+                return false;
+            handler(reader, participantIdentity);
+            return true;
         }
 
         /// <summary>
@@ -572,15 +650,15 @@ namespace LiveKit.Rtc
         /// <returns>True if a handler was found and invoked, false otherwise.</returns>
         internal bool Dispatch(ByteStreamReader reader, string participantIdentity)
         {
+            ByteStreamHandler? handler;
             lock (_lock)
             {
-                if (_byteStreamHandlers.TryGetValue(reader.Info.Topic, out var handler))
-                {
-                    handler?.Invoke(reader, participantIdentity);
-                    return true;
-                }
-                return false;
+                _byteStreamHandlers.TryGetValue(reader.Info.Topic, out handler);
             }
+            if (handler == null)
+                return false;
+            handler(reader, participantIdentity);
+            return true;
         }
     }
 
@@ -661,20 +739,31 @@ namespace LiveKit.Rtc
             try
             {
                 var bytes = Encoding.UTF8.GetBytes(text);
-                for (
-                    int offset = 0;
-                    offset < bytes.Length;
-                    offset += DataStreamConstants.StreamChunkSize
-                )
+                for (int offset = 0; offset < bytes.Length; )
                 {
                     var length = Math.Min(
                         DataStreamConstants.StreamChunkSize,
                         bytes.Length - offset
                     );
+                    // Never split a multi-byte character across chunks (receivers decode each chunk
+                    // on its own): back off to the last character boundary, like the other SDKs
+                    if (offset + length < bytes.Length)
+                    {
+                        var boundary = length;
+                        while (boundary > 0 && (bytes[offset + boundary] & 0xC0) == 0x80)
+                        {
+                            boundary--;
+                        }
+                        if (boundary > 0)
+                        {
+                            length = boundary;
+                        }
+                    }
                     var chunk = new byte[length];
                     Buffer.BlockCopy(bytes, offset, chunk, 0, length);
 
                     await SendChunkAsync(ByteString.CopyFrom(chunk), cancellationToken);
+                    offset += length;
                 }
             }
             finally
@@ -727,9 +816,18 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Closes the stream.
         /// </summary>
+        public Task CloseAsync(string? reason = null, Dictionary<string, string>? attributes = null)
+        {
+            return CloseAsync(reason, attributes, CancellationToken.None);
+        }
+
+        /// <summary>
+        /// Closes the stream, with a token to abandon the wait for the server's acknowledgement.
+        /// </summary>
         public async Task CloseAsync(
-            string? reason = null,
-            Dictionary<string, string>? attributes = null
+            string? reason,
+            Dictionary<string, string>? attributes,
+            CancellationToken cancellationToken
         )
         {
             if (_closed)
@@ -771,7 +869,8 @@ namespace LiveKit.Rtc
                 e =>
                     e.MessageCase == FfiEvent.MessageOneofCase.SendStreamTrailer
                     && e.SendStreamTrailer?.AsyncId == asyncId,
-                TimeSpan.FromSeconds(30)
+                TimeSpan.FromSeconds(30),
+                cancellationToken
             );
 
             if (trailerEvent.SendStreamTrailer?.HasError == true)
@@ -784,6 +883,19 @@ namespace LiveKit.Rtc
 
         public void Dispose()
         {
+            if (!_closed)
+            {
+                // Send the trailer so the readers complete (the request itself goes out
+                // synchronously); Dispose cannot throw, so a failure is only logged
+                _ = CloseAsync()
+                    .ContinueWith(
+                        t =>
+                            Console.Error.WriteLine(
+                                $"[WARN] Data stream {_info.StreamId}: closing on Dispose failed: {t.Exception?.GetBaseException()}"
+                            ),
+                        TaskContinuationOptions.OnlyOnFaulted
+                    );
+            }
             _writeLock?.Dispose();
         }
 
@@ -922,9 +1034,18 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Closes the stream.
         /// </summary>
+        public Task CloseAsync(string? reason = null, Dictionary<string, string>? attributes = null)
+        {
+            return CloseAsync(reason, attributes, CancellationToken.None);
+        }
+
+        /// <summary>
+        /// Closes the stream, with a token to abandon the wait for the server's acknowledgement.
+        /// </summary>
         public async Task CloseAsync(
-            string? reason = null,
-            Dictionary<string, string>? attributes = null
+            string? reason,
+            Dictionary<string, string>? attributes,
+            CancellationToken cancellationToken
         )
         {
             if (_closed)
@@ -966,7 +1087,8 @@ namespace LiveKit.Rtc
                 e =>
                     e.MessageCase == FfiEvent.MessageOneofCase.SendStreamTrailer
                     && e.SendStreamTrailer?.AsyncId == asyncId,
-                TimeSpan.FromSeconds(30)
+                TimeSpan.FromSeconds(30),
+                cancellationToken
             );
 
             if (trailerEvent.SendStreamTrailer?.HasError == true)
@@ -979,6 +1101,19 @@ namespace LiveKit.Rtc
 
         public void Dispose()
         {
+            if (!_closed)
+            {
+                // Send the trailer so the readers complete (the request itself goes out
+                // synchronously); Dispose cannot throw, so a failure is only logged
+                _ = CloseAsync()
+                    .ContinueWith(
+                        t =>
+                            Console.Error.WriteLine(
+                                $"[WARN] Data stream {_info.StreamId}: closing on Dispose failed: {t.Exception?.GetBaseException()}"
+                            ),
+                        TaskContinuationOptions.OnlyOnFaulted
+                    );
+            }
             _writeLock?.Dispose();
         }
 

@@ -114,22 +114,18 @@ namespace LiveKit.Rtc
         /// </summary>
         internal static AudioFrame FromOwnedInfo(OwnedAudioFrameBuffer ownedInfo)
         {
+            // Own the native buffer first, so it is released even if the copy below throws
+            using var handle = FfiHandle.FromId(ownedInfo.Handle.Id);
+
             var info = ownedInfo.Info;
             int size = (int)(info.NumChannels * info.SamplesPerChannel);
 
-            // Copy data from native memory
+            // Block copy from native memory: this runs on the FFI callback thread
             var data = new short[size];
-            unsafe
+            if (size > 0)
             {
-                var ptr = (short*)info.DataPtr;
-                for (int i = 0; i < size; i++)
-                {
-                    data[i] = ptr[i];
-                }
+                Marshal.Copy((IntPtr)info.DataPtr, data, 0, size);
             }
-
-            // Dispose the FFI handle
-            using var handle = FfiHandle.FromId(ownedInfo.Handle.Id);
 
             return new AudioFrame(
                 data,

@@ -99,7 +99,7 @@ namespace LiveKit.Rtc
                     ? Channel.CreateBounded<AudioFrameEvent>(
                         new BoundedChannelOptions(capacity)
                         {
-                            FullMode = BoundedChannelFullMode.Wait,
+                            FullMode = BoundedChannelFullMode.DropOldest, // keep the latest audio, like VideoStream and the Python SDK
                             SingleReader = false,
                             SingleWriter = true,
                         }
@@ -154,7 +154,7 @@ namespace LiveKit.Rtc
                     ? Channel.CreateBounded<AudioFrameEvent>(
                         new BoundedChannelOptions(capacity)
                         {
-                            FullMode = BoundedChannelFullMode.Wait,
+                            FullMode = BoundedChannelFullMode.DropOldest, // keep the latest audio, like VideoStream and the Python SDK
                             SingleReader = false,
                             SingleWriter = true,
                         }
@@ -338,9 +338,6 @@ namespace LiveKit.Rtc
 
         private void OnFfiEvent(object? sender, FfiEvent e)
         {
-            if (_disposed)
-                return;
-
             if (e.MessageCase != FfiEvent.MessageOneofCase.AudioStreamEvent)
                 return;
 
@@ -351,6 +348,14 @@ namespace LiveKit.Rtc
             if (audioEvent.MessageCase == AudioStreamEvent.MessageOneofCase.FrameReceived)
             {
                 var ownedBuffer = audioEvent.FrameReceived.Frame;
+                if (_disposed)
+                {
+                    // The native task can still emit a few frames after the stream was closed:
+                    // release their buffers instead of leaking them
+                    FfiHandle.FromId(ownedBuffer.Handle.Id).Dispose();
+                    return;
+                }
+
                 var frame = AudioFrame.FromOwnedInfo(ownedBuffer);
 
                 // Process frame through FrameProcessor if present and enabled
@@ -362,9 +367,10 @@ namespace LiveKit.Rtc
                     }
                     catch (Exception ex)
                     {
-                        // Log warning but pass through original frame
-                        System.Diagnostics.Debug.WriteLine(
-                            $"Frame processing failed, passing through original frame: {ex.Message}"
+                        // Pass the original frame through (Debug.WriteLine would be silent in
+                        // Release builds)
+                        Console.Error.WriteLine(
+                            $"[WARN] AudioStream: frame processor threw, passing the frame through: {ex}"
                         );
                     }
                 }
@@ -375,7 +381,21 @@ namespace LiveKit.Rtc
             else if (audioEvent.MessageCase == AudioStreamEvent.MessageOneofCase.Eos)
             {
                 _channel.Writer.TryComplete();
+                // Nothing more will come for this handle
+                FfiClient.Instance.EventReceived -= OnFfiEvent;
             }
+        }
+
+        // Keep receiving (and releasing) the frames the native side may still emit after the
+        // stream is closed, until its end-of-stream event; stop listening after a grace period in
+        // case it never comes.
+        private void StopListeningAfterEos()
+        {
+            _ = Task.Delay(TimeSpan.FromSeconds(5))
+                .ContinueWith(
+                    _ => FfiClient.Instance.EventReceived -= OnFfiEvent,
+                    TaskScheduler.Default
+                );
         }
 
         /// <summary>
@@ -452,7 +472,7 @@ namespace LiveKit.Rtc
             _disposed = true;
 
             _cts.Cancel();
-            FfiClient.Instance.EventReceived -= OnFfiEvent;
+            StopListeningAfterEos();
             _channel.Writer.TryComplete();
             _frameProcessor?.Close();
             _handle.Dispose();
@@ -469,7 +489,7 @@ namespace LiveKit.Rtc
             _disposed = true;
 
             _cts.Cancel();
-            FfiClient.Instance.EventReceived -= OnFfiEvent;
+            StopListeningAfterEos();
             _channel.Writer.TryComplete();
 
             // Wait for any pending reads to complete

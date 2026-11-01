@@ -220,9 +220,6 @@ namespace LiveKit.Rtc
 
         private void OnFfiEvent(object? sender, FfiEvent e)
         {
-            if (_disposed)
-                return;
-
             if (e.MessageCase != FfiEvent.MessageOneofCase.VideoStreamEvent)
                 return;
 
@@ -233,6 +230,14 @@ namespace LiveKit.Rtc
             if (videoEvent.MessageCase == VideoStreamEvent.MessageOneofCase.FrameReceived)
             {
                 var ownedBuffer = videoEvent.FrameReceived.Buffer;
+                if (_disposed)
+                {
+                    // The native task can still emit a few frames after the stream was closed:
+                    // release their buffers instead of leaking them
+                    FfiHandle.FromId(ownedBuffer.Handle.Id).Dispose();
+                    return;
+                }
+
                 var frame = VideoFrame.FromOwnedInfo(ownedBuffer);
                 var rotation = videoEvent.FrameReceived.Rotation;
                 var timestampUs = videoEvent.FrameReceived.TimestampUs;
@@ -242,7 +247,21 @@ namespace LiveKit.Rtc
             else if (videoEvent.MessageCase == VideoStreamEvent.MessageOneofCase.Eos)
             {
                 _channel.Writer.TryComplete();
+                // Nothing more will come for this handle
+                FfiClient.Instance.EventReceived -= OnFfiEvent;
             }
+        }
+
+        // Keep receiving (and releasing) the frames the native side may still emit after the
+        // stream is closed, until its end-of-stream event; stop listening after a grace period in
+        // case it never comes.
+        private void StopListeningAfterEos()
+        {
+            _ = Task.Delay(TimeSpan.FromSeconds(5))
+                .ContinueWith(
+                    _ => FfiClient.Instance.EventReceived -= OnFfiEvent,
+                    TaskScheduler.Default
+                );
         }
 
         /// <summary>
@@ -319,7 +338,7 @@ namespace LiveKit.Rtc
             _disposed = true;
 
             _cts.Cancel();
-            FfiClient.Instance.EventReceived -= OnFfiEvent;
+            StopListeningAfterEos();
             _channel.Writer.TryComplete();
             _handle.Dispose();
             _cts.Dispose();
@@ -335,7 +354,7 @@ namespace LiveKit.Rtc
             _disposed = true;
 
             _cts.Cancel();
-            FfiClient.Instance.EventReceived -= OnFfiEvent;
+            StopListeningAfterEos();
             _channel.Writer.TryComplete();
 
             await Task.Yield();

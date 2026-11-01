@@ -65,6 +65,9 @@ namespace LiveKit.Rtc
         /// </summary>
         internal static VideoFrame FromOwnedInfo(OwnedVideoBuffer ownedInfo)
         {
+            // Own the native buffer first, so it is released even if the copy below throws
+            using var handle = FfiHandle.FromId(ownedInfo.Handle.Id);
+
             var info = ownedInfo.Info;
             int dataLen = GetBufferSize(
                 (VideoBufferType)info.Type,
@@ -72,19 +75,19 @@ namespace LiveKit.Rtc
                 (int)info.Height
             );
 
-            // Copy data from native memory
+            // Copy the pixels from native memory. This runs on the FFI callback thread, so it
+            // must be a block copy, not a byte loop (a 1080p frame is 3 MB).
             var data = new byte[dataLen];
-            unsafe
+            if (dataLen > 0)
             {
-                var ptr = (byte*)info.DataPtr;
-                for (int i = 0; i < dataLen; i++)
+                unsafe
                 {
-                    data[i] = ptr[i];
+                    fixed (byte* destination = data)
+                    {
+                        Buffer.MemoryCopy((void*)info.DataPtr, destination, dataLen, dataLen);
+                    }
                 }
             }
-
-            // Dispose the FFI handle
-            using var handle = FfiHandle.FromId(ownedInfo.Handle.Id);
 
             return new VideoFrame(
                 (int)info.Width,

@@ -23,6 +23,15 @@ namespace LiveKit.Rtc
             Sid = sid;
         }
 
+        internal void ApplyInfo(OwnedTrack? trackInfo)
+        {
+            if (trackInfo?.Info == null)
+                return;
+            Sid = trackInfo.Info.Sid ?? string.Empty;
+            Name = trackInfo.Info.Name ?? string.Empty;
+            IsMuted = trackInfo.Info.Muted;
+        }
+
         /// <summary>
         /// Track name.
         /// </summary>
@@ -246,6 +255,13 @@ namespace LiveKit.Rtc
         {
             Kind = Proto.TrackKind.KindAudio;
         }
+
+        internal RemoteAudioTrack(FfiHandle handle, OwnedTrack trackInfo)
+            : base(handle)
+        {
+            Kind = Proto.TrackKind.KindAudio;
+            ApplyInfo(trackInfo);
+        }
     }
 
     /// <summary>
@@ -257,6 +273,13 @@ namespace LiveKit.Rtc
             : base(handle)
         {
             Kind = Proto.TrackKind.KindVideo;
+        }
+
+        internal RemoteVideoTrack(FfiHandle handle, OwnedTrack trackInfo)
+            : base(handle)
+        {
+            Kind = Proto.TrackKind.KindVideo;
+            ApplyInfo(trackInfo);
         }
     }
 }
