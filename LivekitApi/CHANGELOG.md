@@ -1,6 +1,6 @@
 # Changelog (Release Notes)
 
-## Unreleased
+## 1.2.4
 
 - Update livekit/protocol to [v1.53.1](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.53.1) ([commit 032d6c0](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/032d6c0ebe81b49ad44f6b421b5af409b4dd68e7), [commit 1c623d5](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/1c623d53d701aae5520d24dfb24077bb8ac57ee2))
 - New `ConnectorServiceClient` to connect [WhatsApp and Twilio](https://docs.livekit.io/telephony/connectors/) calls to LiveKit rooms (LiveKit Cloud only), with methods `DialWhatsAppCall`, `AcceptWhatsAppCall`, `ConnectWhatsAppCall`, `DisconnectWhatsAppCall` and `ConnectTwilioCall`. See [Connector Service](https://github.com/pabloFuente/livekit-server-sdk-dotnet/blob/main/LivekitApi/README.md#connector-service). [commit 40e46b7](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/40e46b72e6bae652fc3c27c6ed167c1c0a5ab131)
