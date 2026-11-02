@@ -1,6 +1,6 @@
 # Changelog (Release Notes)
 
-## Unreleased
+## 0.1.6
 
 - Fix the process terminating (`FFI Panic` followed by exit code 1) in two situations: calling
   `LocalParticipant.UnpublishTrackAsync` with something that is not a track SID (a track name,
