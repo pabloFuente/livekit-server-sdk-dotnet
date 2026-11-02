@@ -764,6 +764,7 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Disconnects from the room.
         /// </summary>
+        /// <returns>A task that completes once the room is disconnected and its resources are released.</returns>
         public async Task DisconnectAsync()
         {
             if (_roomHandle == null)
@@ -815,6 +816,7 @@ namespace LiveKit.Rtc
         /// </summary>
         /// <param name="scenario">The scenario to simulate.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task that completes once the SDK has started the scenario, not when the reconnection has finished.</returns>
         /// <exception cref="InvalidOperationException">Thrown when not connected to a room.</exception>
         /// <exception cref="RoomException">Thrown when the SDK reports that the scenario failed.</exception>
         public async Task SimulateScenarioAsync(

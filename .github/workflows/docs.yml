@@ -35,7 +35,7 @@ jobs:
       - name: Restore tools
         run: dotnet tool restore
       - name: Build the API reference
-        run: dotnet docfx docs/docfx.json
+        run: dotnet docfx docs/docfx.json --warningsAsErrors
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs/_site

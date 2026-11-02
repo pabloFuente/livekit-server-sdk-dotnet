@@ -3,12 +3,14 @@
     {
       "src": [{ "files": ["LivekitApi/LivekitApi.csproj"], "src": ".." }],
       "dest": "api-server",
-      "filter": "filter.yml"
+      "filter": "filter.yml",
+      "properties": { "NoWarn": "CS0612;CS0618" }
     },
     {
       "src": [{ "files": ["LivekitRtc/LivekitRtc.csproj"], "src": ".." }],
       "dest": "api-rtc",
-      "filter": "filter.yml"
+      "filter": "filter.yml",
+      "properties": { "NoWarn": "CS0612;CS0618" }
     }
   ],
   "build": {

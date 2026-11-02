@@ -196,6 +196,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// Builds the bearer token of a call that needs <paramref name="videoGrants"/>, valid for
         /// <see cref="Constants.DefaultTtl"/>.
         /// </summary>
+        /// <param name="videoGrants">Room permissions the call needs.</param>
+        /// <returns>The signed JWT, sent as bearer token.</returns>
         protected string AuthHeader(VideoGrants videoGrants)
         {
             var accessToken = new AccessToken(apiKey, apiSecret);
@@ -209,6 +211,9 @@ namespace Livekit.Server.Sdk.Dotnet
         /// Builds the bearer token of a SIP call that needs <paramref name="videoGrants"/> and
         /// <paramref name="sipGrants"/>, valid for <see cref="Constants.DefaultTtl"/>.
         /// </summary>
+        /// <param name="videoGrants">Room permissions the call needs.</param>
+        /// <param name="sipGrants">SIP permissions the call needs.</param>
+        /// <returns>The signed JWT, sent as bearer token.</returns>
         protected string AuthHeader(VideoGrants videoGrants, SIPGrants sipGrants)
         {
             var accessToken = new AccessToken(apiKey, apiSecret);

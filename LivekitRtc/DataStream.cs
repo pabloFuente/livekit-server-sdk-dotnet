@@ -62,6 +62,12 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Initializes base stream info.
         /// </summary>
+        /// <param name="streamId">Unique ID of the stream.</param>
+        /// <param name="mimeType">MIME type of the content.</param>
+        /// <param name="topic">Topic the stream was sent on.</param>
+        /// <param name="timestamp">Send time, in milliseconds since the Unix epoch.</param>
+        /// <param name="size">Total size in bytes, or null when unknown.</param>
+        /// <param name="attributes">Custom attributes, or null.</param>
         protected BaseStreamInfo(
             string streamId,
             string mimeType,
@@ -746,6 +752,7 @@ namespace LiveKit.Rtc
         /// </summary>
         /// <param name="text">Text to send; long texts are split into chunks on character boundaries.</param>
         /// <param name="cancellationToken">Cancels the send.</param>
+        /// <returns>A task that completes once every chunk has been sent.</returns>
         public async Task WriteAsync(string text, CancellationToken cancellationToken = default)
         {
             if (_closed)
@@ -837,6 +844,7 @@ namespace LiveKit.Rtc
         /// </summary>
         /// <param name="reason">Optional reason sent to the readers in the stream trailer.</param>
         /// <param name="attributes">Attributes to update on the stream, sent in the trailer.</param>
+        /// <returns>A task that completes once the server has acknowledged the trailer.</returns>
         public Task CloseAsync(string? reason = null, Dictionary<string, string>? attributes = null)
         {
             return CloseAsync(reason, attributes, CancellationToken.None);
@@ -848,6 +856,7 @@ namespace LiveKit.Rtc
         /// <param name="reason">Optional reason sent to the readers in the stream trailer.</param>
         /// <param name="attributes">Attributes to update on the stream, sent in the trailer.</param>
         /// <param name="cancellationToken">Abandons the wait for the server's acknowledgement; the stream is closed anyway.</param>
+        /// <returns>A task that completes once the server has acknowledged the trailer.</returns>
         public async Task CloseAsync(
             string? reason,
             Dictionary<string, string>? attributes,
@@ -929,6 +938,7 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Closes the stream if it is still open and releases the writer.
         /// </summary>
+        /// <returns>A task that completes once the stream is closed.</returns>
         public async ValueTask DisposeAsync()
         {
             if (!_closed)
@@ -989,6 +999,7 @@ namespace LiveKit.Rtc
         /// </summary>
         /// <param name="data">Bytes to send; large arrays are split into chunks.</param>
         /// <param name="cancellationToken">Cancels the send.</param>
+        /// <returns>A task that completes once every chunk has been sent.</returns>
         public async Task WriteAsync(byte[] data, CancellationToken cancellationToken = default)
         {
             if (_closed)
@@ -1068,6 +1079,7 @@ namespace LiveKit.Rtc
         /// </summary>
         /// <param name="reason">Optional reason sent to the readers in the stream trailer.</param>
         /// <param name="attributes">Attributes to update on the stream, sent in the trailer.</param>
+        /// <returns>A task that completes once the server has acknowledged the trailer.</returns>
         public Task CloseAsync(string? reason = null, Dictionary<string, string>? attributes = null)
         {
             return CloseAsync(reason, attributes, CancellationToken.None);
@@ -1079,6 +1091,7 @@ namespace LiveKit.Rtc
         /// <param name="reason">Optional reason sent to the readers in the stream trailer.</param>
         /// <param name="attributes">Attributes to update on the stream, sent in the trailer.</param>
         /// <param name="cancellationToken">Abandons the wait for the server's acknowledgement; the stream is closed anyway.</param>
+        /// <returns>A task that completes once the server has acknowledged the trailer.</returns>
         public async Task CloseAsync(
             string? reason,
             Dictionary<string, string>? attributes,
@@ -1160,6 +1173,7 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Closes the stream if it is still open and releases the writer.
         /// </summary>
+        /// <returns>A task that completes once the stream is closed.</returns>
         public async ValueTask DisposeAsync()
         {
             if (!_closed)

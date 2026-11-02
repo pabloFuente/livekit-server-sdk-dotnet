@@ -5,7 +5,7 @@ namespace Livekit.Server.Sdk.Dotnet
 {
     /// <summary>
     /// A client for interacting with the Ingress service.
-    /// See: <see href="https://docs.livekit.io/realtime/ingress/overview/">Ingress</see>
+    /// See <see href="https://docs.livekit.io/realtime/ingress/overview/">Ingress</see>.
     /// </summary>
     public class IngressServiceClient : BaseService
     {

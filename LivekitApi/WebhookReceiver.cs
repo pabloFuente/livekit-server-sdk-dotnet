@@ -36,7 +36,7 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <param name="authHeader">The Authorization header of the request.</param>
         /// <param name="skipAuth">True to skip auth validation, false otherwise.</param>
         /// <param name="ignoreUnknownFields">True to ignore unknown fields, false otherwise.</param>
-        /// <returns>WebhookEvent</returns>
+        /// <returns>The decoded event.</returns>
         /// <exception cref="Exception">Thrown when authorization fails or checksum does not match.</exception>
         public WebhookEvent Receive(
             byte[] body,
@@ -65,7 +65,7 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <param name="authHeader">The Authorization header of the request.</param>
         /// <param name="skipAuth">True to skip auth validation, false otherwise.</param>
         /// <param name="ignoreUnknownFields">True to ignore unknown fields, false otherwise.</param>
-        /// <returns>WebhookEvent</returns>
+        /// <returns>The decoded event.</returns>
         /// <exception cref="Exception">Thrown when authorization fails or checksum does not match.</exception>
         public WebhookEvent Receive(
             string body,

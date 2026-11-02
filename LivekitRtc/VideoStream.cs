@@ -95,6 +95,9 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Internal constructor for creating from handle.
         /// </summary>
+        /// <param name="handle">Native handle of the stream.</param>
+        /// <param name="format">Pixel format the frames are converted to, or null to keep the source format.</param>
+        /// <param name="capacity">Capacity of the internal frame channel; 0 for unbounded, otherwise the oldest frame is dropped when it is full.</param>
         protected VideoStream(FfiHandle handle, VideoBufferType? format, int capacity)
         {
             _handle = handle;

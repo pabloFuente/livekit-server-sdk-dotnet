@@ -94,9 +94,15 @@ tests and examples run on `net10.0`.
   `System.Threading.Channels` comes from a NuGet package, not the BCL. `init` accessors (so also
   positional records) and `required` members need compiler polyfills that are not in the project;
   use plain classes with get/set properties.
-- Both packages keep `GenerateDocumentationFile` on and every public member needs an XML doc
-  comment: `CS1591` is a build warning for hand-written code (`.editorconfig` silences it only for
-  the generated protobuf files), and the comments are what the published API reference shows.
+- Both packages keep `GenerateDocumentationFile` on and the build enforces the XML docs of the
+  hand-written code: a missing comment (`CS1591`), a malformed one or an unresolved `cref` is a
+  build error, and the documentation rules of `StyleCop.Analyzers` (the only StyleCop category
+  enabled; see `.editorconfig` and `stylecop.json`) require a `<summary>`, a `<param>` for every
+  parameter, a `<typeparam>` for every type parameter and a `<returns>` on every method that
+  returns a value, `Task` included (say what completion means), with every text ending in a
+  period. `<inheritdoc/>` satisfies all of it. `.editorconfig` switches the checks off only for
+  the generated protobuf files. The comments are what IntelliSense and the published API
+  reference show, so write them for the user of the package, not for the maintainer.
 - The .NET 10 SDK is required: `global.json` pins it (`rollForward: latestFeature`) and both
   workflows install `10.0.x`. The libraries still target .NET Standard, so the packages keep
   working on older runtimes; only building, testing and the examples need .NET 10.
@@ -145,6 +151,10 @@ Formatting:
 - `.github/workflows/docs.yml` publishes `docs/_site` to GitHub Pages
   (https://pablofuente.github.io/livekit-server-sdk-dotnet/) on every push to `main` that touches
   a package or `docs/`, so the site documents the current `main`, not a release.
+- `dotnet.yml` also builds the reference on every PR, and both workflows pass `--warningsAsErrors`,
+  so a DocFX warning (an xref that does not resolve in `docs/index.md` or `docs/toc.yml`, a
+  duplicate tag) fails CI. `docs/docfx.json` passes `NoWarn` for the obsolete-member warnings
+  (`CS0612`, `CS0618`) that the metadata build would otherwise report as DocFX warnings.
 
 ## Tests
 

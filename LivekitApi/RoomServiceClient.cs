@@ -8,7 +8,7 @@ namespace Livekit.Server.Sdk.Dotnet
     /// A client for interacting and managing LiveKit rooms and participants.
     /// </summary>
     /// <remarks>
-    /// See: <see href="https://docs.livekit.io/realtime/server/managing-rooms/">Managing Rooms</see>
+    /// See <see href="https://docs.livekit.io/realtime/server/managing-rooms/">Managing Rooms</see>.
     /// </remarks>
     public class RoomServiceClient : BaseService
     {

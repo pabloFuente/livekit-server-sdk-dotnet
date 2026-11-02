@@ -106,6 +106,7 @@ namespace LiveKit.Rtc
         /// </summary>
         /// <param name="frame">The audio frame to capture and queue.</param>
         /// <param name="cancellationToken">Optional cancellation token.</param>
+        /// <returns>A task that completes once the native source has accepted the frame.</returns>
         public async Task CaptureFrameAsync(
             AudioFrame frame,
             CancellationToken cancellationToken = default
@@ -188,6 +189,7 @@ namespace LiveKit.Rtc
         /// Waits for the audio source to finish playing out all audio data.
         /// </summary>
         /// <param name="cancellationToken">Cancels this wait only; the queued audio keeps playing.</param>
+        /// <returns>A task that completes when all queued audio has been played out.</returns>
         public async Task WaitForPlayoutAsync(CancellationToken cancellationToken = default)
         {
             Task playout;

@@ -51,6 +51,7 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         /// <param name="body">The response body.</param>
         /// <param name="status">The HTTP status of the response.</param>
+        /// <returns>The exception describing the error.</returns>
         public static TwirpException FromResponse(string body, int status)
         {
             var code = global::Twirp.ErrorCode.Unknown;

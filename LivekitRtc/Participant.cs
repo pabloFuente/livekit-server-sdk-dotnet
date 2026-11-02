@@ -403,6 +403,7 @@ namespace LiveKit.Rtc
         /// </summary>
         /// <param name="trackSid">The SID of the track to unpublish.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A task that completes once the track is unpublished.</returns>
         public async Task UnpublishTrackAsync(
             string trackSid,
             CancellationToken cancellationToken = default
@@ -482,6 +483,7 @@ namespace LiveKit.Rtc
         /// </summary>
         /// <param name="data">The data to publish.</param>
         /// <param name="options">Publish options.</param>
+        /// <returns>A task that completes once the data has been sent.</returns>
         public async Task PublishDataAsync(byte[] data, DataPublishOptions? options = null)
         {
             options ??= new DataPublishOptions();
@@ -620,6 +622,7 @@ namespace LiveKit.Rtc
         /// <param name="code">The DTMF code.</param>
         /// <param name="digit">The DTMF digit as a string.</param>
         /// <param name="destinationIdentities">Optional destination participant identities.</param>
+        /// <returns>A task that completes once the tones have been sent.</returns>
         public async Task PublishSipDtmfAsync(
             uint code,
             string digit,
@@ -663,6 +666,7 @@ namespace LiveKit.Rtc
         /// Publishes transcription data to the room.
         /// </summary>
         /// <param name="transcription">The transcription to publish.</param>
+        /// <returns>A task that completes once the transcription has been sent.</returns>
         public async Task PublishTranscriptionAsync(Transcription transcription)
         {
             if (transcription == null)
@@ -705,6 +709,7 @@ namespace LiveKit.Rtc
         /// Sets the local participant's metadata.
         /// </summary>
         /// <param name="metadata">The new metadata.</param>
+        /// <returns>A task that completes once the update has been sent.</returns>
         public async Task SetMetadataAsync(string metadata)
         {
             var request = new FfiRequest
@@ -739,6 +744,7 @@ namespace LiveKit.Rtc
         /// Sets the local participant's name.
         /// </summary>
         /// <param name="name">The new name.</param>
+        /// <returns>A task that completes once the update has been sent.</returns>
         public async Task SetNameAsync(string name)
         {
             var request = new FfiRequest
@@ -775,6 +781,7 @@ namespace LiveKit.Rtc
         /// This requires `canUpdateOwnMetadata` permission.
         /// Existing attributes that are not overridden will remain unchanged.
         /// </remarks>
+        /// <returns>A task that completes once the update has been sent.</returns>
         public async Task SetAttributesAsync(Dictionary<string, string> attributes)
         {
             if (attributes == null)

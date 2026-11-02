@@ -14,7 +14,7 @@ namespace Livekit.Server.Sdk.Dotnet
     /// <summary>
     /// Access tokens are required to connect to the server.
     /// Once information is filled out, create the token string with <see cref="ToJwt"/>.
-    /// <see href="https://docs.livekit.io/guides/access-tokens"/>
+    /// See <see href="https://docs.livekit.io/guides/access-tokens">Access tokens</see>.
     /// </summary>
     public class AccessToken
     {
@@ -30,10 +30,10 @@ namespace Livekit.Server.Sdk.Dotnet
         private DateTime notBefore;
 
         /// <summary>
-        /// Constructs a new AccessToken
+        /// Constructs a new access token.
         /// </summary>
-        /// <param name="apiKey">LiveKit API key</param>
-        /// <param name="apiSecret">LiveKit API secret</param>
+        /// <param name="apiKey">LiveKit API key.</param>
+        /// <param name="apiSecret">LiveKit API secret.</param>
         public AccessToken(string apiKey = null, string apiSecret = null)
         {
             this.apiKey = apiKey ?? Environment.GetEnvironmentVariable("LIVEKIT_API_KEY");
@@ -95,7 +95,7 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Date specifying the time before which this token is invalid.
         /// If not set, the token is valid immediately after creation.
-        /// <see href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.5"/>
+        /// See <see href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.5">the JWT specification</see>.
         /// </summary>
         /// <param name="notBefore">Time before which the token is not valid. A value of kind <c>Unspecified</c> is read as local time.</param>
         /// <returns>This token, so calls can be chained.</returns>
@@ -185,7 +185,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Display name for the participant, available as <code>Participant.name</code>.
+        /// Display name for the participant, available as <c>Participant.name</c>.
         /// </summary>
         /// <param name="name">Display name shown to the other participants.</param>
         /// <returns>This token, so calls can be chained.</returns>
@@ -253,6 +253,7 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Generates the JWT token as a string.
         /// </summary>
+        /// <returns>The signed JWT.</returns>
         public string ToJwt()
         {
             var video = Claims.Video;

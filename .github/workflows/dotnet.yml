@@ -32,3 +32,7 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: Pack
       run: dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+    - name: Build API reference
+      run: |
+        dotnet tool restore
+        dotnet docfx docs/docfx.json --warningsAsErrors

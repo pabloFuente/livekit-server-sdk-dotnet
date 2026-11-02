@@ -128,7 +128,15 @@ dotnet test LivekitRtc.Tests/LivekitRtc.Tests.csproj
 
 # Build and install both packages locally
 ./build_local.sh
+
+# Build the API reference into docs/_site (same strict build as CI)
+dotnet tool restore && dotnet docfx docs/docfx.json --warningsAsErrors
 ```
+
+Every public member of the two libraries needs a complete XML doc comment (summary, every
+parameter, the return value): those comments are the published
+[API reference](https://pablofuente.github.io/livekit-server-sdk-dotnet/), so the build fails
+without them.
 
 ### Perform release
 

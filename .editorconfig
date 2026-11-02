@@ -1,10 +1,61 @@
 root = true
 
+# Hand-written library code. The XML documentation is what IntelliSense and the published API
+# reference show, so a missing or malformed comment is a build error, and StyleCop's
+# documentation rules require a <summary>, a <param> for every parameter, a <typeparam> for every
+# type parameter and a <returns> on every method that returns a value (<inheritdoc/> satisfies
+# them). Only the documentation rules of StyleCop are enabled.
+[{LivekitApi,LivekitRtc}/**.cs]
+dotnet_diagnostic.CS1591.severity = error
+dotnet_diagnostic.CS1570.severity = error
+dotnet_diagnostic.CS1571.severity = error
+dotnet_diagnostic.CS1572.severity = error
+dotnet_diagnostic.CS1573.severity = error
+dotnet_diagnostic.CS1574.severity = error
+dotnet_diagnostic.CS1580.severity = error
+dotnet_diagnostic.CS1581.severity = error
+dotnet_diagnostic.CS1584.severity = error
+dotnet_diagnostic.CS1587.severity = error
+dotnet_diagnostic.CS1710.severity = error
+dotnet_diagnostic.CS1711.severity = error
+dotnet_diagnostic.CS1712.severity = error
+dotnet_diagnostic.CS1723.severity = error
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.SpecialRules.severity = none
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.SpacingRules.severity = none
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.ReadabilityRules.severity = none
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.OrderingRules.severity = none
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.NamingRules.severity = none
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.MaintainabilityRules.severity = none
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.LayoutRules.severity = none
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.DocumentationRules.severity = error
+# Documentation rules that are covered by CS1591 or that impose a house style we do not follow
+dotnet_diagnostic.SA1600.severity = none
+dotnet_diagnostic.SA1601.severity = none
+dotnet_diagnostic.SA1602.severity = none
+dotnet_diagnostic.SA1623.severity = none
+dotnet_diagnostic.SA1624.severity = none
+dotnet_diagnostic.SA1633.severity = none
+dotnet_diagnostic.SA1634.severity = none
+dotnet_diagnostic.SA1635.severity = none
+dotnet_diagnostic.SA1636.severity = none
+dotnet_diagnostic.SA1637.severity = none
+dotnet_diagnostic.SA1638.severity = none
+dotnet_diagnostic.SA1639.severity = none
+dotnet_diagnostic.SA1640.severity = none
+dotnet_diagnostic.SA1641.severity = none
+dotnet_diagnostic.SA1642.severity = none
+dotnet_diagnostic.SA1643.severity = none
+dotnet_diagnostic.SA1649.severity = none
+
 # Every public member of the hand-written code must have an XML doc comment (CS1591 is a
 # warning there). The generated protobuf code only carries the comments protoc finds in the
 # .proto files, so the check is switched off for it.
 [LivekitApi/proto/*.cs]
+generated_code = true
 dotnet_diagnostic.CS1591.severity = none
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.DocumentationRules.severity = none
 
 [LivekitRtc/Proto/*.g.cs]
+generated_code = true
 dotnet_diagnostic.CS1591.severity = none
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.DocumentationRules.severity = none
