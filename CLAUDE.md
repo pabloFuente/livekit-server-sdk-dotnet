@@ -153,12 +153,18 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
 
 **`LivekitApi.Tests`**
 
-- Tests are tagged `[Trait("Category", "Unit")]` or `"Integration"`; tag new ones.
+- Tests are tagged `[Trait("Category", "Unit")]` or `"Integration"`; tag new ones. xUnit only
+  discovers `public` test methods: a non-public `[Fact]` compiles and is silently never run.
 - `ServiceClientFixture` (collection `"Integration tests"`) starts redis, `livekit/livekit-server:master`,
   egress, ingress and sip with **fixed container names** (`redis`, `livekit-server`, `egress`,
   `ingress`, `sip`) and **fixed host ports** (6379, 7880). Only one run can be active at a time,
-  and containers left over from an interrupted run make the next run fail until removed
-  (`docker rm -f redis livekit-server egress ingress sip`).
+  and containers left over from an interrupted run, or any other deployment using those names (a
+  local OpenVidu stack does), make the run fail until removed
+  (`docker rm -f redis livekit-server egress ingress sip`, only if they are ours).
+- xUnit builds that fixture for every class in the collection, even when
+  `--filter "Category=Unit"` selects only the unit tests of such a class. Unit tests therefore go
+  in classes without the collection attribute (`ServiceClientUnitTest`, `BaseServiceHttpClientTest`,
+  `ConnectorServiceClientTest`, the token and webhook tests), never next to integration tests.
 - Unit tests of service clients use `TestHttpMessageHandler` (in `ServiceClientFixture.cs`): it
   records the outgoing request, answers with an empty protobuf, and `LastVideoGrant()` decodes the
   JWT so tests can assert the exact grants a method sends. LiveKit Cloud-only services (Connector)
