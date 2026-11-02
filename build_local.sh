@@ -32,7 +32,7 @@ if [ -z "$API_VERSION" ]; then
     echo "Could not find Livekit.Server.Sdk.Dotnet version"
     exit 1
 fi
-mono /usr/local/bin/nuget.exe delete Livekit.Server.Sdk.Dotnet "$API_VERSION" -Source ~/.private_nuget/ -np || true
+mono /usr/local/bin/nuget.exe delete Livekit.Server.Sdk.Dotnet "$API_VERSION" -Source ~/.private_nuget/ -NonInteractive || true
 mono /usr/local/bin/nuget.exe add "$SCRIPT_FOLDER"/LivekitApi/bin/Debug/Livekit.Server.Sdk.Dotnet."$API_VERSION".nupkg -Source ~/.private_nuget/ || exit 1
 
 popd
@@ -52,7 +52,7 @@ if [ -z "$RTC_VERSION" ]; then
     echo "Could not find Livekit.Rtc.Dotnet version"
     exit 1
 fi
-mono /usr/local/bin/nuget.exe delete Livekit.Rtc.Dotnet "$RTC_VERSION" -Source ~/.private_nuget/ -np || true
+mono /usr/local/bin/nuget.exe delete Livekit.Rtc.Dotnet "$RTC_VERSION" -Source ~/.private_nuget/ -NonInteractive || true
 mono /usr/local/bin/nuget.exe add "$SCRIPT_FOLDER"/LivekitRtc/bin/Debug/Livekit.Rtc.Dotnet."$RTC_VERSION".nupkg -Source ~/.private_nuget/ || exit 1
 
 popd

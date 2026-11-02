@@ -422,19 +422,22 @@ public class AuditRegressionTests
         await Task.Delay(500);
 
         var cryptor = Assert.Single(
-            publisherRoom.E2EEManager!.GetFrameCryptors().Where(c => c.TrackSid == publication.Sid)
+            publisherRoom.E2EEManager!.GetFrameCryptors(),
+            c => c.TrackSid == publication.Sid
         );
         Assert.True(cryptor.Enabled);
 
         cryptor.SetEnabled(false);
         var disabled = Assert.Single(
-            publisherRoom.E2EEManager.GetFrameCryptors().Where(c => c.TrackSid == publication.Sid)
+            publisherRoom.E2EEManager.GetFrameCryptors(),
+            c => c.TrackSid == publication.Sid
         );
         Assert.False(disabled.Enabled);
 
         cryptor.SetEnabled(true);
         var reenabled = Assert.Single(
-            publisherRoom.E2EEManager.GetFrameCryptors().Where(c => c.TrackSid == publication.Sid)
+            publisherRoom.E2EEManager.GetFrameCryptors(),
+            c => c.TrackSid == publication.Sid
         );
         Assert.True(reenabled.Enabled);
 

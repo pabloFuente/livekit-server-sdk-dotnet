@@ -363,8 +363,8 @@ public class E2EETests : IAsyncLifetime
         var goodCollect = CollectSamples(goodStream, 9600, 8, TimeSpan.FromSeconds(10));
         var badCollect = CollectSamples(badStream, 9600, 8, TimeSpan.FromSeconds(10));
         await Task.WhenAll(goodCollect, badCollect);
-        var (goodSamples, goodRate) = goodCollect.Result;
-        var (badSamples, badRate) = badCollect.Result;
+        var (goodSamples, goodRate) = await goodCollect;
+        var (badSamples, badRate) = await badCollect;
 
         Volatile.Write(ref sending, false);
         await sendTask;
