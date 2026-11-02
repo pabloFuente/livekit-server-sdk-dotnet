@@ -76,13 +76,13 @@ a public API change that breaks them. Build them explicitly after changing publi
 ## Target frameworks and language level
 
 Both libraries target .NET Standard, so most "modern .NET" APIs are unavailable even though the
-tests and examples run on `net8.0`.
+tests and examples run on `net10.0`.
 
 | Project | TFM | Language | Nullable |
 | --- | --- | --- | --- |
 | `LivekitApi` | `netstandard2.0` | default for the TFM, i.e. **C# 7.3** | disabled |
-| `LivekitRtc` | `netstandard2.1` | `latest` (C# 12 on the .NET 8 SDK) | enabled, `AllowUnsafeBlocks` |
-| `*.Tests`, `*.Example` | `net8.0` | default | enabled |
+| `LivekitRtc` | `netstandard2.1` | `latest` (C# 14 on the .NET 10 SDK) | enabled, `AllowUnsafeBlocks` |
+| `*.Tests`, `*.Example` | `net10.0` | default | enabled |
 
 - In `LivekitApi` do not use C# 8+ syntax: no `??=`, `using var`, switch expressions, ranges and
   indices, `is not`, target-typed `new()`, default interface members, async streams, and no `?`
@@ -96,7 +96,9 @@ tests and examples run on `net8.0`.
   use plain classes with get/set properties.
 - Both packages keep `GenerateDocumentationFile` on: every new public member needs an XML doc
   comment (missing ones only warn because `CS1591` is suppressed, but the convention is to document).
-- CI uses the .NET 8 SDK (`.github/workflows/dotnet.yml`).
+- The .NET 10 SDK is required: `global.json` pins it (`rollForward: latestFeature`) and both
+  workflows install `10.0.x`. The libraries still target .NET Standard, so the packages keep
+  working on older runtimes; only building, testing and the examples need .NET 10.
 
 ## Build, format, test
 
@@ -133,7 +135,7 @@ Formatting:
 
 ## Tests
 
-Both test projects are xUnit on `net8.0`. Integration tests start real services with
+Both test projects are xUnit on `net10.0`. Integration tests start real services with
 [Testcontainers](https://testcontainers.com/), so Docker must be running.
 
 **`LivekitApi.Tests`**

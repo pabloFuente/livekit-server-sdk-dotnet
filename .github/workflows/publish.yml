@@ -30,7 +30,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: 10.0.x
 
       # Determine which project to pack based on release tag
       - name: Determine project to pack
@@ -67,7 +67,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: 10.0.x
 
       # Download the NuGet package created in the previous job
       - uses: actions/download-artifact@v4
@@ -94,7 +94,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: 10.0.x
       - name: Run tests
         run: dotnet test -c Release
 
@@ -118,7 +118,7 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: 10.0.x
 
       # NuGet Trusted Publishing: exchange this workflow's OIDC token for a short-lived API key
       - name: Log in to NuGet (Trusted Publishing)
