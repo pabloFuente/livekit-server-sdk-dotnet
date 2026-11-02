@@ -230,7 +230,9 @@ namespace LiveKit.Rtc
             _ending = true;
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Stops mixing. Pending reads return null and later reads throw <see cref="ObjectDisposedException"/>. The added streams are not disposed.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed)
@@ -255,7 +257,11 @@ namespace LiveKit.Rtc
             GC.SuppressFinalize(this);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Stops mixing and waits for the mixing loop to exit. Pending reads return null and later reads throw <see cref="ObjectDisposedException"/>. The added streams are not
+        /// disposed.
+        /// </summary>
+        /// <returns>A task that completes once the mixing loop has stopped.</returns>
         public async ValueTask DisposeAsync()
         {
             if (_disposed)

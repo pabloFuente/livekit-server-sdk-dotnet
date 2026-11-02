@@ -73,7 +73,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Get an agent dispatch by its ID. Returns null if the dispatch does not exist.
+        /// Gets an agent dispatch by its ID, or null when it does not exist.
         /// </summary>
         /// <param name="dispatchId">ID of the dispatch.</param>
         /// <param name="roomName">Room the dispatch belongs to.</param>

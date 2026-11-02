@@ -25,7 +25,7 @@ namespace Livekit.Server.Sdk.Dotnet
             : base(host, apiKey, apiSecret, client) { }
 
         /// <summary>
-        /// Initiate an outbound WhatsApp call.
+        /// Starts an outbound WhatsApp call.
         /// </summary>
         /// <param name="request">WhatsApp phone number ID, API key, the number to call and the room to connect the call to.</param>
         /// <returns>The WhatsApp call ID and the room.</returns>
@@ -43,7 +43,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Disconnect an active WhatsApp call.
+        /// Disconnects an active WhatsApp call.
         /// </summary>
         /// <param name="request">WhatsApp call ID and the reason.</param>
         /// <returns>Empty response.</returns>
@@ -61,7 +61,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Connect an established WhatsApp call (used for business-initiated calls).
+        /// Connects an established WhatsApp call, for business-initiated calls.
         /// </summary>
         /// <param name="request">WhatsApp call ID and the SDP of the call; optionally wait until it is answered.</param>
         /// <returns>The connection details of the call.</returns>
@@ -79,7 +79,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Accept an inbound WhatsApp call.
+        /// Accepts an inbound WhatsApp call.
         /// </summary>
         /// <param name="request">WhatsApp phone number ID, API key and the ID of the incoming call to accept.</param>
         /// <returns>The accepted call.</returns>
@@ -97,7 +97,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Connect a Twilio call to a LiveKit room.
+        /// Connects a Twilio call to a LiveKit room.
         /// </summary>
         /// <param name="request">Twilio call direction and the room to connect the call to.</param>
         /// <returns>The URL Twilio must connect the call to.</returns>

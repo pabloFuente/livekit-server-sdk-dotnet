@@ -46,7 +46,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Create a new SIP inbound trunk.
+        /// Creates a SIP inbound trunk.
         /// </summary>
         /// <param name="request">Trunk to create: name, numbers, allowed addresses and numbers, authentication, media options.</param>
         /// <returns>The created trunk.</returns>
@@ -64,7 +64,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Create a new SIP outbound trunk.
+        /// Creates a SIP outbound trunk.
         /// </summary>
         /// <param name="request">Trunk to create: name, SIP address, numbers, authentication, media options.</param>
         /// <returns>The created trunk.</returns>
@@ -82,7 +82,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Get a SIP inbound trunk.
+        /// Gets a SIP inbound trunk by ID.
         /// </summary>
         /// <param name="request">Trunk ID.</param>
         /// <returns>The trunk.</returns>
@@ -100,7 +100,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Get a SIP outbound trunk.
+        /// Gets a SIP outbound trunk by ID.
         /// </summary>
         /// <param name="request">Trunk ID.</param>
         /// <returns>The trunk.</returns>
@@ -118,7 +118,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// List SIP inbound trunks.
+        /// Lists the SIP inbound trunks.
         /// </summary>
         /// <param name="request">Optional filters: trunk IDs, numbers, page.</param>
         /// <returns>The matching trunks.</returns>
@@ -136,7 +136,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// List SIP outbound trunks.
+        /// Lists the SIP outbound trunks.
         /// </summary>
         /// <param name="request">Optional filters: trunk IDs, numbers, page.</param>
         /// <returns>The matching trunks.</returns>
@@ -154,7 +154,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Delete a SIP trunk.
+        /// Deletes a SIP trunk.
         /// </summary>
         /// <param name="request">Trunk ID.</param>
         /// <returns>The deleted trunk.</returns>
@@ -170,7 +170,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Create a new SIP dispatch rule.
+        /// Creates a SIP dispatch rule, which decides the room an inbound call joins.
         /// </summary>
         /// <param name="request">Rule to create: the trunks it applies to, how calls are dispatched (a shared room or one room per caller), participant settings.</param>
         /// <returns>The created rule.</returns>
@@ -188,7 +188,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// List SIP dispatch rules with optional filtering.
+        /// Lists the SIP dispatch rules, optionally filtered.
         /// </summary>
         /// <param name="request">Optional filters: rule IDs, trunk IDs, page.</param>
         /// <returns>The matching rules.</returns>
@@ -206,7 +206,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Delete a SIP dispatch rule.
+        /// Deletes a SIP dispatch rule.
         /// </summary>
         /// <param name="request">Rule ID.</param>
         /// <returns>The deleted rule.</returns>
@@ -224,7 +224,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Create a new SIP participant.
+        /// Places an outbound call through a SIP trunk and adds the callee to a room as a SIP participant.
         /// </summary>
         /// <param name="request">Outbound call to place: trunk ID, number to call, room and participant identity, DTMF to dial, options.</param>
         /// <returns>The SIP participant placing the call.</returns>
@@ -242,7 +242,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Transfer a SIP participant to a different room.
+        /// Transfers the call of a SIP participant to another phone number or SIP URI, with a SIP REFER.
         /// </summary>
         /// <param name="request">Room name, participant identity and the number or SIP URI to transfer the call to.</param>
         /// <returns>The outcome of the transfer.</returns>

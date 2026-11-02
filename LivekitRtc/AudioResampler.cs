@@ -223,7 +223,9 @@ namespace LiveKit.Rtc
             }
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Releases the native resampler. Call <see cref="Flush"/> first to get the audio it still buffers.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed)

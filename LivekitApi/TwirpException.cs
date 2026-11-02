@@ -5,10 +5,10 @@ using Newtonsoft.Json.Linq;
 namespace Livekit.Server.Sdk.Dotnet
 {
     /// <summary>
-    /// Error returned by the LiveKit server for a service call. It extends the generated
-    /// <see cref="global::Twirp.Exception"/> (so existing <c>catch</c> blocks keep working) with the
-    /// HTTP status and the <c>meta</c> map of the Twirp error (for example <c>sip_status_code</c>
-    /// for SIP calls).
+    /// Error returned by the LiveKit server for a service call. It derives from the generated
+    /// <c>Twirp.Exception</c>, so existing <c>catch</c> blocks keep working, and adds the HTTP status and
+    /// the <c>meta</c> map of the Twirp error (for example <c>sip_status_code</c> for SIP calls). The Twirp
+    /// error code is in the inherited <c>Type</c> property.
     /// </summary>
     public class TwirpException : global::Twirp.Exception
     {
@@ -47,7 +47,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Builds the error from a non-2xx response body, which is a Twirp JSON error
         /// (<c>{"code":"...","msg":"...","meta":{...}}</c>) or, from proxies, anything else.
-        /// Called by the generated <c>Twirp.DoRequest</c> (see <c>generate_proto.sh</c>).
+        /// The service clients call it for every failed request; it is public for code that sends Twirp
+        /// requests itself.
         /// </summary>
         /// <param name="body">The response body.</param>
         /// <param name="status">The HTTP status of the response.</param>

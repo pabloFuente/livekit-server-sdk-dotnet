@@ -4,9 +4,31 @@ apiRules:
   - exclude:
       uidRegex: ^LiveKit\.Rtc\.Internal
       type: Namespace
-  # FFI transport messages of the RTC package (requests, responses, callbacks, events, owned
-  # handles and protobuf reflection holders) are not part of the public API. The protobuf
-  # enums, infos, options and stats that public members use stay documented.
+  # SDK plumbing whose signature uses a type of that namespace (the VideoStream constructor that
+  # wraps a native handle), and Participant state only the SDK can reach (its constructors are
+  # internal)
   - exclude:
-      uidRegex: ^LiveKit\.Proto\.(Ffi|Owned)\w*(\.|$)|^LiveKit\.Proto\.\w*(Request|Response|Callback|Event|Reflection)(\.|$)
+      uidRegex: LiveKit\.Rtc\.Internal\.|^LiveKit\.Rtc\.Participant\._trackPublications$
+      type: Member
+  # Protobuf plumbing of the generated messages: parsing, serialization, reflection, cloning,
+  # equality and field numbers. No hand-written type of the server namespace has members with
+  # these names; in the RTC package the rules only touch LiveKit.Proto.
+  - exclude:
+      uidRegex: ^(Livekit\.Server\.Sdk\.Dotnet|LiveKit\.Proto)\.[\w.]+\.(Parser|Descriptor|CalculateSize|GetHashCode|ToString|Clone|\w+FieldNumber)$
+      type: Member
+  - exclude:
+      uidRegex: ^(Livekit\.Server\.Sdk\.Dotnet|LiveKit\.Proto)\.[\w.]+\.(MergeFrom|WriteTo|Equals)\(
+      type: Member
+  # File descriptor holders and the protobuf options of livekit/protocol's logger
+  - exclude:
+      uidRegex: ^(Livekit\.Server\.Sdk\.Dotnet|LiveKit\.Proto)\.(\w+Reflection|OptionsExtensions)$
+      type: Type
+  # LiveKit.Proto (RTC package) keeps only the types the public LiveKit.Rtc API uses; the others
+  # are FFI transport messages. docs/check_api_docs.py fails, naming the type to add here, when a
+  # LiveKit.Rtc member starts using one that is missing.
+  - include:
+      uidRegex: ^LiveKit\.Proto\.(AudioPlayoutStats|AudioSourceStats|CandidatePairStats|CertificateStats|ChatMessage|CodecStats|ConnectionQuality|ConnectionState|DataChannelState|DataChannelStats|DataPacketKind|DegradationPreference|DisconnectReason|DtlsRole|DtlsTransportState|EncodedFrameType|EncryptionState|EncryptionType|FrameMetadata|FrameMetadataFeature|IceCandidatePairState|IceCandidateStats|IceCandidateType|IceRole|IceServerTransportProtocol|IceTcpCandidateType|IceTransportState|InboundRtpStreamStats|KeyDerivationFunction|LocalDataTrackTryPushErrorCode|MediaSourceStats|OutboundRtpStreamStats|ParticipantKind|ParticipantPermission|ParticipantState|ParticipantTrackPermission|PeerConnectionStats|PublishDataTrackErrorCode|QualityLimitationReason|ReceivedRtpStreamStats|RemoteInboundRtpStreamStats|RemoteOutboundRtpStreamStats|RoomInfo|RtcStats|RtcStatsData|RtpStreamStats|SentRtpStreamStats|SimulateScenarioKind|SoxQualityRecipe|StreamStats|SubscribeDataTrackErrorCode|TrackKind|TrackSource|TranscriptionSegment|TransportStats|VideoBufferType|VideoCodec|VideoEncoderBackend|VideoQuality|VideoRotation|VideoSourceStats)(\.|$)
+      type: Type
+  - exclude:
+      uidRegex: ^LiveKit\.Proto\.
       type: Type

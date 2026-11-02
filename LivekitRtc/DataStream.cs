@@ -14,12 +14,12 @@ using LiveKit.Rtc.Internal;
 namespace LiveKit.Rtc
 {
     /// <summary>
-    /// Default stream chunk size.
+    /// Constants of the data streams.
     /// </summary>
     public static class DataStreamConstants
     {
         /// <summary>
-        /// Maximum chunk size for data streams.
+        /// Maximum size in bytes of one data stream chunk; longer writes are split.
         /// </summary>
         public const int StreamChunkSize = 15000;
     }
@@ -327,7 +327,10 @@ namespace LiveKit.Rtc
             ThrowIfFailed();
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Stops receiving: the chunks already received can still be read, then reads return null. Later
+        /// chunks are dropped.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed)
@@ -338,7 +341,11 @@ namespace LiveKit.Rtc
             GC.SuppressFinalize(this);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Stops receiving: the chunks already received can still be read, then reads return null. Later
+        /// chunks are dropped.
+        /// </summary>
+        /// <returns>A completed task.</returns>
         public ValueTask DisposeAsync()
         {
             if (_disposed)
@@ -531,7 +538,10 @@ namespace LiveKit.Rtc
             ThrowIfFailed();
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Stops receiving: the chunks already received can still be read, then reads return null. Later
+        /// chunks are dropped.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed)
@@ -542,7 +552,11 @@ namespace LiveKit.Rtc
             GC.SuppressFinalize(this);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Stops receiving: the chunks already received can still be read, then reads return null. Later
+        /// chunks are dropped.
+        /// </summary>
+        /// <returns>A completed task.</returns>
         public ValueTask DisposeAsync()
         {
             if (_disposed)

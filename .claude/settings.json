@@ -8,6 +8,8 @@
       "Bash(dotnet pack:*)",
       "Bash(dotnet tool restore)",
       "Bash(dotnet csharpier:*)",
+      "Bash(dotnet docfx:*)",
+      "Bash(python3 docs/check_api_docs.py)",
       "Bash(./generate_proto.sh)",
       "Bash(python3 .claude/skills/sync-protocol/scripts/api_coverage.py:*)",
       "Bash(python3 .claude/skills/sync-protocol/scripts/proto_inventory.py:*)",

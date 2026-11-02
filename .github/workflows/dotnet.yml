@@ -36,3 +36,4 @@ jobs:
       run: |
         dotnet tool restore
         dotnet docfx docs/docfx.json --warningsAsErrors
+        python3 docs/check_api_docs.py

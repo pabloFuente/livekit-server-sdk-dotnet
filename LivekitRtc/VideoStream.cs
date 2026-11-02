@@ -93,7 +93,7 @@ namespace LiveKit.Rtc
         }
 
         /// <summary>
-        /// Internal constructor for creating from handle.
+        /// Used by the SDK to wrap a native video stream it already created.
         /// </summary>
         /// <param name="handle">Native handle of the stream.</param>
         /// <param name="format">Pixel format the frames are converted to, or null to keep the source format.</param>
@@ -333,7 +333,9 @@ namespace LiveKit.Rtc
             }
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Stops the stream and releases the native stream. Pending reads return null and later reads throw <see cref="ObjectDisposedException"/>.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed)
@@ -349,7 +351,10 @@ namespace LiveKit.Rtc
             GC.SuppressFinalize(this);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Stops the stream and releases the native stream. Pending reads return null and later reads throw <see cref="ObjectDisposedException"/>.
+        /// </summary>
+        /// <returns>A task that completes once the stream is released.</returns>
         public async ValueTask DisposeAsync()
         {
             if (_disposed)

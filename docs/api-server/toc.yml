@@ -1,0 +1,34 @@
+# Sidebar of the server package reference, used in place of the toc.yml that DocFX generates
+# into obj/api-server, which lists the 17 hand-written types among some 560 protobuf messages. The
+# messages are listed on the namespace page. docs/check_api_docs.py fails when a hand-written
+# public type of LivekitApi is missing here.
+- uid: Livekit.Server.Sdk.Dotnet
+  name: Namespace overview and all types
+- name: Access tokens
+  items:
+    - uid: Livekit.Server.Sdk.Dotnet.AccessToken
+    - uid: Livekit.Server.Sdk.Dotnet.VideoGrants
+    - uid: Livekit.Server.Sdk.Dotnet.SIPGrants
+    - uid: Livekit.Server.Sdk.Dotnet.InferenceGrants
+    - uid: Livekit.Server.Sdk.Dotnet.ObservabilityGrants
+    - uid: Livekit.Server.Sdk.Dotnet.ClaimsModel
+    - uid: Livekit.Server.Sdk.Dotnet.TokenVerifier
+    - uid: Livekit.Server.Sdk.Dotnet.Constants
+- name: Service clients
+  items:
+    - uid: Livekit.Server.Sdk.Dotnet.RoomServiceClient
+    - uid: Livekit.Server.Sdk.Dotnet.EgressServiceClient
+    - uid: Livekit.Server.Sdk.Dotnet.IngressServiceClient
+    - uid: Livekit.Server.Sdk.Dotnet.SipServiceClient
+    - uid: Livekit.Server.Sdk.Dotnet.AgentDispatchServiceClient
+    - uid: Livekit.Server.Sdk.Dotnet.ConnectorServiceClient
+    - uid: Livekit.Server.Sdk.Dotnet.BaseService
+- name: Webhooks
+  items:
+    - uid: Livekit.Server.Sdk.Dotnet.WebhookReceiver
+    - uid: Livekit.Server.Sdk.Dotnet.WebhookEvent
+- name: Errors
+  items:
+    - uid: Livekit.Server.Sdk.Dotnet.TwirpException
+    - uid: Global.Twirp.Exception
+    - uid: Global.Twirp.ErrorCode

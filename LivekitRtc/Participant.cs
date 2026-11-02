@@ -1210,7 +1210,7 @@ namespace LiveKit.Rtc
         /// <param name="destinationIdentity">The identity of the destination participant.</param>
         /// <param name="method">The RPC method name to call.</param>
         /// <param name="payload">The payload to send with the request.</param>
-        /// <param name="responseTimeout">Optional timeout in seconds for receiving a response (default: 10).</param>
+        /// <param name="responseTimeout">Seconds to wait for the response; 15 when null.</param>
         /// <returns>The response payload from the remote participant.</returns>
         /// <exception cref="RpcError">Thrown when the RPC call fails.</exception>
         public async Task<string> PerformRpcAsync(
@@ -1497,7 +1497,8 @@ namespace LiveKit.Rtc
         public bool? Red { get; set; }
 
         /// <summary>
-        /// Whether to enable simulcast for video tracks.
+        /// Whether to publish video in several quality layers, so each subscriber receives the one it can
+        /// handle. Defaults to true; must be false for pre-encoded tracks.
         /// </summary>
         public bool Simulcast { get; set; } = true;
 
@@ -1648,7 +1649,8 @@ namespace LiveKit.Rtc
     public class DataPublishOptions
     {
         /// <summary>
-        /// Whether to send the data reliably.
+        /// Whether to send the data on the reliable channel, which retransmits lost packets and keeps their
+        /// order. Defaults to true; false uses the lossy channel.
         /// </summary>
         public bool Reliable { get; set; } = true;
 

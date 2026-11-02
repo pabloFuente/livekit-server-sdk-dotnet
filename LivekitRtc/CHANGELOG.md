@@ -4,8 +4,16 @@
 
 - XML documentation comments for every public member, with parameter and return value
   descriptions on every method, for IntelliSense and for the new
-  [API reference](https://pablofuente.github.io/livekit-server-sdk-dotnet/) generated with DocFX;
-  a missing comment is now a build warning.
+  [API reference](https://pablofuente.github.io/livekit-server-sdk-dotnet/) generated with DocFX.
+  [commit f5660c2](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f5660c2f0225936951568c0c3ab403175521063a)
+- Fix wrong XML documentation: `LocalParticipant.PerformRpcAsync` waits 15 seconds for the response
+  by default, not 10; `Room.E2EEStateChanged` fires on every encryption state change, not only on
+  errors; this version never calls `FrameProcessor.OnStreamInfoUpdated` and `OnCredentialsUpdated`,
+  and never throws `FfiException` or `TrackException` (a failed native request raises
+  `InvalidOperationException`, a server error `RoomException`). The defaults of `RoomOptions`,
+  `TrackPublishOptions.Simulcast`, `DataPublishOptions.Reliable`, `E2EEOptions` and
+  `KeyProviderOptions` are now documented, as is what each `Dispose` releases, and `Room` gains a
+  usage example. The API reference lists only the `LiveKit.Proto` types the public API uses.
 
 ## 0.1.6
 

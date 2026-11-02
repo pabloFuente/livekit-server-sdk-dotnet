@@ -2,7 +2,8 @@
 
 ## Unreleased
 
-- XML documentation comments for every public member, with parameter and return value descriptions on every method, for IntelliSense and for the new [API reference](https://pablofuente.github.io/livekit-server-sdk-dotnet/) generated with DocFX; a missing comment is now a build warning.
+- XML documentation comments for every public member, with parameter and return value descriptions on every method, for IntelliSense and for the new [API reference](https://pablofuente.github.io/livekit-server-sdk-dotnet/) generated with DocFX. [commit f5660c2](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/f5660c2f0225936951568c0c3ab403175521063a)
+- Fix wrong or incomplete XML documentation: `SipServiceClient.TransferSIPParticipant` said it moved the participant to another room, while it transfers the call to a phone number or SIP URI; `TokenVerifier.Verify`, `WebhookReceiver.Receive` and the constructors of `AccessToken`, `TokenVerifier` and `WebhookReceiver` now list the exceptions they actually throw. `AccessToken`, `RoomServiceClient` and `WebhookReceiver` gain usage examples, and the API reference groups the clients, tokens and webhooks in its sidebar and no longer lists the protobuf plumbing members of the generated messages.
 
 ## 1.2.5
 

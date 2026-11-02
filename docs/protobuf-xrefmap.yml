@@ -1,0 +1,95 @@
+### YamlMime:XRefMap
+# Links the Google.Protobuf types of the generated code to their reference on protobuf.dev,
+# which publishes no xref map of its own.
+sorted: true
+references:
+- uid: Google.Protobuf.ByteString
+  name: ByteString
+  href: https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/byte-string.html
+  commentId: T:Google.Protobuf.ByteString
+  fullName: Google.Protobuf.ByteString
+  nameWithType: ByteString
+- uid: Google.Protobuf.CodedInputStream
+  name: CodedInputStream
+  href: https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/coded-input-stream.html
+  commentId: T:Google.Protobuf.CodedInputStream
+  fullName: Google.Protobuf.CodedInputStream
+  nameWithType: CodedInputStream
+- uid: Google.Protobuf.CodedOutputStream
+  name: CodedOutputStream
+  href: https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/coded-output-stream.html
+  commentId: T:Google.Protobuf.CodedOutputStream
+  fullName: Google.Protobuf.CodedOutputStream
+  nameWithType: CodedOutputStream
+- uid: Google.Protobuf.Collections.MapField`2
+  name: MapField<TKey, TValue>
+  href: https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/collections/map-field-t-key-t-value-.html
+  commentId: T:Google.Protobuf.Collections.MapField`2
+  fullName: Google.Protobuf.Collections.MapField<TKey, TValue>
+  nameWithType: MapField<TKey, TValue>
+- uid: Google.Protobuf.Collections.RepeatedField`1
+  name: RepeatedField<T>
+  href: https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/collections/repeated-field-t-.html
+  commentId: T:Google.Protobuf.Collections.RepeatedField`1
+  fullName: Google.Protobuf.Collections.RepeatedField<T>
+  nameWithType: RepeatedField<T>
+- uid: Google.Protobuf.IDeepCloneable`1
+  name: IDeepCloneable<T>
+  href: https://protobuf.dev/reference/csharp/api-docs/interface/google/protobuf/i-deep-cloneable-t-.html
+  commentId: T:Google.Protobuf.IDeepCloneable`1
+  fullName: Google.Protobuf.IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+- uid: Google.Protobuf.IMessage
+  name: IMessage
+  href: https://protobuf.dev/reference/csharp/api-docs/interface/google/protobuf/i-message.html
+  commentId: T:Google.Protobuf.IMessage
+  fullName: Google.Protobuf.IMessage
+  nameWithType: IMessage
+- uid: Google.Protobuf.IMessage`1
+  name: IMessage<T>
+  href: https://protobuf.dev/reference/csharp/api-docs/interface/google/protobuf/i-message-t-.html
+  commentId: T:Google.Protobuf.IMessage`1
+  fullName: Google.Protobuf.IMessage<T>
+  nameWithType: IMessage<T>
+- uid: Google.Protobuf.InvalidJsonException
+  name: InvalidJsonException
+  href: https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/invalid-json-exception.html
+  commentId: T:Google.Protobuf.InvalidJsonException
+  fullName: Google.Protobuf.InvalidJsonException
+  nameWithType: InvalidJsonException
+- uid: Google.Protobuf.InvalidProtocolBufferException
+  name: InvalidProtocolBufferException
+  href: https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/invalid-protocol-buffer-exception.html
+  commentId: T:Google.Protobuf.InvalidProtocolBufferException
+  fullName: Google.Protobuf.InvalidProtocolBufferException
+  nameWithType: InvalidProtocolBufferException
+- uid: Google.Protobuf.MessageParser`1
+  name: MessageParser<T>
+  href: https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/message-parser-t-.html
+  commentId: T:Google.Protobuf.MessageParser`1
+  fullName: Google.Protobuf.MessageParser<T>
+  nameWithType: MessageParser<T>
+- uid: Google.Protobuf.Reflection.FileDescriptor
+  name: FileDescriptor
+  href: https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/reflection/file-descriptor.html
+  commentId: T:Google.Protobuf.Reflection.FileDescriptor
+  fullName: Google.Protobuf.Reflection.FileDescriptor
+  nameWithType: FileDescriptor
+- uid: Google.Protobuf.Reflection.MessageDescriptor
+  name: MessageDescriptor
+  href: https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/reflection/message-descriptor.html
+  commentId: T:Google.Protobuf.Reflection.MessageDescriptor
+  fullName: Google.Protobuf.Reflection.MessageDescriptor
+  nameWithType: MessageDescriptor
+- uid: Google.Protobuf.WellKnownTypes.Duration
+  name: Duration
+  href: https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/well-known-types/duration.html
+  commentId: T:Google.Protobuf.WellKnownTypes.Duration
+  fullName: Google.Protobuf.WellKnownTypes.Duration
+  nameWithType: Duration
+- uid: Google.Protobuf.WellKnownTypes.Timestamp
+  name: Timestamp
+  href: https://protobuf.dev/reference/csharp/api-docs/class/google/protobuf/well-known-types/timestamp.html
+  commentId: T:Google.Protobuf.WellKnownTypes.Timestamp
+  fullName: Google.Protobuf.WellKnownTypes.Timestamp
+  nameWithType: Timestamp

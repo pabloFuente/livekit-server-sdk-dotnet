@@ -114,7 +114,9 @@ namespace LiveKit.Rtc
             return new LocalVideoTrack(FfiHandle.FromId(trackInfo.Handle.Id), trackInfo);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Releases the native video source.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed)

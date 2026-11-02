@@ -230,7 +230,9 @@ namespace LiveKit.Rtc
                 throw new ObjectDisposedException(nameof(LocalDataTrack));
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Releases the native handle of the track, which also unpublishes it if it is still published.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed)
@@ -355,7 +357,10 @@ namespace LiveKit.Rtc
                 throw new ObjectDisposedException(nameof(RemoteDataTrack));
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Releases the native handle of the track. The streams returned by <see cref="Subscribe"/> are
+        /// disposed separately.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed)
@@ -534,7 +539,10 @@ namespace LiveKit.Rtc
             _handle.Dispose();
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Unsubscribes from the track and releases the native resources, like <see cref="Dispose"/>.
+        /// </summary>
+        /// <returns>A completed task.</returns>
         public ValueTask DisposeAsync()
         {
             Dispose();

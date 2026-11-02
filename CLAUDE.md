@@ -142,18 +142,32 @@ Formatting:
 
 ## API reference (DocFX)
 
-- `dotnet docfx docs/docfx.json` builds the API reference of both packages into `docs/_site`
-  (ignored, like the intermediate `docs/api-server` and `docs/api-rtc`). `docfx` is pinned in
+- `dotnet docfx docs/docfx.json --warningsAsErrors && python3 docs/check_api_docs.py` builds the
+  API reference of both packages into `docs/_site` and checks what DocFX does not: the server
+  sidebar, the `LiveKit.Proto` allow-list and every link between pages. Generated output is
+  ignored (`docs/_site`, `docs/obj`, `docs/api-rtc`). `docfx` is pinned in
   `.config/dotnet-tools.json` next to CSharpier.
-- `docs/filter.yml` drops `LiveKit.Rtc.Internal` and the FFI transport messages of `LiveKit.Proto`
-  (`Ffi*`, `Owned*`, `*Request`, `*Response`, `*Callback`, `*Event`, `*Reflection`); the protobuf
-  enums, infos, options and stats that public members use stay, as do all server API messages.
+- The server sidebar is hand-written, `docs/api-server/toc.yml`: the generated one lists the 17
+  hand-written types among ~560 protobuf messages. DocFX only uses a sidebar found at the
+  physical path the navbar links to, so the server metadata is generated into `docs/obj/api-server`
+  and mapped to `api-server/` in `docfx.json`. A new public type of `LivekitApi` needs an entry
+  there; the check script fails until it has one.
+- `docs/filter.yml` drops `LiveKit.Rtc.Internal`, the protobuf plumbing members of the generated
+  messages (`Parser`, `Descriptor`, `MergeFrom`, `WriteTo`, `CalculateSize`, `Clone`, `Equals`,
+  `GetHashCode`, `ToString`, field-number constants) and the `*Reflection` holders, and keeps in
+  `LiveKit.Proto` only an allow-list of the types the public `LiveKit.Rtc` API uses. When a
+  rust-sdks bump makes a public member use another one, the check script names it.
+- `globalNamespaceId: Global` gives the global-namespace `Twirp` types that `TwirpException`
+  derives from a page, but DocFX links them without the `Global.` prefix, so
+  `docs/redirects/*.md` publish redirect pages at those paths. Namespace overviews are overwrite
+  files in `docs/namespaces/`; `docs/protobuf-xrefmap.yml` links the Google.Protobuf types to
+  protobuf.dev, which publishes no xref map.
 - `.github/workflows/docs.yml` publishes `docs/_site` to GitHub Pages
   (https://pablofuente.github.io/livekit-server-sdk-dotnet/) on every push to `main` that touches
   a package or `docs/`, so the site documents the current `main`, not a release.
-- `dotnet.yml` also builds the reference on every PR, and both workflows pass `--warningsAsErrors`,
-  so a DocFX warning (an xref that does not resolve in `docs/index.md` or `docs/toc.yml`, a
-  duplicate tag) fails CI. `docs/docfx.json` passes `NoWarn` for the obsolete-member warnings
+- `dotnet.yml` also builds the reference on every PR. Both workflows pass `--warningsAsErrors`, so
+  a DocFX warning (an xref that does not resolve in `docs/index.md`, `docs/toc.yml` or a sidebar, a
+  duplicate tag) fails CI, and run the check script. `docs/docfx.json` passes `NoWarn` for the obsolete-member warnings
   (`CS0612`, `CS0618`) that the metadata build would otherwise report as DocFX warnings.
 
 ## Tests
@@ -314,7 +328,9 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
 2. `./generate_proto.sh`
 3. `./LivekitRtc/download_ffi.sh livekit-ffi/vX.Y.Z` (all six binaries change).
 4. `dotnet build`, then run at least the no-Docker RTC tests (the parity guards) and the Docker
-   tests you can afford. Expose any new proto fields the guards complain about.
+   tests you can afford. Expose any new proto fields the guards complain about. Build and check
+   the API reference too: a public member that starts using another `LiveKit.Proto` type needs it
+   in the allow-list of `docs/filter.yml`.
 5. Commit the submodule pointer, regenerated protos, binaries and any `generate_proto.sh` change
    together as `Update "rust-sdks" to livekit-ffi/vX.Y.Z`, plus the changelog entry.
 

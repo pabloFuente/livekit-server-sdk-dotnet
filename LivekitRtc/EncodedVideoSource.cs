@@ -293,7 +293,10 @@ namespace LiveKit.Rtc
                 throw new ObjectDisposedException(nameof(EncodedVideoSource));
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Releases the native source. Later calls to <see cref="CaptureFrame"/> throw
+        /// <see cref="ObjectDisposedException"/>.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed)

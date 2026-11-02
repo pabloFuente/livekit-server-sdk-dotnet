@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 namespace Livekit.Server.Sdk.Dotnet
 {
     /// <summary>
-    /// A client for interacting with the Ingress service.
-    /// See <see href="https://docs.livekit.io/realtime/ingress/overview/">Ingress</see>.
+    /// Client of the LiveKit Ingress service: brings RTMP, WHIP or URL media into rooms.
+    /// See <see href="https://docs.livekit.io/transport/media/ingress-egress/ingress/">Ingress overview</see>.
     /// </summary>
     public class IngressServiceClient : BaseService
     {

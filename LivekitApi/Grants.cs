@@ -30,12 +30,12 @@ namespace Livekit.Server.Sdk.Dotnet
         public bool Agent { get; set; } = false;
 
         /// <summary>
-        /// Allow participant to publish. If neither <c>CanPublish</c> or <c>CanSubscribe</c> is set, both publish and subscribe are enabled.
+        /// Permission to publish tracks. Defaults to true.
         /// </summary>
         public bool CanPublish { get; set; } = true;
 
         /// <summary>
-        /// Allow participants to publish data, defaults to true if not set.
+        /// Permission to publish data messages. Defaults to true.
         /// </summary>
         public bool CanPublishData { get; set; } = true;
 
@@ -45,7 +45,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public List<string> CanPublishSources { get; set; } = new List<string>();
 
         /// <summary>
-        /// Allow participant to subscribe to other tracks.
+        /// Permission to subscribe to the tracks of other participants. Defaults to true.
         /// </summary>
         public bool CanSubscribe { get; set; } = true;
 
@@ -60,7 +60,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public bool CanManageAgentSession { get; set; } = false;
 
         /// <summary>
-        /// By default, a participant is not allowed to update its own metadata.
+        /// Permission to update its own name, metadata and attributes. Defaults to false.
         /// </summary>
         public bool CanUpdateOwnMetadata { get; set; } = false;
 
@@ -121,7 +121,7 @@ namespace Livekit.Server.Sdk.Dotnet
     public class SIPGrants
     {
         /// <summary>
-        /// Permission to manage sip resources.
+        /// Permission to manage SIP trunks and dispatch rules.
         /// </summary>
         public bool Admin { get; set; } = false;
 

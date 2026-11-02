@@ -16,27 +16,31 @@ namespace LiveKit.Rtc
     public class RoomOptions
     {
         /// <summary>
-        /// Automatically subscribe to tracks when they are published.
+        /// Whether to subscribe automatically to every track the remote participants publish. Defaults to
+        /// true.
         /// </summary>
         public bool AutoSubscribe { get; set; } = true;
 
         /// <summary>
-        /// Enable dynacast for adaptive streaming.
+        /// Whether to enable dynacast, which pauses the video layers no subscriber receives. Defaults to
+        /// false.
         /// </summary>
         public bool Dynacast { get; set; } = false;
 
         /// <summary>
-        /// Enable adaptive stream quality.
+        /// Whether to enable adaptive stream, which adapts the quality of subscribed video to how it is
+        /// consumed. Defaults to false.
         /// </summary>
         public bool AdaptiveStream { get; set; } = false;
 
         /// <summary>
-        /// Number of connection retry attempts.
+        /// Number of times the connection is retried before <see cref="Room.ConnectAsync"/> fails. Defaults
+        /// to 3.
         /// </summary>
         public uint JoinRetries { get; set; } = 3;
 
         /// <summary>
-        /// E2EE options (optional).
+        /// End-to-end encryption options. Null, the default, disables encryption.
         /// </summary>
         public E2EEOptions? E2EE { get; set; }
 
@@ -62,8 +66,28 @@ namespace LiveKit.Rtc
     }
 
     /// <summary>
-    /// Represents a LiveKit room for real-time communication.
+    /// A connection to a LiveKit room: joins it with <see cref="ConnectAsync"/>, exposes the local and remote
+    /// participants and their tracks, and raises an event for every change.
     /// </summary>
+    /// <example>
+    /// <code language="csharp">
+    /// using var room = new Room();
+    /// room.ParticipantConnected += (sender, participant) =>
+    ///     Console.WriteLine($"{participant.Identity} joined");
+    /// room.TrackSubscribed += (sender, e) =>
+    ///     Console.WriteLine($"Subscribed to {e.Track.Name} of {e.Participant.Identity}");
+    ///
+    /// await room.ConnectAsync("wss://my.livekit.instance", token);
+    ///
+    /// // Publish an audio track and feed it 10 ms frames of 16-bit PCM
+    /// var source = new AudioSource(48000, 1);
+    /// var track = LocalAudioTrack.Create("microphone", source);
+    /// await room.LocalParticipant!.PublishTrackAsync(track);
+    /// await source.CaptureFrameAsync(new AudioFrame(new short[480], 48000, 1, 480));
+    ///
+    /// await room.DisconnectAsync();
+    /// </code>
+    /// </example>
     public class Room : IDisposable
     {
         private FfiHandle? _roomHandle;
@@ -331,7 +355,8 @@ namespace LiveKit.Rtc
         public event EventHandler<SipDtmfReceivedEventArgs>? SipDtmfReceived;
 
         /// <summary>
-        /// Event raised when an E2EE (encryption) error occurs.
+        /// Raised when the encryption state of a participant changes: <c>Ok</c> once its frames encrypt or
+        /// decrypt, or a failure such as <c>MissingKey</c> or <c>DecryptionFailed</c>.
         /// </summary>
         public event EventHandler<E2EEStateChangedEventArgs>? E2EEStateChanged;
 
@@ -907,7 +932,8 @@ namespace LiveKit.Rtc
         }
 
         /// <summary>
-        /// Disconnects from the room synchronously.
+        /// Disconnects from the room, blocking the calling thread until it is done. Prefer
+        /// <see cref="DisconnectAsync"/> in asynchronous code.
         /// </summary>
         public void Disconnect()
         {
@@ -2154,7 +2180,8 @@ namespace LiveKit.Rtc
         }
 
         /// <summary>
-        /// Disposes the room and releases resources.
+        /// Disconnects from the room if it is still connected, raising the usual teardown events, and
+        /// releases the native resources.
         /// </summary>
         public void Dispose()
         {
@@ -2182,17 +2209,18 @@ namespace LiveKit.Rtc
     }
 
     /// <summary>
-    /// RTC statistics containing publisher and subscriber stats.
+    /// Statistics of the two WebRTC peer connections of the session, returned by
+    /// <see cref="Room.GetRtcStatsAsync"/>.
     /// </summary>
     public class RtcStats
     {
         /// <summary>
-        /// Publisher statistics.
+        /// Statistics of the publishing peer connection, one <see cref="Proto.RtcStats"/> per WebRTC stats report.
         /// </summary>
         public List<Proto.RtcStats> PublisherStats { get; set; } = new List<Proto.RtcStats>();
 
         /// <summary>
-        /// Subscriber statistics.
+        /// Statistics of the subscribing peer connection, one <see cref="Proto.RtcStats"/> per WebRTC stats report.
         /// </summary>
         public List<Proto.RtcStats> SubscriberStats { get; set; } = new List<Proto.RtcStats>();
     }

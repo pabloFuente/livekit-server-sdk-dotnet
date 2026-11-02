@@ -26,7 +26,9 @@ namespace LiveKit.Rtc
     }
 
     /// <summary>
-    /// Exception thrown for track-related errors.
+    /// Reserved for track errors. This version of the SDK does not throw it: a failed native request
+    /// raises <see cref="InvalidOperationException"/>, and errors reported by the server raise
+    /// <see cref="RoomException"/>.
     /// </summary>
     public class TrackException : Exception
     {
@@ -47,7 +49,9 @@ namespace LiveKit.Rtc
     }
 
     /// <summary>
-    /// Exception thrown for FFI-related errors.
+    /// Reserved for errors of the native LiveKit library. This version of the SDK does not throw it: a
+    /// failed native request raises <see cref="InvalidOperationException"/>, and errors reported by the
+    /// server raise <see cref="RoomException"/>.
     /// </summary>
     public class FfiException : Exception
     {

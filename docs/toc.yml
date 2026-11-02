@@ -1,4 +1,6 @@
 - name: Livekit.Server.Sdk.Dotnet
   href: api-server/
+  topicUid: Livekit.Server.Sdk.Dotnet
 - name: Livekit.Rtc.Dotnet
   href: api-rtc/
+  topicUid: LiveKit.Rtc

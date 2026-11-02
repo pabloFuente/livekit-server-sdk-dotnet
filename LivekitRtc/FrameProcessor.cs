@@ -54,7 +54,8 @@ namespace LiveKit.Rtc
         public abstract bool IsEnabled { get; set; }
 
         /// <summary>
-        /// Called when stream information is updated.
+        /// Hook for the room, participant and publication of the processed stream. This version of the SDK
+        /// never calls it.
         /// </summary>
         /// <param name="info">The updated stream information.</param>
         public virtual void OnStreamInfoUpdated(FrameProcessorStreamInfo info)
@@ -63,7 +64,8 @@ namespace LiveKit.Rtc
         }
 
         /// <summary>
-        /// Called when credentials are updated.
+        /// Hook for the server URL and access token of the room, for processors that call LiveKit
+        /// services. This version of the SDK never calls it.
         /// </summary>
         /// <param name="credentials">The updated credentials.</param>
         public virtual void OnCredentialsUpdated(FrameProcessorCredentials credentials)

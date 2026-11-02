@@ -464,7 +464,9 @@ namespace LiveKit.Rtc
             }
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Stops the stream, closes the frame processor and releases the native stream. Pending reads return null and later reads throw <see cref="ObjectDisposedException"/>.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed)
@@ -481,7 +483,10 @@ namespace LiveKit.Rtc
             GC.SuppressFinalize(this);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Stops the stream, closes the frame processor and releases the native stream. Pending reads return null and later reads throw <see cref="ObjectDisposedException"/>.
+        /// </summary>
+        /// <returns>A task that completes once the stream is released.</returns>
         public async ValueTask DisposeAsync()
         {
             if (_disposed)

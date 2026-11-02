@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 namespace Livekit.Server.Sdk.Dotnet
 {
     /// <summary>
-    /// A client for interacting with the Egress service.
-    /// See <see href="https://docs.livekit.io/realtime/egress/overview/">Egress</see>.
+    /// Client of the LiveKit Egress service: records or streams rooms, participants, tracks and web pages.
+    /// See <see href="https://docs.livekit.io/transport/media/ingress-egress/egress/">Egress overview</see>.
     /// </summary>
     public class EgressServiceClient : BaseService
     {

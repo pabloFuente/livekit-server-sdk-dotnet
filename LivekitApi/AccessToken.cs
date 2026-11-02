@@ -14,8 +14,18 @@ namespace Livekit.Server.Sdk.Dotnet
     /// <summary>
     /// Access tokens are required to connect to the server.
     /// Once information is filled out, create the token string with <see cref="ToJwt"/>.
-    /// See <see href="https://docs.livekit.io/guides/access-tokens">Access tokens</see>.
+    /// See <see href="https://docs.livekit.io/frontends/reference/tokens-grants/">Access tokens and grants</see>.
     /// </summary>
+    /// <example>
+    /// <code language="csharp">
+    /// var token = new AccessToken("api-key", "api-secret")
+    ///     .WithIdentity("participant-identity")
+    ///     .WithName("Participant name")
+    ///     .WithGrants(new VideoGrants { RoomJoin = true, Room = "my-room" })
+    ///     .WithTtl(TimeSpan.FromHours(1));
+    /// string jwt = token.ToJwt();
+    /// </code>
+    /// </example>
     public class AccessToken
     {
         private readonly string apiKey;
@@ -30,10 +40,11 @@ namespace Livekit.Server.Sdk.Dotnet
         private DateTime notBefore;
 
         /// <summary>
-        /// Constructs a new access token.
+        /// Creates a token signed with the given API key and secret.
         /// </summary>
-        /// <param name="apiKey">LiveKit API key.</param>
-        /// <param name="apiSecret">LiveKit API secret.</param>
+        /// <param name="apiKey">API key; the <c>LIVEKIT_API_KEY</c> environment variable when omitted.</param>
+        /// <param name="apiSecret">API secret, at least 32 bytes long; the <c>LIVEKIT_API_SECRET</c> environment variable when omitted.</param>
+        /// <exception cref="ArgumentException">The key or the secret is missing, or the secret is shorter than 32 bytes.</exception>
         public AccessToken(string apiKey = null, string apiSecret = null)
         {
             this.apiKey = apiKey ?? Environment.GetEnvironmentVariable("LIVEKIT_API_KEY");
@@ -95,7 +106,7 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Date specifying the time before which this token is invalid.
         /// If not set, the token is valid immediately after creation.
-        /// See <see href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.5">the JWT specification</see>.
+        /// See <see href="https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.5">RFC 7519</see>.
         /// </summary>
         /// <param name="notBefore">Time before which the token is not valid. A value of kind <c>Unspecified</c> is read as local time.</param>
         /// <returns>This token, so calls can be chained.</returns>
@@ -173,8 +184,8 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Kind of participant (standard, egress, ingress, agent, sip)
-        /// Allows further identifying participants of custom services.
+        /// Sets the kind of participant, which lets other participants and services tell agents, SIP callers,
+        /// egress and ingress apart from standard users.
         /// </summary>
         /// <param name="kind">Kind of participant: standard, egress, ingress, agent or SIP.</param>
         /// <returns>This token, so calls can be chained.</returns>
@@ -185,7 +196,7 @@ namespace Livekit.Server.Sdk.Dotnet
         }
 
         /// <summary>
-        /// Display name for the participant, available as <c>Participant.name</c>.
+        /// Display name of the participant, which the other participants see.
         /// </summary>
         /// <param name="name">Display name shown to the other participants.</param>
         /// <returns>This token, so calls can be chained.</returns>
@@ -456,6 +467,7 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <param name="apiKey">API key the tokens must be issued by; the <c>LIVEKIT_API_KEY</c> environment variable when omitted.</param>
         /// <param name="apiSecret">API secret the tokens must be signed with; the <c>LIVEKIT_API_SECRET</c> environment variable when omitted.</param>
         /// <param name="leeway">Clock tolerance applied to the token lifetime; <see cref="Constants.DefaultLeeway"/> when omitted.</param>
+        /// <exception cref="ArgumentException">The key or the secret is missing, or the secret is shorter than 32 bytes.</exception>
         public TokenVerifier(string apiKey = null, string apiSecret = null, TimeSpan? leeway = null)
         {
             this.apiKey = apiKey ?? Environment.GetEnvironmentVariable("LIVEKIT_API_KEY");
@@ -481,7 +493,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// </summary>
         /// <param name="token">The JWT to verify.</param>
         /// <returns>The claims of the token.</returns>
-        /// <exception cref="Microsoft.IdentityModel.Tokens.SecurityTokenException">The token is not valid: wrong signature or issuer, expired or not yet valid.</exception>
+        /// <exception cref="Microsoft.IdentityModel.Tokens.SecurityTokenException">The token has a wrong signature or issuer, is expired or is not valid yet.</exception>
+        /// <exception cref="ArgumentException">The token is not a well-formed JWT (<c>SecurityTokenMalformedException</c>).</exception>
         public ClaimsModel Verify(string token)
         {
             var validationParameters = new TokenValidationParameters

@@ -41,27 +41,32 @@ namespace LiveKit.Rtc
     public class KeyProviderOptions
     {
         /// <summary>
-        /// Gets or sets the shared key.
+        /// Key shared by every participant. When set, it encrypts and decrypts the media of all
+        /// participants; when null, set a key per participant with <see cref="KeyProvider.SetKey"/>.
         /// </summary>
         public byte[]? SharedKey { get; set; }
 
         /// <summary>
-        /// Gets or sets the ratchet salt.
+        /// Salt used to ratchet keys. Defaults to <see cref="E2EEDefaults.RatchetSalt"/>, the value of the other
+        /// LiveKit SDKs.
         /// </summary>
         public byte[] RatchetSalt { get; set; } = E2EEDefaults.RatchetSalt;
 
         /// <summary>
-        /// Gets or sets the ratchet window size.
+        /// Number of ratchet steps tried when a frame does not decrypt with the current key. Defaults to
+        /// <see cref="E2EEDefaults.RatchetWindowSize"/>.
         /// </summary>
         public int RatchetWindowSize { get; set; } = E2EEDefaults.RatchetWindowSize;
 
         /// <summary>
-        /// Gets or sets the failure tolerance.
+        /// Number of consecutive decryption failures tolerated before the key is considered invalid; -1
+        /// tolerates any number. Defaults to <see cref="E2EEDefaults.FailureTolerance"/>.
         /// </summary>
         public int FailureTolerance { get; set; } = E2EEDefaults.FailureTolerance;
 
         /// <summary>
-        /// Gets or sets the key ring size. Must be greater than zero.
+        /// Number of keys kept per participant, addressed by key index. Must be greater than zero. Defaults
+        /// to <see cref="E2EEDefaults.KeyRingSize"/>.
         /// </summary>
         public int KeyRingSize { get; set; } = E2EEDefaults.KeyRingSize;
 
@@ -80,12 +85,12 @@ namespace LiveKit.Rtc
     public class E2EEOptions
     {
         /// <summary>
-        /// Gets or sets the key provider options.
+        /// Options of the key provider: shared key, ratcheting and key ring.
         /// </summary>
         public KeyProviderOptions KeyProviderOptions { get; set; } = new KeyProviderOptions();
 
         /// <summary>
-        /// Gets or sets the encryption type.
+        /// Encryption algorithm of the media. Defaults to <see cref="Proto.EncryptionType.Gcm"/>.
         /// </summary>
         public Proto.EncryptionType EncryptionType { get; set; } = Proto.EncryptionType.Gcm;
 
@@ -131,9 +136,10 @@ namespace LiveKit.Rtc
         private readonly KeyProviderOptions _options;
 
         /// <summary>
-        /// Initializes a new key provider.
+        /// Used by the SDK, which creates the key provider with the E2EE manager. Get it from
+        /// <see cref="E2EEManager.KeyProvider"/> instead of constructing it.
         /// </summary>
-        /// <param name="roomHandle">The room handle.</param>
+        /// <param name="roomHandle">Native handle of the room, which the public API does not expose.</param>
         /// <param name="options">The key provider options.</param>
         public KeyProvider(ulong roomHandle, KeyProviderOptions options)
         {
@@ -311,11 +317,10 @@ namespace LiveKit.Rtc
         private bool _enabled;
 
         /// <summary>
-        /// Initializes a new frame cryptor without a track SID. <see cref="SetEnabled"/> and
-        /// <see cref="SetKeyIndex"/> need the track SID to address the cryptor in the FFI; use
-        /// the overload that takes it (<see cref="E2EEManager.GetFrameCryptors"/> does).
+        /// Used by the SDK. Get the cryptors from <see cref="E2EEManager.GetFrameCryptors"/> instead: a cryptor
+        /// created without a track SID cannot be addressed by <see cref="SetEnabled"/> and <see cref="SetKeyIndex"/>.
         /// </summary>
-        /// <param name="roomHandle">The room handle.</param>
+        /// <param name="roomHandle">Native handle of the room, which the public API does not expose.</param>
         /// <param name="participantIdentity">The participant identity.</param>
         /// <param name="keyIndex">The key index.</param>
         /// <param name="enabled">Whether encryption is enabled.</param>
@@ -328,9 +333,10 @@ namespace LiveKit.Rtc
             : this(roomHandle, participantIdentity, string.Empty, keyIndex, enabled) { }
 
         /// <summary>
-        /// Initializes a new frame cryptor.
+        /// Used by the SDK. Get the cryptors from <see cref="E2EEManager.GetFrameCryptors"/> instead of
+        /// constructing them.
         /// </summary>
-        /// <param name="roomHandle">The room handle.</param>
+        /// <param name="roomHandle">Native handle of the room, which the public API does not expose.</param>
         /// <param name="participantIdentity">The participant identity.</param>
         /// <param name="trackSid">The SID of the track the cryptor encrypts or decrypts.</param>
         /// <param name="keyIndex">The key index.</param>
@@ -432,10 +438,11 @@ namespace LiveKit.Rtc
         private bool _enabled;
 
         /// <summary>
-        /// Initializes a new E2EE manager.
+        /// Used by the SDK, which creates the manager when <see cref="Room.ConnectAsync"/> runs. Get it from
+        /// <see cref="Room.E2EEManager"/> instead of constructing it.
         /// </summary>
-        /// <param name="roomHandle">The room handle.</param>
-        /// <param name="options">The E2EE options (null to disable).</param>
+        /// <param name="roomHandle">Native handle of the room, which the public API does not expose.</param>
+        /// <param name="options">The E2EE options, or null when encryption is disabled.</param>
         public E2EEManager(ulong roomHandle, E2EEOptions? options)
         {
             _roomHandle = roomHandle;

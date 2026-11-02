@@ -177,7 +177,9 @@ namespace LiveKit.Rtc
         }
 
         /// <summary>
-        /// Captures an AudioFrame synchronously.
+        /// Captures an AudioFrame and blocks the calling thread until the native source accepts it, which
+        /// can take a while when the queue is full. Prefer <see cref="CaptureFrameAsync"/> in asynchronous
+        /// code.
         /// </summary>
         /// <param name="frame">The audio frame to capture and queue.</param>
         public void CaptureFrame(AudioFrame frame)
@@ -252,7 +254,10 @@ namespace LiveKit.Rtc
             return new LocalAudioTrack(FfiHandle.FromId(trackInfo.Handle.Id), trackInfo);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Releases the native source. Queued audio is dropped and pending
+        /// <see cref="WaitForPlayoutAsync"/> calls complete.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed)

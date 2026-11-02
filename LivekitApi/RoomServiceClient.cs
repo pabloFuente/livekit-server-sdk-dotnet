@@ -5,11 +5,23 @@ using Google.Protobuf;
 namespace Livekit.Server.Sdk.Dotnet
 {
     /// <summary>
-    /// A client for interacting and managing LiveKit rooms and participants.
+    /// Client of the LiveKit Room service: creates, lists and deletes rooms and manages their participants,
+    /// tracks and data messages.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.livekit.io/realtime/server/managing-rooms/">Managing Rooms</see>.
+    /// See <see href="https://docs.livekit.io/reference/other/roomservice-api/">Room service API</see>.
     /// </remarks>
+    /// <example>
+    /// <code language="csharp">
+    /// var client = new RoomServiceClient("https://my.livekit.instance", "api-key", "api-secret");
+    ///
+    /// await client.CreateRoom(new CreateRoomRequest { Name = "my-room", EmptyTimeout = 300 });
+    ///
+    /// var response = await client.ListParticipants(new ListParticipantsRequest { Room = "my-room" });
+    /// foreach (ParticipantInfo participant in response.Participants)
+    ///     Console.WriteLine(participant.Identity);
+    /// </code>
+    /// </example>
     public class RoomServiceClient : BaseService
     {
         /// <summary>

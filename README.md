@@ -129,14 +129,16 @@ dotnet test LivekitRtc.Tests/LivekitRtc.Tests.csproj
 # Build and install both packages locally
 ./build_local.sh
 
-# Build the API reference into docs/_site (same strict build as CI)
-dotnet tool restore && dotnet docfx docs/docfx.json --warningsAsErrors
+# Build the API reference into docs/_site and check it (same as CI)
+dotnet tool restore && dotnet docfx docs/docfx.json --warningsAsErrors && python3 docs/check_api_docs.py
 ```
 
 Every public member of the two libraries needs a complete XML doc comment (summary, every
 parameter, the return value): those comments are the published
 [API reference](https://pablofuente.github.io/livekit-server-sdk-dotnet/), so the build fails
-without them.
+without them. A new public type of `Livekit.Server.Sdk.Dotnet` also needs an entry in the sidebar of
+the reference, [docs/api-server/toc.yml](docs/api-server/toc.yml); the check script fails until it
+has one.
 
 ### Perform release
 
