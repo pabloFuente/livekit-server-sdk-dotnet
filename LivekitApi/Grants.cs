@@ -3,12 +3,25 @@ using System.Collections.Generic;
 
 namespace Livekit.Server.Sdk.Dotnet
 {
+    /// <summary>
+    /// Default values shared by the SDK.
+    /// </summary>
     public static class Constants
     {
+        /// <summary>
+        /// Default lifetime of the tokens the SDK signs: 6 hours.
+        /// </summary>
         public static readonly TimeSpan DefaultTtl = TimeSpan.FromHours(6);
+
+        /// <summary>
+        /// Default clock tolerance when verifying a token: 1 minute.
+        /// </summary>
         public static readonly TimeSpan DefaultLeeway = TimeSpan.FromMinutes(1);
     }
 
+    /// <summary>
+    /// The <c>video</c> grant of an access token: what its holder may do in rooms.
+    /// </summary>
     public class VideoGrants
     {
         /// <summary>
@@ -102,6 +115,9 @@ namespace Livekit.Server.Sdk.Dotnet
         public bool RoomRecord { get; set; } = false;
     }
 
+    /// <summary>
+    /// The <c>sip</c> grant of an access token: what its holder may do with the SIP service.
+    /// </summary>
     public class SIPGrants
     {
         /// <summary>
@@ -115,6 +131,9 @@ namespace Livekit.Server.Sdk.Dotnet
         public bool Call { get; set; } = false;
     }
 
+    /// <summary>
+    /// The <c>inference</c> grant of an access token.
+    /// </summary>
     public class InferenceGrants
     {
         /// <summary>
@@ -123,6 +142,9 @@ namespace Livekit.Server.Sdk.Dotnet
         public bool Perform { get; set; } = false;
     }
 
+    /// <summary>
+    /// The <c>observability</c> grant of an access token.
+    /// </summary>
     public class ObservabilityGrants
     {
         /// <summary>
@@ -131,11 +153,30 @@ namespace Livekit.Server.Sdk.Dotnet
         public bool Write { get; set; } = false;
     }
 
+    /// <summary>
+    /// All the claims of an access token, as built by <see cref="AccessToken"/> and read back by
+    /// <see cref="TokenVerifier.Verify"/>.
+    /// </summary>
     public class ClaimsModel
     {
+        /// <summary>
+        /// Participant identity (the <c>sub</c> claim).
+        /// </summary>
         public string Identity { get; set; } = "";
+
+        /// <summary>
+        /// Display name of the participant.
+        /// </summary>
         public string Name { get; set; } = "";
+
+        /// <summary>
+        /// Room grants (the <c>video</c> claim).
+        /// </summary>
         public VideoGrants Video { get; set; } = new VideoGrants();
+
+        /// <summary>
+        /// SIP grants (the <c>sip</c> claim).
+        /// </summary>
         public SIPGrants Sip { get; set; } = new SIPGrants();
 
         /// <summary>
@@ -147,12 +188,36 @@ namespace Livekit.Server.Sdk.Dotnet
         /// Observability grants, null when the token has none.
         /// </summary>
         public ObservabilityGrants Observability { get; set; }
+
+        /// <summary>
+        /// Participant metadata, visible to the other participants.
+        /// </summary>
         public string Metadata { get; set; } = "";
+
+        /// <summary>
+        /// SHA-256 of the request body, which webhooks use to verify the body.
+        /// </summary>
         public string Sha256 { get; set; } = "";
+
+        /// <summary>
+        /// Kind of participant: <c>standard</c>, <c>egress</c>, <c>ingress</c>, <c>agent</c> or <c>sip</c>.
+        /// </summary>
         public string Kind { get; set; } = "";
+
+        /// <summary>
+        /// Participant attributes.
+        /// </summary>
         public Dictionary<string, string> Attributes { get; set; } =
             new Dictionary<string, string>();
+
+        /// <summary>
+        /// Room configuration preset applied when the token creates the room.
+        /// </summary>
         public string RoomPreset { get; set; } = "";
+
+        /// <summary>
+        /// Room configuration applied when the token creates the room; empty (never null) when not set.
+        /// </summary>
         public RoomConfiguration RoomConfig { get; set; } = new RoomConfiguration();
     }
 }

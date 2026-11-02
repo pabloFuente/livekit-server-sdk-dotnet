@@ -1,0 +1,24 @@
+{
+  "metadata": [
+    {
+      "src": [{ "files": ["LivekitApi/LivekitApi.csproj"], "src": ".." }],
+      "dest": "api-server",
+      "filter": "filter.yml"
+    },
+    {
+      "src": [{ "files": ["LivekitRtc/LivekitRtc.csproj"], "src": ".." }],
+      "dest": "api-rtc",
+      "filter": "filter.yml"
+    }
+  ],
+  "build": {
+    "content": [{ "files": ["api-server/**.yml", "api-rtc/**.yml", "toc.yml", "index.md"] }],
+    "output": "_site",
+    "template": ["default", "modern"],
+    "globalMetadata": {
+      "_appTitle": "LiveKit .NET SDKs",
+      "_appFooter": "<a href=\"https://github.com/pabloFuente/livekit-server-sdk-dotnet\">livekit-server-sdk-dotnet on GitHub</a>",
+      "_enableSearch": true
+    }
+  }
+}

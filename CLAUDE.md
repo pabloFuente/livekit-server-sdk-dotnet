@@ -94,8 +94,9 @@ tests and examples run on `net10.0`.
   `System.Threading.Channels` comes from a NuGet package, not the BCL. `init` accessors (so also
   positional records) and `required` members need compiler polyfills that are not in the project;
   use plain classes with get/set properties.
-- Both packages keep `GenerateDocumentationFile` on: every new public member needs an XML doc
-  comment (missing ones only warn because `CS1591` is suppressed, but the convention is to document).
+- Both packages keep `GenerateDocumentationFile` on and every public member needs an XML doc
+  comment: `CS1591` is a build warning for hand-written code (`.editorconfig` silences it only for
+  the generated protobuf files), and the comments are what the published API reference shows.
 - The .NET 10 SDK is required: `global.json` pins it (`rollForward: latestFeature`) and both
   workflows install `10.0.x`. The libraries still target .NET Standard, so the packages keep
   working on older runtimes; only building, testing and the examples need .NET 10.
@@ -132,6 +133,18 @@ Formatting:
 - `build_local.sh` formats, runs the whole test suite, packs both packages and installs them into
   `~/.private_nuget` with `mono nuget.exe`. It is a release-prep script for the maintainer's
   machine, not a way to "just format".
+
+## API reference (DocFX)
+
+- `dotnet docfx docs/docfx.json` builds the API reference of both packages into `docs/_site`
+  (ignored, like the intermediate `docs/api-server` and `docs/api-rtc`). `docfx` is pinned in
+  `.config/dotnet-tools.json` next to CSharpier.
+- `docs/filter.yml` drops `LiveKit.Rtc.Internal` and the FFI transport messages of `LiveKit.Proto`
+  (`Ffi*`, `Owned*`, `*Request`, `*Response`, `*Callback`, `*Event`, `*Reflection`); the protobuf
+  enums, infos, options and stats that public members use stay, as do all server API messages.
+- `.github/workflows/docs.yml` publishes `docs/_site` to GitHub Pages
+  (https://pablofuente.github.io/livekit-server-sdk-dotnet/) on every push to `main` that touches
+  a package or `docs/`, so the site documents the current `main`, not a release.
 
 ## Tests
 

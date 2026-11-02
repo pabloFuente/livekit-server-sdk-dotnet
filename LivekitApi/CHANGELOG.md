@@ -1,5 +1,9 @@
 # Changelog (Release Notes)
 
+## Unreleased
+
+- XML documentation comments for every public member, with parameter and return value descriptions on every method, for IntelliSense and for the new [API reference](https://pablofuente.github.io/livekit-server-sdk-dotnet/) generated with DocFX; a missing comment is now a build warning.
+
 ## 1.2.5
 
 - Fix concurrent calls on the same service client, or on service clients sharing one `HttpClient`, sometimes being sent with another call's token and failing with a `Twirp.Exception` (`Permission_Denied` or `Unauthenticated`): the bearer token was written to the shared `HttpClient.DefaultRequestHeaders` right before each request. The host, the token and the user agent now travel with each request, so a caller-supplied `HttpClient` is never modified anymore: it can be shared between service clients (even for different servers) and with the rest of the application, and it may already have sent requests, which used to make the constructor throw `InvalidOperationException`. See [Using a custom HttpClient](https://github.com/pabloFuente/livekit-server-sdk-dotnet/blob/main/LivekitApi/README.md#using-a-custom-httpclient). [commit e68fa9a](https://github.com/pabloFuente/livekit-server-sdk-dotnet/commit/e68fa9a914eed9095decfb635075d9081e25b5a6)

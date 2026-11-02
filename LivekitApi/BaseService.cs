@@ -10,6 +10,10 @@ using Google.Protobuf;
 
 namespace Livekit.Server.Sdk.Dotnet
 {
+    /// <summary>
+    /// Base class of the service clients: holds the credentials and the <see cref="HttpClient"/>, signs every
+    /// call with a short-lived token and sends it as a Twirp request.
+    /// </summary>
     public class BaseService
     {
         private static readonly HttpClientHandler SharedHandler = new HttpClientHandler();
@@ -27,8 +31,20 @@ namespace Livekit.Server.Sdk.Dotnet
         private readonly string apiKey;
         private readonly string apiSecret;
         private readonly Uri baseUri;
+
+        /// <summary>
+        /// The <see cref="HttpClient"/> the requests are sent with: the one supplied to the constructor, or one
+        /// owned by the SDK (which shares a connection pool with the other SDK-owned clients).
+        /// </summary>
         protected readonly HttpClient httpClient;
 
+        /// <summary>
+        /// Stores the credentials and the <see cref="HttpClient"/> the requests are sent with.
+        /// </summary>
+        /// <param name="host">URL of the LiveKit server, <c>http(s)://</c> or <c>ws(s)://</c>; a subpath such as <c>https://host/livekit</c> is kept.</param>
+        /// <param name="apiKey">API key; the <c>LIVEKIT_API_KEY</c> environment variable when omitted.</param>
+        /// <param name="apiSecret">API secret; the <c>LIVEKIT_API_SECRET</c> environment variable when omitted.</param>
+        /// <param name="client">Optional <see cref="HttpClient"/> to send the requests with. The SDK never modifies it, so it can be shared with other clients and code.</param>
         public BaseService(
             string host,
             string apiKey = null,
@@ -176,6 +192,10 @@ namespace Livekit.Server.Sdk.Dotnet
             return host + "/";
         }
 
+        /// <summary>
+        /// Builds the bearer token of a call that needs <paramref name="videoGrants"/>, valid for
+        /// <see cref="Constants.DefaultTtl"/>.
+        /// </summary>
         protected string AuthHeader(VideoGrants videoGrants)
         {
             var accessToken = new AccessToken(apiKey, apiSecret);
@@ -185,6 +205,10 @@ namespace Livekit.Server.Sdk.Dotnet
             return accessToken.ToJwt();
         }
 
+        /// <summary>
+        /// Builds the bearer token of a SIP call that needs <paramref name="videoGrants"/> and
+        /// <paramref name="sipGrants"/>, valid for <see cref="Constants.DefaultTtl"/>.
+        /// </summary>
         protected string AuthHeader(VideoGrants videoGrants, SIPGrants sipGrants)
         {
             var accessToken = new AccessToken(apiKey, apiSecret);

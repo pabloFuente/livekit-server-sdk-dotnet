@@ -13,9 +13,12 @@ namespace Livekit.Server.Sdk.Dotnet
     public class RoomServiceClient : BaseService
     {
         /// <summary>
-        /// A client for interacting managing LiveKit rooms and participants.
-        /// <see href="https://docs.livekit.io/realtime/server/managing-rooms/" />
+        /// Creates the client.
         /// </summary>
+        /// <param name="host">URL of the LiveKit server, <c>http(s)://</c> or <c>ws(s)://</c>; a subpath such as <c>https://host/livekit</c> is kept.</param>
+        /// <param name="apiKey">API key; the <c>LIVEKIT_API_KEY</c> environment variable when omitted.</param>
+        /// <param name="apiSecret">API secret; the <c>LIVEKIT_API_SECRET</c> environment variable when omitted.</param>
+        /// <param name="client">Optional <see cref="HttpClient"/> to send the requests with. The SDK never modifies it, so it can be shared with other clients and code.</param>
         public RoomServiceClient(
             string host,
             string apiKey = null,
@@ -29,6 +32,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// be automatically created when the first participant joins. This method can be
         /// used to customize room settings.
         /// </summary>
+        /// <param name="request">Room settings: name (required), empty timeout, maximum participants, metadata, egress...</param>
+        /// <returns>The created room, or the existing room with that name.</returns>
         public async Task<Room> CreateRoom(CreateRoomRequest request)
         {
             return await SendAsync(
@@ -43,6 +48,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Lists active rooms.
         /// </summary>
+        /// <param name="request">Optional room names to filter by.</param>
+        /// <returns>The active rooms.</returns>
         public async Task<ListRoomsResponse> ListRooms(ListRoomsRequest request)
         {
             return await SendAsync(
@@ -57,6 +64,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Deletes a room.
         /// </summary>
+        /// <param name="request">Room name.</param>
+        /// <returns>Empty response.</returns>
         public async Task<DeleteRoomResponse> DeleteRoom(DeleteRoomRequest request)
         {
             return await SendAsync(
@@ -71,6 +80,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Lists participants in a room.
         /// </summary>
+        /// <param name="request">Room name.</param>
+        /// <returns>The participants currently in the room.</returns>
         public async Task<ListParticipantsResponse> ListParticipants(
             ListParticipantsRequest request
         )
@@ -87,6 +98,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Gets information on a specific participant, including the tracks that the participant has published.
         /// </summary>
+        /// <param name="request">Room name and participant identity.</param>
+        /// <returns>The participant.</returns>
         public async Task<ParticipantInfo> GetParticipant(RoomParticipantIdentity request)
         {
             return await SendAsync(
@@ -102,6 +115,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// Removes a participant from a room. This will disconnect the participant
         /// and emit a Disconnected event for them. They can re-join the room later.
         /// </summary>
+        /// <param name="request">Room name and participant identity.</param>
+        /// <returns>Empty response.</returns>
         public async Task<RemoveParticipantResponse> RemoveParticipant(
             RoomParticipantIdentity request
         )
@@ -118,6 +133,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Mutes a track that a participant has published.
         /// </summary>
+        /// <param name="request">Room name, participant identity, track SID and whether to mute or unmute.</param>
+        /// <returns>The updated track.</returns>
         public async Task<MuteRoomTrackResponse> MutePublishedTrack(MuteRoomTrackRequest request)
         {
             return await SendAsync(
@@ -132,6 +149,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Updates a participant's metadata or permissions.
         /// </summary>
+        /// <param name="request">Room name, participant identity and the new metadata, permissions, name or attributes.</param>
+        /// <returns>The updated participant.</returns>
         public async Task<ParticipantInfo> UpdateParticipant(UpdateParticipantRequest request)
         {
             return await SendAsync(
@@ -146,6 +165,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Updates a participant's subscription to tracks.
         /// </summary>
+        /// <param name="request">Room name, participant identity, track SIDs and whether to subscribe or unsubscribe.</param>
+        /// <returns>Empty response.</returns>
         public async Task<UpdateSubscriptionsResponse> UpdateSubscriptions(
             UpdateSubscriptionsRequest request
         )
@@ -162,6 +183,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Sends a data message to participants in the room.
         /// </summary>
+        /// <param name="request">Room name, payload, delivery kind (reliable or lossy), destination identities and topic. The SDK adds the nonce.</param>
+        /// <returns>Empty response.</returns>
         public async Task<SendDataResponse> SendData(SendDataRequest request)
         {
             // Add random nonce to request
@@ -178,6 +201,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Updates metadata of a room.
         /// </summary>
+        /// <param name="request">Room name and the new metadata.</param>
+        /// <returns>The updated room.</returns>
         public async Task<Room> UpdateRoomMetadata(UpdateRoomMetadataRequest request)
         {
             return await SendAsync(
@@ -197,6 +222,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// destination room, the forwarding will be stopped. A participant can be forwarded to multiple rooms. The destination
         /// room will be created if it does not exist.
         /// </summary>
+        /// <param name="request">Room name, participant identity and the destination room.</param>
+        /// <returns>Empty response.</returns>
         public async Task<ForwardParticipantResponse> ForwardParticipant(
             ForwardParticipantRequest request
         )
@@ -222,6 +249,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// The participant will be removed from the current room and added to the destination room.
         /// From other observers' perspective, the participant would've disconnected from the previous room and joined the new one.
         /// </summary>
+        /// <param name="request">Room name, participant identity and the destination room.</param>
+        /// <returns>Empty response.</returns>
         public async Task<MoveParticipantResponse> MoveParticipant(MoveParticipantRequest request)
         {
             return await SendAsync(

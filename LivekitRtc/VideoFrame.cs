@@ -53,6 +53,10 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Creates a new empty VideoFrame with the specified parameters.
         /// </summary>
+        /// <param name="width">Width in pixels.</param>
+        /// <param name="height">Height in pixels.</param>
+        /// <param name="type">Pixel format of the buffer.</param>
+        /// <returns>A frame of that size and format with a zeroed buffer.</returns>
         public static VideoFrame Create(int width, int height, VideoBufferType type)
         {
             int size = GetBufferSize(type, width, height);
@@ -213,6 +217,7 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Creates a copy of this video frame.
         /// </summary>
+        /// <returns>A deep copy of the frame, with its own pixel buffer.</returns>
         public VideoFrame Clone()
         {
             var dataCopy = new byte[_data.Length];
@@ -237,6 +242,10 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Gets the buffer size in bytes for a video buffer type.
         /// </summary>
+        /// <param name="type">Pixel format of the buffer.</param>
+        /// <param name="width">Width in pixels.</param>
+        /// <param name="height">Height in pixels.</param>
+        /// <returns>Number of bytes a frame of that format and size occupies.</returns>
         public static int GetBufferSize(Proto.VideoBufferType type, int width, int height)
         {
             switch (type)
@@ -295,6 +304,9 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Gets the stride for a video buffer type.
         /// </summary>
+        /// <param name="type">Pixel format of the buffer.</param>
+        /// <param name="width">Width in pixels.</param>
+        /// <returns>Number of bytes per row of the first plane.</returns>
         public static int GetStride(VideoBufferType type, int width)
         {
             switch (type)

@@ -191,6 +191,7 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Whether the track is still published.
         /// </summary>
+        /// <returns>True while the track is published.</returns>
         public bool IsPublished()
         {
             ThrowIfDisposed();
@@ -273,6 +274,7 @@ namespace LiveKit.Rtc
         /// Maximum number of received frames buffered internally. Null keeps the SDK default. Zero is
         /// not valid and is clamped to one.
         /// </param>
+        /// <returns>The stream of frames; dispose it to unsubscribe.</returns>
         public DataTrackStream Subscribe(uint? bufferSize = null)
         {
             ThrowIfDisposed();
@@ -300,6 +302,7 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Whether the track is still published.
         /// </summary>
+        /// <returns>True while the publisher keeps the track published.</returns>
         public bool IsPublished()
         {
             ThrowIfDisposed();
@@ -413,6 +416,7 @@ namespace LiveKit.Rtc
         /// <exception cref="SubscribeDataTrackException">
         /// The subscription could not be established. Thrown once, when the stream ends.
         /// </exception>
+        /// <returns>The next frame, or null once the stream has ended.</returns>
         public async Task<DataTrackFrame?> ReadAsync(CancellationToken cancellationToken = default)
         {
             if (_disposed)
@@ -482,6 +486,7 @@ namespace LiveKit.Rtc
         }
 
         /// <inheritdoc />
+        /// <returns>The frames, until the stream ends.</returns>
         public async IAsyncEnumerator<DataTrackFrame> GetAsyncEnumerator(
             CancellationToken cancellationToken = default
         )

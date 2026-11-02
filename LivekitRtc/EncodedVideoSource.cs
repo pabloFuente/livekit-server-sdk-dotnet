@@ -50,6 +50,13 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Creates an encoded frame to capture with <see cref="EncodedVideoSource.CaptureFrame"/>.
         /// </summary>
+        /// <param name="data">Encoded payload of the frame.</param>
+        /// <param name="width">Frame width in pixels.</param>
+        /// <param name="height">Frame height in pixels.</param>
+        /// <param name="codec">Codec the payload is encoded with.</param>
+        /// <param name="frameType">Key frame or delta frame.</param>
+        /// <param name="timestampUs">Capture time in microseconds, increasing along the stream.</param>
+        /// <param name="metadata">Optional metadata delivered with the frame.</param>
         public EncodedVideoFrame(
             byte[] data,
             int width,
@@ -158,6 +165,8 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Creates a source with the initial encoded frame dimensions.
         /// </summary>
+        /// <param name="width">Initial frame width in pixels.</param>
+        /// <param name="height">Initial frame height in pixels.</param>
         public EncodedVideoSource(int width, int height)
         {
             if (width <= 0 || height <= 0)
@@ -191,7 +200,9 @@ namespace LiveKit.Rtc
         /// Submits a frame and returns whether the native source accepted it. The payload is copied
         /// before this method returns; acceptance does not guarantee delivery to subscribers.
         /// </summary>
+        /// <param name="frame">The encoded frame to submit.</param>
         /// <exception cref="InvalidOperationException">The FFI rejected the frame.</exception>
+        /// <returns>True when the native source accepted the frame, false when it was dropped.</returns>
         public bool CaptureFrame(EncodedVideoFrame frame)
         {
             if (frame == null)
@@ -237,6 +248,7 @@ namespace LiveKit.Rtc
         /// Consumes the feedback accumulated since the previous call, including key-frame requests
         /// from late subscribers.
         /// </summary>
+        /// <returns>The feedback collected since the previous call: key-frame request and rate control.</returns>
         public EncodedVideoSourceFeedback TakeFeedback()
         {
             ThrowIfDisposed();
@@ -268,6 +280,7 @@ namespace LiveKit.Rtc
         /// Creates a local video track from this source.
         /// </summary>
         /// <param name="name">The name of the track.</param>
+        /// <returns>A local video track fed by this source.</returns>
         public LocalVideoTrack CreateTrack(string name = "video")
         {
             ThrowIfDisposed();

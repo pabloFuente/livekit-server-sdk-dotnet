@@ -10,9 +10,12 @@ namespace Livekit.Server.Sdk.Dotnet
     public class ConnectorServiceClient : BaseService
     {
         /// <summary>
-        /// A client for interacting with the Connector service, which connects WhatsApp and Twilio
-        /// calls to LiveKit rooms. Only available in LiveKit Cloud.
+        /// Creates the client.
         /// </summary>
+        /// <param name="host">URL of the LiveKit server, <c>http(s)://</c> or <c>ws(s)://</c>; a subpath such as <c>https://host/livekit</c> is kept.</param>
+        /// <param name="apiKey">API key; the <c>LIVEKIT_API_KEY</c> environment variable when omitted.</param>
+        /// <param name="apiSecret">API secret; the <c>LIVEKIT_API_SECRET</c> environment variable when omitted.</param>
+        /// <param name="client">Optional <see cref="HttpClient"/> to send the requests with. The SDK never modifies it, so it can be shared with other clients and code.</param>
         public ConnectorServiceClient(
             string host,
             string apiKey = null,
@@ -24,6 +27,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Initiate an outbound WhatsApp call.
         /// </summary>
+        /// <param name="request">WhatsApp phone number ID, API key, the number to call and the room to connect the call to.</param>
+        /// <returns>The WhatsApp call ID and the room.</returns>
         public async Task<DialWhatsAppCallResponse> DialWhatsAppCall(
             DialWhatsAppCallRequest request
         )
@@ -40,6 +45,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Disconnect an active WhatsApp call.
         /// </summary>
+        /// <param name="request">WhatsApp call ID and the reason.</param>
+        /// <returns>Empty response.</returns>
         public async Task<DisconnectWhatsAppCallResponse> DisconnectWhatsAppCall(
             DisconnectWhatsAppCallRequest request
         )
@@ -56,6 +63,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Connect an established WhatsApp call (used for business-initiated calls).
         /// </summary>
+        /// <param name="request">WhatsApp call ID and the SDP of the call; optionally wait until it is answered.</param>
+        /// <returns>The connection details of the call.</returns>
         public async Task<ConnectWhatsAppCallResponse> ConnectWhatsAppCall(
             ConnectWhatsAppCallRequest request
         )
@@ -72,6 +81,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Accept an inbound WhatsApp call.
         /// </summary>
+        /// <param name="request">WhatsApp phone number ID, API key and the ID of the incoming call to accept.</param>
+        /// <returns>The accepted call.</returns>
         public async Task<AcceptWhatsAppCallResponse> AcceptWhatsAppCall(
             AcceptWhatsAppCallRequest request
         )
@@ -88,6 +99,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Connect a Twilio call to a LiveKit room.
         /// </summary>
+        /// <param name="request">Twilio call direction and the room to connect the call to.</param>
+        /// <returns>The URL Twilio must connect the call to.</returns>
         public async Task<ConnectTwilioCallResponse> ConnectTwilioCall(
             ConnectTwilioCallRequest request
         )

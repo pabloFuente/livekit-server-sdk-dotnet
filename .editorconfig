@@ -1,0 +1,10 @@
+root = true
+
+# Every public member of the hand-written code must have an XML doc comment (CS1591 is a
+# warning there). The generated protobuf code only carries the comments protoc finds in the
+# .proto files, so the check is switched off for it.
+[LivekitApi/proto/*.cs]
+dotnet_diagnostic.CS1591.severity = none
+
+[LivekitRtc/Proto/*.g.cs]
+dotnet_diagnostic.CS1591.severity = none

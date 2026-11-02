@@ -187,6 +187,7 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Waits for the audio source to finish playing out all audio data.
         /// </summary>
+        /// <param name="cancellationToken">Cancels this wait only; the queued audio keeps playing.</param>
         public async Task WaitForPlayoutAsync(CancellationToken cancellationToken = default)
         {
             Task playout;

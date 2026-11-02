@@ -7,6 +7,9 @@
 
 .NET APIs to manage [LiveKit](https://livekit.io) Access Tokens, Webhook and Server APIs. Use it with a .NET backend. It is build with **`netstandard2.0`** as target framework, so the SDK can be used in all versions of .NET.
 
+> [!TIP]
+> API reference: https://pablofuente.github.io/livekit-server-sdk-dotnet/api-server/
+
 > [!NOTE]
 > This SDK does not provide real-time communication capabilities. If you want to add real-time audio, video and data features to your .NET server application, please check [Livekit.Rtc.Dotnet](../LivekitRtc/README.md) instead.
 

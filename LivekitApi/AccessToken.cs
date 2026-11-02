@@ -20,6 +20,10 @@ namespace Livekit.Server.Sdk.Dotnet
     {
         private readonly string apiKey;
         private readonly string apiSecret;
+
+        /// <summary>
+        /// The claims of the token (identity, name, metadata, grants...), filled by the <c>With*</c> methods.
+        /// </summary>
         public ClaimsModel Claims { get; private set; }
         private TimeSpan ttl = Constants.DefaultTtl;
         private DateTime expiration;
@@ -55,6 +59,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// Amount of time the created token is valid for.
         /// Defaults to 6 hours.
         /// </summary>
+        /// <param name="ttl">How long the token stays valid after it is generated.</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithTtl(TimeSpan ttl)
         {
             this.ttl = ttl;
@@ -65,6 +71,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// Used to specify an expiration time.
         /// If set, takes preference over the value set with <see cref="WithTtl"/>.
         /// </summary>
+        /// <param name="expiration">Absolute expiration time. A value of kind <c>Unspecified</c> is read as local time.</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithExpiration(DateTime expiration)
         {
             this.expiration = expiration;
@@ -76,6 +84,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// of kind <c>Unspecified</c> would be read as local time).
         /// If set, takes preference over the value set with <see cref="WithTtl"/>.
         /// </summary>
+        /// <param name="expiration">Absolute expiration time.</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithExpiration(DateTimeOffset expiration)
         {
             this.expiration = expiration.UtcDateTime;
@@ -87,6 +97,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// If not set, the token is valid immediately after creation.
         /// <see href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-25#section-4.1.5"/>
         /// </summary>
+        /// <param name="notBefore">Time before which the token is not valid. A value of kind <c>Unspecified</c> is read as local time.</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithNotBefore(DateTime notBefore)
         {
             this.notBefore = notBefore;
@@ -97,6 +109,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// Date specifying the time before which this token is invalid, with an explicit offset
         /// (a <see cref="DateTime"/> of kind <c>Unspecified</c> would be read as local time).
         /// </summary>
+        /// <param name="notBefore">Time before which the token is not valid.</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithNotBefore(DateTimeOffset notBefore)
         {
             this.notBefore = notBefore.UtcDateTime;
@@ -106,6 +120,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Adds <see cref="VideoGrants"/> to this token.
         /// </summary>
+        /// <param name="grants">Room permissions of the token holder: joining, publishing, subscribing, room administration...</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithGrants(VideoGrants grants)
         {
             Claims.Video = grants;
@@ -115,6 +131,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Adds <see cref="SIPGrants"/> to this token.
         /// </summary>
+        /// <param name="grants">SIP permissions: administering trunks and dispatch rules (<c>Admin</c>) or making calls (<c>Call</c>).</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithSipGrants(SIPGrants grants)
         {
             Claims.Sip = grants;
@@ -124,6 +142,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Adds <see cref="InferenceGrants"/> to this token.
         /// </summary>
+        /// <param name="grants">Inference permissions.</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithInferenceGrants(InferenceGrants grants)
         {
             Claims.Inference = grants;
@@ -133,6 +153,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Adds <see cref="ObservabilityGrants"/> to this token.
         /// </summary>
+        /// <param name="grants">Observability permissions.</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithObservabilityGrants(ObservabilityGrants grants)
         {
             Claims.Observability = grants;
@@ -142,6 +164,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Unique identity of the user, required for room join tokens.
         /// </summary>
+        /// <param name="identity">Identity of the participant, unique within the room.</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithIdentity(string identity)
         {
             Claims.Identity = identity;
@@ -152,6 +176,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// Kind of participant (standard, egress, ingress, agent, sip)
         /// Allows further identifying participants of custom services.
         /// </summary>
+        /// <param name="kind">Kind of participant: standard, egress, ingress, agent or SIP.</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithKind(ParticipantInfo.Types.Kind kind)
         {
             Claims.Kind = kind.ToString().ToLowerInvariant();
@@ -161,6 +187,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Display name for the participant, available as <code>Participant.name</code>.
         /// </summary>
+        /// <param name="name">Display name shown to the other participants.</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithName(string name)
         {
             Claims.Name = name;
@@ -170,6 +198,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Custom metadata to be passed to participants.
         /// </summary>
+        /// <param name="metadata">Free-form metadata attached to the participant and visible to the others.</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithMetadata(string metadata)
         {
             Claims.Metadata = metadata;
@@ -179,6 +209,8 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// Key/value attributes to attach to the participant.
         /// </summary>
+        /// <param name="attributes">Key/value attributes attached to the participant.</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithAttributes(Dictionary<string, string> attributes)
         {
             Claims.Attributes = attributes;
@@ -188,18 +220,30 @@ namespace Livekit.Server.Sdk.Dotnet
         /// <summary>
         /// For verifying the integrity of the message body.
         /// </summary>
+        /// <param name="sha256">Base64 SHA-256 of the message body the token authenticates (used by webhooks).</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithSha256(string sha256)
         {
             Claims.Sha256 = sha256;
             return this;
         }
 
+        /// <summary>
+        /// Name of the room configuration preset to apply when this token creates the room.
+        /// </summary>
+        /// <param name="roomPreset">Name of the room configuration preset.</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithRoomPreset(string roomPreset)
         {
             Claims.RoomPreset = roomPreset;
             return this;
         }
 
+        /// <summary>
+        /// Room configuration (agents to dispatch, egress, limits...) applied when this token creates the room.
+        /// </summary>
+        /// <param name="roomConfig">Room configuration: agents to dispatch, egress, participant limits...</param>
+        /// <returns>This token, so calls can be chained.</returns>
         public AccessToken WithRoomConfig(RoomConfiguration roomConfig)
         {
             Claims.RoomConfig = roomConfig;
@@ -405,6 +449,12 @@ namespace Livekit.Server.Sdk.Dotnet
         private readonly string apiSecret;
         private readonly TimeSpan leeway;
 
+        /// <summary>
+        /// Creates a verifier for tokens signed with the given API key and secret.
+        /// </summary>
+        /// <param name="apiKey">API key the tokens must be issued by; the <c>LIVEKIT_API_KEY</c> environment variable when omitted.</param>
+        /// <param name="apiSecret">API secret the tokens must be signed with; the <c>LIVEKIT_API_SECRET</c> environment variable when omitted.</param>
+        /// <param name="leeway">Clock tolerance applied to the token lifetime; <see cref="Constants.DefaultLeeway"/> when omitted.</param>
         public TokenVerifier(string apiKey = null, string apiSecret = null, TimeSpan? leeway = null)
         {
             this.apiKey = apiKey ?? Environment.GetEnvironmentVariable("LIVEKIT_API_KEY");
@@ -425,6 +475,12 @@ namespace Livekit.Server.Sdk.Dotnet
             }
         }
 
+        /// <summary>
+        /// Validates the signature, the issuer and the lifetime of a token and returns its claims.
+        /// </summary>
+        /// <param name="token">The JWT to verify.</param>
+        /// <returns>The claims of the token.</returns>
+        /// <exception cref="Microsoft.IdentityModel.Tokens.SecurityTokenException">The token is not valid: wrong signature or issuer, expired or not yet valid.</exception>
         public ClaimsModel Verify(string token)
         {
             var validationParameters = new TokenValidationParameters

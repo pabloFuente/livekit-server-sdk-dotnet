@@ -1,5 +1,12 @@
 # Changelog (Release Notes)
 
+## Unreleased
+
+- XML documentation comments for every public member, with parameter and return value
+  descriptions on every method, for IntelliSense and for the new
+  [API reference](https://pablofuente.github.io/livekit-server-sdk-dotnet/) generated with DocFX;
+  a missing comment is now a build warning.
+
 ## 0.1.6
 
 - Fix the process terminating (`FFI Panic` followed by exit code 1) in two situations: calling

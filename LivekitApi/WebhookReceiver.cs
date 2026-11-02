@@ -5,6 +5,10 @@ using Google.Protobuf;
 
 namespace Livekit.Server.Sdk.Dotnet
 {
+    /// <summary>
+    /// Receives the webhook events LiveKit posts: verifies the token of the <c>Authorization</c> header and the
+    /// SHA-256 of the body, then parses the <see cref="WebhookEvent"/>.
+    /// </summary>
     public class WebhookReceiver : TokenVerifier
     {
         /// <summary>

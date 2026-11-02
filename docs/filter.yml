@@ -1,0 +1,12 @@
+# Shapes the API reference. Rules apply in order; the first match wins.
+apiRules:
+  # Public only because the two packages share the FFI client with their tests
+  - exclude:
+      uidRegex: ^LiveKit\.Rtc\.Internal
+      type: Namespace
+  # FFI transport messages of the RTC package (requests, responses, callbacks, events, owned
+  # handles and protobuf reflection holders) are not part of the public API. The protobuf
+  # enums, infos, options and stats that public members use stay documented.
+  - exclude:
+      uidRegex: ^LiveKit\.Proto\.(Ffi|Owned)\w*(\.|$)|^LiveKit\.Proto\.\w*(Request|Response|Callback|Event|Reflection)(\.|$)
+      type: Type

@@ -291,6 +291,7 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Creates a copy of this audio frame.
         /// </summary>
+        /// <returns>A deep copy of the frame, with its own sample buffer.</returns>
         public AudioFrame Clone()
         {
             var dataCopy = new short[_data.Length];

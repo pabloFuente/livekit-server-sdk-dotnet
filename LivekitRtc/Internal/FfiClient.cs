@@ -12,6 +12,10 @@ using LiveKit.Proto;
 
 namespace LiveKit.Rtc.Internal
 {
+    /// <summary>
+    /// Process-wide client of the native <c>livekit_ffi</c> library: sends the requests and delivers the native
+    /// events. Public for the tests; applications use <see cref="Room"/> and the track, source and stream classes.
+    /// </summary>
     public sealed class FfiClient : IDisposable
     {
         private static readonly Lazy<FfiClient> _instance = new Lazy<FfiClient>(
@@ -19,6 +23,9 @@ namespace LiveKit.Rtc.Internal
             LazyThreadSafetyMode.ExecutionAndPublication
         );
 
+        /// <summary>
+        /// The singleton instance.
+        /// </summary>
         public static FfiClient Instance => _instance.Value;
 
         private readonly FfiCallbackDelegate _callbackDelegate;
@@ -41,6 +48,9 @@ namespace LiveKit.Rtc.Internal
         /// </summary>
         public event EventHandler<FfiEvent>? EventReceived;
 
+        /// <summary>
+        /// The SDK name reported to the native library, and by it to the LiveKit server.
+        /// </summary>
         public const string SdkName = "dotnet";
 
         /// <summary>
@@ -78,6 +88,11 @@ namespace LiveKit.Rtc.Internal
             return version == null ? "0.0.0" : $"{version.Major}.{version.Minor}.{version.Build}";
         }
 
+        /// <summary>
+        /// Loads the native library and registers the event callback, once per process.
+        /// <paramref name="captureLogs"/> forwards the native logs to the console.
+        /// </summary>
+        /// <param name="captureLogs">Forwards the native logs to the console when true.</param>
         public void Initialize(bool captureLogs = false)
         {
             if (_initialized)
@@ -95,6 +110,8 @@ namespace LiveKit.Rtc.Internal
         /// <summary>
         /// Sends a synchronous request to the Rust SDK.
         /// </summary>
+        /// <param name="request">The request to send.</param>
+        /// <returns>The native response.</returns>
         public unsafe FfiResponse SendRequest(FfiRequest request)
         {
             EnsureInitialized();
@@ -129,6 +146,10 @@ namespace LiveKit.Rtc.Internal
         /// Async waits for a specific event. Uses the Waiter Pattern to ensure no events
         /// are missed between a Request and a Wait call.
         /// </summary>
+        /// <param name="predicate">Selects the awaited event.</param>
+        /// <param name="timeout">Maximum time to wait; the default when null.</param>
+        /// <param name="cancellationToken">Cancels the wait.</param>
+        /// <returns>The first event that satisfies the predicate.</returns>
         public async Task<FfiEvent> WaitForEventAsync(
             Func<FfiEvent, bool> predicate,
             TimeSpan? timeout = null,
@@ -317,6 +338,9 @@ namespace LiveKit.Rtc.Internal
         /// the native library has no copy entry point (calling the old binding threw
         /// <see cref="EntryPointNotFoundException"/>).
         /// </summary>
+        /// <param name="ptr">Address of the native buffer.</param>
+        /// <param name="len">Number of bytes to copy.</param>
+        /// <returns>A managed copy of the bytes.</returns>
         public byte[] CopyBuffer(ulong ptr, int len)
         {
             byte[] buffer = new byte[len];
@@ -332,6 +356,8 @@ namespace LiveKit.Rtc.Internal
         /// array is only valid while the array is pinned. Pin the buffer around the request
         /// instead (see <c>AudioFrame.WithPinnedBuffer</c>).
         /// </summary>
+        /// <param name="data">The managed array.</param>
+        /// <returns>A pointer that is only valid while the array stays pinned.</returns>
         [Obsolete(
             "The native entry point does not exist and the returned pointer would not be pinned. Pin the buffer with 'fixed' around the FFI request instead."
         )]
@@ -347,6 +373,9 @@ namespace LiveKit.Rtc.Internal
                 Initialize();
         }
 
+        /// <summary>
+        /// Releases the native library. The SDK cannot be used in this process afterwards.
+        /// </summary>
         public void Dispose()
         {
             if (_disposed)

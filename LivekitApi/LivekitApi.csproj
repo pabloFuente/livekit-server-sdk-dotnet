@@ -31,7 +31,6 @@
     <EmbedAllSources>true</EmbedAllSources>
     <EnablePackageValidation>true</EnablePackageValidation>
     <PackageValidationBaselineVersion>1.2.5</PackageValidationBaselineVersion>
-    <NoWarn>$(NoWarn);CS1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>

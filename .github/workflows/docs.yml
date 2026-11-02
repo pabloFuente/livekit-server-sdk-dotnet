@@ -1,0 +1,51 @@
+# Builds the API reference with DocFX and publishes it to GitHub Pages
+# (Settings > Pages > Source must be "GitHub Actions").
+
+name: docs
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "LivekitApi/**"
+      - "LivekitRtc/**"
+      - "docs/**"
+      - ".config/dotnet-tools.json"
+      - ".github/workflows/docs.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Restore tools
+        run: dotnet tool restore
+      - name: Build the API reference
+        run: dotnet docfx docs/docfx.json
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

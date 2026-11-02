@@ -93,6 +93,13 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Initializes text stream info.
         /// </summary>
+        /// <param name="streamId">Unique ID of the stream.</param>
+        /// <param name="mimeType">MIME type of the content.</param>
+        /// <param name="topic">Topic the stream was sent on.</param>
+        /// <param name="timestamp">Send time, in milliseconds since the Unix epoch.</param>
+        /// <param name="size">Total size in bytes, or null when unknown.</param>
+        /// <param name="attributes">Custom attributes, or null.</param>
+        /// <param name="attachments">IDs of the attached byte streams, or null.</param>
         public TextStreamInfo(
             string streamId,
             string mimeType,
@@ -121,6 +128,13 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Initializes byte stream info.
         /// </summary>
+        /// <param name="streamId">Unique ID of the stream.</param>
+        /// <param name="mimeType">MIME type of the content.</param>
+        /// <param name="topic">Topic the stream was sent on.</param>
+        /// <param name="timestamp">Send time, in milliseconds since the Unix epoch.</param>
+        /// <param name="size">Total size in bytes, or null when unknown.</param>
+        /// <param name="attributes">Custom attributes, or null.</param>
+        /// <param name="name">File name of the content; empty when null.</param>
         public ByteStreamInfo(
             string streamId,
             string mimeType,
@@ -670,12 +684,15 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Initializes a new stream exception.
         /// </summary>
+        /// <param name="message">Description of the error.</param>
         public StreamException(string message)
             : base(message) { }
 
         /// <summary>
         /// Initializes a new stream exception with an inner exception.
         /// </summary>
+        /// <param name="message">Description of the error.</param>
+        /// <param name="innerException">The underlying error.</param>
         public StreamException(string message, Exception innerException)
             : base(message, innerException) { }
     }
@@ -727,6 +744,8 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Writes text to the stream.
         /// </summary>
+        /// <param name="text">Text to send; long texts are split into chunks on character boundaries.</param>
+        /// <param name="cancellationToken">Cancels the send.</param>
         public async Task WriteAsync(string text, CancellationToken cancellationToken = default)
         {
             if (_closed)
@@ -816,6 +835,8 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Closes the stream.
         /// </summary>
+        /// <param name="reason">Optional reason sent to the readers in the stream trailer.</param>
+        /// <param name="attributes">Attributes to update on the stream, sent in the trailer.</param>
         public Task CloseAsync(string? reason = null, Dictionary<string, string>? attributes = null)
         {
             return CloseAsync(reason, attributes, CancellationToken.None);
@@ -824,6 +845,9 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Closes the stream, with a token to abandon the wait for the server's acknowledgement.
         /// </summary>
+        /// <param name="reason">Optional reason sent to the readers in the stream trailer.</param>
+        /// <param name="attributes">Attributes to update on the stream, sent in the trailer.</param>
+        /// <param name="cancellationToken">Abandons the wait for the server's acknowledgement; the stream is closed anyway.</param>
         public async Task CloseAsync(
             string? reason,
             Dictionary<string, string>? attributes,
@@ -881,6 +905,9 @@ namespace LiveKit.Rtc
             }
         }
 
+        /// <summary>
+        /// Closes the stream if it is still open (the trailer is sent; a failure is logged) and releases the writer.
+        /// </summary>
         public void Dispose()
         {
             if (!_closed)
@@ -899,6 +926,9 @@ namespace LiveKit.Rtc
             _writeLock?.Dispose();
         }
 
+        /// <summary>
+        /// Closes the stream if it is still open and releases the writer.
+        /// </summary>
         public async ValueTask DisposeAsync()
         {
             if (!_closed)
@@ -957,6 +987,8 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Writes bytes to the stream.
         /// </summary>
+        /// <param name="data">Bytes to send; large arrays are split into chunks.</param>
+        /// <param name="cancellationToken">Cancels the send.</param>
         public async Task WriteAsync(byte[] data, CancellationToken cancellationToken = default)
         {
             if (_closed)
@@ -1034,6 +1066,8 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Closes the stream.
         /// </summary>
+        /// <param name="reason">Optional reason sent to the readers in the stream trailer.</param>
+        /// <param name="attributes">Attributes to update on the stream, sent in the trailer.</param>
         public Task CloseAsync(string? reason = null, Dictionary<string, string>? attributes = null)
         {
             return CloseAsync(reason, attributes, CancellationToken.None);
@@ -1042,6 +1076,9 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Closes the stream, with a token to abandon the wait for the server's acknowledgement.
         /// </summary>
+        /// <param name="reason">Optional reason sent to the readers in the stream trailer.</param>
+        /// <param name="attributes">Attributes to update on the stream, sent in the trailer.</param>
+        /// <param name="cancellationToken">Abandons the wait for the server's acknowledgement; the stream is closed anyway.</param>
         public async Task CloseAsync(
             string? reason,
             Dictionary<string, string>? attributes,
@@ -1099,6 +1136,9 @@ namespace LiveKit.Rtc
             }
         }
 
+        /// <summary>
+        /// Closes the stream if it is still open (the trailer is sent; a failure is logged) and releases the writer.
+        /// </summary>
         public void Dispose()
         {
             if (!_closed)
@@ -1117,6 +1157,9 @@ namespace LiveKit.Rtc
             _writeLock?.Dispose();
         }
 
+        /// <summary>
+        /// Closes the stream if it is still open and releases the writer.
+        /// </summary>
         public async ValueTask DisposeAsync()
         {
             if (!_closed)

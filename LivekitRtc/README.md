@@ -35,6 +35,9 @@
   - [Perform release](#perform-release)
   - [AI coding agents](#ai-coding-agents)
 
+> [!TIP]
+> API reference: https://pablofuente.github.io/livekit-server-sdk-dotnet/api-rtc/
+
 ## Design principles
 
 This library is crafted based on three core principles:

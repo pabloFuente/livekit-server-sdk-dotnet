@@ -7,6 +7,8 @@
 
 Use this SDK to add realtime video, audio and data features to your .NET app. By connecting to LiveKit Cloud or a self-hosted server, you can quickly build applications such as multi-modal AI, live streaming, or video calls with just a few lines of code.
 
+API reference of both packages: https://pablofuente.github.io/livekit-server-sdk-dotnet/
+
 - [Packages](#packages)
   - [Livekit.Server.Sdk.Dotnet](#livekitserversdkdotnet)
   - [Livekit.Rtc.Dotnet](#livekitrtcdotnet)
