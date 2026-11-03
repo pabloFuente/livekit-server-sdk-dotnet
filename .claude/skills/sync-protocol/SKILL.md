@@ -18,7 +18,7 @@ Scripts used below live next to this file. Run them from the repo root:
 
 1. `git status --porcelain` must be clean apart from untracked noise. If not, ask before continuing.
 2. `git submodule update --init protocol` if `protocol/protobufs` is missing.
-3. Check tools: `protoc --version`, `command -v protoc-gen-twirpcs`, `dotnet --version`, `dotnet tool restore`. If `protoc-gen-twirpcs` is missing, stop and tell the user: it comes from github.com/seanpfeifer/twirp-gen and must be on PATH.
+3. Check tools: `protoc --version`, `command -v protoc-gen-twirpcs`, `dotnet --version`, `dotnet tool restore`. If `protoc-gen-twirpcs` is missing, stop and tell the user: it comes from github.com/seanpfeifer/twirp-gen and must be on PATH. `protoc` should be 28.3 and the plugin v1.1.0 (`go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0`): they reproduce the committed code, while another `protoc` rewrites every generated file. Warn the user if `protoc` differs.
 4. Record the starting point:
    ```bash
    OLD=$(git -C protocol describe --tags --exact-match 2>/dev/null || git -C protocol rev-parse --short HEAD)
@@ -77,7 +77,7 @@ Wait for confirmation, or for the user to strike items, before Phase 6.
 For each confirmed RPC:
 
 1. **Find the reference.** Look up the same RPC in node-sdks `packages/livekit-server-sdk/src/*ServiceClient.ts` (and python `livekit-api` if node lacks it) on GitHub, in a local clone, or through the LiveKit docs (https://docs.livekit.io; a docs MCP server exists at https://docs.livekit.io/mcp when one is configured). You need two things from it: the **grants** it signs the request with, and the **public method name and shape**.
-2. **Write the wrapper** in the matching `LivekitApi/<Service>ServiceClient.cs`, following the existing pattern exactly: same grants as the reference SDK, and `return await SendAsync("twirp/<package>.<Service>/<Method>", request, <Response>.Parser, AuthHeader(...)).ConfigureAwait(false);` with the route copied from the generated `Twirp.cs` (the clients never call `Twirp` directly, and never write the token to `httpClient.DefaultRequestHeaders`). C# 7.3 only (netstandard2.0). Add an XML `<summary>` taken from the proto comment. For a whole new service, create `<Service>ServiceClient : BaseService` with the standard constructor `(string host, string apiKey = null, string apiSecret = null, HttpClient client = null)`.
+2. **Write the wrapper** in the matching `LivekitApi/<Service>ServiceClient.cs`, following the existing pattern exactly: same grants as the reference SDK, and `return await SendAsync("twirp/<package>.<Service>/<Method>", request, <Response>.Parser, AuthHeader(...)).ConfigureAwait(false);` with the route copied from the generated `Twirp.cs` (the clients never call `Twirp` directly, and never write the token to `httpClient.DefaultRequestHeaders`). C# 7.3 only (netstandard2.0). Add an XML `<summary>` taken from the proto comment. For a whole new service, create `<Service>ServiceClient : BaseService` with the standard constructor `(string host, string apiKey = null, string apiSecret = null, HttpClient client = null)`, and list it under "Service clients" in `docs/api-server/toc.yml`.
 3. **Unit test** in `LivekitApi.Tests/<Service>ServiceClient.Test.cs` with `[Trait("Category", "Unit")]`, using `TestHttpMessageHandler`. Assert the Twirp route in `LastRequest.RequestUri` and decode the bearer token to check the grants.
 4. **Integration test** only if the RPC works against the OSS `livekit-server` started by `ServiceClientFixture`. Cloud-only APIs (connectors, phone numbers, cloud agents...) get unit tests only, and a README note saying they are LiveKit Cloud only.
 5. **README:** add or extend the service section in `LivekitApi/README.md` with a minimal usage snippet in the same style as its neighbours.
@@ -105,7 +105,10 @@ Then run `dotnet pack LivekitApi -c Debug -p:IncludeSymbols=true -p:SymbolPackag
 dotnet test LivekitApi.Tests --filter "Category=Unit"
 dotnet test LivekitApi.Tests      # needs Docker; if unavailable, say so explicitly in the final report
 dotnet csharpier check .
+dotnet docfx docs/docfx.json --warningsAsErrors && python3 docs/check_api_docs.py
 ```
+
+The last line is the API reference build that `docs.yml` publishes from `main` after the merge (the pull request's `build` check runs it too). Fix what it reports, such as a missing sidebar entry or an unresolved `cref`, never by editing generated files or dropping `--warningsAsErrors`.
 
 Integration failures can come from the `livekit/livekit-server:master` image rather than from this change. If a failure looks unrelated, say so and show the evidence instead of editing tests to make them pass.
 
@@ -134,6 +137,6 @@ End with:
 - Files changed, grouped: generator script, generated (count only), hand-written, tests, docs
 - New public API
 - Breaking changes, each with its suppression ID
-- Test results (unit / integration / skipped and why)
+- Test results (unit / integration / API reference / skipped and why)
 - Open decisions left to the maintainer (unwrapped RPCs, protos not added)
-- Suggested commits, following the repo convention, both left to the maintainer: `Update livekit/protocol to vX.Y.Z` (submodule pointer) and `Regenerate proto C# files` (generated code, suppressions file, hand-written fixes, tests, docs, changelog).
+- Suggested commits, in this order and left to the maintainer (`.github/workflows/sync-protocol.yml` makes the same ones): `Update livekit/protocol to vX.Y.Z` (submodule pointer), `Regenerate proto C# files` (`generate_proto.sh` and `LivekitApi/proto`) and `Adapt LivekitApi to livekit/protocol vX.Y.Z` (suppressions file, hand-written fixes, tests, docs, changelog).

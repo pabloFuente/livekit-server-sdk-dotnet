@@ -101,6 +101,7 @@ jobs:
   deploy:
     permissions:
       contents: write
+      pull-requests: write # The post-release pull request
       id-token: write # NuGet Trusted Publishing
     # Publish only when creating a GitHub Release
     # https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository
@@ -163,7 +164,15 @@ jobs:
             exit 1
           fi
 
-      - name: Push changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Post steps release ${{ github.event.release.tag_name }}"
+      # The ruleset on main only lets workflows change it through a pull request that passes `build`
+      - name: Open the post-release pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "post-release/$TAG"
+          git commit -qam "Post steps release $TAG"
+          git push origin "post-release/$TAG"
+          gh pr create --head "post-release/$TAG" --title "Post steps release $TAG" --body "Moves the package validation baseline to $TAG, which is now on NuGet. Merge it before the next release of the same package."

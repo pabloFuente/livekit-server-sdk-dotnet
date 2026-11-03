@@ -477,8 +477,8 @@ git clone --recurse-submodules https://github.com/pabloFuente/livekit-server-sdk
 Pre-requisites:
 
 - [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) (`global.json` pins it; the package itself targets `netstandard2.0`)
-- [protoc](https://github.com/protocolbuffers/protobuf/releases/latest)
-- `go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@latest`
+- [protoc 28.3](https://github.com/protocolbuffers/protobuf/releases/tag/v28.3) (the version that reproduces the committed generated code)
+- `go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0`
 
 Generate proto files:
 
@@ -589,7 +589,9 @@ dotnet restore
 
 3. The skill moves the submodule, reads the upstream changelog and the proto diff, regenerates `LivekitApi/proto` with `./generate_proto.sh`, fixes the build and compares the proto RPCs with the ones the `*ServiceClient` classes wrap. It then stops at a checkpoint listing the relevant upstream changes, the proto files it added to `generate_proto.sh` (and the candidates it left out), the new RPCs it proposes to wrap with the client each one belongs to, and the breaking changes found. Strike what you do not want and confirm.
 4. It wraps the confirmed RPCs with the grants the Node and Python SDKs use, adds the unit tests (route and grants), an integration test when the OSS server supports the RPC, the README section and the changelog bullets under `## Unreleased`. Breaking changes forced by the protocol are recorded in `CompatibilitySuppressions.xml` and explained in the changelog under `Breaking changes coming from livekit/protocol`.
-5. It ends with the test results, the open decisions and the suggested commits, and never commits. Review the diff, commit as `Update livekit/protocol to vX.Y.Z` (the submodule pointer) and `Regenerate proto C# files` (everything else), and follow [Perform release](#perform-release) when ready.
+5. It builds and checks the API reference, then ends with the test results, the open decisions and the suggested commits, and never commits. Review the diff, commit as `Update livekit/protocol to vX.Y.Z` (the submodule pointer), `Regenerate proto C# files` (`generate_proto.sh` and `LivekitApi/proto`) and `Adapt LivekitApi to livekit/protocol vX.Y.Z` (everything else), and follow [Perform release](#perform-release) when ready.
+
+The [sync-protocol workflow](../.github/workflows/sync-protocol.yml) runs the same skill unattended: every day it looks for a GA release of `livekit/protocol` newer than the submodule and, when it finds one, opens a pull request with those three commits and the skill's report as description. Instead of stopping at the checkpoint, it wraps the new RPCs that the Node or Python SDK wraps and lists the rest as open decisions. Its header lists the secrets and repository settings it needs, and it can be started by hand from the Actions tab to choose the Claude model and effort level.
 
 The skill's scripts also work on their own, from the repository root:
 

@@ -142,7 +142,7 @@ has one.
 
 ### Perform release
 
-Releases are automated through GitHub Actions thanks to the [publish workflow](.github/workflows/publish.yml). Both packages `Livekit.Server.Sdk.Dotnet` and `Livekit.Rtc.Dotnet` can be released independently. The workflow publishes with [NuGet Trusted Publishing](https://learn.microsoft.com/nuget/nuget-org/trusted-publishing): nuget.org keeps a policy for this repository and `publish.yml`, scoped to the two package IDs, and the `NUGET_USER` repository secret holds the nuget.org user name; no API key is stored. Checkout how to do so:
+Releases are automated through GitHub Actions thanks to the [publish workflow](.github/workflows/publish.yml). Both packages `Livekit.Server.Sdk.Dotnet` and `Livekit.Rtc.Dotnet` can be released independently. The workflow publishes with [NuGet Trusted Publishing](https://learn.microsoft.com/nuget/nuget-org/trusted-publishing): nuget.org keeps a policy for this repository and `publish.yml`, scoped to the two package IDs, and the `NUGET_USER` repository secret holds the nuget.org user name; no API key is stored. After publishing, the workflow opens a pull request that moves the package validation baseline to the new version: approve its checks ("Approve workflows to run") and merge it before the next release of the same package. Checkout how to do so:
 
 - [Release Livekit.Server.Sdk.Dotnet](LivekitApi/README.md#perform-release)
 - [Release Livekit.Rtc.Dotnet](LivekitRtc/README.md#perform-release)
@@ -150,7 +150,7 @@ Releases are automated through GitHub Actions thanks to the [publish workflow](.
 ### Upgrade version of `livekit/protocol`
 
 > [!TIP]
-> The `/sync-protocol` skill runs this whole procedure, including wrapping the new RPCs. See [AI coding agents](LivekitApi/README.md#ai-coding-agents) in the package README.
+> The `/sync-protocol` skill runs this whole procedure, including wrapping the new RPCs, and the [sync-protocol workflow](.github/workflows/sync-protocol.yml) runs it on every new GA release and opens a pull request. See [AI coding agents](LivekitApi/README.md#ai-coding-agents) in the package README.
 
 To upgrade the version of the `livekit/protocol` Git submodule:
 
@@ -182,7 +182,7 @@ This command may throw an error if there are breaking changes in the protocol, a
 dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:GenerateCompatibilitySuppressionFile=true
 ```
 
-This compatibility suppression file will allow packaging and publishing the SDK even with breaking changes. Once the new version is available in NuGet, the only thing left is to update in file `LivekitApi.csproj` property `<PackageValidationBaselineVersion>X.Y.Z</PackageValidationBaselineVersion>` to the new version (so the new reference for breaking changes is this new version), and delete `CompatibilitySuppressions.xml` (as it is no longer needed). Workflow [publish.yml](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/publish.yml) automatically does this as last step.
+This compatibility suppression file will allow packaging and publishing the SDK even with breaking changes. Once the new version is available in NuGet, the only thing left is to update in file `LivekitApi.csproj` property `<PackageValidationBaselineVersion>X.Y.Z</PackageValidationBaselineVersion>` to the new version (so the new reference for breaking changes is this new version), and delete `CompatibilitySuppressions.xml` (as it is no longer needed). Workflow [publish.yml](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/publish.yml) automatically opens a pull request that does this as last step.
 
 ### AI coding agents
 
@@ -191,6 +191,7 @@ The repository ships guidance and tooling for AI coding agents, so the procedure
 - [CLAUDE.md](CLAUDE.md) (also reachable as `AGENTS.md`) is the briefing an agent loads first: which files are generated and must never be edited by hand, how the submodules and the native binaries are coupled, the target framework constraints of each package, the build, format and test commands, and the changelog conventions.
 - [.claude/settings.json](.claude/settings.json) pre-approves the routine commands (`dotnet build`, `test` and `pack`, CSharpier, `./generate_proto.sh`, read-only git commands on the submodules), asks before `git commit`, `git push`, `git tag` and `download_ffi.sh`, and denies `dotnet nuget push` and `gh release`. Two hooks block edits to generated code, native binaries and submodules, and run CSharpier on every edited `.cs` or `.csproj` file.
 - Two [Claude Code](https://claude.com/claude-code) skills automate the upgrade procedures end to end: `/sync-protocol [version]` for `livekit/protocol` (step by step in [LivekitApi/README.md](LivekitApi/README.md#ai-coding-agents)) and `/sync-rust-sdks [version]` for `rust-sdks` (step by step in [LivekitRtc/README.md](LivekitRtc/README.md#ai-coding-agents)). Both regenerate, fix the build, surface the new upstream APIs, run the tests and write the changelog entry, then stop at a checkpoint for your decisions and leave the result uncommitted for review. Releases stay manual.
+- The [sync-protocol workflow](.github/workflows/sync-protocol.yml) runs `/sync-protocol` with Claude Code whenever `livekit/protocol` publishes a new GA release, and opens a pull request whose checks run the full test suite and build the API reference.
 
 ---
 

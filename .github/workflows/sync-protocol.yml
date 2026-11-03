@@ -1,0 +1,114 @@
+# Opens a pull request that upgrades livekit/protocol whenever it publishes a new GA release, by
+# running the /sync-protocol skill (.claude/skills/sync-protocol) with Claude Code, which also builds
+# the API reference. The pull request's dotnet.yml run repeats that build (the same one docs.yml
+# publishes from main) along with the full test suite.
+# A version that already has a sync-protocol/vX.Y.Z branch is skipped: delete the branch to retry it.
+
+name: sync-protocol
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # daily
+  workflow_dispatch:
+    inputs:
+      model:
+        description: Claude model, an alias (opus, sonnet, fable) or a full ID
+        default: opus
+      effort:
+        description: Effort level
+        type: choice
+        options: [low, medium, high, xhigh, max]
+        default: high
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency: sync-protocol
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.latest.outputs.version }}
+    steps:
+      - name: Find a livekit/protocol release newer than the submodule
+        id: latest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag=$(gh api repos/livekit/protocol/releases/latest --jq .tag_name) # @livekit/protocol@X.Y.Z, never a pre-release
+          version=${tag##*@}
+          current=$(gh api "repos/$GITHUB_REPOSITORY/contents/protocol" --jq .sha)
+          status=$(gh api "repos/livekit/protocol/compare/$current...v$version" --jq .status)
+          if [ "$status" = ahead ] && ! gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/sync-protocol/v$version" --silent 2>/dev/null; then
+            echo "version=$version" >> "$GITHUB_OUTPUT"
+          fi
+
+  sync:
+    needs: check
+    if: needs.check.outputs.version
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      VERSION: ${{ needs.check.outputs.version }}
+      BRANCH: sync-protocol/v${{ needs.check.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true # generate_proto.sh reads both protocol and rust-sdks
+          persist-credentials: false # the last step pushes with its own token
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      # protoc 28.3 and protoc-gen-twirpcs v1.1.0 reproduce the committed generated code byte for byte
+      - uses: arduino/setup-protoc@v3
+        with:
+          version: "28.3"
+          repo-token: ${{ github.token }}
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+          cache: false
+      - name: Install tools
+        run: |
+          go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0
+          dotnet tool restore
+
+      - name: Run /sync-protocol
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ github.token }}
+          # Skipping permission prompts is fine on a throwaway runner. The deny and ask rules of
+          # .claude/settings.json still hold, so committing and pushing are left to the next step.
+          claude_args: --model ${{ inputs.model || 'opus' }} --effort ${{ inputs.effort || 'high' }} --permission-mode bypassPermissions
+          display_report: true
+          prompt: |
+            Run the sync-protocol skill to update livekit/protocol to v${{ env.VERSION }}.
+
+            Nobody can answer questions during this unattended run, so:
+            - Don't stop at the checkpoint. Wrap the new RPCs that the Node or Python reference SDK wraps, and list everything else the checkpoint would ask about as open decisions.
+            - Don't commit. The workflow commits the protocol submodule, then generate_proto.sh with LivekitApi/proto, then everything else, and opens the pull request.
+            - End each new changelog bullet with [PR #PR_NUMBER](https://github.com/${{ github.repository }}/pull/PR_NUMBER). The workflow fills in the number.
+            - Write the final report to ${{ runner.temp }}/pr-body.md in GitHub Markdown: it becomes the pull request description.
+
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:$GH_TOKEN@github.com/$GITHUB_REPOSITORY"
+          git switch -c "$BRANCH"
+          commit() { git add -A -- "${@:2}" && { git diff --cached --quiet || git commit -qm "$1"; }; }
+          commit "Update livekit/protocol to v$VERSION" protocol
+          commit "Regenerate proto C# files" generate_proto.sh LivekitApi/proto
+          commit "Adapt LivekitApi to livekit/protocol v$VERSION" .
+          git push origin "$BRANCH"
+          # Without a pull request the pushed branch would make every later run skip this version
+          [ -s "$RUNNER_TEMP/pr-body.md" ] || echo "Claude wrote no report: see $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > "$RUNNER_TEMP/pr-body.md"
+          url=$(gh pr create --head "$BRANCH" --title "Update livekit/protocol to v$VERSION" --body-file "$RUNNER_TEMP/pr-body.md")
+          # The changelog links to the pull request, which only has a number now
+          sed -i "s/PR_NUMBER/${url##*/}/g" LivekitApi/CHANGELOG.md
+          git diff --quiet || { git commit -qa --amend --no-edit && git push -f origin "$BRANCH"; }

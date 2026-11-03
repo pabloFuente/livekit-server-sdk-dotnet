@@ -41,7 +41,10 @@ a public API change that breaks them. Build them explicitly after changing publi
   intercepted, so the rule applies to you regardless.
 - `LivekitApi/proto` is generated from the root `protocol/` submodule (`protocol/protobufs/*.proto`)
   with the namespace rewritten from `LiveKit.Proto` to `Livekit.Server.Sdk.Dotnet`. `Twirp.cs` is
-  produced by the `protoc-gen-twirpcs` plugin (`go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@latest`).
+  produced by the `protoc-gen-twirpcs` plugin (`go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0`).
+- Regenerate with `protoc` 28.3 and `protoc-gen-twirpcs` v1.1.0, the versions that reproduce the
+  committed output byte for byte (`sync-protocol.yml` pins them). Another `protoc` reorders the
+  options embedded in the serialized descriptors and rewrites every generated file of both packages.
 - `LivekitRtc/Proto` is generated from the FFI protos in `LivekitRtc/rust-sdks/livekit-ffi/protocol`
   and keeps the `LiveKit.Proto` namespace. Hand-written code imports it with `using LiveKit.Proto;`
   (`Room.cs` qualifies ambiguous names as `Proto.X`).
@@ -317,10 +320,18 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
    removed or changed public API, rerun with `-p:GenerateCompatibilitySuppressionFile=true` to
    create `LivekitApi/CompatibilitySuppressions.xml`, commit it, and describe every suppressed
    change in the changelog under "Breaking changes coming from livekit/protocol". Do **not** bump
-   `PackageValidationBaselineVersion` or delete the suppressions file yourself: `publish.yml` does
-   both after the release is published.
+   `PackageValidationBaselineVersion` or delete the suppressions file yourself: after the release
+   is published, `publish.yml` opens a pull request that does both.
 4. Diff the generated `Twirp.cs` for new RPCs or services and add the matching client methods,
-   tests, README section and changelog bullets.
+   tests, README section and changelog bullets (and a sidebar entry for a new client). Then build
+   and check the API reference (see that section).
+
+`.github/workflows/sync-protocol.yml` does all of this unattended: it checks daily for a GA release
+newer than the submodule, runs `/sync-protocol` with Claude Code, and opens a pull request from
+`sync-protocol/vX.Y.Z` with three commits: `Update livekit/protocol to vX.Y.Z` (the submodule),
+`Regenerate proto C# files` (`generate_proto.sh` and `LivekitApi/proto`) and
+`Adapt LivekitApi to livekit/protocol vX.Y.Z` (everything else). Its header lists the secrets and
+repository settings it needs. A version whose branch exists is skipped; deleting the branch retries it.
 
 ## Upgrading rust-sdks (RTC SDK)
 
@@ -361,7 +372,12 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   never hard-code a version string in code.
 - Publishing happens when the maintainer creates a GitHub release whose tag is `api-X.Y.Z` or
   `rtc-X.Y.Z` (the prefix selects the package). `publish.yml` packs, validates, tests, pushes to
-  NuGet, then commits `Post steps release <tag>` to `main`. The push uses NuGet Trusted
+  NuGet, then opens the pull request `Post steps release <tag>` (branch `post-release/<tag>`) that
+  moves the package validation baseline. A ruleset on `main` requires the `build` check and lets
+  only repository admins bypass it (a personal-account repository cannot list GitHub Actions as a
+  bypass actor), so workflows change `main` only through pull requests, and GitHub holds the
+  checks of a pull request opened with `GITHUB_TOKEN` until the maintainer approves them. Merge
+  that pull request before the next release of the same package. The push to NuGet uses NuGet Trusted
   Publishing (`NuGet/login` exchanges the job's OIDC token for a short-lived key): nuget.org holds
   a policy for this repository and workflow file scoped to the two package IDs, and the
   `NUGET_USER` repository secret holds the nuget.org user name. There is no long-lived API key. Agents do not create tags or releases
