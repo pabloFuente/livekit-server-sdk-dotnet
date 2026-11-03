@@ -18,7 +18,7 @@ Scripts used below live next to this file. Run them from the repo root:
 
 1. `git status --porcelain` must be clean apart from untracked noise. If not, ask before continuing.
 2. `git submodule update --init protocol` if `protocol/protobufs` is missing.
-3. Check tools: `protoc --version`, `command -v protoc-gen-twirpcs`, `dotnet --version`, `dotnet tool restore`. If `protoc-gen-twirpcs` is missing, stop and tell the user: it comes from github.com/seanpfeifer/twirp-gen and must be on PATH. `protoc` should be 28.3 and the plugin v1.1.0 (`go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0`): they reproduce the committed code, while another `protoc` rewrites every generated file. Warn the user if `protoc` differs.
+3. Check tools: `protoc --version`, `command -v protoc-gen-twirpcs`, `dotnet --version`, `dotnet tool restore`. If `protoc-gen-twirpcs` is missing, stop and tell the user: it comes from github.com/seanpfeifer/twirp-gen and must be on PATH. `protoc` should be 36.2 and the plugin v1.1.0 (`go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0`): they reproduce the committed code, while another `protoc` can rewrite every generated file. Warn the user if `protoc` differs.
 4. Record the starting point:
    ```bash
    OLD=$(git -C protocol describe --tags --exact-match 2>/dev/null || git -C protocol rev-parse --short HEAD)

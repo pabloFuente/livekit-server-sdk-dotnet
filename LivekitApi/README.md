@@ -477,7 +477,7 @@ git clone --recurse-submodules https://github.com/pabloFuente/livekit-server-sdk
 Pre-requisites:
 
 - [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) (`global.json` pins it; the package itself targets `netstandard2.0`)
-- [protoc 28.3](https://github.com/protocolbuffers/protobuf/releases/tag/v28.3) (the version that reproduces the committed generated code)
+- [protoc 36.2](https://github.com/protocolbuffers/protobuf/releases/tag/v36.2) (the version that reproduces the committed generated code)
 - `go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0`
 
 Generate proto files:

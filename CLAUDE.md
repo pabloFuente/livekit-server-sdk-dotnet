@@ -42,9 +42,11 @@ a public API change that breaks them. Build them explicitly after changing publi
 - `LivekitApi/proto` is generated from the root `protocol/` submodule (`protocol/protobufs/*.proto`)
   with the namespace rewritten from `LiveKit.Proto` to `Livekit.Server.Sdk.Dotnet`. `Twirp.cs` is
   produced by the `protoc-gen-twirpcs` plugin (`go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0`).
-- Regenerate with `protoc` 28.3 and `protoc-gen-twirpcs` v1.1.0, the versions that reproduce the
-  committed output byte for byte (`sync-protocol.yml` pins them). Another `protoc` reorders the
-  options embedded in the serialized descriptors and rewrites every generated file of both packages.
+- Regenerate with `protoc` 36.2 and `protoc-gen-twirpcs` v1.1.0, the versions that reproduce the
+  committed output byte for byte (`sync-protocol.yml` pins them). v1.1.0 is the plugin's last
+  release: its GitHub repository is gone and only the Go module proxy still serves it. Another
+  `protoc` can rewrite every generated file of both packages (3.21 reorders the options embedded in
+  the serialized descriptors), so move its pin in a change of its own, never inside a sync.
 - `LivekitRtc/Proto` is generated from the FFI protos in `LivekitRtc/rust-sdks/livekit-ffi/protocol`
   and keeps the `LiveKit.Proto` namespace. Hand-written code imports it with `using LiveKit.Proto;`
   (`Room.cs` qualifies ambiguous names as `Proto.X`).

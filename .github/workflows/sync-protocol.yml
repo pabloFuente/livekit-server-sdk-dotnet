@@ -61,10 +61,10 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.0.x
-      # protoc 28.3 and protoc-gen-twirpcs v1.1.0 reproduce the committed generated code byte for byte
+      # protoc 36.2 and protoc-gen-twirpcs v1.1.0 reproduce the committed generated code byte for byte
       - uses: arduino/setup-protoc@v3
         with:
-          version: "28.3"
+          version: "36.2"
           repo-token: ${{ github.token }}
       - uses: actions/setup-go@v5
         with:
