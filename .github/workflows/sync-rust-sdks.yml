@@ -1,0 +1,127 @@
+# Opens a pull request that upgrades the LivekitRtc/rust-sdks submodule whenever livekit/rust-sdks
+# publishes a new GA livekit-ffi release with its native binaries, by running the /sync-rust-sdks
+# skill (.claude/skills/sync-rust-sdks) with Claude Code, which also runs the end-to-end tests of the
+# new binaries and builds the API reference. The pull request's dotnet.yml run repeats both along
+# with the full test suite.
+# A version that already has a sync-rust-sdks/vX.Y.Z branch is skipped: delete the branch to retry it.
+
+name: sync-rust-sdks
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # daily
+  workflow_dispatch:
+    inputs:
+      model:
+        description: Claude model, an alias (opus, sonnet, fable) or a full ID
+        default: opus
+      effort:
+        description: Effort level
+        type: choice
+        options: [low, medium, high, xhigh, max]
+        default: xhigh
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency: sync-rust-sdks
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.latest.outputs.version }}
+    steps:
+      - name: Find a livekit-ffi release newer than the submodule, with its six binaries
+        id: latest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # rust-sdks releases every crate it holds: keep the GA livekit-ffi/vX.Y.Z ones
+          tag=$(gh api "repos/livekit/rust-sdks/releases?per_page=100" --jq '.[] | select(.prerelease | not) | .tag_name | select(test("^livekit-ffi/v[0-9]+\\.[0-9]+\\.[0-9]+$"))' | sort -V | tail -1)
+          current=$(gh api "repos/$GITHUB_REPOSITORY/contents/LivekitRtc/rust-sdks" --jq .sha)
+          status=$(gh api "repos/livekit/rust-sdks/compare/$current...$tag" --jq .status)
+          # download_ffi.sh needs all six, and upstream may still be building them
+          binaries=$(gh api "repos/livekit/rust-sdks/releases/tags/$tag" --jq '[.assets[].name | select(test("^ffi-(linux|macos|windows)-(x86_64|arm64)\\.zip$"))] | length')
+          if [ "$status" = ahead ] && [ "$binaries" = 6 ] && ! gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/sync-rust-sdks/${tag#livekit-ffi/}" --silent 2>/dev/null; then
+            echo "version=${tag#livekit-ffi/v}" >> "$GITHUB_OUTPUT"
+          fi
+
+  sync:
+    needs: check
+    if: needs.check.outputs.version
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      TAG: livekit-ffi/v${{ needs.check.outputs.version }}
+      BRANCH: sync-rust-sdks/v${{ needs.check.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true # generate_proto.sh reads both protocol and rust-sdks
+          persist-credentials: false # the last step pushes with its own token
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      # generate_proto.sh regenerates both packages, and these versions leave LivekitApi/proto untouched
+      - uses: arduino/setup-protoc@v3
+        with:
+          version: "36.2"
+          repo-token: ${{ github.token }}
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+          cache: false
+      - name: Install tools
+        run: |
+          go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0
+          dotnet tool restore
+
+      # Done here because .claude/settings.json asks before download_ffi.sh, and nobody can answer
+      - name: Download the livekit_ffi binaries
+        run: |
+          LivekitRtc/download_ffi.sh "$TAG"
+          test "$(git status --porcelain LivekitRtc/runtimes | wc -l)" = 6 # the script exits 0 even if a platform fails
+
+      - name: Run /sync-rust-sdks
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ github.token }} # the skill reads the upstream release with gh
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ github.token }}
+          # Skipping permission prompts is fine on a throwaway runner. The deny and ask rules of
+          # .claude/settings.json still hold, so committing and pushing are left to the last step.
+          claude_args: --model ${{ inputs.model || 'opus' }} --effort ${{ inputs.effort || 'high' }} --permission-mode bypassPermissions
+          display_report: true
+          prompt: |
+            Run the sync-rust-sdks skill to update rust-sdks to ${{ env.TAG }}.
+
+            Nobody can answer questions during this unattended run, so:
+            - The workflow already downloaded the six livekit_ffi binaries of ${{ env.TAG }} into LivekitRtc/runtimes, because download_ffi.sh needs an approval. They are the only change at preflight. In Phase 4, skip the download and do the verification.
+            - Don't stop at the checkpoint. Expose the features that the Node or Python RTC SDK exposes, and list everything else the checkpoint would ask about as open decisions.
+            - Don't commit. The workflow commits the submodule with the protos and the binaries, then everything else, and opens the pull request.
+            - End each new changelog bullet with [PR #PR_NUMBER](https://github.com/${{ github.repository }}/pull/PR_NUMBER). The workflow fills in the number.
+            - Write the final report to ${{ runner.temp }}/pr-body.md in GitHub Markdown: it becomes the pull request description.
+
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # The binaries belong to $TAG: stop if the skill did not move the submodule to it
+          git -C LivekitRtc/rust-sdks describe --tags --exact-match --match "$TAG"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:$GH_TOKEN@github.com/$GITHUB_REPOSITORY"
+          git switch -c "$BRANCH"
+          commit() { git add -A -- "${@:2}" && { git diff --cached --quiet || git commit -qm "$1"; }; }
+          commit "Update \"rust-sdks\" to $TAG" LivekitRtc/rust-sdks LivekitRtc/Proto LivekitRtc/runtimes generate_proto.sh
+          commit "Adapt LivekitRtc to $TAG" .
+          git push origin "$BRANCH"
+          # Without a pull request the pushed branch would make every later run skip this version
+          [ -s "$RUNNER_TEMP/pr-body.md" ] || echo "Claude wrote no report: see $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > "$RUNNER_TEMP/pr-body.md"
+          url=$(gh pr create --head "$BRANCH" --title "Update \"rust-sdks\" to $TAG" --body-file "$RUNNER_TEMP/pr-body.md")
+          # The changelog links to the pull request, which only has a number now
+          sed -i "s/PR_NUMBER/${url##*/}/g" LivekitRtc/CHANGELOG.md
+          git diff --quiet || { git commit -qa --amend --no-edit && git push -f origin "$BRANCH"; }

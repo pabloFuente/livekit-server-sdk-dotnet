@@ -43,7 +43,7 @@ a public API change that breaks them. Build them explicitly after changing publi
   with the namespace rewritten from `LiveKit.Proto` to `Livekit.Server.Sdk.Dotnet`. `Twirp.cs` is
   produced by the `protoc-gen-twirpcs` plugin (`go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0`).
 - Regenerate with `protoc` 36.2 and `protoc-gen-twirpcs` v1.1.0, the versions that reproduce the
-  committed output byte for byte (`sync-protocol.yml` pins them). v1.1.0 is the plugin's last
+  committed output byte for byte (both sync workflows pin them). v1.1.0 is the plugin's last
   release: its GitHub repository is gone and only the Go module proxy still serves it. Another
   `protoc` can rewrite every generated file of both packages (3.21 reorders the options embedded in
   the serialized descriptors), so move its pin in a change of its own, never inside a sync.
@@ -345,7 +345,14 @@ repository settings it needs. A version whose branch exists is skipped; deleting
    the API reference too: a public member that starts using another `LiveKit.Proto` type needs it
    in the allow-list of `docs/filter.yml`.
 5. Commit the submodule pointer, regenerated protos, binaries and any `generate_proto.sh` change
-   together as `Update "rust-sdks" to livekit-ffi/vX.Y.Z`, plus the changelog entry.
+   together as `Update "rust-sdks" to livekit-ffi/vX.Y.Z`, then the SDK changes, tests, docs and
+   changelog entry as `Adapt LivekitRtc to livekit-ffi/vX.Y.Z`.
+
+`.github/workflows/sync-rust-sdks.yml` does all of this unattended: it checks daily for a GA
+`livekit-ffi` release newer than the submodule whose six binaries are published, downloads them
+itself (`settings.json` asks before `download_ffi.sh`, which an unattended run cannot answer), runs
+`/sync-rust-sdks` with Claude Code and opens a pull request from `sync-rust-sdks/vX.Y.Z` with those
+two commits. As with `sync-protocol.yml`, a version whose branch exists is skipped.
 
 ## Changelogs and releases
 

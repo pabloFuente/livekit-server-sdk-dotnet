@@ -19,7 +19,7 @@ The script used below lives next to this file. Run it from the repo root:
 
 1. `git status --porcelain` must be clean apart from untracked noise. If not, ask before continuing.
 2. `git submodule update --init LivekitRtc/rust-sdks` if `LivekitRtc/rust-sdks/livekit-ffi/protocol` is missing. `--recursive` is not needed for the protos: the nested submodules of rust-sdks are only used to build the FFI from source, and the superproject hides their state on purpose (`ignore = dirty` in `.gitmodules`).
-3. Check tools: `protoc --version`, `dotnet --version`, `dotnet tool restore`, `curl --version`, `unzip -v`, `gh --version`, and `docker info` (for the e2e tests later; if Docker is missing, note it for the final report).
+3. Check tools: `protoc --version`, `command -v protoc-gen-twirpcs`, `dotnet --version`, `dotnet tool restore`, `curl --version`, `unzip -v`, `gh --version`, and `docker info` (for the e2e tests later; if Docker is missing, note it for the final report). `generate_proto.sh` regenerates both packages and stops at the server ones without the Twirp plugin, so the versions that reproduce the committed code apply here too: `protoc` 36.2 and `protoc-gen-twirpcs` v1.1.0 (`go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0`). Warn the user if `protoc` differs.
 4. Record the starting point:
    ```bash
    OLD=$(git -C LivekitRtc/rust-sdks describe --tags --exact-match --match 'livekit-ffi/*' 2>/dev/null || git -C LivekitRtc/rust-sdks rev-parse --short HEAD)
@@ -30,15 +30,15 @@ The script used below lives next to this file. Run it from the repo root:
 
 1. `git -C LivekitRtc/rust-sdks fetch --tags origin`
 2. Resolve the target. FFI release tags look like `livekit-ffi/v0.13.3`; the other crates in the same repo have their own tags (`livekit/v*`, `libwebrtc/v*`, ...), ignore them. Without an argument take the highest one: `git -C LivekitRtc/rust-sdks tag -l 'livekit-ffi/v*' --sort=-v:refname | head -1`. With a bare `X.Y.Z`, prefix it with `livekit-ffi/v`.
-3. Confirm the GitHub release for that tag exists and carries all six binaries. `download_ffi.sh` prints a `✗` per missing platform but still exits 0, so check first:
+3. Confirm the GitHub release for that tag exists and carries all six binaries. `download_ffi.sh` prints a `✗` per missing platform but still exits 0, so check first (through `gh api`: the project settings deny `gh release`):
    ```bash
-   gh release view "livekit-ffi/vX.Y.Z" -R livekit/rust-sdks --json assets --jq '.assets[].name'
+   gh api "repos/livekit/rust-sdks/releases/tags/livekit-ffi/vX.Y.Z" --jq '.assets[].name'
    ```
    Expected: `ffi-linux-x86_64.zip`, `ffi-linux-arm64.zip`, `ffi-macos-x86_64.zip`, `ffi-macos-arm64.zip`, `ffi-windows-x86_64.zip`, `ffi-windows-arm64.zip`. If the release is missing or incomplete (upstream may still be building it), stop here and tell the user. Do not move the submodule to a tag without binaries.
 4. `git -C LivekitRtc/rust-sdks checkout "livekit-ffi/vX.Y.Z"`. Sanity check: `grep -m1 '^version' LivekitRtc/rust-sdks/livekit-ffi/Cargo.toml` must print `X.Y.Z`.
 5. Read what changed upstream, because it drives everything after this:
    - `LivekitRtc/rust-sdks/livekit-ffi/CHANGELOG.md`: every section newer than `$OLD`.
-   - `gh release view "livekit-ffi/vX.Y.Z" -R livekit/rust-sdks` for the release notes.
+   - `gh api "repos/livekit/rust-sdks/releases/tags/livekit-ffi/vX.Y.Z" --jq .body` for the release notes.
    - `git -C LivekitRtc/rust-sdks diff --stat "$OLD"..HEAD -- livekit-ffi/protocol/`
    - `git -C LivekitRtc/rust-sdks diff "$OLD"..HEAD -- livekit-ffi/protocol/`, looking for: new `oneof` cases in `FfiRequest`, `FfiEvent` and `RoomEvent`; new or removed fields in the option messages the SDK maps (`ConnectRequest`/`RoomOptions`, `TrackPublishOptions`, `E2eeOptions`, `KeyProviderOptions`, `VideoEncoding`, `AudioEncoding`, the data-stream and RPC messages); renamed or removed messages, fields and enum values.
    - `git -C LivekitRtc/rust-sdks diff "$OLD"..HEAD -- rust-toolchain.toml`: if the pinned Rust channel changed, update the example in the "Building from source" section of `LivekitRtc/README.md`.
@@ -119,8 +119,10 @@ dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~FfiClientTest|FullyQua
 dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~RoomEventsTests" --logger "console;verbosity=detailed"
 
 dotnet csharpier check .
+dotnet docfx docs/docfx.json --warningsAsErrors && python3 docs/check_api_docs.py
 ```
 
+- The last line is the API reference build that `docs.yml` publishes from `main` after the merge (the pull request's `build` check runs it too). A public member that starts using another `LiveKit.Proto` type needs that type in the allow-list of `docs/filter.yml`, and the check script names it. Fix what it reports, never by editing generated files or dropping `--warningsAsErrors`.
 - If Testcontainers cannot pull its `ryuk` image, set `TESTCONTAINERS_RYUK_DISABLED=true`.
 - Read the SDK's stderr, not just the pass count: an `FFI Panic:` line, or `[WARN] RoomEvent.<Name>: ... not found` lines, mean the binary and the SDK disagree. `dotnet test` does not show the test host's stderr: run with `LIVEKIT_TEST_STDERR_FILE=/tmp/sdk-stderr.log` (the test assembly tees stderr there) and `grep -c '\[WARN\]\|\[ERROR\]\|FFI Panic' /tmp/sdk-stderr.log` afterwards. Report findings with the evidence instead of editing tests to make them pass.
 - If Docker is unavailable, say so explicitly in the final report; the no-Docker set is not sufficient proof for a native bump.
@@ -148,6 +150,6 @@ End with:
 - Files changed, grouped: submodule pointer, generated (count only), binaries (must be 6), generator script, hand-written, tests, docs
 - New public API
 - Breaking changes in the public C# API, if any (no package validation covers this package)
-- Test results (no-Docker set, Docker classes run, skipped and why), plus any `FFI Panic` or `[WARN] RoomEvent` lines seen
+- Test results (no-Docker set, Docker classes run, API reference, skipped and why), plus any `FFI Panic` or `[WARN] RoomEvent` lines seen
 - Open decisions left to the maintainer (unexposed requests, callbacks, room events, option fields)
-- Suggested single commit, following the repo convention: `Update "rust-sdks" to livekit-ffi/vX.Y.Z` (submodule pointer, regenerated protos, the six binaries, any `generate_proto.sh` change, SDK code, tests, docs and changelog together). Leave it to the maintainer.
+- Suggested commits, in this order and left to the maintainer (`.github/workflows/sync-rust-sdks.yml` makes the same ones): `Update "rust-sdks" to livekit-ffi/vX.Y.Z` (submodule pointer, regenerated protos, the six binaries and any `generate_proto.sh` change, which must move together) and `Adapt LivekitRtc to livekit-ffi/vX.Y.Z` (SDK code, tests, docs, changelog).

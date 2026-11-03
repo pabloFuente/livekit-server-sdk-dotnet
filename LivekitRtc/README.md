@@ -376,7 +376,7 @@ dotnet build
 ## Upgrade version of `rust-sdks`
 
 > [!TIP]
-> The `/sync-rust-sdks` skill runs this whole procedure, including exposing the new FFI features. See [AI coding agents](#ai-coding-agents).
+> The `/sync-rust-sdks` skill runs this whole procedure, including exposing the new FFI features, and the [sync-rust-sdks workflow](../.github/workflows/sync-rust-sdks.yml) runs it on every new GA `livekit-ffi` release and opens a pull request. See [AI coding agents](#ai-coding-agents).
 
 To upgrade the version of the `rust-sdks` Git submodule:
 
@@ -415,7 +415,7 @@ git push
 
 [CLAUDE.md](../CLAUDE.md) briefs AI coding agents on this repository, including how the FFI layer works. For this package the relevant tool is the `/sync-rust-sdks` [Claude Code](https://claude.com/claude-code) skill ([SKILL.md](../.claude/skills/sync-rust-sdks/SKILL.md)), which carries out the [`rust-sdks` upgrade](#upgrade-version-of-rust-sdks) end to end:
 
-1. Start from a clean working tree with `protoc`, `gh`, `curl` and `unzip` installed, and Docker running for the e2e tests.
+1. Start from a clean working tree with `protoc` 36.2, `protoc-gen-twirpcs` v1.1.0 (`generate_proto.sh` also regenerates the server package), `gh`, `curl` and `unzip` installed, and Docker running for the e2e tests.
 2. Open Claude Code at the repository root and run the skill with the target `livekit-ffi` version, or without one to take the latest release:
 
    ```text
@@ -423,8 +423,10 @@ git push
    ```
 
 3. The skill checks that the GitHub release carries the six native binaries, moves the submodule, reads the upstream changelog and the FFI proto diff, regenerates `LivekitRtc/Proto` with `./generate_proto.sh`, downloads the binaries with `download_ffi.sh` (it asks before overwriting them), fixes the build and runs the parity guards. It then stops at a checkpoint listing the relevant upstream changes, the proto members that forced fixes, and every new FFI request, callback, room event and option field with a proposal to expose it (with its Node and Python name) or to ignore it. Strike what you do not want and confirm.
-4. It exposes the confirmed features following the Node and Python RTC SDKs, with their mapping or e2e tests, README sections and changelog bullets under `## Unreleased`, then runs the no-Docker tests and the e2e classes for the areas the upstream diff touched.
-5. It ends with the test results (any `FFI Panic` or `[WARN] RoomEvent` line means the binaries and the protos disagree), the open decisions and the suggested commit, and never commits. Review the diff, commit everything as `Update "rust-sdks" to livekit-ffi/vX.Y.Z`, and follow [Perform release](#perform-release) when ready.
+4. It exposes the confirmed features following the Node and Python RTC SDKs, with their mapping or e2e tests, README sections and changelog bullets under `## Unreleased`, then runs the no-Docker tests and the e2e classes for the areas the upstream diff touched, and builds and checks the API reference.
+5. It ends with the test results (any `FFI Panic` or `[WARN] RoomEvent` line means the binaries and the protos disagree), the open decisions and the suggested commits, and never commits. Review the diff, commit as `Update "rust-sdks" to livekit-ffi/vX.Y.Z` (the submodule pointer, `LivekitRtc/Proto`, the six binaries and any `generate_proto.sh` change) and `Adapt LivekitRtc to livekit-ffi/vX.Y.Z` (everything else), and follow [Perform release](#perform-release) when ready.
+
+The [sync-rust-sdks workflow](../.github/workflows/sync-rust-sdks.yml) runs the same skill unattended: every day it looks for a GA `livekit-ffi` release newer than the submodule whose six binaries are published and, when it finds one, downloads the binaries, runs the skill and opens a pull request with those two commits and the skill's report as description. Instead of stopping at the checkpoint, it exposes the features that the Node or Python SDK exposes and lists the rest as open decisions. Its header lists the secrets and repository settings it needs, and it can be started by hand from the Actions tab to choose the Claude model and effort level.
 
 A hook keeps `Proto/*.g.cs`, `runtimes/` and the submodule out of reach of agent edits. The coverage script also works on its own, from the repository root. It lists the `FfiRequest`, `FfiEvent` and `RoomEvent` cases that the hand-written sources do not send, read or handle yet:
 
