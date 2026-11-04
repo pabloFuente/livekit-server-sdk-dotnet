@@ -310,7 +310,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             request.ParticipantName = "Test Caller";
             request.SipNumber = "+1111";
             request.RingingTimeout = new Google.Protobuf.WellKnownTypes.Duration { Seconds = 10 };
-            request.PlayDialtone = true;
+            request.Dialtone = SIPDialtone.Etsi;
             request.ParticipantMetadata = "meta";
             request.ParticipantAttributes.Add("extra", "1");
             request.MediaEncryption = SIPMediaEncryption.SipMediaEncryptRequire;
@@ -390,7 +390,7 @@ namespace Livekit.Server.Sdk.Dotnet.Test
 
             transferRequest.ParticipantIdentity = TestConstants.PARTICIPANT_IDENTITY;
             transferRequest.TransferTo = "+14155550100";
-            transferRequest.PlayDialtone = false;
+            transferRequest.Dialtone = SIPDialtone.Auto;
 
             ex = await Assert.ThrowsAnyAsync<Twirp.Exception>(async () =>
                 await sipClient.TransferSIPParticipant(transferRequest)
