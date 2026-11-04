@@ -54,28 +54,31 @@ namespace Livekit.Server.Sdk.Dotnet {
             "ZXBsb3ltZW50GAcgASgJEmAKCmF0dHJpYnV0ZXMYCCADKAsyJi5saXZla2l0",
             "LkFnZW50RGlzcGF0Y2guQXR0cmlidXRlc0VudHJ5QiSyUB48cmVkYWN0ZWQg",
             "KHt7IC5TaXplIH19IGJ5dGVzKT7AUAEaMQoPQXR0cmlidXRlc0VudHJ5EgsK",
-            "A2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiWAoSQWdlbnREaXNwYXRj",
-            "aFN0YXRlEhoKBGpvYnMYASADKAsyDC5saXZla2l0LkpvYhISCgpjcmVhdGVk",
-            "X2F0GAIgASgDEhIKCmRlbGV0ZWRfYXQYAyABKAMqNQoQSm9iUmVzdGFydFBv",
-            "bGljeRISCg5KUlBfT05fRkFJTFVSRRAAEg0KCUpSUF9ORVZFUhABMosCChRB",
-            "Z2VudERpc3BhdGNoU2VydmljZRJNCg5DcmVhdGVEaXNwYXRjaBIjLmxpdmVr",
-            "aXQuQ3JlYXRlQWdlbnREaXNwYXRjaFJlcXVlc3QaFi5saXZla2l0LkFnZW50",
-            "RGlzcGF0Y2gSTQoORGVsZXRlRGlzcGF0Y2gSIy5saXZla2l0LkRlbGV0ZUFn",
-            "ZW50RGlzcGF0Y2hSZXF1ZXN0GhYubGl2ZWtpdC5BZ2VudERpc3BhdGNoElUK",
-            "DExpc3REaXNwYXRjaBIhLmxpdmVraXQuTGlzdEFnZW50RGlzcGF0Y2hSZXF1",
-            "ZXN0GiIubGl2ZWtpdC5MaXN0QWdlbnREaXNwYXRjaFJlc3BvbnNlQkZaI2dp",
-            "dGh1Yi5jb20vbGl2ZWtpdC9wcm90b2NvbC9saXZla2l0qgINTGl2ZUtpdC5Q",
-            "cm90b+oCDkxpdmVLaXQ6OlByb3RvYgZwcm90bzM="));
+            "A2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiiAEKEkFnZW50RGlzcGF0",
+            "Y2hTdGF0ZRIaCgRqb2JzGAEgAygLMgwubGl2ZWtpdC5Kb2ISEgoKY3JlYXRl",
+            "ZF9hdBgCIAEoAxISCgpkZWxldGVkX2F0GAMgASgDEi4KB3RyaWdnZXIYBCAB",
+            "KA4yHS5saXZla2l0LkFnZW50RGlzcGF0Y2hUcmlnZ2VyKjUKEEpvYlJlc3Rh",
+            "cnRQb2xpY3kSEgoOSlJQX09OX0ZBSUxVUkUQABINCglKUlBfTkVWRVIQASph",
+            "ChRBZ2VudERpc3BhdGNoVHJpZ2dlchITCg9BRFRfVU5TUEVDSUZJRUQQABIM",
+            "CghBRFRfSk9JThABEhAKDEFEVF9ST09NX0FQSRACEhQKEEFEVF9ESVNQQVRD",
+            "SF9BUEkQAzKLAgoUQWdlbnREaXNwYXRjaFNlcnZpY2USTQoOQ3JlYXRlRGlz",
+            "cGF0Y2gSIy5saXZla2l0LkNyZWF0ZUFnZW50RGlzcGF0Y2hSZXF1ZXN0GhYu",
+            "bGl2ZWtpdC5BZ2VudERpc3BhdGNoEk0KDkRlbGV0ZURpc3BhdGNoEiMubGl2",
+            "ZWtpdC5EZWxldGVBZ2VudERpc3BhdGNoUmVxdWVzdBoWLmxpdmVraXQuQWdl",
+            "bnREaXNwYXRjaBJVCgxMaXN0RGlzcGF0Y2gSIS5saXZla2l0Lkxpc3RBZ2Vu",
+            "dERpc3BhdGNoUmVxdWVzdBoiLmxpdmVraXQuTGlzdEFnZW50RGlzcGF0Y2hS",
+            "ZXNwb25zZUJGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtp",
+            "dKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.OptionsReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy), typeof(global::Livekit.Server.Sdk.Dotnet.AgentDispatchTrigger), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest.Parser, new[]{ "AgentName", "Room", "Metadata", "RestartPolicy", "Deployment", "Attributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomAgentDispatch), global::Livekit.Server.Sdk.Dotnet.RoomAgentDispatch.Parser, new[]{ "AgentName", "Metadata", "RestartPolicy", "Deployment", "Attributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DeleteAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.DeleteAgentDispatchRequest.Parser, new[]{ "DispatchId", "Room" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchRequest.Parser, new[]{ "DispatchId", "Room" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchResponse), global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchResponse.Parser, new[]{ "AgentDispatches" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AgentDispatch), global::Livekit.Server.Sdk.Dotnet.AgentDispatch.Parser, new[]{ "Id", "AgentName", "Room", "Metadata", "State", "RestartPolicy", "Deployment", "Attributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AgentDispatchState), global::Livekit.Server.Sdk.Dotnet.AgentDispatchState.Parser, new[]{ "Jobs", "CreatedAt", "DeletedAt" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AgentDispatchState), global::Livekit.Server.Sdk.Dotnet.AgentDispatchState.Parser, new[]{ "Jobs", "CreatedAt", "DeletedAt", "Trigger" }, null, null, null, null)
           }));
     }
     #endregion
@@ -91,6 +94,25 @@ namespace Livekit.Server.Sdk.Dotnet {
     /// never restart
     /// </summary>
     [pbr::OriginalName("JRP_NEVER")] JrpNever = 1,
+  }
+
+  /// <summary>
+  /// what created the dispatch
+  /// </summary>
+  public enum AgentDispatchTrigger {
+    [pbr::OriginalName("ADT_UNSPECIFIED")] AdtUnspecified = 0,
+    /// <summary>
+    /// a participant joining created the room, and with it the dispatch
+    /// </summary>
+    [pbr::OriginalName("ADT_JOIN")] AdtJoin = 1,
+    /// <summary>
+    /// the CreateRoom API created the room, and with it the dispatch
+    /// </summary>
+    [pbr::OriginalName("ADT_ROOM_API")] AdtRoomApi = 2,
+    /// <summary>
+    /// the CreateDispatch API
+    /// </summary>
+    [pbr::OriginalName("ADT_DISPATCH_API")] AdtDispatchApi = 3,
   }
 
   #endregion
@@ -1968,6 +1990,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       jobs_ = other.jobs_.Clone();
       createdAt_ = other.createdAt_;
       deletedAt_ = other.deletedAt_;
+      trigger_ = other.trigger_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2016,6 +2039,18 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
     }
 
+    /// <summary>Field number for the "trigger" field.</summary>
+    public const int TriggerFieldNumber = 4;
+    private global::Livekit.Server.Sdk.Dotnet.AgentDispatchTrigger trigger_ = global::Livekit.Server.Sdk.Dotnet.AgentDispatchTrigger.AdtUnspecified;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Livekit.Server.Sdk.Dotnet.AgentDispatchTrigger Trigger {
+      get { return trigger_; }
+      set {
+        trigger_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2034,6 +2069,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if(!jobs_.Equals(other.jobs_)) return false;
       if (CreatedAt != other.CreatedAt) return false;
       if (DeletedAt != other.DeletedAt) return false;
+      if (Trigger != other.Trigger) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2044,6 +2080,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       hash ^= jobs_.GetHashCode();
       if (CreatedAt != 0L) hash ^= CreatedAt.GetHashCode();
       if (DeletedAt != 0L) hash ^= DeletedAt.GetHashCode();
+      if (Trigger != global::Livekit.Server.Sdk.Dotnet.AgentDispatchTrigger.AdtUnspecified) hash ^= Trigger.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2071,6 +2108,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(24);
         output.WriteInt64(DeletedAt);
       }
+      if (Trigger != global::Livekit.Server.Sdk.Dotnet.AgentDispatchTrigger.AdtUnspecified) {
+        output.WriteRawTag(32);
+        output.WriteEnum((int) Trigger);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2090,6 +2131,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteRawTag(24);
         output.WriteInt64(DeletedAt);
       }
+      if (Trigger != global::Livekit.Server.Sdk.Dotnet.AgentDispatchTrigger.AdtUnspecified) {
+        output.WriteRawTag(32);
+        output.WriteEnum((int) Trigger);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2106,6 +2151,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (DeletedAt != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(DeletedAt);
+      }
+      if (Trigger != global::Livekit.Server.Sdk.Dotnet.AgentDispatchTrigger.AdtUnspecified) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Trigger);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2125,6 +2173,9 @@ namespace Livekit.Server.Sdk.Dotnet {
       }
       if (other.DeletedAt != 0L) {
         DeletedAt = other.DeletedAt;
+      }
+      if (other.Trigger != global::Livekit.Server.Sdk.Dotnet.AgentDispatchTrigger.AdtUnspecified) {
+        Trigger = other.Trigger;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2157,6 +2208,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             DeletedAt = input.ReadInt64();
             break;
           }
+          case 32: {
+            Trigger = (global::Livekit.Server.Sdk.Dotnet.AgentDispatchTrigger) input.ReadEnum();
+            break;
+          }
         }
       }
     #endif
@@ -2186,6 +2241,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 24: {
             DeletedAt = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            Trigger = (global::Livekit.Server.Sdk.Dotnet.AgentDispatchTrigger) input.ReadEnum();
             break;
           }
         }
