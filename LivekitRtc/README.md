@@ -36,7 +36,7 @@
   - [AI coding agents](#ai-coding-agents)
 
 > [!TIP]
-> API reference: https://pablofuente.github.io/livekit-server-sdk-dotnet/api-rtc/
+> API reference: https://pablofuente.github.io/livekit-server-sdk-dotnet/api-rtc/LiveKit.Rtc.html
 
 ## Design principles
 
