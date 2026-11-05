@@ -337,7 +337,7 @@ This downloads pre-compiled binaries from [LiveKit Rust SDK releases](https://gi
 If you want to modify the Rust/FFI code or use unreleased features. You will need:
 
 - [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) (`global.json` pins it; the package itself targets `netstandard2.1`)
-- [Rust](https://www.rust-lang.org/tools/install) installed with rustup. No specific version needs to be installed beforehand: `rust-sdks` pins its toolchain in file `rust-toolchain.toml` (e.g. Rust 1.97.1 for `livekit-ffi/v0.13.3`), and rustup installs it automatically the first time `cargo` runs inside `rust-sdks`.
+- [Rust](https://www.rust-lang.org/tools/install) installed with rustup. No specific version needs to be installed beforehand: `rust-sdks` pins its toolchain in file `rust-toolchain.toml` (e.g. Rust 1.97.1 for `livekit-ffi/v0.13.4`), and rustup installs it automatically the first time `cargo` runs inside `rust-sdks`.
 - [protoc](https://github.com/protocolbuffers/protobuf/releases/latest)
 - The platform-specific build dependencies listed in the [rust-sdks README](https://github.com/livekit/rust-sdks#building) (e.g. clang 21+ and some system libraries on Linux).
 
