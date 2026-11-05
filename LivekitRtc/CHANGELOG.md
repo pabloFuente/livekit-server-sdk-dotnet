@@ -1,6 +1,6 @@
 # Changelog (Release Notes)
 
-## Unreleased
+## 0.1.7
 
 - Update rust-sdks to [livekit-ffi/v0.13.4](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.13.4) [PR #148](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/148)
 - Fix the process aborting when a remote participant publishes a transcription whose track SID
