@@ -1,6 +1,6 @@
 # Changelog (Release Notes)
 
-## Unreleased
+## 1.2.6
 
 - Update livekit/protocol to [v1.53.2](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.53.2) [PR #147](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/147)
 - New `Dialtone` property (enum `SIPDialtone`) on `CreateSIPParticipantRequest` and `TransferSIPParticipantRequest`, to choose the dial tone that `SipServiceClient.CreateSIPParticipant` and `TransferSIPParticipant` play while the call is placed or transferred: `Disabled`, `Etsi` (the tone `PlayDialtone` played), `Auto` (chosen by the country of the called number), `Us`, `Uk`, `Jp` or `Au`. `PlayDialtone` is now `[Obsolete]` on both requests, so code that sets it gets warning `CS0612` (an error with `TreatWarningsAsErrors`). It still works: when `Dialtone` is not set, `PlayDialtone = true` means `Dialtone = SIPDialtone.Etsi`. [PR #147](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/147)
