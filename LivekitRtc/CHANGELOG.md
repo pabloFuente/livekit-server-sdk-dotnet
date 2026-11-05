@@ -2,6 +2,31 @@
 
 ## Unreleased
 
+- Update rust-sdks to [livekit-ffi/v0.13.4](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.13.4) [PR #148](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/148)
+- Fix the process aborting when a remote participant publishes a transcription whose track SID
+  is not a valid track SID (an empty string, for example): the native client panicked while
+  handling it. The transcription is now dropped with a native warning, and
+  `Room.TranscriptionReceived` is not raised for it. [PR #148](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/148)
+- A failed native request no longer prints the whole request to stderr in its
+  `failed to handle request` error line, so the key passed to a failing
+  `KeyProvider.SetSharedKey` or `KeyProvider.SetKey` call stays out of the console and the
+  logs. [PR #148](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/148)
+- Publishing a video track with a `TrackPublishOptions.VideoCodec` that no encoder on the host
+  can produce (H.265 without an H.265 encoder, for example) now publishes VP8 and logs the
+  native warning `no video encoder on this host can produce H265; publishing VP8 instead`,
+  instead of announcing a codec the host cannot encode. Pre-encoded publishing
+  (`EncodedVideoSource` with `VideoEncoder = EncoderBackendPreEncoded`) no longer needs a local
+  encoder for its codec, so pre-encoded H.265 works on any host. [PR #148](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/148)
+- Fix `EncodedVideoFrame.Metadata` (sent when `TrackPublishOptions.FrameMetadataFeatures` is
+  set) reaching subscribers on the wrong frame when frames share a timestamp or are captured
+  within the same millisecond: the sender looked the metadata up by capture time truncated to
+  the millisecond, so such frames carried another frame's metadata. [PR #148](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/148)
+- Reconnection now spaces its ten attempts like the JavaScript client (waits of 0.3 s, 1.2 s,
+  2.7 s, 4.8 s, then 7 s, plus up to 1 s of jitter), so a `Room` rides out a network outage of
+  about 45 s before it gives up and raises `Disconnected`; the previous random waits could spend
+  every attempt within a few seconds. No new attempt starts once reconnection has run for 60 s,
+  so a room no longer stays in `Reconnecting` for minutes, and a join or reconnect whose
+  response times out now closes its WebSocket instead of leaving it open. [PR #148](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/148)
 - XML documentation comments for every public member, with parameter and return value
   descriptions on every method, for IntelliSense and for the new
   [API reference](https://pablofuente.github.io/livekit-server-sdk-dotnet/) generated with DocFX.
