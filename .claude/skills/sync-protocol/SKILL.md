@@ -87,17 +87,18 @@ For each confirmed RPC:
 
 ```bash
 dotnet pack LivekitApi -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:GenerateCompatibilitySuppressionFile=true
+git status --short LivekitApi/CompatibilitySuppressions.xml   # no output: no break
 git diff LivekitApi/CompatibilitySuppressions.xml
 ```
 
-Package validation compares against `PackageValidationBaselineVersion` (the last release) and, with that property, writes every incompatibility into `CompatibilitySuppressions.xml` instead of failing.
+Package validation compares against `PackageValidationBaselineVersion` (the last release) and, with that property, writes every incompatibility into `CompatibilitySuppressions.xml` instead of failing. The publish workflow deletes that file after each release, so it usually shows up as new (`??`), which `git diff` does not show: read the whole file then.
 
 For each new `<Suppression>`:
 - `CP0001` type removed, `CP0002` member removed or signature changed, `CP0011` enum/const value changed, others: see https://learn.microsoft.com/dotnet/fundamentals/package-validation/diagnostic-ids
 - If it was caused by **hand-written code**, it is a bug in this change: restore compatibility (overload, `[Obsolete]` shim) and regenerate the file.
 - If it was caused by **the protocol**, keep it and write a changelog bullet in plain terms: what changed, the old vs. new type or value, and what users must do.
 
-Then run `dotnet pack LivekitApi -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg` without the property; it must pass.
+Then run `dotnet pack LivekitApi -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg` without the property; it must pass, as it must in the pull request's `build` check.
 
 ## Phase 8: Tests and formatting
 

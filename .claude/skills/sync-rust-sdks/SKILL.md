@@ -1,6 +1,6 @@
 ---
 name: sync-rust-sdks
-description: Update the livekit/rust-sdks submodule (livekit-ffi) of Livekit.Rtc.Dotnet to a new version and carry the change all the way through - regenerate the FFI C# protos, download the matching native livekit_ffi binaries for all six platforms, fix the build, surface new FFI requests, events and option fields in the SDK, run the parity guards and the e2e tests, and write the CHANGELOG entry. Use this whenever the user wants to bump, update, upgrade or sync rust-sdks or livekit-ffi, refresh the native FFI binaries, regenerate the LivekitRtc protos, pick up new LiveKit RTC features from the Rust SDK, or asks what changed upstream in livekit-ffi, even if they don't say "sync".
+description: Update the livekit/rust-sdks submodule (livekit-ffi) of Livekit.Rtc.Dotnet to a new version and carry the change all the way through - regenerate the FFI C# protos, download the matching native livekit_ffi binaries for all six platforms, fix the build, surface new FFI requests, events and option fields in the SDK, detect breaking changes with package validation, run the parity guards and the e2e tests, and write the CHANGELOG entry. Use this whenever the user wants to bump, update, upgrade or sync rust-sdks or livekit-ffi, refresh the native FFI binaries, regenerate the LivekitRtc protos, pick up new LiveKit RTC features from the Rust SDK, or asks what changed upstream in livekit-ffi, even if they don't say "sync".
 argument-hint: "[livekit-ffi version, e.g. 0.13.4 or livekit-ffi/v0.13.4] (default: latest livekit-ffi release)"
 ---
 
@@ -64,7 +64,7 @@ The script used below lives next to this file. Run it from the repo root:
 `dotnet build LivekitRtc`. Compile errors here come from hand-written code using something that changed upstream: a removed or renamed proto field, a changed enum member, a message that moved.
 
 - Fix them in the hand-written files (`Room.cs`, `Participant.cs`, `Track*.cs`, `*Stream.cs`, `*Source.cs`, `E2EE.cs`, `DataStream.cs`, `Rpc.cs`, `Internal/*.cs`), never in `Proto/`.
-- Keep the public C# API stable where the FFI allows it. `LivekitRtc` has no package validation (it is 0.x), so nothing flags a break for you: if a public signature has to change, note it for the changelog.
+- Keep the public C# API stable where the FFI allows it: change a public signature in hand-written code only when the FFI forces it. Phase 8 lists every break against the last release, generated `LiveKit.Proto` types included.
 - Respect the project limits: `netstandard2.1` BCL (no `Task.WaitAsync`, `ArgumentNullException.ThrowIfNull`, ...), `Nullable enable`, XML docs on every public member.
 - Then build everything that consumes the SDK, since the examples are not in the solution:
   ```bash
@@ -106,7 +106,23 @@ Match the Node (`livekit/node-sdks`, `packages/livekit-rtc`) and Python (`liveki
 - Document the feature in `LivekitRtc/README.md` (the Features list and, for a usage pattern, a Usage subsection in the same style as its neighbours).
 - If the user decides a case should not be exposed, add it to `scripts/coverage_ignore.txt` with a reason comment so the next sync stays quiet about it.
 
-## Phase 8: Tests and formatting
+## Phase 8: Breaking-change detection
+
+```bash
+dotnet pack LivekitRtc -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:GenerateCompatibilitySuppressionFile=true
+git status --short LivekitRtc/CompatibilitySuppressions.xml   # no output: no break
+```
+
+Package validation compares against `PackageValidationBaselineVersion` (the last RTC release) and, with that property, writes every incompatibility into `LivekitRtc/CompatibilitySuppressions.xml` instead of failing. The publish workflow deletes that file after each release, so a file that shows up as new (`??`) holds only this sync's breaks. The generated `LiveKit.Proto` types are all public, so an FFI proto that removes or changes a member shows up here even when no hand-written code uses it.
+
+For each `<Suppression>`:
+- `CP0001` type removed, `CP0002` member removed or signature changed, `CP0011` enum/const value changed, others: see https://learn.microsoft.com/dotnet/fundamentals/package-validation/diagnostic-ids
+- If it was caused by **hand-written code** that the FFI did not force, it is a bug in this change: restore compatibility (overload, `[Obsolete]` shim) and regenerate the file.
+- If **the FFI** forced it (a generated type, or a hand-written member mapping a field that upstream removed), keep it and write a changelog bullet in plain terms: what changed, the old vs. new type or value, and what users must do.
+
+Then run `dotnet pack LivekitRtc -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg` without the property; it must pass, as it must in the pull request's `build` check.
+
+## Phase 9: Tests and formatting
 
 ```bash
 # No Docker. These load the new native library through the FFI, so they also prove that the
@@ -127,7 +143,7 @@ dotnet docfx docs/docfx.json --warningsAsErrors && python3 docs/check_api_docs.p
 - Read the SDK's stderr, not just the pass count: an `FFI Panic:` line, or `[WARN] RoomEvent.<Name>: ... not found` lines, mean the binary and the SDK disagree. `dotnet test` does not show the test host's stderr: run with `LIVEKIT_TEST_STDERR_FILE=/tmp/sdk-stderr.log` (the test assembly tees stderr there) and `grep -c '\[WARN\]\|\[ERROR\]\|FFI Panic' /tmp/sdk-stderr.log` afterwards. Report findings with the evidence instead of editing tests to make them pass.
 - If Docker is unavailable, say so explicitly in the final report; the no-Docker set is not sufficient proof for a native bump.
 
-## Phase 9: CHANGELOG
+## Phase 10: CHANGELOG
 
 Edit `LivekitRtc/CHANGELOG.md`. Write under the `## Unreleased` heading at the top, creating it if it does not exist. Never write under a version number: the release commit is what renames `Unreleased`. Use this structure, matching existing entries, wrapped at about 100 columns like the rest of the file:
 
@@ -138,10 +154,12 @@ Edit `LivekitRtc/CHANGELOG.md`. Write under the `## Unreleased` heading at the t
 - New `Room.FooReceived` event raised when ... (parity with the Node/Python RTC SDKs).
 - New `TrackPublishOptions.Bar` option to ... Unset keeps the previous behavior.
 - Upstream change users will notice: ...
-- Breaking change: `X.Y` now ... instead of ... (what users must do).
+- Breaking changes coming from rust-sdks:
+  - Type `LiveKit.Proto.Q` has been removed. It was not used by any API of the SDK.
+  - `TrackPublishOptions.X` now ... instead of ... (what users must do).
 ```
 
-Only list user-visible changes. Skip upstream items about parts this package does not ship (uniffi bindings, platform audio devices, capture sources) unless they change behavior for .NET users. Don't touch `<Version>` in `LivekitRtc.csproj`: version bumps happen at release time, and `FfiClient.SdkVersion` is read from the assembly, so there is nothing to update by hand.
+Only list user-visible changes. Skip upstream items about parts this package does not ship (uniffi bindings, platform audio devices, capture sources) unless they change behavior for .NET users. Don't touch `<Version>` or `<PackageValidationBaselineVersion>` in `LivekitRtc.csproj`: version bumps happen at release time and the publish workflow moves the baseline, and `FfiClient.SdkVersion` is read from the assembly, so there is nothing to update by hand.
 
 ## Final report
 
@@ -149,7 +167,7 @@ End with:
 - `livekit-ffi` `$OLD` → `vX.Y.Z`
 - Files changed, grouped: submodule pointer, generated (count only), binaries (must be 6), generator script, hand-written, tests, docs
 - New public API
-- Breaking changes in the public C# API, if any (no package validation covers this package)
+- Breaking changes, each with its suppression ID
 - Test results (no-Docker set, Docker classes run, API reference, skipped and why), plus any `FFI Panic` or `[WARN] RoomEvent` lines seen
 - Open decisions left to the maintainer (unexposed requests, callbacks, room events, option fields)
-- Suggested commits, in this order and left to the maintainer (`.github/workflows/sync-rust-sdks.yml` makes the same ones): `Update "rust-sdks" to livekit-ffi/vX.Y.Z` (submodule pointer, regenerated protos, the six binaries and any `generate_proto.sh` change, which must move together) and `Adapt LivekitRtc to livekit-ffi/vX.Y.Z` (SDK code, tests, docs, changelog).
+- Suggested commits, in this order and left to the maintainer (`.github/workflows/sync-rust-sdks.yml` makes the same ones): `Update "rust-sdks" to livekit-ffi/vX.Y.Z` (submodule pointer, regenerated protos, the six binaries and any `generate_proto.sh` change, which must move together) and `Adapt LivekitRtc to livekit-ffi/vX.Y.Z` (SDK code, suppressions file, tests, docs, changelog).

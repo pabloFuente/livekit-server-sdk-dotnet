@@ -294,9 +294,9 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   `packages/livekit-server-sdk`, `livekit/python-sdks` `livekit-api`, `livekit/server-sdk-go`).
 - Request and response types are the generated protobuf messages; do not wrap them in custom DTOs.
 - The public surface is checked by package validation against the last released version
-  (`PackageValidationBaselineVersion`). A local `dotnet pack` fails on any break; in GitHub
-  Actions the csproj turns on `ApiCompatGenerateSuppressionFile`, so CI writes suppressions
-  instead of failing and never catches a break. Never change or remove a public signature in
+  (`PackageValidationBaselineVersion`). `dotnet pack` fails on any break that
+  `CompatibilitySuppressions.xml` does not list, locally and in CI: `dotnet.yml` packs on every
+  pull request, so the required `build` check catches it. Never change or remove a public signature in
   hand-written code: add an overload instead. The only acceptable breaks are the ones forced by
   `livekit/protocol` (see the upgrade section).
 - Every client accepts an optional `HttpClient`, which the SDK never modifies (it may be shared or
@@ -317,8 +317,8 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
    `LivekitApi/proto` before it checks for `protoc` and `protoc-gen-twirpcs`; if it fails,
    `git checkout -- LivekitApi/proto` restores the previous output.
 3. `dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg`. Package validation
-   runs locally against `PackageValidationBaselineVersion` (CI would not fail, see the API
-   conventions). If it fails because the protocol
+   runs against `PackageValidationBaselineVersion`, and the pull request's `build` check runs it
+   too. If it fails because the protocol
    removed or changed public API, rerun with `-p:GenerateCompatibilitySuppressionFile=true` to
    create `LivekitApi/CompatibilitySuppressions.xml`, commit it, and describe every suppressed
    change in the changelog under "Breaking changes coming from livekit/protocol". Do **not** bump
@@ -344,9 +344,18 @@ repository settings it needs. A version whose branch exists is skipped; deleting
    tests you can afford. Expose any new proto fields the guards complain about. Build and check
    the API reference too: a public member that starts using another `LiveKit.Proto` type needs it
    in the allow-list of `docs/filter.yml`.
-5. Commit the submodule pointer, regenerated protos, binaries and any `generate_proto.sh` change
-   together as `Update "rust-sdks" to livekit-ffi/vX.Y.Z`, then the SDK changes, tests, docs and
-   changelog entry as `Adapt LivekitRtc to livekit-ffi/vX.Y.Z`.
+5. `dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg`. Package validation
+   compares `LivekitRtc` with its `PackageValidationBaselineVersion` (the last RTC release), as for
+   the API package. The generated `LiveKit.Proto` types are public, so an FFI proto that removes
+   or changes a member breaks the package: rerun with
+   `-p:GenerateCompatibilitySuppressionFile=true` to record it in
+   `LivekitRtc/CompatibilitySuppressions.xml` and explain it in the changelog under
+   `Breaking changes coming from rust-sdks`. Hand-written public API changes only when the FFI
+   forces it, and is suppressed and explained the same way. `publish.yml` moves the baseline and
+   deletes the file after the release, as for the API package.
+6. Commit the submodule pointer, regenerated protos, binaries and any `generate_proto.sh` change
+   together as `Update "rust-sdks" to livekit-ffi/vX.Y.Z`, then the SDK changes, suppressions
+   file, tests, docs and changelog entry as `Adapt LivekitRtc to livekit-ffi/vX.Y.Z`.
 
 `.github/workflows/sync-rust-sdks.yml` does all of this unattended: it checks daily for a GA
 `livekit-ffi` release newer than the submodule whose six binaries are published, downloads them
@@ -371,7 +380,8 @@ two commits. As with `sync-protocol.yml`, a version whose branch exists is skipp
   - `Update rust-sdks to [livekit-ffi/vA.B.C](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2FvA.B.C)`
 - API changes forced by a protocol upgrade go under a nested `Breaking changes coming from
   livekit/protocol:` list, one bullet per affected client-facing member (a suppression for the
-  generated `Twirp` counterpart folds into the same bullet).
+  generated `Twirp` counterpart folds into the same bullet). In the RTC changelog, those forced
+  by a rust-sdks upgrade go under `Breaking changes coming from rust-sdks:` the same way.
 - Every bullet ends with a link to the change that landed it: `[PR #N](<repo>/pull/N)` when there
   is one, otherwise `[commit <short sha>](<repo>/commit/<full sha>)`.
 - The release commit is `Release X.Y.Z of <PackageId>`: it bumps `<Version>` in the csproj and
@@ -414,8 +424,8 @@ two commits. As with `sync-protocol.yml`, a version whose branch exists is skipp
     holds RPCs deliberately left out, with a reason (so far only commented-out candidates).
 - `/sync-rust-sdks [version]` (`skills/sync-rust-sdks/SKILL.md`) is the RTC counterpart: move
   the `rust-sdks` submodule, regenerate the FFI protos, download the six matching binaries, fix
-  the build, surface new FFI requests, events and option fields, run the parity guards and the
-  e2e tests, write the changelog. Its `scripts/ffi_coverage.py [--json]` compares the
+  the build, surface new FFI requests, events and option fields, detect breaking changes, run the
+  parity guards and the e2e tests, write the changelog. Its `scripts/ffi_coverage.py [--json]` compares the
   `FfiRequest`, `FfiEvent` and `RoomEvent` oneofs with what the hand-written sources
   (`LivekitRtc/*.cs`, `LivekitRtc/Internal/*.cs`) actually send, read and handle; deliberate gaps
   go in `scripts/coverage_ignore.txt`.

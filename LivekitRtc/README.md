@@ -390,6 +390,8 @@ dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 ./download_ffi.sh <VERSION_TAG> # e.g. ./download_ffi.sh livekit-ffi/v0.12.76
 ```
 
+`dotnet pack` runs [package validation](https://learn.microsoft.com/en-us/dotnet/fundamentals/apicompat/package-validation/overview) against the last release (`PackageValidationBaselineVersion` in `LivekitRtc.csproj`), and so does the `build` check of every pull request. The generated `LiveKit.Proto` types are public, so a new FFI version that removes or changes one of their members makes it fail. Record those breaks with `dotnet pack LivekitRtc -c Debug -p:GenerateCompatibilitySuppressionFile=true`, which writes `LivekitRtc/CompatibilitySuppressions.xml`, commit that file and explain each break in the changelog under `Breaking changes coming from rust-sdks`. The [publish workflow](../.github/workflows/publish.yml) moves the baseline and deletes the file after the release.
+
 Then commit:
 
 ```bash
@@ -423,7 +425,7 @@ git push
    ```
 
 3. The skill checks that the GitHub release carries the six native binaries, moves the submodule, reads the upstream changelog and the FFI proto diff, regenerates `LivekitRtc/Proto` with `./generate_proto.sh`, downloads the binaries with `download_ffi.sh` (it asks before overwriting them), fixes the build and runs the parity guards. It then stops at a checkpoint listing the relevant upstream changes, the proto members that forced fixes, and every new FFI request, callback, room event and option field with a proposal to expose it (with its Node and Python name) or to ignore it. Strike what you do not want and confirm.
-4. It exposes the confirmed features following the Node and Python RTC SDKs, with their mapping or e2e tests, README sections and changelog bullets under `## Unreleased`, then runs the no-Docker tests and the e2e classes for the areas the upstream diff touched, and builds and checks the API reference.
+4. It exposes the confirmed features following the Node and Python RTC SDKs, with their mapping or e2e tests, README sections and changelog bullets under `## Unreleased`, then runs the no-Docker tests and the e2e classes for the areas the upstream diff touched, and builds and checks the API reference. Breaking changes forced by the FFI are recorded in `CompatibilitySuppressions.xml` and explained in the changelog under `Breaking changes coming from rust-sdks`.
 5. It ends with the test results (any `FFI Panic` or `[WARN] RoomEvent` line means the binaries and the protos disagree), the open decisions and the suggested commits, and never commits. Review the diff, commit as `Update "rust-sdks" to livekit-ffi/vX.Y.Z` (the submodule pointer, `LivekitRtc/Proto`, the six binaries and any `generate_proto.sh` change) and `Adapt LivekitRtc to livekit-ffi/vX.Y.Z` (everything else), and follow [Perform release](#perform-release) when ready.
 
 The [sync-rust-sdks workflow](../.github/workflows/sync-rust-sdks.yml) runs the same skill unattended: every day it looks for a GA `livekit-ffi` release newer than the submodule whose six binaries are published and, when it finds one, downloads the binaries, runs the skill and opens a pull request with those two commits and the skill's report as description. Instead of stopping at the checkpoint, it exposes the features that the Node or Python SDK exposes and lists the rest as open decisions. Its header lists the secrets and repository settings it needs, and it can be started by hand from the Actions tab to choose the Claude model and effort level.

@@ -142,7 +142,7 @@ has one.
 
 ### Perform release
 
-Releases are automated through GitHub Actions thanks to the [publish workflow](.github/workflows/publish.yml). Both packages `Livekit.Server.Sdk.Dotnet` and `Livekit.Rtc.Dotnet` can be released independently. The workflow publishes with [NuGet Trusted Publishing](https://learn.microsoft.com/nuget/nuget-org/trusted-publishing): nuget.org keeps a policy for this repository and `publish.yml`, scoped to the two package IDs, and the `NUGET_USER` repository secret holds the nuget.org user name; no API key is stored. After publishing, the workflow opens a pull request that moves the package validation baseline to the new version: approve its checks ("Approve workflows to run") and merge it before the next release of the same package. Checkout how to do so:
+Releases are automated through GitHub Actions thanks to the [publish workflow](.github/workflows/publish.yml). Both packages `Livekit.Server.Sdk.Dotnet` and `Livekit.Rtc.Dotnet` can be released independently. The workflow publishes with [NuGet Trusted Publishing](https://learn.microsoft.com/nuget/nuget-org/trusted-publishing): nuget.org keeps a policy for this repository and `publish.yml`, scoped to the two package IDs, and the `NUGET_USER` repository secret holds the nuget.org user name; no API key is stored. After publishing, the workflow opens a pull request that moves the package validation baseline of the released package to the new version: approve its checks ("Approve workflows to run") and merge it before the next release of the same package. Checkout how to do so:
 
 - [Release Livekit.Server.Sdk.Dotnet](LivekitApi/README.md#perform-release)
 - [Release Livekit.Rtc.Dotnet](LivekitRtc/README.md#perform-release)
@@ -176,7 +176,7 @@ Then try packaging the SDK to test the validity of the changes in the protocol:
 dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 ```
 
-This command may throw an error if there are breaking changes in the protocol, as the SDK is configured in strict mode for [package validation](https://learn.microsoft.com/en-us/dotnet/fundamentals/apicompat/package-validation/overview). The way to overcome these breaking changes is running the package command with option `-p:GenerateCompatibilitySuppressionFile=true` to generate file `CompatibilitySuppressions.xml`:
+This command may throw an error if there are breaking changes in the protocol, as the SDK is configured in strict mode for [package validation](https://learn.microsoft.com/en-us/dotnet/fundamentals/apicompat/package-validation/overview). The `build` check of every pull request runs the same command, so it fails the same way. The way to overcome these breaking changes is running the package command with option `-p:GenerateCompatibilitySuppressionFile=true` to generate file `CompatibilitySuppressions.xml`:
 
 ```bash
 dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg -p:GenerateCompatibilitySuppressionFile=true
