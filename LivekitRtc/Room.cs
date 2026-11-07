@@ -1433,19 +1433,41 @@ namespace LiveKit.Rtc
 
         private void HandleTrackSubscribed(Proto.TrackSubscribed evt)
         {
-            if (string.IsNullOrEmpty(evt?.ParticipantIdentity) || evt.Track == null)
+            if (evt == null)
                 return;
+
+            // The event hands over the native track. Every path that does not keep it releases it
+            // and says why: a silent return leaked the track, and hid the cause of the
+            // "TrackUnsubscribed: ... is not subscribed" warning that follows the dropped event.
+            void Drop(string reason)
+            {
+                Console.Error.WriteLine($"[WARN] RoomEvent.TrackSubscribed: {reason}");
+                FfiHandle.FromId(evt.Track?.Handle?.Id ?? 0).Dispose();
+            }
+
+            if (string.IsNullOrEmpty(evt.ParticipantIdentity) || evt.Track == null)
+            {
+                Drop("Event without a participant identity or a track");
+                return;
+            }
 
             RemoteParticipant? participant;
             lock (_lock)
             {
-                if (!_remoteParticipants.TryGetValue(evt.ParticipantIdentity, out participant))
-                    return;
+                _remoteParticipants.TryGetValue(evt.ParticipantIdentity, out participant);
+            }
+            if (participant == null)
+            {
+                Drop($"Participant {evt.ParticipantIdentity} not found");
+                return;
             }
 
             var trackInfo = evt.Track.Info;
             if (trackInfo == null)
+            {
+                Drop($"Track of participant {evt.ParticipantIdentity} has no info");
                 return;
+            }
 
             // The participant and the publication are resolved here, on the callback thread:
             // a ParticipantDisconnected that follows would remove them before the chain runs
@@ -1453,26 +1475,31 @@ namespace LiveKit.Rtc
                 participant.GetTrackPublication(trackInfo.Sid ?? "") as RemoteTrackPublication;
             if (publication == null)
             {
-                Console.Error.WriteLine(
-                    $"[WARN] RoomEvent.TrackSubscribed: Publication {trackInfo.Sid} not found for participant {evt.ParticipantIdentity}"
+                Drop(
+                    $"Publication {trackInfo.Sid} not found for participant {evt.ParticipantIdentity}"
                 );
-                FfiHandle.FromId(evt.Track.Handle?.Id ?? 0).Dispose();
                 return;
             }
 
-            var handle = FfiHandle.FromId(evt.Track.Handle?.Id ?? 0);
-            RemoteTrack? track = null;
-            if (trackInfo.Kind == Proto.TrackKind.KindAudio)
+            // The handle is wrapped only for a track that keeps it, so Drop never wraps it twice
+            var handleId = evt.Track.Handle?.Id ?? 0;
+            RemoteTrack? track = trackInfo.Kind switch
             {
-                track = new RemoteAudioTrack(handle, evt.Track);
-            }
-            else if (trackInfo.Kind == Proto.TrackKind.KindVideo)
-            {
-                track = new RemoteVideoTrack(handle, evt.Track);
-            }
+                Proto.TrackKind.KindAudio => new RemoteAudioTrack(
+                    FfiHandle.FromId(handleId),
+                    evt.Track
+                ),
+                Proto.TrackKind.KindVideo => new RemoteVideoTrack(
+                    FfiHandle.FromId(handleId),
+                    evt.Track
+                ),
+                _ => null,
+            };
             if (track == null)
             {
-                handle.Dispose();
+                Drop(
+                    $"Track {trackInfo.Sid} of participant {evt.ParticipantIdentity} has the unsupported kind {trackInfo.Kind}"
+                );
                 return;
             }
 
