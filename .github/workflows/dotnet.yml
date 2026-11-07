@@ -60,9 +60,8 @@ jobs:
         GH_TOKEN: ${{ github.token }}
       run: python3 security/check_vulnerabilities.py
     # The scan above is the gate. Dependency review only sees GitHub's dependency graph, whose NuGet
-    # versions come from automatic dependency submission for main (pull request heads are not
-    # submitted) and which matches no advisories for actions pinned by SHA; it applies the same
-    # severity threshold and exceptions
+    # versions come from automatic dependency submission (a repository setting) and which matches
+    # no advisories for actions pinned by SHA; it applies the same severity threshold and exceptions
     - name: Read the dependency review policy
       id: review-policy
       if: ${{ !cancelled() && github.event_name == 'pull_request' }}

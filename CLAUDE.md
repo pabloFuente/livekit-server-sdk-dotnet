@@ -282,8 +282,8 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   source could not be scanned, which is never a pass.
 - GitHub's dependency graph does not read `Directory.Packages.props` (packages show as `>= 0`):
   its NuGet entries, which Dependabot alerts and dependency review use, come from automatic
-  dependency submission (a repository setting). It restores every project for pushes to `main`
-  only and lists a package reached through a project reference under the referenced project.
+  dependency submission (a repository setting), which restores every project and lists a package
+  reached through a project reference under the referenced project.
   Dependabot raises no alerts for actions pinned by SHA. The script, not the alerts page, decides.
 - The native scan uses `cargo tree -p livekit-ffi -e normal --target all`, not `Cargo.lock`: the
   workspace lockfile also lists crates of examples and tools that the library does not link.
