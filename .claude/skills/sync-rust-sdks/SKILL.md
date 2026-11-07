@@ -19,7 +19,7 @@ The script used below lives next to this file. Run it from the repo root:
 
 1. `git status --porcelain` must be clean apart from untracked noise. If not, ask before continuing.
 2. `git submodule update --init LivekitRtc/rust-sdks` if `LivekitRtc/rust-sdks/livekit-ffi/protocol` is missing. `--recursive` is not needed for the protos: the nested submodules of rust-sdks are only used to build the FFI from source, and the superproject hides their state on purpose (`ignore = dirty` in `.gitmodules`).
-3. Check tools: `protoc --version`, `command -v protoc-gen-twirpcs`, `dotnet --version`, `dotnet tool restore`, `curl --version`, `unzip -v`, `gh --version`, and `docker info` (for the e2e tests later; if Docker is missing, note it for the final report). `generate_proto.sh` regenerates both packages and stops at the server ones without the Twirp plugin, so the versions that reproduce the committed code apply here too: `protoc` 36.2 and `protoc-gen-twirpcs` v1.1.0 (`go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0`). Warn the user if `protoc` differs.
+3. Check tools: `protoc --version`, `command -v protoc-gen-twirpcs`, `dotnet --version`, `dotnet tool restore`, `curl --version`, `unzip -v`, `jq --version` (`download_ffi.sh` reads the release digests with it), `gh --version`, and `docker info` (for the e2e tests later; if Docker is missing, note it for the final report). `generate_proto.sh` regenerates both packages and stops at the server ones without the Twirp plugin, so the versions that reproduce the committed code apply here too: `protoc` 36.2 and `protoc-gen-twirpcs` v1.1.0 (`go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0`). Warn the user if `protoc` differs.
 4. Record the starting point:
    ```bash
    OLD=$(git -C LivekitRtc/rust-sdks describe --tags --exact-match --match 'livekit-ffi/*' 2>/dev/null || git -C LivekitRtc/rust-sdks rev-parse --short HEAD)
@@ -30,7 +30,7 @@ The script used below lives next to this file. Run it from the repo root:
 
 1. `git -C LivekitRtc/rust-sdks fetch --tags origin`
 2. Resolve the target. FFI release tags look like `livekit-ffi/v0.13.3`; the other crates in the same repo have their own tags (`livekit/v*`, `libwebrtc/v*`, ...), ignore them. Without an argument take the highest one: `git -C LivekitRtc/rust-sdks tag -l 'livekit-ffi/v*' --sort=-v:refname | head -1`. With a bare `X.Y.Z`, prefix it with `livekit-ffi/v`.
-3. Confirm the GitHub release for that tag exists and carries all six binaries. `download_ffi.sh` prints a `✗` per missing platform but still exits 0, so check first (through `gh api`: the project settings deny `gh release`):
+3. Confirm the GitHub release for that tag exists and carries all six binaries before moving the submodule; `download_ffi.sh` would fail later anyway. Check through `gh api`, because the project settings deny `gh release`:
    ```bash
    gh api "repos/livekit/rust-sdks/releases/tags/livekit-ffi/vX.Y.Z" --jq '.assets[].name'
    ```
@@ -52,11 +52,11 @@ The script used below lives next to this file. Run it from the repo root:
 ## Phase 4: Native binaries
 
 1. `LivekitRtc/download_ffi.sh livekit-ffi/vX.Y.Z` (from the repo root; it writes into `LivekitRtc/runtimes/` wherever it is run from). It downloads and overwrites binaries, so expect a permission prompt.
-2. Verify, do not assume: the script must have printed `✓ Downloaded` six times, and
+2. Verify, do not assume. The script checks each archive against the SHA-256 digest GitHub recorded for that release asset, and copies nothing unless all six download and match: a non-zero exit, with a `✗` line naming the platform, means `runtimes/` still holds the old set. Stop and report it, and never work around a digest mismatch. On success,
    ```bash
    git status --short LivekitRtc/runtimes
    ```
-   must list the six libraries as modified (`win-x64`, `win-arm64`, `linux-x64`, `linux-arm64`, `osx-x64`, `osx-arm64`). One missing `✓` means that platform still has the old binary: stop and report, never leave a mixed set.
+   must list the six libraries as modified (`win-x64`, `win-arm64`, `linux-x64`, `linux-arm64`, `osx-x64`, `osx-arm64`).
 3. Never copy a binary built locally from `LivekitRtc/rust-sdks/target/` into `runtimes/` during a sync; releases ship the upstream builds only.
 
 ## Phase 5: Make it build

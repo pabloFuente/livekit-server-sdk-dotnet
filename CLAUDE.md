@@ -77,6 +77,11 @@ a public API change that breaks them. Build them explicitly after changing publi
   `rust-sdks` tag** that the protos were generated from. Protos and binaries from different FFI
   versions produce runtime failures, not compile errors. Never check in a binary built from an
   uncommitted or unreleased rust-sdks state.
+- `download_ffi.sh` checks every `ffi-*.zip` against the SHA-256 digest GitHub recorded for that
+  release asset at upload (upstream publishes no checksum file or attestation for them), through
+  the GitHub API with `jq`. It writes `runtimes/` only once all six archives have downloaded and
+  matched, and otherwise exits with an error and leaves the previous set. A mismatch is a reason to
+  stop and investigate, never to bypass the check.
 
 ## Target frameworks and language level
 

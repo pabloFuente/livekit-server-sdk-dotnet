@@ -79,10 +79,11 @@ jobs:
           dotnet tool restore
 
       # Done here because .claude/settings.json asks before download_ffi.sh, and nobody can answer
+      # It checks each archive's SHA-256 digest and copies nothing unless all six match
       - name: Download the livekit_ffi binaries
-        run: |
-          LivekitRtc/download_ffi.sh "$TAG"
-          test "$(git status --porcelain LivekitRtc/runtimes | wc -l)" = 6 # the script exits 0 even if a platform fails
+        env:
+          GH_TOKEN: ${{ github.token }} # for the GitHub API call that reads the digests
+        run: LivekitRtc/download_ffi.sh "$TAG"
 
       - name: Run /sync-rust-sdks
         uses: anthropics/claude-code-action@61a9c274fa7110a66dfafc1bbbced03833eb25fe # v1.0.269
