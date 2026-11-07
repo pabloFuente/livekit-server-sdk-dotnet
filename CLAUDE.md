@@ -134,6 +134,8 @@ dotnet test LivekitApi.Tests --filter "Category=Integration"  # Docker
 dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~RoomEventsTests"                 # one class
 dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~ParticipantEventsTests.ParticipantConnected_Disconnected_EventsFire"  # one test
 dotnet test LivekitRtc.Tests --logger "console;verbosity=detailed"   # show ITestOutputHelper output
+dotnet test LivekitRtc.Tests --filter "Category=Reliability"   # stress/concurrency/leak suite (Docker)
+LIVEKIT_STRESS=extended dotnet test LivekitRtc.Tests --filter "Category=Reliability"   # its long tier
 ./coverage.sh                                  # every test with coverage, report and gate (Docker)
 dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg   # runs package validation
 ```
@@ -215,19 +217,31 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
 
 **`LivekitRtc.Tests`**
 
-- There are no Category traits. Classes that take `RtcTestFixture` need Docker; the rest
-  (`AudioFramePinningTests`, `VideoFramePinningTests`, `VideoFramePlanesTests`,
-  `TrackPublishOptionsMappingTests`, `E2EEOptionsMappingTests`, `SdkVersionTests`,
-  `DataTrackFrameTests`, `EncodedVideoSourceTests`, `RpcErrorTests`, `FfiClientTest`,
-  `AudioCaptureMinimalTest`, `AudioSourcePlayoutTests`, `AudioResamplerTests`) do not.
-  `FfiClientTest`, `AudioCaptureMinimalTest`, `AudioSourcePlayoutTests`, `AudioResamplerTests`,
-  `EncodedVideoSourceTests` and the two `VideoFrame*Tests` load the native library for the host
-  RID; the others are pure managed code.
+- Only the reliability suite carries a Category trait (`Reliability`). Classes that take
+  `RtcTestFixture` or `ReliabilityServerFixture` need Docker; the rest (`AudioFramePinningTests`,
+  `VideoFramePinningTests`, `VideoFramePlanesTests`, `TrackPublishOptionsMappingTests`,
+  `E2EEOptionsMappingTests`, `SdkVersionTests`, `DataTrackFrameTests`, `EncodedVideoSourceTests`,
+  `RpcErrorTests`, `FfiClientTest`, `AudioCaptureMinimalTest`, `AudioSourcePlayoutTests`,
+  `AudioResamplerTests` and the `Reliability/Native*Tests`) do not. `FfiClientTest`,
+  `AudioCaptureMinimalTest`, `AudioSourcePlayoutTests`, `AudioResamplerTests`,
+  `EncodedVideoSourceTests`, the two `VideoFrame*Tests` and the `Reliability/Native*Tests` load the
+  native library for the host RID; the others are pure managed code.
 - `dotnet.yml` tests each of the six shipped binaries on its own platform: every RTC test on
   linux-x64 (`build`) and linux-arm64 (`rtc-linux-arm64`), and on win-x64, win-arm64, osx-x64 and
-  osx-arm64 (`rtc-native`) only those seven classes, because hosted Windows and macOS runners
+  osx-arm64 (`rtc-native`) only those native classes, because hosted Windows and macOS runners
   cannot start Linux containers. A new test class that calls the native library without Docker
-  goes in the `--filter` of `rtc-native`.
+  goes in the `--filter` of `rtc-native` (a reliability class named `Native...` is already matched
+  by `FullyQualifiedName~Reliability.Native`).
+- `LivekitRtc.Tests/Reliability/` is the stress, concurrency, lifecycle and leak suite (its
+  `README.md` has the layout and how leaks are measured). Its two collections are
+  `DisableParallelization`, so they run after everything else, one test at a time, and its
+  process-wide measurements are attributable: the SDK's own handle accounting
+  (`FfiHandle.LiveCount` and `FailedReleaseCount`, internal counters), the native heap, descriptors
+  and threads, and the SDK's stderr (`SdkLog`). The default level is short; `LIVEKIT_STRESS=extended`
+  scales the loops up and enables the `[ExtendedFact]` tests (server outages with `docker pause`,
+  the soak), which `rtc-reliability.yml` runs nightly on the six platforms and `publish.yml` before
+  an `rtc-` release. These tests target the .NET layer and its FFI contract, not the Rust SDK's
+  behavior. A leak or race test must be shown to fail without its fix.
 - `RtcTestFixture` starts, per fixture instance, a private network with redis,
   `livekit/livekit-server:latest`, nginx serving `LivekitRtc.Tests/web/*.html` and
   `selenium/standalone-chrome`. The HTML pages load `livekit-client@latest` from unpkg, so the
@@ -312,14 +326,29 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   both orders explicitly instead of assuming one.
 - `Room.FfiEventLock` (a `SemaphoreSlim`) guards participant and publication maps. Hold it only to
   mutate state, never across `WaitForEventAsync`.
+- A disconnection clears the room's state from the event chain, after `DisconnectAsync` returned.
+  Each `ConnectAsync` starts a new connection generation (`_connectionLock`), and that deferred
+  cleanup only touches its own generation, so a room reconnected right away keeps its listener
+  and participants. Room events are raised through `Raise`, one handler at a time, so a throwing
+  handler does not hide the event from the others.
+- Methods that a synchronous wrapper blocks on (`DisconnectAsync` for `Disconnect`/`Dispose`,
+  `AudioSource.CaptureFrameAsync` for `CaptureFrame`) await with `ConfigureAwait(false)`, or a UI
+  thread calling the wrapper deadlocks. `NativeConcurrencyTests` and `RoomLifecycleTests` check it
+  on a single-threaded `SynchronizationContext`.
 - Native handles are wrapped in `FfiHandle` (a `SafeHandle`); every `OwnedHandle` the FFI returns
-  must be wrapped so it gets dropped. Resource owners (`Room`, tracks, sources, streams, the
+  must be wrapped so it gets dropped, including in the events and callbacks the SDK does not apply:
+  a room releases the handles of the events of an ended connection until the FFI's `RoomEOS`
+  (`Room.DrainEndedConnection`), and the readers that `TextStreamOpened`/`ByteStreamOpened` hand
+  over (the SDK reads streams from the raw header, chunk and trailer events). An unwrapped handle
+  is invisible to the handle accounting; only the native heap shows it. Resource owners (`Room`, tracks, sources, streams, the
   resampler) implement `IDisposable`; `Participant` and `TrackPublication` rely on the
   `SafeHandle` finalizer.
 - Managed buffers whose pointer is handed to the FFI (frame capture, frame conversion,
   resampling) must stay pinned until the request has actually been sent, not just while the pointer
   is computed. See `AudioSource.CaptureFrameAsync`, `VideoSource.CaptureFrame`, `VideoFrame` and
-  the `*PinningTests`.
+  the `*PinningTests`. The other way round, a pointer the FFI returns into a native object (the
+  output of `AudioResampler.Push`/`Flush`) is only valid while its handle lives: `Dispose` takes
+  the lock the copy holds.
 - `VideoFrame` describes every planar format through one plane table (`GetPlaneInfosLocal`),
   shared by `GetPlane` and by the buffer info sent to the FFI. A new `VideoBufferType` goes in
   that table plus a case in `VideoFramePlanesTests`; do not special-case formats elsewhere.

@@ -7,7 +7,9 @@ namespace LiveKit.Rtc.Tests;
 
 /// <summary>
 /// End-to-end regression tests for the room, track, data stream and E2EE fixes of the
-/// November 2026 audit. Each test names the symptom it guards against.
+/// November 2026 audit. Each test names the symptom it guards against. The connection lifecycle
+/// fixes (a single Disconnected with its reason, the release of a cancelled connect) are guarded by
+/// <see cref="Reliability.RoomLifecycleTests"/>.
 /// </summary>
 [Collection("RtcTests")]
 public class AuditRegressionTests
@@ -28,115 +30,6 @@ public class AuditRegressionTests
 
     private static TaskCompletionSource<T> Tcs<T>() =>
         new(TaskCreationOptions.RunContinuationsAsynchronously);
-
-    [Fact]
-    public async Task DisconnectAsync_ReportsDisconnectedOnce_WithReason_AndKeepsParticipantsForHandlers()
-    {
-        // Used to fire ConnectionStateChanged(Disconnected) and Disconnected twice (once from the
-        // FFI's Disconnected event, once from DisconnectAsync), always with UnknownReason, after
-        // LocalParticipant had already been nulled.
-        using var room = new Room();
-        var states = new List<Proto.ConnectionState>();
-        var reasons = new List<Proto.DisconnectReason>();
-        var localParticipantSeenByHandler = Tcs<bool>();
-        room.ConnectionStateChanged += (_, state) =>
-        {
-            lock (states)
-                states.Add(state);
-        };
-        room.Disconnected += (_, reason) =>
-        {
-            lock (reasons)
-                reasons.Add(reason);
-            localParticipantSeenByHandler.TrySetResult(
-                room.LocalParticipant != null && room.LocalParticipant.Identity == "once"
-            );
-        };
-
-        await room.ConnectAsync(
-            _fixture.LiveKitUrl,
-            _fixture.CreateToken("once", "test-once-room")
-        );
-        await room.DisconnectAsync();
-        await Task.Delay(500); // let any duplicate dispatch land
-
-        Assert.True(await localParticipantSeenByHandler.Task.WaitAsync(TimeSpan.FromSeconds(5)));
-        lock (states)
-        {
-            // No spurious initial Disconnected, one Connected, one Disconnected
-            Assert.Equal(
-                new[]
-                {
-                    Proto.ConnectionState.ConnConnected,
-                    Proto.ConnectionState.ConnDisconnected,
-                },
-                states
-            );
-        }
-        lock (reasons)
-        {
-            Assert.Equal(new[] { Proto.DisconnectReason.ClientInitiated }, reasons);
-        }
-        Assert.Null(room.LocalParticipant);
-        Assert.False(room.IsConnected);
-    }
-
-    [Fact]
-    public async Task ConnectAsync_Cancelled_ReleasesTheLateConnection_AndTheRoomCanConnectAgain()
-    {
-        // A connect the caller gave up on still completes inside the FFI (locally ~80 ms later).
-        // Unless the SDK releases it in the background, the participant stays in the room until
-        // the process exits, and the FFI panics (terminating the process) after waiting 15 s for
-        // ReadyForRoomEvent. The release is too quick for other participants to be told about it,
-        // so the participant list of the server is what shows it.
-        const string roomName = "test-abandoned-connect-room";
-        using var room = new Room();
-        var rooms = new Livekit.Server.Sdk.Dotnet.RoomServiceClient(
-            _fixture.LiveKitUrl.Replace("ws://", "http://"),
-            RtcTestFixture.API_KEY,
-            RtcTestFixture.API_SECRET
-        );
-        async Task<string[]> IdentitiesInRoom()
-        {
-            try
-            {
-                var listed = await rooms.ListParticipants(
-                    new Livekit.Server.Sdk.Dotnet.ListParticipantsRequest { Room = roomName }
-                );
-                return listed.Participants.Select(p => p.Identity).ToArray();
-            }
-            catch (Livekit.Server.Sdk.Dotnet.TwirpException e)
-                when (e.Type == Twirp.ErrorCode.Not_Found)
-            {
-                return Array.Empty<string>(); // the room is already gone, and nobody with it
-            }
-        }
-
-        // ConnectAsync sends the request before its first await: this cancels a connect in flight
-        using var cts = new CancellationTokenSource();
-        var connect = room.ConnectAsync(
-            _fixture.LiveKitUrl,
-            _fixture.CreateToken("abandoned", roomName),
-            null,
-            cts.Token
-        );
-        cts.Cancel();
-        await Assert.ThrowsAnyAsync<OperationCanceledException>(() => connect);
-        Assert.False(room.IsConnected);
-        Assert.Null(room.LocalParticipant);
-
-        // Ample time for the late connect to complete: had it not been released, it would stay
-        await Task.Delay(TimeSpan.FromSeconds(5));
-        Assert.DoesNotContain("abandoned", await IdentitiesInRoom());
-
-        // The same Room connects normally afterwards
-        await room.ConnectAsync(_fixture.LiveKitUrl, _fixture.CreateToken("second-try", roomName));
-        Assert.True(room.IsConnected);
-        Assert.Equal("second-try", room.LocalParticipant!.Identity);
-        Assert.Equal(new[] { "second-try" }, await IdentitiesInRoom());
-
-        await room.DisconnectAsync();
-    }
 
     [Fact]
     public async Task RemoteTrackEvents_FireWhenParticipantLeaves_AndRemoteTracksCarryTheirInfo()
