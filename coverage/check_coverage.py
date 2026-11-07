@@ -10,7 +10,9 @@ It fails (exit status 1) when:
    code to its tests cannot silently go stale.
 
 A component's "code" lists classes ("AccessToken", or a full name) and methods ("Room.ConnectAsync",
-every overload); its coverage counts each source line once. Minimums are percentages.
+every overload); its coverage counts each source line once. Minimums are percentages. An optional
+"swing" gives the points by which a component's coverage varies between runs (e2e paths that
+depend on timing): its minimum sits under the low end, and the raise hint allows for the swing.
 
 Run it from the repository root after coverage.sh has produced the report:
     python3 coverage/check_coverage.py [coverage/report/Cobertura.xml]
@@ -26,9 +28,9 @@ import xml.etree.ElementTree as ET
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "coverage" / "thresholds.json"
 DEFAULT_REPORT = ROOT / "coverage" / "report" / "Cobertura.xml"
-# A minimum this many points below the measured value is worth raising (coverage ratchet). It is
-# wider than the margins of thresholds.json, including the run-to-run swing of the RTC e2e
-# tests, so it only fires when coverage has really grown.
+# A minimum this many points (plus the component's "swing") below the measured value is worth
+# raising (coverage ratchet). It is wider than the margins of thresholds.json, so it only fires
+# when coverage has really grown.
 RAISE_HINT = 10.0
 
 
@@ -106,7 +108,7 @@ def check(label, cov, entry, rows, errors, hints):
         if rate + 1e-9 < minimum:
             ok = False
             errors.append(f"{label}: {kind} coverage {rate:.1f}% is below the minimum {minimum}%")
-        elif rate - minimum >= RAISE_HINT:
+        elif rate - minimum >= RAISE_HINT + entry.get("swing", 0):
             hints.append(f"{label}: {kind} coverage is {rate:.1f}%, its minimum {minimum}% can be raised")
     rows.append(
         f"| {label} | {fmt(cov.line_rate(), entry.get('line'))} "
