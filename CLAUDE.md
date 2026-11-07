@@ -409,8 +409,10 @@ two commits. As with `sync-protocol.yml`, a version whose branch exists is skipp
 - Publishing happens when the maintainer creates a GitHub release whose tag is `api-X.Y.Z` or
   `rtc-X.Y.Z` (the prefix selects the package). `publish.yml` packs, validates, tests, pushes to
   NuGet, then opens the pull request `Post steps release <tag>` (branch `post-release/<tag>`) that
-  moves the package validation baseline. A ruleset on `main` requires the `build` check and lets
-  only repository admins bypass it (a personal-account repository cannot list GitHub Actions as a
+  moves the package validation baseline. A ruleset on `main` requires the six checks of
+  `dotnet.yml` (`build`, `RTC tests (linux-arm64)` and the four `RTC native tests (<rid>)`; a
+  renamed job or matrix entry must be renamed in the ruleset too) and lets only repository admins
+  bypass it (a personal-account repository cannot list GitHub Actions as a
   bypass actor), so workflows change `main` only through pull requests, and GitHub holds the
   checks of a pull request opened with `GITHUB_TOKEN` until the maintainer approves them. Merge
   that pull request before the next release of the same package. The push to NuGet uses NuGet Trusted
