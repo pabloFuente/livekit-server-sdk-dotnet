@@ -153,6 +153,12 @@ namespace LiveKit.Rtc
             LocalTrackPublication
         > _publicationsPendingUnpublishedEvent = new Dictionary<string, LocalTrackPublication>();
 
+        // Publications whose PublishTrackAsync was cancelled or timed out after the FFI published
+        // them. ReconcileAbandonedPublishAsync unpublishes them; their room events are not raised
+        // (the caller never got the publication), and nothing waits for their registration.
+        // Protected by Room.FfiEventLock.
+        private readonly HashSet<string> _abandonedPublications = new HashSet<string>();
+
         internal LocalParticipant(FfiHandle handle, ParticipantInfo? info, Room room)
             : base(handle, info, room) { }
 
@@ -189,6 +195,8 @@ namespace LiveKit.Rtc
             await Room.FfiEventLock.WaitAsync().ConfigureAwait(false);
             try
             {
+                if (_abandonedPublications.Contains(trackSid))
+                    return null;
                 lock (PublicationsLock)
                 {
                     if (
@@ -230,6 +238,46 @@ namespace LiveKit.Rtc
                     }
                     return null;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Records a publication whose <see cref="PublishTrackAsync"/> was abandoned, and wakes the
+        /// room event handler waiting for its registration, which would otherwise stall the room's
+        /// event chain until its timeout.
+        /// </summary>
+        private async Task MarkPublicationAbandonedAsync(string trackSid)
+        {
+            await Room.FfiEventLock.WaitAsync().ConfigureAwait(false);
+            try
+            {
+                _abandonedPublications.Add(trackSid);
+                if (_pendingPublicationWaiters.Remove(trackSid, out var waiter))
+                    waiter.TrySetCanceled();
+            }
+            finally
+            {
+                Room.FfiEventLock.Release();
+            }
+        }
+
+        /// <summary>
+        /// Whether a room event refers to a publication whose <see cref="PublishTrackAsync"/> was
+        /// abandoned: such events are dropped silently. <paramref name="forget"/> removes the record,
+        /// for the last event of the publication (its unpublication).
+        /// </summary>
+        internal async Task<bool> IsAbandonedPublicationAsync(string trackSid, bool forget = false)
+        {
+            await Room.FfiEventLock.WaitAsync().ConfigureAwait(false);
+            try
+            {
+                return forget
+                    ? _abandonedPublications.Remove(trackSid)
+                    : _abandonedPublications.Contains(trackSid);
+            }
+            finally
+            {
+                Room.FfiEventLock.Release();
             }
         }
 
@@ -388,7 +436,8 @@ namespace LiveKit.Rtc
                 Console.Error.WriteLine(
                     $"[WARN] PublishTrackAsync was cancelled after track {publication.Info.Sid} was published: unpublishing it"
                 );
-                await UnpublishTrackAsync(publication.Info.Sid);
+                await MarkPublicationAbandonedAsync(publication.Info.Sid).ConfigureAwait(false);
+                await UnpublishTrackAsync(publication.Info.Sid).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
