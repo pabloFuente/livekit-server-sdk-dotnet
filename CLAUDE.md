@@ -266,9 +266,10 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   results with ReportGenerator, pinned in `.config/dotnet-tools.json`, and runs
   `coverage/check_coverage.py` against `coverage/thresholds.json`. The minimums sit under the
   lowest coverage of several full runs: 1 point for the API, 3 for RTC, whose e2e tests take
-  timing-dependent paths (callback/event order, handle finalization). Add tests instead of
-  lowering one. Renaming or moving a class, method or test file listed there fails the check
-  until the file is updated.
+  timing-dependent paths (callback/event order, handle finalization); a component that varies
+  more declares its `swing`, which the raise hint allows for. Add tests instead of lowering one.
+  Renaming or moving a class, method or test file listed there fails the check until the file is
+  updated.
 - Coverage does not show whether a path is asserted: never add a test that only executes code.
 
 ## How the RTC SDK works (read before touching `LivekitRtc`)

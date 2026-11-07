@@ -146,6 +146,7 @@
       ],
       "line": 70,
       "branch": 59,
+      "swing": 7,
       "tests": [
         "LivekitRtc.Tests/ParticipantEventsTests.cs",
         "LivekitRtc.Tests/TrackSubscriptionTests.cs",
