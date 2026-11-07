@@ -42,3 +42,43 @@ jobs:
         dotnet tool restore
         dotnet docfx docs/docfx.json --warningsAsErrors
         python3 docs/check_api_docs.py
+
+  # The build job runs every RTC test on linux-x64. The next two jobs cover the other five native
+  # binaries that Livekit.Rtc.Dotnet ships, each on its own platform.
+
+  # linux-arm64: every RTC test
+  rtc-linux-arm64:
+    name: RTC tests (linux-arm64)
+    runs-on: ubuntu-24.04-arm
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+    - name: Setup .NET
+      uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
+      with:
+        dotnet-version: 10.0.x
+    - name: Test
+      run: dotnet test LivekitRtc.Tests
+
+  # Windows and macOS can't start the Linux containers of the e2e tests
+  # Run only the tests that load the native library without Docker
+  rtc-native:
+    name: RTC native tests (${{ matrix.rid }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { rid: win-x64, runner: windows-latest }
+          - { rid: win-arm64, runner: windows-11-arm }
+          - { rid: osx-x64, runner: macos-15-intel }
+          - { rid: osx-arm64, runner: macos-latest }
+    runs-on: ${{ matrix.runner }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+    - name: Setup .NET
+      uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
+      with:
+        dotnet-version: 10.0.x
+    - name: Test
+      run: dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~FfiClientTest|FullyQualifiedName~AudioCaptureMinimalTest|FullyQualifiedName~AudioSourcePlayoutTests|FullyQualifiedName~AudioResamplerTests|FullyQualifiedName~EncodedVideoSourceTests|FullyQualifiedName~VideoFramePinningTests|FullyQualifiedName~VideoFramePlanesTests"

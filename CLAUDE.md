@@ -221,6 +221,11 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   `FfiClientTest`, `AudioCaptureMinimalTest`, `AudioSourcePlayoutTests`, `AudioResamplerTests`,
   `EncodedVideoSourceTests` and the two `VideoFrame*Tests` load the native library for the host
   RID; the others are pure managed code.
+- `dotnet.yml` tests each of the six shipped binaries on its own platform: every RTC test on
+  linux-x64 (`build`) and linux-arm64 (`rtc-linux-arm64`), and on win-x64, win-arm64, osx-x64 and
+  osx-arm64 (`rtc-native`) only those seven classes, because hosted Windows and macOS runners
+  cannot start Linux containers. A new test class that calls the native library without Docker
+  goes in the `--filter` of `rtc-native`.
 - `RtcTestFixture` starts, per fixture instance, a private network with redis,
   `livekit/livekit-server:latest`, nginx serving `LivekitRtc.Tests/web/*.html` and
   `selenium/standalone-chrome`. The HTML pages load `livekit-client` from unpkg, so the browser
