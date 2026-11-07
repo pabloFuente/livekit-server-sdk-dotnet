@@ -1,5 +1,14 @@
 # Changelog (Release Notes)
 
+## Unreleased
+
+- Fix a remote track leaking its native handle without any explanation when a `TrackSubscribed`
+  event could not be applied: its participant was not found, or the track had no info or an
+  unsupported kind. `Room.TrackSubscribed` was not raised, and the only trace was a later
+  `[WARN] RoomEvent.TrackUnsubscribed: Track ... is not subscribed` line. The track is now
+  released and the reason logged, as in
+  `[WARN] RoomEvent.TrackSubscribed: Participant <identity> not found`. [PR #159](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/159)
+
 ## 0.1.7
 
 - Update rust-sdks to [livekit-ffi/v0.13.4](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.13.4) [PR #148](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/148)
