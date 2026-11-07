@@ -286,13 +286,27 @@ def osv_severity(vuln, policy):
     return policy["unknown_severity"], "no severity published"
 
 
+def ffi_version(sdk):
+    """The livekit-ffi tag of the checked-out commit, or livekit-ffi with its short hash."""
+    described = run(["git", "-C", str(sdk), "describe", "--tags", "--match", "livekit-ffi/*"]).stdout.strip()
+    if described:
+        return described
+    # A shallow submodule checkout (CI) has no tags: ask the remote which one points at HEAD
+    head = run(["git", "-C", str(sdk), "rev-parse", "HEAD"]).stdout.strip()
+    remote = run(["git", "-C", str(sdk), "ls-remote", "--tags", "origin", "refs/tags/livekit-ffi/*"])
+    for line in remote.stdout.splitlines():
+        sha, _, ref = line.partition("\t")
+        if sha == head:
+            return ref.removeprefix("refs/tags/").removesuffix("^{}")
+    return f"livekit-ffi {head[:7]}"
+
+
 def scan_native(findings, policy):
     sdk = ROOT / "LivekitRtc" / "rust-sdks"
     if not (sdk / "Cargo.lock").is_file():
         raise ScanError("LivekitRtc/rust-sdks is not checked out: "
                         "git submodule update --init --depth 1 LivekitRtc/rust-sdks")
-    tag = (run(["git", "-C", str(sdk), "describe", "--tags", "--match", "livekit-ffi/*"]).stdout.strip()
-           or run(["git", "-C", str(sdk), "rev-parse", "--short", "HEAD"]).stdout.strip())
+    tag = ffi_version(sdk)
     # The crates linked into the library on every target, not the whole workspace lockfile
     tree = run(["cargo", "tree", "--locked", "-p", "livekit-ffi", "--target", "all", "-e", "normal",
                 "--prefix", "none", "--format", "{p}"], cwd=sdk)
@@ -337,7 +351,7 @@ def scan_native(findings, policy):
                      for r in affected.get("ranges", []) for event in r.get("events", []) if "fixed" in event]
             add(findings, Finding(
                 "native", name, version, vuln["id"], severity, f"https://osv.dev/vulnerability/{vuln['id']}",
-                "linked into livekit_ffi", f"livekit-ffi {tag}", aliases=vuln.get("aliases", []),
+                "linked into livekit_ffi", tag, aliases=vuln.get("aliases", []),
                 fixed=", ".join(fixed) or None, note=note,
             ))
     return f"native: {len(ordered)} crates linked into livekit_ffi at {tag}"
