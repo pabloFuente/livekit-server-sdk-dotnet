@@ -1,0 +1,54 @@
+# Scans every dependency for known vulnerabilities, the native crates of livekit_ffi included: daily,
+# so that a new advisory is caught without a code change, before every release (publish.yml calls
+# this workflow) and on pull requests that move rust-sdks or change the policy. The build job of
+# dotnet.yml scans the other sources on every pull request. Policy and exceptions:
+# security/policy.json; the scheduled run notifies by failing.
+
+name: security
+
+on:
+  schedule:
+    - cron: "0 5 * * *" # daily
+  workflow_dispatch:
+    inputs:
+      native:
+        description: Also scan the Rust crates linked into livekit_ffi
+        type: boolean
+        default: true
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - "LivekitRtc/rust-sdks"
+      - "security/**"
+      - ".github/workflows/security.yml"
+  workflow_call:
+    inputs:
+      native:
+        description: Also scan the Rust crates linked into livekit_ffi
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  vulnerabilities:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # inputs.native is null on schedule and pull_request runs, and an expression coerces both null
+      # and false to 0 (null == false is true), so the steps compare its JSON text: only an explicit
+      # false skips the native crates.
+      # cargo tree only needs the workspace manifests at the pinned tag, not the nested submodules
+      - name: Check out rust-sdks
+        if: ${{ toJSON(inputs.native) != 'false' }}
+        run: git submodule update --init --depth 1 LivekitRtc/rust-sdks
+      - name: Setup .NET
+        uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
+        with:
+          dotnet-version: 10.0.x
+      - name: Scan dependencies for vulnerabilities
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCES: ${{ toJSON(inputs.native) == 'false' && 'nuget,tools,actions' || 'all' }}
+        run: python3 security/check_vulnerabilities.py --sources "$SOURCES"

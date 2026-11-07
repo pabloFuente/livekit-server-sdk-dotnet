@@ -51,6 +51,28 @@ jobs:
         dotnet tool restore
         dotnet docfx docs/docfx.json --warningsAsErrors
         python3 docs/check_api_docs.py
+    # Known vulnerabilities in the NuGet packages of every project (direct and transitive), in the
+    # .NET tools and in the pinned actions, judged by security/policy.json (security.yml adds the
+    # native crates). These steps run even after a failed step, so neither hides the other
+    - name: Scan dependencies for vulnerabilities
+      if: ${{ !cancelled() }}
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: python3 security/check_vulnerabilities.py
+    # The scan above is the gate. Dependency review only sees GitHub's dependency graph, whose NuGet
+    # versions come from automatic dependency submission (a repository setting) and which matches
+    # no advisories for actions pinned by SHA; it applies the same severity threshold and exceptions
+    - name: Read the dependency review policy
+      id: review-policy
+      if: ${{ !cancelled() && github.event_name == 'pull_request' }}
+      run: python3 security/check_vulnerabilities.py --dependency-review-outputs
+    - name: Dependency review
+      if: ${{ !cancelled() && steps.review-policy.outcome == 'success' }}
+      uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
+      with:
+        fail-on-severity: ${{ steps.review-policy.outputs.fail-on-severity }}
+        allow-ghsas: ${{ steps.review-policy.outputs.allow-ghsas }}
+        show-patched-versions: true
 
   # The build job runs every RTC test on linux-x64. The next two jobs cover the other five native
   # binaries that Livekit.Rtc.Dotnet ships, each on its own platform.

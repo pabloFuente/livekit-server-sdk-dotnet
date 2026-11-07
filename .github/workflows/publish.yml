@@ -19,8 +19,16 @@ defaults:
     shell: bash
 
 jobs:
+  # A known vulnerability that security/policy.json does not accept blocks the release. The native
+  # crates of livekit_ffi only ship in Livekit.Rtc.Dotnet
+  security:
+    uses: ./.github/workflows/security.yml
+    with:
+      native: ${{ startsWith(github.event.release.tag_name, 'rtc-') }}
+
   create_nuget:
     runs-on: ubuntu-latest
+    needs: [security]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -114,7 +122,8 @@ jobs:
     permissions:
       contents: write
       pull-requests: write # The post-release pull request
-      id-token: write # NuGet Trusted Publishing
+      id-token: write # NuGet Trusted Publishing and the provenance attestation
+      attestations: write # The provenance attestation
     # Publish only when creating a GitHub Release
     # https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository
     # You can update this logic if you want to manage releases differently
@@ -132,6 +141,19 @@ jobs:
         uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
         with:
           dotnet-version: 10.0.x
+
+      # Signed build provenance for the package and the assemblies inside it, created in this job
+      # because it is the only one with an OIDC token and it runs no build code. nuget.org adds a
+      # repository signature to the .nupkg, which changes its digest; the assemblies stay intact.
+      # Verify with: gh attestation verify <file> --repo pabloFuente/livekit-server-sdk-dotnet
+      - name: Extract the assemblies to attest
+        run: for p in "${{ env.NuGetDirectory }}"/*.nupkg; do unzip -o -q "$p" 'lib/*' -d "${{ env.NuGetDirectory }}/content"; done
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-path: |
+            ${{ env.NuGetDirectory }}/*.nupkg
+            ${{ env.NuGetDirectory }}/content/lib/*/*.dll
 
       # NuGet Trusted Publishing: exchange this workflow's OIDC token for a short-lived API key
       - name: Log in to NuGet (Trusted Publishing)
