@@ -82,6 +82,11 @@ a public API change that breaks them. Build them explicitly after changing publi
   the GitHub API with `jq`. It writes `runtimes/` only once all six archives have downloaded and
   matched, and otherwise exits with an error and leaves the previous set. A mismatch is a reason to
   stop and investigate, never to bypass the check.
+- A binary cannot be reviewed in a diff, so the first step of `dotnet.yml` (part of the required
+  `build` check) reads the `livekit-ffi` tag the `rust-sdks` gitlink points to, runs
+  `download_ffi.sh` for it and fails if anything under `LivekitRtc/runtimes` then differs from the
+  commit. A pull request therefore fails when it changes a binary, or moves the submodule without
+  the matching binaries, or to a commit that is not a `livekit-ffi` release tag.
 
 ## Target frameworks and language level
 

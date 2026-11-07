@@ -392,6 +392,8 @@ dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 
 `dotnet pack` runs [package validation](https://learn.microsoft.com/en-us/dotnet/fundamentals/apicompat/package-validation/overview) against the last release (`PackageValidationBaselineVersion` in `LivekitRtc.csproj`), and so does the `build` check of every pull request. The generated `LiveKit.Proto` types are public, so a new FFI version that removes or changes one of their members makes it fail. Record those breaks with `dotnet pack LivekitRtc -c Debug -p:GenerateCompatibilitySuppressionFile=true`, which writes `LivekitRtc/CompatibilitySuppressions.xml`, commit that file and explain each break in the changelog under `Breaking changes coming from rust-sdks`. The [publish workflow](../.github/workflows/publish.yml) moves the baseline and deletes the file after the release.
 
+The `build` check also downloads the binaries of the `livekit-ffi` tag the submodule points to and fails unless the committed ones are identical, so commit the submodule pointer and the six binaries of the same version together.
+
 Then commit:
 
 ```bash

@@ -56,7 +56,7 @@ The script used below lives next to this file. Run it from the repo root:
    ```bash
    git status --short LivekitRtc/runtimes
    ```
-   must list the six libraries as modified (`win-x64`, `win-arm64`, `linux-x64`, `linux-arm64`, `osx-x64`, `osx-arm64`).
+   must list the six libraries as modified (`win-x64`, `win-arm64`, `linux-x64`, `linux-arm64`, `osx-x64`, `osx-arm64`). The pull request's `build` check repeats the download for the tag the submodule points to and fails unless the committed binaries are exactly those.
 3. Never copy a binary built locally from `LivekitRtc/rust-sdks/target/` into `runtimes/` during a sync; releases ship the upstream builds only.
 
 ## Phase 5: Make it build

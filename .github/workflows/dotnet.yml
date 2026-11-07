@@ -19,7 +19,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+    - name: Checkout code
+      uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+    - name: Verify the native FFI binaries
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        pinned=$(git ls-tree HEAD LivekitRtc/rust-sdks | awk '{print $3}')
+        refs=$(git ls-remote --tags https://github.com/livekit/rust-sdks 'livekit-ffi/*')
+        tag=$(awk -v sha="$pinned" '$1 == sha {sub("refs/tags/", "", $2); sub(/\^\{\}$/, "", $2); print $2}' <<<"$refs" | sort -V | tail -1)
+        if [ -z "$tag" ]; then
+          echo "::error::LivekitRtc/rust-sdks points to $pinned, which is not a livekit-ffi release tag"
+          exit 1
+        fi
+        LivekitRtc/download_ffi.sh "$tag"
+        if [ -n "$(git status --porcelain -- LivekitRtc/runtimes)" ]; then
+          git status --short -- LivekitRtc/runtimes
+          echo "::error::The binaries in LivekitRtc/runtimes are not the ones published for $tag"
+          exit 1
+        fi
     - name: Setup .NET
       uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
       with:
