@@ -140,6 +140,32 @@ without them. A new public type of `Livekit.Server.Sdk.Dotnet` also needs an ent
 the reference, [docs/api-server/toc.yml](docs/api-server/toc.yml); the check script fails until it
 has one.
 
+### Code coverage
+
+```bash
+# Every test with coverage (needs Docker, like CI), then the report and the coverage gate
+./coverage.sh
+# A subset: the report is built, but the gate (set for the full suite) fails
+./coverage.sh LivekitApi.Tests --filter "Category=Unit"
+```
+
+Each test project measures only its own SDK with `coverlet.collector`, using the settings in
+[coverage/](coverage/), which leave out the generated protobuf, Twirp and FFI code. `coverage.sh`
+merges the results with ReportGenerator into `coverage/report/`: `index.html` (line and branch
+coverage per SDK, class and source line), `Cobertura.xml` and a Markdown summary. The `build` job of
+[dotnet.yml](.github/workflows/dotnet.yml) runs it, adds the summary to the job summary page and
+uploads `coverage/report` as the `coverage-report` artifact.
+
+The gate fails when coverage falls below the minimums in
+[coverage/thresholds.json](coverage/thresholds.json): line and branch minimums for each SDK, and
+stricter ones for critical components such as token signing and verification, webhooks, the FFI
+bridge or room connection. Each component lists its classes or methods and the test files that
+cover them, and the check fails when one of them no longer exists. The minimums sit just below the
+measured coverage, so they catch regressions: raise them when coverage grows (the check lists the
+ones 10 points or more above their minimum) and never lower one without explaining why in the pull
+request. New code comes with tests that assert its behavior. If the code is on a critical path, add
+it to that component's `code`, and add any new test file that covers it to its `tests`.
+
 ### Perform release
 
 Releases are automated through GitHub Actions thanks to the [publish workflow](.github/workflows/publish.yml). Both packages `Livekit.Server.Sdk.Dotnet` and `Livekit.Rtc.Dotnet` can be released independently. The workflow publishes with [NuGet Trusted Publishing](https://learn.microsoft.com/nuget/nuget-org/trusted-publishing): nuget.org keeps a policy for this repository and `publish.yml`, scoped to the two package IDs, and the `NUGET_USER` repository secret holds the nuget.org user name; no API key is stored. After publishing, the workflow opens a pull request that moves the package validation baseline of the released package to the new version: approve its checks ("Approve workflows to run") and merge it before the next release of the same package. Checkout how to do so:

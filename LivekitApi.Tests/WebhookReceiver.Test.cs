@@ -1,6 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using Google.Protobuf;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Livekit.Server.Sdk.Dotnet.Test
 {
@@ -104,6 +105,74 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             Assert.Equal("2Pvdj+/WV1xV4EkB8klJ9xkXDWY=", eventReceived.Room.TurnPassword);
             Assert.Equal(1692627281, eventReceived.Room.CreationTime);
             Assert.Equal(7, eventReceived.Room.EnabledCodecs.Count);
+        }
+
+        [Theory]
+        [Trait("Category", "Unit")]
+        [InlineData(null)]
+        [InlineData("")]
+        public void MissingAuthorizationHeader_IsRejected(string? authHeader)
+        {
+            var receiver = new WebhookReceiver(TEST_API_KEY, TEST_API_SECRET);
+
+            // An unsigned request never reaches the parser, whichever overload receives it
+            var ex = Assert.Throws<Exception>(() => receiver.Receive(TEST_EVENT, authHeader));
+            Assert.Equal("Authorization header is empty", ex.Message);
+            ex = Assert.Throws<Exception>(() =>
+                receiver.Receive(Encoding.UTF8.GetBytes(TEST_EVENT), authHeader)
+            );
+            Assert.Equal("Authorization header is empty", ex.Message);
+        }
+
+        [Fact]
+        [Trait("Category", "Unit")]
+        public void SkipAuth_ParsesAnUnsignedBody()
+        {
+            var receiver = new WebhookReceiver(TEST_API_KEY, TEST_API_SECRET);
+
+            Assert.Equal("EV_eugWmGhovZmm", receiver.Receive(TEST_EVENT, skipAuth: true).Id);
+        }
+
+        [Fact]
+        [Trait("Category", "Unit")]
+        public void NullBody_IsRejected()
+        {
+            var receiver = new WebhookReceiver(TEST_API_KEY, TEST_API_SECRET);
+
+            Assert.Throws<ArgumentNullException>(() => receiver.Receive((string)null!, "jwt"));
+            Assert.Throws<ArgumentNullException>(() => receiver.Receive((byte[])null!, "jwt"));
+        }
+
+        [Fact]
+        [Trait("Category", "Unit")]
+        public void ExpiredToken_IsRejected_UnlessWithinTheLeeway()
+        {
+            var jwt = new AccessToken(TEST_API_KEY, TEST_API_SECRET)
+                .WithSha256(ComputeBase64Sha256(TEST_EVENT))
+                .WithNotBefore(DateTimeOffset.UtcNow.AddMinutes(-10))
+                .WithExpiration(DateTimeOffset.UtcNow.AddMinutes(-2))
+                .ToJwt();
+
+            // Expired two minutes ago: beyond the default leeway of one minute...
+            var receiver = new WebhookReceiver(TEST_API_KEY, TEST_API_SECRET);
+            Assert.Throws<SecurityTokenExpiredException>(() => receiver.Receive(TEST_EVENT, jwt));
+            // ...but within a leeway of five
+            var tolerant = new WebhookReceiver(
+                TEST_API_KEY,
+                TEST_API_SECRET,
+                TimeSpan.FromMinutes(5)
+            );
+            Assert.Equal("room_started", tolerant.Receive(TEST_EVENT, jwt).Event);
+        }
+
+        [Fact]
+        [Trait("Category", "Unit")]
+        public void SecretShorterThan256Bits_IsRejected()
+        {
+            var shortSecret = new string('s', 31);
+
+            Assert.Throws<ArgumentException>(() => new WebhookReceiver(TEST_API_KEY, shortSecret));
+            Assert.Throws<ArgumentException>(() => new TokenVerifier(TEST_API_KEY, shortSecret));
         }
 
         private string ComputeBase64Sha256(string input)

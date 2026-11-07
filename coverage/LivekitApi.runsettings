@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coverage settings of LivekitApi.Tests (wired through RunSettingsFilePath in its csproj).
+     The collector is off unless the run asks for the "XPlat Code Coverage" collector (coverage.sh).
+     Only the SDK under test is measured, and the generated protobuf and Twirp code is left out. -->
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat code coverage" enabled="false">
+        <Configuration>
+          <Format>cobertura</Format>
+          <Include>[LivekitApi]*</Include>
+          <ExcludeByFile>**/LivekitApi/proto/*.cs</ExcludeByFile>
+          <ExcludeByAttribute>GeneratedCodeAttribute</ExcludeByAttribute>
+          <SkipAutoProps>true</SkipAutoProps>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>
