@@ -80,13 +80,15 @@ a public API change that breaks them. Build them explicitly after changing publi
 - `download_ffi.sh` checks every `ffi-*.zip` against the SHA-256 digest GitHub recorded for that
   release asset at upload (upstream publishes no checksum file or attestation for them), through
   the GitHub API with `jq`. It writes `runtimes/` only once all six archives have downloaded and
-  matched, and otherwise exits with an error and leaves the previous set. A mismatch is a reason to
-  stop and investigate, never to bypass the check.
-- A binary cannot be reviewed in a diff, so the first step of `dotnet.yml` (part of the required
-  `build` check) reads the `livekit-ffi` tag the `rust-sdks` gitlink points to, runs
-  `download_ffi.sh` for it and fails if anything under `LivekitRtc/runtimes` then differs from the
-  commit. A pull request therefore fails when it changes a binary, or moves the submodule without
-  the matching binaries, or to a commit that is not a `livekit-ffi` release tag.
+  matched. Every failure (no such release, a missing digest or archive, a failed download, a
+  mismatch, a library missing from its archive) exits non-zero and leaves the previous set. A
+  mismatch is a reason to stop and investigate, never to bypass the check.
+- A binary cannot be reviewed in a diff, so `download_ffi.sh --verify` downloads and checks the
+  release of the `livekit-ffi` tag the `rust-sdks` gitlink points to, writes nothing, and exits
+  non-zero unless `LivekitRtc/runtimes` holds exactly its six binaries. It is the first step of
+  `dotnet.yml` (part of the required `build` check) and runs in `publish.yml` before an `rtc-`
+  release is packed. A pull request therefore fails when it changes a binary, moves the submodule
+  without the matching binaries, or points it to a commit that is not a `livekit-ffi` release tag.
 
 ## Target frameworks and language level
 

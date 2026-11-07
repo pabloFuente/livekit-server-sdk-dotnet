@@ -330,7 +330,7 @@ The easiest way to get the latest FFI binaries without building from source:
 ./download_ffi.sh 0.12.44  # Or specify a version
 ```
 
-This downloads pre-compiled binaries from [LiveKit Rust SDK releases](https://github.com/livekit/rust-sdks/releases) for all supported platforms (Windows, Linux, macOS on x64 and ARM64). It needs `curl`, `unzip` and `jq`. Each archive is checked against the SHA-256 digest that GitHub lists for that release asset, and the binaries are copied only when all six match: otherwise the script fails and leaves the previous ones in place.
+This downloads pre-compiled binaries from [LiveKit Rust SDK releases](https://github.com/livekit/rust-sdks/releases) for all supported platforms (Windows, Linux, macOS on x64 and ARM64). It needs bash 4 or newer, `curl`, `unzip` and `jq`. Each archive is checked against the SHA-256 digest that GitHub lists for that release asset, and the binaries are copied only when all six match: any failure exits with a non-zero code and leaves the previous ones in place. `./download_ffi.sh --verify` checks without writing anything that `runtimes/` holds exactly the binaries of the `livekit-ffi` version the `rust-sdks` submodule points to.
 
 #### Option 2: building native libraries from source
 
@@ -392,7 +392,7 @@ dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 
 `dotnet pack` runs [package validation](https://learn.microsoft.com/en-us/dotnet/fundamentals/apicompat/package-validation/overview) against the last release (`PackageValidationBaselineVersion` in `LivekitRtc.csproj`), and so does the `build` check of every pull request. The generated `LiveKit.Proto` types are public, so a new FFI version that removes or changes one of their members makes it fail. Record those breaks with `dotnet pack LivekitRtc -c Debug -p:GenerateCompatibilitySuppressionFile=true`, which writes `LivekitRtc/CompatibilitySuppressions.xml`, commit that file and explain each break in the changelog under `Breaking changes coming from rust-sdks`. The [publish workflow](../.github/workflows/publish.yml) moves the baseline and deletes the file after the release.
 
-The `build` check also downloads the binaries of the `livekit-ffi` tag the submodule points to and fails unless the committed ones are identical, so commit the submodule pointer and the six binaries of the same version together.
+The `build` check also runs `./download_ffi.sh --verify`, which fails unless the committed binaries are exactly the ones published for the `livekit-ffi` tag the submodule points to (the publish workflow repeats it before packing a release), so commit the submodule pointer and the six binaries of the same version together.
 
 Then commit:
 

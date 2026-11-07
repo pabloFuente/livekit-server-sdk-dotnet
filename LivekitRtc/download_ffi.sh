@@ -7,21 +7,40 @@
 #
 # Every archive is checked against the SHA-256 digest that GitHub recorded for that release asset
 # when it was uploaded. runtimes/ is only written once all six archives have downloaded and
-# matched, so a failure exits with an error and leaves the previous binaries of every platform.
-# Requires curl, unzip and jq. GH_TOKEN or GITHUB_TOKEN, when set, authenticates the GitHub API
-# calls, whose anonymous rate limit shared CI runners can exhaust.
+# matched. Any failure (no such release, a missing digest or archive, a failed download, a
+# mismatch, a library missing from its archive) exits with a non-zero code and leaves the previous
+# binaries of every platform.
+#
+# --verify downloads and checks a release the same way but writes nothing: it exits with a
+# non-zero code unless runtimes/ holds exactly its six binaries. Without a version it checks the
+# livekit-ffi tag that the rust-sdks submodule points to, as the build check of every pull request
+# and of every rtc- release does.
+#
+# Requires bash 4 or newer, curl, unzip, jq, and sha256sum or shasum. GH_TOKEN or GITHUB_TOKEN,
+# when set, authenticates the GitHub API calls, whose anonymous rate limit shared CI runners can
+# exhaust.
 #
 # Usage:
 #   ./download_ffi.sh [version]
+#   ./download_ffi.sh --verify [version]
 #
 # Example:
 #   ./download_ffi.sh 0.12.44
+#   ./download_ffi.sh --verify
 
 set -e
 
+if ((BASH_VERSINFO[0] < 4)); then
+    echo "Error: bash 4 or newer is required (macOS ships 3.2: brew install bash)" >&2
+    exit 1
+fi
 for tool in curl unzip jq; do
     command -v "$tool" >/dev/null || { echo "Error: $tool is required" >&2; exit 1; }
 done
+if ! command -v sha256sum >/dev/null && ! command -v shasum >/dev/null; then
+    echo "Error: sha256sum or shasum is required" >&2
+    exit 1
+fi
 
 # SHA-256 of a file, with the tool each platform has
 sha256() {
@@ -34,7 +53,16 @@ if [ -n "$TOKEN" ]; then
     AUTH=(-H "Authorization: Bearer $TOKEN")
 fi
 
+VERIFY=false
+if [ "${1:-}" = "--verify" ]; then
+    VERIFY=true
+    shift
+fi
 VERSION="${1:-}"
+if [[ "$VERSION" == -* ]]; then
+    echo "Error: unknown option $VERSION. Usage: $0 [--verify] [version]" >&2
+    exit 1
+fi
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 OUTPUT_DIR="$SCRIPT_DIR/runtimes"
 
@@ -42,20 +70,32 @@ OUTPUT_DIR="$SCRIPT_DIR/runtimes"
 GITHUB_API="https://api.github.com/repos/livekit/rust-sdks/releases"
 GITHUB_RELEASE_BASE="https://github.com/livekit/rust-sdks/releases/download"
 
-# If no version specified, get latest livekit-ffi release
-if [ -z "$VERSION" ]; then
-    echo "Fetching latest version..."
-    VERSION=$(curl -sL "${AUTH[@]}" "$GITHUB_API?per_page=30" | grep -o '"tag_name": *"[^"]*"' | sed 's/.*"tag_name": *"\([^"]*\)".*/\1/' | grep '^livekit-ffi/' | head -1)
+if [ -z "$VERSION" ] && $VERIFY; then
+    # The livekit-ffi tag on the commit that the rust-sdks submodule points to
+    pinned=$(git -C "$SCRIPT_DIR" ls-tree HEAD rust-sdks | awk '{print $3}')
+    refs=$(git ls-remote --tags https://github.com/livekit/rust-sdks 'livekit-ffi/*')
+    VERSION=$(awk -v sha="$pinned" '$1 == sha {sub("refs/tags/", "", $2); sub(/\^\{\}$/, "", $2); print $2}' <<<"$refs" | sort -V | tail -1)
     if [ -z "$VERSION" ]; then
-        echo "Error: Could not find a livekit-ffi release"
+        echo "Error: the rust-sdks submodule points to ${pinned:-no commit}, which is not a livekit-ffi release tag" >&2
+        exit 1
+    fi
+    echo "Pinned version: $VERSION"
+elif [ -z "$VERSION" ]; then
+    echo "Fetching latest version..."
+    if ! RELEASES_JSON=$(curl -fsSL "${AUTH[@]}" "$GITHUB_API?per_page=100"); then
+        echo "Error: could not list the releases from the GitHub API" >&2
+        exit 1
+    fi
+    # rust-sdks releases every crate it holds: take the newest GA livekit-ffi/vX.Y.Z
+    VERSION=$(jq -r '.[] | select(.prerelease | not) | .tag_name | select(test("^livekit-ffi/v[0-9]+\\.[0-9]+\\.[0-9]+$"))' <<<"$RELEASES_JSON" | sort -V | tail -1)
+    if [ -z "$VERSION" ]; then
+        echo "Error: could not find a livekit-ffi release" >&2
         exit 1
     fi
     echo "Latest version: $VERSION"
-else
+elif [[ "$VERSION" =~ ^[0-9] ]]; then
     # If version is just a number like "0.12.50", construct the full tag (new format: livekit-ffi/vX.Y.Z)
-    if [[ "$VERSION" =~ ^[0-9] ]]; then
-        VERSION="livekit-ffi/v${VERSION}"
-    fi
+    VERSION="livekit-ffi/v${VERSION}"
 fi
 
 # URL encode the version (/ becomes %2F, @ becomes %40)
@@ -117,7 +157,10 @@ for platform in "${!PLATFORMS[@]}"; do
     fi
     echo "    ✓ SHA-256 $actual"
 
-    unzip -q "$STAGING/$archive" -d "$STAGING/$platform"
+    if ! unzip -q "$STAGING/$archive" -d "$STAGING/$platform"; then
+        echo "    ✗ Could not extract $archive"
+        continue
+    fi
     lib_file=$(find "$STAGING/$platform" -name "$lib_name" -type f | head -1)
     if [ -z "$lib_file" ]; then
         echo "    ✗ Library file not found in archive"
@@ -128,8 +171,33 @@ done
 
 if [ "${#LIB_FILES[@]}" -ne "${#PLATFORMS[@]}" ]; then
     echo "" >&2
-    echo "Error: ${#LIB_FILES[@]} of ${#PLATFORMS[@]} platforms passed, so nothing was copied: $OUTPUT_DIR keeps its previous binaries" >&2
+    if $VERIFY; then
+        echo "Error: ${#LIB_FILES[@]} of ${#PLATFORMS[@]} platforms passed, so runtimes/ could not be verified" >&2
+    else
+        echo "Error: ${#LIB_FILES[@]} of ${#PLATFORMS[@]} platforms passed, so nothing was copied: $OUTPUT_DIR keeps its previous binaries" >&2
+    fi
     exit 1
+fi
+
+if $VERIFY; then
+    differ=0
+    for platform in "${!LIB_FILES[@]}"; do
+        installed="runtimes/$platform/native/${PLATFORMS[$platform]}"
+        if cmp -s "${LIB_FILES[$platform]}" "$SCRIPT_DIR/$installed"; then
+            echo "  ✓ $installed"
+        else
+            echo "  ✗ $installed is not the binary published for $VERSION"
+            differ=1
+        fi
+    done
+    if [ "$differ" -ne 0 ]; then
+        echo "" >&2
+        echo "Error: runtimes/ does not hold the binaries of $VERSION" >&2
+        exit 1
+    fi
+    echo ""
+    echo "Verified: runtimes/ holds exactly the six binaries of $VERSION"
+    exit 0
 fi
 
 for platform in "${!LIB_FILES[@]}"; do

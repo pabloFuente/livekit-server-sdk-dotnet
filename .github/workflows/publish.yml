@@ -48,6 +48,14 @@ jobs:
             exit 1
           fi
 
+      # The binaries about to be packed must be the ones upstream published for the pinned
+      # rust-sdks tag, even for a commit that reached main without a pull request
+      - name: Verify the native FFI binaries
+        if: steps.determine_project.outputs.project_name == 'LivekitRtc'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: LivekitRtc/download_ffi.sh --verify
+
       # Create the NuGet package for the specific project
       - name: Pack NuGet package
         run: dotnet pack ${{ steps.determine_project.outputs.project }} -c Release --output ${{ env.NuGetDirectory }}
