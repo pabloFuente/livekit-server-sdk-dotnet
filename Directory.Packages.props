@@ -1,0 +1,31 @@
+<Project>
+  <!--
+    Central package management: every project of the repository, examples included, takes its
+    package versions from here, so a package shared by both libraries or both test projects always
+    has one version. A PackageReference never carries a Version (that is error NU1008).
+  -->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Libraries. CSharpier.MSBuild must match the csharpier tool in .config/dotnet-tools.json -->
+    <PackageVersion Include="CSharpier.MSBuild" Version="1.3.0" />
+    <PackageVersion Include="DotNet.ReproducibleBuilds" Version="2.0.5" />
+    <PackageVersion Include="Google.Protobuf" Version="3.36.2" />
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageVersion Include="StyleCop.Analyzers" Version="1.3.151-beta" />
+    <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="8.23.0" />
+    <PackageVersion Include="System.Threading.Channels" Version="10.0.14" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Tests -->
+    <PackageVersion Include="coverlet.collector" Version="10.1.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
+    <PackageVersion Include="Selenium.WebDriver" Version="4.52.0" />
+    <PackageVersion Include="SSH.NET" Version="2026.0.0" />
+    <PackageVersion Include="Testcontainers" Version="4.16.0" />
+    <PackageVersion Include="Testcontainers.WebDriver" Version="4.16.0" />
+    <PackageVersion Include="xunit" Version="2.9.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="4.0.1" />
+  </ItemGroup>
+</Project>

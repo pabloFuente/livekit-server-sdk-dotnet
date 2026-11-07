@@ -47,7 +47,7 @@ The script used below lives next to this file. Run it from the repo root:
 
 1. `./generate_proto.sh`. It regenerates both SDKs. If it fails on the FFI protos, the local `protoc` is probably too old for syntax upstream started using (`proto3 optional` needs 3.15+, editions need a recent 2x release). Install a newer `protoc`; never patch the `.proto` files or the generated output.
 2. `git status --short LivekitApi/proto` must be empty. If it is not, the local `protoc` differs from the one used for the last protocol regeneration and the churn is unrelated to this bump: `git checkout -- LivekitApi/proto` and mention it in the final report (it belongs to a `/sync-protocol` run).
-3. `git diff --stat LivekitRtc/Proto/`. A `.g.cs` that disappears or appears means upstream removed, added or renamed a proto file. `generate_proto.sh` globs `*.proto`, so there is no list to maintain, but the `Google.Protobuf` package in `LivekitRtc/LivekitRtc.csproj` must be at least as new as `protoc --version` or the output will not compile.
+3. `git diff --stat LivekitRtc/Proto/`. A `.g.cs` that disappears or appears means upstream removed, added or renamed a proto file. `generate_proto.sh` globs `*.proto`, so there is no list to maintain, but the `Google.Protobuf` version in `Directory.Packages.props` must be at least as new as `protoc --version` or the output will not compile.
 
 ## Phase 4: Native binaries
 

@@ -1,29 +1,37 @@
 version: 2
 updates:
+  # Package versions live in Directory.Packages.props and tool versions in
+  # .config/dotnet-tools.json, both found from every directory below. The projects are listed one
+  # by one because discovery from "/" only follows the solution, which leaves out the examples
   - package-ecosystem: "nuget"
-    directory: "/LivekitApi"
+    directories:
+      - "/LivekitApi"
+      - "/LivekitApi.Tests"
+      - "/LivekitApi.Example"
+      - "/LivekitRtc"
+      - "/LivekitRtc.Tests"
+      - "/LivekitRtc.Example/*"
     schedule:
       interval: "weekly"
-  - package-ecosystem: "nuget"
-    directory: "/LivekitApi.Tests"
-    schedule:
-      interval: "weekly"
-  - package-ecosystem: "nuget"
-    directory: "/LivekitApi.Example"
-    schedule:
-      interval: "weekly"
-  - package-ecosystem: "nuget"
-    directory: "/LivekitRtc"
-    schedule:
-      interval: "weekly"
-  - package-ecosystem: "nuget"
-    directory: "/LivekitRtc.Tests"
-    schedule:
-      interval: "weekly"
-  - package-ecosystem: "nuget"
-    directory: "/LivekitRtc.Example"
-    schedule:
-      interval: "weekly"
+    open-pull-requests-limit: 10
+    # Every group is evaluated on its own, so the catch-all one excludes what the others take
+    groups:
+      # The tool and the MSBuild package must always share one version
+      csharpier:
+        patterns:
+          - "csharpier"
+          - "CSharpier.MSBuild"
+      # Testcontainers.WebDriver requires the Testcontainers version it was released with
+      testcontainers:
+        patterns:
+          - "Testcontainers*"
+      # One pull request per dependency for everything else, not one per directory
+      nuget:
+        group-by: dependency-name
+        exclude-patterns:
+          - "csharpier"
+          - "CSharpier.MSBuild"
+          - "Testcontainers*"
   # The workflows pin every action to a full commit SHA followed by "# vX.Y.Z", and Dependabot
   # updates both together
   - package-ecosystem: "github-actions"

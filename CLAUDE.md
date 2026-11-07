@@ -54,8 +54,8 @@ a public API change that breaks them. Build them explicitly after changing publi
   (and to the Twirp list if it declares a service). Otherwise it is silently left out.
 - Generated code is committed and is what CI builds. The `dotnet.yml` workflow does not check out
   submodules, so nothing may depend on submodule content at build time.
-- The `Google.Protobuf` runtime version in each csproj must be at least as new as the `protoc`
-  used to regenerate, or the generated code will not compile.
+- The `Google.Protobuf` runtime version in `Directory.Packages.props` must be at least as new as
+  the `protoc` used to regenerate, or the generated code will not compile.
 
 ## Submodules and native binaries
 
@@ -140,8 +140,9 @@ dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg   # ru
 Formatting:
 
 - CSharpier is pinned twice: in `.config/dotnet-tools.json` (the tool) and as the `CSharpier.MSBuild`
-  package in `LivekitApi.csproj`. Keep both at the same version, or build-time and hook formatting
-  disagree. Default settings (no `.csharpierrc`).
+  package (`Directory.Packages.props`) that `LivekitApi.csproj` references. Keep both at the same
+  version, or build-time and hook formatting disagree; Dependabot's `csharpier` group bumps them
+  in one pull request. Default settings (no `.csharpierrc`).
   It also formats `.csproj` and `.xml` files, which is why csproj attributes are one per line. Do not
   reflow those by hand.
 - `LivekitApi.csproj` references `CSharpier.MSBuild`: a Debug build of that project reformats its
@@ -455,8 +456,14 @@ two commits. As with `sync-protocol.yml`, a version whose branch exists is skipp
   `fix(api): ...` for the API package by analogy). Mechanical commits keep their fixed subjects (see the upgrade and release
   sections) so they are greppable in history.
 - Never commit `bin/` or `obj/`.
-- Dependabot opens weekly NuGet bumps per project; `Google.Protobuf` is pinned independently in
-  the two libraries and they may legitimately differ.
+- Package versions live only in `Directory.Packages.props` (central package management): every
+  project, examples included, gets one version of each package, so both libraries always ship the
+  same `Google.Protobuf`. A `PackageReference` never carries a `Version` (error NU1008); add a
+  `PackageVersion` there instead. Tools run by scripts or workflows are pinned in
+  `.config/dotnet-tools.json` and run through `dotnet tool restore`, never installed unpinned.
+- Dependabot updates both files weekly from a single `nuget` entry, one pull request per dependency
+  across all projects (`group-by: dependency-name`); the CSharpier tool and package, and the
+  Testcontainers packages, come grouped.
 - Workflows pin every action to a full commit SHA, never a tag or branch, with the release in a
   comment on the same line (`uses: actions/checkout@<40-char sha> # v4.4.0`). Dependabot's
   `github-actions` entry bumps both together. Pin a new action the same way: resolve the release

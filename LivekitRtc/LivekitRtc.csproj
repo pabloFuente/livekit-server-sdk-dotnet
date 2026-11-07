@@ -44,12 +44,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Protobuf" Version="3.36.2" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.3.151-beta">
+    <PackageReference Include="Google.Protobuf" />
+    <PackageReference Include="StyleCop.Analyzers">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="System.Threading.Channels" Version="10.0.14" />
+    <PackageReference Include="System.Threading.Channels" />
   </ItemGroup>
   <ItemGroup>
     <InternalsVisibleTo Include="LivekitRtc.Tests" />
