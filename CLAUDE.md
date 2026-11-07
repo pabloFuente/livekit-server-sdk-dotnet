@@ -229,8 +229,8 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   goes in the `--filter` of `rtc-native`.
 - `RtcTestFixture` starts, per fixture instance, a private network with redis,
   `livekit/livekit-server:latest`, nginx serving `LivekitRtc.Tests/web/*.html` and
-  `selenium/standalone-chrome`. The HTML pages load `livekit-client` from unpkg, so the browser
-  tests need internet access. Test classes are spread over several xUnit collections and
+  `selenium/standalone-chrome`. The HTML pages load `livekit-client@latest` from unpkg, so the
+  browser tests need internet access. Test classes are spread over several xUnit collections and
   `IClassFixture` usages, so a full run starts several of these stacks; always filter to the class
   or test you are working on.
 - `USE_LOCAL_CHROME=true` swaps the Chrome container for a local Chrome and ChromeDriver
@@ -251,8 +251,8 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   does with encryption on (`Room.E2EEManager.GetFrameCryptors()`), or compare tone power in the
   frequency domain. `E2EETests` has both accepted styles; `E2EEOptionsMappingTests` only checks
   the `RoomOptions.ToProto()` mapping.
-- Images are mutable tags (`master`, `latest`); a sudden failure may come from an upstream
-  LiveKit change rather than from this repo.
+- Images are mutable tags (`master`, `latest`), and so is `livekit-client@latest`; a sudden
+  failure may come from an upstream LiveKit change rather than from this repo.
 
 ## How the RTC SDK works (read before touching `LivekitRtc`)
 
