@@ -438,6 +438,11 @@ two commits. As with `sync-protocol.yml`, a version whose branch exists is skipp
 - Never commit `bin/` or `obj/`.
 - Dependabot opens weekly NuGet bumps per project; `Google.Protobuf` is pinned independently in
   the two libraries and they may legitimately differ.
+- Workflows pin every action to a full commit SHA, never a tag or branch, with the release in a
+  comment on the same line (`uses: actions/checkout@<40-char sha> # v4.4.0`). Dependabot's
+  `github-actions` entry bumps both together. Pin a new action the same way: resolve the release
+  tag with `git ls-remote --tags https://github.com/<owner>/<repo>`, using the `^{}` line of an
+  annotated tag.
 - Clone with `--recurse-submodules`; a plain `git submodule update --init --recursive` is enough to
   regenerate protos. Building the FFI from source additionally needs `--checkout` for the nested
   submodules (see the RTC README).

@@ -57,19 +57,19 @@ jobs:
       TAG: livekit-ffi/v${{ needs.check.outputs.version }}
       BRANCH: sync-rust-sdks/v${{ needs.check.outputs.version }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           submodules: true # generate_proto.sh reads both protocol and rust-sdks
           persist-credentials: false # the last step pushes with its own token
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4.3.1
         with:
           dotnet-version: 10.0.x
       # generate_proto.sh regenerates both packages, and these versions leave LivekitApi/proto untouched
-      - uses: arduino/setup-protoc@v3
+      - uses: arduino/setup-protoc@c65c819552d16ad3c9b72d9dfd5ba5237b9c906b # v3.0.0
         with:
           version: "36.2"
           repo-token: ${{ github.token }}
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         with:
           go-version: stable
           cache: false
@@ -85,7 +85,7 @@ jobs:
           test "$(git status --porcelain LivekitRtc/runtimes | wc -l)" = 6 # the script exits 0 even if a platform fails
 
       - name: Run /sync-rust-sdks
-        uses: anthropics/claude-code-action@v1
+        uses: anthropics/claude-code-action@61a9c274fa7110a66dfafc1bbbced03833eb25fe # v1.0.269
         env:
           GH_TOKEN: ${{ github.token }} # the skill reads the upstream release with gh
         with:

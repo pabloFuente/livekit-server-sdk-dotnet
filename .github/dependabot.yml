@@ -24,3 +24,9 @@ updates:
     directory: "/LivekitRtc.Example"
     schedule:
       interval: "weekly"
+  # The workflows pin every action to a full commit SHA followed by "# vX.Y.Z", and Dependabot
+  # updates both together
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
