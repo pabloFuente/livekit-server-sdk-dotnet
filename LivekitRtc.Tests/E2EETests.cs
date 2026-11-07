@@ -194,7 +194,7 @@ public class E2EETests : IAsyncLifetime
             for (int i = 0; i < Math.Min(samples.Length / 2, 50); i++)
             {
                 short sample = BitConverter.ToInt16(samples, i * 2);
-                if (Math.Abs(sample) > 100)
+                if (Math.Abs((int)sample) > 100)
                 {
                     hasSignal = true;
                     break;
@@ -240,12 +240,12 @@ public class E2EETests : IAsyncLifetime
         for (int i = 0; i < Math.Min(receivedSamples.Length / 2, 100); i++)
         {
             short sample = BitConverter.ToInt16(receivedSamples, i * 2);
-            if (Math.Abs(sample) > 100)
+            if (Math.Abs((int)sample) > 100)
             {
                 hasNonZeroSamples = true;
                 nonZeroCount++;
             }
-            if (Math.Abs(sample) > Math.Abs(maxSample))
+            if (Math.Abs((int)sample) > Math.Abs((int)maxSample))
             {
                 maxSample = sample;
             }
