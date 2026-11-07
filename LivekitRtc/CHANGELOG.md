@@ -12,44 +12,44 @@
   process: memory grew by the size of each stream received, whether or not a handler was
   registered for its topic. For every stream the native library also hands over a reader of its
   own, which the SDK neither used nor released. It is now released on arrival; streams are still
-  delivered to `RegisterTextStreamHandler` and `RegisterByteStreamHandler` as before. [PR #XXX](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/XXX)
+  delivered to `RegisterTextStreamHandler` and `RegisterByteStreamHandler` as before. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
 - Fix a `Room` connected again right after `DisconnectAsync` receiving no event at all, with
   `LocalParticipant` null and `RemoteParticipants` empty although `IsConnected` was true: the
   cleanup of the previous connection, which runs after `DisconnectAsync` returns, removed the new
-  connection's state. It now only applies to the connection it belongs to. [PR #XXX](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/XXX)
+  connection's state. It now only applies to the connection it belongs to. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
 - `Room.ConnectAsync` called while another call is connecting the same room now throws
   `InvalidOperationException`. Both calls used to join, as two connections with the same identity:
   the server dropped the earlier one, which the room could no longer reach, or a call timed out
-  after 30 s. [PR #XXX](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/XXX)
+  after 30 s. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
 - `Room.DisconnectAsync`, `Disconnect` and `Dispose` called concurrently now share one
   disconnection: a call that ran while another was finishing could throw
   `NullReferenceException` or `InvalidOperationException: FFI request failed: invalid handle`. The
-  room is now also cleaned up when the native disconnect request fails. [PR #XXX](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/XXX)
+  room is now also cleaned up when the native disconnect request fails. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
 - Fix a room event handler that throws hiding the event from the handlers subscribed after it,
   which were not called. Each handler now runs on its own, and a failure is logged as
-  `[ERROR] Room.<Event> handler threw: <exception>` (it was `[ERROR] Room event handler exception`). [PR #XXX](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/XXX)
+  `[ERROR] Room.<Event> handler threw: <exception>` (it was `[ERROR] Room event handler exception`). [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
 - Fix `Room.Dispose`, `Room.Disconnect` and `AudioSource.CaptureFrame` deadlocking when called from
   a UI thread (WPF, WinForms, MAUI or any single-threaded `SynchronizationContext`): they block on
-  asynchronous code that resumed on the blocked thread. [PR #XXX](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/XXX)
+  asynchronous code that resumed on the blocked thread. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
 - Fix `AudioResampler.Dispose` racing with a `Push` or `Flush` on another thread: the output could
   be copied from native memory the release had just freed (garbage audio or a crash), or the call
   failed with `InvalidOperationException: FFI request failed: invalid handle`. `Dispose` now waits
-  for the call in progress, and later calls throw `ObjectDisposedException`. [PR #XXX](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/XXX)
+  for the call in progress, and later calls throw `ObjectDisposedException`. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
 - Fix a `PublishTrackAsync` cancelled (or timed out) after the track was published stalling every
   later event of the room for 10 s, then logging
   `[WARN] RoomEvent.LocalTrackPublished: Publication ... not found` and
   `[WARN] RoomEvent.LocalTrackUnpublished: Publication ... not found`: the room waited for the
   cancelled call to register a publication it never would. The SDK still unpublishes such a track,
   and raises no `LocalTrackPublished`, `LocalTrackSubscribed` or `LocalTrackUnpublished` event for
-  it, since the caller never received its publication. [PR #XXX](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/XXX)
+  it, since the caller never received its publication. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
 - A room event that arrives while the native room is closing, after the `Room` disconnected, no
   longer leaks the native participant, publication, track or data buffer it carries: the room keeps
   releasing them until the native library ends the room's event stream. A `TrackPublished` event
   for an unknown participant releases its publication too, logged as
-  `[WARN] RoomEvent.TrackPublished: Participant <identity> not found` like `TrackSubscribed`. [PR #XXX](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/XXX)
+  `[WARN] RoomEvent.TrackPublished: Participant <identity> not found` like `TrackSubscribed`. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
 - The `cancellationToken` of `AudioSource.CaptureFrameAsync` is documented: it cancels the wait,
   not the capture, and a capture made before the source consumed the cancelled frame fails with
-  `InvalidOperationException`. [PR #XXX](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/XXX)
+  `InvalidOperationException`. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
 
 ## 0.1.7
 
