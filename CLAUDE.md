@@ -272,6 +272,26 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   updated.
 - Coverage does not show whether a path is asserted: never add a test that only executes code.
 
+## Dependency security
+
+- `security/check_vulnerabilities.py` is the vulnerability gate (summary in `SECURITY.md`). The
+  `build` job scans the NuGet packages of all 10 projects (direct and transitive), the .NET tools
+  and the pinned actions; `security.yml` adds the Rust crates of `livekit_ffi` daily, on pull
+  requests that move `rust-sdks` or touch `security/`, and before every release (`publish.yml`
+  calls it). Locally: `python3 security/check_vulnerabilities.py [--sources all]`. Exit 2 means a
+  source could not be scanned, which is never a pass.
+- GitHub's dependency graph does not read `Directory.Packages.props` (packages show as `>= 0`):
+  its NuGet entries, which Dependabot alerts and dependency review use, come from automatic
+  dependency submission (a repository setting). It restores every project for pushes to `main`
+  only and lists a package reached through a project reference under the referenced project.
+  Dependabot raises no alerts for actions pinned by SHA. The script, not the alerts page, decides.
+- The native scan uses `cargo tree -p livekit-ffi -e normal --target all`, not `Cargo.lock`: the
+  workspace lockfile also lists crates of examples and tools that the library does not link.
+- Fix a finding by moving the version in `Directory.Packages.props` (a transitive package through
+  the package that brings it, or a direct reference to the fixed version) or, for a crate, with a
+  `rust-sdks` bump. Accepting a risk is the maintainer's decision: never add an exception to
+  `security/policy.json`, or renew an expired one, on your own.
+
 ## How the RTC SDK works (read before touching `LivekitRtc`)
 
 - `Internal/NativeMethods.cs` has the P/Invoke surface. `Internal/FfiClient.cs` is a process-wide

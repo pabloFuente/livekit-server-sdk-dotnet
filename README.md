@@ -166,6 +166,14 @@ ones 10 points or more above their minimum) and never lower one without explaini
 request. New code comes with tests that assert its behavior. If the code is on a critical path, add
 it to that component's `code`, and add any new test file that covers it to its `tests`.
 
+### Dependency security
+
+`python3 security/check_vulnerabilities.py` (add `--sources all` for the native crates, which needs
+the `rust-sdks` submodule and cargo) runs the vulnerability scan that CI runs. A critical or high
+finding fails it until it is fixed or accepted in `security/policy.json`; see
+[SECURITY.md](SECURITY.md) for what is scanned, the exception rules and how to report a
+vulnerability.
+
 ### Perform release
 
 Releases are automated through GitHub Actions thanks to the [publish workflow](.github/workflows/publish.yml). Both packages `Livekit.Server.Sdk.Dotnet` and `Livekit.Rtc.Dotnet` can be released independently. The workflow publishes with [NuGet Trusted Publishing](https://learn.microsoft.com/nuget/nuget-org/trusted-publishing): nuget.org keeps a policy for this repository and `publish.yml`, scoped to the two package IDs, and the `NUGET_USER` repository secret holds the nuget.org user name; no API key is stored. After publishing, the workflow opens a pull request that moves the package validation baseline of the released package to the new version: approve its checks ("Approve workflows to run") and merge it before the next release of the same package. Checkout how to do so:

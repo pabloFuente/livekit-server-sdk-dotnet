@@ -13,6 +13,10 @@ updates:
       - "/LivekitRtc.Example/*"
     schedule:
       interval: "weekly"
+    # A version released less than a week ago is not proposed yet: a compromised release is
+    # usually caught and pulled within days. Security updates are never delayed
+    cooldown:
+      default-days: 7
     open-pull-requests-limit: 10
     # Every group is evaluated on its own, so the catch-all one excludes what the others take
     groups:
@@ -38,3 +42,14 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 7
+    groups:
+      # One pull request for the minor and patch releases of all actions; a major one, which may
+      # change inputs or runtimes, keeps its own pull request
+      actions:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
