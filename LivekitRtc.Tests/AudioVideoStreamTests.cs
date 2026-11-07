@@ -173,11 +173,14 @@ namespace LiveKit.Rtc.Tests
             await publisherRoom.LocalParticipant!.PublishTrackAsync(videoTrack, options);
             _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Video track published");
 
-            // Start capturing video frames
+            // Capture until the subscriber is done (at most ~10 s), as a real source would: it
+            // decodes nothing before a key frame, and a fixed one-second burst could end before
+            // the encoder answered its request for one (seen on linux-arm64)
             var frameCount = 0;
+            using var captureCts = new CancellationTokenSource();
             var captureTask = Task.Run(async () =>
             {
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; !captureCts.IsCancellationRequested && i < 300; i++)
                 {
                     var frame = GenerateTestFrame(640, 480, i);
                     videoSource.CaptureFrame(frame);
@@ -227,12 +230,11 @@ namespace LiveKit.Rtc.Tests
                 }
             });
 
-            // Wait for capture to complete
+            // Wait for stream to receive frames, then stop capturing
+            await streamTask;
+            captureCts.Cancel();
             await captureTask;
             _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Captured {frameCount} frames");
-
-            // Wait for stream to receive frames
-            await streamTask;
             _output.WriteLine(
                 $"[{DateTime.Now:HH:mm:ss.fff}] Received {receivedFrameCount} frames via VideoStream"
             );
