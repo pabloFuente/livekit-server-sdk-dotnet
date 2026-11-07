@@ -111,6 +111,8 @@ dotnet docfx docs/docfx.json --warningsAsErrors && python3 docs/check_api_docs.p
 
 The last line is the API reference build that `docs.yml` publishes from `main` after the merge (the pull request's `build` check runs it too). Fix what it reports, such as a missing sidebar entry or an unresolved `cref`, never by editing generated files or dropping `--warningsAsErrors`.
 
+The pull request's `build` check runs every test through `./coverage.sh`, which fails below the minimums of `coverage/thresholds.json` or when a class or test file listed there no longer exists. The unit test of every new client method keeps the service clients covered. Never lower a minimum to make the check pass.
+
 Integration failures can come from the `livekit/livekit-server:master` image rather than from this change. If a failure looks unrelated, say so and show the evidence instead of editing tests to make them pass.
 
 ## Phase 9: CHANGELOG

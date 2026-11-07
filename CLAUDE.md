@@ -134,6 +134,7 @@ dotnet test LivekitApi.Tests --filter "Category=Integration"  # Docker
 dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~RoomEventsTests"                 # one class
 dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~ParticipantEventsTests.ParticipantConnected_Disconnected_EventsFire"  # one test
 dotnet test LivekitRtc.Tests --logger "console;verbosity=detailed"   # show ITestOutputHelper output
+./coverage.sh                                  # every test with coverage, report and gate (Docker)
 dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg   # runs package validation
 ```
 
@@ -253,6 +254,22 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   the `RoomOptions.ToProto()` mapping.
 - Images are mutable tags (`master`, `latest`), and so is `livekit-client@latest`; a sudden
   failure may come from an upstream LiveKit change rather than from this repo.
+
+**Coverage**
+
+- `coverlet.collector` is a VSTest data collector and does not work under Microsoft.Testing.Platform:
+  switching `dotnet test` to MTP (`global.json` `test.runner`) means replacing it.
+- Each test csproj points `RunSettingsFilePath` at `coverage/<SDK>.runsettings`. The collector is
+  off unless the run asks for `--collect "XPlat Code Coverage"`, measures only that test project's
+  own SDK (RTC tests load `LivekitApi` to mint tokens) and skips the generated code.
+- `coverage.sh` (run by the `build` job, so the gate is part of the required check) merges the
+  results with ReportGenerator, pinned in `.config/dotnet-tools.json`, and runs
+  `coverage/check_coverage.py` against `coverage/thresholds.json`. The minimums sit under the
+  lowest coverage of several full runs: 1 point for the API, 3 for RTC, whose e2e tests take
+  timing-dependent paths (callback/event order, handle finalization). Add tests instead of
+  lowering one. Renaming or moving a class, method or test file listed there fails the check
+  until the file is updated.
+- Coverage does not show whether a path is asserted: never add a test that only executes code.
 
 ## How the RTC SDK works (read before touching `LivekitRtc`)
 

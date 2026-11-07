@@ -1,0 +1,208 @@
+{
+  "sdks": {
+    "LivekitApi": { "line": 90, "branch": 87 },
+    "LivekitRtc": { "line": 68, "branch": 55 }
+  },
+  "critical": [
+    {
+      "name": "Access tokens: JWT signing, grants, TTL",
+      "sdk": "LivekitApi",
+      "code": ["AccessToken"],
+      "line": 88,
+      "branch": 86,
+      "tests": ["LivekitApi.Tests/AccessToken.Test.cs", "LivekitApi.Tests/AccessTokenRobustness.Test.cs"]
+    },
+    {
+      "name": "Token verification: signature, issuer, lifetime",
+      "sdk": "LivekitApi",
+      "code": ["TokenVerifier"],
+      "line": 95,
+      "branch": 95,
+      "tests": [
+        "LivekitApi.Tests/AccessToken.Test.cs",
+        "LivekitApi.Tests/AccessTokenRobustness.Test.cs",
+        "LivekitApi.Tests/WebhookReceiver.Test.cs"
+      ]
+    },
+    {
+      "name": "Webhooks: auth header, body SHA-256, parsing",
+      "sdk": "LivekitApi",
+      "code": ["WebhookReceiver"],
+      "line": 95,
+      "branch": 95,
+      "tests": ["LivekitApi.Tests/WebhookReceiver.Test.cs"]
+    },
+    {
+      "name": "Twirp transport: signing, protobuf I/O, HTTP errors",
+      "sdk": "LivekitApi",
+      "code": ["BaseService", "TwirpException"],
+      "line": 95,
+      "branch": 78,
+      "tests": ["LivekitApi.Tests/BaseServiceHttpClient.Test.cs", "LivekitApi.Tests/ServiceClientUnit.Test.cs"]
+    },
+    {
+      "name": "Service clients: routes and grants",
+      "sdk": "LivekitApi",
+      "code": [
+        "RoomServiceClient",
+        "EgressServiceClient",
+        "IngressServiceClient",
+        "SipServiceClient",
+        "AgentDispatchServiceClient",
+        "ConnectorServiceClient"
+      ],
+      "line": 86,
+      "branch": 95,
+      "tests": [
+        "LivekitApi.Tests/RoomServiceClient.Test.cs",
+        "LivekitApi.Tests/EgressServiceClient.Test.cs",
+        "LivekitApi.Tests/IngressServiceClient.Test.cs",
+        "LivekitApi.Tests/SipServiceClient.Test.cs",
+        "LivekitApi.Tests/AgentDispatchServiceClient.Test.cs",
+        "LivekitApi.Tests/ConnectorServiceClient.Test.cs",
+        "LivekitApi.Tests/ServiceClientUnit.Test.cs"
+      ]
+    },
+    {
+      "name": "FFI bridge: init, requests, callbacks, waiters",
+      "sdk": "LivekitRtc",
+      "code": ["FfiClient"],
+      "line": 64,
+      "branch": 54,
+      "tests": ["LivekitRtc.Tests/FfiClientTest.cs", "LivekitRtc.Tests/RoomEventsTests.cs"]
+    },
+    {
+      "name": "Native handles and disposal",
+      "sdk": "LivekitRtc",
+      "code": [
+        "FfiHandle",
+        "OwnedHandle",
+        "Room.Dispose",
+        "Track.Dispose",
+        "AudioSource.Dispose",
+        "VideoSource.Dispose",
+        "AudioStream.Dispose",
+        "AudioStream.DisposeAsync",
+        "VideoStream.Dispose",
+        "VideoStream.DisposeAsync",
+        "AudioResampler.Dispose"
+      ],
+      "line": 55,
+      "branch": 59,
+      "tests": [
+        "LivekitRtc.Tests/FfiClientTest.cs",
+        "LivekitRtc.Tests/AudioResamplerTests.cs",
+        "LivekitRtc.Tests/AudioSourcePlayoutTests.cs",
+        "LivekitRtc.Tests/AudioVideoStreamTests.cs"
+      ]
+    },
+    {
+      "name": "Room connect and disconnect",
+      "sdk": "LivekitRtc",
+      "code": [
+        "Room.ConnectAsync",
+        "Room.AbandonConnectAsync",
+        "Room.ReleaseAbandonedConnectionAsync",
+        "Room.DisconnectAsync",
+        "Room.Disconnect",
+        "Room.UpdateConnectionState",
+        "Room.CleanupOnDisconnect"
+      ],
+      "line": 81,
+      "branch": 65,
+      "tests": ["LivekitRtc.Tests/RoomEventsTests.cs", "LivekitRtc.Tests/RoomOptionsTests.cs", "LivekitRtc.Tests/AuditRegressionTests.cs"]
+    },
+    {
+      "name": "Room event dispatch",
+      "sdk": "LivekitRtc",
+      "code": ["Room.OnFfiEvent", "Room.HandleRoomEvent", "Room.DispatchEvent"],
+      "line": 83,
+      "branch": 81,
+      "tests": ["LivekitRtc.Tests/RoomEventsTests.cs", "LivekitRtc.Tests/ParticipantEventsTests.cs"]
+    },
+    {
+      "name": "Reconnection",
+      "sdk": "LivekitRtc",
+      "code": ["Room.SimulateScenarioAsync", "Room.HandleLocalTrackRepublished"],
+      "line": 83,
+      "branch": 56,
+      "tests": ["LivekitRtc.Tests/RoomEventsTests.cs", "LivekitRtc.Tests/ParticipantEventsTests.cs"]
+    },
+    {
+      "name": "Participant and track lifecycle",
+      "sdk": "LivekitRtc",
+      "code": [
+        "Room.HandleParticipantConnected",
+        "Room.HandleParticipantDisconnected",
+        "Room.HandleLocalTrackPublished",
+        "Room.HandleLocalTrackUnpublished",
+        "Room.HandleTrackPublished",
+        "Room.HandleTrackUnpublished",
+        "Room.HandleTrackSubscribed",
+        "Room.HandleTrackUnsubscribed",
+        "LocalParticipant.PublishTrackAsync",
+        "LocalParticipant.WaitForPublicationAsync",
+        "LocalParticipant.UnpublishTrackAsync"
+      ],
+      "line": 70,
+      "branch": 59,
+      "tests": [
+        "LivekitRtc.Tests/ParticipantEventsTests.cs",
+        "LivekitRtc.Tests/TrackSubscriptionTests.cs",
+        "LivekitRtc.Tests/TrackUnsubscriptionTests.cs",
+        "LivekitRtc.Tests/TrackUnpublishTests.cs",
+        "LivekitRtc.Tests/AudioPublishTests.cs",
+        "LivekitRtc.Tests/VideoPublishTests.cs"
+      ]
+    },
+    {
+      "name": "Audio and video buffers",
+      "sdk": "LivekitRtc",
+      "code": [
+        "AudioFrame",
+        "VideoFrame",
+        "AudioSource.CaptureFrameAsync",
+        "VideoSource.CaptureFrame",
+        "AudioResampler.Push",
+        "AudioResampler.Flush"
+      ],
+      "line": 79,
+      "branch": 57,
+      "tests": [
+        "LivekitRtc.Tests/AudioFramePinningTests.cs",
+        "LivekitRtc.Tests/VideoFramePinningTests.cs",
+        "LivekitRtc.Tests/VideoFramePlanesTests.cs",
+        "LivekitRtc.Tests/AudioResamplerTests.cs",
+        "LivekitRtc.Tests/AudioCaptureMinimalTest.cs"
+      ]
+    },
+    {
+      "name": "Media receive streams",
+      "sdk": "LivekitRtc",
+      "code": ["AudioStream", "VideoStream"],
+      "line": 59,
+      "branch": 44,
+      "tests": [
+        "LivekitRtc.Tests/AudioVideoStreamTests.cs",
+        "LivekitRtc.Tests/AudioReceiveTests.cs",
+        "LivekitRtc.Tests/AudioStreamAdvancedTests.cs"
+      ]
+    },
+    {
+      "name": "RPC and errors across the FFI boundary",
+      "sdk": "LivekitRtc",
+      "code": ["LocalParticipant.PerformRpcAsync", "LocalParticipant.HandleRpcMethodInvocationAsync", "RpcError"],
+      "line": 88,
+      "branch": 73,
+      "tests": ["LivekitRtc.Tests/RpcTests.cs", "LivekitRtc.Tests/RpcErrorTests.cs"]
+    },
+    {
+      "name": "End-to-end encryption",
+      "sdk": "LivekitRtc",
+      "code": ["E2EEOptions", "E2EEManager", "KeyProvider", "FrameCryptor"],
+      "line": 46,
+      "branch": 37,
+      "tests": ["LivekitRtc.Tests/E2EETests.cs", "LivekitRtc.Tests/E2EEOptionsMappingTests.cs"]
+    }
+  ]
+}

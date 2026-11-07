@@ -489,3 +489,7 @@ docs/api-server/*
 !docs/api-server/toc.yml
 docs/api-rtc/
 docs/obj/
+
+# Code coverage output (coverage.sh)
+coverage/raw/
+coverage/report/

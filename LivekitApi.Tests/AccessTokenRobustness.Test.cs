@@ -148,28 +148,43 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             var bare = DecodePayload(
                 new AccessToken(TEST_KEY, TEST_SECRET).WithGrants(new VideoGrants()).ToJwt()
             );
-            foreach (var claim in new[] { "name", "metadata", "sha256", "kind", "roomConfig" })
+            foreach (
+                var claim in new[]
+                {
+                    "name",
+                    "metadata",
+                    "sha256",
+                    "kind",
+                    "roomPreset",
+                    "roomConfig",
+                }
+            )
             {
                 Assert.False(bare.ContainsKey(claim), $"{claim} should be omitted when unset");
             }
             Assert.True(bare.ContainsKey("video"));
             Assert.True(bare.ContainsKey("sip"));
 
-            var full = DecodePayload(
-                new AccessToken(TEST_KEY, TEST_SECRET)
-                    .WithName("name")
-                    .WithMetadata("metadata")
-                    .WithSha256("sha")
-                    .WithKind(ParticipantInfo.Types.Kind.Agent)
-                    .WithRoomConfig(new RoomConfiguration { MaxParticipants = 3 })
-                    .WithGrants(new VideoGrants())
-                    .ToJwt()
-            );
+            var fullJwt = new AccessToken(TEST_KEY, TEST_SECRET)
+                .WithName("name")
+                .WithMetadata("metadata")
+                .WithSha256("sha")
+                .WithKind(ParticipantInfo.Types.Kind.Agent)
+                .WithRoomPreset("preset")
+                .WithRoomConfig(new RoomConfiguration { MaxParticipants = 3 })
+                .WithGrants(new VideoGrants())
+                .ToJwt();
+            var full = DecodePayload(fullJwt);
             Assert.Equal("name", full["name"]!.Value<string>());
             Assert.Equal("metadata", full["metadata"]!.Value<string>());
             Assert.Equal("sha", full["sha256"]!.Value<string>());
             Assert.Equal("agent", full["kind"]!.Value<string>());
             Assert.Equal(3, full["roomConfig"]!["maxParticipants"]!.Value<int>());
+            Assert.Equal("preset", full["roomPreset"]!.Value<string>());
+            Assert.Equal(
+                "preset",
+                new TokenVerifier(TEST_KEY, TEST_SECRET).Verify(fullJwt).RoomPreset
+            );
         }
 
         [Fact]
@@ -305,6 +320,26 @@ namespace Livekit.Server.Sdk.Dotnet.Test
                 Environment.SetEnvironmentVariable("LIVEKIT_API_KEY", previousKey);
                 Environment.SetEnvironmentVariable("LIVEKIT_API_SECRET", previousSecret);
             }
+        }
+
+        [Theory]
+        [Trait("Category", "Unit")]
+        [InlineData(null, "my-room")]
+        [InlineData("", "my-room")]
+        [InlineData("alice", null)]
+        [InlineData("alice", "")]
+        public void ToJwt_RoomJoinWithoutIdentityOrRoom_Throws(string? identity, string? room)
+        {
+            var token = new AccessToken(TEST_KEY, TEST_SECRET).WithGrants(
+                new VideoGrants { RoomJoin = true, Room = room }
+            );
+            if (identity != null)
+            {
+                token.WithIdentity(identity);
+            }
+
+            var ex = Assert.Throws<ArgumentException>(() => token.ToJwt());
+            Assert.Equal("identity and room must be set when joining a room", ex.Message);
         }
     }
 }

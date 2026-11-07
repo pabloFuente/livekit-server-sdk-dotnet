@@ -33,8 +33,17 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    # Every test, with coverage: the report goes to the job summary and to the coverage-report
+    # artifact, and the step fails below the minimums of coverage/thresholds.json
+    - name: Test with coverage
+      run: ./coverage.sh --no-build --verbosity normal
+    - name: Upload the coverage report
+      if: ${{ !cancelled() }}
+      uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+      with:
+        name: coverage-report
+        path: coverage/report
+        if-no-files-found: ignore
     - name: Pack
       run: dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
     - name: Build API reference

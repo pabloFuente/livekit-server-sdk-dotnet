@@ -251,5 +251,104 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             Assert.Equal("486", error.Meta["sip_status_code"]);
             Assert.IsAssignableFrom<Twirp.Exception>(error);
         }
+
+        [Fact]
+        [Trait("Category", "Unit")]
+        public void ServiceClients_RejectMissingOrShortCredentials()
+        {
+            // Empty strings, not null, so that LIVEKIT_API_KEY/LIVEKIT_API_SECRET are not read
+            Assert.Throws<ArgumentException>(() =>
+                new RoomServiceClient("http://host-a:7880", "", TEST_SECRET)
+            );
+            Assert.Throws<ArgumentException>(() =>
+                new RoomServiceClient("http://host-a:7880", TEST_KEY, "")
+            );
+            var ex = Assert.Throws<ArgumentException>(() =>
+                new RoomServiceClient("http://host-a:7880", TEST_KEY, new string('s', 31))
+            );
+            Assert.Contains("at least 256 bits", ex.Message);
+        }
+
+        private sealed class FixedResponseHandler : HttpMessageHandler
+        {
+            private readonly int _status;
+            private readonly string _body;
+
+            public FixedResponseHandler(int status, string body)
+            {
+                _status = status;
+                _body = body;
+            }
+
+            protected override Task<HttpResponseMessage> SendAsync(
+                HttpRequestMessage request,
+                CancellationToken cancellationToken
+            ) =>
+                Task.FromResult(
+                    new HttpResponseMessage((System.Net.HttpStatusCode)_status)
+                    {
+                        Content = new StringContent(_body),
+                    }
+                );
+        }
+
+        [Theory]
+        [Trait("Category", "Unit")]
+        // The error page of a proxy in front of the server: the raw body is the message
+        [InlineData(
+            502,
+            "<html><body>Bad Gateway</body></html>",
+            "<html><body>Bad Gateway</body></html>"
+        )]
+        // An empty body
+        [InlineData(503, "", "")]
+        // A Twirp code this version of the SDK does not know
+        [InlineData(500, "{\"code\":\"brand_new_code\",\"msg\":\"boom\"}", "boom")]
+        public async Task ErrorsThatAreNotKnownTwirpErrors_KeepStatusAndMessage(
+            int status,
+            string body,
+            string message
+        )
+        {
+            using var http = new HttpClient(new FixedResponseHandler(status, body));
+            var rooms = new RoomServiceClient("http://host-a:7880", TEST_KEY, TEST_SECRET, http);
+
+            var error = await Assert.ThrowsAsync<TwirpException>(() =>
+                rooms.ListRooms(new ListRoomsRequest())
+            );
+            Assert.Equal(Twirp.ErrorCode.Unknown, error.Type);
+            Assert.Equal(message, error.Message);
+            Assert.Equal(status, error.Status);
+            Assert.Empty(error.Meta);
+        }
+
+        private sealed class NeverAnsweringHandler : HttpMessageHandler
+        {
+            protected override async Task<HttpResponseMessage> SendAsync(
+                HttpRequestMessage request,
+                CancellationToken cancellationToken
+            )
+            {
+                await Task.Delay(Timeout.Infinite, cancellationToken);
+                throw new InvalidOperationException("unreachable");
+            }
+        }
+
+        [Fact]
+        [Trait("Category", "Unit")]
+        public async Task TimeoutOfTheCallersHttpClient_EndsTheCall()
+        {
+            // The client methods take no CancellationToken: the Timeout of a caller-supplied
+            // HttpClient is what bounds a call, and it must surface as-is, not as a TwirpException
+            using var http = new HttpClient(new NeverAnsweringHandler())
+            {
+                Timeout = TimeSpan.FromMilliseconds(200),
+            };
+            var rooms = new RoomServiceClient("http://host-a:7880", TEST_KEY, TEST_SECRET, http);
+
+            await Assert.ThrowsAsync<TaskCanceledException>(() =>
+                rooms.ListRooms(new ListRoomsRequest())
+            );
+        }
     }
 }

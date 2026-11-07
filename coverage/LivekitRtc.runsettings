@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coverage settings of LivekitRtc.Tests (wired through RunSettingsFilePath in its csproj).
+     The collector is off unless the run asks for the "XPlat Code Coverage" collector (coverage.sh).
+     Only the SDK under test is measured: the tests also load LivekitApi to mint tokens, which must
+     not count as coverage of the server SDK. The generated FFI protobuf code is left out. -->
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat code coverage" enabled="false">
+        <Configuration>
+          <Format>cobertura</Format>
+          <Include>[LivekitRtc]*</Include>
+          <ExcludeByFile>**/LivekitRtc/Proto/*.g.cs</ExcludeByFile>
+          <ExcludeByAttribute>GeneratedCodeAttribute</ExcludeByAttribute>
+          <SkipAutoProps>true</SkipAutoProps>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>
