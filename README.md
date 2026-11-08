@@ -139,35 +139,16 @@ has one.
 ### Code coverage
 
 ```bash
-# Every test with coverage (needs Docker, like CI), then the report and the coverage gate
+# Every test with coverage (needs Docker), then the report and the coverage gate
 ./coverage.sh
 # A subset: the report is built, but the gate (set for the full suite) fails
 ./coverage.sh LivekitApi.Tests --filter "Category=Unit"
 ```
 
-Each test project measures only its own SDK with `coverlet.collector`, using the settings in
-[coverage/](coverage/), which leave out the generated protobuf, Twirp and FFI code. `coverage.sh`
-merges the results with ReportGenerator into `coverage/report/`: `index.html` (line and branch
-coverage per SDK, class and source line), `Cobertura.xml` and a Markdown summary. The `build` job of
-[dotnet.yml](.github/workflows/dotnet.yml) runs it, adds the summary to the job summary page and
-uploads `coverage/report` as the `coverage-report` artifact.
-
-The coverage badges of the READMEs show the line coverage of each SDK on `main`, rounded down.
-`check_coverage.py` writes them to `coverage/report/badges/` as
-[shields.io endpoint badges](https://shields.io/badges/endpoint-badge), and after every successful
-build of `main` [docs.yml](.github/workflows/docs.yml) publishes that build's report next to the API
-reference, at https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/, which is also where
-the badges link.
-
-The gate fails when coverage falls below the minimums in
-[coverage/thresholds.json](coverage/thresholds.json): line and branch minimums for each SDK, and
-stricter ones for critical components such as token signing and verification, webhooks, the FFI
-bridge or room connection. Each component lists its classes or methods and the test files that
-cover them, and the check fails when one of them no longer exists. The minimums sit just below the
-measured coverage, so they catch regressions: raise them when coverage grows (the check lists the
-ones 10 points or more above their minimum) and never lower one without explaining why in the pull
-request. New code comes with tests that assert its behavior. If the code is on a critical path, add
-it to that component's `code`, and add any new test file that covers it to its `tests`.
+The report is written to `coverage/report/index.html`, and the
+[report of `main`](https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/) is published
+next to the API reference. CI fails when coverage drops below the minimums in
+[coverage/thresholds.json](coverage/thresholds.json): add tests rather than lowering them.
 
 ### Dependency security
 
