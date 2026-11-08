@@ -185,7 +185,10 @@ Formatting:
   protobuf.dev, which publishes no xref map.
 - `.github/workflows/docs.yml` publishes `docs/_site` to GitHub Pages
   (https://pablofuente.github.io/livekit-server-sdk-dotnet/) on every push to `main` that touches
-  a package or `docs/`, so the site documents the current `main`, not a release.
+  a package or `docs/`, so the site documents the current `main`, not a release. It also runs
+  after every successful `.NET` build of `main` and adds, at `/coverage/`, the `coverage-report`
+  artifact of the newest successful push or manual run of `dotnet.yml` on `main` (never a pull
+  request's: the `branches` filter of `workflow_run` matches a fork's branch named `main`).
 - `dotnet.yml` also builds the reference on every PR. Both workflows pass `--warningsAsErrors`, so
   a DocFX warning (an xref that does not resolve in `docs/index.md`, `docs/toc.yml` or a sidebar, a
   duplicate tag) fails CI, and run the check script. `docs/docfx.json` passes `NoWarn` for the obsolete-member warnings
@@ -284,6 +287,10 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   more declares its `swing`, which the raise hint allows for. Add tests instead of lowering one.
   Renaming or moving a class, method or test file listed there fails the check until the file is
   updated.
+- `check_coverage.py` also writes `coverage/report/badges/<SDK>.json`, the shields.io endpoint
+  badges (line coverage, rounded down) that the coverage badges of the three READMEs read from the
+  copy of the report that `docs.yml` publishes. Nothing checks those badges: renaming the
+  `coverage-report` artifact, the badge files or an SDK's Cobertura package breaks them silently.
 - Coverage does not show whether a path is asserted: never add a test that only executes code.
 
 ## Dependency security

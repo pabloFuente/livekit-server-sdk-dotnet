@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Runs the tests with code coverage, writes the reports to coverage/report (index.html, the merged
-# Cobertura.xml, SummaryGithub.md, Summary.txt) and checks the minimums of coverage/thresholds.json.
+# Cobertura.xml, SummaryGithub.md, Summary.txt) and checks the minimums of coverage/thresholds.json,
+# which also writes the README coverage badges of the SDKs to coverage/report/badges.
 # Arguments go to `dotnet test`. CI (dotnet.yml) runs it on the full suite, which needs Docker:
 #   ./coverage.sh                                            # what CI checks
 #   ./coverage.sh LivekitApi.Tests --filter "Category=Unit"  # a subset: report only, gate fails

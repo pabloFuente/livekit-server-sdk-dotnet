@@ -1,4 +1,4 @@
-[Livekit.Server.Sdk.Dotnet](#livekitserversdkdotnet) [![NuGet Version](https://img.shields.io/nuget/v/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/packages/Livekit.Server.Sdk.Dotnet) [![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Server.Sdk.Dotnet?groupby=Version) | [Livekit.Rtc.Dotnet](#livekitrtcdotnet) [![NuGet Version](https://img.shields.io/nuget/v/Livekit.Rtc.Dotnet)](https://www.nuget.org/packages/Livekit.Rtc.Dotnet) [![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Rtc.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Rtc.Dotnet?groupby=Version)
+[Livekit.Server.Sdk.Dotnet](#livekitserversdkdotnet) [![NuGet Version](https://img.shields.io/nuget/v/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/packages/Livekit.Server.Sdk.Dotnet) [![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Server.Sdk.Dotnet?groupby=Version) [![Code coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fpablofuente.github.io%2Flivekit-server-sdk-dotnet%2Fcoverage%2Fbadges%2FLivekitApi.json)](https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/) | [Livekit.Rtc.Dotnet](#livekitrtcdotnet) [![NuGet Version](https://img.shields.io/nuget/v/Livekit.Rtc.Dotnet)](https://www.nuget.org/packages/Livekit.Rtc.Dotnet) [![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Rtc.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Rtc.Dotnet?groupby=Version) [![Code coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fpablofuente.github.io%2Flivekit-server-sdk-dotnet%2Fcoverage%2Fbadges%2FLivekitRtc.json)](https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/)
 
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/pabloFuente/livekit-server-sdk-dotnet/dotnet.yml)](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/dotnet.yml)
 [![License badge](https://img.shields.io/badge/license-Apache2-orange.svg)](http://www.apache.org/licenses/LICENSE-2.0)
@@ -32,6 +32,7 @@ This repository contains two complementary .NET packages for different LiveKit u
 
 [![NuGet Version](https://img.shields.io/nuget/v/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/packages/Livekit.Server.Sdk.Dotnet)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Server.Sdk.Dotnet?groupby=Version)
+[![Code coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fpablofuente.github.io%2Flivekit-server-sdk-dotnet%2Fcoverage%2Fbadges%2FLivekitApi.json)](https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/)
 
 **Server-side management and authentication SDK** for LiveKit. Use it to interact with all LiveKit server APIs, create access tokens, and handle webhooks.
 
@@ -43,6 +44,7 @@ This repository contains two complementary .NET packages for different LiveKit u
 
 [![NuGet Version](https://img.shields.io/nuget/v/Livekit.Rtc.Dotnet)](https://www.nuget.org/packages/Livekit.Rtc.Dotnet)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Rtc.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Rtc.Dotnet?groupby=Version)
+[![Code coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fpablofuente.github.io%2Flivekit-server-sdk-dotnet%2Fcoverage%2Fbadges%2FLivekitRtc.json)](https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/)
 
 **Real-time communication SDK** for .NET server applications. Use it to connect to LiveKit as a server-side participant, and to publish and subscribe to audio, video, and data.
 
@@ -157,6 +159,13 @@ merges the results with ReportGenerator into `coverage/report/`: `index.html` (l
 coverage per SDK, class and source line), `Cobertura.xml` and a Markdown summary. The `build` job of
 [dotnet.yml](.github/workflows/dotnet.yml) runs it, adds the summary to the job summary page and
 uploads `coverage/report` as the `coverage-report` artifact.
+
+The coverage badges of the READMEs show the line coverage of each SDK on `main`, rounded down.
+`check_coverage.py` writes them to `coverage/report/badges/` as
+[shields.io endpoint badges](https://shields.io/badges/endpoint-badge), and after every successful
+build of `main` [docs.yml](.github/workflows/docs.yml) publishes that build's report next to the API
+reference, at https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/, which is also where
+the badges link.
 
 The gate fails when coverage falls below the minimums in
 [coverage/thresholds.json](coverage/thresholds.json): line and branch minimums for each SDK, and

@@ -17,9 +17,14 @@ depend on timing): its minimum sits under the low end, and the raise hint allows
 Run it from the repository root after coverage.sh has produced the report:
     python3 coverage/check_coverage.py [coverage/report/Cobertura.xml]
 It prints a Markdown table, which CI also appends to the job summary.
+
+It also writes, next to the report, badges/<SDK>.json for each SDK: a shields.io endpoint badge
+(https://shields.io/badges/endpoint-badge) with its line coverage, rounded down. docs.yml publishes
+the report of main on GitHub Pages, where the coverage badges of the READMEs read them.
 """
 
 import json
+import math
 import pathlib
 import re
 import sys
@@ -32,6 +37,8 @@ DEFAULT_REPORT = ROOT / "coverage" / "report" / "Cobertura.xml"
 # raising (coverage ratchet). It is wider than the margins of thresholds.json, so it only fires
 # when coverage has really grown.
 RAISE_HINT = 10.0
+# Color of a coverage badge: the first whose floor the line coverage reaches
+BADGE_COLORS = ((90, "brightgreen"), (80, "green"), (70, "yellowgreen"), (60, "yellow"), (50, "orange"), (0, "red"))
 
 
 class Coverage:
@@ -116,6 +123,15 @@ def check(label, cov, entry, rows, errors, hints):
     )
 
 
+def write_badge(directory, sdk, rate):
+    """Writes the shields.io endpoint badge of an SDK's line coverage."""
+    percent = math.floor(rate + 1e-9)
+    color = next(color for floor, color in BADGE_COLORS if percent >= floor)
+    badge = {"schemaVersion": 1, "label": "coverage", "message": f"{percent}%", "color": color}
+    directory.mkdir(parents=True, exist_ok=True)
+    (directory / f"{sdk}.json").write_text(json.dumps(badge) + "\n")
+
+
 def main():
     report = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_REPORT
     if not report.is_file():
@@ -137,6 +153,8 @@ def main():
         for cls in package.iter("class"):
             cov.add(cls.get("filename"), cls)
         check(f"**{sdk}**", cov, entry, rows, errors, hints)
+        if cov.line_rate() is not None:
+            write_badge(report.parent / "badges", sdk, cov.line_rate())
 
     for component in config["critical"]:
         label = f"{component['sdk']}: {component['name']}"

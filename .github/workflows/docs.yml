@@ -1,5 +1,8 @@
 # Builds the API reference with DocFX and publishes it to GitHub Pages
-# (Settings > Pages > Source must be "GitHub Actions").
+# (Settings > Pages > Source must be "GitHub Actions"), together with the coverage report of the
+# newest successful build of main at /coverage/, where the coverage badges of the READMEs read
+# badges/<SDK>.json. It runs when a push changes the reference and after every successful build of
+# main, which produces a new coverage report.
 
 name: docs
 
@@ -12,9 +15,14 @@ on:
       - "docs/**"
       - ".config/dotnet-tools.json"
       - ".github/workflows/docs.yml"
+  workflow_run:
+    workflows: [ ".NET" ]
+    types: [ completed ]
+    branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
+  actions: read # download the coverage-report artifact of dotnet.yml
   contents: read
   pages: write
   id-token: write
@@ -25,6 +33,12 @@ concurrency:
 
 jobs:
   build:
+    # The branches filter of workflow_run matches the name of a pull request's branch too, which a
+    # fork can call main: only a push to main or a manual run triggers a publication
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       contains(fromJSON('["push", "workflow_dispatch"]'), github.event.workflow_run.event))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -38,6 +52,24 @@ jobs:
         run: |
           dotnet docfx docs/docfx.json --warningsAsErrors
           python3 docs/check_api_docs.py
+      # The report of the newest successful build of main from a push or a manual run (never a pull
+      # request, as above). Without it the job fails, so the published site and badges stay as they were
+      - name: Add the coverage report of main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          run_id=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow dotnet.yml --branch main --status success \
+            --limit 20 --json databaseId,event \
+            --jq 'map(select(.event == "push" or .event == "workflow_dispatch")) | first | .databaseId // empty')
+          if [ -z "$run_id" ]; then
+            echo "::error::None of the last 20 successful runs of dotnet.yml on main is a push or a manual run"
+            exit 1
+          fi
+          if ! gh run download "$run_id" --repo "$GITHUB_REPOSITORY" --name coverage-report --dir docs/_site/coverage; then
+            echo "::error::Could not download the coverage-report artifact of run $run_id (artifacts expire after 90 days)"
+            exit 1
+          fi
+          echo "Coverage report of run $run_id"
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: docs/_site
