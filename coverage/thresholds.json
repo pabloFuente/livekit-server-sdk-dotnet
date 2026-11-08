@@ -1,7 +1,7 @@
 {
   "sdks": {
-    "LivekitApi": { "line": 90, "branch": 87 },
-    "LivekitRtc": { "line": 68, "branch": 55 }
+    "LivekitApi": { "line": 95, "branch": 87 },
+    "LivekitRtc": { "line": 86, "branch": 70 }
   },
   "critical": [
     {
@@ -51,7 +51,7 @@
         "AgentDispatchServiceClient",
         "ConnectorServiceClient"
       ],
-      "line": 86,
+      "line": 98,
       "branch": 95,
       "tests": [
         "LivekitApi.Tests/RoomServiceClient.Test.cs",
@@ -67,8 +67,8 @@
       "name": "FFI bridge: init, requests, callbacks, waiters",
       "sdk": "LivekitRtc",
       "code": ["FfiClient"],
-      "line": 64,
-      "branch": 54,
+      "line": 66,
+      "branch": 58,
       "tests": ["LivekitRtc.Tests/FfiClientTest.cs", "LivekitRtc.Tests/RoomEventsTests.cs"]
     },
     {
@@ -89,8 +89,8 @@
         "Room.DrainEndedConnection",
         "Room.ReleaseOwnedHandles"
       ],
-      "line": 55,
-      "branch": 59,
+      "line": 86,
+      "branch": 83,
       "tests": [
         "LivekitRtc.Tests/FfiClientTest.cs",
         "LivekitRtc.Tests/AudioResamplerTests.cs",
@@ -118,8 +118,8 @@
         "Room.StopListeningIfIdle",
         "Room.StopListeningUnlessDraining"
       ],
-      "line": 81,
-      "branch": 65,
+      "line": 88,
+      "branch": 72,
       "tests": [
         "LivekitRtc.Tests/RoomEventsTests.cs",
         "LivekitRtc.Tests/RoomOptionsTests.cs",
@@ -137,11 +137,12 @@
         "Room.DispatchEvent",
         "Room.Raise"
       ],
-      "line": 83,
-      "branch": 81,
+      "line": 87,
+      "branch": 89,
       "tests": [
         "LivekitRtc.Tests/RoomEventsTests.cs",
         "LivekitRtc.Tests/ParticipantEventsTests.cs",
+        "LivekitRtc.Tests/SyntheticRoomEventTests.cs",
         "LivekitRtc.Tests/Reliability/CallbackConcurrencyTests.cs"
       ]
     },
@@ -174,7 +175,7 @@
         "LocalParticipant.WaitForPublicationAsync",
         "LocalParticipant.UnpublishTrackAsync"
       ],
-      "line": 70,
+      "line": 76,
       "branch": 59,
       "swing": 7,
       "tests": [
@@ -198,9 +199,10 @@
         "AudioResampler.Push",
         "AudioResampler.Flush"
       ],
-      "line": 79,
-      "branch": 57,
+      "line": 91,
+      "branch": 76,
       "tests": [
+        "LivekitRtc.Tests/AudioFrameTests.cs",
         "LivekitRtc.Tests/AudioFramePinningTests.cs",
         "LivekitRtc.Tests/VideoFramePinningTests.cs",
         "LivekitRtc.Tests/VideoFramePlanesTests.cs",
@@ -213,8 +215,8 @@
       "name": "Media receive streams",
       "sdk": "LivekitRtc",
       "code": ["AudioStream", "VideoStream"],
-      "line": 59,
-      "branch": 44,
+      "line": 83,
+      "branch": 70,
       "tests": [
         "LivekitRtc.Tests/AudioVideoStreamTests.cs",
         "LivekitRtc.Tests/AudioReceiveTests.cs",
@@ -234,8 +236,8 @@
       "name": "End-to-end encryption",
       "sdk": "LivekitRtc",
       "code": ["E2EEOptions", "E2EEManager", "KeyProvider", "FrameCryptor"],
-      "line": 46,
-      "branch": 37,
+      "line": 96,
+      "branch": 74,
       "tests": ["LivekitRtc.Tests/E2EETests.cs", "LivekitRtc.Tests/E2EEOptionsMappingTests.cs"]
     }
   ]
