@@ -9,9 +9,6 @@ Use this SDK to add realtime video, audio and data features to your .NET app. By
 | [Livekit.Server.Sdk.Dotnet](LivekitApi/README.md) | [![NuGet version](https://img.shields.io/nuget/v/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/packages/Livekit.Server.Sdk.Dotnet) | [![NuGet downloads](https://img.shields.io/nuget/dt/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Server.Sdk.Dotnet?groupby=Version) | [![Line coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fpablofuente.github.io%2Flivekit-server-sdk-dotnet%2Fcoverage%2Fbadges%2FLivekitApi.json)](https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/) | [![API reference](https://img.shields.io/badge/docs-API%20reference-blue)](https://pablofuente.github.io/livekit-server-sdk-dotnet/api-server/Livekit.Server.Sdk.Dotnet.html) |
 | [Livekit.Rtc.Dotnet](LivekitRtc/README.md) | [![NuGet version](https://img.shields.io/nuget/v/Livekit.Rtc.Dotnet)](https://www.nuget.org/packages/Livekit.Rtc.Dotnet) | [![NuGet downloads](https://img.shields.io/nuget/dt/Livekit.Rtc.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Rtc.Dotnet?groupby=Version) | [![Line coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fpablofuente.github.io%2Flivekit-server-sdk-dotnet%2Fcoverage%2Fbadges%2FLivekitRtc.json)](https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/) | [![API reference](https://img.shields.io/badge/docs-API%20reference-blue)](https://pablofuente.github.io/livekit-server-sdk-dotnet/api-rtc/LiveKit.Rtc.html) |
 
-[![repowise.dev](https://api.repowise.dev/badge/wiki/dotnet/docfx.svg)](https://repowise.dev)
-
-
 - [Packages](#packages)
   - [Livekit.Server.Sdk.Dotnet](#livekitserversdkdotnet)
   - [Livekit.Rtc.Dotnet](#livekitrtcdotnet)
