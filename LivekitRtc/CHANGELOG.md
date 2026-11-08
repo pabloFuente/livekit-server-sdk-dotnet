@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Fix an ended `Room` staying in memory for 15 s after it disconnected, with its participants,
+  tracks and event handlers, and receiving every native event of the process meanwhile. The
+  fallback timer of the end of a connection held it, and an end-of-stream event that arrived
+  before `DisconnectAsync` or `Dispose` applied the disconnection was ignored, so the room waited
+  for that timer. [PR #168](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/168)
 - Fix a remote track leaking its native handle without any explanation when a `TrackSubscribed`
   event could not be applied: its participant was not found, or the track had no info or an
   unsupported kind. `Room.TrackSubscribed` was not raised, and the only trace was a later

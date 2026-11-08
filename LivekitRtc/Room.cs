@@ -122,6 +122,10 @@ namespace LiveKit.Rtc
         // releases them. The room keeps listening until then. Guarded by _connectionLock.
         private readonly HashSet<ulong> _endedRoomHandles = new HashSet<ulong>();
 
+        // Connections whose end-of-stream event came before their cleanup, which then has nothing
+        // to drain. Guarded by _connectionLock.
+        private readonly HashSet<ulong> _endedStreams = new HashSet<ulong>();
+
         // How long an ended connection is drained if its end-of-stream event never comes
         private static readonly TimeSpan EndedConnectionDrainTimeout = TimeSpan.FromSeconds(15);
 
@@ -1338,8 +1342,10 @@ namespace LiveKit.Rtc
                     break;
 
                 case RoomEvent.MessageOneofCase.Eos:
-                    // End of this connection's event stream; DrainEndedConnection handles the one
-                    // of an ended connection
+                    // End of this connection's event stream before or during its cleanup (the
+                    // disconnect callback that DisconnectAsync waits for can come after it);
+                    // DrainEndedConnection handles the one of a connection already cleaned up
+                    EndOfStreamBeforeCleanup(roomEvent.RoomHandle);
                     break;
 
                 case RoomEvent.MessageOneofCase.Disconnected:
@@ -2425,20 +2431,21 @@ namespace LiveKit.Rtc
                 return;
 
             int generation;
+            var drain = false;
             var roomHandle = _roomHandle;
             lock (_connectionLock)
             {
                 generation = _connectionGeneration;
                 // Registered before the handle is cleared: from here on OnFfiEvent drains the
-                // events of this connection instead of applying them
-                if (roomHandle != null)
-                    _endedRoomHandles.Add(roomHandle.HandleId);
+                // events of this connection instead of applying them, unless none can come
+                if (roomHandle != null && !_endedStreams.Remove(roomHandle.HandleId))
+                    drain = _endedRoomHandles.Add(roomHandle.HandleId);
             }
 
             // From here on IsConnected is false
             _roomHandle = null;
-            if (roomHandle != null)
-                StopDrainingAfterTimeout(roomHandle.HandleId);
+            if (drain)
+                StopDrainingAfterTimeout(roomHandle!.HandleId);
 
             UpdateConnectionState(Proto.ConnectionState.ConnDisconnected);
             DispatchEvent(() => Raise(Disconnected, reason, nameof(Disconnected)));
@@ -2561,6 +2568,19 @@ namespace LiveKit.Rtc
                 FfiHandle.FromId(handle.Id).Dispose();
         }
 
+        private void EndOfStreamBeforeCleanup(ulong roomHandleId)
+        {
+            bool draining;
+            lock (_connectionLock)
+            {
+                draining = _endedRoomHandles.Contains(roomHandleId);
+                if (!draining)
+                    _endedStreams.Add(roomHandleId);
+            }
+            if (draining)
+                StopDraining(roomHandleId);
+        }
+
         private void StopDraining(ulong roomHandleId)
         {
             lock (_connectionLock)
@@ -2571,10 +2591,21 @@ namespace LiveKit.Rtc
             StopListeningIfIdle();
         }
 
+        // Weak, or the timer would keep an ended room alive for the whole timeout although its
+        // end-of-stream event already stopped the draining. A room still draining is reachable
+        // anyway: it listens to the process-wide FfiClient.
         private void StopDrainingAfterTimeout(ulong roomHandleId)
         {
+            var room = new WeakReference<Room>(this);
             _ = Task.Delay(EndedConnectionDrainTimeout)
-                .ContinueWith(_ => StopDraining(roomHandleId), TaskScheduler.Default);
+                .ContinueWith(
+                    _ =>
+                    {
+                        if (room.TryGetTarget(out var target))
+                            target.StopDraining(roomHandleId);
+                    },
+                    TaskScheduler.Default
+                );
         }
 
         // Stops listening to the FFI events once no connection is live, starting or draining: a
