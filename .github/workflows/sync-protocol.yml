@@ -61,19 +61,22 @@ jobs:
       - uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
         with:
           dotnet-version: 10.0.x
-      # protoc 36.2 and protoc-gen-twirpcs v1.1.0 reproduce the committed generated code byte for byte
+      # proto-tools.env pins the protoc version that reproduces the committed generated code byte for
+      # byte, and generate_proto.sh refuses to run with another. The script builds the Twirp plugin,
+      # vendored in tools/protoc-gen-twirpcs, with Go
+      - name: Read the protoc pin
+        id: pins
+        run: grep -E '^[A-Z_]+=' proto-tools.env >> "$GITHUB_OUTPUT"
       - uses: arduino/setup-protoc@c65c819552d16ad3c9b72d9dfd5ba5237b9c906b # v3.0.0
         with:
-          version: "36.2"
+          version: ${{ steps.pins.outputs.PROTOC_VERSION }}
           repo-token: ${{ github.token }}
       - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
         with:
           go-version: stable
           cache: false
       - name: Install tools
-        run: |
-          go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0
-          dotnet tool restore
+        run: dotnet tool restore
 
       - name: Run /sync-protocol
         uses: anthropics/claude-code-action@61a9c274fa7110a66dfafc1bbbced03833eb25fe # v1.0.269

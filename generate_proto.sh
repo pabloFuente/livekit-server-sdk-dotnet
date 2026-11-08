@@ -5,10 +5,47 @@ set -e
 SCRIPT_PATH=$(realpath "$0")
 SCRIPT_FOLDER="$(dirname "$SCRIPT_PATH")"
 
+# The protoc version that reproduces the committed code. The tools are checked, and the Twirp plugin
+# built, before anything is deleted
+# shellcheck source=proto-tools.env
+source "$SCRIPT_FOLDER/proto-tools.env"
+
+if ! command -v protoc &>/dev/null; then
+    echo "Error: protoc not found. Install protoc $PROTOC_VERSION:" >&2
+    echo "https://github.com/protocolbuffers/protobuf/releases/tag/v$PROTOC_VERSION" >&2
+    exit 1
+fi
+installed_protoc=$(protoc --version | awk '{print $2}')
+if [ "$installed_protoc" != "$PROTOC_VERSION" ]; then
+    echo "Error: found protoc $installed_protoc, but proto-tools.env pins $PROTOC_VERSION." >&2
+    echo "Another protoc can rewrite every generated file. Install protoc $PROTOC_VERSION" >&2
+    echo "(https://github.com/protocolbuffers/protobuf/releases/tag/v$PROTOC_VERSION), or move the" >&2
+    echo "pin in proto-tools.env in a change of its own." >&2
+    exit 1
+fi
+
+# The Twirp plugin is vendored in tools/protoc-gen-twirpcs and passed to protoc by path, so a
+# protoc-gen-twirpcs on PATH is never used
+if ! command -v go &>/dev/null; then
+    echo "Error: go not found. Install Go (https://go.dev/dl/) to build tools/protoc-gen-twirpcs." >&2
+    exit 1
+fi
+TOOLS_BIN=$(mktemp -d)
+trap 'rm -rf "$TOOLS_BIN"' EXIT
+TWIRPCS_PLUGIN="$TOOLS_BIN/protoc-gen-twirpcs"
+(cd "$SCRIPT_FOLDER/tools/protoc-gen-twirpcs" && go build -o "$TWIRPCS_PLUGIN" .)
+
 echo "=== Generating proto files for LivekitApi (Server SDK) ==="
 
 API_PROTOCOL=$SCRIPT_FOLDER/protocol/protobufs
 API_OUT_CSHARP=$SCRIPT_FOLDER/LivekitApi/proto
+
+# Check if protocol submodule exists
+if [ ! -d "$API_PROTOCOL" ]; then
+    echo "Error: protocol submodule not found at $API_PROTOCOL"
+    echo "Please run: git submodule update --init protocol"
+    exit 1
+fi
 
 rm -rf "$API_OUT_CSHARP"
 mkdir -p "$API_OUT_CSHARP"
@@ -41,9 +78,10 @@ protoc \
 sed -i 's|namespace LiveKit.Proto|namespace Livekit.Server.Sdk.Dotnet|g' "$API_OUT_CSHARP"/*.cs
 sed -i 's|global::LiveKit.Proto.|global::Livekit.Server.Sdk.Dotnet.|g' "$API_OUT_CSHARP"/*.cs
 
-# Twirp (generated with https://github.com/seanpfeifer/twirp-gen)
+# Twirp (generated with tools/protoc-gen-twirpcs, vendored from github.com/seanpfeifer/twirp-gen)
 
-protoc -I "$API_PROTOCOL" --twirpcs_out=pathPrefix=twirp:"$API_OUT_CSHARP" \
+protoc -I "$API_PROTOCOL" --plugin=protoc-gen-twirpcs="$TWIRPCS_PLUGIN" \
+    --twirpcs_out=pathPrefix=twirp:"$API_OUT_CSHARP" \
     "$API_PROTOCOL"/livekit_room.proto \
     "$API_PROTOCOL"/livekit_egress.proto \
     "$API_PROTOCOL"/livekit_ingress.proto \
@@ -76,13 +114,6 @@ RTC_OUT_CSHARP="$SCRIPT_FOLDER/LivekitRtc/Proto"
 if [ ! -d "$RTC_PROTOCOL" ]; then
     echo "Error: rust-sdks submodule not found at $RTC_PROTOCOL"
     echo "Please run: git submodule update --init --recursive"
-    exit 1
-fi
-
-# Check if protoc is available
-if ! command -v protoc &> /dev/null; then
-    echo "Error: protoc not found. Please install Protocol Buffers compiler:"
-    echo "https://github.com/protocolbuffers/protobuf/releases/latest"
     exit 1
 fi
 

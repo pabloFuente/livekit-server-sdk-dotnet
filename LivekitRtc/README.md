@@ -430,7 +430,7 @@ git push
 
 [CLAUDE.md](../CLAUDE.md) briefs AI coding agents on this repository, including how the FFI layer works. For this package the relevant tool is the `/sync-rust-sdks` [Claude Code](https://claude.com/claude-code) skill ([SKILL.md](../.claude/skills/sync-rust-sdks/SKILL.md)), which carries out the [`rust-sdks` upgrade](#upgrade-version-of-rust-sdks) end to end:
 
-1. Start from a clean working tree with `protoc` 36.2, `protoc-gen-twirpcs` v1.1.0 (`generate_proto.sh` also regenerates the server package), `gh`, `curl`, `unzip` and `jq` installed, and Docker running for the e2e tests.
+1. Start from a clean working tree with `protoc` at the version pinned in [proto-tools.env](../proto-tools.env), Go (`generate_proto.sh` also regenerates the server package, whose Twirp code generator it builds), `gh`, `curl`, `unzip` and `jq` installed, and Docker running for the e2e tests.
 2. Open Claude Code at the repository root and run the skill with the target `livekit-ffi` version, or without one to take the latest release:
 
    ```text

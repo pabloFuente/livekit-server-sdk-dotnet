@@ -1,0 +1,57 @@
+# Regenerates the protobuf and Twirp code of both packages with generate_proto.sh (the protoc pinned
+# in proto-tools.env and the plugin vendored in tools/protoc-gen-twirpcs) and fails when the result
+# differs from the committed code. It runs on the pull requests that can change either side: a
+# submodule move, a change to the generator or its pin, a bump of the plugin's Go dependencies
+# (Dependabot) and an edit of the generated files themselves.
+
+name: Generated code
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - "protocol"
+      - "LivekitRtc/rust-sdks"
+      - "generate_proto.sh"
+      - "proto-tools.env"
+      - "tools/protoc-gen-twirpcs/**"
+      - "LivekitApi/proto/**"
+      - "LivekitRtc/Proto/**"
+      - ".github/workflows/generated-code.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    name: Reproduce generated code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: true # generate_proto.sh reads both protocol and rust-sdks
+          persist-credentials: false
+      - name: Read the protoc pin
+        id: pins
+        run: grep -E '^[A-Z_]+=' proto-tools.env >> "$GITHUB_OUTPUT"
+      - uses: arduino/setup-protoc@c65c819552d16ad3c9b72d9dfd5ba5237b9c906b # v3.0.0
+        with:
+          version: ${{ steps.pins.outputs.PROTOC_VERSION }}
+          repo-token: ${{ github.token }}
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: stable
+          cache: false
+      - name: Regenerate
+        run: ./generate_proto.sh
+      - name: Compare with the committed code
+        run: |
+          changes=$(git status --porcelain -- LivekitApi/proto LivekitRtc/Proto)
+          if [ -n "$changes" ]; then
+            echo "::error::generate_proto.sh does not reproduce the committed generated code"
+            echo "$changes"
+            git diff -- LivekitApi/proto LivekitRtc/Proto | head -200
+            exit 1
+          fi
+          echo "generate_proto.sh reproduces the committed generated code byte for byte"
