@@ -418,7 +418,7 @@ git push
 2. Make sure to run script `./build_local.sh` to properly format all files with csharpier. Commit any changes in the repo after the script finishes.
 3. Create a [new release in GitHub](https://github.com/pabloFuente/livekit-server-sdk-dotnet/releases/new) with:
    - Release title `rtc-X.Y.Z`
-   - A new tag `rtc-X.Y.Z`
+   - A new tag `rtc-X.Y.Z`, where `X.Y.Z` is the `<Version>` of `LivekitRtc.csproj` (the workflow fails otherwise)
    - Description with relevant changes (e.g., `Update to LiveKit Rust SDK vA.B.C`)
 
 > [!IMPORTANT]

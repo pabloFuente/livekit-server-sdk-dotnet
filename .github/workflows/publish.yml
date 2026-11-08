@@ -56,6 +56,19 @@ jobs:
             exit 1
           fi
 
+      # The package gets the csproj <Version>, not the tag's: a forgotten bump would push a version
+      # that is already on NuGet, which --skip-duplicate skips without an error
+      - name: Check the tag against the package version
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+          PROJECT: ${{ steps.determine_project.outputs.project }}
+        run: |
+          VERSION=$(dotnet msbuild "$PROJECT" -getProperty:Version)
+          if [ "${TAG#*-}" != "$VERSION" ]; then
+            echo "::error::Tag $TAG does not match <Version>$VERSION</Version> in $PROJECT"
+            exit 1
+          fi
+
       # The binaries about to be packed must be the ones upstream published for the pinned
       # rust-sdks tag, even for a commit that reached main without a pull request
       - name: Verify the native FFI binaries

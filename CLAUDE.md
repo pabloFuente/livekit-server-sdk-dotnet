@@ -496,8 +496,9 @@ two commits. As with `sync-protocol.yml`, a version whose branch exists is skipp
   `FfiClient.SdkVersion` reads it from the assembly's informational version at runtime, so
   never hard-code a version string in code.
 - Publishing happens when the maintainer creates a GitHub release whose tag is `api-X.Y.Z` or
-  `rtc-X.Y.Z` (the prefix selects the package). `publish.yml` packs, validates, tests, pushes to
-  NuGet, then opens the pull request `Post steps release <tag>` (branch `post-release/<tag>`) that
+  `rtc-X.Y.Z` (the prefix selects the package). `publish.yml` fails unless `X.Y.Z` is the csproj
+  `<Version>`, then packs, validates, tests, pushes to NuGet, then opens the pull request
+  `Post steps release <tag>` (branch `post-release/<tag>`) that
   moves the package validation baseline. A ruleset on `main` requires the six checks of
   `dotnet.yml` (`build`, `RTC tests (linux-arm64)` and the four `RTC native tests (<rid>)`; a
   renamed job or matrix entry must be renamed in the ruleset too) and lets only repository admins
