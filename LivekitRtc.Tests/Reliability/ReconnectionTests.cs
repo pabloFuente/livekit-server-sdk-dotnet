@@ -191,7 +191,9 @@ public class ReconnectionTests
     [Fact]
     public async Task ACancelledSimulateScenarioAsync_StillLeavesTheRoomConsistent()
     {
-        // Cancelling the call cancels the wait for the FFI's acknowledgement, not the scenario
+        // Cancelling the call cancels the wait for the FFI's acknowledgement, not the scenario: the
+        // request is sent first, and an acknowledgement that already arrived completes the call
+        // without throwing. Either outcome must leave the room consistent.
         var log = SdkLog.BeginScope();
         await using var scenario = await ReconnectionScenario.StartAsync(
             _server,
@@ -199,12 +201,14 @@ public class ReconnectionTests
         );
         while (scenario.Events.TryDequeue(out _)) { }
 
-        await Assert.ThrowsAnyAsync<OperationCanceledException>(() =>
+        var error = await Record.ExceptionAsync(() =>
             scenario.Publisher.SimulateScenarioAsync(
                 Proto.SimulateScenarioKind.SimulateFullReconnect,
                 new CancellationToken(canceled: true)
             )
         );
+        _output.WriteLine(error == null ? "acknowledged before the wait" : "wait cancelled");
+        Assert.True(error == null || error is OperationCanceledException, $"{error}");
         await Eventually.TrueAsync(
             () => scenario.Events.Contains("Reconnected"),
             Settle,
