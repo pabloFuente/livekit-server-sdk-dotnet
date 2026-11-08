@@ -321,26 +321,17 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             request.HidePhoneNumber = true;
             request.Headers.Add("X-A", "A");
 
-            await sipClient.CreateSIPParticipant(request);
-
+            // The trunk's address does not resolve, so the call fails and the participant leaves
+            // the room within milliseconds: check the response, not the room
             SIPParticipantInfo sipParticipantInfo = await sipClient.CreateSIPParticipant(request);
 
-            Assert.NotNull(sipParticipantInfo);
-            Assert.Equal(TestConstants.PARTICIPANT_IDENTITY, request.ParticipantIdentity);
-            Assert.Equal(TestConstants.ROOM_NAME, request.RoomName);
-
-            var sipParticipant = await roomClient.GetParticipant(
-                new RoomParticipantIdentity
-                {
-                    Room = TestConstants.ROOM_NAME,
-                    Identity = TestConstants.PARTICIPANT_IDENTITY,
-                }
+            Assert.Equal(
+                TestConstants.PARTICIPANT_IDENTITY,
+                sipParticipantInfo.ParticipantIdentity
             );
-            Assert.NotNull(sipParticipant);
-            Assert.Equal(TestConstants.PARTICIPANT_IDENTITY, sipParticipant.Identity);
-            Assert.Equal("Test Caller", sipParticipant.Name);
-            Assert.Equal("meta", sipParticipant.Metadata);
-            Assert.Equal("1", sipParticipant.Attributes["extra"]);
+            Assert.Equal(TestConstants.ROOM_NAME, sipParticipantInfo.RoomName);
+            Assert.StartsWith("PA_", sipParticipantInfo.ParticipantId);
+            Assert.StartsWith("SCL_", sipParticipantInfo.SipCallId);
         }
 
         [Fact]
@@ -397,14 +388,16 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             );
             Assert.Matches(@"transfer_to must be a valid SIP(\(s\))? or TEL", ex.Message);
 
+            // The call to the trunk, whose address does not resolve, fails within milliseconds. The
+            // error depends on how far its teardown got: still dialing, the participant listed
+            // but its call gone, or the participant gone
             transferRequest.TransferTo = "tel:+14155550100";
             ex = await Assert.ThrowsAnyAsync<Twirp.Exception>(async () =>
                 await sipClient.TransferSIPParticipant(transferRequest)
             );
-            Assert.True(
-                ex.Message.EndsWith("can't transfer non established call")
-                    || ex.Message.EndsWith("participant does not exist"),
-                $"Unexpected error message: {ex.Message}"
+            Assert.Matches(
+                "(can't transfer non established call|no response from servers|participant does not exist)$",
+                ex.Message
             );
         }
 
