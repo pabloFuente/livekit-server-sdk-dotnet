@@ -25,6 +25,7 @@ forced through `Room.SimulateScenarioAsync`, or with real outages of a LiveKit s
 | `RoomLifecycleTests` | yes | Connect, disconnect and dispose: repeated, concurrent, during a connect, cancelled at many points, failed, server-initiated, on a UI-like thread, one `Room` reused for many connections, ended rooms not retained by the SDK |
 | `CallbackConcurrencyTests` | yes | Order and exactly-once delivery at high rate, throwing handlers, a blocked handler stalling only its own room, subscribing and unsubscribing during delivery, reentrant handlers, the disposal boundary under a data flood, RPC served while the event chain is blocked |
 | `ConcurrentOperationsTests` | yes | Many rooms in parallel, concurrent publish/unpublish/mute, concurrent data and text streams, cancelled `PublishTrackAsync`, invalid double publish, media streams read and disposed concurrently while frames flow |
+| `RemoteTrackEventOrderTests` | yes | The out-of-order remote track events the FFI produces when a participant leaves while its tracks are subscribed (unsubscription first, twice, or after the departure), replayed into a connected room with `SyntheticRoomEvents`: balanced events, consistent state, every handle released, no warning |
 | `ReconnectionTests` | yes | Repeated full reconnects and resumes of a publisher (publications kept and re-keyed, event order, no duplicated handlers, consistent remote view) and of a subscriber (its view of the remote tracks rebuilt), disconnect or dispose during a reconnection, cancelled scenario, handles across reconnect cycles |
 | `ServerOutageTests` | yes | `docker pause` of the server: a short outage ends in `Reconnected`; extended: `DisconnectAsync` while the server does not answer, an outage longer than the reconnection budget ends in a clean, reusable room |
 | `RoomResourceLeakTests` | yes | Connect, publish, subscribe and disconnect cycles on both sides of a session; incoming data streams must not stay in native memory |
@@ -114,15 +115,14 @@ reliability test fails on such a line unless it provokes it on purpose.
 - Windows has no precise native heap measurement (private bytes only).
 - Hosted Windows and macOS runners cannot start Linux containers: only the native tier runs there.
   The Docker tiers run on linux-x64 and linux-arm64.
-- The soak finds rare dropped remote-track events under heavy churn, in rooms of participants that
-  join, fully reconnect and leave concurrently: `[WARN] RoomEvent.TrackSubscribed: Participant ...
-  not found` and `[WARN] RoomEvent.TrackUnsubscribed: Track ... is not subscribed`, a handful in a
-  few hundred sessions. Each dropped event is handled safely (its handle is released), and the
-  observer's raw FFI event order is sound; the rooms that log them are participants caught in a
-  reconnection or a disconnection while others change around them. Not reproduced with one
-  publisher (see `ASubscriberThatFullyReconnects_RebuildsItsViewOfTheRemoteTracks`). Reproduce
-  with `LIVEKIT_STRESS=extended LIVEKIT_SOAK_MINUTES=3 dotnet test LivekitRtc.Tests --filter
-  "FullyQualifiedName~SoakTests"`. Until it is understood the soak fails nightly, and the release
+- The soak can crash the test host with a native segmentation fault inside `liblivekit_ffi`
+  (livekit-ffi v0.13.4), in about one run in three on a loaded machine: a use-after-free in
+  an async task of the native library, on one of its own worker threads, at two recurring
+  places. No .NET frame is in the faulting call chain, and it happens with and without the
+  SDK changes made while it was investigated, so it is reported as an upstream issue. To
+  analyze one, run the soak with `DOTNET_DbgEnableMiniDump=1 DOTNET_DbgMiniDumpType=4` and open
+  the dump with `gdb /usr/lib/dotnet/dotnet <dump>` (`thread apply all bt`, then the thread
+  with `<signal handler called>`). Until it is fixed the soak can fail nightly, and the release
   validation leaves it out.
 - Paths that need a misbehaving server (a `TrackSubscribed` for an unknown participant, the release
   path fixed in PR #159) cannot be provoked from outside the SDK and are not covered.

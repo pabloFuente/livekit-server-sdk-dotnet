@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -1497,8 +1498,45 @@ namespace LiveKit.Rtc
     /// </summary>
     public class RemoteParticipant : Participant
     {
+        // Tracks whose TrackUnsubscribed arrived although the room had not delivered their
+        // TrackSubscribed, by SID, with the time it arrived. The Rust SDK dispatches the two from
+        // different threads (the media path sets the track, the unpublication clears it), with no
+        // lock spanning the change and the dispatch: a participant that unpublishes while its track
+        // is being subscribed can have the unsubscription, or a second one, delivered first. The
+        // TrackSubscribed that follows within milliseconds is stale. Protected by PublicationsLock.
+        private readonly Dictionary<string, long> _unsubscribedBeforeSubscribed =
+            new Dictionary<string, long>();
+
+        // A TrackSubscribed later than this is a new subscription, not the stale half of a race
+        private static readonly long UnsubscribedBeforeSubscribedWindow = Stopwatch.Frequency * 10;
+
         internal RemoteParticipant(FfiHandle handle, ParticipantInfo? info, Room room)
             : base(handle, info, room) { }
+
+        /// <summary>
+        /// Records an unsubscription of a track the room has no subscription for.
+        /// </summary>
+        internal void MarkUnsubscribedBeforeSubscribed(string trackSid)
+        {
+            lock (PublicationsLock)
+            {
+                _unsubscribedBeforeSubscribed[trackSid] = Stopwatch.GetTimestamp();
+            }
+        }
+
+        /// <summary>
+        /// Whether a TrackSubscribed is the stale half of an unsubscription delivered before it.
+        /// Consumes the record.
+        /// </summary>
+        internal bool TakeUnsubscribedBeforeSubscribed(string trackSid)
+        {
+            lock (PublicationsLock)
+            {
+                if (!_unsubscribedBeforeSubscribed.Remove(trackSid, out var at))
+                    return false;
+                return Stopwatch.GetTimestamp() - at <= UnsubscribedBeforeSubscribedWindow;
+            }
+        }
 
         internal void AddPublication(OwnedTrackPublication pub)
         {

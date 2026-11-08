@@ -183,7 +183,8 @@
         "LivekitRtc.Tests/TrackUnsubscriptionTests.cs",
         "LivekitRtc.Tests/TrackUnpublishTests.cs",
         "LivekitRtc.Tests/AudioPublishTests.cs",
-        "LivekitRtc.Tests/VideoPublishTests.cs"
+        "LivekitRtc.Tests/VideoPublishTests.cs",
+        "LivekitRtc.Tests/Reliability/RemoteTrackEventOrderTests.cs"
       ]
     },
     {

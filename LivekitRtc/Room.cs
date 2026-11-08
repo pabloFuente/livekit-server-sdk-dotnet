@@ -124,6 +124,18 @@ namespace LiveKit.Rtc
 
         // How long an ended connection is drained if its end-of-stream event never comes
         private static readonly TimeSpan EndedConnectionDrainTimeout = TimeSpan.FromSeconds(15);
+
+        // Remote participants that left, by identity, with a departure number: the FFI can still
+        // deliver one of their track events after ParticipantDisconnected (the Rust SDK dispatches
+        // subscriptions from another thread). Such an event is released without a warning. An
+        // identity that joins again is removed, and only the last departures are kept. Protected by
+        // _lock.
+        private const int DepartedParticipantsKept = 128;
+        private readonly Dictionary<string, long> _departedParticipants =
+            new Dictionary<string, long>();
+        private readonly Queue<KeyValuePair<string, long>> _departureOrder =
+            new Queue<KeyValuePair<string, long>>();
+        private long _departures;
         private E2EEManager? _e2eeManager;
 
         // Serial Task Queue for event dispatching to ensure ordering and prevent deadlocks
@@ -1365,6 +1377,7 @@ namespace LiveKit.Rtc
             lock (_lock)
             {
                 _remoteParticipants[participant.Identity] = participant;
+                _departedParticipants.Remove(participant.Identity);
             }
 
             DispatchEvent(() =>
@@ -1386,6 +1399,7 @@ namespace LiveKit.Rtc
                     return;
 
                 _remoteParticipants.Remove(evt.ParticipantIdentity);
+                RememberDeparture(evt.ParticipantIdentity);
 
                 // Its data streams will never get their trailer
                 foreach (var reader in _textStreamReaders.Values)
@@ -1417,6 +1431,39 @@ namespace LiveKit.Rtc
             DispatchEvent(() =>
                 Raise(ParticipantDisconnected, participant, nameof(ParticipantDisconnected))
             );
+        }
+
+        // Caller holds _lock
+        private void RememberDeparture(string identity)
+        {
+            var departure = ++_departures;
+            _departedParticipants[identity] = departure;
+            _departureOrder.Enqueue(new KeyValuePair<string, long>(identity, departure));
+            while (_departureOrder.Count > DepartedParticipantsKept)
+            {
+                var oldest = _departureOrder.Dequeue();
+                // Unless the identity left again since
+                if (
+                    _departedParticipants.TryGetValue(oldest.Key, out var last)
+                    && last == oldest.Value
+                )
+                    _departedParticipants.Remove(oldest.Key);
+            }
+        }
+
+        // The remote participant, or null with whether it is one that already left
+        private RemoteParticipant? FindRemoteParticipant(string identity, out bool departed)
+        {
+            lock (_lock)
+            {
+                if (_remoteParticipants.TryGetValue(identity, out var participant))
+                {
+                    departed = false;
+                    return participant;
+                }
+                departed = _departedParticipants.ContainsKey(identity);
+                return null;
+            }
         }
 
         private void HandleLocalTrackPublished(Proto.LocalTrackPublished evt)
@@ -1542,17 +1589,15 @@ namespace LiveKit.Rtc
             if (string.IsNullOrEmpty(evt?.ParticipantIdentity) || evt.Publication == null)
                 return;
 
-            RemoteParticipant? participant;
-            lock (_lock)
-            {
-                _remoteParticipants.TryGetValue(evt.ParticipantIdentity, out participant);
-            }
+            var participant = FindRemoteParticipant(evt.ParticipantIdentity, out var departed);
             if (participant == null)
             {
-                // The event hands over the native publication: release it, as TrackSubscribed does
-                Console.Error.WriteLine(
-                    $"[WARN] RoomEvent.TrackPublished: Participant {evt.ParticipantIdentity} not found"
-                );
+                // The event hands over the native publication: release it, as TrackSubscribed does,
+                // and report it unless the participant already left
+                if (!departed)
+                    Console.Error.WriteLine(
+                        $"[WARN] RoomEvent.TrackPublished: Participant {evt.ParticipantIdentity} not found"
+                    );
                 FfiHandle.FromId(evt.Publication.Handle?.Id ?? 0).Dispose();
                 return;
             }
@@ -1617,10 +1662,11 @@ namespace LiveKit.Rtc
             // The event hands over the native track. Every path that does not keep it releases it
             // and says why: a silent return leaked the track, and hid the cause of the
             // "TrackUnsubscribed: ... is not subscribed" warning that follows the dropped event.
+            void Release() => FfiHandle.FromId(evt.Track?.Handle?.Id ?? 0).Dispose();
             void Drop(string reason)
             {
                 Console.Error.WriteLine($"[WARN] RoomEvent.TrackSubscribed: {reason}");
-                FfiHandle.FromId(evt.Track?.Handle?.Id ?? 0).Dispose();
+                Release();
             }
 
             if (string.IsNullOrEmpty(evt.ParticipantIdentity) || evt.Track == null)
@@ -1629,14 +1675,14 @@ namespace LiveKit.Rtc
                 return;
             }
 
-            RemoteParticipant? participant;
-            lock (_lock)
-            {
-                _remoteParticipants.TryGetValue(evt.ParticipantIdentity, out participant);
-            }
+            var participant = FindRemoteParticipant(evt.ParticipantIdentity, out var departed);
             if (participant == null)
             {
-                Drop($"Participant {evt.ParticipantIdentity} not found");
+                // A subscription that completed after its participant left is over already
+                if (departed)
+                    Release();
+                else
+                    Drop($"Participant {evt.ParticipantIdentity} not found");
                 return;
             }
 
@@ -1644,6 +1690,14 @@ namespace LiveKit.Rtc
             if (trackInfo == null)
             {
                 Drop($"Track of participant {evt.ParticipantIdentity} has no info");
+                return;
+            }
+
+            // Its unsubscription was delivered first (see RemoteParticipant): the subscription is
+            // over already, so neither half is raised
+            if (participant.TakeUnsubscribedBeforeSubscribed(trackInfo.Sid ?? ""))
+            {
+                Release();
                 return;
             }
 
@@ -1698,16 +1752,14 @@ namespace LiveKit.Rtc
             )
                 return;
 
-            RemoteParticipant? participant;
-            lock (_lock)
+            var participant = FindRemoteParticipant(evt.ParticipantIdentity, out var departed);
+            if (participant == null)
             {
-                if (!_remoteParticipants.TryGetValue(evt.ParticipantIdentity, out participant))
-                {
+                if (!departed)
                     Console.Error.WriteLine(
                         $"[WARN] RoomEvent.TrackUnsubscribed: Participant {evt.ParticipantIdentity} not found"
                     );
-                    return;
-                }
+                return;
             }
 
             var publication =
@@ -1715,9 +1767,9 @@ namespace LiveKit.Rtc
             var track = publication?.Track;
             if (publication == null || track == null)
             {
-                Console.Error.WriteLine(
-                    $"[WARN] RoomEvent.TrackUnsubscribed: Track {evt.TrackSid} of participant {evt.ParticipantIdentity} is not subscribed"
-                );
+                // The unsubscription of a subscription not delivered yet, or a second one: the
+                // TrackSubscribed that follows, if any, is stale
+                participant.MarkUnsubscribedBeforeSubscribed(evt.TrackSid);
                 return;
             }
 
@@ -1754,9 +1806,11 @@ namespace LiveKit.Rtc
             var participant = GetParticipantByIdentity(participantIdentity);
             if (participant == null)
             {
-                Console.Error.WriteLine(
-                    $"[WARN] RoomEvent.{eventName}: Participant {participantIdentity} not found"
-                );
+                FindRemoteParticipant(participantIdentity, out var departed);
+                if (!departed)
+                    Console.Error.WriteLine(
+                        $"[WARN] RoomEvent.{eventName}: Participant {participantIdentity} not found"
+                    );
                 return;
             }
 
@@ -2422,6 +2476,8 @@ namespace LiveKit.Rtc
             lock (_lock)
             {
                 _remoteParticipants.Clear();
+                _departedParticipants.Clear();
+                _departureOrder.Clear();
                 textReaders.AddRange(_textStreamReaders.Values);
                 byteReaders.AddRange(_byteStreamReaders.Values);
                 _textStreamReaders.Clear();
