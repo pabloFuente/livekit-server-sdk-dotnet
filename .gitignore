@@ -485,8 +485,7 @@ $RECYCLE.BIN/
 
 # DocFX output (docs/docfx.json)
 docs/_site/
-docs/api-server/*
-!docs/api-server/toc.yml
+docs/api-server/
 docs/api-rtc/
 docs/obj/
 

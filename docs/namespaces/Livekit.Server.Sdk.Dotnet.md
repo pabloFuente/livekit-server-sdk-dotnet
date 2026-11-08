@@ -9,4 +9,4 @@ Access tokens, webhooks and clients of the LiveKit server APIs, for a .NET backe
 - [WebhookReceiver](xref:Livekit.Server.Sdk.Dotnet.WebhookReceiver) verifies and parses the webhooks LiveKit posts.
 - [TwirpException](xref:Livekit.Server.Sdk.Dotnet.TwirpException) is the error of a failed service call.
 
-The other types of this namespace are the protobuf messages of the requests, responses and events, generated from [livekit/protocol](https://github.com/livekit/protocol).
+The other types of this namespace are the protobuf messages of the requests, responses and events, generated from [livekit/protocol](https://github.com/livekit/protocol). In the sidebar, the list below and the search results, the classes of the SDK itself carry an **SDK** badge.

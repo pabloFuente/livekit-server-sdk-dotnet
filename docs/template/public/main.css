@@ -1,0 +1,49 @@
+/*
+ * Loaded by every page after the styles of the modern template.
+ *
+ * The server reference lists the types of the SDK itself among some 560 protobuf messages, in the
+ * generated sidebar, on the namespace page and in the search results. There their names are shown
+ * in bold, followed by an "SDK" badge (the namespace overview, docs/namespaces/, explains it). The
+ * selector list below names every hand-written public type of LivekitApi: docs/check_api_docs.py
+ * fails when one is missing or when it names a type that has no page.
+ *
+ * The badge colours are Bootstrap variables, which follow the light and dark themes.
+ */
+:is(#toc a, .jumplist dt a, #search-results .item-title a):is(
+    [href*="Livekit.Server.Sdk.Dotnet.AccessToken.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.VideoGrants.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.SIPGrants.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.InferenceGrants.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.ObservabilityGrants.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.ClaimsModel.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.TokenVerifier.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.Constants.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.RoomServiceClient.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.EgressServiceClient.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.IngressServiceClient.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.SipServiceClient.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.AgentDispatchServiceClient.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.ConnectorServiceClient.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.BaseService.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.WebhookReceiver.html"],
+    [href*="Livekit.Server.Sdk.Dotnet.TwirpException.html"]
+) {
+    font-weight: 600;
+
+    &::after {
+        content: "SDK";
+        /* inline-block: the underline of the link does not run under the badge */
+        display: inline-block;
+        margin-left: 0.4em;
+        padding: 0.1em 0.4em;
+        border: 1px solid var(--bs-primary-border-subtle);
+        border-radius: 0.375rem;
+        background-color: var(--bs-primary-bg-subtle);
+        color: var(--bs-primary-text-emphasis);
+        font-size: 0.7em;
+        font-weight: 600;
+        line-height: 1.3;
+        letter-spacing: 0.03em;
+        vertical-align: 0.1em;
+    }
+}

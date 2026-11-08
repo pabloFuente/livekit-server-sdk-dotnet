@@ -3,8 +3,8 @@
 
 DocFX itself does not notice three ways the reference can rot, so this script fails on them:
 
-1. A hand-written public type of LivekitApi is missing from the server sidebar
-   (docs/api-server/toc.yml), which replaces the generated one.
+1. A hand-written public type of LivekitApi is missing from the list in
+   docs/template/public/main.css that shows those types in bold among the protobuf messages.
 2. A LiveKit.Rtc member uses a LiveKit.Proto type that the allow-list in docs/filter.yml
    leaves out, so the type has no page and its name is not linked.
 3. A link between pages of the generated site points to a page that does not exist.
@@ -19,9 +19,9 @@ import sys
 import urllib.parse
 
 DOCS = pathlib.Path(__file__).resolve().parent
-SERVER_META = DOCS / "obj" / "api-server"
+SERVER_META = DOCS / "api-server"
 RTC_META = DOCS / "api-rtc"
-SERVER_TOC = DOCS / "api-server" / "toc.yml"
+SERVER_CSS = DOCS / "template" / "public" / "main.css"
 SITE = DOCS / "_site"
 
 
@@ -30,8 +30,8 @@ def first_item(raw):
     return raw.split("\n- uid: ")[1] if "\n- uid: " in raw else ""
 
 
-def check_server_sidebar():
-    listed = set(re.findall(r"^\s*-?\s*uid: (\S+)\s*$", SERVER_TOC.read_text(), re.M))
+def check_server_bold_types():
+    listed = set(re.findall(r'\[href\*="(Livekit\.Server\.Sdk\.Dotnet\.\w+)\.html"\]', SERVER_CSS.read_text()))
     errors = []
     documented = set()
     for f in SERVER_META.glob("*.yml"):
@@ -46,9 +46,9 @@ def check_server_sidebar():
         hand_written = "/proto/" not in path.group(1).replace("\\", "/")
         top_level = "." not in re.search(r"^  id: (\S+)$", item, re.M).group(1)
         if hand_written and top_level and f.stem not in listed:
-            errors.append(f"{f.stem} ({path.group(1)}) is not listed in {SERVER_TOC.relative_to(DOCS.parent)}")
+            errors.append(f"{f.stem} ({path.group(1)}) is not listed in {SERVER_CSS.relative_to(DOCS.parent)}")
     for uid in sorted(listed - documented):
-        errors.append(f"{SERVER_TOC.relative_to(DOCS.parent)} lists {uid}, which has no page")
+        errors.append(f"{SERVER_CSS.relative_to(DOCS.parent)} lists {uid}, which has no page")
     return errors
 
 
@@ -93,7 +93,7 @@ def main():
             sys.exit(f"{required} not found: run `dotnet docfx docs/docfx.json` first")
     failed = False
     for title, check in (
-        ("server sidebar", check_server_sidebar),
+        ("server types in bold", check_server_bold_types),
         ("LiveKit.Proto allow-list", check_rtc_proto_types),
         ("links between pages", check_site_links),
     ):

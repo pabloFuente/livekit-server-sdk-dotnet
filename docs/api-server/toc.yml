@@ -1,34 +1,1700 @@
-# Sidebar of the server package reference, used in place of the toc.yml that DocFX generates
-# into obj/api-server, which lists the 17 hand-written types among some 560 protobuf messages. The
-# messages are listed on the namespace page. docs/check_api_docs.py fails when a hand-written
-# public type of LivekitApi is missing here.
+### YamlMime:TableOfContent
+items:
+- uid: Global
+  name: ''
+  type: Namespace
+  items:
+  - uid: Global.Twirp
+    name: Twirp
+    type: Class
+  - uid: Global.Twirp.ErrorCode
+    name: Twirp.ErrorCode
+    type: Enum
+  - uid: Global.Twirp.Exception
+    name: Twirp.Exception
+    type: Class
 - uid: Livekit.Server.Sdk.Dotnet
-  name: Namespace overview and all types
-- name: Access tokens
+  name: Livekit.Server.Sdk.Dotnet
+  type: Namespace
   items:
-    - uid: Livekit.Server.Sdk.Dotnet.AccessToken
-    - uid: Livekit.Server.Sdk.Dotnet.VideoGrants
-    - uid: Livekit.Server.Sdk.Dotnet.SIPGrants
-    - uid: Livekit.Server.Sdk.Dotnet.InferenceGrants
-    - uid: Livekit.Server.Sdk.Dotnet.ObservabilityGrants
-    - uid: Livekit.Server.Sdk.Dotnet.ClaimsModel
-    - uid: Livekit.Server.Sdk.Dotnet.TokenVerifier
-    - uid: Livekit.Server.Sdk.Dotnet.Constants
-- name: Service clients
-  items:
-    - uid: Livekit.Server.Sdk.Dotnet.RoomServiceClient
-    - uid: Livekit.Server.Sdk.Dotnet.EgressServiceClient
-    - uid: Livekit.Server.Sdk.Dotnet.IngressServiceClient
-    - uid: Livekit.Server.Sdk.Dotnet.SipServiceClient
-    - uid: Livekit.Server.Sdk.Dotnet.AgentDispatchServiceClient
-    - uid: Livekit.Server.Sdk.Dotnet.ConnectorServiceClient
-    - uid: Livekit.Server.Sdk.Dotnet.BaseService
-- name: Webhooks
-  items:
-    - uid: Livekit.Server.Sdk.Dotnet.WebhookReceiver
-    - uid: Livekit.Server.Sdk.Dotnet.WebhookEvent
-- name: Errors
-  items:
-    - uid: Livekit.Server.Sdk.Dotnet.TwirpException
-    - uid: Global.Twirp.Exception
-    - uid: Global.Twirp.ErrorCode
+  - uid: Livekit.Server.Sdk.Dotnet.APICallInfo
+    name: APICallInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.APICallRequest
+    name: APICallRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.APICallRequest.MessageOneofCase
+    name: APICallRequest.MessageOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.AcceptWhatsAppCallRequest
+    name: AcceptWhatsAppCallRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AcceptWhatsAppCallResponse
+    name: AcceptWhatsAppCallResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AccessToken
+    name: AccessToken
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ActiveSpeakerUpdate
+    name: ActiveSpeakerUpdate
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AddTrackRequest
+    name: AddTrackRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AgentDeployment
+    name: AgentDeployment
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AgentDispatch
+    name: AgentDispatch
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AgentDispatchServiceClient
+    name: AgentDispatchServiceClient
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AgentDispatchState
+    name: AgentDispatchState
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AgentDispatchTrigger
+    name: AgentDispatchTrigger
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.AgentEvent
+    name: AgentEvent
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AgentEventType
+    name: AgentEventType
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.AgentHttp
+    name: AgentHttp
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AgentHttp.Types
+    name: AgentHttp.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AgentHttp.Types.AgentEndpoint
+    name: AgentHttp.Types.AgentEndpoint
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AgentHttp.Types.AgentEndpointKind
+    name: AgentHttp.Types.AgentEndpointKind
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.AgentHttp.Types.AgentEndpointSettings
+    name: AgentHttp.Types.AgentEndpointSettings
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AgentHttp.Types.GoAway
+    name: AgentHttp.Types.GoAway
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AgentHttp.Types.HttpStreamResetCode
+    name: AgentHttp.Types.HttpStreamResetCode
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.AgentHttp.Types.StreamPreamble
+    name: AgentHttp.Types.StreamPreamble
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AgentInfo
+    name: AgentInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AgentSecret
+    name: AgentSecret
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AgentSecretKind
+    name: AgentSecretKind
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.AgentVersion
+    name: AgentVersion
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AliOSSUpload
+    name: AliOSSUpload
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AnalyticsClientMeta
+    name: AnalyticsClientMeta
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AnalyticsEvent
+    name: AnalyticsEvent
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AnalyticsEventType
+    name: AnalyticsEventType
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.AnalyticsEvents
+    name: AnalyticsEvents
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AnalyticsNodeRooms
+    name: AnalyticsNodeRooms
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AnalyticsRoom
+    name: AnalyticsRoom
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AnalyticsRoomParticipant
+    name: AnalyticsRoomParticipant
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AnalyticsStat
+    name: AnalyticsStat
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AnalyticsStats
+    name: AnalyticsStats
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AnalyticsStream
+    name: AnalyticsStream
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AnalyticsVideoLayer
+    name: AnalyticsVideoLayer
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AudioChannel
+    name: AudioChannel
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.AudioCodec
+    name: AudioCodec
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.AudioConfig
+    name: AudioConfig
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AudioMixing
+    name: AudioMixing
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.AudioRoute
+    name: AudioRoute
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AudioRoute.MatchOneofCase
+    name: AudioRoute.MatchOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.AudioTrackFeature
+    name: AudioTrackFeature
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.AutoParticipantEgress
+    name: AutoParticipantEgress
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AutoParticipantEgress.OptionsOneofCase
+    name: AutoParticipantEgress.OptionsOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.AutoTrackEgress
+    name: AutoTrackEgress
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AutoTrackEgress.OutputOneofCase
+    name: AutoTrackEgress.OutputOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.AvailabilityRequest
+    name: AvailabilityRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AvailabilityResponse
+    name: AvailabilityResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.AzureBlobUpload
+    name: AzureBlobUpload
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.BackupCodecPolicy
+    name: BackupCodecPolicy
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.BaseService
+    name: BaseService
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CandidateProtocol
+    name: CandidateProtocol
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ChatMessage
+    name: ChatMessage
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ClaimsModel
+    name: ClaimsModel
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ClientConfigSetting
+    name: ClientConfigSetting
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ClientConfiguration
+    name: ClientConfiguration
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ClientInfo
+    name: ClientInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ClientInfo.Types
+    name: ClientInfo.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ClientInfo.Types.Capability
+    name: ClientInfo.Types.Capability
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ClientInfo.Types.SDK
+    name: ClientInfo.Types.SDK
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ClientSettingsRequest
+    name: ClientSettingsRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ClientSettingsResponse
+    name: ClientSettingsResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.Codec
+    name: Codec
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ConnectTwilioCallRequest
+    name: ConnectTwilioCallRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ConnectTwilioCallRequest.Types
+    name: ConnectTwilioCallRequest.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ConnectTwilioCallRequest.Types.TwilioCallDirection
+    name: ConnectTwilioCallRequest.Types.TwilioCallDirection
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ConnectTwilioCallResponse
+    name: ConnectTwilioCallResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ConnectWhatsAppCallRequest
+    name: ConnectWhatsAppCallRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ConnectWhatsAppCallResponse
+    name: ConnectWhatsAppCallResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ConnectionQuality
+    name: ConnectionQuality
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ConnectionQualityInfo
+    name: ConnectionQualityInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ConnectionQualityUpdate
+    name: ConnectionQualityUpdate
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ConnectionSettings
+    name: ConnectionSettings
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ConnectorServiceClient
+    name: ConnectorServiceClient
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ConnectorType
+    name: ConnectorType
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.Constants
+    name: Constants
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest
+    name: CreateAgentDispatchRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreateAgentRequest
+    name: CreateAgentRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreateAgentResponse
+    name: CreateAgentResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreateAgentV2Request
+    name: CreateAgentV2Request
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreateAgentV2Response
+    name: CreateAgentV2Response
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreateIngressRequest
+    name: CreateIngressRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreatePrivateLinkRequest
+    name: CreatePrivateLinkRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreatePrivateLinkRequest.ConfigOneofCase
+    name: CreatePrivateLinkRequest.ConfigOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.CreatePrivateLinkRequest.Types
+    name: CreatePrivateLinkRequest.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreatePrivateLinkRequest.Types.AWSCreateConfig
+    name: CreatePrivateLinkRequest.Types.AWSCreateConfig
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreatePrivateLinkResponse
+    name: CreatePrivateLinkResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreateRoomRequest
+    name: CreateRoomRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreateSIPDispatchRuleRequest
+    name: CreateSIPDispatchRuleRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreateSIPInboundTrunkRequest
+    name: CreateSIPInboundTrunkRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreateSIPOutboundTrunkRequest
+    name: CreateSIPOutboundTrunkRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreateSIPParticipantRequest
+    name: CreateSIPParticipantRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.CreateSIPTrunkRequest
+    name: CreateSIPTrunkRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataBlob
+    name: DataBlob
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataBlobKey
+    name: DataBlobKey
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataBlobKey.KeyOneofCase
+    name: DataBlobKey.KeyOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DataChannelInfo
+    name: DataChannelInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataChannelReceiveState
+    name: DataChannelReceiveState
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataConfig
+    name: DataConfig
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataPacket
+    name: DataPacket
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataPacket.Types
+    name: DataPacket.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataPacket.Types.Kind
+    name: DataPacket.Types.Kind
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DataPacket.ValueOneofCase
+    name: DataPacket.ValueOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DataSelector
+    name: DataSelector
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataSelector.MatchOneofCase
+    name: DataSelector.MatchOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DataStream
+    name: DataStream
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataStream.Types
+    name: DataStream.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataStream.Types.ByteHeader
+    name: DataStream.Types.ByteHeader
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataStream.Types.Chunk
+    name: DataStream.Types.Chunk
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataStream.Types.CompressionType
+    name: DataStream.Types.CompressionType
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DataStream.Types.Header
+    name: DataStream.Types.Header
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataStream.Types.Header.ContentHeaderOneofCase
+    name: DataStream.Types.Header.ContentHeaderOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DataStream.Types.OperationType
+    name: DataStream.Types.OperationType
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DataStream.Types.TextHeader
+    name: DataStream.Types.TextHeader
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataStream.Types.Trailer
+    name: DataStream.Types.Trailer
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackExtensionID
+    name: DataTrackExtensionID
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackExtensionParticipantSid
+    name: DataTrackExtensionParticipantSid
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackFrameEncoding
+    name: DataTrackFrameEncoding
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackFrameEncoding.Types
+    name: DataTrackFrameEncoding.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackFrameEncoding.Types.WellKnownFrameEncoding
+    name: DataTrackFrameEncoding.Types.WellKnownFrameEncoding
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackFrameEncoding.ValueOneofCase
+    name: DataTrackFrameEncoding.ValueOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackInfo
+    name: DataTrackInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackSchemaEncoding
+    name: DataTrackSchemaEncoding
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackSchemaEncoding.Types
+    name: DataTrackSchemaEncoding.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackSchemaEncoding.Types.WellKnownSchemaEncoding
+    name: DataTrackSchemaEncoding.Types.WellKnownSchemaEncoding
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackSchemaEncoding.ValueOneofCase
+    name: DataTrackSchemaEncoding.ValueOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackSchemaId
+    name: DataTrackSchemaId
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackSubscriberHandles
+    name: DataTrackSubscriberHandles
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackSubscriberHandles.Types
+    name: DataTrackSubscriberHandles.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackSubscriberHandles.Types.PublishedDataTrack
+    name: DataTrackSubscriberHandles.Types.PublishedDataTrack
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DataTrackSubscriptionOptions
+    name: DataTrackSubscriptionOptions
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DeleteAgentDispatchRequest
+    name: DeleteAgentDispatchRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DeleteAgentRequest
+    name: DeleteAgentRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DeleteAgentResponse
+    name: DeleteAgentResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DeleteIngressRequest
+    name: DeleteIngressRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DeleteRoomRequest
+    name: DeleteRoomRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DeleteRoomResponse
+    name: DeleteRoomResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DeleteSIPDispatchRuleRequest
+    name: DeleteSIPDispatchRuleRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DeleteSIPTrunkRequest
+    name: DeleteSIPTrunkRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DependencyDescriptorForwarderState
+    name: DependencyDescriptorForwarderState
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DeployAgentRequest
+    name: DeployAgentRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DeployAgentResponse
+    name: DeployAgentResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DeployAgentV2Request
+    name: DeployAgentV2Request
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DeployAgentV2Response
+    name: DeployAgentV2Response
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.Destination
+    name: Destination
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DestroyPrivateLinkRequest
+    name: DestroyPrivateLinkRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DestroyPrivateLinkResponse
+    name: DestroyPrivateLinkResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DialWhatsAppCallRequest
+    name: DialWhatsAppCallRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DialWhatsAppCallResponse
+    name: DialWhatsAppCallResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DirectFileOutput
+    name: DirectFileOutput
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DirectFileOutput.OutputOneofCase
+    name: DirectFileOutput.OutputOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DisabledCodecs
+    name: DisabledCodecs
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DisconnectReason
+    name: DisconnectReason
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DisconnectWhatsAppCallRequest
+    name: DisconnectWhatsAppCallRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DisconnectWhatsAppCallRequest.Types
+    name: DisconnectWhatsAppCallRequest.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.DisconnectWhatsAppCallRequest.Types.DisconnectReason
+    name: DisconnectWhatsAppCallRequest.Types.DisconnectReason
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.DisconnectWhatsAppCallResponse
+    name: DisconnectWhatsAppCallResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.EgressInfo
+    name: EgressInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.EgressInfo.RequestOneofCase
+    name: EgressInfo.RequestOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.EgressInfo.ResultOneofCase
+    name: EgressInfo.ResultOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.EgressServiceClient
+    name: EgressServiceClient
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.EgressSourceType
+    name: EgressSourceType
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.EgressStatus
+    name: EgressStatus
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.EncodedFileOutput
+    name: EncodedFileOutput
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.EncodedFileOutput.OutputOneofCase
+    name: EncodedFileOutput.OutputOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.EncodedFileType
+    name: EncodedFileType
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.EncodingOptions
+    name: EncodingOptions
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.EncodingOptionsPreset
+    name: EncodingOptionsPreset
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.EncryptedPacket
+    name: EncryptedPacket
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.EncryptedPacketPayload
+    name: EncryptedPacketPayload
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.EncryptedPacketPayload.ValueOneofCase
+    name: EncryptedPacketPayload.ValueOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.Encryption
+    name: Encryption
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.Encryption.Types
+    name: Encryption.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.Encryption.Types.Type
+    name: Encryption.Types.Type
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.EventMetric
+    name: EventMetric
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ExportReplayRequest
+    name: ExportReplayRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ExportReplayRequest.EncodingOneofCase
+    name: ExportReplayRequest.EncodingOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ExportReplayRequest.SourceOneofCase
+    name: ExportReplayRequest.SourceOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.FeatureUsageInfo
+    name: FeatureUsageInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.FeatureUsageInfo.Types
+    name: FeatureUsageInfo.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.FeatureUsageInfo.Types.Feature
+    name: FeatureUsageInfo.Types.Feature
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.FileInfo
+    name: FileInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.FileOutput
+    name: FileOutput
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.FilterParams
+    name: FilterParams
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ForwardParticipantRequest
+    name: ForwardParticipantRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ForwardParticipantResponse
+    name: ForwardParticipantResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.GCPUpload
+    name: GCPUpload
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.GetDataBlobRequest
+    name: GetDataBlobRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.GetDataBlobResponse
+    name: GetDataBlobResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.GetPhoneNumberRequest
+    name: GetPhoneNumberRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.GetPhoneNumberResponse
+    name: GetPhoneNumberResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.GetPrivateLinkStatusRequest
+    name: GetPrivateLinkStatusRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.GetPrivateLinkStatusResponse
+    name: GetPrivateLinkStatusResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkRequest
+    name: GetSIPInboundTrunkRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.GetSIPInboundTrunkResponse
+    name: GetSIPInboundTrunkResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkRequest
+    name: GetSIPOutboundTrunkRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.GetSIPOutboundTrunkResponse
+    name: GetSIPOutboundTrunkResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ICECandidateType
+    name: ICECandidateType
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ICEConfig
+    name: ICEConfig
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ICEServer
+    name: ICEServer
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ImageCodec
+    name: ImageCodec
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ImageFileSuffix
+    name: ImageFileSuffix
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ImageOutput
+    name: ImageOutput
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ImageOutput.OutputOneofCase
+    name: ImageOutput.OutputOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ImagesInfo
+    name: ImagesInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.InferenceGrants
+    name: InferenceGrants
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.IngressAudioEncodingOptions
+    name: IngressAudioEncodingOptions
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.IngressAudioEncodingPreset
+    name: IngressAudioEncodingPreset
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.IngressAudioOptions
+    name: IngressAudioOptions
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.IngressAudioOptions.EncodingOptionsOneofCase
+    name: IngressAudioOptions.EncodingOptionsOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.IngressInfo
+    name: IngressInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.IngressInput
+    name: IngressInput
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.IngressServiceClient
+    name: IngressServiceClient
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.IngressState
+    name: IngressState
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.IngressState.Types
+    name: IngressState.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.IngressState.Types.Status
+    name: IngressState.Types.Status
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.IngressVideoEncodingOptions
+    name: IngressVideoEncodingOptions
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.IngressVideoEncodingPreset
+    name: IngressVideoEncodingPreset
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.IngressVideoOptions
+    name: IngressVideoOptions
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.IngressVideoOptions.EncodingOptionsOneofCase
+    name: IngressVideoOptions.EncodingOptionsOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.InputAudioState
+    name: InputAudioState
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.InputVideoState
+    name: InputVideoState
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.Job
+    name: Job
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.JobAssignment
+    name: JobAssignment
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.JobJoinTiming
+    name: JobJoinTiming
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.JobRestartPolicy
+    name: JobRestartPolicy
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.JobState
+    name: JobState
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.JobStateReason
+    name: JobStateReason
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.JobStatus
+    name: JobStatus
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.JobTermination
+    name: JobTermination
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.JobType
+    name: JobType
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.JoinRequest
+    name: JoinRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.JoinResponse
+    name: JoinResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.LeaveRequest
+    name: LeaveRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.LeaveRequest.Types
+    name: LeaveRequest.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.LeaveRequest.Types.Action
+    name: LeaveRequest.Types.Action
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ListAgentDispatchRequest
+    name: ListAgentDispatchRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListAgentDispatchResponse
+    name: ListAgentDispatchResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListAgentSecretsRequest
+    name: ListAgentSecretsRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListAgentSecretsResponse
+    name: ListAgentSecretsResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListAgentVersionsRequest
+    name: ListAgentVersionsRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListAgentVersionsResponse
+    name: ListAgentVersionsResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListAgentsRequest
+    name: ListAgentsRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListAgentsResponse
+    name: ListAgentsResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListEgressRequest
+    name: ListEgressRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListEgressResponse
+    name: ListEgressResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListIngressRequest
+    name: ListIngressRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListIngressResponse
+    name: ListIngressResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListParticipantsRequest
+    name: ListParticipantsRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListParticipantsResponse
+    name: ListParticipantsResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListPhoneNumbersRequest
+    name: ListPhoneNumbersRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListPhoneNumbersResponse
+    name: ListPhoneNumbersResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListPrivateLinksRequest
+    name: ListPrivateLinksRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListPrivateLinksResponse
+    name: ListPrivateLinksResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListRoomsRequest
+    name: ListRoomsRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListRoomsResponse
+    name: ListRoomsResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleRequest
+    name: ListSIPDispatchRuleRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListSIPDispatchRuleResponse
+    name: ListSIPDispatchRuleResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListSIPInboundTrunkRequest
+    name: ListSIPInboundTrunkRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListSIPInboundTrunkResponse
+    name: ListSIPInboundTrunkResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListSIPOutboundTrunkRequest
+    name: ListSIPOutboundTrunkRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListSIPOutboundTrunkResponse
+    name: ListSIPOutboundTrunkResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListSIPTrunkRequest
+    name: ListSIPTrunkRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListSIPTrunkResponse
+    name: ListSIPTrunkResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ListUpdate
+    name: ListUpdate
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.MediaSectionsRequirement
+    name: MediaSectionsRequirement
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.MediaSource
+    name: MediaSource
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.MediaSource.VideoOneofCase
+    name: MediaSource.VideoOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.MetricLabel
+    name: MetricLabel
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.MetricSample
+    name: MetricSample
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.MetricsBatch
+    name: MetricsBatch
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.MetricsRecordingHeader
+    name: MetricsRecordingHeader
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.MigrateJobRequest
+    name: MigrateJobRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.MoveParticipantRequest
+    name: MoveParticipantRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.MoveParticipantResponse
+    name: MoveParticipantResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.MuteRoomTrackRequest
+    name: MuteRoomTrackRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.MuteRoomTrackResponse
+    name: MuteRoomTrackResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.MuteTrackRequest
+    name: MuteTrackRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.NegotiatedDataChannelID
+    name: NegotiatedDataChannelID
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.Node
+    name: Node
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.NodeState
+    name: NodeState
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.NodeStats
+    name: NodeStats
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.NodeStatsRate
+    name: NodeStatsRate
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.NodeType
+    name: NodeType
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ObservabilityGrants
+    name: ObservabilityGrants
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.Output
+    name: Output
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.Output.ConfigOneofCase
+    name: Output.ConfigOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.PacketTrailerFeature
+    name: PacketTrailerFeature
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.Pagination
+    name: Pagination
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest
+    name: ParticipantEgressRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ParticipantEgressRequest.OptionsOneofCase
+    name: ParticipantEgressRequest.OptionsOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ParticipantInfo
+    name: ParticipantInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types
+    name: ParticipantInfo.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.Kind
+    name: ParticipantInfo.Types.Kind
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.KindDetail
+    name: ParticipantInfo.Types.KindDetail
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ParticipantInfo.Types.State
+    name: ParticipantInfo.Types.State
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ParticipantPermission
+    name: ParticipantPermission
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ParticipantTracks
+    name: ParticipantTracks
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ParticipantUpdate
+    name: ParticipantUpdate
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ParticipantVideo
+    name: ParticipantVideo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PerformRpcRequest
+    name: PerformRpcRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PerformRpcResponse
+    name: PerformRpcResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PhoneNumber
+    name: PhoneNumber
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PhoneNumberInboundStatus
+    name: PhoneNumberInboundStatus
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.PhoneNumberOutboundStatus
+    name: PhoneNumberOutboundStatus
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.PhoneNumberStatus
+    name: PhoneNumberStatus
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.PhoneNumberType
+    name: PhoneNumberType
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.Ping
+    name: Ping
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PlayoutDelay
+    name: PlayoutDelay
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.Pong
+    name: Pong
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PresignedPostRequest
+    name: PresignedPostRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PrivateLink
+    name: PrivateLink
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PrivateLink.ConfigOneofCase
+    name: PrivateLink.ConfigOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.PrivateLink.Types
+    name: PrivateLink.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PrivateLink.Types.AWSConfig
+    name: PrivateLink.Types.AWSConfig
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PrivateLinkStatus
+    name: PrivateLinkStatus
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PrivateLinkStatus.Types
+    name: PrivateLinkStatus.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PrivateLinkStatus.Types.Status
+    name: PrivateLinkStatus.Types.Status
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.PromoteAgentRequest
+    name: PromoteAgentRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PromoteAgentResponse
+    name: PromoteAgentResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ProviderInfo
+    name: ProviderInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ProviderType
+    name: ProviderType
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ProxyConfig
+    name: ProxyConfig
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PublishDataTrackRequest
+    name: PublishDataTrackRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PublishDataTrackResponse
+    name: PublishDataTrackResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PurchasePhoneNumberRequest
+    name: PurchasePhoneNumberRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.PurchasePhoneNumberResponse
+    name: PurchasePhoneNumberResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RTCPSenderReportState
+    name: RTCPSenderReportState
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RTPDrift
+    name: RTPDrift
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RTPForwarderState
+    name: RTPForwarderState
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RTPForwarderState.CodecMungerOneofCase
+    name: RTPForwarderState.CodecMungerOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.RTPMungerState
+    name: RTPMungerState
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RTPStats
+    name: RTPStats
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ReconnectReason
+    name: ReconnectReason
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ReconnectResponse
+    name: ReconnectResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RegionInfo
+    name: RegionInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RegionSettings
+    name: RegionSettings
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RegisterWorkerRequest
+    name: RegisterWorkerRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RegisterWorkerResponse
+    name: RegisterWorkerResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ReleasePhoneNumbersRequest
+    name: ReleasePhoneNumbersRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ReleasePhoneNumbersResponse
+    name: ReleasePhoneNumbersResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RemoveParticipantResponse
+    name: RemoveParticipantResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ReportInfo
+    name: ReportInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ReportInfo.MessageOneofCase
+    name: ReportInfo.MessageOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.RequestResponse
+    name: RequestResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RequestResponse.RequestOneofCase
+    name: RequestResponse.RequestOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.RequestResponse.Types
+    name: RequestResponse.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RequestResponse.Types.Reason
+    name: RequestResponse.Types.Reason
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.RestartAgentRequest
+    name: RestartAgentRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RestartAgentResponse
+    name: RestartAgentResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RollbackAgentRequest
+    name: RollbackAgentRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RollbackAgentResponse
+    name: RollbackAgentResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.Room
+    name: Room
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RoomAgent
+    name: RoomAgent
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RoomAgentDispatch
+    name: RoomAgentDispatch
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest
+    name: RoomCompositeEgressRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest.OptionsOneofCase
+    name: RoomCompositeEgressRequest.OptionsOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.RoomCompositeEgressRequest.OutputOneofCase
+    name: RoomCompositeEgressRequest.OutputOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.RoomConfiguration
+    name: RoomConfiguration
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RoomEgress
+    name: RoomEgress
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RoomEndReason
+    name: RoomEndReason
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.RoomInternal
+    name: RoomInternal
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RoomMovedResponse
+    name: RoomMovedResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RoomParticipantIdentity
+    name: RoomParticipantIdentity
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RoomServiceClient
+    name: RoomServiceClient
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RoomUpdate
+    name: RoomUpdate
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RpcAck
+    name: RpcAck
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RpcError
+    name: RpcError
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RpcRequest
+    name: RpcRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RpcResponse
+    name: RpcResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.RpcResponse.ValueOneofCase
+    name: RpcResponse.ValueOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.S3Upload
+    name: S3Upload
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPCallDirection
+    name: SIPCallDirection
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SIPCallInfo
+    name: SIPCallInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPCallStatus
+    name: SIPCallStatus
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SIPCodec
+    name: SIPCodec
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPDialtone
+    name: SIPDialtone
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SIPDispatchRule
+    name: SIPDispatchRule
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPDispatchRule.RuleOneofCase
+    name: SIPDispatchRule.RuleOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SIPDispatchRuleCallee
+    name: SIPDispatchRuleCallee
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPDispatchRuleDirect
+    name: SIPDispatchRuleDirect
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPDispatchRuleIndividual
+    name: SIPDispatchRuleIndividual
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPDispatchRuleInfo
+    name: SIPDispatchRuleInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPDispatchRuleUpdate
+    name: SIPDispatchRuleUpdate
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPFeature
+    name: SIPFeature
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SIPGrants
+    name: SIPGrants
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPHeaderOptions
+    name: SIPHeaderOptions
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SIPInboundTrunkInfo
+    name: SIPInboundTrunkInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPInboundTrunkUpdate
+    name: SIPInboundTrunkUpdate
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPMediaConfig
+    name: SIPMediaConfig
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPMediaEncryption
+    name: SIPMediaEncryption
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SIPNamedDest
+    name: SIPNamedDest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPNamedDest.UriOneofCase
+    name: SIPNamedDest.UriOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SIPOutboundConfig
+    name: SIPOutboundConfig
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkInfo
+    name: SIPOutboundTrunkInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPOutboundTrunkUpdate
+    name: SIPOutboundTrunkUpdate
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPParticipantInfo
+    name: SIPParticipantInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPRequestDest
+    name: SIPRequestDest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPRequestDest.UriOneofCase
+    name: SIPRequestDest.UriOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SIPStatus
+    name: SIPStatus
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPStatusCode
+    name: SIPStatusCode
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SIPTransferError
+    name: SIPTransferError
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPTransferInfo
+    name: SIPTransferInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPTransferReason
+    name: SIPTransferReason
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SIPTransferStatus
+    name: SIPTransferStatus
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SIPTransport
+    name: SIPTransport
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SIPTrunkInfo
+    name: SIPTrunkInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types
+    name: SIPTrunkInfo.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SIPTrunkInfo.Types.TrunkKind
+    name: SIPTrunkInfo.Types.TrunkKind
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SIPUri
+    name: SIPUri
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SearchPhoneNumbersRequest
+    name: SearchPhoneNumbersRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SearchPhoneNumbersResponse
+    name: SearchPhoneNumbersResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SegmentedFileOutput
+    name: SegmentedFileOutput
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SegmentedFileOutput.OutputOneofCase
+    name: SegmentedFileOutput.OutputOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SegmentedFileProtocol
+    name: SegmentedFileProtocol
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SegmentedFileSuffix
+    name: SegmentedFileSuffix
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SegmentsInfo
+    name: SegmentsInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SendDataRequest
+    name: SendDataRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SendDataResponse
+    name: SendDataResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.Sensitivity
+    name: Sensitivity
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ServerInfo
+    name: ServerInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ServerInfo.Types
+    name: ServerInfo.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ServerInfo.Types.Edition
+    name: ServerInfo.Types.Edition
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.ServerMessage
+    name: ServerMessage
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.ServerMessage.MessageOneofCase
+    name: ServerMessage.MessageOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SessionDescription
+    name: SessionDescription
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SettingsParam
+    name: SettingsParam
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SignalRequest
+    name: SignalRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SignalRequest.MessageOneofCase
+    name: SignalRequest.MessageOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SignalResponse
+    name: SignalResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SignalResponse.MessageOneofCase
+    name: SignalResponse.MessageOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SignalTarget
+    name: SignalTarget
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SimulateJobRequest
+    name: SimulateJobRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SimulateScenario
+    name: SimulateScenario
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SimulateScenario.ScenarioOneofCase
+    name: SimulateScenario.ScenarioOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SimulcastCodec
+    name: SimulcastCodec
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SimulcastCodecInfo
+    name: SimulcastCodecInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SipDTMF
+    name: SipDTMF
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SipServiceClient
+    name: SipServiceClient
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SpeakerInfo
+    name: SpeakerInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SpeakersChanged
+    name: SpeakersChanged
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.StartEgressRequest
+    name: StartEgressRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.StartEgressRequest.EncodingOneofCase
+    name: StartEgressRequest.EncodingOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.StartEgressRequest.SourceOneofCase
+    name: StartEgressRequest.SourceOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.StartSession
+    name: StartSession
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.StopEgressRequest
+    name: StopEgressRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.StorageConfig
+    name: StorageConfig
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.StorageConfig.ProviderOneofCase
+    name: StorageConfig.ProviderOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.StoreDataBlobRequest
+    name: StoreDataBlobRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.StoreDataBlobResponse
+    name: StoreDataBlobResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.StreamDestination
+    name: StreamDestination
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.StreamInfo
+    name: StreamInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.StreamInfo.Types
+    name: StreamInfo.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.StreamInfo.Types.Status
+    name: StreamInfo.Types.Status
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.StreamInfoList
+    name: StreamInfoList
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.StreamOutput
+    name: StreamOutput
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.StreamProtocol
+    name: StreamProtocol
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.StreamState
+    name: StreamState
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.StreamStateInfo
+    name: StreamStateInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.StreamStateUpdate
+    name: StreamStateUpdate
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.StreamType
+    name: StreamType
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SubscribedAudioCodec
+    name: SubscribedAudioCodec
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SubscribedAudioCodecUpdate
+    name: SubscribedAudioCodecUpdate
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SubscribedCodec
+    name: SubscribedCodec
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SubscribedQuality
+    name: SubscribedQuality
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SubscribedQualityUpdate
+    name: SubscribedQualityUpdate
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SubscriptionError
+    name: SubscriptionError
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.SubscriptionPermission
+    name: SubscriptionPermission
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SubscriptionPermissionUpdate
+    name: SubscriptionPermissionUpdate
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SubscriptionResponse
+    name: SubscriptionResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.SyncState
+    name: SyncState
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TemplateSource
+    name: TemplateSource
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TimeRange
+    name: TimeRange
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TimeSeriesMetric
+    name: TimeSeriesMetric
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TimedVersion
+    name: TimedVersion
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TokenPagination
+    name: TokenPagination
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TokenSourceRequest
+    name: TokenSourceRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TokenSourceResponse
+    name: TokenSourceResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TokenVerifier
+    name: TokenVerifier
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TrackCompositeEgressRequest
+    name: TrackCompositeEgressRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TrackCompositeEgressRequest.OptionsOneofCase
+    name: TrackCompositeEgressRequest.OptionsOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.TrackCompositeEgressRequest.OutputOneofCase
+    name: TrackCompositeEgressRequest.OutputOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.TrackEgressRequest
+    name: TrackEgressRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TrackEgressRequest.OutputOneofCase
+    name: TrackEgressRequest.OutputOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.TrackInfo
+    name: TrackInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TrackPermission
+    name: TrackPermission
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TrackPublishedResponse
+    name: TrackPublishedResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TrackSource
+    name: TrackSource
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.TrackSubscribed
+    name: TrackSubscribed
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TrackType
+    name: TrackType
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.TrackUnpublishedResponse
+    name: TrackUnpublishedResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.Transcription
+    name: Transcription
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TranscriptionSegment
+    name: TranscriptionSegment
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TransferSIPParticipantRequest
+    name: TransferSIPParticipantRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TransferSIPParticipantResponse
+    name: TransferSIPParticipantResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TrickleRequest
+    name: TrickleRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.TwirpException
+    name: TwirpException
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UnpublishDataTrackRequest
+    name: UnpublishDataTrackRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UnpublishDataTrackResponse
+    name: UnpublishDataTrackResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateAgentRequest
+    name: UpdateAgentRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateAgentResponse
+    name: UpdateAgentResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateAgentSecretsRequest
+    name: UpdateAgentSecretsRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateAgentSecretsResponse
+    name: UpdateAgentSecretsResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateDataSubscription
+    name: UpdateDataSubscription
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateDataSubscription.Types
+    name: UpdateDataSubscription.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateDataSubscription.Types.Update
+    name: UpdateDataSubscription.Types.Update
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateIngressRequest
+    name: UpdateIngressRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateJobStatus
+    name: UpdateJobStatus
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateLayoutRequest
+    name: UpdateLayoutRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateLocalAudioTrack
+    name: UpdateLocalAudioTrack
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateLocalVideoTrack
+    name: UpdateLocalVideoTrack
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateParticipantMetadata
+    name: UpdateParticipantMetadata
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateParticipantRequest
+    name: UpdateParticipantRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdatePhoneNumberRequest
+    name: UpdatePhoneNumberRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdatePhoneNumberResponse
+    name: UpdatePhoneNumberResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateRoomMetadataRequest
+    name: UpdateRoomMetadataRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateSIPDispatchRuleRequest
+    name: UpdateSIPDispatchRuleRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateSIPDispatchRuleRequest.ActionOneofCase
+    name: UpdateSIPDispatchRuleRequest.ActionOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateSIPInboundTrunkRequest
+    name: UpdateSIPInboundTrunkRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateSIPInboundTrunkRequest.ActionOneofCase
+    name: UpdateSIPInboundTrunkRequest.ActionOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateSIPOutboundTrunkRequest
+    name: UpdateSIPOutboundTrunkRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateSIPOutboundTrunkRequest.ActionOneofCase
+    name: UpdateSIPOutboundTrunkRequest.ActionOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateStreamRequest
+    name: UpdateStreamRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateSubscription
+    name: UpdateSubscription
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsRequest
+    name: UpdateSubscriptionsRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateSubscriptionsResponse
+    name: UpdateSubscriptionsResponse
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateTrackSettings
+    name: UpdateTrackSettings
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateVideoLayers
+    name: UpdateVideoLayers
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UpdateWorkerStatus
+    name: UpdateWorkerStatus
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.UserPacket
+    name: UserPacket
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.VP8MungerState
+    name: VP8MungerState
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.VideoCodec
+    name: VideoCodec
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.VideoConfiguration
+    name: VideoConfiguration
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.VideoGrants
+    name: VideoGrants
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.VideoLayer
+    name: VideoLayer
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.VideoLayer.Types
+    name: VideoLayer.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.VideoLayer.Types.Mode
+    name: VideoLayer.Types.Mode
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.VideoQuality
+    name: VideoQuality
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.WebEgressRequest
+    name: WebEgressRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.WebEgressRequest.OptionsOneofCase
+    name: WebEgressRequest.OptionsOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.WebEgressRequest.OutputOneofCase
+    name: WebEgressRequest.OutputOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.WebSource
+    name: WebSource
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.WebhookConfig
+    name: WebhookConfig
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.WebhookEvent
+    name: WebhookEvent
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.WebhookInfo
+    name: WebhookInfo
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.WebhookReceiver
+    name: WebhookReceiver
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.WhatsAppCall
+    name: WhatsAppCall
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.WhatsAppCallDirection
+    name: WhatsAppCallDirection
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.WorkerMessage
+    name: WorkerMessage
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.WorkerMessage.MessageOneofCase
+    name: WorkerMessage.MessageOneofCase
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.WorkerPing
+    name: WorkerPing
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.WorkerPong
+    name: WorkerPong
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.WorkerStatus
+    name: WorkerStatus
+    type: Enum
+  - uid: Livekit.Server.Sdk.Dotnet.WrappedJoinRequest
+    name: WrappedJoinRequest
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.WrappedJoinRequest.Types
+    name: WrappedJoinRequest.Types
+    type: Class
+  - uid: Livekit.Server.Sdk.Dotnet.WrappedJoinRequest.Types.Compression
+    name: WrappedJoinRequest.Types.Compression
+    type: Enum
+memberLayout: SamePage

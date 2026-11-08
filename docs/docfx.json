@@ -2,7 +2,7 @@
   "metadata": [
     {
       "src": [{ "files": ["LivekitApi/LivekitApi.csproj"], "src": ".." }],
-      "dest": "obj/api-server",
+      "dest": "api-server",
       "filter": "filter.yml",
       "globalNamespaceId": "Global",
       "properties": { "NoWarn": "CS0612;CS0618" }
@@ -16,14 +16,13 @@
   ],
   "build": {
     "content": [
-      { "files": ["toc.yml", "index.md", "api-server/toc.yml", "api-rtc/**.yml"] },
-      { "files": ["**.yml"], "exclude": ["toc.yml"], "src": "obj/api-server", "dest": "api-server" },
+      { "files": ["toc.yml", "index.md", "api-server/**.yml", "api-rtc/**.yml"] },
       { "files": ["*.md"], "src": "redirects", "dest": "api-server" }
     ],
     "overwrite": [{ "files": ["namespaces/*.md"] }],
     "xref": ["protobuf-xrefmap.yml"],
     "output": "_site",
-    "template": ["default", "modern"],
+    "template": ["default", "modern", "template"],
     "sitemap": {
       "baseUrl": "https://pablofuente.github.io/livekit-server-sdk-dotnet/",
       "changefreq": "weekly"
