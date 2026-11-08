@@ -25,7 +25,9 @@ a fixed `livekit_ffi`, a new release of `Livekit.Rtc.Dotnet` bundles it.
   through an exception in that file, for one package and one advisory, with a justification and an
   expiry date at most 90 days ahead; an expired exception fails the scan again.
 - Dependabot opens security updates at once and version updates weekly, once a release is a week
-  old. Dependency review, CodeQL and secret scanning run on GitHub.
+  old. Dependency review, CodeQL and secret scanning run on GitHub. The Go module of the Twirp code
+  generator (`tools/protoc-gen-twirpcs`), a build-time tool that no package ships, is covered only
+  by Dependabot and dependency review.
 - The native binaries are checked against the SHA-256 digests GitHub recorded for the upstream
   release assets (`LivekitRtc/download_ffi.sh --verify`). Their Rust crates are scanned as `cargo
   tree` resolves them at the pinned `livekit-ffi` tag. The prebuilt libwebrtc inside them has no

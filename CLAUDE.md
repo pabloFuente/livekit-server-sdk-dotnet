@@ -41,12 +41,22 @@ a public API change that breaks them. Build them explicitly after changing publi
   intercepted, so the rule applies to you regardless.
 - `LivekitApi/proto` is generated from the root `protocol/` submodule (`protocol/protobufs/*.proto`)
   with the namespace rewritten from `LiveKit.Proto` to `Livekit.Server.Sdk.Dotnet`. `Twirp.cs` is
-  produced by the `protoc-gen-twirpcs` plugin (`go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0`).
-- Regenerate with `protoc` 36.2 and `protoc-gen-twirpcs` v1.1.0, the versions that reproduce the
-  committed output byte for byte (both sync workflows pin them). v1.1.0 is the plugin's last
-  release: its GitHub repository is gone and only the Go module proxy still serves it. Another
-  `protoc` can rewrite every generated file of both packages (3.21 reorders the options embedded in
-  the serialized descriptors), so move its pin in a change of its own, never inside a sync.
+  produced by the `protoc-gen-twirpcs` plugin, vendored in [tools/protoc-gen-twirpcs](tools/protoc-gen-twirpcs/README.md)
+  from `github.com/seanpfeifer/twirp-gen` v1.1.0, its last release (the GitHub repository is gone).
+  `generate_proto.sh` builds it with Go on every run and passes it to `protoc` with `--plugin`, so
+  a `protoc-gen-twirpcs` on `PATH` is ignored. `main.go`, `template.tmpl` and `LICENSE` are
+  upstream's, unchanged: changes to the Twirp output go in the script's `sed` patches. Only
+  `go.mod`/`go.sum` are ours.
+- [proto-tools.env](proto-tools.env) is the only pin of `protoc`, at the version that reproduces the
+  committed output byte for byte: `generate_proto.sh` sources it and stops, before deleting
+  anything, when `protoc` or `go` is missing or `protoc` is another version, and every workflow that
+  regenerates installs from it. Do not repeat the version number elsewhere. Another `protoc` can
+  rewrite every generated file of both packages (3.21 reorders the options embedded in the
+  serialized descriptors), so move its pin in a change of its own, never inside a sync. Dependabot
+  cannot read that file; nothing moves it automatically.
+- `.github/workflows/generated-code.yml` reruns `generate_proto.sh` on every pull request that
+  touches a submodule, the script, its pin, the plugin or the generated files, and fails unless the
+  committed code is reproduced byte for byte. It is path-filtered, so it is not a required check.
 - `LivekitRtc/Proto` is generated from the FFI protos in `LivekitRtc/rust-sdks/livekit-ffi/protocol`
   and keeps the `LiveKit.Proto` namespace. Hand-written code imports it with `using LiveKit.Proto;`
   (`Room.cs` qualifies ambiguous names as `Proto.X`).
@@ -306,6 +316,9 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   dependency submission (a repository setting), which restores every project and lists a package
   reached through a project reference under the referenced project.
   Dependabot raises no alerts for actions pinned by SHA. The script, not the alerts page, decides.
+- The Go module of the vendored Twirp plugin (`tools/protoc-gen-twirpcs/go.mod`) is a build-time
+  tool, never shipped, and the script does not scan it: the dependency graph reads `go.mod`
+  natively, so Dependabot (`gomod` entry) and dependency review cover it.
 - The native scan uses `cargo tree -p livekit-ffi -e normal --target all`, not `Cargo.lock`: the
   workspace lockfile also lists crates of examples and tools that the library does not link.
 - Fix a finding by moving the version in `Directory.Packages.props` (a transitive package through
@@ -426,9 +439,9 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
 
 1. `cd protocol && git fetch --all && git checkout vX.Y.Z && cd ..`, commit as
    `Update livekit/protocol to vX.Y.Z`.
-2. `./generate_proto.sh`, commit as `Regenerate proto C# files`. The script deletes
-   `LivekitApi/proto` before it checks for `protoc` and `protoc-gen-twirpcs`; if it fails,
-   `git checkout -- LivekitApi/proto` restores the previous output.
+2. `./generate_proto.sh`, commit as `Regenerate proto C# files`. The script checks `protoc`
+   against `proto-tools.env` and builds the Twirp plugin before it deletes `LivekitApi/proto`; if
+   `protoc` fails later, `git checkout -- LivekitApi/proto` restores the previous output.
 3. `dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg`. Package validation
    runs against `PackageValidationBaselineVersion`, and the pull request's `build` check runs it
    too. If it fails because the protocol
@@ -559,7 +572,8 @@ two commits. As with `sync-protocol.yml`, a version whose branch exists is skipp
   `.config/dotnet-tools.json` and run through `dotnet tool restore`, never installed unpinned.
 - Dependabot updates both files weekly from a single `nuget` entry, one pull request per dependency
   across all projects (`group-by: dependency-name`); the CSharpier tool and package, and the
-  Testcontainers packages, come grouped.
+  Testcontainers packages, come grouped. A `gomod` entry does the same for the Go dependencies of
+  `tools/protoc-gen-twirpcs`.
 - Workflows pin every action to a full commit SHA, never a tag or branch, with the release in a
   comment on the same line (`uses: actions/checkout@<40-char sha> # v4.4.0`). Dependabot's
   `github-actions` entry bumps both together. Pin a new action the same way: resolve the release

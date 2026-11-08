@@ -64,19 +64,22 @@ jobs:
       - uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
         with:
           dotnet-version: 10.0.x
-      # generate_proto.sh regenerates both packages, and these versions leave LivekitApi/proto untouched
+      # generate_proto.sh regenerates both packages and refuses to run with another protoc than the
+      # one proto-tools.env pins, which leaves LivekitApi/proto untouched. It builds the Twirp
+      # plugin, vendored in tools/protoc-gen-twirpcs, with Go
+      - name: Read the protoc pin
+        id: pins
+        run: grep -E '^[A-Z_]+=' proto-tools.env >> "$GITHUB_OUTPUT"
       - uses: arduino/setup-protoc@c65c819552d16ad3c9b72d9dfd5ba5237b9c906b # v3.0.0
         with:
-          version: "36.2"
+          version: ${{ steps.pins.outputs.PROTOC_VERSION }}
           repo-token: ${{ github.token }}
       - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
         with:
           go-version: stable
           cache: false
       - name: Install tools
-        run: |
-          go install github.com/seanpfeifer/twirp-gen/cmd/protoc-gen-twirpcs@v1.1.0
-          dotnet tool restore
+        run: dotnet tool restore
 
       # Done here because .claude/settings.json asks before download_ffi.sh, and nobody can answer
       # It checks each archive's SHA-256 digest and copies nothing unless all six match
