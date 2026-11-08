@@ -315,7 +315,10 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
 
 ## How the RTC SDK works (read before touching `LivekitRtc`)
 
-- `Internal/NativeMethods.cs` has the P/Invoke surface. `Internal/FfiClient.cs` is a process-wide
+- `Internal/NativeMethods.cs` has the P/Invoke surface. Its declarations match
+  `livekit-ffi/src/room_apis/cabi.rs` type for type (`usize` is `UIntPtr`, a Rust `bool` needs
+  `MarshalAs(UnmanagedType.I1)`), which `FfiClientTest.NativeMethods_MatchTheFfiCAbi` checks; a
+  rust-sdks bump that changes `cabi.rs` changes both. `Internal/FfiClient.cs` is a process-wide
   singleton (`FfiClient.Instance`). Every operation is a protobuf `FfiRequest` sent with
   `SendRequest`, which returns an `FfiResponse` synchronously. Asynchronous operations return an
   `AsyncId` in the response and complete later as an `FfiEvent` with the same id, awaited with

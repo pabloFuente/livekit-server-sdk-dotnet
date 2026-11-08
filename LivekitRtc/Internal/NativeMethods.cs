@@ -31,7 +31,7 @@ namespace LiveKit.Rtc.Internal
             CallingConvention = CallingConvention.Cdecl,
             EntryPoint = "livekit_ffi_initialize"
         )]
-        private static extern unsafe IntPtr InitializeNative(
+        private static extern unsafe void InitializeNative(
             FfiCallbackDelegate callback,
             [MarshalAs(UnmanagedType.I1)] bool captureLogs,
             byte* sdk,
@@ -45,8 +45,7 @@ namespace LiveKit.Rtc.Internal
         /// <param name="captureLogs">Whether to capture and forward logs.</param>
         /// <param name="sdk">SDK identifier string.</param>
         /// <param name="sdkVersion">SDK version string.</param>
-        /// <returns>Handle ID for the initialization.</returns>
-        internal static unsafe IntPtr Initialize(
+        internal static unsafe void Initialize(
             FfiCallbackDelegate callback,
             bool captureLogs,
             string sdk,
@@ -60,7 +59,7 @@ namespace LiveKit.Rtc.Internal
             fixed (byte* sdkPtr = sdkBytes)
             fixed (byte* sdkVersionPtr = sdkVersionBytes)
             {
-                return InitializeNative(callback, captureLogs, sdkPtr, sdkVersionPtr);
+                InitializeNative(callback, captureLogs, sdkPtr, sdkVersionPtr);
             }
         }
 
@@ -82,7 +81,8 @@ namespace LiveKit.Rtc.Internal
         }
 
         /// <summary>
-        /// Send an FFI request to the native library.
+        /// Send an FFI request to the native library. Every length is a Rust <c>usize</c>, so
+        /// <see cref="UIntPtr"/>: an <c>int</c> leaves the upper half of the register undefined.
         /// </summary>
         /// <param name="data">Pointer to the request data buffer.</param>
         /// <param name="len">Length of the request data.</param>
@@ -96,7 +96,7 @@ namespace LiveKit.Rtc.Internal
         )]
         internal static extern unsafe ulong Request(
             byte* data,
-            int len,
+            UIntPtr len,
             out byte* dataPtr,
             out UIntPtr dataLen
         );
