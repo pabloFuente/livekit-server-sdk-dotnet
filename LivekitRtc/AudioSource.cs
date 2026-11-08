@@ -105,13 +105,20 @@ namespace LiveKit.Rtc
         /// Captures an AudioFrame and queues it for playback.
         /// </summary>
         /// <param name="frame">The audio frame to capture and queue.</param>
-        /// <param name="cancellationToken">Optional cancellation token.</param>
+        /// <param name="cancellationToken">
+        /// Cancels the wait for the native source to accept the frame, not the capture itself: the source
+        /// keeps consuming the frame, and a capture made before it is done fails with
+        /// <see cref="InvalidOperationException"/>. Await each capture before the next one. A token that is
+        /// already cancelled throws before the frame is captured.
+        /// </param>
         /// <returns>A task that completes once the native source has accepted the frame.</returns>
         public async Task CaptureFrameAsync(
             AudioFrame frame,
             CancellationToken cancellationToken = default
         )
         {
+            // Before the frame reaches the native source, which would keep consuming it
+            cancellationToken.ThrowIfCancellationRequested();
             if (frame.SamplesPerChannel == 0 || _disposed)
                 return;
 
@@ -162,11 +169,15 @@ namespace LiveKit.Rtc
                 TimeSpan.FromSeconds(10)
                 + TimeSpan.FromSeconds(frameDuration)
                 + TimeSpan.FromMilliseconds(_queueSizeMs);
-            var callbackEvent = await FfiClient.Instance.WaitForEventAsync(
-                e => e.CaptureAudioFrame?.AsyncId == asyncId,
-                timeout,
-                cancellationToken
-            );
+            // Not resumed on the caller's context: CaptureFrame blocks on this method, which
+            // would deadlock a UI thread
+            var callbackEvent = await FfiClient
+                .Instance.WaitForEventAsync(
+                    e => e.CaptureAudioFrame?.AsyncId == asyncId,
+                    timeout,
+                    cancellationToken
+                )
+                .ConfigureAwait(false);
 
             if (!string.IsNullOrEmpty(callbackEvent.CaptureAudioFrame?.Error))
             {

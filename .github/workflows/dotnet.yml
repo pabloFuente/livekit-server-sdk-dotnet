@@ -92,7 +92,8 @@ jobs:
       run: dotnet test LivekitRtc.Tests
 
   # Windows and macOS can't start the Linux containers of the e2e tests
-  # Run only the tests that load the native library without Docker
+  # Run only the tests that load the native library without Docker, the native reliability tier
+  # (LivekitRtc.Tests/Reliability/Native*) included
   rtc-native:
     name: RTC native tests (${{ matrix.rid }})
     strategy:
@@ -112,4 +113,4 @@ jobs:
       with:
         dotnet-version: 10.0.x
     - name: Test
-      run: dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~FfiClientTest|FullyQualifiedName~AudioCaptureMinimalTest|FullyQualifiedName~AudioSourcePlayoutTests|FullyQualifiedName~AudioResamplerTests|FullyQualifiedName~EncodedVideoSourceTests|FullyQualifiedName~VideoFramePinningTests|FullyQualifiedName~VideoFramePlanesTests"
+      run: dotnet test LivekitRtc.Tests --filter "FullyQualifiedName~FfiClientTest|FullyQualifiedName~AudioCaptureMinimalTest|FullyQualifiedName~AudioSourcePlayoutTests|FullyQualifiedName~AudioResamplerTests|FullyQualifiedName~EncodedVideoSourceTests|FullyQualifiedName~VideoFramePinningTests|FullyQualifiedName~VideoFramePlanesTests|FullyQualifiedName~Reliability.Native"

@@ -20,9 +20,10 @@ namespace LiveKit.Rtc
         private readonly uint _numChannels;
 
         // The FFI returns a pointer into the resampler's own output buffer, which the next
-        // Push/Flush overwrites: the request and the copy must not interleave between threads.
+        // Push/Flush overwrites and releasing the handle frees: the request, the copy and the
+        // release must not interleave between threads.
         private readonly object _lock = new object();
-        private bool _disposed;
+        private volatile bool _disposed;
 
         /// <summary>
         /// Initializes a new AudioResampler instance.
@@ -112,8 +113,7 @@ namespace LiveKit.Rtc
         /// <returns>A list of resampled audio frames.</returns>
         public unsafe List<AudioFrame> Push(byte[] data)
         {
-            if (_disposed)
-                throw new ObjectDisposedException(nameof(AudioResampler));
+            ThrowIfDisposed();
 
             if (data == null || data.Length == 0)
                 return new List<AudioFrame>();
@@ -121,6 +121,9 @@ namespace LiveKit.Rtc
             lock (_lock)
                 fixed (byte* dataPtr = data)
                 {
+                    // Checked again under the lock: Dispose takes it before releasing the handle
+                    ThrowIfDisposed();
+
                     var request = new FfiRequest
                     {
                         PushSoxResampler = new PushSoxResamplerRequest
@@ -172,8 +175,7 @@ namespace LiveKit.Rtc
         /// <returns>A list of remaining resampled audio frames.</returns>
         public List<AudioFrame> Flush()
         {
-            if (_disposed)
-                throw new ObjectDisposedException(nameof(AudioResampler));
+            ThrowIfDisposed();
 
             var request = new FfiRequest
             {
@@ -185,6 +187,7 @@ namespace LiveKit.Rtc
 
             lock (_lock)
             {
+                ThrowIfDisposed();
                 var response = FfiClient.Instance.SendRequest(request);
 
                 if (!string.IsNullOrEmpty(response.FlushSoxResampler.Error))
@@ -223,15 +226,28 @@ namespace LiveKit.Rtc
             }
         }
 
+        private void ThrowIfDisposed()
+        {
+            if (_disposed)
+                throw new ObjectDisposedException(nameof(AudioResampler));
+        }
+
         /// <summary>
         /// Releases the native resampler. Call <see cref="Flush"/> first to get the audio it still buffers.
+        /// A <see cref="Push(byte[])"/> or <see cref="Flush"/> running on another thread completes first;
+        /// later calls throw <see cref="ObjectDisposedException"/>.
         /// </summary>
         public void Dispose()
         {
-            if (_disposed)
-                return;
-            _disposed = true;
-            _handle.Dispose();
+            // Under the lock: the output of an in-flight Push or Flush is read from the native
+            // resampler's own buffer, which releasing the handle frees
+            lock (_lock)
+            {
+                if (_disposed)
+                    return;
+                _disposed = true;
+                _handle.Dispose();
+            }
         }
     }
 }

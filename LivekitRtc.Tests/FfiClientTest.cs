@@ -577,6 +577,11 @@ namespace LiveKit.Rtc.Tests
 
         #region Helpers
 
+        // The mock callbacks go through the process-wide FfiClient, and those nobody waits for stay
+        // in its queue. Real async IDs count up from 1, so a mock ID they can reach (60000...) would
+        // hand a later real ConnectAsync of the run a fake room. Mock IDs start far above them.
+        private const ulong MockAsyncIdBase = 0xF000_0000_0000_0000;
+
         private FfiEvent CreateMockEvent(ulong asyncId)
         {
             // Create a mock ConnectCallback event with the specified AsyncId
@@ -584,7 +589,7 @@ namespace LiveKit.Rtc.Tests
             {
                 Connect = new ConnectCallback
                 {
-                    AsyncId = asyncId,
+                    AsyncId = MockAsyncIdBase + asyncId,
                     // Add minimal result to make it valid
                     Result = new ConnectCallback.Types.Result
                     {
@@ -612,7 +617,7 @@ namespace LiveKit.Rtc.Tests
             // Extract AsyncId from the event based on its type
             return e.MessageCase switch
             {
-                FfiEvent.MessageOneofCase.Connect => e.Connect.AsyncId,
+                FfiEvent.MessageOneofCase.Connect => e.Connect.AsyncId - MockAsyncIdBase,
                 _ => 0,
             };
         }

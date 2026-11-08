@@ -310,6 +310,16 @@ All E2E tests automatically launch necessary services as Docker containers with 
 dotnet test LivekitRtc.Tests
 ```
 
+The [reliability suite](../LivekitRtc.Tests/Reliability/README.md) (native handle lifecycle,
+callback and API concurrency, reconnections and server outages, resource leaks) runs at a short
+level with the rest; `LIVEKIT_STRESS=extended` runs its long tier, as the nightly
+`rtc-reliability.yml` workflow does:
+
+```bash
+dotnet test LivekitRtc.Tests --filter "Category=Reliability"
+LIVEKIT_STRESS=extended dotnet test LivekitRtc.Tests --filter "Category=Reliability"
+```
+
 ## Building from source
 
 Prerequisites:

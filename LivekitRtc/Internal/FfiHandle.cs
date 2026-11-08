@@ -3,6 +3,7 @@
 using System;
 using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace LiveKit.Rtc.Internal
 {
@@ -17,8 +18,27 @@ namespace LiveKit.Rtc.Internal
         /// </summary>
         public const ulong InvalidHandle = 0;
 
+        // Process-wide counters read by the reliability tests (internal, not part of the public
+        // API): a handle that is never released, or released twice, is a native leak or a
+        // double free that no exception reveals
+        private static long s_wrapped;
+        private static long s_released;
+        private static long s_failedReleases;
+
         private readonly ulong _handleId;
         private bool _disposed;
+
+        /// <summary>
+        /// Valid handles wrapped and not released yet, in the whole process.
+        /// </summary>
+        internal static long LiveCount =>
+            Interlocked.Read(ref s_wrapped) - Interlocked.Read(ref s_released);
+
+        /// <summary>
+        /// Releases the native library rejected because it did not know the handle: a handle
+        /// released twice, or wrapped by two owners.
+        /// </summary>
+        internal static long FailedReleaseCount => Interlocked.Read(ref s_failedReleases);
 
         /// <summary>
         /// Creates a new FfiHandle from a native handle ID.
@@ -29,6 +49,8 @@ namespace LiveKit.Rtc.Internal
         {
             _handleId = handleId;
             SetHandle(new IntPtr((long)handleId));
+            if (handleId != InvalidHandle)
+                Interlocked.Increment(ref s_wrapped);
         }
 
         /// <summary>
@@ -39,6 +61,8 @@ namespace LiveKit.Rtc.Internal
             : base(ptr, true)
         {
             _handleId = (ulong)ptr.ToInt64();
+            if (!IsInvalid)
+                Interlocked.Increment(ref s_wrapped);
         }
 
         /// <summary>
@@ -62,7 +86,11 @@ namespace LiveKit.Rtc.Internal
                 return true;
 
             _disposed = true;
-            return NativeMethods.DropHandle(_handleId);
+            var dropped = NativeMethods.DropHandle(_handleId);
+            Interlocked.Increment(ref s_released);
+            if (!dropped)
+                Interlocked.Increment(ref s_failedReleases);
+            return dropped;
         }
 
         /// <summary>
