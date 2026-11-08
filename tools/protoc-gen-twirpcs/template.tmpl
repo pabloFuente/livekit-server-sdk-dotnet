@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Google.Protobuf; // For ".ToByteArray()"
 
-public class GeneratedAPI {
+public class {{.ClassName}} {
   public static readonly MediaTypeWithQualityHeaderValue CONTENT_TYPE_PROTOBUF = new MediaTypeWithQualityHeaderValue("application/protobuf");
 
   public enum ErrorCode {
@@ -19,11 +19,12 @@ public class GeneratedAPI {
 
     public Exception(ErrorCode type, string message) : base(message) { Type = type; }
   }
+{{- if not .ErrorFactory}}
 
-  private static GeneratedAPI.Exception createException(string jsonData) {
+  private static {{.ClassName}}.Exception createException(string jsonData) {
     var codeStr = parseJSONString(jsonData, "code");
     if (codeStr == null) {
-      return new GeneratedAPI.Exception(ErrorCode.Unknown, jsonData);
+      return new {{.ClassName}}.Exception(ErrorCode.Unknown, jsonData);
     }
 
     ErrorCode errorCode = ErrorCode.Unknown;
@@ -32,7 +33,7 @@ public class GeneratedAPI {
     if (msg == null) {
       msg = jsonData;
     }
-    return new GeneratedAPI.Exception(errorCode, msg);
+    return new {{.ClassName}}.Exception(errorCode, msg);
   }
 
   private static string parseJSONString(string jsonData, string key) {
@@ -43,24 +44,36 @@ public class GeneratedAPI {
     if (dataEnd == -1) { return null; }
     return jsonData.Substring(keyIndex, dataEnd - keyIndex);
   }
+{{- end}}
 
   private delegate Resp doParsing<Resp>(byte[] data) where Resp : IMessage;
   private static async Task<Resp> DoRequest<Req, Resp>(HttpClient client, string address, Req req, doParsing<Resp> parserFunc) where Req : IMessage where Resp : IMessage {
     using (var content = new ByteArrayContent(req.ToByteArray())) {
       content.Headers.ContentType = CONTENT_TYPE_PROTOBUF;
-      using (HttpResponseMessage response = await client.PostAsync(address, content)) {
-        var byteArr = await response.Content.ReadAsByteArrayAsync();
+      using (HttpResponseMessage response = await client.PostAsync(address, content).ConfigureAwait(false)) {
+        var byteArr = await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
         if (!response.IsSuccessStatusCode) {
           string errorJSON = System.Text.Encoding.UTF8.GetString(byteArr, 0, byteArr.Length);
-          throw createException(errorJSON);
+          throw {{if .ErrorFactory}}global::{{.ErrorFactory}}(errorJSON, (int)response.StatusCode){{else}}createException(errorJSON){{end}};
         }
         return parserFunc(byteArr);
       }
     }
   }
-{{range .Files}}{{range .Services}}{{range .Methods}}{{$pkg := Title .Desc.ParentFile.Name}}{{$req := .Input.Desc.Name}}{{$resp := .Output.Desc.Name}}
-{{Tab .Comments.Leading.String -}}
-  public static async Task<{{$pkg}}.{{$resp}}> {{.GoName}}(HttpClient client, {{$pkg}}.{{$req}} req) {
-    return await DoRequest<{{$pkg}}.{{$req}}, {{$pkg}}.{{$resp}}>(client, "{{$.PathPrefix}}/{{.Desc.ParentFile.Package}}.{{.Parent.GoName}}/{{.GoName}}", req, {{$pkg}}.{{$resp}}.Parser.ParseFrom);
+{{range .Services}}{{range .Methods}}
+{{Tab .Comments -}}
+  public static async Task<{{.Response}}> {{.Name}}(HttpClient client, {{.Request}} req) {
+    return await DoRequest<{{.Request}}, {{.Response}}>(client, Routes.{{.Service}}.{{.Name}}, req, {{.Response}}.Parser.ParseFrom).ConfigureAwait(false);
   }
-{{end}}{{end}}{{end}}}
+{{end}}{{end}}
+  // The route of every RPC, relative to the server address.
+  internal static class Routes {
+{{- range .Services}}
+    internal static class {{.Name}} {
+{{- range .Methods}}
+      internal const string {{.Name}} = "{{.Route}}";
+{{- end}}
+    }
+{{- end}}
+  }
+}

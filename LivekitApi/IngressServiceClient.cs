@@ -32,7 +32,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<IngressInfo> CreateIngress(CreateIngressRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.Ingress/CreateIngress",
+                    Twirp.Routes.Ingress.CreateIngress,
                     request,
                     IngressInfo.Parser,
                     AuthHeader(new VideoGrants { IngressAdmin = true })
@@ -48,7 +48,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<IngressInfo> UpdateIngress(UpdateIngressRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.Ingress/UpdateIngress",
+                    Twirp.Routes.Ingress.UpdateIngress,
                     request,
                     IngressInfo.Parser,
                     AuthHeader(new VideoGrants { IngressAdmin = true })
@@ -64,7 +64,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<ListIngressResponse> ListIngress(ListIngressRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.Ingress/ListIngress",
+                    Twirp.Routes.Ingress.ListIngress,
                     request,
                     ListIngressResponse.Parser,
                     AuthHeader(new VideoGrants { IngressAdmin = true })
@@ -80,7 +80,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<IngressInfo> DeleteIngress(DeleteIngressRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.Ingress/DeleteIngress",
+                    Twirp.Routes.Ingress.DeleteIngress,
                     request,
                     IngressInfo.Parser,
                     AuthHeader(new VideoGrants { IngressAdmin = true })

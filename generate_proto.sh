@@ -73,15 +73,11 @@ protoc \
     "$API_PROTOCOL"/livekit_webhook.proto \
     "$API_PROTOCOL"/logger/options.proto
 
-# Patch proto stubs
-# 1. Modify the namespace from "Livekit.Proto" to "Livekit.Server.Sdk.Dotnet"
-sed -i 's|namespace LiveKit.Proto|namespace Livekit.Server.Sdk.Dotnet|g' "$API_OUT_CSHARP"/*.cs
-sed -i 's|global::LiveKit.Proto.|global::Livekit.Server.Sdk.Dotnet.|g' "$API_OUT_CSHARP"/*.cs
-
-# Twirp (generated with tools/protoc-gen-twirpcs, vendored from github.com/seanpfeifer/twirp-gen)
-
+# The Twirp client class, Twirp.cs (tools/protoc-gen-twirpcs). Routes are relative to the host, and
+# failed calls throw TwirpException
 protoc -I "$API_PROTOCOL" --plugin=protoc-gen-twirpcs="$TWIRPCS_PLUGIN" \
-    --twirpcs_out=pathPrefix=twirp:"$API_OUT_CSHARP" \
+    --twirpcs_opt=pathPrefix=twirp,className=Twirp,errorFactory=Livekit.Server.Sdk.Dotnet.TwirpException.FromResponse \
+    --twirpcs_out="$API_OUT_CSHARP" \
     "$API_PROTOCOL"/livekit_room.proto \
     "$API_PROTOCOL"/livekit_egress.proto \
     "$API_PROTOCOL"/livekit_ingress.proto \
@@ -94,14 +90,10 @@ protoc -I "$API_PROTOCOL" --plugin=protoc-gen-twirpcs="$TWIRPCS_PLUGIN" \
     "$API_PROTOCOL"/livekit_metrics.proto \
     "$API_PROTOCOL"/livekit_analytics.proto
 
-# Patch Twirp proto stubs
-# 1. Change "Livekit.Empty" to "Google.Protobuf.WellKnownTypes.Empty"
-# 2. Modify the namespace from "Livekit." to "global::Livekit.Server.Sdk.Dotnet."
-# 3. Rename the class name and file from "GeneratedAPI" to "Twirp"
-sed -i 's|Livekit.Empty|Google.Protobuf.WellKnownTypes.Empty|g' "$API_OUT_CSHARP"/GeneratedAPI.cs
-sed -i 's|Livekit.|global::Livekit.Server.Sdk.Dotnet.|g' "$API_OUT_CSHARP"/GeneratedAPI.cs
-sed -i 's|GeneratedAPI|Twirp|g' "$API_OUT_CSHARP"/GeneratedAPI.cs
-mv "$API_OUT_CSHARP"/GeneratedAPI.cs "$API_OUT_CSHARP"/Twirp.cs
+# Move the code of both calls from the protos' csharp_namespace, "LiveKit.Proto", to
+# "Livekit.Server.Sdk.Dotnet"
+sed -i 's|namespace LiveKit\.Proto|namespace Livekit.Server.Sdk.Dotnet|g' "$API_OUT_CSHARP"/*.cs
+sed -i 's|global::LiveKit\.Proto\.|global::Livekit.Server.Sdk.Dotnet.|g' "$API_OUT_CSHARP"/*.cs
 
 echo "✓ LivekitApi proto files generated successfully"
 echo ""

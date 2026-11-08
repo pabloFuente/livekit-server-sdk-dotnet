@@ -44,9 +44,10 @@ a public API change that breaks them. Build them explicitly after changing publi
   produced by the `protoc-gen-twirpcs` plugin, vendored in [tools/protoc-gen-twirpcs](tools/protoc-gen-twirpcs/README.md)
   from `github.com/seanpfeifer/twirp-gen` v1.1.0, its last release (the GitHub repository is gone).
   `generate_proto.sh` builds it with Go on every run and passes it to `protoc` with `--plugin`, so
-  a `protoc-gen-twirpcs` on `PATH` is ignored. `main.go`, `template.tmpl` and `LICENSE` are
-  upstream's, unchanged: changes to the Twirp output go in the script's `sed` patches. Only
-  `go.mod`/`go.sum` are ours.
+  a `protoc-gen-twirpcs` on `PATH` is ignored. It is ours now (its README lists the changes from
+  upstream): fix the Twirp output in the plugin, with a test in `main_test.go`, not with `sed`.
+  `Twirp` is public API, so its class, namespace (global), `ErrorCode` members and method
+  signatures must not change; package validation fails if they do.
 - [proto-tools.env](proto-tools.env) is the only pin of `protoc`, at the version that reproduces the
   committed output byte for byte: `generate_proto.sh` sources it and stops, before deleting
   anything, when `protoc` or `go` is missing or `protoc` is another version, and every workflow that
@@ -54,9 +55,10 @@ a public API change that breaks them. Build them explicitly after changing publi
   rewrite every generated file of both packages (3.21 reorders the options embedded in the
   serialized descriptors), so move its pin in a change of its own, never inside a sync. Dependabot
   cannot read that file; nothing moves it automatically.
-- `.github/workflows/generated-code.yml` reruns `generate_proto.sh` on every pull request that
-  touches a submodule, the script, its pin, the plugin or the generated files, and fails unless the
-  committed code is reproduced byte for byte. It is path-filtered, so it is not a required check.
+- `.github/workflows/generated-code.yml` runs `gofmt`, `go vet` and the plugin's tests, then
+  reruns `generate_proto.sh`, on every pull request that touches a submodule, the script, its pin,
+  the plugin or the generated files, and fails unless the committed code is reproduced byte for
+  byte. It is path-filtered, so it is not a required check.
 - `LivekitRtc/Proto` is generated from the FFI protos in `LivekitRtc/rust-sdks/livekit-ffi/protocol`
   and keeps the `LiveKit.Proto` namespace. Hand-written code imports it with `using LiveKit.Proto;`
   (`Room.cs` qualifies ambiguous names as `Proto.X`).
@@ -410,11 +412,12 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
 
 - One `XServiceClient : BaseService` per Twirp service. Each method builds the minimal JWT grants
   for that RPC with `AuthHeader(new VideoGrants { ... })` (plus `SIPGrants` for SIP) and calls
-  `SendAsync("twirp/livekit.<Service>/<Method>", request, <Response>.Parser, token)` from
+  `SendAsync(Twirp.Routes.<Service>.<Method>, request, <Response>.Parser, token)` from
   `BaseService`, which builds one `HttpRequestMessage` per call (host, bearer token, user agent)
-  and raises `TwirpException` on errors. The clients do not call the generated `Twirp` class; it
-  stays in the package for external callers. Routes are copied from `Twirp.cs`, and
-  `api_coverage.py` matches those literals. Never write the token to
+  and raises `TwirpException` on errors. The clients do not call the generated `Twirp` methods,
+  which stay in the package for external callers, but take the route from its internal
+  `Routes` constants: never write a route literal (`api_coverage.py` matches the constants, and a
+  route removed upstream then breaks the build). Never write the token to
   `httpClient.DefaultRequestHeaders` (concurrent calls would swap tokens). Which grant
   each RPC needs is copied, never invented, from the reference SDKs (`livekit/node-sdks`
   `packages/livekit-server-sdk`, `livekit/python-sdks` `livekit-api`, `livekit/server-sdk-go`).
