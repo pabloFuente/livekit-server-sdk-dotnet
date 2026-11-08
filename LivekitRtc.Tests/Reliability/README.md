@@ -43,7 +43,9 @@ Redis or browser, which starts in seconds and can be paused without affecting th
 | Extended | `LIVEKIT_STRESS=extended` | nightly `rtc-reliability.yml` on all six platforms; before every `rtc-` release (`publish.yml`) without the soak | about 20 min plus the soak (10 min nightly); 3 min native only |
 
 `LIVEKIT_STRESS=extended` multiplies the loop counts (`StressLevel.Scale`) and enables the tests
-marked `[ExtendedFact]`, which are reported as skipped otherwise.
+marked `[ExtendedFact]`, which are reported as skipped otherwise. The nightly workflow runs the soak in a test
+process of its own, so a native crash during it cannot hide the other results, and uploads the
+runtime's crash report and a minidump with the results when the test host crashes.
 
 ```bash
 # Pull request tier
