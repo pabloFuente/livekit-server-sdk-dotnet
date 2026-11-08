@@ -98,7 +98,10 @@ reliability test fails on such a line unless it provokes it on purpose.
   `[Trait("Category", "Reliability")]`. A new native class must start with `Native` so the
   `rtc-native` filter of `dotnet.yml` (`FullyQualifiedName~Reliability.Native`) picks it up.
 - Synchronize on events (`Eventually.Signal`, `Eventually.TrueAsync`, `Task.Within`), never on fixed
-  delays, and bound every wait so a deadlock fails with its name instead of hanging the run.
+  delays, and bound every wait so a deadlock fails with its name instead of hanging the run. A bound
+  only starts once the operation has returned its task, and every SDK call begins with a
+  synchronous request to the native library: run an operation that may block there on the thread
+  pool, as the soak's `StepAsync` does.
 - Use unique room names (`ReliabilityServerFixture.NewRoomName`), and check the server's view
   (`IdentitiesAsync`, `TrackSidsAsync`) for what the SDK says it released.
 - Scale loops with `StressLevel.Scale(pullRequest, extended)`; mark tests longer than about 20 s

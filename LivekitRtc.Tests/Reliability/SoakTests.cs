@@ -97,10 +97,14 @@ public class SoakTests
                     })
                 )
         );
-        await workers.Within(
-            TimeSpan.FromMinutes(minutes) + TimeSpan.FromMinutes(5),
-            "the soak workers"
-        );
+        var limit = TimeSpan.FromMinutes(minutes) + TimeSpan.FromMinutes(5);
+        if (await Task.WhenAny(workers, Task.Delay(limit)) != workers)
+            Assert.Fail(
+                $"The soak workers did not finish within {limit.TotalMinutes} min. Last operations:"
+                    + Environment.NewLine
+                    + string.Join(Environment.NewLine, _trace)
+            );
+        await workers;
 
         foreach (var (identity, count) in sent)
         {
@@ -141,13 +145,15 @@ public class SoakTests
     // The last operations of every worker, for the failure message of a step that hangs
     private readonly ConcurrentQueue<string> _trace = new();
 
-    // Runs one operation of a session with its own bound, so a hang names the operation
+    // Runs one operation of a session with its own bound, so a hang names the operation. On the
+    // thread pool: every SDK call starts with a synchronous request to the native library, and an
+    // operation that blocks there would never return the task the bound waits for
     private async Task StepAsync(string identity, string name, Func<Task> operation)
     {
         _trace.Enqueue($"{DateTime.UtcNow:HH:mm:ss.fff} {identity}: {name}");
         while (_trace.Count > 40)
             _trace.TryDequeue(out _);
-        var task = operation();
+        var task = Task.Run(operation);
         if (await Task.WhenAny(task, Task.Delay(Settle)) != task)
             Assert.Fail(
                 $"{identity}: '{name}' did not complete within {Settle.TotalSeconds} s. Last operations:"
@@ -288,7 +294,11 @@ public class SoakTests
                 break;
             case 1:
                 await StepAsync(identity, "DisconnectAsync", room.DisconnectAsync);
-                room.Dispose();
+                await StepAsync(
+                    identity,
+                    "Dispose after DisconnectAsync",
+                    () => Task.Run(room.Dispose)
+                );
                 break;
             default:
                 var gone = Eventually.Signal<bool>();
@@ -304,9 +314,24 @@ public class SoakTests
                         await gone.Task;
                     }
                 );
-                room.Dispose();
+                await StepAsync(
+                    identity,
+                    "Dispose after the removal",
+                    () => Task.Run(room.Dispose)
+                );
                 break;
         }
+        // Bounded too; the using declarations only cover a session that failed earlier
+        await StepAsync(
+            identity,
+            "dispose the audio track and source",
+            () =>
+                Task.Run(() =>
+                {
+                    audioTrack.Dispose();
+                    audioSource.Dispose();
+                })
+        );
         return packets;
     }
 }

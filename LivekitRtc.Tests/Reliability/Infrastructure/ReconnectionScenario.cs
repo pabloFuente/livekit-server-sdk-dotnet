@@ -1,6 +1,7 @@
 // author: https://github.com/pabloFuente
 
 using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Text;
 
 namespace LiveKit.Rtc.Tests.Reliability;
@@ -20,6 +21,14 @@ internal sealed class ReconnectionScenario : IAsyncDisposable
     public LocalTrackPublication[] Publications { get; private set; } = null!;
     public ConcurrentQueue<string> Events { get; } = new();
     public ConcurrentQueue<string> ReceivedData { get; } = new();
+
+    /// <summary>
+    /// Both rooms' connection events and the data sent and received, with their time, for the
+    /// failure message of a wait that times out: what happened after the wait started included.
+    /// </summary>
+    public ConcurrentQueue<string> Timeline { get; } = new();
+
+    private readonly Stopwatch _clock = Stopwatch.StartNew();
 
     private readonly List<IDisposable> _media = new();
     private readonly List<MediaPump> _pumps = new();
@@ -42,7 +51,20 @@ internal sealed class ReconnectionScenario : IAsyncDisposable
         publisher.LocalTrackRepublished += (_, e) =>
             scenario.Events.Enqueue($"LocalTrackRepublished {e.PreviousSid}");
         publisher.DataReceived += (_, e) =>
-            scenario.ReceivedData.Enqueue(Encoding.UTF8.GetString(e.Data));
+        {
+            var text = Encoding.UTF8.GetString(e.Data);
+            scenario.ReceivedData.Enqueue(text);
+            scenario.Mark($"publisher received '{text}'");
+        };
+        foreach (var identity in new[] { "publisher", "observer" })
+        {
+            var room = group[identity];
+            room.Reconnecting += (_, _) => scenario.Mark($"{identity} Reconnecting");
+            room.Reconnected += (_, _) => scenario.Mark($"{identity} Reconnected");
+            room.Disconnected += (_, r) => scenario.Mark($"{identity} Disconnected {r}");
+            room.LocalTrackRepublished += (_, e) =>
+                scenario.Mark($"{identity} LocalTrackRepublished {e.PreviousSid}");
+        }
 
         var audioSource = new AudioSource(48000, 1);
         var videoSource = new VideoSource(320, 240);
@@ -98,12 +120,35 @@ internal sealed class ReconnectionScenario : IAsyncDisposable
         );
     }
 
+    /// <summary>Adds an entry to <see cref="Timeline"/>.</summary>
+    public void Mark(string what) =>
+        Timeline.Enqueue($"{_clock.ElapsedMilliseconds, 7} ms  {what}");
+
+    private string DescribeTimeline() =>
+        $"Timeline:{Environment.NewLine}{string.Join(Environment.NewLine, Timeline)}";
+
+    /// <summary>
+    /// Waits until both rooms are connected. An outage of the server makes the observer reconnect
+    /// too, and the observer's state is only consistent once its own reconnection has finished.
+    /// </summary>
+    public Task WaitUntilBothConnectedAsync(TimeSpan timeout) =>
+        Eventually.TrueAsync(
+            () =>
+                Publisher.ConnectionState == Proto.ConnectionState.ConnConnected
+                && Observer.ConnectionState == Proto.ConnectionState.ConnConnected,
+            timeout,
+            () =>
+                $"both rooms are connected (publisher {Publisher.ConnectionState}, observer "
+                + $"{Observer.ConnectionState}). {DescribeTimeline()}"
+        );
+
     /// <summary>
     /// Data sent by the observer arrives once: a handler duplicated by a reconnection would
     /// raise it twice.
     /// </summary>
     public async Task AssertDataArrivesOnceAsync(string marker)
     {
+        Mark($"observer sends '{marker}'");
         await Observer.LocalParticipant!.PublishDataAsync(
             Encoding.UTF8.GetBytes(marker),
             new DataPublishOptions { DestinationIdentities = new[] { "publisher" } }
@@ -111,7 +156,7 @@ internal sealed class ReconnectionScenario : IAsyncDisposable
         await Eventually.TrueAsync(
             () => ReceivedData.Contains(marker),
             Settle,
-            $"data '{marker}' arrives"
+            () => $"data '{marker}' arrives. {DescribeTimeline()}"
         );
         await Task.Delay(200);
         Assert.Single(ReceivedData, marker);
