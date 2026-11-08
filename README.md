@@ -89,7 +89,7 @@ var room = new Room();
 // Add room event handlers
 room.ParticipantConnected += (sender, participant) =>
 {
-    Console.WriteLine($"[ParticipantConnected] {participant.Identity}}");
+    Console.WriteLine($"[ParticipantConnected] {participant.Identity}");
 };
 
 await room.ConnectAsync("wss://my.livekit.instance", token);
