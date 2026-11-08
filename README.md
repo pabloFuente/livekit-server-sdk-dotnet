@@ -1,13 +1,13 @@
-[Livekit.Server.Sdk.Dotnet](#livekitserversdkdotnet) [![NuGet Version](https://img.shields.io/nuget/v/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/packages/Livekit.Server.Sdk.Dotnet) [![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Server.Sdk.Dotnet?groupby=Version) [![Code coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fpablofuente.github.io%2Flivekit-server-sdk-dotnet%2Fcoverage%2Fbadges%2FLivekitApi.json)](https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/) | [Livekit.Rtc.Dotnet](#livekitrtcdotnet) [![NuGet Version](https://img.shields.io/nuget/v/Livekit.Rtc.Dotnet)](https://www.nuget.org/packages/Livekit.Rtc.Dotnet) [![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Rtc.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Rtc.Dotnet?groupby=Version) [![Code coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fpablofuente.github.io%2Flivekit-server-sdk-dotnet%2Fcoverage%2Fbadges%2FLivekitRtc.json)](https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/)
-
-[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/pabloFuente/livekit-server-sdk-dotnet/dotnet.yml)](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/dotnet.yml)
-[![License badge](https://img.shields.io/badge/license-Apache2-orange.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-
 # LiveKit .NET SDKs <!-- omit in toc -->
+
+[![Build](https://img.shields.io/github/actions/workflow/status/pabloFuente/livekit-server-sdk-dotnet/dotnet.yml?branch=main&label=build)](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/dotnet.yml) [![API reference](https://img.shields.io/badge/docs-API%20reference-blue)](https://pablofuente.github.io/livekit-server-sdk-dotnet/) [![License](https://img.shields.io/github/license/pabloFuente/livekit-server-sdk-dotnet)](LICENSE)
 
 Use this SDK to add realtime video, audio and data features to your .NET app. By connecting to LiveKit Cloud or a self-hosted server, you can quickly build applications such as multi-modal AI, live streaming, or video calls with just a few lines of code.
 
-API reference of both packages: https://pablofuente.github.io/livekit-server-sdk-dotnet/
+| Package | NuGet | Downloads | Coverage | Docs |
+| :-- | :-- | :-- | :-- | :-- |
+| [Livekit.Server.Sdk.Dotnet](#livekitserversdkdotnet) | [![NuGet version](https://img.shields.io/nuget/v/Livekit.Server.Sdk.Dotnet?label=)](https://www.nuget.org/packages/Livekit.Server.Sdk.Dotnet) | [![NuGet downloads](https://img.shields.io/nuget/dt/Livekit.Server.Sdk.Dotnet?label=)](https://www.nuget.org/stats/packages/Livekit.Server.Sdk.Dotnet?groupby=Version) | [![Line coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fpablofuente.github.io%2Flivekit-server-sdk-dotnet%2Fcoverage%2Fbadges%2FLivekitApi.json&label=)](https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/) | [README](LivekitApi/README.md) · [API](https://pablofuente.github.io/livekit-server-sdk-dotnet/api-server/Livekit.Server.Sdk.Dotnet.html) |
+| [Livekit.Rtc.Dotnet](#livekitrtcdotnet) | [![NuGet version](https://img.shields.io/nuget/v/Livekit.Rtc.Dotnet?label=)](https://www.nuget.org/packages/Livekit.Rtc.Dotnet) | [![NuGet downloads](https://img.shields.io/nuget/dt/Livekit.Rtc.Dotnet?label=)](https://www.nuget.org/stats/packages/Livekit.Rtc.Dotnet?groupby=Version) | [![Line coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fpablofuente.github.io%2Flivekit-server-sdk-dotnet%2Fcoverage%2Fbadges%2FLivekitRtc.json&label=)](https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/) | [README](LivekitRtc/README.md) · [API](https://pablofuente.github.io/livekit-server-sdk-dotnet/api-rtc/LiveKit.Rtc.html) |
 
 - [Packages](#packages)
   - [Livekit.Server.Sdk.Dotnet](#livekitserversdkdotnet)
@@ -30,10 +30,6 @@ This repository contains two complementary .NET packages for different LiveKit u
 
 ### Livekit.Server.Sdk.Dotnet
 
-[![NuGet Version](https://img.shields.io/nuget/v/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/packages/Livekit.Server.Sdk.Dotnet)
-[![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Server.Sdk.Dotnet?groupby=Version)
-[![Code coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fpablofuente.github.io%2Flivekit-server-sdk-dotnet%2Fcoverage%2Fbadges%2FLivekitApi.json)](https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/)
-
 **Server-side management and authentication SDK** for LiveKit. Use it to interact with all LiveKit server APIs, create access tokens, and handle webhooks.
 
 - Target framework: `netstandard2.0`
@@ -41,10 +37,6 @@ This repository contains two complementary .NET packages for different LiveKit u
 - [Full documentation →](LivekitApi/README.md)
 
 ### Livekit.Rtc.Dotnet
-
-[![NuGet Version](https://img.shields.io/nuget/v/Livekit.Rtc.Dotnet)](https://www.nuget.org/packages/Livekit.Rtc.Dotnet)
-[![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Rtc.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Rtc.Dotnet?groupby=Version)
-[![Code coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fpablofuente.github.io%2Flivekit-server-sdk-dotnet%2Fcoverage%2Fbadges%2FLivekitRtc.json)](https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/)
 
 **Real-time communication SDK** for .NET server applications. Use it to connect to LiveKit as a server-side participant, and to publish and subscribe to audio, video, and data.
 
