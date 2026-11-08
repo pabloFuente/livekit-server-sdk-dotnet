@@ -239,13 +239,18 @@ namespace LiveKit.Rtc
         /// </summary>
         public void Dispose()
         {
+            if (_disposed)
+                return;
+
+            // Set before taking the lock: new Push and Flush calls fail fast instead of competing
+            // for it, so a thread pushing in a loop cannot hold Dispose off
+            _disposed = true;
+
             // Under the lock: the output of an in-flight Push or Flush is read from the native
-            // resampler's own buffer, which releasing the handle frees
+            // resampler's own buffer, which releasing the handle frees. Releasing a SafeHandle
+            // twice is harmless, so concurrent Dispose calls need no more than this.
             lock (_lock)
             {
-                if (_disposed)
-                    return;
-                _disposed = true;
                 _handle.Dispose();
             }
         }
