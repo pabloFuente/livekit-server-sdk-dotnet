@@ -1,5 +1,6 @@
 [![NuGet Version](https://img.shields.io/nuget/v/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/packages/Livekit.Server.Sdk.Dotnet)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/Livekit.Server.Sdk.Dotnet)](https://www.nuget.org/stats/packages/Livekit.Server.Sdk.Dotnet?groupby=Version)
+[![Code coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fpablofuente.github.io%2Flivekit-server-sdk-dotnet%2Fcoverage%2Fbadges%2FLivekitApi.json)](https://pablofuente.github.io/livekit-server-sdk-dotnet/coverage/)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/pabloFuente/livekit-server-sdk-dotnet/dotnet.yml)](https://github.com/pabloFuente/livekit-server-sdk-dotnet/actions/workflows/dotnet.yml)
 [![License badge](https://img.shields.io/badge/license-Apache2-orange.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
