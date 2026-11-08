@@ -600,7 +600,10 @@ namespace LiveKit.Rtc
         /// <param name="url">The LiveKit server URL (e.g., wss://your-server.livekit.cloud).</param>
         /// <param name="token">The access token for authentication.</param>
         /// <param name="options">Optional room options.</param>
-        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <param name="cancellationToken">
+        /// Cancels the connection attempt. A connection the native side completes after the cancellation is
+        /// left in the background; a token that is already cancelled throws before anything is sent.
+        /// </param>
         /// <returns>A task that completes when the connection is established.</returns>
         /// <exception cref="InvalidOperationException">
         /// Thrown when the room is already connected, or another <see cref="ConnectAsync"/> call is connecting it.
@@ -614,6 +617,10 @@ namespace LiveKit.Rtc
         {
             if (_disposed)
                 throw new ObjectDisposedException(nameof(Room));
+
+            // Before any side effect: a connect request, once sent, opens a native connection that a
+            // cancellation can only abandon in the background
+            cancellationToken.ThrowIfCancellationRequested();
 
             if (Interlocked.CompareExchange(ref _connecting, 1, 0) != 0)
                 throw new InvalidOperationException("Room is already connecting");
@@ -955,7 +962,10 @@ namespace LiveKit.Rtc
         /// through the room events.
         /// </summary>
         /// <param name="scenario">The scenario to simulate.</param>
-        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <param name="cancellationToken">
+        /// Cancels the wait for the SDK to start the scenario, not the scenario. A token that is already
+        /// cancelled throws before the scenario is requested.
+        /// </param>
         /// <returns>A task that completes once the SDK has started the scenario, not when the reconnection has finished.</returns>
         /// <exception cref="InvalidOperationException">Thrown when not connected to a room.</exception>
         /// <exception cref="RoomException">Thrown when the SDK reports that the scenario failed.</exception>
@@ -966,6 +976,7 @@ namespace LiveKit.Rtc
         {
             if (!IsConnected || _roomHandle == null)
                 throw new InvalidOperationException("Not connected to a room");
+            cancellationToken.ThrowIfCancellationRequested();
 
             var response = FfiClient.Instance.SendRequest(
                 new FfiRequest

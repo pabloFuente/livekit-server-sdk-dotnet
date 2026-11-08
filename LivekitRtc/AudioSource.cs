@@ -108,7 +108,8 @@ namespace LiveKit.Rtc
         /// <param name="cancellationToken">
         /// Cancels the wait for the native source to accept the frame, not the capture itself: the source
         /// keeps consuming the frame, and a capture made before it is done fails with
-        /// <see cref="InvalidOperationException"/>. Await each capture before the next one.
+        /// <see cref="InvalidOperationException"/>. Await each capture before the next one. A token that is
+        /// already cancelled throws before the frame is captured.
         /// </param>
         /// <returns>A task that completes once the native source has accepted the frame.</returns>
         public async Task CaptureFrameAsync(
@@ -116,6 +117,8 @@ namespace LiveKit.Rtc
             CancellationToken cancellationToken = default
         )
         {
+            // Before the frame reaches the native source, which would keep consuming it
+            cancellationToken.ThrowIfCancellationRequested();
             if (frame.SamplesPerChannel == 0 || _disposed)
                 return;
 

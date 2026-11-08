@@ -326,7 +326,10 @@ namespace LiveKit.Rtc
         /// </summary>
         /// <param name="track">The track to publish.</param>
         /// <param name="options">Publication options.</param>
-        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <param name="cancellationToken">
+        /// Cancels the publication. A track the native side publishes after the cancellation is unpublished
+        /// in the background; a token that is already cancelled throws before anything is published.
+        /// </param>
         /// <returns>The track publication.</returns>
         public async Task<LocalTrackPublication> PublishTrackAsync(
             LocalTrack track,
@@ -335,6 +338,9 @@ namespace LiveKit.Rtc
         )
         {
             options ??= new TrackPublishOptions();
+            // Before any side effect: once requested, a publication that the cancellation abandons
+            // has to be unpublished in the background
+            cancellationToken.ThrowIfCancellationRequested();
 
             var request = new FfiRequest
             {
@@ -451,7 +457,10 @@ namespace LiveKit.Rtc
         /// Unpublishes a track from the room.
         /// </summary>
         /// <param name="trackSid">The SID of the track to unpublish.</param>
-        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <param name="cancellationToken">
+        /// Cancels the wait for the unpublication. A token that is already cancelled throws before the
+        /// unpublication is requested.
+        /// </param>
         /// <returns>A task that completes once the track is unpublished.</returns>
         public async Task UnpublishTrackAsync(
             string trackSid,
@@ -468,6 +477,7 @@ namespace LiveKit.Rtc
                     $"'{trackSid}' is not a track SID (expected 'TR_...'), use publication.Sid",
                     nameof(trackSid)
                 );
+            cancellationToken.ThrowIfCancellationRequested();
 
             var request = new FfiRequest
             {
@@ -592,7 +602,10 @@ namespace LiveKit.Rtc
         /// The track name, used by other participants to identify it. Must not be empty and must be
         /// unique per publisher.
         /// </param>
-        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <param name="cancellationToken">
+        /// Cancels the wait for the publication. A token that is already cancelled throws before the track
+        /// is published.
+        /// </param>
         /// <returns>The published data track.</returns>
         /// <exception cref="PublishDataTrackException">The track could not be published.</exception>
         public async Task<LocalDataTrack> PublishDataTrackAsync(
@@ -602,6 +615,7 @@ namespace LiveKit.Rtc
         {
             if (string.IsNullOrEmpty(name))
                 throw new ArgumentException("Data track name must not be empty", nameof(name));
+            cancellationToken.ThrowIfCancellationRequested();
 
             var response = FfiClient.Instance.SendRequest(
                 new FfiRequest

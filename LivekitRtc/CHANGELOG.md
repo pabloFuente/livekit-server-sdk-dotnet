@@ -42,6 +42,14 @@
   cancelled call to register a publication it never would. The SDK still unpublishes such a track,
   and raises no `LocalTrackPublished`, `LocalTrackSubscribed` or `LocalTrackUnpublished` event for
   it, since the caller never received its publication. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
+- An already cancelled `CancellationToken` now makes `Room.ConnectAsync`,
+  `Room.SimulateScenarioAsync`, `AudioSource.CaptureFrameAsync`,
+  `LocalParticipant.PublishTrackAsync`, `UnpublishTrackAsync` and `PublishDataTrackAsync` throw
+  `OperationCanceledException` before doing anything, as is standard in .NET. They used to send
+  their request first: `ConnectAsync` joined the room and then left it in the background,
+  `PublishTrackAsync` published the track and then unpublished it, and the others went ahead
+  (a cancelled capture even made the next captures fail while the source consumed it). A
+  cancellation once the request is sent is unchanged. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
 - A room event that arrives while the native room is closing, after the `Room` disconnected, no
   longer leaks the native participant, publication, track or data buffer it carries: the room keeps
   releasing them until the native library ends the room's event stream. A `TrackPublished` event

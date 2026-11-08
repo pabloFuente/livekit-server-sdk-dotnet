@@ -331,6 +331,11 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   cleanup only touches its own generation, so a room reconnected right away keeps its listener
   and participants. Room events are raised through `Raise`, one handler at a time, so a throwing
   handler does not hide the event from the others.
+- A public method that takes a `CancellationToken` calls `ThrowIfCancellationRequested()` before
+  its first FFI request (after argument validation): a request, once sent, has side effects that a
+  cancellation can only undo in the background (a connection to leave, a track to unpublish).
+  `TextStreamWriter.CloseAsync` and `ByteStreamWriter.CloseAsync` are the documented exception:
+  they always send the trailer.
 - Methods that a synchronous wrapper blocks on (`DisconnectAsync` for `Disconnect`/`Dispose`,
   `AudioSource.CaptureFrameAsync` for `CaptureFrame`) await with `ConfigureAwait(false)`, or a UI
   thread calling the wrapper deadlocks. `NativeConcurrencyTests` and `RoomLifecycleTests` check it

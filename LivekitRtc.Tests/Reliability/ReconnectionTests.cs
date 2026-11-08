@@ -189,11 +189,8 @@ public class ReconnectionTests
     }
 
     [Fact]
-    public async Task ACancelledSimulateScenarioAsync_StillLeavesTheRoomConsistent()
+    public async Task CancellingSimulateScenarioAsync_LeavesTheRoomConsistent()
     {
-        // Cancelling the call cancels the wait for the FFI's acknowledgement, not the scenario: the
-        // request is sent first, and an acknowledgement that already arrived completes the call
-        // without throwing. Either outcome must leave the room consistent.
         var log = SdkLog.BeginScope();
         await using var scenario = await ReconnectionScenario.StartAsync(
             _server,
@@ -201,14 +198,29 @@ public class ReconnectionTests
         );
         while (scenario.Events.TryDequeue(out _)) { }
 
-        var error = await Record.ExceptionAsync(() =>
+        // An already cancelled token throws before the scenario is requested: nothing happens
+        await Assert.ThrowsAnyAsync<OperationCanceledException>(() =>
             scenario.Publisher.SimulateScenarioAsync(
                 Proto.SimulateScenarioKind.SimulateFullReconnect,
                 new CancellationToken(canceled: true)
             )
         );
+        await Task.Delay(TimeSpan.FromSeconds(2)); // a reconnection would start within this window
+        Assert.Empty(scenario.Events);
+        Assert.Equal(Proto.ConnectionState.ConnConnected, scenario.Publisher.ConnectionState);
+
+        // Cancelled once requested, it cancels the wait for the acknowledgement, not the
+        // scenario: the call throws, or completes if the acknowledgement already arrived
+        using var cts = new CancellationTokenSource();
+        var call = scenario.Publisher.SimulateScenarioAsync(
+            Proto.SimulateScenarioKind.SimulateFullReconnect,
+            cts.Token
+        );
+        cts.Cancel();
+        var error = await Record.ExceptionAsync(() => call);
         _output.WriteLine(error == null ? "acknowledged before the wait" : "wait cancelled");
         Assert.True(error == null || error is OperationCanceledException, $"{error}");
+
         await Eventually.TrueAsync(
             () => scenario.Events.Contains("Reconnected"),
             Settle,

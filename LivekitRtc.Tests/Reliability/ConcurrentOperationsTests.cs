@@ -294,6 +294,53 @@ public class ConcurrentOperationsTests
     }
 
     [Fact]
+    public async Task AlreadyCancelledTokens_ThrowBeforeAnyPublicationChange()
+    {
+        // PublishTrackAsync used to publish the track and then unpublish it in the background,
+        // UnpublishTrackAsync to unpublish it anyway, and PublishDataTrackAsync to publish the
+        // data track: an already cancelled token now throws before the request is sent
+        var log = SdkLog.BeginScope();
+        var roomName = ReliabilityServerFixture.NewRoomName("precancelled");
+        using var room = await _server.ConnectAsync("precancelled", roomName);
+        var local = room.LocalParticipant!;
+        var cancelled = new CancellationToken(canceled: true);
+        using var source = new AudioSource(48000, 1);
+        using var track = LocalAudioTrack.Create("precancelled-audio", source);
+
+        await Assert.ThrowsAnyAsync<OperationCanceledException>(() =>
+            local.PublishTrackAsync(track, null, cancelled)
+        );
+        await Assert.ThrowsAnyAsync<OperationCanceledException>(() =>
+            local.PublishDataTrackAsync("precancelled-data", cancelled)
+        );
+        for (var i = 0; i < 10; i++)
+        {
+            Assert.Empty(await _server.TrackSidsAsync(roomName, "precancelled"));
+            await Task.Delay(200);
+        }
+        Assert.Empty(local.TrackPublications);
+
+        var publication = await local.PublishTrackAsync(track);
+        await Assert.ThrowsAnyAsync<OperationCanceledException>(() =>
+            local.UnpublishTrackAsync(publication.Sid, cancelled)
+        );
+        Assert.Equal(new[] { publication.Sid }, local.TrackPublications.Keys);
+        // The server lists the track a moment after the publication; it must keep listing it
+        await Eventually.TrueAsync(
+            async () =>
+                (await _server.TrackSidsAsync(roomName, "precancelled")).SequenceEqual(
+                    new[] { publication.Sid }
+                ),
+            Settle,
+            "the server lists the track the cancelled unpublication kept"
+        );
+
+        await local.UnpublishTrackAsync(publication.Sid);
+        await room.DisconnectAsync();
+        log.AssertNoProblems();
+    }
+
+    [Fact]
     public async Task PublishingOneTrackTwiceConcurrently_FailsSafely()
     {
         // Not a supported use: whatever the FFI answers, the SDK must not crash, hang or list

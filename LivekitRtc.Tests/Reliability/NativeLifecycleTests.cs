@@ -313,6 +313,26 @@ public class NativeLifecycleTests
     }
 
     [Fact]
+    public async Task AudioSource_AnAlreadyCancelledCapture_ThrowsWithoutReachingTheSource()
+    {
+        // Standard .NET practice: an already cancelled token throws before any side effect. Had the
+        // 1 s frame reached the native source, the source would refuse the next captures while it
+        // consumes it (see the test above)
+        using var source = new AudioSource(48000, 1, queueSizeMs: 100);
+        await Assert.ThrowsAnyAsync<OperationCanceledException>(() =>
+            source.CaptureFrameAsync(
+                new AudioFrame(new short[48000], 48000, 1, 48000),
+                new CancellationToken(canceled: true)
+            )
+        );
+
+        Assert.Equal(0, source.QueuedDuration);
+        await source
+            .CaptureFrameAsync(new AudioFrame(new short[480], 48000, 1, 480))
+            .Within(TimeSpan.FromSeconds(5), "a capture right after the cancelled one");
+    }
+
+    [Fact]
     public void VideoFrameConversions_ReleaseTheBufferTheFfiReturns()
     {
         // VideoFrame.Convert receives an owned native buffer, copies it and must release it

@@ -361,6 +361,47 @@ public class RoomLifecycleTests
     }
 
     [Fact]
+    public async Task ConnectAsync_WithAnAlreadyCancelledToken_ThrowsWithoutConnecting()
+    {
+        // The connect request used to be sent before the token was observed: the native side
+        // joined the room, and the SDK had to leave it again in the background
+        var log = SdkLog.BeginScope();
+        var roomName = ReliabilityServerFixture.NewRoomName("precancelled-connect");
+        using var room = new Room();
+        ResourceSnapshot.CollectGarbage();
+        var live = FfiHandle.LiveCount;
+
+        await Assert.ThrowsAnyAsync<OperationCanceledException>(() =>
+            room.ConnectAsync(
+                _server.Url,
+                _server.Token("precancelled", roomName),
+                null,
+                new CancellationToken(canceled: true)
+            )
+        );
+        Assert.False(room.IsConnected);
+
+        // A connection the SDK abandons joins and leaves within a few hundred milliseconds, too fast
+        // to be seen in the participant list, but the server keeps the room it created for it
+        // until its departure timeout. No join, no room.
+        for (var i = 0; i < 10; i++)
+        {
+            var rooms = await _server.RoomService.ListRooms(
+                new ListRoomsRequest { Names = { roomName } }
+            );
+            Assert.Empty(rooms.Rooms);
+            await Task.Delay(200);
+        }
+        ResourceSnapshot.CollectGarbage();
+        Assert.True(FfiHandle.LiveCount <= live, "nothing was wrapped for the cancelled connect");
+
+        await room.ConnectAsync(_server.Url, _server.Token("precancelled", roomName));
+        Assert.True(room.IsConnected);
+        await room.DisconnectAsync();
+        log.AssertNoProblems();
+    }
+
+    [Fact]
     public async Task FailedConnects_ThrowRoomException_WrapNoHandle_AndLeaveTheRoomUsable()
     {
         var log = SdkLog.BeginScope();
