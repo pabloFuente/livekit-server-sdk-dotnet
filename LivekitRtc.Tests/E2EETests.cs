@@ -992,4 +992,103 @@ public class E2EETests : IAsyncLifetime
 
         Log("E2EE frame cryptor creation test completed");
     }
+
+    [Fact]
+    public async Task E2EE_KeyProvider_SetsExportsAndRatchetsSharedAndParticipantKeys()
+    {
+        // Every key operation is a request to the room's native key provider: a key exported
+        // after it was set or ratcheted shows the request reached it with the right identity
+        // and index
+        var sharedKey = new byte[32];
+        new Random(7).NextBytes(sharedKey);
+        var e2eeOptions = new E2EEOptions
+        {
+            KeyProviderOptions = new KeyProviderOptions { SharedKey = sharedKey },
+        };
+
+        _room1 = new Room();
+        await _room1.ConnectAsync(
+            _fixture.LiveKitUrl,
+            _fixture.CreateToken("e2ee-key-provider", "e2ee-key-provider-room"),
+            new RoomOptions { E2EE = e2eeOptions }
+        );
+        var keyProvider = _room1.E2EEManager!.KeyProvider!;
+        Assert.Same(e2eeOptions.KeyProviderOptions, keyProvider.Options);
+
+        Assert.Equal(sharedKey, keyProvider.ExportSharedKey());
+        var ratchetedSharedKey = keyProvider.RatchetSharedKey();
+        Assert.NotEmpty(ratchetedSharedKey);
+        Assert.NotEqual(sharedKey, ratchetedSharedKey);
+        Assert.Equal(ratchetedSharedKey, keyProvider.ExportSharedKey());
+
+        const string identity = "e2ee-remote-participant";
+        var participantKey = new byte[32];
+        new Random(8).NextBytes(participantKey);
+        keyProvider.SetKey(identity, participantKey, keyIndex: 2);
+        Assert.Equal(participantKey, keyProvider.ExportKey(identity, keyIndex: 2));
+        var ratchetedKey = keyProvider.RatchetKey(identity, keyIndex: 2);
+        Assert.NotEmpty(ratchetedKey);
+        Assert.NotEqual(participantKey, ratchetedKey);
+        Assert.Equal(ratchetedKey, keyProvider.ExportKey(identity, keyIndex: 2));
+
+        Assert.Throws<ArgumentNullException>(() => keyProvider.SetKey("", participantKey));
+        Assert.Throws<ArgumentNullException>(() => keyProvider.SetKey(identity, null!));
+        Assert.Throws<ArgumentNullException>(() => keyProvider.ExportKey(""));
+        Assert.Throws<ArgumentNullException>(() => keyProvider.RatchetKey(""));
+    }
+
+    [Fact]
+    public async Task E2EE_CryptorKeyIndexAndManagerEnabled_ReachTheNativeCryptors()
+    {
+        // GetFrameCryptors reads the key index and enabled state back from the native cryptors
+        var sharedKey = new byte[32];
+        new Random(9).NextBytes(sharedKey);
+        var e2eeOptions = new E2EEOptions
+        {
+            KeyProviderOptions = new KeyProviderOptions { SharedKey = sharedKey },
+        };
+        const string identity = "e2ee-cryptor-publisher";
+
+        _room1 = new Room();
+        await _room1.ConnectAsync(
+            _fixture.LiveKitUrl,
+            _fixture.CreateToken(identity, "e2ee-cryptor-control-room"),
+            new RoomOptions { E2EE = e2eeOptions }
+        );
+        var manager = _room1.E2EEManager!;
+        Assert.True(manager.Enabled);
+        Assert.Same(e2eeOptions, manager.Options);
+
+        using var audioSource = new AudioSource(48000, 1);
+        using var audioTrack = LocalAudioTrack.Create("cryptor-audio", audioSource);
+        var publication = await _room1.LocalParticipant!.PublishTrackAsync(audioTrack);
+
+        FrameCryptor? cryptor = null;
+        var deadline = DateTime.UtcNow + TimeSpan.FromSeconds(10);
+        while (cryptor == null && DateTime.UtcNow < deadline)
+        {
+            cryptor = manager.GetFrameCryptors().FirstOrDefault(c => c.TrackSid == publication.Sid);
+            if (cryptor == null)
+                await Task.Delay(100);
+        }
+        Assert.NotNull(cryptor);
+        Assert.Equal(identity, cryptor.ParticipantIdentity);
+
+        cryptor.SetKeyIndex(1);
+        Assert.Equal(1, cryptor.KeyIndex);
+        Assert.Equal(1, CryptorOf(manager, publication.Sid).KeyIndex);
+
+        manager.SetEnabled(false);
+        Assert.False(manager.Enabled);
+        Assert.False(CryptorOf(manager, publication.Sid).Enabled);
+
+        manager.SetEnabled(true);
+        Assert.True(manager.Enabled);
+        Assert.True(CryptorOf(manager, publication.Sid).Enabled);
+
+        await _room1.LocalParticipant!.UnpublishTrackAsync(publication.Sid);
+    }
+
+    private static FrameCryptor CryptorOf(E2EEManager manager, string trackSid) =>
+        Assert.Single(manager.GetFrameCryptors(), c => c.TrackSid == trackSid);
 }

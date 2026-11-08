@@ -234,7 +234,8 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
 
 - Only the reliability suite carries a Category trait (`Reliability`). Classes that take
   `RtcTestFixture` or `ReliabilityServerFixture` need Docker; the rest (`AudioFramePinningTests`,
-  `VideoFramePinningTests`, `VideoFramePlanesTests`, `TrackPublishOptionsMappingTests`,
+  `AudioFrameTests`, `AudioMixerTests`, `VideoFramePinningTests`, `VideoFramePlanesTests`,
+  `TrackPublishOptionsMappingTests`,
   `E2EEOptionsMappingTests`, `SdkVersionTests`, `DataTrackFrameTests`, `EncodedVideoSourceTests`,
   `RpcErrorTests`, `FfiClientTest`, `AudioCaptureMinimalTest`, `AudioSourcePlayoutTests`,
   `AudioResamplerTests` and the `Reliability/Native*Tests`) do not. `FfiClientTest`,
@@ -271,6 +272,11 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   `Room.SimulateScenarioAsync(Proto.SimulateScenarioKind.SimulateFullReconnect)` forces a full
   reconnect (`Reconnecting`, one `LocalTrackRepublished` per local track, `Reconnected`) and
   `SimulateSignalReconnect` a resume. `RoomEventsTests` and `ParticipantEventsTests` use it.
+- Room events a local server cannot produce on demand (`TrackSubscriptionFailed`, the Cloud-only
+  `Moved`) are replayed with `SyntheticRoomEvents` (`SyntheticRoomEventTests`). The room applies an
+  event's state when it arrives but raises it later from the event chain, so a handler may already
+  see the state of later events. livekit-server forwards transcriptions only from agent
+  participants: a test that publishes one connects the sender with an agent token.
 - A line like `[WARN] RoomEvent.<Name>: ... not found` on the SDK's stderr means the SDK dropped a
   room event. Treat it as a bug signal, not noise. `dotnet test` does not show the test host's
   stderr (neither the console nor the trx logger): set `LIVEKIT_TEST_STDERR_FILE=<path>` and the

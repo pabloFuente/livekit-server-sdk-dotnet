@@ -139,4 +139,60 @@ public class DataTrackTests
         await publisherRoom.DisconnectAsync();
         await subscriberRoom.DisconnectAsync();
     }
+
+    [Fact]
+    public async Task RemoteDataTrack_PipelineOptions_KeepFramesFlowing_AndDisposeReleasesTheTrack()
+    {
+        const string roomName = "test-data-track-pipeline-room";
+        const string subscriberIdentity = "dt-pipeline-subscriber";
+
+        using var publisherRoom = new Room();
+        using var subscriberRoom = new Room();
+        var publishedTcs = new TaskCompletionSource<RemoteDataTrack>(
+            TaskCreationOptions.RunContinuationsAsynchronously
+        );
+        subscriberRoom.DataTrackPublished += (_, track) => publishedTcs.TrySetResult(track);
+
+        await _fixture.ConnectRoomsAndWaitForEvents(
+            publisherRoom,
+            subscriberRoom,
+            _fixture.CreateToken("dt-pipeline-publisher", roomName),
+            _fixture.CreateToken(subscriberIdentity, roomName),
+            subscriberIdentity,
+            Log
+        );
+
+        using var localTrack = await publisherRoom.LocalParticipant!.PublishDataTrackAsync(
+            "pipeline"
+        );
+        var remoteTrack = await publishedTcs.Task.WaitAsync(TimeSpan.FromSeconds(10));
+
+        remoteTrack.SetPipelineOptions(maxPartialFrames: 4);
+        var stream = remoteTrack.Subscribe();
+
+        // Frames pushed before the subscription is established are dropped: push until one arrives
+        var read = stream.ReadAsync();
+        for (var i = 0; !read.IsCompleted && i < 200; i++)
+        {
+            localTrack.TryPush(new DataTrackFrame(new byte[] { 42 }));
+            await Task.Delay(50);
+        }
+        var frame = await read.WaitAsync(TimeSpan.FromSeconds(10));
+        Assert.NotNull(frame);
+        Assert.Equal(new byte[] { 42 }, frame.Payload);
+
+        await stream.DisposeAsync();
+        await stream.DisposeAsync();
+        Assert.True(stream.IsEnded);
+        await Assert.ThrowsAsync<ObjectDisposedException>(() => stream.ReadAsync());
+
+        remoteTrack.Dispose();
+        remoteTrack.Dispose();
+        Assert.Throws<ObjectDisposedException>(() => remoteTrack.SetPipelineOptions());
+        Assert.Throws<ObjectDisposedException>(() => remoteTrack.Subscribe());
+        Assert.Throws<ObjectDisposedException>(() => remoteTrack.IsPublished());
+
+        await publisherRoom.DisconnectAsync();
+        await subscriberRoom.DisconnectAsync();
+    }
 }
