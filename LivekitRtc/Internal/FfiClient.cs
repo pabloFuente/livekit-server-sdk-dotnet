@@ -1,6 +1,7 @@
 // author: https://github.com/pabloFuente
 
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -42,6 +43,10 @@ namespace LiveKit.Rtc.Internal
             Func<FfiEvent, bool> Predicate,
             TaskCompletionSource<FfiEvent> Tcs
         )> _waiters = new List<(Func<FfiEvent, bool>, TaskCompletionSource<FfiEvent>)>();
+
+        // Audio, video and data track stream events go straight to their stream, by handle, so their
+        // cost does not grow with the number of open streams
+        private readonly ConcurrentDictionary<ulong, Action<FfiEvent>> _streamHandlers = new();
 
         /// <summary>
         /// Global event for all FFI messages. Invoked outside the internal lock.
@@ -268,11 +273,59 @@ namespace LiveKit.Rtc.Internal
                         }
                     }
                 }
+                DispatchToStream(ffiEvent);
                 RaiseEventReceived(ffiEvent);
             }
             catch (Exception ex)
             {
                 Console.Error.WriteLine($"Error in FFI Callback: {ex}");
+            }
+        }
+
+        /// <summary>
+        /// Delivers the audio, video or data track stream events of <paramref name="streamHandle"/>
+        /// to <paramref name="handler"/>, on the native thread that raised them. They still reach
+        /// <see cref="EventReceived"/> too.
+        /// </summary>
+        /// <param name="streamHandle">Native handle of the stream.</param>
+        /// <param name="handler">Receives the events; it must not block.</param>
+        internal void AddStreamHandler(ulong streamHandle, Action<FfiEvent> handler) =>
+            _streamHandlers[streamHandle] = handler;
+
+        /// <summary>
+        /// Stops delivering the events of <paramref name="streamHandle"/>.
+        /// </summary>
+        /// <param name="streamHandle">Native handle of the stream.</param>
+        internal void RemoveStreamHandler(ulong streamHandle) =>
+            _streamHandlers.TryRemove(streamHandle, out _);
+
+        private void DispatchToStream(FfiEvent ffiEvent)
+        {
+            ulong streamHandle;
+            switch (ffiEvent.MessageCase)
+            {
+                case FfiEvent.MessageOneofCase.AudioStreamEvent:
+                    streamHandle = ffiEvent.AudioStreamEvent.StreamHandle;
+                    break;
+                case FfiEvent.MessageOneofCase.VideoStreamEvent:
+                    streamHandle = ffiEvent.VideoStreamEvent.StreamHandle;
+                    break;
+                case FfiEvent.MessageOneofCase.DataTrackStreamEvent:
+                    streamHandle = ffiEvent.DataTrackStreamEvent.StreamHandle;
+                    break;
+                default:
+                    return;
+            }
+
+            if (!_streamHandlers.TryGetValue(streamHandle, out var handler))
+                return;
+            try
+            {
+                handler(ffiEvent);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"[ERROR] FFI stream event handler threw: {ex}");
             }
         }
 

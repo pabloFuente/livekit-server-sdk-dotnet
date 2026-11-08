@@ -58,7 +58,15 @@ internal sealed class SyntheticRoomEvents
     public void Deliver(RoomEvent roomEvent)
     {
         roomEvent.RoomHandle = _roomHandle;
-        var data = new FfiEvent { RoomEvent = roomEvent }.ToByteArray();
+        DeliverFfiEvent(new FfiEvent { RoomEvent = roomEvent });
+    }
+
+    /// <summary>
+    /// Delivers <paramref name="ffiEvent"/> on the calling thread, as the native library does.
+    /// </summary>
+    public static void DeliverFfiEvent(FfiEvent ffiEvent)
+    {
+        var data = ffiEvent.ToByteArray();
         var callback =
             typeof(FfiClient).GetMethod(
                 "OnFfiCallback",

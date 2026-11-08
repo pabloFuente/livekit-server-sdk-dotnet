@@ -88,8 +88,7 @@ namespace LiveKit.Rtc
             var stream = CreateOwnedStream();
             _handle = FfiHandle.FromId(stream.Handle.Id);
 
-            // Subscribe to events
-            FfiClient.Instance.EventReceived += OnFfiEvent;
+            FfiClient.Instance.AddStreamHandler(_handle.HandleId, OnFfiEvent);
         }
 
         /// <summary>
@@ -120,7 +119,7 @@ namespace LiveKit.Rtc
 
             _cts = new CancellationTokenSource();
 
-            FfiClient.Instance.EventReceived += OnFfiEvent;
+            FfiClient.Instance.AddStreamHandler(_handle.HandleId, OnFfiEvent);
         }
 
         /// <summary>
@@ -221,7 +220,7 @@ namespace LiveKit.Rtc
             return FfiHandle.FromId(response.VideoStreamFromParticipant.Stream.Handle.Id);
         }
 
-        private void OnFfiEvent(object? sender, FfiEvent e)
+        private void OnFfiEvent(FfiEvent e)
         {
             if (e.MessageCase != FfiEvent.MessageOneofCase.VideoStreamEvent)
                 return;
@@ -251,7 +250,7 @@ namespace LiveKit.Rtc
             {
                 _channel.Writer.TryComplete();
                 // Nothing more will come for this handle
-                FfiClient.Instance.EventReceived -= OnFfiEvent;
+                FfiClient.Instance.RemoveStreamHandler(_handle.HandleId);
             }
         }
 
@@ -262,7 +261,7 @@ namespace LiveKit.Rtc
         {
             _ = Task.Delay(TimeSpan.FromSeconds(5))
                 .ContinueWith(
-                    _ => FfiClient.Instance.EventReceived -= OnFfiEvent,
+                    _ => FfiClient.Instance.RemoveStreamHandler(_handle.HandleId),
                     TaskScheduler.Default
                 );
         }
