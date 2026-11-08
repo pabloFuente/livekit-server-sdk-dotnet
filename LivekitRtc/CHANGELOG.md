@@ -49,7 +49,7 @@
   unsubscription from different threads, so it can deliver the unsubscription first, twice, or
   after the participant left. The room now recognizes these orders: such a late subscription
   raises no event and its track is released, and the late events of a participant that left no
-  longer log `[WARN] RoomEvent.TrackSubscribed: Participant ... not found`. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
+  longer log `[WARN] RoomEvent.TrackSubscribed: Participant ... not found`. [PR #163](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/163)
 - An already cancelled `CancellationToken` now makes `Room.ConnectAsync`,
   `Room.SimulateScenarioAsync`, `AudioSource.CaptureFrameAsync`,
   `LocalParticipant.PublishTrackAsync`, `UnpublishTrackAsync` and `PublishDataTrackAsync` throw
