@@ -30,7 +30,7 @@ def compiled_files():
     text = GEN_SCRIPT.read_text(encoding="utf-8")
     # Only the first protoc call (the --csharp_out one for LivekitApi) matters here;
     # the Twirp call is a subset and the RTC call uses another directory.
-    api_section = text.split("--twirpcs_out", 1)[0]
+    api_section = text.split("--twirp_csharp_out", 1)[0]
     return sorted(set(re.findall(r'"\$API_PROTOCOL"/([\w/.-]+\.proto)', api_section)))
 
 

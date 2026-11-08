@@ -18,7 +18,7 @@ Scripts used below live next to this file. Run them from the repo root:
 
 1. `git status --porcelain` must be clean apart from untracked noise. If not, ask before continuing.
 2. `git submodule update --init protocol` if `protocol/protobufs` is missing.
-3. Check tools: `protoc --version`, `go version`, `dotnet --version`, `dotnet tool restore`. `proto-tools.env` pins `protoc` at the version that reproduces the committed code (another `protoc` can rewrite every generated file), and `generate_proto.sh` builds the Twirp plugin from `tools/protoc-gen-twirpcs` with Go; it stops before deleting anything when `protoc` or `go` is missing or `protoc` is another version. If so, stop and tell the user what to install: `protoc` at `PROTOC_VERSION` from github.com/protocolbuffers/protobuf/releases, or Go from go.dev/dl. Never move the pin inside a sync.
+3. Check tools: `protoc --version`, `go version`, `dotnet --version`, `dotnet tool restore`. `proto-tools.env` pins `protoc` at the version that reproduces the committed code (another `protoc` can rewrite every generated file), and `generate_proto.sh` builds the Twirp plugin that `tools/go.mod` pins with Go; it stops before deleting anything when `protoc` or `go` is missing or `protoc` is another version. If so, stop and tell the user what to install: `protoc` at `PROTOC_VERSION` from github.com/protocolbuffers/protobuf/releases, or Go from go.dev/dl. Never move the pin inside a sync.
 4. Record the starting point:
    ```bash
    OLD=$(git -C protocol describe --tags --exact-match 2>/dev/null || git -C protocol rev-parse --short HEAD)
@@ -41,7 +41,7 @@ Scripts used below live next to this file. Run them from the repo root:
    - **Listed but missing**: upstream deleted or moved a file. Remove or fix it in `generate_proto.sh`.
    - **Imported but not compiled**: add it to the `--csharp_out` list in `generate_proto.sh`, otherwise LivekitApi will not compile.
    - **Top-level protos not compiled**: report them at the checkpoint. Don't add them on your own.
-2. If a new or changed file declares a public `service` that should be callable from .NET, it also needs to be in the `--twirpcs_out` call. Report it at the checkpoint instead of deciding.
+2. If a new or changed file declares a public `service` that should be callable from .NET, it also needs to be in the `--twirp_csharp_out` call. Report it at the checkpoint instead of deciding.
 3. Run `./generate_proto.sh`. If it fails, fix the script (proto list, `sed` patches), never the output.
 4. `git diff --stat LivekitApi/proto/` to sanity-check: files that disappear entirely or a huge `Twirp.cs` churn deserve a closer look.
 
