@@ -479,7 +479,7 @@ Pre-requisites:
 
 - [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) (`global.json` pins it; the package itself targets `netstandard2.0`)
 - [protoc](https://github.com/protocolbuffers/protobuf/releases) at the version pinned in [proto-tools.env](../proto-tools.env): it reproduces the committed generated code, and `generate_proto.sh` refuses to run with another
-- [Go](https://go.dev/dl/), with which `generate_proto.sh` builds the Twirp code generator [vendored in the repository](../tools/protoc-gen-twirpcs/README.md)
+- [Go](https://go.dev/dl/), with which `generate_proto.sh` builds the Twirp code generator, [twirp-csharp](https://github.com/pabloFuente/twirp-csharp), at the version pinned in [tools/go.mod](../tools/go.mod)
 
 Generate proto files:
 

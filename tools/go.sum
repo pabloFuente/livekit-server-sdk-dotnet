@@ -1,4 +1,6 @@
 github.com/google/go-cmp v0.7.0 h1:wk8382ETsv4JYUZwIsn6YpYiWiBsYLSJiTsyBybVuN8=
 github.com/google/go-cmp v0.7.0/go.mod h1:pXiqmnSA92OHEEa9HXL2W4E7lf9JzCmGVUdgjX3N/iU=
+github.com/pabloFuente/twirp-csharp v0.0.0-20261108145929-6f552d291bd8 h1:9DTtw5OTasCsma6L35a+N+ELUt0s+FvGs+0C70GZJlU=
+github.com/pabloFuente/twirp-csharp v0.0.0-20261108145929-6f552d291bd8/go.mod h1:zaWeqx4cNrWCURTpyp5pMzC7/ysVu99xC5hdC+uCwZM=
 google.golang.org/protobuf v1.36.12 h1:pJOKDDOyeXErUroCihFAd5LQuwXBSpVnKGrj5o/fwxc=
 google.golang.org/protobuf v1.36.12/go.mod h1:HTf+CrKn2C3g5S8VImy6tdcUvCska2kB7j23XfzDpco=

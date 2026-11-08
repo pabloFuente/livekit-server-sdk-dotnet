@@ -24,16 +24,17 @@ if [ "$installed_protoc" != "$PROTOC_VERSION" ]; then
     exit 1
 fi
 
-# The Twirp plugin is vendored in tools/protoc-gen-twirpcs and passed to protoc by path, so a
-# protoc-gen-twirpcs on PATH is never used
+# The Twirp plugin, protoc-gen-twirp_csharp (github.com/pabloFuente/twirp-csharp), is built at the
+# version tools/go.mod pins and passed to protoc by path, so a protoc-gen-twirp_csharp on PATH is
+# never used
 if ! command -v go &>/dev/null; then
-    echo "Error: go not found. Install Go (https://go.dev/dl/) to build tools/protoc-gen-twirpcs." >&2
+    echo "Error: go not found. Install Go (https://go.dev/dl/) to build the Twirp plugin that tools/go.mod pins." >&2
     exit 1
 fi
 TOOLS_BIN=$(mktemp -d)
 trap 'rm -rf "$TOOLS_BIN"' EXIT
-TWIRPCS_PLUGIN="$TOOLS_BIN/protoc-gen-twirpcs"
-(cd "$SCRIPT_FOLDER/tools/protoc-gen-twirpcs" && go build -o "$TWIRPCS_PLUGIN" .)
+TWIRP_PLUGIN="$TOOLS_BIN/protoc-gen-twirp_csharp"
+(cd "$SCRIPT_FOLDER/tools" && go build -o "$TWIRP_PLUGIN" github.com/pabloFuente/twirp-csharp/cmd/protoc-gen-twirp_csharp)
 
 echo "=== Generating proto files for LivekitApi (Server SDK) ==="
 
@@ -73,11 +74,11 @@ protoc \
     "$API_PROTOCOL"/livekit_webhook.proto \
     "$API_PROTOCOL"/logger/options.proto
 
-# The Twirp client class, Twirp.cs (tools/protoc-gen-twirpcs). Routes are relative to the host, and
-# failed calls throw TwirpException
-protoc -I "$API_PROTOCOL" --plugin=protoc-gen-twirpcs="$TWIRPCS_PLUGIN" \
-    --twirpcs_opt=pathPrefix=twirp,className=Twirp,errorFactory=Livekit.Server.Sdk.Dotnet.TwirpException.FromResponse \
-    --twirpcs_out="$API_OUT_CSHARP" \
+# The Twirp client class, Twirp.cs. Routes are relative to the host, and failed calls throw
+# TwirpException
+protoc -I "$API_PROTOCOL" --plugin=protoc-gen-twirp_csharp="$TWIRP_PLUGIN" \
+    --twirp_csharp_opt=pathPrefix=twirp,className=Twirp,errorFactory=Livekit.Server.Sdk.Dotnet.TwirpException.FromResponse \
+    --twirp_csharp_out="$API_OUT_CSHARP" \
     "$API_PROTOCOL"/livekit_room.proto \
     "$API_PROTOCOL"/livekit_egress.proto \
     "$API_PROTOCOL"/livekit_ingress.proto \

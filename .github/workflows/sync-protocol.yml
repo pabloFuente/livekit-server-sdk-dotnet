@@ -62,8 +62,8 @@ jobs:
         with:
           dotnet-version: 10.0.x
       # proto-tools.env pins the protoc version that reproduces the committed generated code byte for
-      # byte, and generate_proto.sh refuses to run with another. The script builds the Twirp plugin,
-      # vendored in tools/protoc-gen-twirpcs, with Go
+      # byte, and generate_proto.sh refuses to run with another. The script builds the Twirp plugin
+      # that tools/go.mod pins with Go
       - name: Read the protoc pin
         id: pins
         run: grep -E '^[A-Z_]+=' proto-tools.env >> "$GITHUB_OUTPUT"

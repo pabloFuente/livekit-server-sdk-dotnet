@@ -36,14 +36,17 @@ updates:
           - "csharpier"
           - "CSharpier.MSBuild"
           - "Testcontainers*"
-  # The Go dependencies of the Twirp plugin vendored in tools/protoc-gen-twirpcs. The Generated code
-  # workflow checks that a bump still reproduces the committed Twirp.cs byte for byte
+  # The Twirp plugin (github.com/pabloFuente/twirp-csharp), a Go tool in tools/go.mod, and its
+  # dependencies. Go marks a tool dependency "// indirect", which Dependabot skips unless allowed.
+  # The Generated code workflow checks that a bump still reproduces the committed Twirp.cs
   - package-ecosystem: "gomod"
-    directory: "/tools/protoc-gen-twirpcs"
+    directory: "/tools"
     schedule:
       interval: "weekly"
     cooldown:
       default-days: 7
+    allow:
+      - dependency-type: "all"
   # The workflows pin every action to a full commit SHA followed by "# vX.Y.Z", and Dependabot
   # updates both together
   - package-ecosystem: "github-actions"
