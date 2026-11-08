@@ -519,7 +519,7 @@ dotnet test LivekitApi.Tests --filter "Category=Integration"
 2. Make sure to run script `./build_local.sh` to properly format all files with csharpier. Commit any changes in the repo after the script finishes.
 3. Create a [new release in GitHub](https://github.com/pabloFuente/livekit-server-sdk-dotnet/releases/new) with:
    - Release title `api-X.Y.Z`
-   - A new tag `api-X.Y.Z`
+   - A new tag `api-X.Y.Z`, where `X.Y.Z` is the `<Version>` of `LivekitApi.csproj` (the workflow fails otherwise)
    - Description (change `A.B.C` with the proper version of livekit/protocol): `Update livekit/protocol to [vA.B.C](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%40A.B.C)`
 
 > [!IMPORTANT]
