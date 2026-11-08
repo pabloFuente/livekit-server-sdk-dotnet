@@ -34,6 +34,7 @@ public class ServerOutageTests
         await using var scenario = await ReconnectionScenario.StartAsync(_server, "short-outage");
         while (scenario.Events.TryDequeue(out _)) { }
 
+        scenario.Mark("server paused");
         await _server.PauseAsync();
         try
         {
@@ -50,6 +51,7 @@ public class ServerOutageTests
         }
         finally
         {
+            scenario.Mark("server resumed");
             await _server.UnpauseAsync();
         }
 
@@ -61,6 +63,7 @@ public class ServerOutageTests
         _output.WriteLine(string.Join(", ", scenario.Events));
         Assert.DoesNotContain(scenario.Events, e => e.StartsWith("Disconnected"));
         Assert.Equal(Proto.ConnectionState.ConnConnected, scenario.Publisher.ConnectionState);
+        await scenario.WaitUntilBothConnectedAsync(Detection);
         await scenario.WaitUntilConsistentAsync(_server);
         await scenario.AssertDataArrivesOnceAsync("after-outage");
         log.AssertNoProblems();

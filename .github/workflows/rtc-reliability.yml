@@ -58,11 +58,16 @@ jobs:
         dotnet test LivekitRtc.Tests -c Release --filter "Category=Reliability&FullyQualifiedName!~SoakTests" \
           --logger "trx;LogFileName=reliability.trx" --logger "console;verbosity=normal" \
           --results-directory TestResults
+    # A soak that hangs fails on its own after LIVEKIT_SOAK_MINUTES + 5 minutes, naming the last
+    # operations of its workers. --blame-hang only acts about a minute later, when the process is too
+    # stuck to fail: it then keeps a minidump of every thread's stack with the results
     - name: Soak
       if: ${{ !cancelled() }}
       run: |
         dotnet test LivekitRtc.Tests -c Release --filter "FullyQualifiedName~SoakTests" \
           --logger "trx;LogFileName=soak.trx" --logger "console;verbosity=normal" \
+          --blame-hang --blame-hang-dump-type mini \
+          --blame-hang-timeout "$(( ${LIVEKIT_SOAK_MINUTES%.*} + 6 ))m" \
           --results-directory TestResults
     # The SDK reports what it drops on stderr ([WARN] RoomEvent..., [ERROR]...), which dotnet test
     # does not show: keep it with the results, and the crash reports if any

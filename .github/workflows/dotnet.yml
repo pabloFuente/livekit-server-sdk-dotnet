@@ -81,6 +81,10 @@ jobs:
   rtc-linux-arm64:
     name: RTC tests (linux-arm64)
     runs-on: ubuntu-24.04-arm
+    env:
+      # The SDK reports what it drops on stderr ([WARN] RoomEvent..., [ERROR]...), which dotnet test
+      # does not show: kept in a file, uploaded when the job fails
+      LIVEKIT_TEST_STDERR_FILE: ${{ github.workspace }}/TestResults/sdk-stderr.log
     steps:
     - name: Checkout code
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -88,8 +92,18 @@ jobs:
       uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
       with:
         dotnet-version: 10.0.x
+    # Normal verbosity also shows the native library's own log (reconnections, data channels)
     - name: Test
-      run: dotnet test LivekitRtc.Tests
+      run: |
+        mkdir -p TestResults
+        dotnet test LivekitRtc.Tests --logger "console;verbosity=normal"
+    - name: Upload the SDK's stderr
+      if: ${{ failure() }}
+      uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+      with:
+        name: rtc-linux-arm64-sdk-stderr
+        path: TestResults
+        if-no-files-found: ignore
 
   # Windows and macOS can't start the Linux containers of the e2e tests
   # Run only the tests that load the native library without Docker, the native reliability tier
