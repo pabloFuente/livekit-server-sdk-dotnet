@@ -54,7 +54,7 @@ public class RoomLifecycleTests
         await Eventually.TrueAsync(() => disconnected > 0, ServerSettle, "Disconnected is raised");
         Assert.Equal(1, Volatile.Read(ref disconnected));
         Assert.False(room.IsConnected);
-        await _server.WaitForIdentitiesAsync(roomName, Array.Empty<string>(), ServerSettle);
+        await _server.WaitUntilEmptyAsync(roomName);
         log.AssertNoProblems();
     }
 
@@ -76,7 +76,7 @@ public class RoomLifecycleTests
 
         await EndAConnectedRoomAsync(roomName, how);
 
-        await _server.WaitForIdentitiesAsync(roomName, Array.Empty<string>(), ServerSettle);
+        await _server.WaitUntilEmptyAsync(roomName);
         await Eventually.TrueAsync(
             () =>
             {
@@ -199,7 +199,7 @@ public class RoomLifecycleTests
         ended.Add(("cancelled while connecting", new WeakReference(abandoned)));
 
         // Let the deferred cleanups of the event chains run
-        await _server.WaitForIdentitiesAsync(roomName, Array.Empty<string>(), ServerSettle);
+        await _server.WaitUntilEmptyAsync(roomName);
         return ended;
     }
 
@@ -246,7 +246,7 @@ public class RoomLifecycleTests
             );
             Assert.Equal(1, Volatile.Read(ref disconnected));
             Assert.False(room.IsConnected);
-            await _server.WaitForIdentitiesAsync(roomName, Array.Empty<string>(), ServerSettle);
+            await _server.WaitUntilEmptyAsync(roomName);
         }
         log.AssertNoProblems();
     }
@@ -289,7 +289,7 @@ public class RoomLifecycleTests
         Assert.Equal(new[] { "concurrent-connect" }, await _server.IdentitiesAsync(roomName));
 
         await room.DisconnectAsync();
-        await _server.WaitForIdentitiesAsync(roomName, Array.Empty<string>(), ServerSettle);
+        await _server.WaitUntilEmptyAsync(roomName);
         log.AssertNoProblems();
     }
 
@@ -312,7 +312,7 @@ public class RoomLifecycleTests
 
         // The FFI completed the connection; the SDK must leave it in the background
         await Task.Delay(TimeSpan.FromSeconds(2));
-        await _server.WaitForIdentitiesAsync(roomName, Array.Empty<string>(), ServerSettle);
+        await _server.WaitUntilEmptyAsync(roomName);
         log.AssertNoProblems();
     }
 
@@ -350,7 +350,7 @@ public class RoomLifecycleTests
                 Assert.Null(room.LocalParticipant);
             }
 
-            await _server.WaitForIdentitiesAsync(roomName, Array.Empty<string>(), ServerSettle);
+            await _server.WaitUntilEmptyAsync(roomName);
         }
         _output.WriteLine(string.Join(Environment.NewLine, outcomes));
 
@@ -540,7 +540,7 @@ public class RoomLifecycleTests
             Assert.Null(error);
             Assert.False(room.IsConnected);
             room.Dispose();
-            await _server.WaitForIdentitiesAsync(roomName, Array.Empty<string>(), ServerSettle);
+            await _server.WaitUntilEmptyAsync(roomName);
         }
         log.AssertNoProblems();
     }

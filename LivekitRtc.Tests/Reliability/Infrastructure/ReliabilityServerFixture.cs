@@ -139,11 +139,23 @@ public sealed class ReliabilityServerFixture : IAsyncLifetime
         }
     }
 
-    public Task WaitForIdentitiesAsync(string roomName, string[] expected, TimeSpan timeout) =>
+    /// <summary>
+    /// How long the server may take to drop a participant that left. A clean disconnection is seen
+    /// at once, but a leave request that does not get through (a room closed during a negotiation
+    /// or a reconnection) is only noticed at the server's own timeout, which passes 30 s on a loaded
+    /// CI runner. A room the SDK never closed stays listed however long this is.
+    /// </summary>
+    public static readonly TimeSpan DepartureTimeout = TimeSpan.FromSeconds(60);
+
+    /// <summary>
+    /// Waits until the server lists nobody in <paramref name="roomName"/>, within
+    /// <see cref="DepartureTimeout"/>.
+    /// </summary>
+    public Task WaitUntilEmptyAsync(string roomName) =>
         Eventually.TrueAsync(
-            async () => (await IdentitiesAsync(roomName)).SequenceEqual(expected.OrderBy(i => i)),
-            timeout,
-            $"the server lists [{string.Join(", ", expected)}] in {roomName}"
+            async () => (await IdentitiesAsync(roomName)).Length == 0,
+            DepartureTimeout,
+            $"the server lists nobody in {roomName}"
         );
 
     /// <summary>

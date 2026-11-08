@@ -61,7 +61,7 @@ public class ConcurrentOperationsTests
             .Within(TimeSpan.FromMinutes(2), "the parallel rooms");
 
         foreach (var name in finished.Distinct())
-            await _server.WaitForIdentitiesAsync(name, Array.Empty<string>(), Settle);
+            await _server.WaitUntilEmptyAsync(name);
         await ResourceSnapshot.AssertWithinAsync(
             baseline,
             new LeakBudget { NativeHeapBytes = 64L * 1024 * 1024 },
