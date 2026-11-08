@@ -331,6 +331,18 @@ public class TestHttpMessageHandler : HttpMessageHandler
         Assert.NotNull(videoPayload);
         return JObject.Parse(videoPayload);
     }
+
+    // SIP grant of the bearer token sent in the last request
+    public JObject LastSipGrant()
+    {
+        Assert.NotNull(LastRequest?.Headers.Authorization);
+        var jwt = new JwtSecurityTokenHandler().ReadJwtToken(
+            LastRequest.Headers.Authorization.Parameter!
+        );
+        var sipPayload = jwt.Payload["sip"]?.ToString();
+        Assert.NotNull(sipPayload);
+        return JObject.Parse(sipPayload);
+    }
 }
 
 [CollectionDefinition("Integration tests")]

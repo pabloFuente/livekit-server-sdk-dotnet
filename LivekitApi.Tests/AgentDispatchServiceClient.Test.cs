@@ -52,5 +52,42 @@ namespace Livekit.Server.Sdk.Dotnet.Test
                 );
             }
         }
+
+        [Fact]
+        [Trait("Category", "Integration")]
+        [Trait("Category", "AgentDispatchService")]
+        public async Task Delete_Dispatch()
+        {
+            await roomClient.CreateRoom(new CreateRoomRequest { Name = TestConstants.ROOM_NAME });
+            try
+            {
+                var created = await agentDispatchClient.CreateDispatch(
+                    new CreateAgentDispatchRequest
+                    {
+                        AgentName = "test-agent",
+                        Room = TestConstants.ROOM_NAME,
+                    }
+                );
+
+                var deleted = await agentDispatchClient.DeleteDispatch(
+                    new DeleteAgentDispatchRequest
+                    {
+                        DispatchId = created.Id,
+                        Room = TestConstants.ROOM_NAME,
+                    }
+                );
+                Assert.Equal(created.Id, deleted.Id);
+
+                Assert.Null(
+                    await agentDispatchClient.GetDispatch(created.Id, TestConstants.ROOM_NAME)
+                );
+            }
+            finally
+            {
+                await roomClient.DeleteRoom(
+                    new DeleteRoomRequest { Room = TestConstants.ROOM_NAME }
+                );
+            }
+        }
     }
 }

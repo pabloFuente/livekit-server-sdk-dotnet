@@ -137,5 +137,144 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             Assert.True(videoGrant.SelectToken("roomAdmin")?.Value<bool>());
             Assert.Equal(TestConstants.ROOM_NAME, videoGrant.SelectToken("room")?.Value<string>());
         }
+
+        // Forwarding and moving are LiveKit Cloud-only, so their integration tests are skipped:
+        // this is what checks them
+        [Theory]
+        [Trait("Category", "Unit")]
+        [InlineData("ForwardParticipant")]
+        [InlineData("MoveParticipant")]
+        public async Task ForwardAndMoveParticipant_SendDestinationRoomGrant(string method)
+        {
+            var handler = new TestHttpMessageHandler();
+            var service = new RoomServiceClient(
+                "http://localhost",
+                "key",
+                TEST_SECRET,
+                new HttpClient(handler)
+            );
+
+            Task call = method switch
+            {
+                "ForwardParticipant" => service.ForwardParticipant(
+                    new ForwardParticipantRequest
+                    {
+                        Room = "source-room",
+                        Identity = "participant",
+                        DestinationRoom = "destination-room",
+                    }
+                ),
+                "MoveParticipant" => service.MoveParticipant(
+                    new MoveParticipantRequest
+                    {
+                        Room = "source-room",
+                        Identity = "participant",
+                        DestinationRoom = "destination-room",
+                    }
+                ),
+                _ => throw new ArgumentException("Unknown method " + method),
+            };
+            await call;
+
+            Assert.NotNull(handler.LastRequest?.RequestUri);
+            Assert.Equal(
+                "/twirp/livekit.RoomService/" + method,
+                handler.LastRequest.RequestUri.AbsolutePath
+            );
+            var videoGrant = handler.LastVideoGrant();
+            Assert.True(videoGrant.SelectToken("roomAdmin")?.Value<bool>());
+            Assert.Equal("source-room", videoGrant.SelectToken("room")?.Value<string>());
+            Assert.Equal(
+                "destination-room",
+                videoGrant.SelectToken("destinationRoom")?.Value<string>()
+            );
+        }
+
+        [Fact]
+        [Trait("Category", "Unit")]
+        public async Task DeleteDispatch_SendsRoomAdminGrantOfTheRoom()
+        {
+            var handler = new TestHttpMessageHandler();
+            var service = new AgentDispatchServiceClient(
+                "http://localhost",
+                "key",
+                TEST_SECRET,
+                new HttpClient(handler)
+            );
+
+            await service.DeleteDispatch(
+                new DeleteAgentDispatchRequest
+                {
+                    DispatchId = "AD_test",
+                    Room = TestConstants.ROOM_NAME,
+                }
+            );
+
+            Assert.NotNull(handler.LastRequest?.RequestUri);
+            Assert.Equal(
+                "/twirp/livekit.AgentDispatchService/DeleteDispatch",
+                handler.LastRequest.RequestUri.AbsolutePath
+            );
+            var sentRequest = DeleteAgentDispatchRequest.Parser.ParseFrom(handler.LastRequestBody);
+            Assert.Equal("AD_test", sentRequest.DispatchId);
+            var videoGrant = handler.LastVideoGrant();
+            Assert.True(videoGrant.SelectToken("roomAdmin")?.Value<bool>());
+            Assert.Equal(TestConstants.ROOM_NAME, videoGrant.SelectToken("room")?.Value<string>());
+        }
+
+        // Needs a running stream egress, which the integration stack does not have
+        [Fact]
+        [Trait("Category", "Unit")]
+        public async Task UpdateStream_SendsRoomRecordGrant()
+        {
+            var handler = new TestHttpMessageHandler();
+            var service = new EgressServiceClient(
+                "http://localhost",
+                "key",
+                TEST_SECRET,
+                new HttpClient(handler)
+            );
+
+            await service.UpdateStream(
+                new UpdateStreamRequest
+                {
+                    EgressId = "EG_test",
+                    AddOutputUrls = { "rtmp://localhost/live/stream" },
+                }
+            );
+
+            Assert.NotNull(handler.LastRequest?.RequestUri);
+            Assert.Equal(
+                "/twirp/livekit.Egress/UpdateStream",
+                handler.LastRequest.RequestUri.AbsolutePath
+            );
+            var sentRequest = UpdateStreamRequest.Parser.ParseFrom(handler.LastRequestBody);
+            Assert.Equal("EG_test", sentRequest.EgressId);
+            Assert.True(handler.LastVideoGrant().SelectToken("roomRecord")?.Value<bool>());
+        }
+
+        [Fact]
+        [Trait("Category", "Unit")]
+        public async Task ListSIPTrunk_SendsSipAdminGrant()
+        {
+            var handler = new TestHttpMessageHandler();
+            var service = new SipServiceClient(
+                "http://localhost",
+                "key",
+                TEST_SECRET,
+                new HttpClient(handler)
+            );
+
+#pragma warning disable CS0618 // Deprecated upstream, still part of the public API
+            await service.ListSIPTrunk(new ListSIPTrunkRequest());
+#pragma warning restore CS0618
+
+            Assert.NotNull(handler.LastRequest?.RequestUri);
+            Assert.Equal(
+                "/twirp/livekit.SIP/ListSIPTrunk",
+                handler.LastRequest.RequestUri.AbsolutePath
+            );
+            Assert.True(handler.LastSipGrant().SelectToken("admin")?.Value<bool>());
+        }
     }
 }

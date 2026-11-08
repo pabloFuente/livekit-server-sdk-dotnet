@@ -246,6 +246,82 @@ namespace LiveKit.Rtc.Tests
             _output.WriteLine($"[{DateTime.Now:HH:mm:ss.fff}] Test completed successfully!");
         }
 
+        [Fact]
+        public async Task VideoStream_FromParticipant_ReceivesFramesInTheRequestedFormat()
+        {
+            using var publisherRoom = new Room();
+            using var subscriberRoom = new Room();
+            using var videoSource = new VideoSource(320, 240);
+            var videoTrack = LocalVideoTrack.Create("camera", videoSource);
+
+            var subscribedTcs = new TaskCompletionSource<RemoteParticipant>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            subscriberRoom.TrackSubscribed += (sender, args) =>
+            {
+                if (args.Track is RemoteVideoTrack)
+                    subscribedTcs.TrySetResult(args.Participant);
+            };
+
+            const string roomName = "test-room-video-from-participant";
+            await subscriberRoom.ConnectAsync(
+                _fixture.LiveKitUrl,
+                _fixture.CreateToken("video-subscriber-fp", roomName)
+            );
+            await publisherRoom.ConnectAsync(
+                _fixture.LiveKitUrl,
+                _fixture.CreateToken("video-publisher-fp", roomName)
+            );
+            await publisherRoom.LocalParticipant!.PublishTrackAsync(
+                videoTrack,
+                new TrackPublishOptions { Source = Proto.TrackSource.SourceCamera }
+            );
+
+            // Capture until a frame arrived: nothing is decoded before a key frame
+            using var captureCts = new CancellationTokenSource();
+            var captureTask = Task.Run(async () =>
+            {
+                for (int i = 0; !captureCts.IsCancellationRequested && i < 300; i++)
+                {
+                    videoSource.CaptureFrame(GenerateTestFrame(320, 240, i));
+                    await Task.Delay(33);
+                }
+            });
+
+            var remoteParticipant = await subscribedTcs.Task.WaitAsync(TimeSpan.FromSeconds(10));
+
+            // Without a format the frames keep the source's (I420): RGBA shows the FFI got it
+            using var videoStream = VideoStream.FromParticipant(
+                remoteParticipant,
+                Proto.TrackSource.SourceCamera,
+                format: Proto.VideoBufferType.Rgba,
+                capacity: 1
+            );
+            Assert.Equal(Proto.VideoBufferType.Rgba, videoStream.Format);
+
+            VideoFrameEvent? received = null;
+            var deadline = DateTime.UtcNow + TimeSpan.FromSeconds(10);
+            while (received == null && DateTime.UtcNow < deadline)
+            {
+                if (videoStream.TryRead(out var frameEvent))
+                    received = frameEvent;
+                else
+                    await Task.Delay(20);
+            }
+            captureCts.Cancel();
+            await captureTask;
+
+            Assert.NotNull(received);
+            Assert.Equal(Proto.VideoBufferType.Rgba, received.Value.Frame.Type);
+            Assert.True(received.Value.Frame.Width > 0 && received.Value.Frame.Height > 0);
+            Assert.Throws<ArgumentNullException>(() =>
+                VideoStream.FromParticipant(null!, Proto.TrackSource.SourceCamera)
+            );
+
+            await publisherRoom.DisconnectAsync();
+            await subscriberRoom.DisconnectAsync();
+        }
+
         private static short[] GenerateSineWave(
             int samples,
             double frequency,

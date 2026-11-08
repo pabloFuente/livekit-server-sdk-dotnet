@@ -1197,5 +1197,233 @@ namespace LiveKit.Rtc.Tests
         }
 
         #endregion
+
+        #region Chunk-by-chunk reading and disposal
+
+        private static readonly TimeSpan ReceiveTimeout = TimeSpan.FromSeconds(10);
+
+        [Fact]
+        public async Task TextStreamReader_ReadAsync_ReturnsEachChunkThenNull()
+        {
+            var received = new TaskCompletionSource<List<string>>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            _receiverRoom!.RegisterTextStreamHandler(
+                "chunked-text",
+                (reader, identity) =>
+                {
+                    _ = Task.Run(async () =>
+                    {
+                        try
+                        {
+                            var chunks = new List<string>();
+                            string? chunk;
+                            while ((chunk = await reader.ReadAsync()) != null)
+                                chunks.Add(chunk);
+                            received.TrySetResult(chunks);
+                        }
+                        catch (Exception ex)
+                        {
+                            received.TrySetException(ex);
+                        }
+                    });
+                }
+            );
+
+            var writer = await _senderParticipant!.StreamTextAsync(topic: "chunked-text");
+            await writer.WriteAsync("first ");
+            await writer.WriteAsync("second ");
+            await writer.WriteAsync("third");
+            await writer.CloseAsync();
+
+            Assert.Equal(
+                new[] { "first ", "second ", "third" },
+                await received.Task.WaitAsync(ReceiveTimeout)
+            );
+        }
+
+        [Fact]
+        public async Task ByteStreamReader_ReadAsync_ReturnsEachChunkThenNull()
+        {
+            var received = new TaskCompletionSource<List<byte[]>>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            _receiverRoom!.RegisterByteStreamHandler(
+                "chunked-bytes",
+                (reader, identity) =>
+                {
+                    _ = Task.Run(async () =>
+                    {
+                        try
+                        {
+                            var chunks = new List<byte[]>();
+                            ReadOnlyMemory<byte>? chunk;
+                            while ((chunk = await reader.ReadAsync()) != null)
+                                chunks.Add(chunk.Value.ToArray());
+                            received.TrySetResult(chunks);
+                        }
+                        catch (Exception ex)
+                        {
+                            received.TrySetException(ex);
+                        }
+                    });
+                }
+            );
+
+            var writer = await _senderParticipant!.StreamBytesAsync(
+                "chunks.bin",
+                topic: "chunked-bytes"
+            );
+            await writer.WriteAsync(new byte[] { 1, 2 });
+            await writer.WriteAsync(new byte[] { 3 });
+            await writer.CloseAsync();
+
+            var chunks = await received.Task.WaitAsync(ReceiveTimeout);
+            Assert.Equal(2, chunks.Count);
+            Assert.Equal(new byte[] { 1, 2 }, chunks[0]);
+            Assert.Equal(new byte[] { 3 }, chunks[1]);
+        }
+
+        [Theory]
+        [InlineData(false)]
+        [InlineData(true)]
+        public async Task TextStreamReader_Dispose_EndsReadsWhileTheStreamIsOpen(bool disposeAsync)
+        {
+            var firstChunk = new TaskCompletionSource<string?>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            var afterDispose = new TaskCompletionSource<string?>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            _receiverRoom!.RegisterTextStreamHandler(
+                "disposed-text",
+                (reader, identity) =>
+                {
+                    _ = Task.Run(async () =>
+                    {
+                        try
+                        {
+                            firstChunk.TrySetResult(await reader.ReadAsync());
+                            if (disposeAsync)
+                            {
+                                await reader.DisposeAsync();
+                                await reader.DisposeAsync();
+                            }
+                            else
+                            {
+                                reader.Dispose();
+                                reader.Dispose();
+                            }
+                            afterDispose.TrySetResult(await reader.ReadAsync());
+                        }
+                        catch (Exception ex)
+                        {
+                            firstChunk.TrySetException(ex);
+                            afterDispose.TrySetException(ex);
+                        }
+                    });
+                }
+            );
+
+            var writer = await _senderParticipant!.StreamTextAsync(topic: "disposed-text");
+            await writer.WriteAsync("kept");
+            Assert.Equal("kept", await firstChunk.Task.WaitAsync(ReceiveTimeout));
+
+            // The sender has not closed the stream: only the disposal can end this read
+            Assert.Null(await afterDispose.Task.WaitAsync(ReceiveTimeout));
+            await writer.WriteAsync("dropped");
+            await writer.CloseAsync();
+        }
+
+        [Theory]
+        [InlineData(false)]
+        [InlineData(true)]
+        public async Task ByteStreamReader_Dispose_EndsReadsWhileTheStreamIsOpen(bool disposeAsync)
+        {
+            var firstChunk = new TaskCompletionSource<byte[]?>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            var afterDispose = new TaskCompletionSource<ReadOnlyMemory<byte>?>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            _receiverRoom!.RegisterByteStreamHandler(
+                "disposed-bytes",
+                (reader, identity) =>
+                {
+                    _ = Task.Run(async () =>
+                    {
+                        try
+                        {
+                            firstChunk.TrySetResult((await reader.ReadAsync())?.ToArray());
+                            if (disposeAsync)
+                            {
+                                await reader.DisposeAsync();
+                                await reader.DisposeAsync();
+                            }
+                            else
+                            {
+                                reader.Dispose();
+                                reader.Dispose();
+                            }
+                            afterDispose.TrySetResult(await reader.ReadAsync());
+                        }
+                        catch (Exception ex)
+                        {
+                            firstChunk.TrySetException(ex);
+                            afterDispose.TrySetException(ex);
+                        }
+                    });
+                }
+            );
+
+            var writer = await _senderParticipant!.StreamBytesAsync(
+                "disposed.bin",
+                topic: "disposed-bytes"
+            );
+            await writer.WriteAsync(new byte[] { 1 });
+            Assert.Equal(new byte[] { 1 }, await firstChunk.Task.WaitAsync(ReceiveTimeout));
+
+            // The sender has not closed the stream: only the disposal can end this read
+            Assert.Null(await afterDispose.Task.WaitAsync(ReceiveTimeout));
+            await writer.WriteAsync(new byte[] { 2 });
+            await writer.CloseAsync();
+        }
+
+        [Fact]
+        public async Task ByteStreamWriter_Dispose_ClosesTheStreamForTheReceiver()
+        {
+            var received = new TaskCompletionSource<byte[]>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            _receiverRoom!.RegisterByteStreamHandler(
+                "disposed-writer",
+                (reader, identity) =>
+                {
+                    _ = Task.Run(async () =>
+                    {
+                        try
+                        {
+                            received.TrySetResult(await reader.ReadAllAsync());
+                        }
+                        catch (Exception ex)
+                        {
+                            received.TrySetException(ex);
+                        }
+                    });
+                }
+            );
+
+            var writer = await _senderParticipant!.StreamBytesAsync(
+                "unclosed.bin",
+                topic: "disposed-writer"
+            );
+            await writer.WriteAsync(new byte[] { 7, 8, 9 });
+            // No CloseAsync: without the trailer Dispose sends, the read never completes
+            writer.Dispose();
+
+            Assert.Equal(new byte[] { 7, 8, 9 }, await received.Task.WaitAsync(ReceiveTimeout));
+        }
+
+        #endregion
     }
 }
