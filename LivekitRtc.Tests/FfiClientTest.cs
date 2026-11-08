@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Google.Protobuf;
@@ -22,6 +24,61 @@ namespace LiveKit.Rtc.Tests
         {
             // In a real scenario, you'd want a way to reset the Singleton
             // for test isolation, but we'll work with the existing structure.
+        }
+
+        /// <summary>
+        /// The P/Invoke declarations match the C ABI of livekit-ffi (livekit-ffi/src/room_apis/cabi.rs).
+        /// A narrower type only works while the JIT happens to clear the rest of the register, and
+        /// a Rust bool is one byte, not the four of the default bool marshalling.
+        /// </summary>
+        [Fact]
+        public void NativeMethods_MatchTheFfiCAbi()
+        {
+            const BindingFlags flags = BindingFlags.Static | BindingFlags.NonPublic;
+            var bytePtr = typeof(byte).MakePointerType();
+
+            // type FfiCallbackFn = unsafe extern "C" fn(*const u8, usize)
+            var callback = typeof(FfiCallbackDelegate).GetMethod("Invoke")!;
+            Assert.Equal(typeof(void), callback.ReturnType);
+            Assert.Equal(new[] { typeof(IntPtr), typeof(UIntPtr) }, ParameterTypes(callback));
+
+            // fn livekit_ffi_initialize(cb: FfiCallbackFn, capture_logs: bool, sdk: *const c_char, sdk_version: *const c_char)
+            var initialize = typeof(NativeMethods).GetMethod("InitializeNative", flags)!;
+            Assert.Equal(typeof(void), initialize.ReturnType);
+            Assert.Equal(
+                new[] { typeof(FfiCallbackDelegate), typeof(bool), bytePtr, bytePtr },
+                ParameterTypes(initialize)
+            );
+            Assert.Equal(
+                UnmanagedType.I1,
+                initialize.GetParameters()[1].GetCustomAttribute<MarshalAsAttribute>()?.Value
+            );
+
+            // fn livekit_ffi_request(data: *const u8, len: usize, res_ptr: *mut *const u8, res_len: *mut usize) -> FfiHandleId
+            var request = typeof(NativeMethods).GetMethod(nameof(NativeMethods.Request), flags)!;
+            Assert.Equal(typeof(ulong), request.ReturnType);
+            Assert.Equal(
+                new[]
+                {
+                    bytePtr,
+                    typeof(UIntPtr),
+                    bytePtr.MakeByRefType(),
+                    typeof(UIntPtr).MakeByRefType(),
+                },
+                ParameterTypes(request)
+            );
+
+            // fn livekit_ffi_drop_handle(handle_id: FfiHandleId) -> bool
+            var drop = typeof(NativeMethods).GetMethod(nameof(NativeMethods.DropHandle), flags)!;
+            Assert.Equal(typeof(bool), drop.ReturnType);
+            Assert.Equal(
+                UnmanagedType.I1,
+                drop.ReturnParameter.GetCustomAttribute<MarshalAsAttribute>()?.Value
+            );
+            Assert.Equal(new[] { typeof(ulong) }, ParameterTypes(drop));
+
+            static Type[] ParameterTypes(MethodInfo method) =>
+                Array.ConvertAll(method.GetParameters(), p => p.ParameterType);
         }
 
         /// <summary>

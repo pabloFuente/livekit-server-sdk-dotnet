@@ -121,7 +121,7 @@ namespace LiveKit.Rtc.Internal
             {
                 ulong handleId = NativeMethods.Request(
                     dataPtr,
-                    requestData.Length,
+                    (UIntPtr)requestData.Length,
                     out byte* responsePtr,
                     out UIntPtr responseLen
                 );
