@@ -321,8 +321,12 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   `AsyncId` in the response and complete later as an `FfiEvent` with the same id, awaited with
   `FfiClient.Instance.WaitForEventAsync(predicate, timeout, token)`. Follow the pattern in
   `Room.ConnectAsync` or `LocalParticipant.PublishTrackAsync` for any new FFI call.
-- Events arrive on the native callback thread. `FfiClient` matches waiters first, queues the rest
-  (bounded to 1000), then raises `EventReceived`. `Room.OnFfiEvent` filters by room handle and
+- Events arrive on the native library's threads: the Rust SDK calls back synchronously on the
+  worker of its runtime that raised the event, which also drives signaling and every other room
+  and stream. `FfiClient` matches waiters first, queues the rest (bounded to 1000), hands audio,
+  video and data track stream events to their stream by handle (`AddStreamHandler`), then raises
+  `EventReceived` for every event. User code never runs there: `AudioStream` runs the
+  `FrameProcessor` on a task of its own per stream. `Room.OnFfiEvent` filters by room handle and
   `HandleRoomEvent` turns each proto event into a public C# event through `DispatchEvent`, a serial
   FIFO task chain. User handlers run on that chain and their exceptions are logged, not propagated.
   Never block the callback thread, never `await` an FFI event from inside the chain, and never put

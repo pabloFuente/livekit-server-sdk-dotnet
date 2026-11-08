@@ -74,7 +74,10 @@ namespace LiveKit.Rtc
         }
 
         /// <summary>
-        /// Process a frame and return the processed frame.
+        /// Process a frame and return the processed frame. An <see cref="AudioStream"/> calls it for
+        /// each frame in order, one call at a time, on a thread pool thread, so a slow implementation
+        /// only delays the frames of its own stream. If it throws or returns null, the stream
+        /// delivers the original frame.
         /// </summary>
         /// <param name="frame">The frame to process.</param>
         /// <returns>The processed frame.</returns>

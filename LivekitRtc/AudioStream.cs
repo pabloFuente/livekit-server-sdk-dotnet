@@ -63,6 +63,10 @@ namespace LiveKit.Rtc
         private readonly NoiseCancellationOptions? _noiseCancellation;
         private readonly FrameProcessor<AudioFrame>? _frameProcessor;
         private readonly Channel<AudioFrameEvent> _channel;
+
+        // With a frame processor, the frames go through it on a task of their own instead of on the
+        // native thread that delivers them
+        private readonly Channel<AudioFrame>? _processorInput;
         private readonly CancellationTokenSource _cts;
         private bool _disposed;
 
@@ -93,20 +97,9 @@ namespace LiveKit.Rtc
             _noiseCancellation = noiseCancellation;
             _frameProcessor = frameProcessor;
 
-            // Use bounded channel for backpressure or unbounded for high throughput
-            _channel =
-                capacity > 0
-                    ? Channel.CreateBounded<AudioFrameEvent>(
-                        new BoundedChannelOptions(capacity)
-                        {
-                            FullMode = BoundedChannelFullMode.DropOldest, // keep the latest audio, like VideoStream and the Python SDK
-                            SingleReader = false,
-                            SingleWriter = true,
-                        }
-                    )
-                    : Channel.CreateUnbounded<AudioFrameEvent>(
-                        new UnboundedChannelOptions { SingleReader = false, SingleWriter = true }
-                    );
+            _channel = CreateChannel<AudioFrameEvent>(capacity);
+            if (frameProcessor != null)
+                _processorInput = CreateChannel<AudioFrame>(capacity);
 
             _cts = new CancellationTokenSource();
 
@@ -121,9 +114,7 @@ namespace LiveKit.Rtc
             }
 
             _handle = FfiHandle.FromId(stream.Handle.Id);
-
-            // Subscribe to events
-            FfiClient.Instance.EventReceived += OnFfiEvent;
+            Start();
         }
 
         /// <summary>
@@ -148,20 +139,9 @@ namespace LiveKit.Rtc
             _noiseCancellation = noiseCancellation;
             _frameProcessor = frameProcessor;
 
-            // Use bounded channel for backpressure or unbounded for high throughput
-            _channel =
-                capacity > 0
-                    ? Channel.CreateBounded<AudioFrameEvent>(
-                        new BoundedChannelOptions(capacity)
-                        {
-                            FullMode = BoundedChannelFullMode.DropOldest, // keep the latest audio, like VideoStream and the Python SDK
-                            SingleReader = false,
-                            SingleWriter = true,
-                        }
-                    )
-                    : Channel.CreateUnbounded<AudioFrameEvent>(
-                        new UnboundedChannelOptions { SingleReader = false, SingleWriter = true }
-                    );
+            _channel = CreateChannel<AudioFrameEvent>(capacity);
+            if (frameProcessor != null)
+                _processorInput = CreateChannel<AudioFrame>(capacity);
 
             _cts = new CancellationTokenSource();
 
@@ -176,9 +156,34 @@ namespace LiveKit.Rtc
             }
 
             _handle = FfiHandle.FromId(stream.Handle.Id);
+            Start();
+        }
 
-            // Subscribe to events
-            FfiClient.Instance.EventReceived += OnFfiEvent;
+        // Bounded for backpressure, keeping the latest audio like VideoStream and the Python SDK, or
+        // unbounded for high throughput
+        private static Channel<T> CreateChannel<T>(int capacity) =>
+            capacity > 0
+                ? Channel.CreateBounded<T>(
+                    new BoundedChannelOptions(capacity)
+                    {
+                        FullMode = BoundedChannelFullMode.DropOldest,
+                        SingleReader = false,
+                        SingleWriter = true,
+                    }
+                )
+                : Channel.CreateUnbounded<T>(
+                    new UnboundedChannelOptions { SingleReader = false, SingleWriter = true }
+                );
+
+        private void Start()
+        {
+            FfiClient.Instance.AddStreamHandler(_handle.HandleId, OnFfiEvent);
+            if (_frameProcessor != null && _processorInput != null)
+            {
+                var processor = _frameProcessor;
+                var input = _processorInput.Reader;
+                _ = Task.Run(() => RunFrameProcessorAsync(processor, input));
+            }
         }
 
         /// <summary>
@@ -336,7 +341,7 @@ namespace LiveKit.Rtc
             return response.AudioStreamFromParticipant.Stream;
         }
 
-        private void OnFfiEvent(object? sender, FfiEvent e)
+        private void OnFfiEvent(FfiEvent e)
         {
             if (e.MessageCase != FfiEvent.MessageOneofCase.AudioStreamEvent)
                 return;
@@ -357,32 +362,60 @@ namespace LiveKit.Rtc
                 }
 
                 var frame = AudioFrame.FromOwnedInfo(ownedBuffer);
-
-                // Process frame through FrameProcessor if present and enabled
-                if (_frameProcessor != null && _frameProcessor.IsEnabled)
-                {
-                    try
-                    {
-                        frame = _frameProcessor.Process(frame);
-                    }
-                    catch (Exception ex)
-                    {
-                        // Pass the original frame through (Debug.WriteLine would be silent in
-                        // Release builds)
-                        Console.Error.WriteLine(
-                            $"[WARN] AudioStream: frame processor threw, passing the frame through: {ex}"
-                        );
-                    }
-                }
-
-                // TryWrite returns false if channel is full (for bounded) - frame is dropped
-                _channel.Writer.TryWrite(new AudioFrameEvent(frame));
+                if (_processorInput != null)
+                    _processorInput.Writer.TryWrite(frame);
+                else
+                    _channel.Writer.TryWrite(new AudioFrameEvent(frame));
             }
             else if (audioEvent.MessageCase == AudioStreamEvent.MessageOneofCase.Eos)
             {
-                _channel.Writer.TryComplete();
+                // With a frame processor, its task completes the channel after the last frame
+                if (_processorInput != null)
+                    _processorInput.Writer.TryComplete();
+                else
+                    _channel.Writer.TryComplete();
                 // Nothing more will come for this handle
-                FfiClient.Instance.EventReceived -= OnFfiEvent;
+                FfiClient.Instance.RemoveStreamHandler(_handle.HandleId);
+            }
+        }
+
+        // One frame at a time, in order, on a thread pool thread: a slow processor only delays this
+        // stream, not the native thread that also delivers the events of every other stream and room
+        private async Task RunFrameProcessorAsync(
+            FrameProcessor<AudioFrame> processor,
+            ChannelReader<AudioFrame> input
+        )
+        {
+            try
+            {
+                while (await input.WaitToReadAsync().ConfigureAwait(false))
+                {
+                    while (input.TryRead(out var frame))
+                    {
+                        if (_disposed)
+                            return;
+                        _channel.Writer.TryWrite(new AudioFrameEvent(Process(processor, frame)));
+                    }
+                }
+            }
+            finally
+            {
+                _channel.Writer.TryComplete();
+            }
+        }
+
+        private static AudioFrame Process(FrameProcessor<AudioFrame> processor, AudioFrame frame)
+        {
+            try
+            {
+                return processor.IsEnabled ? processor.Process(frame) ?? frame : frame;
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(
+                    $"[WARN] AudioStream: frame processor threw, passing the frame through: {ex}"
+                );
+                return frame;
             }
         }
 
@@ -393,7 +426,7 @@ namespace LiveKit.Rtc
         {
             _ = Task.Delay(TimeSpan.FromSeconds(5))
                 .ContinueWith(
-                    _ => FfiClient.Instance.EventReceived -= OnFfiEvent,
+                    _ => FfiClient.Instance.RemoveStreamHandler(_handle.HandleId),
                     TaskScheduler.Default
                 );
         }
@@ -475,6 +508,7 @@ namespace LiveKit.Rtc
 
             _cts.Cancel();
             StopListeningAfterEos();
+            _processorInput?.Writer.TryComplete();
             _channel.Writer.TryComplete();
             _frameProcessor?.Close();
             _handle.Dispose();
@@ -495,6 +529,7 @@ namespace LiveKit.Rtc
 
             _cts.Cancel();
             StopListeningAfterEos();
+            _processorInput?.Writer.TryComplete();
             _channel.Writer.TryComplete();
 
             // Wait for any pending reads to complete

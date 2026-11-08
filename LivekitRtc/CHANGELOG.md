@@ -66,6 +66,13 @@
 - The `cancellationToken` of `AudioSource.CaptureFrameAsync` is documented: it cancels the wait,
   not the capture, and a capture made before the source consumed the cancelled frame fails with
   `InvalidOperationException`. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
+- Fix a slow `FrameProcessor` delaying the events of every room and stream: `AudioStream` ran
+  `Process` inside the native callback, on a worker thread of the Rust runtime that also drives
+  signaling and every other stream. Each stream now runs its processor on a task of its own, one
+  frame at a time and in order. A processor that returns null now passes the frame through, as
+  one that throws already did. Audio, video and data track stream events also go straight to
+  their stream instead of through every open stream, so their cost no longer grows with the
+  number of streams. [PR #167](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/167)
 
 ## 0.1.7
 

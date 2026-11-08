@@ -394,7 +394,7 @@ namespace LiveKit.Rtc
             );
 
             // Subscribe before the first read request so no event can be missed
-            FfiClient.Instance.EventReceived += OnFfiEvent;
+            FfiClient.Instance.AddStreamHandler(_handleId, OnFfiEvent);
         }
 
         /// <summary>
@@ -402,7 +402,7 @@ namespace LiveKit.Rtc
         /// </summary>
         public bool IsEnded => _ended || _disposed;
 
-        private void OnFfiEvent(object? sender, FfiEvent e)
+        private void OnFfiEvent(FfiEvent e)
         {
             if (e.MessageCase != FfiEvent.MessageOneofCase.DataTrackStreamEvent)
                 return;
@@ -512,7 +512,7 @@ namespace LiveKit.Rtc
             {
                 _pendingError = new SubscribeDataTrackException(eos.Error.Code, eos.Error.Message);
             }
-            FfiClient.Instance.EventReceived -= OnFfiEvent;
+            FfiClient.Instance.RemoveStreamHandler(_handleId);
             _events.Writer.TryComplete();
         }
 
@@ -534,7 +534,7 @@ namespace LiveKit.Rtc
             if (_disposed)
                 return;
             _disposed = true;
-            FfiClient.Instance.EventReceived -= OnFfiEvent;
+            FfiClient.Instance.RemoveStreamHandler(_handleId);
             _events.Writer.TryComplete();
             _handle.Dispose();
         }
