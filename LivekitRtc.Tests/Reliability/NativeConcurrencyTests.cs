@@ -327,13 +327,24 @@ public class NativeConcurrencyTests
             processor.Release.Set();
         }
 
-        // The processor doubles the samples
-        var frameEvent = await stream
-            .ReadAsync()
-            .AsTask()
-            .Within(TimeSpan.FromSeconds(10), "the processed frame");
-        Assert.NotNull(frameEvent);
-        Assert.Equal(2, frameEvent.Value.Frame.Data[0]);
+        // The processor doubles the samples. On macOS and Windows the native stream of the local
+        // track also delivers frames of silence, which come out as zeros: skip those
+        var reading = System.Diagnostics.Stopwatch.StartNew();
+        short first;
+        do
+        {
+            Assert.True(
+                reading.Elapsed < TimeSpan.FromSeconds(10),
+                "the processed frame never came"
+            );
+            var frameEvent = await stream
+                .ReadAsync()
+                .AsTask()
+                .Within(TimeSpan.FromSeconds(10), "the processed frame");
+            Assert.NotNull(frameEvent);
+            first = frameEvent.Value.Frame.Data[0];
+        } while (first == 0);
+        Assert.Equal(2, first);
     }
 
     [Fact]
