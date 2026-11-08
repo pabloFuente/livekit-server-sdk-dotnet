@@ -9,7 +9,8 @@
 # when it was uploaded. runtimes/ is only written once all six archives have downloaded and
 # matched. Any failure (no such release, a missing digest or archive, a failed download, a
 # mismatch, a library missing from its archive) exits with a non-zero code and leaves the previous
-# binaries of every platform.
+# binaries of every platform. Before a download counts as failed, curl retries it 5 times with
+# exponential backoff when the error is transient (a timeout, HTTP 408, 429 or 5xx).
 #
 # --verify downloads and checks a release the same way but writes nothing: it exits with a
 # non-zero code unless runtimes/ holds exactly its six binaries. Without a version it checks the
@@ -82,7 +83,7 @@ if [ -z "$VERSION" ] && $VERIFY; then
     echo "Pinned version: $VERSION"
 elif [ -z "$VERSION" ]; then
     echo "Fetching latest version..."
-    if ! RELEASES_JSON=$(curl -fsSL "${AUTH[@]}" "$GITHUB_API?per_page=100"); then
+    if ! RELEASES_JSON=$(curl -fsSL --retry 5 "${AUTH[@]}" "$GITHUB_API?per_page=100"); then
         echo "Error: could not list the releases from the GitHub API" >&2
         exit 1
     fi
@@ -122,7 +123,7 @@ declare -A ARCHIVE_NAMES=(
 )
 
 # GitHub records the SHA-256 digest of every release asset ("sha256:<hex>") when it is uploaded
-if ! RELEASE_JSON=$(curl -fsSL "${AUTH[@]}" "$GITHUB_API/tags/$VERSION_ENCODED"); then
+if ! RELEASE_JSON=$(curl -fsSL --retry 5 "${AUTH[@]}" "$GITHUB_API/tags/$VERSION_ENCODED"); then
     echo "Error: could not read release $VERSION from the GitHub API" >&2
     exit 1
 fi
@@ -146,7 +147,7 @@ for platform in "${!PLATFORMS[@]}"; do
         echo "    ✗ The release has no SHA-256 digest for $archive"
         continue
     fi
-    if ! curl -fsSL "$archive_url" -o "$STAGING/$archive"; then
+    if ! curl -fsSL --retry 5 "$archive_url" -o "$STAGING/$archive"; then
         echo "    ✗ Failed to download archive (HTTP error)"
         continue
     fi
