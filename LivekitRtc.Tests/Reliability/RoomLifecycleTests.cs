@@ -143,14 +143,17 @@ public class RoomLifecycleTests
         var roomName = ReliabilityServerFixture.NewRoomName("retained");
         var rooms = await EndRoomsInEveryWayAsync(roomName);
 
+        // Shorter than the 15 s fallback of the drain of an ended connection, whose timer kept
+        // every ended room alive until it fired: they are collectable as soon as they ended
         await Eventually.TrueAsync(
             () =>
             {
                 ResourceSnapshot.CollectGarbage();
                 return rooms.All(r => !r.Room.IsAlive);
             },
-            ServerSettle,
-            "every ended room is collected, still alive: "
+            TimeSpan.FromSeconds(10),
+            () =>
+                "every ended room is collected, still alive: "
                 + string.Join(", ", rooms.Where(r => r.Room.IsAlive).Select(r => r.How))
         );
         log.AssertNoProblems();

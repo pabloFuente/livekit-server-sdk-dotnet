@@ -13,6 +13,20 @@ internal static class Eventually
     public static Task TrueAsync(Func<bool> condition, TimeSpan timeout, string what) =>
         TrueAsync(() => Task.FromResult(condition()), timeout, what);
 
+    /// <summary>
+    /// <paramref name="what"/> is built at the timeout, so it can describe the state then.
+    /// </summary>
+    public static async Task TrueAsync(Func<bool> condition, TimeSpan timeout, Func<string> what)
+    {
+        var elapsed = Stopwatch.StartNew();
+        while (!condition())
+        {
+            if (elapsed.Elapsed > timeout)
+                Assert.Fail($"Timed out after {timeout.TotalSeconds:0.#} s waiting until {what()}");
+            await Task.Delay(25);
+        }
+    }
+
     public static async Task TrueAsync(Func<Task<bool>> condition, TimeSpan timeout, string what)
     {
         var elapsed = Stopwatch.StartNew();
