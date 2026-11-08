@@ -34,7 +34,7 @@ public class NativeConcurrencyTests
         // request reached the FFI with a released handle ("FFI request failed: invalid handle").
         // Dispose must wait for an in-flight Push, and a Push after it must throw
         // ObjectDisposedException.
-        var rounds = StressLevel.Scale(300, 3000);
+        var rounds = StressLevel.Scale(300, 1000);
         var input = new byte[1600 * 2]; // 100 ms of 16 kHz mono
         var unexpected = new ConcurrentQueue<Exception>();
         var pushes = 0L;

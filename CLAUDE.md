@@ -324,6 +324,15 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
 - An FFI request's callback and the related room event are independent messages and can arrive
   in either order (for example the `UnpublishTrack` callback and `LocalTrackUnpublished`). Handle
   both orders explicitly instead of assuming one.
+  Room events themselves can arrive out of order: the Rust SDK dispatches a remote track's
+  `TrackSubscribed` (media path) and `TrackUnsubscribed` (unpublication) from different threads,
+  so the unsubscription can come first, twice, or after `ParticipantDisconnected`.
+  `RemoteParticipant` records an unsubscription the room had no subscription for, and `Room`
+  remembers the participants that left, so the stale halves are released without an event or a
+  warning; `RemoteTrackEventOrderTests` replays the recorded orders (`SyntheticRoomEvents`
+  delivers events through `FfiClient.OnFfiCallback` with real native handles). Before changing
+  event handling for an order seen in the field, record the raw `FfiClient.EventReceived`
+  sequence of the room that logged it.
 - `Room.FfiEventLock` (a `SemaphoreSlim`) guards participant and publication maps. Hold it only to
   mutate state, never across `WaitForEventAsync`.
 - A disconnection clears the room's state from the event chain, after `DisconnectAsync` returned.

@@ -42,6 +42,14 @@
   cancelled call to register a publication it never would. The SDK still unpublishes such a track,
   and raises no `LocalTrackPublished`, `LocalTrackSubscribed` or `LocalTrackUnpublished` event for
   it, since the caller never received its publication. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
+- Fix `Room.TrackSubscribed` being raised, with no `TrackUnsubscribed` to follow, for a track
+  that was already gone, after `[WARN] RoomEvent.TrackUnsubscribed: Track ... of participant
+  ... is not subscribed`, when a participant left (or the room reconnected) while one of its
+  tracks was being subscribed. The native library dispatches a track's subscription and
+  unsubscription from different threads, so it can deliver the unsubscription first, twice, or
+  after the participant left. The room now recognizes these orders: such a late subscription
+  raises no event and its track is released, and the late events of a participant that left no
+  longer log `[WARN] RoomEvent.TrackSubscribed: Participant ... not found`. [PR #163](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/163)
 - An already cancelled `CancellationToken` now makes `Room.ConnectAsync`,
   `Room.SimulateScenarioAsync`, `AudioSource.CaptureFrameAsync`,
   `LocalParticipant.PublishTrackAsync`, `UnpublishTrackAsync` and `PublishDataTrackAsync` throw

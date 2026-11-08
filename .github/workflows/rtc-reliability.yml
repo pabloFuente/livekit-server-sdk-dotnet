@@ -36,6 +36,12 @@ jobs:
     env:
       LIVEKIT_SOAK_MINUTES: ${{ inputs.soak-minutes || '10' }}
       LIVEKIT_TEST_STDERR_FILE: ${{ github.workspace }}/TestResults/sdk-stderr.log
+      # A crash of the native library kills the test host: keep the runtime's crash report (managed
+      # and native stacks) and a minidump with the results, for a report upstream
+      DOTNET_DbgEnableMiniDump: 1
+      DOTNET_DbgMiniDumpType: 1
+      DOTNET_EnableCrashReport: 1
+      DOTNET_DbgMiniDumpName: ${{ github.workspace }}/TestResults/crash-%p.dmp
     steps:
     - name: Checkout code
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -43,14 +49,23 @@ jobs:
       uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
       with:
         dotnet-version: 10.0.x
+    # The soak runs in a test process of its own, after the other tests and even if they failed: a
+    # native crash during its heavy churn (see the README's known limitations) would otherwise
+    # abort the whole run and hide every other result
     - name: Test
       run: |
         mkdir -p TestResults
-        dotnet test LivekitRtc.Tests -c Release --filter "Category=Reliability" \
+        dotnet test LivekitRtc.Tests -c Release --filter "Category=Reliability&FullyQualifiedName!~SoakTests" \
           --logger "trx;LogFileName=reliability.trx" --logger "console;verbosity=normal" \
           --results-directory TestResults
+    - name: Soak
+      if: ${{ !cancelled() }}
+      run: |
+        dotnet test LivekitRtc.Tests -c Release --filter "FullyQualifiedName~SoakTests" \
+          --logger "trx;LogFileName=soak.trx" --logger "console;verbosity=normal" \
+          --results-directory TestResults
     # The SDK reports what it drops on stderr ([WARN] RoomEvent..., [ERROR]...), which dotnet test
-    # does not show: keep it with the results
+    # does not show: keep it with the results, and the crash reports if any
     - name: Upload the results
       if: ${{ !cancelled() }}
       uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
