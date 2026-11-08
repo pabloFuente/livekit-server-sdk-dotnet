@@ -1,6 +1,6 @@
-# Regenerates the protobuf and Twirp code of both packages with generate_proto.sh (the protoc pinned
-# in proto-tools.env and the plugin vendored in tools/protoc-gen-twirpcs) and fails when the result
-# differs from the committed code. It runs on the pull requests that can change either side: a
+# Checks and tests the Twirp plugin vendored in tools/protoc-gen-twirpcs, regenerates the protobuf
+# and Twirp code of both packages with generate_proto.sh (and the protoc pinned in proto-tools.env)
+# and fails when the result differs from the committed code. It runs on the pull requests that can change either side: a
 # submodule move, a change to the generator or its pin, a bump of the plugin's Go dependencies
 # (Dependabot) and an edit of the generated files themselves.
 
@@ -43,6 +43,16 @@ jobs:
         with:
           go-version: stable
           cache: false
+      - name: Check the plugin
+        working-directory: tools/protoc-gen-twirpcs
+        run: |
+          unformatted=$(gofmt -l .)
+          if [ -n "$unformatted" ]; then
+            echo "::error::gofmt would reformat: $unformatted"
+            exit 1
+          fi
+          go vet ./...
+          go test ./...
       - name: Regenerate
         run: ./generate_proto.sh
       - name: Compare with the committed code

@@ -34,7 +34,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.Connector/DialWhatsAppCall",
+                    Twirp.Routes.Connector.DialWhatsAppCall,
                     request,
                     DialWhatsAppCallResponse.Parser,
                     AuthHeader(new VideoGrants { RoomCreate = true })
@@ -52,7 +52,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.Connector/DisconnectWhatsAppCall",
+                    Twirp.Routes.Connector.DisconnectWhatsAppCall,
                     request,
                     DisconnectWhatsAppCallResponse.Parser,
                     AuthHeader(new VideoGrants { RoomCreate = true })
@@ -70,7 +70,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.Connector/ConnectWhatsAppCall",
+                    Twirp.Routes.Connector.ConnectWhatsAppCall,
                     request,
                     ConnectWhatsAppCallResponse.Parser,
                     AuthHeader(new VideoGrants { RoomCreate = true })
@@ -88,7 +88,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.Connector/AcceptWhatsAppCall",
+                    Twirp.Routes.Connector.AcceptWhatsAppCall,
                     request,
                     AcceptWhatsAppCallResponse.Parser,
                     AuthHeader(new VideoGrants { RoomCreate = true })
@@ -106,7 +106,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.Connector/ConnectTwilioCall",
+                    Twirp.Routes.Connector.ConnectTwilioCall,
                     request,
                     ConnectTwilioCallResponse.Parser,
                     AuthHeader(new VideoGrants { RoomCreate = true })

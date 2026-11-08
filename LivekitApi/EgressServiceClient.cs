@@ -32,7 +32,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<EgressInfo> StartRoomCompositeEgress(RoomCompositeEgressRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.Egress/StartRoomCompositeEgress",
+                    Twirp.Routes.Egress.StartRoomCompositeEgress,
                     request,
                     EgressInfo.Parser,
                     AuthHeader(new VideoGrants { RoomRecord = true })
@@ -48,7 +48,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<EgressInfo> StartWebEgress(WebEgressRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.Egress/StartWebEgress",
+                    Twirp.Routes.Egress.StartWebEgress,
                     request,
                     EgressInfo.Parser,
                     AuthHeader(new VideoGrants { RoomRecord = true })
@@ -64,7 +64,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<EgressInfo> StartParticipantEgress(ParticipantEgressRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.Egress/StartParticipantEgress",
+                    Twirp.Routes.Egress.StartParticipantEgress,
                     request,
                     EgressInfo.Parser,
                     AuthHeader(new VideoGrants { RoomRecord = true })
@@ -80,7 +80,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<EgressInfo> StartTrackCompositeEgress(TrackCompositeEgressRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.Egress/StartTrackCompositeEgress",
+                    Twirp.Routes.Egress.StartTrackCompositeEgress,
                     request,
                     EgressInfo.Parser,
                     AuthHeader(new VideoGrants { RoomRecord = true })
@@ -96,7 +96,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<EgressInfo> StartTrackEgress(TrackEgressRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.Egress/StartTrackEgress",
+                    Twirp.Routes.Egress.StartTrackEgress,
                     request,
                     EgressInfo.Parser,
                     AuthHeader(new VideoGrants { RoomRecord = true })
@@ -112,7 +112,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<EgressInfo> StartEgress(StartEgressRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.Egress/StartEgress",
+                    Twirp.Routes.Egress.StartEgress,
                     request,
                     EgressInfo.Parser,
                     AuthHeader(new VideoGrants { RoomRecord = true })
@@ -128,7 +128,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<EgressInfo> UpdateLayout(UpdateLayoutRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.Egress/UpdateLayout",
+                    Twirp.Routes.Egress.UpdateLayout,
                     request,
                     EgressInfo.Parser,
                     AuthHeader(new VideoGrants { RoomRecord = true })
@@ -144,7 +144,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<EgressInfo> UpdateStream(UpdateStreamRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.Egress/UpdateStream",
+                    Twirp.Routes.Egress.UpdateStream,
                     request,
                     EgressInfo.Parser,
                     AuthHeader(new VideoGrants { RoomRecord = true })
@@ -160,7 +160,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<ListEgressResponse> ListEgress(ListEgressRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.Egress/ListEgress",
+                    Twirp.Routes.Egress.ListEgress,
                     request,
                     ListEgressResponse.Parser,
                     AuthHeader(new VideoGrants { RoomRecord = true })
@@ -176,7 +176,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<EgressInfo> StopEgress(StopEgressRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.Egress/StopEgress",
+                    Twirp.Routes.Egress.StopEgress,
                     request,
                     EgressInfo.Parser,
                     AuthHeader(new VideoGrants { RoomRecord = true })

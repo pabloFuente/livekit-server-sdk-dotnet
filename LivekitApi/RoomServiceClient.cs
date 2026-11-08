@@ -49,7 +49,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<Room> CreateRoom(CreateRoomRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.RoomService/CreateRoom",
+                    Twirp.Routes.RoomService.CreateRoom,
                     request,
                     Room.Parser,
                     AuthHeader(new VideoGrants { RoomCreate = true })
@@ -65,7 +65,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<ListRoomsResponse> ListRooms(ListRoomsRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.RoomService/ListRooms",
+                    Twirp.Routes.RoomService.ListRooms,
                     request,
                     ListRoomsResponse.Parser,
                     AuthHeader(new VideoGrants { RoomList = true })
@@ -81,7 +81,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<DeleteRoomResponse> DeleteRoom(DeleteRoomRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.RoomService/DeleteRoom",
+                    Twirp.Routes.RoomService.DeleteRoom,
                     request,
                     DeleteRoomResponse.Parser,
                     AuthHeader(new VideoGrants { RoomCreate = true })
@@ -99,7 +99,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.RoomService/ListParticipants",
+                    Twirp.Routes.RoomService.ListParticipants,
                     request,
                     ListParticipantsResponse.Parser,
                     AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
@@ -115,7 +115,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<ParticipantInfo> GetParticipant(RoomParticipantIdentity request)
         {
             return await SendAsync(
-                    "twirp/livekit.RoomService/GetParticipant",
+                    Twirp.Routes.RoomService.GetParticipant,
                     request,
                     ParticipantInfo.Parser,
                     AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
@@ -134,7 +134,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.RoomService/RemoveParticipant",
+                    Twirp.Routes.RoomService.RemoveParticipant,
                     request,
                     RemoveParticipantResponse.Parser,
                     AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
@@ -150,7 +150,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<MuteRoomTrackResponse> MutePublishedTrack(MuteRoomTrackRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.RoomService/MutePublishedTrack",
+                    Twirp.Routes.RoomService.MutePublishedTrack,
                     request,
                     MuteRoomTrackResponse.Parser,
                     AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
@@ -166,7 +166,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<ParticipantInfo> UpdateParticipant(UpdateParticipantRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.RoomService/UpdateParticipant",
+                    Twirp.Routes.RoomService.UpdateParticipant,
                     request,
                     ParticipantInfo.Parser,
                     AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
@@ -184,7 +184,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.RoomService/UpdateSubscriptions",
+                    Twirp.Routes.RoomService.UpdateSubscriptions,
                     request,
                     UpdateSubscriptionsResponse.Parser,
                     AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
@@ -202,7 +202,7 @@ namespace Livekit.Server.Sdk.Dotnet
             // Add random nonce to request
             request.Nonce = ByteString.CopyFrom(System.Guid.NewGuid().ToByteArray());
             return await SendAsync(
-                    "twirp/livekit.RoomService/SendData",
+                    Twirp.Routes.RoomService.SendData,
                     request,
                     SendDataResponse.Parser,
                     AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
@@ -218,7 +218,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<Room> UpdateRoomMetadata(UpdateRoomMetadataRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.RoomService/UpdateRoomMetadata",
+                    Twirp.Routes.RoomService.UpdateRoomMetadata,
                     request,
                     Room.Parser,
                     AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
@@ -241,7 +241,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.RoomService/ForwardParticipant",
+                    Twirp.Routes.RoomService.ForwardParticipant,
                     request,
                     ForwardParticipantResponse.Parser,
                     AuthHeader(
@@ -266,7 +266,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<MoveParticipantResponse> MoveParticipant(MoveParticipantRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.RoomService/MoveParticipant",
+                    Twirp.Routes.RoomService.MoveParticipant,
                     request,
                     MoveParticipantResponse.Parser,
                     AuthHeader(

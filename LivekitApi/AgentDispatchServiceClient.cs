@@ -32,7 +32,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<AgentDispatch> CreateDispatch(CreateAgentDispatchRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.AgentDispatchService/CreateDispatch",
+                    Twirp.Routes.AgentDispatchService.CreateDispatch,
                     request,
                     AgentDispatch.Parser,
                     AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
@@ -48,7 +48,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<AgentDispatch> DeleteDispatch(DeleteAgentDispatchRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.AgentDispatchService/DeleteDispatch",
+                    Twirp.Routes.AgentDispatchService.DeleteDispatch,
                     request,
                     AgentDispatch.Parser,
                     AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })
@@ -64,7 +64,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<ListAgentDispatchResponse> ListDispatch(ListAgentDispatchRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.AgentDispatchService/ListDispatch",
+                    Twirp.Routes.AgentDispatchService.ListDispatch,
                     request,
                     ListAgentDispatchResponse.Parser,
                     AuthHeader(new VideoGrants { RoomAdmin = true, Room = request.Room })

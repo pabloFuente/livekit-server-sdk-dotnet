@@ -1,5 +1,9 @@
 # Changelog (Release Notes)
 
+## Unreleased
+
+- Fix the methods of the generated `Twirp` class (`Twirp.CreateRoom(httpClient, request)` and the like, for code that calls the server without the service clients) deadlocking when the caller blocks on the returned task from a UI thread or another single-threaded `SynchronizationContext`, and reporting errors badly: messages were cut at the first quote, the error code `dataloss` became `Unknown`, and the HTTP status and `meta` map were lost. They now await with `ConfigureAwait(false)` and raise a `TwirpException`, exactly like the service clients since 1.2.5 (still a `Twirp.Exception`, so existing `catch` blocks keep working; a test asserting the exact type with xUnit's `Assert.ThrowsAsync<Twirp.Exception>` needs `Assert.ThrowsAnyAsync`). See [Handling errors](https://github.com/pabloFuente/livekit-server-sdk-dotnet/blob/main/LivekitApi/README.md#handling-errors).
+
 ## 1.2.6
 
 - Update livekit/protocol to [v1.53.2](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.53.2) [PR #147](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/147)

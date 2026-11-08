@@ -37,7 +37,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<ListSIPTrunkResponse> ListSIPTrunk(ListSIPTrunkRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/ListSIPTrunk",
+                    Twirp.Routes.SIP.ListSIPTrunk,
                     request,
                     ListSIPTrunkResponse.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
@@ -55,7 +55,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/CreateSIPInboundTrunk",
+                    Twirp.Routes.SIP.CreateSIPInboundTrunk,
                     request,
                     SIPInboundTrunkInfo.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
@@ -73,7 +73,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/CreateSIPOutboundTrunk",
+                    Twirp.Routes.SIP.CreateSIPOutboundTrunk,
                     request,
                     SIPOutboundTrunkInfo.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
@@ -91,7 +91,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/GetSIPInboundTrunk",
+                    Twirp.Routes.SIP.GetSIPInboundTrunk,
                     request,
                     GetSIPInboundTrunkResponse.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
@@ -109,7 +109,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/GetSIPOutboundTrunk",
+                    Twirp.Routes.SIP.GetSIPOutboundTrunk,
                     request,
                     GetSIPOutboundTrunkResponse.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
@@ -127,7 +127,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/ListSIPInboundTrunk",
+                    Twirp.Routes.SIP.ListSIPInboundTrunk,
                     request,
                     ListSIPInboundTrunkResponse.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
@@ -145,7 +145,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/ListSIPOutboundTrunk",
+                    Twirp.Routes.SIP.ListSIPOutboundTrunk,
                     request,
                     ListSIPOutboundTrunkResponse.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
@@ -161,7 +161,7 @@ namespace Livekit.Server.Sdk.Dotnet
         public async Task<SIPTrunkInfo> DeleteSIPTrunk(DeleteSIPTrunkRequest request)
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/DeleteSIPTrunk",
+                    Twirp.Routes.SIP.DeleteSIPTrunk,
                     request,
                     SIPTrunkInfo.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
@@ -179,7 +179,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/CreateSIPDispatchRule",
+                    Twirp.Routes.SIP.CreateSIPDispatchRule,
                     request,
                     SIPDispatchRuleInfo.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
@@ -197,7 +197,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/ListSIPDispatchRule",
+                    Twirp.Routes.SIP.ListSIPDispatchRule,
                     request,
                     ListSIPDispatchRuleResponse.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
@@ -215,7 +215,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/DeleteSIPDispatchRule",
+                    Twirp.Routes.SIP.DeleteSIPDispatchRule,
                     request,
                     SIPDispatchRuleInfo.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
@@ -233,7 +233,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/CreateSIPParticipant",
+                    Twirp.Routes.SIP.CreateSIPParticipant,
                     request,
                     SIPParticipantInfo.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Call = true })
@@ -251,7 +251,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/TransferSIPParticipant",
+                    Twirp.Routes.SIP.TransferSIPParticipant,
                     request,
                     TransferSIPParticipantResponse.Parser,
                     AuthHeader(
@@ -272,7 +272,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/UpdateSIPInboundTrunk",
+                    Twirp.Routes.SIP.UpdateSIPInboundTrunk,
                     request,
                     SIPInboundTrunkInfo.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
@@ -290,7 +290,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/UpdateSIPOutboundTrunk",
+                    Twirp.Routes.SIP.UpdateSIPOutboundTrunk,
                     request,
                     SIPOutboundTrunkInfo.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })
@@ -308,7 +308,7 @@ namespace Livekit.Server.Sdk.Dotnet
         )
         {
             return await SendAsync(
-                    "twirp/livekit.SIP/UpdateSIPDispatchRule",
+                    Twirp.Routes.SIP.UpdateSIPDispatchRule,
                     request,
                     SIPDispatchRuleInfo.Parser,
                     AuthHeader(new VideoGrants { }, new SIPGrants { Admin = true })

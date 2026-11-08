@@ -5,10 +5,10 @@ by Livekit.Server.Sdk.Dotnet.
 
 Three layers are compared:
   1. proto    - every `service` / `rpc` declared in protocol/protobufs/*.proto
-  2. Twirp.cs - the generated stubs (LivekitApi/proto/Twirp.cs), keyed by their
-                "twirp/<package>.<Service>/<Method>" route
+  2. Twirp.cs - the generated stubs (LivekitApi/proto/Twirp.cs), keyed by the
+                "twirp/<package>.<Service>/<Method>" route of their Twirp.Routes constant
   3. clients  - the hand-written LivekitApi/*ServiceClient.cs wrappers (the
-                "twirp/<package>.<Service>/<Method>" route each one passes to SendAsync)
+                Twirp.Routes.<Service>.<Method> constant each one passes to SendAsync)
 
 Usage (from the repo root):
   python3 .claude/skills/sync-protocol/scripts/api_coverage.py [--json]
@@ -30,9 +30,9 @@ IGNORE_FILE = Path(__file__).with_name("coverage_ignore.txt")
 RE_PACKAGE = re.compile(r"^\s*package\s+([\w.]+)\s*;", re.M)
 RE_SERVICE = re.compile(r"^\s*service\s+(\w+)\s*\{", re.M)
 RE_RPC = re.compile(r"\brpc\s+(\w+)\s*\(\s*(stream\s+)?([\w.]+)\s*\)\s*returns\s*\(\s*(stream\s+)?([\w.]+)\s*\)")
-RE_TWIRP_METHOD = re.compile(r"public static async Task<[^>]+>\s+(\w+)\s*\(HttpClient")
-RE_TWIRP_ROUTE = re.compile(r'"twirp/([\w.]+)/(\w+)"')
-RE_CLIENT_CALL = re.compile(r'"twirp/[\w.]+/(\w+)"')
+# The route constant of each RPC, named like its C# method: internal const string CreateRoom = "twirp/livekit.RoomService/CreateRoom";
+RE_TWIRP_ROUTE = re.compile(r'internal const string (\w+) = "twirp/([\w.]+)/(\w+)";')
+RE_CLIENT_CALL = re.compile(r"\bTwirp\.Routes\.\w+\.(\w+)")
 RE_DEPRECATED = re.compile(r"option\s*\(\s*deprecated\s*\)|deprecated\s*=\s*true")
 
 
@@ -86,19 +86,12 @@ def parse_protos():
 
 def parse_twirp():
     """{ 'livekit.RoomService/CreateRoom': 'CreateRoom' } (route -> C# method name)"""
-    routes = {}
     if not TWIRP_CS.exists():
-        return routes
-    current = None
-    for line in TWIRP_CS.read_text(encoding="utf-8").splitlines():
-        m = RE_TWIRP_METHOD.search(line)
-        if m:
-            current = m.group(1)
-        r = RE_TWIRP_ROUTE.search(line)
-        if r and current:
-            routes[f"{r.group(1)}/{r.group(2)}"] = current
-            current = None
-    return routes
+        return {}
+    return {
+        f"{m.group(2)}/{m.group(3)}": m.group(1)
+        for m in RE_TWIRP_ROUTE.finditer(TWIRP_CS.read_text(encoding="utf-8"))
+    }
 
 
 def parse_clients():
