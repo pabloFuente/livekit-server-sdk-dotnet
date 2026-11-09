@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- Fix `AudioSource.Dispose` never returning, with a native thread spinning at 100% CPU, or the
+  process crashing with a corrupted heap (for example `malloc(): unsorted double linked list
+  corrupted`), when the source still had audio queued. The native source frees its queue before it
+  stops the task that plays the queue out, so a release that lands while that task runs breaks it.
+  The SDK now empties the queue before it releases the source, also when the finalizer releases it.
+  Audio captured while the source is being disposed can still trigger the native race.
+- Fix `Room.LocalTrackPublished` not raised, with `[WARN] RoomEvent.LocalTrackPublished:
+  Publication <sid> not found` on stderr after every later event of the room was held for 10 s,
+  when the track was unpublished before the room's event handlers reached its publication (a slow
+  handler, or many events at once). It is now raised, followed by `Room.LocalTrackUnpublished`.
 - Fix `[WARN] RoomEvent.TrackSubscribed: Publication <sid> not found for participant <identity>`
   on stderr, and `Room.TrackSubscribed` raised with no `Room.TrackUnsubscribed` ever following,
   when a remote participant unpublished a track while it was being subscribed. The native library

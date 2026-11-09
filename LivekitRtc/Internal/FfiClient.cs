@@ -420,6 +420,10 @@ namespace LiveKit.Rtc.Internal
                 return NativeMethods.RetrievePtr(ptr, (UIntPtr)data.Length);
         }
 
+        // Whether Dispose released the native library: handle releases skip the requests that
+        // precede them, since the library dropped every handle then
+        internal bool IsDisposed => _disposed;
+
         private void EnsureInitialized()
         {
             if (!_initialized)

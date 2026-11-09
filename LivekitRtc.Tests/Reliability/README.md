@@ -19,11 +19,11 @@ forced through `Room.SimulateScenarioAsync`, or with real outages of a LiveKit s
 
 | File | Needs Docker | What it covers |
 | --- | --- | --- |
-| `NativeLifecycleTests` | no | Each resource wrapper (`AudioSource`, `VideoSource`, `EncodedVideoSource`, `AudioResampler`, local tracks): dispose once, repeatedly, from 8 threads at once, never (finalizer); use after dispose; failed native requests; dispose during a pending capture; cancelled captures; owned buffers of frame conversions; the handle each kind of room event carries, released exactly once when the room does not apply the event |
+| `NativeLifecycleTests` | no | Each resource wrapper (`AudioSource`, `VideoSource`, `EncodedVideoSource`, `AudioResampler`, local tracks): dispose once, repeatedly, from 8 threads at once, never (finalizer); use after dispose; failed native requests; dispose during a pending capture; dispose with audio queued (native release race); cancelled captures; owned buffers of frame conversions; the handle each kind of room event carries, released exactly once when the room does not apply the event |
 | `NativeConcurrencyTests` | no | Dispose racing `AudioResampler.Push`, concurrent push/flush, pinning under compacting GC pressure (end to end through the FFI), sync wrappers on a UI-like single-threaded `SynchronizationContext`, wrappers used from many threads |
 | `NativeResourceLeakTests` | no | Hundreds (extended: thousands) of lifecycle cycles per wrapper with bounded growth of handles, native heap, descriptors and threads |
 | `RoomLifecycleTests` | yes | Connect, disconnect and dispose: repeated, concurrent, during a connect, cancelled at many points, failed, server-initiated, on a UI-like thread, one `Room` reused for many connections, ended rooms not retained by the SDK |
-| `CallbackConcurrencyTests` | yes | Order and exactly-once delivery at high rate, throwing handlers, a blocked handler stalling only its own room, subscribing and unsubscribing during delivery, reentrant handlers, the disposal boundary under a data flood, RPC served while the event chain is blocked |
+| `CallbackConcurrencyTests` | yes | Order and exactly-once delivery at high rate, throwing handlers, a blocked handler stalling only its own room, subscribing and unsubscribing during delivery, reentrant handlers, a track unpublished before the chain reaches its publication, the disposal boundary under a data flood, RPC served while the event chain is blocked |
 | `ConcurrentOperationsTests` | yes | Many rooms in parallel, concurrent publish/unpublish/mute, concurrent data and text streams, cancelled `PublishTrackAsync`, invalid double publish, media streams read and disposed concurrently while frames flow |
 | `RemoteTrackEventOrderTests` | yes | The out-of-order remote track events the FFI produces when a participant leaves while its tracks are subscribed (unsubscription first, twice, or after the departure), replayed into a connected room with `SyntheticRoomEvents`: balanced events, consistent state, every handle released, no warning |
 | `ReconnectionTests` | yes | Repeated full reconnects and resumes of a publisher (publications kept and re-keyed, event order, no duplicated handlers, consistent remote view) and of a subscriber (its view of the remote tracks rebuilt), disconnect or dispose during a reconnection, cancelled scenario, handles across reconnect cycles |
@@ -129,5 +129,10 @@ reliability test fails on such a line unless it provokes it on purpose.
   the dump with `gdb /usr/lib/dotnet/dotnet <dump>` (`thread apply all bt`, then the thread
   with `<signal handler called>`). Until it is fixed the soak can fail nightly, and the release
   validation leaves it out.
+- The native audio source frees its queue before it stops the 10 ms task that plays the queue
+  out (webrtc-sys `AudioTrackSource`), so releasing a source with audio queued could leave that
+  task spinning forever, which hung `Dispose`, or corrupt the heap. The SDK empties the queue
+  before every release, but audio captured while the source is being disposed can still refill
+  it.
 - Paths that need a misbehaving server (a `TrackSubscribed` for an unknown participant, the release
   path fixed in PR #159) cannot be provoked from outside the SDK and are not covered.

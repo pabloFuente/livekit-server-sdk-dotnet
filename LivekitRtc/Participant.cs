@@ -206,6 +206,11 @@ namespace LiveKit.Rtc
                     )
                         return found;
                 }
+                // Registered and unpublished before the room's chain reached this event:
+                // UnpublishTrackAsync handed the publication over to its LocalTrackUnpublished
+                // event, which follows this one in the chain
+                if (_publicationsPendingUnpublishedEvent.TryGetValue(trackSid, out var unpublished))
+                    return unpublished;
                 if (!_pendingPublicationWaiters.TryGetValue(trackSid, out waiter))
                 {
                     waiter = new TaskCompletionSource<LocalTrackPublication>(

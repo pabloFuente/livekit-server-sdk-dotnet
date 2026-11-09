@@ -395,7 +395,10 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   over (the SDK reads streams from the raw header, chunk and trailer events). An unwrapped handle
   is invisible to the handle accounting; only the native heap shows it. Resource owners (`Room`, tracks, sources, streams, the
   resampler) implement `IDisposable`; `Participant` and `TrackPublication` rely on the
-  `SafeHandle` finalizer.
+  `SafeHandle` finalizer. `AudioSource` wraps its handle in a subclass that empties the native
+  queue before every release: the native source frees that queue before it stops its 10 ms
+  playout task, and a release during that task spins it forever or corrupts the heap
+  (`NativeLifecycleTests.AudioSource_DisposedWithAudioQueued_NeitherHangsNorCrashes`).
 - Managed buffers whose pointer is handed to the FFI (frame capture, frame conversion,
   resampling) must stay pinned until the request has actually been sent, not just while the pointer
   is computed. See `AudioSource.CaptureFrameAsync`, `VideoSource.CaptureFrame`, `VideoFrame` and
