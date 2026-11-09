@@ -1498,11 +1498,12 @@ namespace LiveKit.Rtc
     /// </summary>
     public class RemoteParticipant : Participant
     {
-        // Tracks whose TrackUnsubscribed arrived although the room had not delivered their
-        // TrackSubscribed, by SID, with the time it arrived. The Rust SDK dispatches the two from
-        // different threads (the media path sets the track, the unpublication clears it), with no
-        // lock spanning the change and the dispatch: a participant that unpublishes while its track
-        // is being subscribed can have the unsubscription, or a second one, delivered first. The
+        // Tracks whose subscription ended (TrackUnsubscribed, or TrackUnpublished of a publication
+        // without a track) although the room had not delivered their TrackSubscribed, by SID, with
+        // the time it ended. The Rust SDK dispatches TrackSubscribed from the media path and the
+        // unpublication's events from the signal path, with no lock spanning the state change and
+        // the dispatch: a participant that unpublishes while its track is being subscribed can have
+        // the unsubscription, a second one, or the unpublication delivered first. The
         // TrackSubscribed that follows within milliseconds is stale. Protected by PublicationsLock.
         private readonly Dictionary<string, long> _unsubscribedBeforeSubscribed =
             new Dictionary<string, long>();
@@ -1514,13 +1515,28 @@ namespace LiveKit.Rtc
             : base(handle, info, room) { }
 
         /// <summary>
-        /// Records an unsubscription of a track the room has no subscription for.
+        /// Records the end of a subscription the room has not delivered.
         /// </summary>
         internal void MarkUnsubscribedBeforeSubscribed(string trackSid)
         {
+            var now = Stopwatch.GetTimestamp();
             lock (PublicationsLock)
             {
-                _unsubscribedBeforeSubscribed[trackSid] = Stopwatch.GetTimestamp();
+                // Most records are never taken (no TrackSubscribed follows an unpublication that
+                // beat the subscription): drop the expired ones, so a participant that publishes
+                // and unpublishes for hours keeps a handful at most
+                if (_unsubscribedBeforeSubscribed.Count > 0)
+                {
+                    var expired = new List<string>();
+                    foreach (var record in _unsubscribedBeforeSubscribed)
+                    {
+                        if (now - record.Value > UnsubscribedBeforeSubscribedWindow)
+                            expired.Add(record.Key);
+                    }
+                    foreach (var sid in expired)
+                        _unsubscribedBeforeSubscribed.Remove(sid);
+                }
+                _unsubscribedBeforeSubscribed[trackSid] = now;
             }
         }
 
