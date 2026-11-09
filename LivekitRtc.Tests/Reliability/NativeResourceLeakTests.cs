@@ -36,7 +36,7 @@ public class NativeResourceLeakTests
             "wrappers left to the finalizer",
         };
 
-    private static async Task RunCycleAsync(string scenario)
+    private static async Task RunCycleAsync(string scenario, int cycle)
     {
         switch (scenario)
         {
@@ -77,6 +77,16 @@ public class NativeResourceLeakTests
             }
             case "wrappers left to the finalizer":
                 Abandon();
+                // An abandoned AudioSource keeps a native thread ticking every 10 ms until its
+                // wrapper is finalized, and a cycle allocates too little to trigger a collection:
+                // where collections are rare, thousands of those threads piled up and the
+                // scenario took up to half an hour (Windows runners). Collecting now and then
+                // bounds them and still leaves the release to the finalizer.
+                if (cycle % 50 == 49)
+                {
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                }
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(scenario));
@@ -100,11 +110,11 @@ public class NativeResourceLeakTests
         var log = SdkLog.BeginScope();
 
         for (var i = 0; i < 20; i++)
-            await RunCycleAsync(scenario);
+            await RunCycleAsync(scenario, i);
         var baseline = ResourceSnapshot.Capture();
 
         for (var i = 0; i < cycles; i++)
-            await RunCycleAsync(scenario);
+            await RunCycleAsync(scenario, i);
 
         await ResourceSnapshot.AssertWithinAsync(
             baseline,
