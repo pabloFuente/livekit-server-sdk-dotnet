@@ -1649,6 +1649,27 @@ namespace LiveKit.Rtc
                 participant.GetTrackPublication(evt.PublicationSid) as RemoteTrackPublication;
             if (publication != null)
             {
+                // A track subscribed while it was being unpublished: the Rust SDK's unpublication
+                // found no track to unsubscribe, so the FFI sends no TrackUnsubscribed, and its
+                // TrackSubscribed is delivered before or after this event (see RemoteParticipant).
+                // The room ends that subscription here, as the unpublication of a subscribed track
+                // does, or marks the late TrackSubscribed as stale.
+                var track = publication.Track;
+                if (track != null)
+                {
+                    publication.Track = null;
+                    DispatchEvent(() =>
+                        Raise(
+                            TrackUnsubscribed,
+                            new TrackSubscribedEventArgs(track, publication, participant),
+                            nameof(TrackUnsubscribed)
+                        )
+                    );
+                }
+                else
+                {
+                    participant.MarkUnsubscribedBeforeSubscribed(evt.PublicationSid);
+                }
                 DispatchEvent(() =>
                     Raise(
                         TrackUnpublished,
@@ -1699,8 +1720,8 @@ namespace LiveKit.Rtc
                 return;
             }
 
-            // Its unsubscription was delivered first (see RemoteParticipant): the subscription is
-            // over already, so neither half is raised
+            // Its unsubscription or its unpublication was delivered first (see RemoteParticipant):
+            // the subscription is over already, so neither half is raised
             if (participant.TakeUnsubscribedBeforeSubscribed(trackInfo.Sid ?? ""))
             {
                 Release();

@@ -8,11 +8,13 @@ using static LiveKit.Rtc.Tests.Reliability.SyntheticRoomEvents;
 namespace LiveKit.Rtc.Tests.Reliability;
 
 /// <summary>
-/// The orders in which the FFI delivers the remote track events of a participant that leaves
-/// while its tracks are being subscribed, as recorded from the soak (participants joining, fully
-/// reconnecting and leaving concurrently). The Rust SDK dispatches TrackSubscribed from the media
-/// path and TrackUnsubscribed from the unpublication, with no lock spanning the state change and
-/// the dispatch, so the unsubscription can come first, twice, or after the participant left. The
+/// The orders in which the FFI delivers the remote track events of a participant that leaves, or
+/// unpublishes a track, while its tracks are being subscribed, as recorded from the soak
+/// (participants joining, fully reconnecting and leaving concurrently) and from tracks unpublished
+/// right after they were published. The Rust SDK dispatches TrackSubscribed from the media path
+/// and TrackUnsubscribed and TrackUnpublished from the unpublication, with no lock spanning the
+/// state change and the dispatch, so the unsubscription can come first, twice, or after the
+/// participant left, and a track subscribed during its unpublication gets no unsubscription. The
 /// room must end in the state the native side ended in, raise balanced events, and release every
 /// handle, without a warning for an order it knows. Each test replays the recorded sequence into a
 /// connected room (<see cref="SyntheticRoomEvents"/>).
@@ -231,6 +233,83 @@ public class RemoteTrackEventOrderTests
             replay.Room.RemoteParticipants["ghost"].GetTrackPublication("TR_ghost")
         );
         Assert.NotNull(publication.Track);
+        log.AssertNoProblems();
+    }
+
+    [Fact]
+    public async Task ALateSubscriptionAfterTheUnpublication_RaisesNeither_AndReleasesTheLateTrack()
+    {
+        // Recorded from a remote track unpublished while it was being subscribed: the Rust SDK's
+        // unpublication found no track to unsubscribe (no TrackUnsubscribed), and the media path's
+        // TrackSubscribed came after TrackUnpublished, in the same millisecond. The room used to
+        // warn "TrackSubscribed: Publication ... not found for participant ...", the warning that
+        // failed the nightly soak. When the participant leaves, the Rust SDK unpublishes the track
+        // again, now that the late subscription set it: TrackUnsubscribed, TrackUnpublished.
+        var log = SdkLog.BeginScope();
+        using var replay = await Replay.StartAsync(_server);
+        var lateTrack = NewNativeHandle();
+
+        var raised = await replay.DeliverAsync(
+            ParticipantConnected("ghost", "PA_ghost", NewNativeHandle()),
+            TrackPublished("ghost", "TR_ghost", NewNativeHandle()),
+            TrackUnpublished("ghost", "TR_ghost"),
+            TrackSubscribed("ghost", "TR_ghost", lateTrack),
+            TrackUnsubscribed("ghost", "TR_ghost"),
+            TrackUnpublished("ghost", "TR_ghost"),
+            ParticipantDisconnected("ghost")
+        );
+
+        Assert.Equal(
+            new[]
+            {
+                "ParticipantConnected ghost",
+                "TrackPublished TR_ghost",
+                "TrackUnpublished TR_ghost",
+                "ParticipantDisconnected ghost",
+            },
+            raised
+        );
+        Assert.True(WasReleased(lateTrack), "the late track's handle was released");
+        Assert.Empty(replay.Room.RemoteParticipants);
+        log.AssertNoProblems();
+    }
+
+    [Fact]
+    public async Task ASubscriptionCompletedDuringTheUnpublication_IsEndedByIt()
+    {
+        // Recorded: the same race with TrackSubscribed delivered first, and no TrackUnsubscribed
+        // afterwards. The room raised TrackSubscribed and TrackUnpublished, never
+        // TrackUnsubscribed, and the removed publication kept its track.
+        var log = SdkLog.BeginScope();
+        using var replay = await Replay.StartAsync(_server);
+        var track = NewNativeHandle();
+        RemoteTrackPublication? unpublished = null;
+        replay.Room.TrackUnpublished += (_, e) =>
+            unpublished = e.Publication as RemoteTrackPublication;
+
+        var raised = await replay.DeliverAsync(
+            ParticipantConnected("ghost", "PA_ghost", NewNativeHandle()),
+            TrackPublished("ghost", "TR_ghost", NewNativeHandle()),
+            TrackSubscribed("ghost", "TR_ghost", track),
+            TrackUnpublished("ghost", "TR_ghost"),
+            ParticipantDisconnected("ghost")
+        );
+
+        Assert.Equal(
+            new[]
+            {
+                "ParticipantConnected ghost",
+                "TrackPublished TR_ghost",
+                "TrackSubscribed TR_ghost",
+                "TrackUnsubscribed TR_ghost",
+                "TrackUnpublished TR_ghost",
+                "ParticipantDisconnected ghost",
+            },
+            raised
+        );
+        Assert.NotNull(unpublished);
+        Assert.Null(unpublished!.Track);
+        Assert.Empty(replay.Room.RemoteParticipants);
         log.AssertNoProblems();
     }
 

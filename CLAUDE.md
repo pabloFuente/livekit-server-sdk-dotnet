@@ -362,10 +362,13 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
   both orders explicitly instead of assuming one.
   Room events themselves can arrive out of order: the Rust SDK dispatches a remote track's
   `TrackSubscribed` (media path) and `TrackUnsubscribed` (unpublication) from different threads,
-  so the unsubscription can come first, twice, or after `ParticipantDisconnected`.
-  `RemoteParticipant` records an unsubscription the room had no subscription for, and `Room`
-  remembers the participants that left, so the stale halves are released without an event or a
-  warning; `RemoteTrackEventOrderTests` replays the recorded orders (`SyntheticRoomEvents`
+  so the unsubscription can come first, twice, or after `ParticipantDisconnected`. A track
+  subscribed while it is being unpublished gets no `TrackUnsubscribed` at all, and its
+  `TrackSubscribed` arrives before or after `TrackUnpublished`.
+  `RemoteParticipant` records an unsubscription, or an unpublication, that ended a subscription
+  the room had not delivered, `TrackUnpublished` ends a subscription the FFI never ended, and
+  `Room` remembers the participants that left, so the stale halves are released without an event
+  or a warning; `RemoteTrackEventOrderTests` replays the recorded orders (`SyntheticRoomEvents`
   delivers events through `FfiClient.OnFfiCallback` with real native handles). Before changing
   event handling for an order seen in the field, record the raw `FfiClient.EventReceived`
   sequence of the room that logged it.

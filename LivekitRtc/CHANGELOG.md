@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Fix `[WARN] RoomEvent.TrackSubscribed: Publication <sid> not found for participant <identity>`
+  on stderr, and `Room.TrackSubscribed` raised with no `Room.TrackUnsubscribed` ever following,
+  when a remote participant unpublished a track while it was being subscribed. The native library
+  then sends no `TrackUnsubscribed` for that track, and delivers its `TrackSubscribed` before or
+  after its `TrackUnpublished`. `Room.TrackUnpublished` is now preceded by the missing
+  `Room.TrackUnsubscribed`, and a subscription that arrives after the unpublication raises nothing
+  and has its native track released.
 - Fix an ended `Room` staying in memory for 15 s after it disconnected, with its participants,
   tracks and event handlers, and receiving every native event of the process meanwhile. The
   fallback timer of the end of a connection held it, and an end-of-stream event that arrived
