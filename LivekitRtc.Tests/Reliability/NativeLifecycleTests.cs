@@ -270,6 +270,33 @@ public class NativeLifecycleTests
     }
 
     [Fact]
+    public async Task AudioSource_DisposedWithAudioQueued_NeitherHangsNorCrashes()
+    {
+        // The native source (webrtc-sys AudioTrackSource) frees its queue before it stops the
+        // 10 ms task that plays the queue out, and without the lock that task holds. A release
+        // that lands while the task erases the played samples leaves it spinning forever, and
+        // Dispose, which waits for the task's thread, never returns (the soak's "'dispose the
+        // audio track and source' did not complete within 30 s"), or lets it read the freed queue
+        // and crash the process. The SDK empties the queue before it releases the source.
+        var cycles = StressLevel.Scale(300, 2000);
+        var failed = FfiHandle.FailedReleaseCount;
+        // 10 s of stereo audio: each erase moves about 2 MB, which widens the window of the race
+        const int QueueMs = 10000;
+        const int Samples = 48 * (QueueMs - 100);
+        var frame = new AudioFrame(new short[Samples * 2], 48000, 2, Samples);
+
+        for (var i = 0; i < cycles; i++)
+        {
+            var source = new AudioSource(48000, 2, QueueMs);
+            await source.CaptureFrameAsync(frame); // accepted at once: the queue has room for it
+            await Task.Delay(i % 20); // releases at every phase of the 10 ms task
+            await Task.Run(source.Dispose)
+                .Within(TimeSpan.FromSeconds(10), $"Dispose with audio queued (cycle {i})");
+        }
+        Assert.Equal(failed, FfiHandle.FailedReleaseCount);
+    }
+
+    [Fact]
     public async Task AudioSource_CancelledCapture_NeverHangsTheNextCaptures_AndTheSourceRecovers()
     {
         // Cancelling stops the wait, not the native capture, and the native source refuses a new

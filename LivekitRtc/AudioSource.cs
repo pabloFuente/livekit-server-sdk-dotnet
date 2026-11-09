@@ -57,7 +57,7 @@ namespace LiveKit.Rtc
 
             var response = FfiClient.Instance.SendRequest(request);
             var sourceInfo = response.NewAudioSource.Source;
-            _handle = FfiHandle.FromId(sourceInfo.Handle.Id);
+            _handle = new SourceHandle(sourceInfo.Handle.Id);
         }
 
         /// <summary>
@@ -284,6 +284,43 @@ namespace LiveKit.Rtc
             }
             ReleaseWaiter();
             _handle.Dispose();
+        }
+
+        // The native source (webrtc-sys AudioTrackSource) frees its queue before it stops the
+        // 10 ms task that plays the queue out, and without the lock that task holds. A release
+        // that lands while the task erases played samples leaves the task spinning forever, which
+        // hangs the thread that released the source (it waits for the task's thread), or lets it
+        // read the freed queue and crash the process. An empty queue leaves the task nothing to
+        // erase, so every release, by Dispose or by the finalizer, first empties it under that
+        // lock. Audio captured while the release runs can still refill it.
+        private sealed class SourceHandle : FfiHandle
+        {
+            internal SourceHandle(ulong handleId)
+                : base(handleId) { }
+
+            protected override bool ReleaseHandle()
+            {
+                if (!IsInvalid && !FfiClient.Instance.IsDisposed)
+                {
+                    try
+                    {
+                        FfiClient.Instance.SendRequest(
+                            new FfiRequest
+                            {
+                                ClearAudioBuffer = new ClearAudioBufferRequest
+                                {
+                                    SourceHandle = HandleId,
+                                },
+                            }
+                        );
+                    }
+                    catch (Exception)
+                    {
+                        // The release itself must still happen
+                    }
+                }
+                return base.ReleaseHandle();
+            }
         }
     }
 }

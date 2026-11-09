@@ -263,6 +263,59 @@ public class CallbackConcurrencyTests
         log.AssertNoProblems();
     }
 
+    [Fact]
+    public async Task ATrackUnpublishedBeforeTheChainReachesItsPublication_RaisesBothEventsInOrder()
+    {
+        // The FFI sends LocalTrackPublished right after the PublishTrack callback, so a room whose
+        // chain is busy can return from UnpublishTrackAsync before the chain reaches that event.
+        // The event used to wait 10 s for a registration that had come and gone, stalling the
+        // room, then be dropped with "[WARN] RoomEvent.LocalTrackPublished: Publication <sid> not
+        // found" (seen in the soak)
+        var log = SdkLog.BeginScope();
+        var gate = new ManualResetEventSlim(false);
+        var holding = Eventually.Signal<bool>();
+        var events = new ConcurrentQueue<string>();
+        using var source = new AudioSource(48000, 1);
+        using var track = LocalAudioTrack.Create("unpublished-early", source);
+        await using var group = await RoomGroup.ConnectAsync(
+            _server,
+            ReliabilityServerFixture.NewRoomName("unpublished-early"),
+            new[] { "publisher", "sender" },
+            (identity, room) =>
+            {
+                if (identity != "publisher")
+                    return;
+                room.DataReceived += (_, _) =>
+                {
+                    holding.TrySetResult(true);
+                    gate.Wait(Settle);
+                };
+                room.LocalTrackPublished += (_, e) =>
+                    events.Enqueue($"published {e.Publication.Sid}");
+                room.LocalTrackUnpublished += (_, e) =>
+                    events.Enqueue($"unpublished {e.Publication.Sid}");
+            }
+        );
+        await group.SendSequenceAsync("sender", "publisher", 1);
+        await holding.Task.Within(Settle, "the handler that holds the chain");
+
+        var participant = group["publisher"].LocalParticipant!;
+        var publication = await participant.PublishTrackAsync(track);
+        await participant.UnpublishTrackAsync(publication.Sid);
+        gate.Set();
+
+        await Eventually.TrueAsync(
+            () => events.Count >= 2,
+            TimeSpan.FromSeconds(5),
+            "both events, well before the 10 s registration wait"
+        );
+        Assert.Equal(
+            new[] { $"published {publication.Sid}", $"unpublished {publication.Sid}" },
+            events
+        );
+        log.AssertNoProblems();
+    }
+
     [Theory]
     [InlineData("DisconnectAsync from another thread")]
     [InlineData("Dispose inside a DataReceived handler")]
