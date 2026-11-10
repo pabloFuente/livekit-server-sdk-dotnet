@@ -29,11 +29,16 @@ public class SyntheticRoomEventTests : IAsyncLifetime
 
     public async Task InitializeAsync()
     {
+        // The FFI sends the room's SID in a RoomSidChanged event shortly after the connection: a
+        // replayed event that lands before it would have its SID overwritten by the real one
+        var sid = Eventually.Signal<string>();
+        _room.RoomSidChanged += (_, value) => sid.TrySetResult(value);
         await _room.ConnectAsync(
             _fixture.LiveKitUrl,
             _fixture.CreateToken("replay", $"synthetic-events-{Guid.NewGuid():N}")
         );
-        _output.WriteLine($"Connected to {_room.Name}");
+        await sid.Task.Within(Timeout, "the RoomSidChanged event that follows the connection");
+        _output.WriteLine($"Connected to {_room.Name} ({_room.Sid})");
     }
 
     public async Task DisposeAsync()
