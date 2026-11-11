@@ -3,8 +3,10 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -1274,7 +1276,9 @@ namespace LiveKit.Rtc
         }
 
         /// <summary>
-        /// Performs an RPC call to a remote participant.
+        /// Performs an RPC call to a remote participant. Deprecated, kept for the applications compiled
+        /// against an earlier version: use
+        /// <see cref="PerformRpcAsync(string, string, string, double?, double?)"/>.
         /// </summary>
         /// <param name="destinationIdentity">The identity of the destination participant.</param>
         /// <param name="method">The RPC method name to call.</param>
@@ -1282,16 +1286,22 @@ namespace LiveKit.Rtc
         /// <param name="responseTimeout">Seconds to wait for the response; 15 when null.</param>
         /// <returns>The response payload from the remote participant.</returns>
         /// <exception cref="RpcError">Thrown when the RPC call fails.</exception>
+        // The signature of 0.1.7 without its default value: callers compiled against it keep binding
+        // to it, and source code binds to the overload below
+        [Obsolete(
+            "Use PerformRpcAsync(string destinationIdentity, string method, string payload, double? responseTimeout = null, double? maxRoundTripLatency = null) instead."
+        )]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [OverloadResolutionPriority(-1)]
         public Task<string> PerformRpcAsync(
             string destinationIdentity,
             string method,
             string payload,
-            double? responseTimeout = null
+            double? responseTimeout
         ) => PerformRpcAsync(destinationIdentity, method, payload, responseTimeout, null);
 
         /// <summary>
-        /// Performs an RPC call to a remote participant, with the latency the request may take to
-        /// reach it.
+        /// Performs an RPC call to a remote participant.
         /// </summary>
         /// <param name="destinationIdentity">The identity of the destination participant.</param>
         /// <param name="method">The RPC method name to call.</param>
@@ -1309,8 +1319,8 @@ namespace LiveKit.Rtc
             string destinationIdentity,
             string method,
             string payload,
-            double? responseTimeout,
-            double? maxRoundTripLatency
+            double? responseTimeout = null,
+            double? maxRoundTripLatency = null
         )
         {
             if (string.IsNullOrEmpty(destinationIdentity))

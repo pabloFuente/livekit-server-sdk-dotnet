@@ -1,6 +1,8 @@
 // author: https://github.com/pabloFuente
 
 using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using LiveKit.Proto;
 using LiveKit.Rtc.Internal;
 
@@ -17,23 +19,27 @@ namespace LiveKit.Rtc
         private bool _disposed;
 
         /// <summary>
-        /// Initializes a new instance of the video source.
+        /// Initializes a new instance of the video source. Deprecated, kept for the applications
+        /// compiled against an earlier version: use <see cref="VideoSource(int, int, bool)"/>.
         /// </summary>
         /// <param name="width">The width of the video source in pixels.</param>
         /// <param name="height">The height of the video source in pixels.</param>
+        [Obsolete("Use VideoSource(int width, int height, bool isScreencast = false) instead.")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [OverloadResolutionPriority(-1)]
         public VideoSource(int width, int height)
             : this(width, height, false) { }
 
         /// <summary>
-        /// Initializes a new instance of the video source, for camera-like or screen content.
+        /// Initializes a new instance of the video source.
         /// </summary>
         /// <param name="width">The width of the video source in pixels.</param>
         /// <param name="height">The height of the video source in pixels.</param>
         /// <param name="isScreencast">
         /// Whether the frames are screen content, for which WebRTC optimizes its pipeline (sharpness
-        /// over frame rate).
+        /// over frame rate). Defaults to false.
         /// </param>
-        public VideoSource(int width, int height, bool isScreencast)
+        public VideoSource(int width, int height, bool isScreencast = false)
         {
             _width = width;
             _height = height;
@@ -73,34 +79,43 @@ namespace LiveKit.Rtc
         internal FfiHandle Handle => _handle;
 
         /// <summary>
+        /// Captures a video frame and sends it to the video source. Deprecated, kept for the
+        /// applications compiled against an earlier version: use
+        /// <see cref="CaptureFrame(VideoFrame, long, Proto.VideoRotation, Proto.FrameMetadata)"/>.
+        /// </summary>
+        /// <param name="frame">The video frame to capture.</param>
+        /// <param name="timestampUs">Timestamp in microseconds. If 0, current time is used.</param>
+        /// <param name="rotation">Rotation to apply to the frame.</param>
+        // The signature of 0.1.7 without its default values: callers compiled against it keep
+        // binding to it, and source code binds to the overload below
+        [Obsolete(
+            "Use CaptureFrame(VideoFrame frame, long timestampUs = 0, VideoRotation rotation = _0, FrameMetadata? metadata = null) instead."
+        )]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [OverloadResolutionPriority(-1)]
+        public void CaptureFrame(
+            VideoFrame frame,
+            long timestampUs,
+            Proto.VideoRotation rotation
+        ) => CaptureFrame(frame, timestampUs, rotation, null);
+
+        /// <summary>
         /// Captures a video frame and sends it to the video source.
         /// </summary>
         /// <param name="frame">The video frame to capture.</param>
         /// <param name="timestampUs">Optional timestamp in microseconds. If 0, current time is used.</param>
         /// <param name="rotation">Optional rotation to apply to the frame.</param>
-        public void CaptureFrame(
-            VideoFrame frame,
-            long timestampUs = 0,
-            Proto.VideoRotation rotation = Proto.VideoRotation._0
-        ) => CaptureFrame(frame, null, timestampUs, rotation);
-
-        /// <summary>
-        /// Captures a video frame with metadata, which subscribers read from
-        /// <see cref="VideoFrameEvent.Metadata"/>.
-        /// </summary>
-        /// <param name="frame">The video frame to capture.</param>
         /// <param name="metadata">
-        /// Metadata delivered with the frame (user timestamp, frame ID, user data), or null for none.
-        /// Only the features enabled in <see cref="TrackPublishOptions.FrameMetadataFeatures"/> when
-        /// the track was published reach the subscribers.
+        /// Optional metadata delivered with the frame (user timestamp, frame ID, user data), which
+        /// subscribers read from <see cref="VideoFrameEvent.Metadata"/>. Only the features enabled in
+        /// <see cref="TrackPublishOptions.FrameMetadataFeatures"/> when the track was published reach
+        /// them.
         /// </param>
-        /// <param name="timestampUs">Optional timestamp in microseconds. If 0, current time is used.</param>
-        /// <param name="rotation">Optional rotation to apply to the frame.</param>
         public void CaptureFrame(
             VideoFrame frame,
-            Proto.FrameMetadata? metadata,
             long timestampUs = 0,
-            Proto.VideoRotation rotation = Proto.VideoRotation._0
+            Proto.VideoRotation rotation = Proto.VideoRotation._0,
+            Proto.FrameMetadata? metadata = null
         )
         {
             if (_disposed)

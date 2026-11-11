@@ -34,7 +34,7 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Gets the metadata the publisher sent with the frame (user timestamp, frame ID, user data),
         /// or null when it sent none. The publisher sends it with
-        /// <see cref="VideoSource.CaptureFrame(VideoFrame, Proto.FrameMetadata, long, Proto.VideoRotation)"/>
+        /// <see cref="VideoSource.CaptureFrame(VideoFrame, long, Proto.VideoRotation, Proto.FrameMetadata)"/>
         /// on a track published with <see cref="TrackPublishOptions.FrameMetadataFeatures"/>.
         /// </summary>
         public Proto.FrameMetadata? Metadata { get; }
@@ -55,7 +55,7 @@ namespace LiveKit.Rtc
         /// <param name="timestampUs">The timestamp in microseconds.</param>
         /// <param name="rotation">The frame rotation.</param>
         /// <param name="metadata">The metadata sent with the frame, or null.</param>
-        public VideoFrameEvent(
+        internal VideoFrameEvent(
             VideoFrame frame,
             long timestampUs,
             Proto.VideoRotation rotation,

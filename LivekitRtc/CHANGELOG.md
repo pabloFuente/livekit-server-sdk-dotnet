@@ -20,13 +20,21 @@
 - Add `RoomOptions.ConnectTimeout`, `RoomOptions.SinglePeerConnection` and `RoomOptions.DataStream`
   ([`DataStreamOptions.MaxPayloadByteLength`](README.md#connection-options), the size limit of an
   incoming data stream), as in the Python SDK. [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
-- Add a `LocalParticipant.PerformRpcAsync` overload with `maxRoundTripLatency`, the time a request
-  may take to be acknowledged (7 s by default), as in the Node and Python SDKs.
+- Add the optional `maxRoundTripLatency` parameter to `LocalParticipant.PerformRpcAsync`, the time
+  a request may take to be acknowledged (7 s by default), as in the Node and Python SDKs.
   [README](README.md#rpc-communication) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
-- Add the `VideoSource(width, height, isScreencast)` constructor for screen content, a
-  `VideoSource.CaptureFrame` overload that sends `Proto.FrameMetadata` with the frame, and
-  `VideoFrameEvent.Metadata`, which receives it, as in the Python SDK.
+- Add the optional `isScreencast` parameter to the `VideoSource` constructor, for screen content,
+  and the optional `metadata` parameter to `VideoSource.CaptureFrame`, which sends
+  `Proto.FrameMetadata` with the frame, received in the new `VideoFrameEvent.Metadata`, as in the
+  Python SDK.
   [README](README.md#publishing-video) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
+- Deprecate `VideoSource(int, int)`, `VideoSource.CaptureFrame(VideoFrame, long, VideoRotation)` and
+  `LocalParticipant.PerformRpcAsync(string, string, string, double?)`, kept only so that applications
+  compiled against an earlier version keep working: calls bind to the members above that add the
+  optional `isScreencast`, `metadata` and `maxRoundTripLatency` parameters. With C# 12 or earlier
+  (the default for `net8.0` and older targets), a call that passes exactly the old parameters still
+  binds to the deprecated member and raises warning CS0618; pass the new parameter to silence it,
+  for example `new VideoSource(640, 480, isScreencast: false)`. [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
 - Add `Track.GetStatsAsync`, the WebRTC statistics of one track, as in the Python SDK.
   [README](README.md#statistics) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
 - Add `AudioProcessingModule`: WebRTC echo cancellation, noise suppression, high-pass filter and
