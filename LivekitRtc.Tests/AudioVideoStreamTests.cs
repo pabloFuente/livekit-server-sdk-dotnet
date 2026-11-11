@@ -385,7 +385,11 @@ namespace LiveKit.Rtc.Tests
                 {
                     videoSource.CaptureFrame(
                         GenerateTestFrame(320, 240, (int)i),
-                        new Proto.FrameMetadata { FrameId = i, UserTimestamp = 1_000_000 + i }
+                        metadata: new Proto.FrameMetadata
+                        {
+                            FrameId = i,
+                            UserTimestamp = 1_000_000 + i,
+                        }
                     );
                     await Task.Delay(33);
                 }

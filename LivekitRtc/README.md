@@ -158,7 +158,7 @@ await room.LocalParticipant!.PublishTrackAsync(videoTrack, new TrackPublishOptio
         Proto.FrameMetadataFeature.FmfFrameId,
     },
 });
-videoSource.CaptureFrame(videoFrame, new Proto.FrameMetadata { FrameId = 1, UserTimestamp = captureTimeUs });
+videoSource.CaptureFrame(videoFrame, metadata: new Proto.FrameMetadata { FrameId = 1, UserTimestamp = captureTimeUs });
 ```
 
 ### Receiving Media
