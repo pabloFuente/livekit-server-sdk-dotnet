@@ -236,13 +236,14 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
 - Only the reliability suite carries a Category trait (`Reliability`). Classes that take
   `RtcTestFixture` or `ReliabilityServerFixture` need Docker; the rest (`AudioFramePinningTests`,
   `AudioFrameTests`, `AudioMixerTests`, `VideoFramePinningTests`, `VideoFramePlanesTests`,
-  `TrackPublishOptionsMappingTests`,
+  `TrackPublishOptionsMappingTests`, `RoomOptionsMappingTests`,
   `E2EEOptionsMappingTests`, `SdkVersionTests`, `DataTrackFrameTests`, `EncodedVideoSourceTests`,
   `RpcErrorTests`, `FfiClientTest`, `AudioCaptureMinimalTest`, `AudioSourcePlayoutTests`,
-  `AudioResamplerTests` and the `Reliability/Native*Tests`) do not. `FfiClientTest`,
-  `AudioCaptureMinimalTest`, `AudioSourcePlayoutTests`, `AudioResamplerTests`,
-  `EncodedVideoSourceTests`, the two `VideoFrame*Tests` and the `Reliability/Native*Tests` load the
-  native library for the host RID; the others are pure managed code.
+  `AudioResamplerTests`, `AudioProcessingModuleTests` and the `Reliability/Native*Tests`) do not.
+  `FfiClientTest`, `AudioCaptureMinimalTest`, `AudioSourcePlayoutTests`, `AudioResamplerTests`,
+  `AudioProcessingModuleTests`, `EncodedVideoSourceTests`, the two `VideoFrame*Tests` and the
+  `Reliability/Native*Tests` load the native library for the host RID; the others are pure managed
+  code.
 - `dotnet.yml` tests each of the six shipped binaries on its own platform: every RTC test on
   linux-x64 (`build`) and linux-arm64 (`rtc-linux-arm64`), and on win-x64, win-arm64, osx-x64 and
   osx-arm64 (`rtc-native`) only those native classes, because hosted Windows and macOS runners
@@ -349,7 +350,7 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
 - Events arrive on the native library's threads: the Rust SDK calls back synchronously on the
   worker of its runtime that raised the event, which also drives signaling and every other room
   and stream. `FfiClient` matches waiters first, queues the rest (bounded to 1000), hands audio,
-  video and data track stream events to their stream by handle (`AddStreamHandler`), then raises
+  video, data track and data stream reader events to their stream by handle (`AddStreamHandler`), then raises
   `EventReceived` for every event. User code never runs there: `AudioStream` runs the
   `FrameProcessor` on a task of its own per stream. `Room.OnFfiEvent` filters by room handle and
   `HandleRoomEvent` turns each proto event into a public C# event through `DispatchEvent`, a serial
@@ -391,8 +392,10 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
 - Native handles are wrapped in `FfiHandle` (a `SafeHandle`); every `OwnedHandle` the FFI returns
   must be wrapped so it gets dropped, including in the events and callbacks the SDK does not apply:
   a room releases the handles of the events of an ended connection until the FFI's `RoomEOS`
-  (`Room.DrainEndedConnection`), and the readers that `TextStreamOpened`/`ByteStreamOpened` hand
-  over (the SDK reads streams from the raw header, chunk and trailer events). An unwrapped handle
+  (`Room.DrainEndedConnection`). A handle that a request hands back to the FFI is marked with
+  `FfiHandle.MarkConsumed` instead: the reader that `TextStreamOpened`/`ByteStreamOpened` hand over
+  is taken by its incremental read (`NativeStreamReading`), or dropped at once when no handler is
+  registered for its topic. An unwrapped handle
   is invisible to the handle accounting; only the native heap shows it. Resource owners (`Room`, tracks, sources, streams, the
   resampler) implement `IDisposable`; `Participant` and `TrackPublication` rely on the
   `SafeHandle` finalizer. `AudioSource` wraps its handle in a subclass that empties the native
@@ -408,7 +411,20 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
 - `VideoFrame` describes every planar format through one plane table (`GetPlaneInfosLocal`),
   shared by `GetPlane` and by the buffer info sent to the FFI. A new `VideoBufferType` goes in
   that table plus a case in `VideoFramePlanesTests`; do not special-case formats elsewhere.
-- An FFI panic terminates the process (`Environment.Exit(1)` in `FfiClient`) by design.
+- An FFI panic terminates the process (`Environment.Exit(1)` in `FfiClient`) by design, also one
+  raised while a request is handled (the FFI catches it and sends a `Panic` event). Input the
+  native code `assert!`s on is validated in C# first (`AudioProcessingModule` rejects a frame that
+  is not a whole number of 10 ms periods), and an enum sent to the FFI is checked with
+  `Enum.IsDefined` (the conversions `unwrap()` it).
+- Incoming data streams are read through the native readers of `TextStreamOpened` and
+  `ByteStreamOpened` (`TextReadIncremental`/`ByteReadIncremental`), like in the Node and Python
+  SDKs; those readers decompress, deliver the content a sender inlined in the header and apply
+  `RoomOptions.DataStream`. Never go back to the raw `StreamHeaderReceived`/`StreamChunkReceived`/
+  `StreamTrailerReceived` events: the FFI advertises data streams v2 for this SDK, so other SDKs
+  send it compressed and inlined streams those events do not decode
+  (`StreamingTests.*_FromOtherSdk_IsReceivedIntact`). Reader events are not ordered with the room
+  events, so the SDK does not fail a stream when its sender leaves: the native reader ends it with
+  an error after the chunks it already delivered.
 - Logging is plain `Console` / `Console.Error` with `[WARN]`/`[ERROR]` prefixes; there is no
   `ILogger`. Keep that style.
 - Public option classes (`RoomOptions`, `TrackPublishOptions`, `E2EEOptions`, ...) map to protos

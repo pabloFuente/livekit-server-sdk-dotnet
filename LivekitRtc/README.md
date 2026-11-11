@@ -16,9 +16,11 @@
 - [Installation](#installation)
 - [Usage](#usage)
   - [Basic Connection](#basic-connection)
+  - [Connection Options](#connection-options)
   - [Publishing Audio](#publishing-audio)
   - [Publishing Video](#publishing-video)
   - [Receiving Media](#receiving-media)
+  - [Audio Processing](#audio-processing)
   - [Event Handling](#event-handling)
   - [End-to-End Encryption](#end-to-end-encryption)
   - [RPC Communication](#rpc-communication)
@@ -26,6 +28,7 @@
   - [Data Tracks](#data-tracks)
   - [Publishing Pre-encoded Video](#publishing-pre-encoded-video)
   - [Controlling Remote Tracks](#controlling-remote-tracks)
+  - [Statistics](#statistics)
   - [Simulating Reconnections](#simulating-reconnections)
 - [Example apps](#example-apps)
 - [For developers of the SDK](#for-developers-of-the-sdk)
@@ -90,6 +93,29 @@ Console.WriteLine($"Connected to {room.Name}");
 await room.DisconnectAsync();
 ```
 
+### Connection Options
+
+`RoomOptions` also sets up the WebRTC connection. Every option left unset keeps the default of the native SDK.
+
+```csharp
+var options = new RoomOptions
+{
+    // Only TURN relays, for example behind a firewall that lets nothing else through
+    RtcConfig = new RtcConfiguration
+    {
+        IceTransportType = Proto.IceTransportType.TransportRelay,
+        // Optional: replaces the ICE servers the LiveKit server provides
+        IceServers = { new Proto.IceServer { Urls = { "turn:turn.example.com:3478" }, Username = "user", Password = "pass" } },
+    },
+    ConnectTimeout = TimeSpan.FromSeconds(10), // each signal connection attempt (default 5 s)
+    SinglePeerConnection = false,               // one peer connection for publishing and one for subscribing
+    DataStream = new DataStreamOptions { MaxPayloadByteLength = 10 * 1024 * 1024 }, // incoming stream size limit
+};
+await room.ConnectAsync(url, token, options);
+```
+
+A relay-only connection needs a TURN server: the LiveKit server provides its own when TURN is enabled in its configuration, otherwise set `IceServers`.
+
 ### Publishing Audio
 
 ```csharp
@@ -121,6 +147,20 @@ var videoFrame = new VideoFrame(1920, 1080, Proto.VideoBufferType.Rgba, videoDat
 videoSource.CaptureFrame(videoFrame);
 ```
 
+Screen content gets its own pipeline settings with `new VideoSource(width, height, isScreencast: true)`. To deliver metadata with each frame, enable it when publishing and capture the frames with it; subscribers read it from `VideoFrameEvent.Metadata`:
+
+```csharp
+await room.LocalParticipant!.PublishTrackAsync(videoTrack, new TrackPublishOptions
+{
+    FrameMetadataFeatures = new List<Proto.FrameMetadataFeature>
+    {
+        Proto.FrameMetadataFeature.FmfUserTimestamp,
+        Proto.FrameMetadataFeature.FmfFrameId,
+    },
+});
+videoSource.CaptureFrame(videoFrame, new Proto.FrameMetadata { FrameId = 1, UserTimestamp = captureTimeUs });
+```
+
 ### Receiving Media
 
 ```csharp
@@ -129,10 +169,23 @@ room.TrackSubscribed += async (sender, e) => {
         using var videoStream = new VideoStream(videoTrack);
         await foreach (var frame in videoStream.WithCancellation(cts.Token)) {
             // Process video frame
-            Console.WriteLine($"Frame: {frame.Frame.Width}x{frame.Frame.Height}");
+            Console.WriteLine($"Frame: {frame.Frame.Width}x{frame.Frame.Height}, id {frame.Metadata?.FrameId}");
         }
     }
 };
+```
+
+### Audio Processing
+
+`AudioProcessingModule` applies WebRTC's echo cancellation, noise suppression, high-pass filter and automatic gain control, in place, to frames of 10 ms:
+
+```csharp
+using var apm = new AudioProcessingModule(echoCancellation: true, noiseSuppression: true);
+apm.SetStreamDelayMs(40);             // delay between playing a frame and capturing its echo
+
+apm.ProcessReverseStream(playedFrame); // each 10 ms frame sent to the speaker
+apm.ProcessStream(capturedFrame);     // each 10 ms frame from the microphone, cleaned in place
+await audioSource.CaptureFrameAsync(capturedFrame);
 ```
 
 ### Event Handling
@@ -200,6 +253,10 @@ var response = await room.LocalParticipant!.PerformRpcAsync(
     payload: "{}",
     responseTimeout: 5
 );
+
+// On high-latency networks, also allow more time for the request to be acknowledged (7 s by default)
+var slowResponse = await room.LocalParticipant!.PerformRpcAsync(
+    "other-participant", "greet", "{}", responseTimeout: 30, maxRoundTripLatency: 15);
 ```
 
 ### Text and Byte Streams
@@ -219,6 +276,8 @@ room.RegisterTextStreamHandler("chat", async (reader, senderIdentity) => {
 await using var writer = await room.LocalParticipant!.StreamTextAsync(topic: "chat");
 await writer.WriteAsync("Hello 🎉"); // closed (trailer sent) when disposed, or with CloseAsync()
 ```
+
+Streams from every LiveKit SDK are read, including the compressed ones that the Node, Python and Rust SDKs send. An incoming stream longer than `RoomOptions.DataStream.MaxPayloadByteLength` ends with a `StreamException`.
 
 ### Data Tracks
 
@@ -272,6 +331,17 @@ room.TrackSubscribed += (sender, e) => {
     publication.SetVideoDimensions(640, 360);            // let the server pick the layer for this size
     publication.SetEnabled(false);                       // pause receiving without unsubscribing
 };
+```
+
+### Statistics
+
+The WebRTC statistics (in the format of the W3C WebRTC statistics) are available for the whole session and for each track:
+
+```csharp
+var session = await room.GetRtcStatsAsync(); // PublisherStats and SubscriberStats
+var trackStats = await localAudioTrack.GetStatsAsync();
+var outbound = trackStats.FirstOrDefault(s => s.StatsCase == Proto.RtcStats.StatsOneofCase.OutboundRtp);
+Console.WriteLine($"Bytes sent: {outbound?.OutboundRtp.Sent.BytesSent}");
 ```
 
 ### Simulating Reconnections

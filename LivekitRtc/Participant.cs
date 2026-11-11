@@ -1282,17 +1282,47 @@ namespace LiveKit.Rtc
         /// <param name="responseTimeout">Seconds to wait for the response; 15 when null.</param>
         /// <returns>The response payload from the remote participant.</returns>
         /// <exception cref="RpcError">Thrown when the RPC call fails.</exception>
-        public async Task<string> PerformRpcAsync(
+        public Task<string> PerformRpcAsync(
             string destinationIdentity,
             string method,
             string payload,
             double? responseTimeout = null
+        ) => PerformRpcAsync(destinationIdentity, method, payload, responseTimeout, null);
+
+        /// <summary>
+        /// Performs an RPC call to a remote participant, with the latency the request may take to
+        /// reach it.
+        /// </summary>
+        /// <param name="destinationIdentity">The identity of the destination participant.</param>
+        /// <param name="method">The RPC method name to call.</param>
+        /// <param name="payload">The payload to send with the request.</param>
+        /// <param name="responseTimeout">Seconds to wait for the response; 15 when null.</param>
+        /// <param name="maxRoundTripLatency">
+        /// Most seconds the request may take to reach the destination and its acknowledgment to come
+        /// back, after which the call fails with <see cref="RpcErrorCode.ConnectionTimeout"/>; 7 when
+        /// null. Raise it on high-latency networks, where requests can wait behind other messages on
+        /// the data channel.
+        /// </param>
+        /// <returns>The response payload from the remote participant.</returns>
+        /// <exception cref="RpcError">Thrown when the RPC call fails.</exception>
+        public async Task<string> PerformRpcAsync(
+            string destinationIdentity,
+            string method,
+            string payload,
+            double? responseTimeout,
+            double? maxRoundTripLatency
         )
         {
             if (string.IsNullOrEmpty(destinationIdentity))
                 throw new ArgumentNullException(nameof(destinationIdentity));
             if (string.IsNullOrEmpty(method))
                 throw new ArgumentNullException(nameof(method));
+            if (maxRoundTripLatency.HasValue && !(maxRoundTripLatency.Value > 0))
+                throw new ArgumentOutOfRangeException(
+                    nameof(maxRoundTripLatency),
+                    maxRoundTripLatency,
+                    "The maximum round-trip latency must be positive."
+                );
 
             var request = new FfiRequest
             {
@@ -1310,16 +1340,23 @@ namespace LiveKit.Rtc
                 request.PerformRpc.ResponseTimeoutMs = (uint)(responseTimeout.Value * 1000);
             }
 
+            if (maxRoundTripLatency.HasValue)
+            {
+                request.PerformRpc.MaxRoundTripLatencyMs = (uint)
+                    Math.Ceiling(maxRoundTripLatency.Value * 1000);
+            }
+
             var response = FfiClient.Instance.SendRequest(request);
             var asyncId = response.PerformRpc?.AsyncId ?? 0;
 
-            // The FFI reports its own ResponseTimeout error after responseTimeout (15 s by
-            // default); wait longer than that so callers get the RpcError, not a TimeoutException
+            // The FFI reports its own timeout errors after responseTimeout (15 s by default) and
+            // maxRoundTripLatency; wait longer than that so callers get the RpcError, not a
+            // TimeoutException
             var callback = await FfiClient.Instance.WaitForEventAsync(
                 e =>
                     e.MessageCase == FfiEvent.MessageOneofCase.PerformRpc
                     && e.PerformRpc?.AsyncId == asyncId,
-                TimeSpan.FromSeconds((responseTimeout ?? 15) + 15)
+                TimeSpan.FromSeconds((responseTimeout ?? 15) + (maxRoundTripLatency ?? 0) + 15)
             );
 
             if (callback.PerformRpc?.Error != null)

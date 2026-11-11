@@ -281,6 +281,10 @@ namespace LiveKit.Rtc
                     SampleRate = _sampleRate,
                     NumChannels = _numChannels,
                     Type = AudioStreamType.AudioStreamNative,
+                    // Unbounded native queue, like the Python SDK: the frames are dropped only by
+                    // the channel of this stream, by its capacity, never while the managed side is
+                    // paused (by a long garbage collection, for example)
+                    QueueSizeFrames = 0,
                 },
             };
 
@@ -318,6 +322,7 @@ namespace LiveKit.Rtc
                     SampleRate = _sampleRate,
                     NumChannels = _numChannels,
                     Type = AudioStreamType.AudioStreamNative,
+                    QueueSizeFrames = 0,
                 },
             };
 

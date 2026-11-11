@@ -1,6 +1,7 @@
 // author: https://github.com/pabloFuente
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -101,6 +102,51 @@ namespace LiveKit.Rtc.Tests
 
             await room.DisconnectAsync();
             Log("Test completed");
+        }
+
+        [Fact]
+        public async Task Track_GetStatsAsync_ReturnsTheStatsOfThePublishedTrack()
+        {
+            using var room = new Room();
+            await room.ConnectAsync(
+                _fixture.LiveKitUrl,
+                _fixture.CreateToken("track-stats", $"track-stats-{Guid.NewGuid()}")
+            );
+
+            using var audioSource = new AudioSource(48000, 1);
+            using var audioTrack = LocalAudioTrack.Create("stats-audio", audioSource);
+            await room.LocalParticipant!.PublishTrackAsync(audioTrack);
+
+            // The outbound RTP stream appears once media flows
+            var frame = new AudioFrame(new short[480], 48000, 1, 480);
+            IReadOnlyList<Proto.RtcStats> stats = Array.Empty<Proto.RtcStats>();
+            for (int attempt = 0; attempt < 30; attempt++)
+            {
+                for (int i = 0; i < 10; i++)
+                    await audioSource.CaptureFrameAsync(frame);
+                stats = await audioTrack.GetStatsAsync();
+                if (stats.Any(s => s.StatsCase == Proto.RtcStats.StatsOneofCase.OutboundRtp))
+                    break;
+            }
+
+            Log($"Track stats: {string.Join(", ", stats.Select(s => s.StatsCase))}");
+            var outbound = Assert.Single(
+                stats,
+                s => s.StatsCase == Proto.RtcStats.StatsOneofCase.OutboundRtp
+            );
+            Assert.Equal("audio", outbound.OutboundRtp.Stream.Kind);
+
+            await room.DisconnectAsync();
+        }
+
+        [Fact]
+        public async Task Track_GetStatsAsync_AfterDispose_Throws()
+        {
+            using var audioSource = new AudioSource(48000, 1);
+            var audioTrack = LocalAudioTrack.Create("disposed-audio", audioSource);
+            audioTrack.Dispose();
+
+            await Assert.ThrowsAsync<ObjectDisposedException>(() => audioTrack.GetStatsAsync());
         }
 
         [Fact]

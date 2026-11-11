@@ -283,11 +283,11 @@ namespace LiveKit.Rtc.Internal
         }
 
         /// <summary>
-        /// Delivers the audio, video or data track stream events of <paramref name="streamHandle"/>
-        /// to <paramref name="handler"/>, on the native thread that raised them. They still reach
-        /// <see cref="EventReceived"/> too.
+        /// Delivers the audio, video, data track or data stream reader events of
+        /// <paramref name="streamHandle"/> to <paramref name="handler"/>, on the native thread that
+        /// raised them. They still reach <see cref="EventReceived"/> too.
         /// </summary>
-        /// <param name="streamHandle">Native handle of the stream.</param>
+        /// <param name="streamHandle">Native handle of the stream or reader.</param>
         /// <param name="handler">Receives the events; it must not block.</param>
         internal void AddStreamHandler(ulong streamHandle, Action<FfiEvent> handler) =>
             _streamHandlers[streamHandle] = handler;
@@ -312,6 +312,12 @@ namespace LiveKit.Rtc.Internal
                     break;
                 case FfiEvent.MessageOneofCase.DataTrackStreamEvent:
                     streamHandle = ffiEvent.DataTrackStreamEvent.StreamHandle;
+                    break;
+                case FfiEvent.MessageOneofCase.TextStreamReaderEvent:
+                    streamHandle = ffiEvent.TextStreamReaderEvent.ReaderHandle;
+                    break;
+                case FfiEvent.MessageOneofCase.ByteStreamReaderEvent:
+                    streamHandle = ffiEvent.ByteStreamReaderEvent.ReaderHandle;
                     break;
                 default:
                     return;
@@ -346,6 +352,8 @@ namespace LiveKit.Rtc.Internal
                 case FfiEvent.MessageOneofCase.AudioStreamEvent:
                 case FfiEvent.MessageOneofCase.VideoStreamEvent:
                 case FfiEvent.MessageOneofCase.DataTrackStreamEvent:
+                case FfiEvent.MessageOneofCase.TextStreamReaderEvent:
+                case FfiEvent.MessageOneofCase.ByteStreamReaderEvent:
                 case FfiEvent.MessageOneofCase.RpcMethodInvocation:
                     return false;
                 default:

@@ -1,6 +1,7 @@
 // author: https://github.com/pabloFuente
 
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using LiveKit.Rtc;
@@ -336,6 +337,88 @@ namespace LiveKit.Rtc.Tests
                 data[i] = (short)(Math.Sin(2 * Math.PI * frequency * t) * short.MaxValue * 0.3);
             }
             return data;
+        }
+
+        [Fact]
+        public async Task VideoStream_ReceivesTheMetadataCapturedWithEachFrame()
+        {
+            using var publisherRoom = new Room();
+            using var subscriberRoom = new Room();
+            using var videoSource = new VideoSource(320, 240);
+            var videoTrack = LocalVideoTrack.Create("metadata-video", videoSource);
+
+            var subscribed = new TaskCompletionSource<RemoteVideoTrack>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            subscriberRoom.TrackSubscribed += (sender, args) =>
+            {
+                if (args.Track is RemoteVideoTrack remoteVideo)
+                    subscribed.TrySetResult(remoteVideo);
+            };
+
+            var roomName = $"frame-metadata-{Guid.NewGuid()}";
+            await publisherRoom.ConnectAsync(
+                _fixture.LiveKitUrl,
+                _fixture.CreateToken("metadata-publisher", roomName)
+            );
+            await subscriberRoom.ConnectAsync(
+                _fixture.LiveKitUrl,
+                _fixture.CreateToken("metadata-subscriber", roomName)
+            );
+            await publisherRoom.LocalParticipant!.PublishTrackAsync(
+                videoTrack,
+                new TrackPublishOptions
+                {
+                    FrameMetadataFeatures = new List<Proto.FrameMetadataFeature>
+                    {
+                        Proto.FrameMetadataFeature.FmfUserTimestamp,
+                        Proto.FrameMetadataFeature.FmfFrameId,
+                    },
+                }
+            );
+
+            // Each frame carries its number as frame ID, and a user timestamp derived from it
+            using var captureCts = new CancellationTokenSource();
+            var captureTask = Task.Run(async () =>
+            {
+                for (uint i = 1; !captureCts.IsCancellationRequested && i < 400; i++)
+                {
+                    videoSource.CaptureFrame(
+                        GenerateTestFrame(320, 240, (int)i),
+                        new Proto.FrameMetadata { FrameId = i, UserTimestamp = 1_000_000 + i }
+                    );
+                    await Task.Delay(33);
+                }
+            });
+
+            var remoteTrack = await subscribed.Task.WaitAsync(TimeSpan.FromSeconds(10));
+            using var videoStream = new VideoStream(remoteTrack);
+            Proto.FrameMetadata? metadata = null;
+            using (var readCts = new CancellationTokenSource(TimeSpan.FromSeconds(10)))
+            {
+                try
+                {
+                    await foreach (var evt in videoStream.WithCancellation(readCts.Token))
+                    {
+                        if (evt.Metadata?.HasFrameId == true)
+                        {
+                            metadata = evt.Metadata;
+                            break;
+                        }
+                    }
+                }
+                catch (OperationCanceledException) { }
+            }
+            captureCts.Cancel();
+            await captureTask;
+
+            Assert.NotNull(metadata);
+            Assert.True(metadata!.FrameId > 0);
+            Assert.True(metadata.HasUserTimestamp);
+            Assert.Equal(1_000_000 + (ulong)metadata.FrameId, metadata.UserTimestamp);
+
+            await publisherRoom.DisconnectAsync();
+            await subscriberRoom.DisconnectAsync();
         }
 
         private static VideoFrame GenerateTestFrame(int width, int height, int frameNumber)

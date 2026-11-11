@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
@@ -164,38 +165,41 @@ namespace LiveKit.Rtc
     {
         private readonly Channel<string> _channel;
         private readonly TextStreamInfo _info;
-
-        // Joins multi-byte characters that a sender split across two chunks
-        private readonly Decoder _decoder = Encoding.UTF8.GetDecoder();
+        private readonly NativeStreamReading _reading;
         private Exception? _error;
         private bool _disposed;
 
         /// <summary>
         /// Identity of the participant sending the stream.
         /// </summary>
-        internal string SenderIdentity { get; set; } = string.Empty;
+        internal string SenderIdentity { get; }
 
         /// <summary>
         /// Initializes a new text stream reader.
         /// </summary>
-        /// <param name="header">The stream header.</param>
-        internal TextStreamReader(DataStream.Types.Header header)
+        /// <param name="info">The stream info of the native reader.</param>
+        /// <param name="senderIdentity">Identity of the participant sending the stream.</param>
+        /// <param name="onEnded">Runs once when the stream ends, fails or the reader is disposed.</param>
+        internal TextStreamReader(
+            Proto.TextStreamInfo info,
+            string senderIdentity,
+            Action<TextStreamReader>? onEnded = null
+        )
         {
             _channel = Channel.CreateUnbounded<string>(
                 new UnboundedChannelOptions { SingleReader = false, SingleWriter = true }
             );
-
             _info = new TextStreamInfo(
-                header.StreamId,
-                header.MimeType,
-                header.Topic,
-                header.Timestamp,
-                header.HasTotalLength ? (long?)header.TotalLength : null,
-                new Dictionary<string, string>(header.Attributes),
-                header.TextHeader?.AttachedStreamIds != null
-                    ? new List<string>(header.TextHeader.AttachedStreamIds)
-                    : null
+                info.StreamId,
+                info.MimeType,
+                info.Topic,
+                info.Timestamp,
+                info.HasTotalLength ? (long?)info.TotalLength : null,
+                new Dictionary<string, string>(info.Attributes),
+                new List<string>(info.AttachedStreamIds)
             );
+            SenderIdentity = senderIdentity;
+            _reading = new NativeStreamReading(() => onEnded?.Invoke(this));
         }
 
         /// <summary>
@@ -204,49 +208,53 @@ namespace LiveKit.Rtc
         public TextStreamInfo Info => _info;
 
         /// <summary>
-        /// Called when a chunk is received.
+        /// Starts reading the native reader, which this takes over.
         /// </summary>
-        internal void OnChunk(DataStream.Types.Chunk chunk)
-        {
-            var bytes = chunk.Content.ToByteArray();
-            var chars = new char[_decoder.GetCharCount(bytes, 0, bytes.Length, false)];
-            var count = _decoder.GetChars(bytes, 0, bytes.Length, chars, 0, false);
-            if (count > 0)
-            {
-                _channel.Writer.TryWrite(new string(chars, 0, count));
-            }
-        }
-
-        /// <summary>
-        /// Called when the stream is closed.
-        /// </summary>
-        internal void OnClose(DataStream.Types.Trailer? trailer)
-        {
-            if (trailer != null)
-            {
-                foreach (var attr in trailer.Attributes)
+        /// <param name="reader">The native reader of the stream.</param>
+        internal void Start(FfiHandle reader) =>
+            _reading.Start(
+                reader,
+                new FfiRequest
                 {
-                    _info.Attributes[attr.Key] = attr.Value;
-                }
-            }
+                    TextReadIncremental = new TextStreamReaderReadIncrementalRequest
+                    {
+                        ReaderHandle = reader.HandleId,
+                    },
+                },
+                OnReaderEvent
+            );
 
-            // Flush an incomplete trailing character, if any
-            var tail = new char[_decoder.GetCharCount(Array.Empty<byte>(), 0, 0, true)];
-            var count = _decoder.GetChars(Array.Empty<byte>(), 0, 0, tail, 0, true);
-            if (count > 0)
+        // On the FFI callback thread
+        private void OnReaderEvent(FfiEvent ffiEvent)
+        {
+            var readerEvent = ffiEvent.TextStreamReaderEvent;
+            switch (readerEvent.DetailCase)
             {
-                _channel.Writer.TryWrite(new string(tail, 0, count));
+                case TextStreamReaderEvent.DetailOneofCase.ChunkReceived:
+                    var content = readerEvent.ChunkReceived.Content;
+                    if (!string.IsNullOrEmpty(content))
+                        _channel.Writer.TryWrite(content);
+                    break;
+                case TextStreamReaderEvent.DetailOneofCase.Eos:
+                    foreach (var attr in readerEvent.Eos.Attributes)
+                        _info.Attributes[attr.Key] = attr.Value;
+                    if (readerEvent.Eos.Error != null)
+                        _error ??= new StreamException(readerEvent.Eos.Error.Description);
+                    _reading.Stop();
+                    _channel.Writer.TryComplete();
+                    break;
             }
-            _channel.Writer.TryComplete();
         }
 
         /// <summary>
-        /// Ends the stream abnormally (the sender or the room went away): pending and future reads
-        /// throw <see cref="StreamException"/> once the buffered chunks are consumed.
+        /// Ends the stream abnormally (the room went away): pending and future reads throw
+        /// <see cref="StreamException"/> once the buffered chunks are consumed.
         /// </summary>
+        /// <param name="error">Why the stream ended.</param>
         internal void Fail(Exception error)
         {
             _error ??= error;
+            _reading.Stop();
             _channel.Writer.TryComplete();
         }
 
@@ -336,6 +344,7 @@ namespace LiveKit.Rtc
             if (_disposed)
                 return;
             _disposed = true;
+            _reading.Stop();
             _channel.Writer.TryComplete();
 
             GC.SuppressFinalize(this);
@@ -351,6 +360,7 @@ namespace LiveKit.Rtc
             if (_disposed)
                 return default;
             _disposed = true;
+            _reading.Stop();
             _channel.Writer.TryComplete();
 
             GC.SuppressFinalize(this);
@@ -369,44 +379,42 @@ namespace LiveKit.Rtc
     {
         private readonly Channel<byte[]> _channel;
         private readonly ByteStreamInfo _info;
+        private readonly NativeStreamReading _reading;
         private Exception? _error;
         private bool _disposed;
 
         /// <summary>
         /// Identity of the participant sending the stream.
         /// </summary>
-        internal string SenderIdentity { get; set; } = string.Empty;
+        internal string SenderIdentity { get; }
 
         /// <summary>
         /// Initializes a new byte stream reader.
         /// </summary>
-        /// <param name="header">The stream header.</param>
-        /// <param name="capacity">The channel capacity (0 for unbounded).</param>
-        internal ByteStreamReader(DataStream.Types.Header header, int capacity = 0)
+        /// <param name="info">The stream info of the native reader.</param>
+        /// <param name="senderIdentity">Identity of the participant sending the stream.</param>
+        /// <param name="onEnded">Runs once when the stream ends, fails or the reader is disposed.</param>
+        internal ByteStreamReader(
+            Proto.ByteStreamInfo info,
+            string senderIdentity,
+            Action<ByteStreamReader>? onEnded = null
+        )
         {
-            _channel =
-                capacity > 0
-                    ? Channel.CreateBounded<byte[]>(
-                        new BoundedChannelOptions(capacity)
-                        {
-                            FullMode = BoundedChannelFullMode.Wait,
-                            SingleReader = false,
-                            SingleWriter = true,
-                        }
-                    )
-                    : Channel.CreateUnbounded<byte[]>(
-                        new UnboundedChannelOptions { SingleReader = false, SingleWriter = true }
-                    );
-
-            _info = new ByteStreamInfo(
-                header.StreamId,
-                header.MimeType,
-                header.Topic,
-                header.Timestamp,
-                header.HasTotalLength ? (long?)header.TotalLength : null,
-                new Dictionary<string, string>(header.Attributes),
-                header.ByteHeader?.Name ?? string.Empty
+            // Unbounded: the chunks are written on the FFI callback thread, which must not wait
+            _channel = Channel.CreateUnbounded<byte[]>(
+                new UnboundedChannelOptions { SingleReader = false, SingleWriter = true }
             );
+            _info = new ByteStreamInfo(
+                info.StreamId,
+                info.MimeType,
+                info.Topic,
+                info.Timestamp,
+                info.HasTotalLength ? (long?)info.TotalLength : null,
+                new Dictionary<string, string>(info.Attributes),
+                info.Name
+            );
+            SenderIdentity = senderIdentity;
+            _reading = new NativeStreamReading(() => onEnded?.Invoke(this));
         }
 
         /// <summary>
@@ -415,35 +423,53 @@ namespace LiveKit.Rtc
         public ByteStreamInfo Info => _info;
 
         /// <summary>
-        /// Called when a chunk is received.
+        /// Starts reading the native reader, which this takes over.
         /// </summary>
-        internal void OnChunk(DataStream.Types.Chunk chunk)
-        {
-            _channel.Writer.TryWrite(chunk.Content.ToByteArray());
-        }
-
-        /// <summary>
-        /// Called when the stream is closed.
-        /// </summary>
-        internal void OnClose(DataStream.Types.Trailer? trailer)
-        {
-            if (trailer != null)
-            {
-                foreach (var attr in trailer.Attributes)
+        /// <param name="reader">The native reader of the stream.</param>
+        internal void Start(FfiHandle reader) =>
+            _reading.Start(
+                reader,
+                new FfiRequest
                 {
-                    _info.Attributes[attr.Key] = attr.Value;
-                }
+                    ByteReadIncremental = new ByteStreamReaderReadIncrementalRequest
+                    {
+                        ReaderHandle = reader.HandleId,
+                    },
+                },
+                OnReaderEvent
+            );
+
+        // On the FFI callback thread
+        private void OnReaderEvent(FfiEvent ffiEvent)
+        {
+            var readerEvent = ffiEvent.ByteStreamReaderEvent;
+            switch (readerEvent.DetailCase)
+            {
+                case ByteStreamReaderEvent.DetailOneofCase.ChunkReceived:
+                    var content = readerEvent.ChunkReceived.Content;
+                    if (!content.IsEmpty)
+                        _channel.Writer.TryWrite(content.ToByteArray());
+                    break;
+                case ByteStreamReaderEvent.DetailOneofCase.Eos:
+                    foreach (var attr in readerEvent.Eos.Attributes)
+                        _info.Attributes[attr.Key] = attr.Value;
+                    if (readerEvent.Eos.Error != null)
+                        _error ??= new StreamException(readerEvent.Eos.Error.Description);
+                    _reading.Stop();
+                    _channel.Writer.TryComplete();
+                    break;
             }
-            _channel.Writer.TryComplete();
         }
 
         /// <summary>
-        /// Ends the stream abnormally (the sender or the room went away): pending and future reads
-        /// throw <see cref="StreamException"/> once the buffered chunks are consumed.
+        /// Ends the stream abnormally (the room went away): pending and future reads throw
+        /// <see cref="StreamException"/> once the buffered chunks are consumed.
         /// </summary>
+        /// <param name="error">Why the stream ended.</param>
         internal void Fail(Exception error)
         {
             _error ??= error;
+            _reading.Stop();
             _channel.Writer.TryComplete();
         }
 
@@ -547,6 +573,7 @@ namespace LiveKit.Rtc
             if (_disposed)
                 return;
             _disposed = true;
+            _reading.Stop();
             _channel.Writer.TryComplete();
 
             GC.SuppressFinalize(this);
@@ -562,6 +589,7 @@ namespace LiveKit.Rtc
             if (_disposed)
                 return default;
             _disposed = true;
+            _reading.Stop();
             _channel.Writer.TryComplete();
 
             GC.SuppressFinalize(this);
@@ -658,41 +686,110 @@ namespace LiveKit.Rtc
         }
 
         /// <summary>
-        /// Dispatches a text stream to the registered handler for its topic.
+        /// Gets the text stream handler registered for a topic.
         /// </summary>
-        /// <param name="reader">The text stream reader.</param>
-        /// <param name="participantIdentity">The identity of the participant who sent the stream.</param>
-        /// <returns>True if a handler was found and invoked, false otherwise.</returns>
-        internal bool Dispatch(TextStreamReader reader, string participantIdentity)
+        /// <param name="topic">The topic of the stream.</param>
+        /// <param name="handler">The handler, or null when none is registered.</param>
+        /// <returns>True if a handler is registered for the topic.</returns>
+        internal bool TryGetTextStreamHandler(
+            string topic,
+            [NotNullWhen(true)] out TextStreamHandler? handler
+        )
         {
-            TextStreamHandler? handler;
             lock (_lock)
             {
-                _textStreamHandlers.TryGetValue(reader.Info.Topic, out handler);
+                return _textStreamHandlers.TryGetValue(topic, out handler);
             }
-            if (handler == null)
-                return false;
-            handler(reader, participantIdentity);
-            return true;
         }
 
         /// <summary>
-        /// Dispatches a byte stream to the registered handler for its topic.
+        /// Gets the byte stream handler registered for a topic.
         /// </summary>
-        /// <param name="reader">The byte stream reader.</param>
-        /// <param name="participantIdentity">The identity of the participant who sent the stream.</param>
-        /// <returns>True if a handler was found and invoked, false otherwise.</returns>
-        internal bool Dispatch(ByteStreamReader reader, string participantIdentity)
+        /// <param name="topic">The topic of the stream.</param>
+        /// <param name="handler">The handler, or null when none is registered.</param>
+        /// <returns>True if a handler is registered for the topic.</returns>
+        internal bool TryGetByteStreamHandler(
+            string topic,
+            [NotNullWhen(true)] out ByteStreamHandler? handler
+        )
         {
-            ByteStreamHandler? handler;
             lock (_lock)
             {
-                _byteStreamHandlers.TryGetValue(reader.Info.Topic, out handler);
+                return _byteStreamHandlers.TryGetValue(topic, out handler);
             }
-            if (handler == null)
-                return false;
-            handler(reader, participantIdentity);
-            return true;
+        }
+    }
+
+    /// <summary>
+    /// Links a stream reader to the native reader of its stream, which decompresses the content,
+    /// delivers the one inlined in the header of a short stream, enforces
+    /// <see cref="DataStreamOptions.MaxPayloadByteLength"/> and reports the end of the stream.
+    /// </summary>
+    internal sealed class NativeStreamReading
+    {
+        private readonly object _lock = new object();
+        private readonly Action _onEnded;
+        private ulong _readerHandle;
+        private bool _stopped;
+
+        /// <summary>
+        /// Initializes the link.
+        /// </summary>
+        /// <param name="onEnded">Runs once, on the first <see cref="Stop"/>.</param>
+        internal NativeStreamReading(Action onEnded)
+        {
+            _onEnded = onEnded;
+        }
+
+        /// <summary>
+        /// Routes the reader events to <paramref name="onEvent"/> and sends the incremental read
+        /// request, which takes the native reader over. A reader stopped before drops it instead.
+        /// </summary>
+        /// <param name="reader">The native reader.</param>
+        /// <param name="request">The incremental read request of the reader.</param>
+        /// <param name="onEvent">Receives the reader events on the FFI callback thread.</param>
+        internal void Start(FfiHandle reader, FfiRequest request, Action<FfiEvent> onEvent)
+        {
+            lock (_lock)
+            {
+                if (_stopped)
+                {
+                    reader.Dispose();
+                    return;
+                }
+                _readerHandle = reader.HandleId;
+                FfiClient.Instance.AddStreamHandler(_readerHandle, onEvent);
+            }
+
+            try
+            {
+                FfiClient.Instance.SendRequest(request);
+            }
+            catch
+            {
+                // The request did not take the reader: it is still ours to drop
+                FfiClient.Instance.RemoveStreamHandler(reader.HandleId);
+                reader.Dispose();
+                throw;
+            }
+            reader.MarkConsumed();
+        }
+
+        /// <summary>
+        /// Stops routing the reader events. The native reader keeps reading until the stream ends,
+        /// and its later events are dropped.
+        /// </summary>
+        internal void Stop()
+        {
+            lock (_lock)
+            {
+                if (_stopped)
+                    return;
+                _stopped = true;
+                if (_readerHandle != FfiHandle.InvalidHandle)
+                    FfiClient.Instance.RemoveStreamHandler(_readerHandle);
+            }
+            _onEnded();
         }
     }
 

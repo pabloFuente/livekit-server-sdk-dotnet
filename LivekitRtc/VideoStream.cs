@@ -32,16 +32,40 @@ namespace LiveKit.Rtc
         public Proto.VideoRotation Rotation { get; }
 
         /// <summary>
+        /// Gets the metadata the publisher sent with the frame (user timestamp, frame ID, user data),
+        /// or null when it sent none. The publisher sends it with
+        /// <see cref="VideoSource.CaptureFrame(VideoFrame, Proto.FrameMetadata, long, Proto.VideoRotation)"/>
+        /// on a track published with <see cref="TrackPublishOptions.FrameMetadataFeatures"/>.
+        /// </summary>
+        public Proto.FrameMetadata? Metadata { get; }
+
+        /// <summary>
         /// Initializes a new VideoFrameEvent.
         /// </summary>
         /// <param name="frame">The video frame.</param>
         /// <param name="timestampUs">The timestamp in microseconds.</param>
         /// <param name="rotation">The frame rotation.</param>
         public VideoFrameEvent(VideoFrame frame, long timestampUs, Proto.VideoRotation rotation)
+            : this(frame, timestampUs, rotation, null) { }
+
+        /// <summary>
+        /// Initializes a new VideoFrameEvent with frame metadata.
+        /// </summary>
+        /// <param name="frame">The video frame.</param>
+        /// <param name="timestampUs">The timestamp in microseconds.</param>
+        /// <param name="rotation">The frame rotation.</param>
+        /// <param name="metadata">The metadata sent with the frame, or null.</param>
+        public VideoFrameEvent(
+            VideoFrame frame,
+            long timestampUs,
+            Proto.VideoRotation rotation,
+            Proto.FrameMetadata? metadata
+        )
         {
             Frame = frame ?? throw new ArgumentNullException(nameof(frame));
             TimestampUs = timestampUs;
             Rotation = rotation;
+            Metadata = metadata;
         }
     }
 
@@ -241,10 +265,15 @@ namespace LiveKit.Rtc
                 }
 
                 var frame = VideoFrame.FromOwnedInfo(ownedBuffer);
-                var rotation = videoEvent.FrameReceived.Rotation;
-                var timestampUs = videoEvent.FrameReceived.TimestampUs;
-
-                _channel.Writer.TryWrite(new VideoFrameEvent(frame, timestampUs, rotation));
+                var received = videoEvent.FrameReceived;
+                _channel.Writer.TryWrite(
+                    new VideoFrameEvent(
+                        frame,
+                        received.TimestampUs,
+                        received.Rotation,
+                        received.Metadata
+                    )
+                );
             }
             else if (videoEvent.MessageCase == VideoStreamEvent.MessageOneofCase.Eos)
             {

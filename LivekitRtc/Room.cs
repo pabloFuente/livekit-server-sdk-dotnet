@@ -44,6 +44,31 @@ namespace LiveKit.Rtc
         /// </summary>
         public E2EEOptions? E2EE { get; set; }
 
+        /// <summary>
+        /// WebRTC configuration of the connection: which ICE candidates to use (for example only TURN
+        /// relays), how to gather them and which ICE servers to use. Null, the default, keeps the
+        /// defaults: every candidate type and the ICE servers the LiveKit server provides.
+        /// </summary>
+        public RtcConfiguration? RtcConfig { get; set; }
+
+        /// <summary>
+        /// Timeout of each signal connection attempt; <see cref="JoinRetries"/> sets how many attempts
+        /// are made. Null, the default, waits 5 seconds.
+        /// </summary>
+        public TimeSpan? ConnectTimeout { get; set; }
+
+        /// <summary>
+        /// Whether to publish and subscribe over a single peer connection, when the server supports
+        /// it, instead of one peer connection for each. Null, the default, keeps the default of the
+        /// native SDK, a single peer connection.
+        /// </summary>
+        public bool? SinglePeerConnection { get; set; }
+
+        /// <summary>
+        /// Options of the incoming data streams. Null, the default, keeps the defaults.
+        /// </summary>
+        public DataStreamOptions? DataStream { get; set; }
+
         internal Proto.RoomOptions ToProto()
         {
             var proto = new Proto.RoomOptions
@@ -61,6 +86,148 @@ namespace LiveKit.Rtc
                 proto.Encryption = E2EE.ToProto();
             }
 
+            if (RtcConfig != null)
+            {
+                proto.RtcConfig = RtcConfig.ToProto();
+            }
+
+            if (ConnectTimeout.HasValue)
+            {
+                var milliseconds = Math.Ceiling(ConnectTimeout.Value.TotalMilliseconds);
+                if (milliseconds <= 0)
+                    throw new ArgumentOutOfRangeException(
+                        nameof(ConnectTimeout),
+                        ConnectTimeout,
+                        "The connect timeout must be positive."
+                    );
+                proto.ConnectTimeoutMs = (ulong)milliseconds;
+            }
+
+            if (SinglePeerConnection.HasValue)
+            {
+                proto.SinglePeerConnection = SinglePeerConnection.Value;
+            }
+
+            if (DataStream != null)
+            {
+                proto.DataStream = DataStream.ToProto();
+            }
+
+            return proto;
+        }
+    }
+
+    /// <summary>
+    /// WebRTC configuration of a room connection, set in <see cref="RoomOptions.RtcConfig"/>. Every
+    /// property left unset keeps its default.
+    /// </summary>
+    /// <example>
+    /// Use only TURN relays, for example behind a firewall that only lets TURN traffic through:
+    /// <code language="csharp">
+    /// var options = new RoomOptions
+    /// {
+    ///     RtcConfig = new RtcConfiguration { IceTransportType = IceTransportType.TransportRelay },
+    /// };
+    /// await room.ConnectAsync(url, token, options);
+    /// </code>
+    /// </example>
+    public class RtcConfiguration
+    {
+        /// <summary>
+        /// Which ICE candidates the connection may use: <see cref="Proto.IceTransportType.TransportRelay"/>
+        /// only TURN relays, <see cref="Proto.IceTransportType.TransportNohost"/> every candidate but the
+        /// host ones, <see cref="Proto.IceTransportType.TransportAll"/> all of them. Null, the default,
+        /// uses all of them. Relays need a TURN server: the LiveKit server provides its own when TURN is
+        /// enabled in its configuration, or set <see cref="IceServers"/>.
+        /// </summary>
+        public Proto.IceTransportType? IceTransportType { get; set; }
+
+        /// <summary>
+        /// Whether ICE candidates are gathered once or continually, as the network changes. Null, the
+        /// default, gathers them continually.
+        /// </summary>
+        public Proto.ContinualGatheringPolicy? ContinualGatheringPolicy { get; set; }
+
+        /// <summary>
+        /// STUN and TURN servers to use instead of the ones the LiveKit server provides, which are
+        /// replaced, not extended. Empty, the default, uses the ones of the LiveKit server.
+        /// </summary>
+        public IList<Proto.IceServer> IceServers { get; set; } = new List<Proto.IceServer>();
+
+        internal Proto.RtcConfig ToProto()
+        {
+            var proto = new Proto.RtcConfig();
+
+            if (IceTransportType.HasValue)
+            {
+                // The native SDK aborts the process on a value it does not know
+                if (!Enum.IsDefined(typeof(Proto.IceTransportType), IceTransportType.Value))
+                    throw new ArgumentOutOfRangeException(
+                        nameof(IceTransportType),
+                        IceTransportType.Value,
+                        "Unknown ICE transport type."
+                    );
+                proto.IceTransportType = IceTransportType.Value;
+            }
+
+            if (ContinualGatheringPolicy.HasValue)
+            {
+                if (
+                    !Enum.IsDefined(
+                        typeof(Proto.ContinualGatheringPolicy),
+                        ContinualGatheringPolicy.Value
+                    )
+                )
+                    throw new ArgumentOutOfRangeException(
+                        nameof(ContinualGatheringPolicy),
+                        ContinualGatheringPolicy.Value,
+                        "Unknown continual gathering policy."
+                    );
+                proto.ContinualGatheringPolicy = ContinualGatheringPolicy.Value;
+            }
+
+            if (IceServers != null)
+            {
+                foreach (var server in IceServers)
+                {
+                    if (server == null || server.Urls.Count == 0)
+                        throw new ArgumentException(
+                            "Every ICE server needs at least one URL.",
+                            nameof(IceServers)
+                        );
+                    proto.IceServers.Add(server.Clone());
+                }
+            }
+
+            return proto;
+        }
+    }
+
+    /// <summary>
+    /// Options of the incoming data streams of a room, set in <see cref="RoomOptions.DataStream"/>.
+    /// </summary>
+    public class DataStreamOptions
+    {
+        /// <summary>
+        /// Maximum size in bytes, once decompressed, of one incoming text or byte stream. A longer
+        /// stream ends with a <see cref="StreamException"/> on the reader. Null, the default, keeps the
+        /// limit of the native SDK.
+        /// </summary>
+        public long? MaxPayloadByteLength { get; set; }
+
+        internal Proto.RoomDataStreamOptions ToProto()
+        {
+            var proto = new Proto.RoomDataStreamOptions();
+            if (MaxPayloadByteLength.HasValue)
+            {
+                if (MaxPayloadByteLength.Value <= 0)
+                    throw new ArgumentOutOfRangeException(
+                        nameof(MaxPayloadByteLength),
+                        MaxPayloadByteLength.Value,
+                        "The maximum payload length must be positive."
+                    );
+                proto.MaxPayloadByteLength = (ulong)MaxPayloadByteLength.Value;
+            }
             return proto;
         }
     }
@@ -624,6 +791,10 @@ namespace LiveKit.Rtc
         /// <exception cref="InvalidOperationException">
         /// Thrown when the room is already connected, or another <see cref="ConnectAsync"/> call is connecting it.
         /// </exception>
+        /// <exception cref="ArgumentException">
+        /// Thrown, before anything is sent, when an option is invalid (a non-positive timeout or payload
+        /// length, an unknown enum value, an ICE server without URL).
+        /// </exception>
         public async Task ConnectAsync(
             string url,
             string token,
@@ -633,6 +804,10 @@ namespace LiveKit.Rtc
         {
             if (_disposed)
                 throw new ObjectDisposedException(nameof(Room));
+
+            // Validates the options, before any side effect
+            options ??= new RoomOptions();
+            var protoOptions = options.ToProto();
 
             // Before any side effect: a connect request, once sent, opens a native connection that a
             // cancellation can only abandon in the background
@@ -645,7 +820,7 @@ namespace LiveKit.Rtc
                 if (IsConnected)
                     throw new InvalidOperationException("Room is already connected");
 
-                await ConnectCoreAsync(url, token, options ?? new RoomOptions(), cancellationToken)
+                await ConnectCoreAsync(url, token, options, protoOptions, cancellationToken)
                     .ConfigureAwait(false);
             }
             finally
@@ -658,6 +833,7 @@ namespace LiveKit.Rtc
             string url,
             string token,
             RoomOptions options,
+            Proto.RoomOptions protoOptions,
             CancellationToken cancellationToken
         )
         {
@@ -686,7 +862,7 @@ namespace LiveKit.Rtc
                 {
                     Url = url,
                     Token = token,
-                    Options = options.ToProto(),
+                    Options = protoOptions,
                 },
             };
 
@@ -1279,30 +1455,12 @@ namespace LiveKit.Rtc
                     break;
 
                 case RoomEvent.MessageOneofCase.StreamHeaderReceived:
-                    if (
-                        roomEvent.StreamHeaderReceived?.Header != null
-                        && !string.IsNullOrEmpty(roomEvent.StreamHeaderReceived.ParticipantIdentity)
-                    )
-                    {
-                        HandleStreamHeader(
-                            roomEvent.StreamHeaderReceived.Header,
-                            roomEvent.StreamHeaderReceived.ParticipantIdentity
-                        );
-                    }
-                    break;
-
                 case RoomEvent.MessageOneofCase.StreamChunkReceived:
-                    if (roomEvent.StreamChunkReceived?.Chunk != null)
-                    {
-                        HandleStreamChunk(roomEvent.StreamChunkReceived.Chunk);
-                    }
-                    break;
-
                 case RoomEvent.MessageOneofCase.StreamTrailerReceived:
-                    if (roomEvent.StreamTrailerReceived?.Trailer != null)
-                    {
-                        HandleStreamTrailer(roomEvent.StreamTrailerReceived.Trailer);
-                    }
+                    // The raw packets of a data stream, kept by the FFI for backward compatibility:
+                    // they carry the compressed content of a compressed stream and nothing of one
+                    // inlined in its header. The SDK reads the streams through the native readers
+                    // of TextStreamOpened and ByteStreamOpened, like the Node and Python SDKs.
                     break;
 
                 case RoomEvent.MessageOneofCase.ParticipantPermissionChanged:
@@ -1334,11 +1492,11 @@ namespace LiveKit.Rtc
                     break;
 
                 case RoomEvent.MessageOneofCase.TextStreamOpened:
+                    HandleTextStreamOpened(roomEvent.TextStreamOpened);
+                    break;
+
                 case RoomEvent.MessageOneofCase.ByteStreamOpened:
-                    // The SDK reads data streams from the raw header, chunk and trailer events.
-                    // These events hand over a native reader of the same stream that nothing
-                    // reads: unless released, it keeps every chunk of the stream in memory.
-                    ReleaseOwnedHandles(roomEvent);
+                    HandleByteStreamOpened(roomEvent.ByteStreamOpened);
                     break;
 
                 case RoomEvent.MessageOneofCase.Eos:
@@ -1396,9 +1554,9 @@ namespace LiveKit.Rtc
             if (string.IsNullOrEmpty(evt?.ParticipantIdentity))
                 return;
 
+            // Its unfinished data streams are not failed here: the native readers end them with an
+            // error, in order after the chunks they already received
             RemoteParticipant? participant;
-            var textReaders = new List<TextStreamReader>();
-            var byteReaders = new List<ByteStreamReader>();
             lock (_lock)
             {
                 if (!_remoteParticipants.TryGetValue(evt.ParticipantIdentity, out participant))
@@ -1406,33 +1564,9 @@ namespace LiveKit.Rtc
 
                 _remoteParticipants.Remove(evt.ParticipantIdentity);
                 RememberDeparture(evt.ParticipantIdentity);
-
-                // Its data streams will never get their trailer
-                foreach (var reader in _textStreamReaders.Values)
-                {
-                    if (reader.SenderIdentity == evt.ParticipantIdentity)
-                        textReaders.Add(reader);
-                }
-                foreach (var reader in _byteStreamReaders.Values)
-                {
-                    if (reader.SenderIdentity == evt.ParticipantIdentity)
-                        byteReaders.Add(reader);
-                }
-                foreach (var reader in textReaders)
-                    _textStreamReaders.Remove(reader.Info.StreamId);
-                foreach (var reader in byteReaders)
-                    _byteStreamReaders.Remove(reader.Info.StreamId);
             }
 
             participant._info.DisconnectReason = evt.DisconnectReason;
-
-            var error = new StreamException(
-                $"Participant {evt.ParticipantIdentity} disconnected before closing the stream"
-            );
-            foreach (var reader in textReaders)
-                reader.Fail(error);
-            foreach (var reader in byteReaders)
-                reader.Fail(error);
 
             DispatchEvent(() =>
                 Raise(ParticipantDisconnected, participant, nameof(ParticipantDisconnected))
@@ -2211,33 +2345,102 @@ namespace LiveKit.Rtc
             }
         }
 
-        private void HandleStreamHeader(DataStream.Types.Header header, string participantIdentity)
+        // The native reader of a stream decompresses it, delivers the content inlined in the header
+        // of a short one and enforces RoomOptions.DataStream; without a handler for its topic it is
+        // dropped at once, like in the Node SDK
+        private void HandleTextStreamOpened(Proto.TextStreamOpened evt)
         {
-            if (header.TextHeader != null)
+            var nativeReader = FfiHandle.FromId(evt.Reader.Handle.Id);
+            var info = evt.Reader.Info;
+            if (!_streamHandlers.TryGetTextStreamHandler(info.Topic, out var handler))
             {
-                // Text stream
-                var reader = new TextStreamReader(header) { SenderIdentity = participantIdentity };
-                lock (_lock)
-                {
-                    _textStreamReaders[header.StreamId] = reader;
-                }
-                RunStreamHandler(() => _streamHandlers.Dispatch(reader, participantIdentity));
+                nativeReader.Dispose();
+                return;
             }
-            else if (header.ByteHeader != null)
+
+            var reader = new TextStreamReader(
+                info,
+                evt.ParticipantIdentity,
+                ended =>
+                {
+                    lock (_lock)
+                    {
+                        if (
+                            _textStreamReaders.TryGetValue(ended.Info.StreamId, out var current)
+                            && current == ended
+                        )
+                            _textStreamReaders.Remove(ended.Info.StreamId);
+                    }
+                }
+            );
+            lock (_lock)
             {
-                // Byte stream
-                var reader = new ByteStreamReader(header) { SenderIdentity = participantIdentity };
-                lock (_lock)
-                {
-                    _byteStreamReaders[header.StreamId] = reader;
-                }
-                RunStreamHandler(() => _streamHandlers.Dispatch(reader, participantIdentity));
+                _textStreamReaders[info.StreamId] = reader;
             }
+            RunStreamHandler(() =>
+            {
+                try
+                {
+                    reader.Start(nativeReader);
+                }
+                catch (Exception ex)
+                {
+                    reader.Fail(
+                        new StreamException($"Could not read the stream: {ex.Message}", ex)
+                    );
+                }
+                handler(reader, evt.ParticipantIdentity);
+            });
         }
 
-        // Stream handlers get their chunks from this same FFI callback thread, so they run on
-        // the thread pool (like RPC invocations): a handler that blocks on ReadAllAsync would
-        // otherwise deadlock and stall every FFI event in the process
+        private void HandleByteStreamOpened(Proto.ByteStreamOpened evt)
+        {
+            var nativeReader = FfiHandle.FromId(evt.Reader.Handle.Id);
+            var info = evt.Reader.Info;
+            if (!_streamHandlers.TryGetByteStreamHandler(info.Topic, out var handler))
+            {
+                nativeReader.Dispose();
+                return;
+            }
+
+            var reader = new ByteStreamReader(
+                info,
+                evt.ParticipantIdentity,
+                ended =>
+                {
+                    lock (_lock)
+                    {
+                        if (
+                            _byteStreamReaders.TryGetValue(ended.Info.StreamId, out var current)
+                            && current == ended
+                        )
+                            _byteStreamReaders.Remove(ended.Info.StreamId);
+                    }
+                }
+            );
+            lock (_lock)
+            {
+                _byteStreamReaders[info.StreamId] = reader;
+            }
+            RunStreamHandler(() =>
+            {
+                try
+                {
+                    reader.Start(nativeReader);
+                }
+                catch (Exception ex)
+                {
+                    reader.Fail(
+                        new StreamException($"Could not read the stream: {ex.Message}", ex)
+                    );
+                }
+                handler(reader, evt.ParticipantIdentity);
+            });
+        }
+
+        // The read starts and the handler runs on the thread pool (like RPC invocations), never on
+        // the FFI callback thread that delivers the chunks: a handler that blocks on ReadAllAsync
+        // would otherwise deadlock and stall every FFI event in the process
         private static void RunStreamHandler(Action dispatch)
         {
             _ = Task.Run(() =>
@@ -2251,46 +2454,6 @@ namespace LiveKit.Rtc
                     Console.Error.WriteLine($"[ERROR] Data stream handler exception: {ex}");
                 }
             });
-        }
-
-        private void HandleStreamChunk(DataStream.Types.Chunk chunk)
-        {
-            lock (_lock)
-            {
-                // Try to find text stream reader
-                if (_textStreamReaders.TryGetValue(chunk.StreamId, out var textReader))
-                {
-                    textReader.OnChunk(chunk);
-                    return;
-                }
-
-                // Try to find byte stream reader
-                if (_byteStreamReaders.TryGetValue(chunk.StreamId, out var byteReader))
-                {
-                    byteReader.OnChunk(chunk);
-                }
-            }
-        }
-
-        private void HandleStreamTrailer(DataStream.Types.Trailer trailer)
-        {
-            lock (_lock)
-            {
-                // Try to find and close text stream reader
-                if (_textStreamReaders.TryGetValue(trailer.StreamId, out var textReader))
-                {
-                    textReader.OnClose(trailer);
-                    _textStreamReaders.Remove(trailer.StreamId);
-                    return;
-                }
-
-                // Try to find and close byte stream reader
-                if (_byteStreamReaders.TryGetValue(trailer.StreamId, out var byteReader))
-                {
-                    byteReader.OnClose(trailer);
-                    _byteStreamReaders.Remove(trailer.StreamId);
-                }
-            }
         }
 
         private void HandleParticipantPermissionChanged(Proto.ParticipantPermissionChanged evt)

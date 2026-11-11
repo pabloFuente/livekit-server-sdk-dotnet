@@ -239,6 +239,57 @@ namespace LiveKit.Rtc.Tests
             Log("Bidirectional RPC calls succeeded");
         }
 
+        [Fact]
+        public async Task PerformRpc_WithMaxRoundTripLatency_ReturnsResponse()
+        {
+            _responderParticipant!.RegisterRpcMethod(
+                "echo-latency",
+                data => Task.FromResult(data.Payload)
+            );
+
+            var response = await _callerParticipant!.PerformRpcAsync(
+                _responderIdentity,
+                "echo-latency",
+                "payload",
+                responseTimeout: 10.0,
+                maxRoundTripLatency: 5.0
+            );
+
+            Assert.Equal("payload", response);
+        }
+
+        [Fact]
+        public async Task PerformRpc_MaxRoundTripLatency_BoundsTheWaitForTheAcknowledgment()
+        {
+            // Nobody acknowledges a request to an absent participant: the call fails once the
+            // round-trip latency is over, 7 s when it is not set
+            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+            var error = await Assert.ThrowsAsync<RpcError>(() =>
+                _callerParticipant!.PerformRpcAsync(
+                    "absent-participant",
+                    "any-method",
+                    "payload",
+                    responseTimeout: 30.0,
+                    maxRoundTripLatency: 0.5
+                )
+            );
+            stopwatch.Stop();
+
+            Assert.Equal((int)RpcErrorCode.ConnectionTimeout, error.Code);
+            Assert.True(
+                stopwatch.Elapsed < TimeSpan.FromSeconds(5),
+                $"The call took {stopwatch.Elapsed}, as if the latency were not set"
+            );
+        }
+
+        [Fact]
+        public async Task PerformRpc_NonPositiveMaxRoundTripLatency_Throws()
+        {
+            await Assert.ThrowsAsync<ArgumentOutOfRangeException>(() =>
+                _callerParticipant!.PerformRpcAsync(_responderIdentity, "echo", "x", null, 0)
+            );
+        }
+
         #endregion
 
         #region Handler Registration Tests

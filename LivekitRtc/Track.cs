@@ -1,6 +1,9 @@
 // author: https://github.com/pabloFuente
 
 using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using LiveKit.Proto;
 using LiveKit.Rtc.Internal;
 
@@ -57,6 +60,45 @@ namespace LiveKit.Rtc
         internal Track(FfiHandle handle)
         {
             Handle = handle;
+        }
+
+        /// <summary>
+        /// Gets the WebRTC statistics of the track (its RTP stream, codec, transport, candidate
+        /// pair...), in the format of the W3C WebRTC statistics. The statistics of the whole session
+        /// come from <see cref="Room.GetRtcStatsAsync"/>.
+        /// </summary>
+        /// <param name="cancellationToken">Cancels the wait for the statistics.</param>
+        /// <returns>A task that completes with the statistics once the native SDK collected them.</returns>
+        /// <exception cref="ObjectDisposedException">The track was disposed.</exception>
+        /// <exception cref="InvalidOperationException">The native SDK could not collect them.</exception>
+        public async Task<IReadOnlyList<Proto.RtcStats>> GetStatsAsync(
+            CancellationToken cancellationToken = default
+        )
+        {
+            if (_disposed)
+                throw new ObjectDisposedException(GetType().Name);
+            cancellationToken.ThrowIfCancellationRequested();
+
+            var response = FfiClient.Instance.SendRequest(
+                new FfiRequest { GetStats = new GetStatsRequest { TrackHandle = Handle.HandleId } }
+            );
+            var asyncId = response.GetStats.AsyncId;
+            var callbackEvent = await FfiClient
+                .Instance.WaitForEventAsync(
+                    e =>
+                        e.MessageCase == FfiEvent.MessageOneofCase.GetStats
+                        && e.GetStats.AsyncId == asyncId,
+                    TimeSpan.FromSeconds(10),
+                    cancellationToken
+                )
+                .ConfigureAwait(false);
+
+            var callback = callbackEvent.GetStats;
+            if (callback.HasError && !string.IsNullOrEmpty(callback.Error))
+                throw new InvalidOperationException(
+                    $"Failed to get the track stats: {callback.Error}"
+                );
+            return new List<Proto.RtcStats>(callback.Stats);
         }
 
         /// <summary>

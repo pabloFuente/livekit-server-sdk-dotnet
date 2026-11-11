@@ -189,4 +189,56 @@ public class RoomOptionsTests : IClassFixture<RtcTestFixture>
         await room.DisconnectAsync();
         Log("Test completed");
     }
+
+    [Fact]
+    public async Task RoomOptions_ConnectionOptions_AreAcceptedByTheServerConnection()
+    {
+        // A connect timeout sent in the wrong unit (seconds as milliseconds) would make every
+        // attempt time out
+        using var room = new Room();
+        var options = new RoomOptions
+        {
+            RtcConfig = new RtcConfiguration
+            {
+                IceTransportType = Proto.IceTransportType.TransportAll,
+                ContinualGatheringPolicy = Proto.ContinualGatheringPolicy.GatherOnce,
+            },
+            ConnectTimeout = TimeSpan.FromSeconds(10),
+            SinglePeerConnection = false,
+            DataStream = new DataStreamOptions { MaxPayloadByteLength = 1024 * 1024 },
+        };
+
+        await room.ConnectAsync(
+            _fixture.LiveKitUrl,
+            _fixture.CreateToken("test-connection-options", $"connection-options-{Guid.NewGuid()}"),
+            options
+        );
+
+        Assert.True(room.IsConnected);
+        await room.DisconnectAsync();
+    }
+
+    [Fact]
+    public async Task ConnectAsync_InvalidOptions_ThrowsBeforeConnecting()
+    {
+        using var room = new Room();
+        var token = _fixture.CreateToken(
+            "test-invalid-options",
+            $"invalid-options-{Guid.NewGuid()}"
+        );
+
+        await Assert.ThrowsAsync<ArgumentOutOfRangeException>(() =>
+            room.ConnectAsync(
+                _fixture.LiveKitUrl,
+                token,
+                new RoomOptions { ConnectTimeout = TimeSpan.Zero }
+            )
+        );
+        Assert.False(room.IsConnected);
+
+        // The room is still usable
+        await room.ConnectAsync(_fixture.LiveKitUrl, token);
+        Assert.True(room.IsConnected);
+        await room.DisconnectAsync();
+    }
 }

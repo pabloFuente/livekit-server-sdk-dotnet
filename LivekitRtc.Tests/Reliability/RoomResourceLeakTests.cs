@@ -102,10 +102,10 @@ public class RoomResourceLeakTests
     [Fact]
     public async Task IncomingDataStreams_DoNotKeepTheirContentInNativeMemory()
     {
-        // For every incoming stream the FFI hands over, next to the raw header, chunk and trailer
-        // events the SDK reads, a native reader of the same stream. Unreleased, each reader kept
-        // the whole stream in native memory for the rest of the process, whether or not a handler
-        // was registered for its topic.
+        // For every incoming stream the FFI hands over a native reader. Unreleased, each reader
+        // kept the whole stream in native memory for the rest of the process. The SDK reads a
+        // handled stream through it (the incremental read takes the reader over) and drops the
+        // reader of a stream without handler at once.
         var log = SdkLog.BeginScope();
         var streams = StressLevel.Scale(32, 64);
         const int Size = 1024 * 1024;

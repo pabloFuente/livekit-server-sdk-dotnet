@@ -94,6 +94,20 @@ namespace LiveKit.Rtc.Internal
         }
 
         /// <summary>
+        /// Records that a request handed the handle over to the native library, which now owns it
+        /// (the incremental read of a data stream reader takes its reader): it counts as released
+        /// and is never dropped. Only the sole owner of the handle may call it.
+        /// </summary>
+        internal void MarkConsumed()
+        {
+            if (_disposed || IsInvalid || IsClosed)
+                return;
+            _disposed = true;
+            Interlocked.Increment(ref s_released);
+            SetHandleAsInvalid();
+        }
+
+        /// <summary>
         /// Creates an FfiHandle from an owned handle proto message.
         /// </summary>
         /// <param name="id">The handle ID.</param>
