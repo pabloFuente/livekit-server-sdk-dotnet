@@ -2,137 +2,24 @@
 
 ## Unreleased
 
-- Fix text and byte streams sent by the Node, Python and Rust SDKs (an agent's chat or
-  transcription streams, for example) never reaching `RegisterTextStreamHandler` and
-  `RegisterByteStreamHandler`, or reaching them garbled: a short stream was never delivered and
-  `ReadAllAsync` waited forever, a long one was read as its deflate-compressed bytes. The native
-  library tells the other participants that this SDK reads compressed streams, so those SDKs inline
-  a short stream in its header and compress a long one, while the SDK read the raw packets of the
-  streams. Streams are now read through the native reader of each stream, like in the Node and
-  Python SDKs. [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
-- Fix `AudioStream` possibly dropping audio, even with an unbounded `capacity` (the default),
-  whenever the process paused for more than 100 ms, for example in a long garbage collection: the
-  native library kept at most 10 frames for the stream. Its native queue is now unbounded, like in
-  the Python SDK, and only `capacity` decides what is dropped. [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
-- Add `RoomOptions.RtcConfig` ([`RtcConfiguration`](README.md#connection-options)) to choose the
-  ICE candidates of the connection (`IceTransportType.TransportRelay` for TURN relays only), how
-  they are gathered and which ICE servers to use, as in the Node and Python SDKs. [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
-- Add `RoomOptions.ConnectTimeout`, `RoomOptions.SinglePeerConnection` and `RoomOptions.DataStream`
-  ([`DataStreamOptions.MaxPayloadByteLength`](README.md#connection-options), the size limit of an
-  incoming data stream), as in the Python SDK. [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
-- Add the optional `maxRoundTripLatency` parameter to `LocalParticipant.PerformRpcAsync`, the time
-  a request may take to be acknowledged (7 s by default), as in the Node and Python SDKs.
-  [README](README.md#rpc-communication) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
-- Add the optional `isScreencast` parameter to the `VideoSource` constructor, for screen content,
-  and the optional `metadata` parameter to `VideoSource.CaptureFrame`, which sends
-  `Proto.FrameMetadata` with the frame, received in the new `VideoFrameEvent.Metadata`, as in the
-  Python SDK.
-  [README](README.md#publishing-video) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
-- Deprecate `VideoSource(int, int)`, `VideoSource.CaptureFrame(VideoFrame, long, VideoRotation)` and
-  `LocalParticipant.PerformRpcAsync(string, string, string, double?)`, kept only so that applications
-  compiled against an earlier version keep working: calls bind to the members above that add the
-  optional `isScreencast`, `metadata` and `maxRoundTripLatency` parameters. With C# 12 or earlier
-  (the default for `net8.0` and older targets), a call that passes exactly the old parameters still
-  binds to the deprecated member and raises warning CS0618; pass the new parameter to silence it,
-  for example `new VideoSource(640, 480, isScreencast: false)`. [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
-- Add `Track.GetStatsAsync`, the WebRTC statistics of one track, as in the Python SDK.
-  [README](README.md#statistics) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
-- Add `AudioProcessingModule`: WebRTC echo cancellation, noise suppression, high-pass filter and
-  automatic gain control for 10 ms audio frames, as in the Python SDK.
-  [README](README.md#audio-processing) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
-- Fix `AudioSource.Dispose` never returning, with a native thread spinning at 100% CPU, or the
-  process crashing with a corrupted heap (for example `malloc(): unsorted double linked list
-  corrupted`), when the source still had audio queued. The native source frees its queue before it
-  stops the task that plays the queue out, so a release that lands while that task runs breaks it.
-  The SDK now empties the queue before it releases the source, also when the finalizer releases it.
-  Audio captured while the source is being disposed can still trigger the native race. [PR #179](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/179)
-- Fix `Room.LocalTrackPublished` not raised, with `[WARN] RoomEvent.LocalTrackPublished:
-  Publication <sid> not found` on stderr after every later event of the room was held for 10 s,
-  when the track was unpublished before the room's event handlers reached its publication (a slow
-  handler, or many events at once). It is now raised, followed by `Room.LocalTrackUnpublished`. [PR #179](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/179)
-- Fix `[WARN] RoomEvent.TrackSubscribed: Publication <sid> not found for participant <identity>`
-  on stderr, and `Room.TrackSubscribed` raised with no `Room.TrackUnsubscribed` ever following,
-  when a remote participant unpublished a track while it was being subscribed. The native library
-  then sends no `TrackUnsubscribed` for that track, and delivers its `TrackSubscribed` before or
-  after its `TrackUnpublished`. `Room.TrackUnpublished` is now preceded by the missing
-  `Room.TrackUnsubscribed`, and a subscription that arrives after the unpublication raises nothing
-  and has its native track released. [PR #177](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/177)
-- Fix an ended `Room` staying in memory for 15 s after it disconnected, with its participants,
-  tracks and event handlers, and receiving every native event of the process meanwhile. The
-  fallback timer of the end of a connection held it, and an end-of-stream event that arrived
-  before `DisconnectAsync` or `Dispose` applied the disconnection was ignored, so the room waited
-  for that timer. [PR #168](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/168)
-- Fix a remote track leaking its native handle without any explanation when a `TrackSubscribed`
-  event could not be applied: its participant was not found, or the track had no info or an
-  unsupported kind. `Room.TrackSubscribed` was not raised, and the only trace was a later
-  `[WARN] RoomEvent.TrackUnsubscribed: Track ... is not subscribed` line. The track is now
-  released and the reason logged, as in
-  `[WARN] RoomEvent.TrackSubscribed: Participant <identity> not found`. [PR #159](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/159)
-- Fix every incoming text and byte data stream staying in native memory for the rest of the
-  process: memory grew by the size of each stream received, whether or not a handler was
-  registered for its topic. For every stream the native library also hands over a reader of its
-  own, which the SDK neither used nor released. It is now released on arrival; streams are still
-  delivered to `RegisterTextStreamHandler` and `RegisterByteStreamHandler` as before. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
-- Fix a `Room` connected again right after `DisconnectAsync` receiving no event at all, with
-  `LocalParticipant` null and `RemoteParticipants` empty although `IsConnected` was true: the
-  cleanup of the previous connection, which runs after `DisconnectAsync` returns, removed the new
-  connection's state. It now only applies to the connection it belongs to. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
-- `Room.ConnectAsync` called while another call is connecting the same room now throws
-  `InvalidOperationException`. Both calls used to join, as two connections with the same identity:
-  the server dropped the earlier one, which the room could no longer reach, or a call timed out
-  after 30 s. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
-- `Room.DisconnectAsync`, `Disconnect` and `Dispose` called concurrently now share one
-  disconnection: a call that ran while another was finishing could throw
-  `NullReferenceException` or `InvalidOperationException: FFI request failed: invalid handle`. The
-  room is now also cleaned up when the native disconnect request fails. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
-- Fix a room event handler that throws hiding the event from the handlers subscribed after it,
-  which were not called. Each handler now runs on its own, and a failure is logged as
-  `[ERROR] Room.<Event> handler threw: <exception>` (it was `[ERROR] Room event handler exception`). [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
-- Fix `Room.Dispose`, `Room.Disconnect` and `AudioSource.CaptureFrame` deadlocking when called from
-  a UI thread (WPF, WinForms, MAUI or any single-threaded `SynchronizationContext`): they block on
-  asynchronous code that resumed on the blocked thread. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
-- Fix `AudioResampler.Dispose` racing with a `Push` or `Flush` on another thread: the output could
-  be copied from native memory the release had just freed (garbage audio or a crash), or the call
-  failed with `InvalidOperationException: FFI request failed: invalid handle`. `Dispose` now waits
-  for the call in progress, and later calls throw `ObjectDisposedException`. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
-- Fix a `PublishTrackAsync` cancelled (or timed out) after the track was published stalling every
-  later event of the room for 10 s, then logging
-  `[WARN] RoomEvent.LocalTrackPublished: Publication ... not found` and
-  `[WARN] RoomEvent.LocalTrackUnpublished: Publication ... not found`: the room waited for the
-  cancelled call to register a publication it never would. The SDK still unpublishes such a track,
-  and raises no `LocalTrackPublished`, `LocalTrackSubscribed` or `LocalTrackUnpublished` event for
-  it, since the caller never received its publication. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
-- Fix `Room.TrackSubscribed` being raised, with no `TrackUnsubscribed` to follow, for a track
-  that was already gone, after `[WARN] RoomEvent.TrackUnsubscribed: Track ... of participant
-  ... is not subscribed`, when a participant left (or the room reconnected) while one of its
-  tracks was being subscribed. The native library dispatches a track's subscription and
-  unsubscription from different threads, so it can deliver the unsubscription first, twice, or
-  after the participant left. The room now recognizes these orders: such a late subscription
-  raises no event and its track is released, and the late events of a participant that left no
-  longer log `[WARN] RoomEvent.TrackSubscribed: Participant ... not found`. [PR #163](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/163)
-- An already cancelled `CancellationToken` now makes `Room.ConnectAsync`,
-  `Room.SimulateScenarioAsync`, `AudioSource.CaptureFrameAsync`,
-  `LocalParticipant.PublishTrackAsync`, `UnpublishTrackAsync` and `PublishDataTrackAsync` throw
-  `OperationCanceledException` before doing anything, as is standard in .NET. They used to send
-  their request first: `ConnectAsync` joined the room and then left it in the background,
-  `PublishTrackAsync` published the track and then unpublished it, and the others went ahead
-  (a cancelled capture even made the next captures fail while the source consumed it). A
-  cancellation once the request is sent is unchanged. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
-- A room event that arrives while the native room is closing, after the `Room` disconnected, no
-  longer leaks the native participant, publication, track or data buffer it carries: the room keeps
-  releasing them until the native library ends the room's event stream. A `TrackPublished` event
-  for an unknown participant releases its publication too, logged as
-  `[WARN] RoomEvent.TrackPublished: Participant <identity> not found` like `TrackSubscribed`. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
-- The `cancellationToken` of `AudioSource.CaptureFrameAsync` is documented: it cancels the wait,
-  not the capture, and a capture made before the source consumed the cancelled frame fails with
-  `InvalidOperationException`. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
-- Fix a slow `FrameProcessor` delaying the events of every room and stream: `AudioStream` ran
-  `Process` inside the native callback, on a worker thread of the Rust runtime that also drives
-  signaling and every other stream. Each stream now runs its processor on a task of its own, one
-  frame at a time and in order. A processor that returns null now passes the frame through, as
-  one that throws already did. Audio, video and data track stream events also go straight to
-  their stream instead of through every open stream, so their cost no longer grows with the
-  number of streams. [PR #167](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/167)
+- New, as in the Node and Python SDKs:
+  - `RoomOptions.RtcConfig`: ICE settings, such as TURN relays only (`IceTransportType.TransportRelay`). [README](README.md#connection-options) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
+  - `RoomOptions.ConnectTimeout`, `RoomOptions.SinglePeerConnection` and `RoomOptions.DataStream` (size limit of incoming streams). [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
+  - `Track.GetStatsAsync`: WebRTC statistics of one track. [README](README.md#statistics) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
+  - `AudioProcessingModule`: echo cancellation, noise suppression and gain control. [README](README.md#audio-processing) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
+  - Optional parameters: `maxRoundTripLatency` in `PerformRpcAsync`, `isScreencast` in `VideoSource`, and `metadata` in `VideoSource.CaptureFrame` (received in `VideoFrameEvent.Metadata`). [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
+- Fixed:
+  - Text and byte streams from the Node, Python and Rust SDKs (an agent's chat or transcriptions, for example) never arriving, or arriving garbled. [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
+  - `Room.Dispose`, `Room.Disconnect` and `AudioSource.CaptureFrame` deadlocking on a UI thread (WPF, WinForms, MAUI). [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
+  - Room events: `LocalTrackPublished` missing when a track was unpublished right away [PR #179](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/179); `TrackSubscribed` with no `TrackUnsubscribed` to follow when the track or its participant went away during the subscription [PR #163](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/163) [PR #177](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/177); a throwing handler hiding the event from the other handlers, and every event held for 10 s after a cancelled `PublishTrackAsync` [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162).
+  - Native memory leaks: incoming data streams, events of a closing room and tracks whose subscription failed [PR #159](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/159) [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162); a disconnected `Room` kept in memory for 15 s [PR #168](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/168).
+  - Disconnection: a room reconnected right after `DisconnectAsync` received no events, and concurrent `DisconnectAsync`, `Disconnect` and `Dispose` calls could throw. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
+  - Disposal races: `AudioSource.Dispose` hanging or crashing with audio still queued [PR #179](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/179); `AudioResampler.Dispose` during `Push` or `Flush` returning garbage or crashing [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162).
+  - Audio streams: a slow `FrameProcessor` delaying the events of every room [PR #167](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/167); audio dropped during long pauses of the process, such as a garbage collection [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181).
+- Changed:
+  - `Room.ConnectAsync` throws `InvalidOperationException` while the room is already connecting. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
+  - An already cancelled `CancellationToken` makes `ConnectAsync`, `SimulateScenarioAsync`, `PublishTrackAsync`, `UnpublishTrackAsync`, `PublishDataTrackAsync` and `AudioSource.CaptureFrameAsync` throw `OperationCanceledException` before doing anything. [PR #162](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/162)
+  - Deprecated `VideoSource(int, int)`, `VideoSource.CaptureFrame(VideoFrame, long, VideoRotation)` and `PerformRpcAsync(string, string, string, double?)`, replaced by the overloads with the new optional parameters. With C# 12 or older, a call with exactly the old arguments warns CS0618: add the new parameter, for example `new VideoSource(640, 480, isScreencast: false)`. [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
 
 ## 0.1.7
 
