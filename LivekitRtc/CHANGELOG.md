@@ -9,29 +9,29 @@
   library tells the other participants that this SDK reads compressed streams, so those SDKs inline
   a short stream in its header and compress a long one, while the SDK read the raw packets of the
   streams. Streams are now read through the native reader of each stream, like in the Node and
-  Python SDKs. [PR_LINK]
+  Python SDKs. [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
 - Fix `AudioStream` possibly dropping audio, even with an unbounded `capacity` (the default),
   whenever the process paused for more than 100 ms, for example in a long garbage collection: the
   native library kept at most 10 frames for the stream. Its native queue is now unbounded, like in
-  the Python SDK, and only `capacity` decides what is dropped. [PR_LINK]
+  the Python SDK, and only `capacity` decides what is dropped. [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
 - Add `RoomOptions.RtcConfig` ([`RtcConfiguration`](README.md#connection-options)) to choose the
   ICE candidates of the connection (`IceTransportType.TransportRelay` for TURN relays only), how
-  they are gathered and which ICE servers to use, as in the Node and Python SDKs. [PR_LINK]
+  they are gathered and which ICE servers to use, as in the Node and Python SDKs. [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
 - Add `RoomOptions.ConnectTimeout`, `RoomOptions.SinglePeerConnection` and `RoomOptions.DataStream`
   ([`DataStreamOptions.MaxPayloadByteLength`](README.md#connection-options), the size limit of an
-  incoming data stream), as in the Python SDK. [PR_LINK]
+  incoming data stream), as in the Python SDK. [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
 - Add a `LocalParticipant.PerformRpcAsync` overload with `maxRoundTripLatency`, the time a request
   may take to be acknowledged (7 s by default), as in the Node and Python SDKs.
-  [README](README.md#rpc-communication) [PR_LINK]
+  [README](README.md#rpc-communication) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
 - Add the `VideoSource(width, height, isScreencast)` constructor for screen content, a
   `VideoSource.CaptureFrame` overload that sends `Proto.FrameMetadata` with the frame, and
   `VideoFrameEvent.Metadata`, which receives it, as in the Python SDK.
-  [README](README.md#publishing-video) [PR_LINK]
+  [README](README.md#publishing-video) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
 - Add `Track.GetStatsAsync`, the WebRTC statistics of one track, as in the Python SDK.
-  [README](README.md#statistics) [PR_LINK]
+  [README](README.md#statistics) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
 - Add `AudioProcessingModule`: WebRTC echo cancellation, noise suppression, high-pass filter and
   automatic gain control for 10 ms audio frames, as in the Python SDK.
-  [README](README.md#audio-processing) [PR_LINK]
+  [README](README.md#audio-processing) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
 - Fix `AudioSource.Dispose` never returning, with a native thread spinning at 100% CPU, or the
   process crashing with a corrupted heap (for example `malloc(): unsorted double linked list
   corrupted`), when the source still had audio queued. The native source frees its queue before it
