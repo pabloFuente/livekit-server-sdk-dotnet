@@ -1425,5 +1425,175 @@ namespace LiveKit.Rtc.Tests
         }
 
         #endregion
+
+        #region Streams from other SDKs
+
+        // The FFI advertises data streams v2 for every participant of this SDK, so a sender built
+        // on the FFI's own writers (the Node, Python and Rust SDKs) inlines a short stream in its
+        // header and deflate-compresses a long one. Both must reach the reader intact. The text is
+        // pseudo-random so that the long one stays too large to be inlined once compressed.
+        private static string RandomText(int length)
+        {
+            var random = new Random(length);
+            return string.Concat(
+                Enumerable.Range(0, length).Select(_ => (char)('a' + random.Next(26)))
+            );
+        }
+
+        [Theory]
+        [InlineData(12)]
+        [InlineData(48_000)]
+        public async Task TextStream_FromOtherSdk_IsReceivedIntact(int length)
+        {
+            var topic = $"other-sdk-text-{length}";
+            var text = RandomText(length);
+            var received = new TaskCompletionSource<string>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            _receiverRoom!.RegisterTextStreamHandler(
+                topic,
+                (reader, identity) =>
+                    _ = Task.Run(async () =>
+                    {
+                        try
+                        {
+                            received.TrySetResult(await reader.ReadAllAsync());
+                        }
+                        catch (Exception ex)
+                        {
+                            received.TrySetException(ex);
+                        }
+                    })
+            );
+
+            var response = Internal.FfiClient.Instance.SendRequest(
+                new Proto.FfiRequest
+                {
+                    SendText = new Proto.StreamSendTextRequest
+                    {
+                        LocalParticipantHandle = _senderParticipant!.Handle.HandleId,
+                        Options = new Proto.StreamTextOptions { Topic = topic },
+                        Text = text,
+                    },
+                }
+            );
+            var asyncId = response.SendText.AsyncId;
+            var callback = await Internal.FfiClient.Instance.WaitForEventAsync(
+                e =>
+                    e.MessageCase == Proto.FfiEvent.MessageOneofCase.SendText
+                    && e.SendText.AsyncId == asyncId,
+                ReceiveTimeout
+            );
+            Assert.Equal(
+                Proto.StreamSendTextCallback.ResultOneofCase.Info,
+                callback.SendText.ResultCase
+            );
+
+            Assert.Equal(text, await received.Task.WaitAsync(ReceiveTimeout));
+        }
+
+        [Theory]
+        [InlineData(12)]
+        [InlineData(48_000)]
+        public async Task ByteStream_FromOtherSdk_IsReceivedIntact(int length)
+        {
+            var topic = $"other-sdk-bytes-{length}";
+            var bytes = Encoding.ASCII.GetBytes(RandomText(length));
+            var received = new TaskCompletionSource<byte[]>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            _receiverRoom!.RegisterByteStreamHandler(
+                topic,
+                (reader, identity) =>
+                    _ = Task.Run(async () =>
+                    {
+                        try
+                        {
+                            received.TrySetResult(await reader.ReadAllAsync());
+                        }
+                        catch (Exception ex)
+                        {
+                            received.TrySetException(ex);
+                        }
+                    })
+            );
+
+            var response = Internal.FfiClient.Instance.SendRequest(
+                new Proto.FfiRequest
+                {
+                    SendBytes = new Proto.StreamSendBytesRequest
+                    {
+                        LocalParticipantHandle = _senderParticipant!.Handle.HandleId,
+                        Options = new Proto.StreamByteOptions { Topic = topic, Name = "data.bin" },
+                        Bytes = Google.Protobuf.ByteString.CopyFrom(bytes),
+                    },
+                }
+            );
+            var asyncId = response.SendBytes.AsyncId;
+            var callback = await Internal.FfiClient.Instance.WaitForEventAsync(
+                e =>
+                    e.MessageCase == Proto.FfiEvent.MessageOneofCase.SendBytes
+                    && e.SendBytes.AsyncId == asyncId,
+                ReceiveTimeout
+            );
+            Assert.Equal(
+                Proto.StreamSendBytesCallback.ResultOneofCase.Info,
+                callback.SendBytes.ResultCase
+            );
+
+            Assert.Equal(bytes, await received.Task.WaitAsync(ReceiveTimeout));
+        }
+
+        #endregion
+
+        #region DataStreamOptions
+
+        [Fact]
+        public async Task DataStreamOptions_MaxPayloadByteLength_FailsALongerStream()
+        {
+            using var limitedRoom = new Room();
+            var outcome = new TaskCompletionSource<Exception?>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            limitedRoom.RegisterTextStreamHandler(
+                "limited",
+                (reader, identity) =>
+                    _ = Task.Run(async () =>
+                    {
+                        try
+                        {
+                            await reader.ReadAllAsync();
+                            outcome.TrySetResult(null);
+                        }
+                        catch (Exception ex)
+                        {
+                            outcome.TrySetResult(ex);
+                        }
+                    })
+            );
+            await limitedRoom.ConnectAsync(
+                _fixture.LiveKitUrl,
+                _fixture.CreateToken("limited-receiver", _senderRoom!.Name!),
+                new RoomOptions
+                {
+                    DataStream = new DataStreamOptions { MaxPayloadByteLength = 1000 },
+                }
+            );
+            for (
+                int i = 0;
+                i < 100 && !_senderRoom.RemoteParticipants.ContainsKey("limited-receiver");
+                i++
+            )
+                await Task.Delay(100);
+
+            var writer = await _senderParticipant!.StreamTextAsync(topic: "limited");
+            await writer.WriteAsync(new string('x', 5000));
+            await writer.CloseAsync();
+
+            Assert.IsType<StreamException>(await outcome.Task.WaitAsync(ReceiveTimeout));
+            await limitedRoom.DisconnectAsync();
+        }
+
+        #endregion
     }
 }

@@ -22,6 +22,18 @@ namespace LiveKit.Rtc
         /// <param name="width">The width of the video source in pixels.</param>
         /// <param name="height">The height of the video source in pixels.</param>
         public VideoSource(int width, int height)
+            : this(width, height, false) { }
+
+        /// <summary>
+        /// Initializes a new instance of the video source, for camera-like or screen content.
+        /// </summary>
+        /// <param name="width">The width of the video source in pixels.</param>
+        /// <param name="height">The height of the video source in pixels.</param>
+        /// <param name="isScreencast">
+        /// Whether the frames are screen content, for which WebRTC optimizes its pipeline (sharpness
+        /// over frame rate).
+        /// </param>
+        public VideoSource(int width, int height, bool isScreencast)
         {
             _width = width;
             _height = height;
@@ -36,6 +48,7 @@ namespace LiveKit.Rtc
                         Width = (uint)width,
                         Height = (uint)height,
                     },
+                    IsScreencast = isScreencast,
                 },
             };
 
@@ -69,6 +82,25 @@ namespace LiveKit.Rtc
             VideoFrame frame,
             long timestampUs = 0,
             Proto.VideoRotation rotation = Proto.VideoRotation._0
+        ) => CaptureFrame(frame, null, timestampUs, rotation);
+
+        /// <summary>
+        /// Captures a video frame with metadata, which subscribers read from
+        /// <see cref="VideoFrameEvent.Metadata"/>.
+        /// </summary>
+        /// <param name="frame">The video frame to capture.</param>
+        /// <param name="metadata">
+        /// Metadata delivered with the frame (user timestamp, frame ID, user data), or null for none.
+        /// Only the features enabled in <see cref="TrackPublishOptions.FrameMetadataFeatures"/> when
+        /// the track was published reach the subscribers.
+        /// </param>
+        /// <param name="timestampUs">Optional timestamp in microseconds. If 0, current time is used.</param>
+        /// <param name="rotation">Optional rotation to apply to the frame.</param>
+        public void CaptureFrame(
+            VideoFrame frame,
+            Proto.FrameMetadata? metadata,
+            long timestampUs = 0,
+            Proto.VideoRotation rotation = Proto.VideoRotation._0
         )
         {
             if (_disposed)
@@ -77,19 +109,20 @@ namespace LiveKit.Rtc
             // The FFI copies the pixels into its own buffer before SendRequest returns. Keep them
             // pinned through request serialization and the native call.
             frame.WithPinnedBuffer(buffer =>
-                FfiClient.Instance.SendRequest(
-                    new FfiRequest
-                    {
-                        CaptureVideoFrame = new CaptureVideoFrameRequest
-                        {
-                            SourceHandle = _handle.HandleId,
-                            Buffer = buffer,
-                            Rotation = rotation,
-                            TimestampUs = timestampUs,
-                        },
-                    }
-                )
-            );
+            {
+                var request = new CaptureVideoFrameRequest
+                {
+                    SourceHandle = _handle.HandleId,
+                    Buffer = buffer,
+                    Rotation = rotation,
+                    TimestampUs = timestampUs,
+                };
+                if (metadata != null)
+                    request.Metadata = metadata;
+                return FfiClient.Instance.SendRequest(
+                    new FfiRequest { CaptureVideoFrame = request }
+                );
+            });
         }
 
         /// <summary>

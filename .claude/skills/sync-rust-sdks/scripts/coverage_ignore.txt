@@ -23,13 +23,12 @@
 # FfiEvent/NewCaptureSource
 # FfiEvent/JoinCapture
 #
-# --- Rust-side data stream readers/writers. The SDK implements text/byte streams in C#
-# --- (DataStream.cs) on top of SendStreamHeader/Chunk/Trailer and the stream_*_received room
-# --- events, like the Node SDK does.
-# FfiRequest/ByteReadIncremental
+# --- Rust-side data stream writers and whole-stream readers. The SDK reads incoming streams with
+# --- the incremental native readers (TextStreamOpened/ByteStreamOpened, Text/ByteReadIncremental),
+# --- like the Node and Python SDKs, and writes them in C# (DataStream.cs) on top of
+# --- SendStreamHeader/Chunk/Trailer.
 # FfiRequest/ByteReadAll
 # FfiRequest/ByteWriteToFile
-# FfiRequest/TextReadIncremental
 # FfiRequest/TextReadAll
 # FfiRequest/SendFile
 # FfiRequest/SendText
@@ -40,38 +39,28 @@
 # FfiRequest/TextStreamOpen
 # FfiRequest/TextStreamWrite
 # FfiRequest/TextStreamClose
-# FfiEvent/ByteStreamReaderEvent
 # FfiEvent/ByteStreamReaderReadAll
 # FfiEvent/ByteStreamReaderWriteToFile
 # FfiEvent/ByteStreamOpen
 # FfiEvent/ByteStreamWriterWrite
 # FfiEvent/ByteStreamWriterClose
 # FfiEvent/SendFile
-# FfiEvent/TextStreamReaderEvent
 # FfiEvent/TextStreamReaderReadAll
 # FfiEvent/TextStreamOpen
 # FfiEvent/TextStreamWriterWrite
 # FfiEvent/TextStreamWriterClose
 # FfiEvent/SendText
 # FfiEvent/SendBytes
-# RoomEvent/ByteStreamOpened
-# RoomEvent/TextStreamOpened
 #
-# --- Audio processing the SDK does not expose: WebRTC APM, audio filter plugins (noise
-# --- cancellation plugins), and the legacy resampler (AudioResampler.cs uses the SoX one).
+# --- Audio processing the SDK does not expose: audio filter plugins (noise cancellation
+# --- plugins), and the legacy resampler (AudioResampler.cs uses the SoX one).
 # FfiRequest/LoadAudioFilterPlugin
-# FfiRequest/NewApm
-# FfiRequest/ApmProcessStream
-# FfiRequest/ApmProcessReverseStream
-# FfiRequest/ApmSetStreamDelay
 # FfiRequest/NewAudioResampler
 # FfiRequest/RemixAndResample
 #
 # --- Diagnostics / internals.
 # FfiRequest/Dispose                 # FfiClient calls livekit_ffi_dispose directly
 # FfiEvent/Dispose
-# FfiRequest/GetStats                # per-track stats; the SDK exposes GetSessionStats only
-# FfiEvent/GetStats
 # FfiEvent/TrackEvent                # empty message upstream
 # RoomEvent/Eos                      # end of the room event stream, nothing to surface
 # RoomEvent/ConnectionStateChanged   # the SDK raises its own ConnectionStateChanged from the
