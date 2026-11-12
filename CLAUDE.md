@@ -583,9 +583,10 @@ two commits. As with `sync-protocol.yml`, a version whose branch exists is skipp
   two scripts are also useful on their own, run from the repo root:
   - `python3 .claude/skills/sync-protocol/scripts/proto_inventory.py`: protos listed in
     `generate_proto.sh` vs. the submodule, including imports that are not compiled.
+    `scripts/proto_ignore.txt` holds top-level protos deliberately left out, with a reason.
   - `python3 .claude/skills/sync-protocol/scripts/api_coverage.py [--json]`: proto RPCs vs.
     generated Twirp routes vs. RPCs wrapped by a `*ServiceClient`. `scripts/coverage_ignore.txt`
-    holds RPCs deliberately left out, with a reason (so far only commented-out candidates).
+    holds RPCs deliberately left out, with a reason.
 - `/sync-rust-sdks [version]` (`skills/sync-rust-sdks/SKILL.md`) is the RTC counterpart: move
   the `rust-sdks` submodule, regenerate the FFI protos, download the six matching binaries, fix
   the build, surface new FFI requests, events and option fields, detect breaking changes, run the
