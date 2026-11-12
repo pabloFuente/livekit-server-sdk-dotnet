@@ -177,15 +177,16 @@ Formatting:
 ## API reference (DocFX)
 
 - `dotnet docfx docs/docfx.json --warningsAsErrors && python3 docs/check_api_docs.py` builds the
-  API reference of both packages into `docs/_site` and checks what DocFX does not: the server
-  sidebar, the `LiveKit.Proto` allow-list and every link between pages. Generated output is
-  ignored (`docs/_site`, `docs/obj`, `docs/api-rtc`). `docfx` is pinned in
-  `.config/dotnet-tools.json` next to CSharpier.
-- The server sidebar is hand-written, `docs/api-server/toc.yml`: the generated one lists the 17
-  hand-written types among ~560 protobuf messages. DocFX only uses a sidebar found at the
-  physical path the navbar links to, so the server metadata is generated into `docs/obj/api-server`
-  and mapped to `api-server/` in `docfx.json`. A new public type of `LivekitApi` needs an entry
-  there; the check script fails until it has one.
+  API reference of both packages into `docs/_site` and checks what DocFX does not: the list of
+  SDK types, the `LiveKit.Proto` allow-list and every link between pages. Generated output is
+  ignored (`docs/_site`, `docs/obj`, `docs/api-server`, `docs/api-rtc`), the sidebars included.
+  `docfx` is pinned in `.config/dotnet-tools.json` next to CSharpier.
+- The server sidebar is the generated one, where the hand-written types sit among ~560 protobuf
+  messages. `docs/template/public/main.css` shows them in bold with an "SDK" badge (in the
+  sidebar, on the namespace page and in the search results) through a selector list that names
+  every hand-written public type of `LivekitApi`. A new one needs an entry there, and a new client
+  a mention in the namespace overview, `docs/namespaces/Livekit.Server.Sdk.Dotnet.md`; the check
+  script fails until the CSS lists it, or when it lists a type that has no page.
 - `docs/filter.yml` drops `LiveKit.Rtc.Internal`, the protobuf plumbing members of the generated
   messages (`Parser`, `Descriptor`, `MergeFrom`, `WriteTo`, `CalculateSize`, `Clone`, `Equals`,
   `GetHashCode`, `ToString`, field-number constants) and the `*Reflection` holders, and keeps in
@@ -203,8 +204,8 @@ Formatting:
   artifact of the newest successful push or manual run of `dotnet.yml` on `main` (never a pull
   request's: the `branches` filter of `workflow_run` matches a fork's branch named `main`).
 - `dotnet.yml` also builds the reference on every PR. Both workflows pass `--warningsAsErrors`, so
-  a DocFX warning (an xref that does not resolve in `docs/index.md`, `docs/toc.yml` or a sidebar, a
-  duplicate tag) fails CI, and run the check script. `docs/docfx.json` passes `NoWarn` for the obsolete-member warnings
+  a DocFX warning (an xref that does not resolve in `docs/index.md`, `docs/toc.yml` or a namespace
+  overview, a duplicate tag) fails CI, and run the check script. `docs/docfx.json` passes `NoWarn` for the obsolete-member warnings
   (`CS0612`, `CS0618`) that the metadata build would otherwise report as DocFX warnings.
 
 ## Tests
@@ -483,7 +484,8 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
    `PackageValidationBaselineVersion` or delete the suppressions file yourself: after the release
    is published, `publish.yml` opens a pull request that does both.
 4. Diff the generated `Twirp.cs` for new RPCs or services and add the matching client methods,
-   tests, README section and changelog bullets (and a sidebar entry for a new client). Then build
+   tests, README section and changelog bullets (and, for a new client, its entry in the SDK type
+   list of `docs/template/public/main.css` and in the namespace overview). Then build
    and check the API reference (see that section).
 
 `.github/workflows/sync-protocol.yml` does all of this unattended: it checks daily for a GA release

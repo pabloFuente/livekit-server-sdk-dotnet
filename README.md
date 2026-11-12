@@ -132,9 +132,9 @@ dotnet tool restore && dotnet docfx docs/docfx.json --warningsAsErrors && python
 Every public member of the two libraries needs a complete XML doc comment (summary, every
 parameter, the return value): those comments are the published
 [API reference](https://pablofuente.github.io/livekit-server-sdk-dotnet/), so the build fails
-without them. A new public type of `Livekit.Server.Sdk.Dotnet` also needs an entry in the sidebar of
-the reference, [docs/api-server/toc.yml](docs/api-server/toc.yml); the check script fails until it
-has one.
+without them. A new public type of `Livekit.Server.Sdk.Dotnet` also needs an entry in the list of
+SDK types of [docs/template/public/main.css](docs/template/public/main.css), which shows them in bold
+with an "SDK" badge among the protobuf messages; the check script fails until it has one.
 
 ### Code coverage
 
