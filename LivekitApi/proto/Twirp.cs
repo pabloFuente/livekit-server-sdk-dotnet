@@ -6,6 +6,7 @@
 //   Source: livekit_ingress.proto
 //   Source: livekit_sip.proto
 //   Source: livekit_connector.proto
+//   Source: livekit_phone_number.proto
 // </auto-generated>
 
 // Twirp client of these services, with one static method per RPC that posts the protobuf-encoded
@@ -16,6 +17,7 @@
 //   livekit.Ingress
 //   livekit.SIP
 //   livekit.Connector
+//   livekit.PhoneNumberService
 public class Twirp {
   // The content type of every request and response.
   public static readonly global::System.Net.Http.Headers.MediaTypeWithQualityHeaderValue CONTENT_TYPE_PROTOBUF =
@@ -810,6 +812,96 @@ public class Twirp {
     return SendAsync(client, Routes.Connector.ConnectTwilioCall, req, global::Livekit.Server.Sdk.Dotnet.ConnectTwilioCallResponse.Parser, configureRequest, cancellationToken);
   }
 
+  // Search available phone numbers in inventory
+  public static global::System.Threading.Tasks.Task<global::Livekit.Server.Sdk.Dotnet.SearchPhoneNumbersResponse> SearchPhoneNumbers(
+      global::System.Net.Http.HttpClient client,
+      global::Livekit.Server.Sdk.Dotnet.SearchPhoneNumbersRequest req) {
+    return SearchPhoneNumbers(client, req, null, default(global::System.Threading.CancellationToken));
+  }
+
+  public static global::System.Threading.Tasks.Task<global::Livekit.Server.Sdk.Dotnet.SearchPhoneNumbersResponse> SearchPhoneNumbers(
+      global::System.Net.Http.HttpClient client,
+      global::Livekit.Server.Sdk.Dotnet.SearchPhoneNumbersRequest req,
+      global::System.Action<global::System.Net.Http.HttpRequestMessage> configureRequest = null,
+      global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken)) {
+    return SendAsync(client, Routes.PhoneNumberService.SearchPhoneNumbers, req, global::Livekit.Server.Sdk.Dotnet.SearchPhoneNumbersResponse.Parser, configureRequest, cancellationToken);
+  }
+
+  // Purchase a phone number from inventory
+  public static global::System.Threading.Tasks.Task<global::Livekit.Server.Sdk.Dotnet.PurchasePhoneNumberResponse> PurchasePhoneNumber(
+      global::System.Net.Http.HttpClient client,
+      global::Livekit.Server.Sdk.Dotnet.PurchasePhoneNumberRequest req) {
+    return PurchasePhoneNumber(client, req, null, default(global::System.Threading.CancellationToken));
+  }
+
+  public static global::System.Threading.Tasks.Task<global::Livekit.Server.Sdk.Dotnet.PurchasePhoneNumberResponse> PurchasePhoneNumber(
+      global::System.Net.Http.HttpClient client,
+      global::Livekit.Server.Sdk.Dotnet.PurchasePhoneNumberRequest req,
+      global::System.Action<global::System.Net.Http.HttpRequestMessage> configureRequest = null,
+      global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken)) {
+    return SendAsync(client, Routes.PhoneNumberService.PurchasePhoneNumber, req, global::Livekit.Server.Sdk.Dotnet.PurchasePhoneNumberResponse.Parser, configureRequest, cancellationToken);
+  }
+
+  // List phone numbers for a project
+  public static global::System.Threading.Tasks.Task<global::Livekit.Server.Sdk.Dotnet.ListPhoneNumbersResponse> ListPhoneNumbers(
+      global::System.Net.Http.HttpClient client,
+      global::Livekit.Server.Sdk.Dotnet.ListPhoneNumbersRequest req) {
+    return ListPhoneNumbers(client, req, null, default(global::System.Threading.CancellationToken));
+  }
+
+  public static global::System.Threading.Tasks.Task<global::Livekit.Server.Sdk.Dotnet.ListPhoneNumbersResponse> ListPhoneNumbers(
+      global::System.Net.Http.HttpClient client,
+      global::Livekit.Server.Sdk.Dotnet.ListPhoneNumbersRequest req,
+      global::System.Action<global::System.Net.Http.HttpRequestMessage> configureRequest = null,
+      global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken)) {
+    return SendAsync(client, Routes.PhoneNumberService.ListPhoneNumbers, req, global::Livekit.Server.Sdk.Dotnet.ListPhoneNumbersResponse.Parser, configureRequest, cancellationToken);
+  }
+
+  // Get a phone number from a project
+  public static global::System.Threading.Tasks.Task<global::Livekit.Server.Sdk.Dotnet.GetPhoneNumberResponse> GetPhoneNumber(
+      global::System.Net.Http.HttpClient client,
+      global::Livekit.Server.Sdk.Dotnet.GetPhoneNumberRequest req) {
+    return GetPhoneNumber(client, req, null, default(global::System.Threading.CancellationToken));
+  }
+
+  public static global::System.Threading.Tasks.Task<global::Livekit.Server.Sdk.Dotnet.GetPhoneNumberResponse> GetPhoneNumber(
+      global::System.Net.Http.HttpClient client,
+      global::Livekit.Server.Sdk.Dotnet.GetPhoneNumberRequest req,
+      global::System.Action<global::System.Net.Http.HttpRequestMessage> configureRequest = null,
+      global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken)) {
+    return SendAsync(client, Routes.PhoneNumberService.GetPhoneNumber, req, global::Livekit.Server.Sdk.Dotnet.GetPhoneNumberResponse.Parser, configureRequest, cancellationToken);
+  }
+
+  // Update a phone number in a project
+  public static global::System.Threading.Tasks.Task<global::Livekit.Server.Sdk.Dotnet.UpdatePhoneNumberResponse> UpdatePhoneNumber(
+      global::System.Net.Http.HttpClient client,
+      global::Livekit.Server.Sdk.Dotnet.UpdatePhoneNumberRequest req) {
+    return UpdatePhoneNumber(client, req, null, default(global::System.Threading.CancellationToken));
+  }
+
+  public static global::System.Threading.Tasks.Task<global::Livekit.Server.Sdk.Dotnet.UpdatePhoneNumberResponse> UpdatePhoneNumber(
+      global::System.Net.Http.HttpClient client,
+      global::Livekit.Server.Sdk.Dotnet.UpdatePhoneNumberRequest req,
+      global::System.Action<global::System.Net.Http.HttpRequestMessage> configureRequest = null,
+      global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken)) {
+    return SendAsync(client, Routes.PhoneNumberService.UpdatePhoneNumber, req, global::Livekit.Server.Sdk.Dotnet.UpdatePhoneNumberResponse.Parser, configureRequest, cancellationToken);
+  }
+
+  // Release phone numbers
+  public static global::System.Threading.Tasks.Task<global::Livekit.Server.Sdk.Dotnet.ReleasePhoneNumbersResponse> ReleasePhoneNumbers(
+      global::System.Net.Http.HttpClient client,
+      global::Livekit.Server.Sdk.Dotnet.ReleasePhoneNumbersRequest req) {
+    return ReleasePhoneNumbers(client, req, null, default(global::System.Threading.CancellationToken));
+  }
+
+  public static global::System.Threading.Tasks.Task<global::Livekit.Server.Sdk.Dotnet.ReleasePhoneNumbersResponse> ReleasePhoneNumbers(
+      global::System.Net.Http.HttpClient client,
+      global::Livekit.Server.Sdk.Dotnet.ReleasePhoneNumbersRequest req,
+      global::System.Action<global::System.Net.Http.HttpRequestMessage> configureRequest = null,
+      global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken)) {
+    return SendAsync(client, Routes.PhoneNumberService.ReleasePhoneNumbers, req, global::Livekit.Server.Sdk.Dotnet.ReleasePhoneNumbersResponse.Parser, configureRequest, cancellationToken);
+  }
+
   // Posts one call and reads its response. The HttpClient is never modified: what a call needs goes
   // on its own request.
   private static async global::System.Threading.Tasks.Task<TResponse> SendAsync<TRequest, TResponse>(
@@ -903,6 +995,14 @@ public class Twirp {
       internal const string ConnectWhatsAppCall = "twirp/livekit.Connector/ConnectWhatsAppCall";
       internal const string AcceptWhatsAppCall = "twirp/livekit.Connector/AcceptWhatsAppCall";
       internal const string ConnectTwilioCall = "twirp/livekit.Connector/ConnectTwilioCall";
+    }
+    internal static class PhoneNumberService {
+      internal const string SearchPhoneNumbers = "twirp/livekit.PhoneNumberService/SearchPhoneNumbers";
+      internal const string PurchasePhoneNumber = "twirp/livekit.PhoneNumberService/PurchasePhoneNumber";
+      internal const string ListPhoneNumbers = "twirp/livekit.PhoneNumberService/ListPhoneNumbers";
+      internal const string GetPhoneNumber = "twirp/livekit.PhoneNumberService/GetPhoneNumber";
+      internal const string UpdatePhoneNumber = "twirp/livekit.PhoneNumberService/UpdatePhoneNumber";
+      internal const string ReleasePhoneNumbers = "twirp/livekit.PhoneNumberService/ReleasePhoneNumbers";
     }
   }
 }

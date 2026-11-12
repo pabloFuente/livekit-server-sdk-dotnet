@@ -23,6 +23,7 @@
   - [SIP Service](#sip-service)
   - [Agent Dispatch Service](#agent-dispatch-service)
   - [Connector Service](#connector-service)
+  - [Phone Number Service](#phone-number-service)
   - [Receiving Webhooks](#receiving-webhooks)
   - [Environment Variables](#environment-variables)
   - [Using a custom HttpClient](#using-a-custom-httpclient)
@@ -363,6 +364,44 @@ var twilioRequest = new ConnectTwilioCallRequest
     RoomName = "room-name",
 };
 ConnectTwilioCallResponse twilioResponse = await connectorClient.ConnectTwilioCall(twilioRequest);
+```
+
+## Phone Number Service
+
+`PhoneNumberServiceClient` is a .NET client to PhoneNumberService, which searches, purchases and manages the [phone numbers](https://docs.livekit.io/telephony/start/phone-numbers/) of a project. It is only available in LiveKit Cloud. Refer to [docs](https://docs.livekit.io/reference/telephony/phone-numbers-api/) for more usage examples.
+
+```csharp
+using Livekit.Server.Sdk.Dotnet;
+
+PhoneNumberServiceClient phoneNumberClient = new PhoneNumberServiceClient(
+    "https://my.livekit.instance",
+    "yourkey",
+    "yoursecret"
+);
+
+// Search available phone numbers
+SearchPhoneNumbersResponse available = await phoneNumberClient.SearchPhoneNumbers(
+    new SearchPhoneNumbersRequest { CountryCode = "US", AreaCode = "415", Limit = 10 }
+);
+
+// Purchase one and route its inbound calls with a SIP dispatch rule
+PurchasePhoneNumberResponse purchased = await phoneNumberClient.PurchasePhoneNumber(
+    new PurchasePhoneNumberRequest
+    {
+        PhoneNumbers = { available.Items[0].E164Format },
+        SipDispatchRuleId = "SDR_xxxxxxxxxxxx",
+    }
+);
+
+// List the active phone numbers of the project
+ListPhoneNumbersResponse active = await phoneNumberClient.ListPhoneNumbers(
+    new ListPhoneNumbersRequest { Statuses = { PhoneNumberStatus.Active } }
+);
+
+// Release a phone number
+await phoneNumberClient.ReleasePhoneNumbers(
+    new ReleasePhoneNumbersRequest { Ids = { purchased.PhoneNumbers[0].Id } }
+);
 ```
 
 ## Receiving Webhooks
