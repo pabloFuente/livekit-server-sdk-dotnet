@@ -11,7 +11,7 @@ Two independent NuGet packages, released separately, in one solution:
 
 | Package | Project | Namespace | Purpose |
 | --- | --- | --- | --- |
-| `Livekit.Server.Sdk.Dotnet` | `LivekitApi/` | `Livekit.Server.Sdk.Dotnet` | Access tokens, webhooks and Twirp clients for the LiveKit server APIs (Room, Egress, Ingress, SIP, Agent Dispatch, Connector). |
+| `Livekit.Server.Sdk.Dotnet` | `LivekitApi/` | `Livekit.Server.Sdk.Dotnet` | Access tokens, webhooks and Twirp clients for the LiveKit server APIs (Room, Egress, Ingress, SIP, Agent Dispatch, Connector, Phone Number). |
 | `Livekit.Rtc.Dotnet` | `LivekitRtc/` | `LiveKit.Rtc` | Real-time participant SDK (join rooms, publish/subscribe media, data, RPC, E2EE) built on the LiveKit Rust SDK through FFI. |
 
 Note the different casing of the two root namespaces (`Livekit.` vs `LiveKit.`). It is
@@ -226,11 +226,12 @@ Both test projects are xUnit on `net10.0`. Integration tests start real services
 - xUnit builds that fixture for every class in the collection, even when
   `--filter "Category=Unit"` selects only the unit tests of such a class. Unit tests therefore go
   in classes without the collection attribute (`ServiceClientUnitTest`, `BaseServiceHttpClientTest`,
-  `ConnectorServiceClientTest`, the token and webhook tests), never next to integration tests.
+  `ConnectorServiceClientTest`, `PhoneNumberServiceClientTest`, the token and webhook tests),
+  never next to integration tests.
 - Unit tests of service clients use `TestHttpMessageHandler` (in `ServiceClientFixture.cs`): it
   records the outgoing request, answers with an empty protobuf, and `LastVideoGrant()` decodes the
-  JWT so tests can assert the exact grants a method sends. LiveKit Cloud-only services (Connector)
-  cannot be integration-tested and use only this.
+  JWT so tests can assert the exact grants a method sends. LiveKit Cloud-only services (Connector,
+  Phone Number) cannot be integration-tested and use only this.
 
 **`LivekitRtc.Tests`**
 

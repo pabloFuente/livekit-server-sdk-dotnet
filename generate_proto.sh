@@ -89,7 +89,8 @@ protoc -I "$API_PROTOCOL" --plugin=protoc-gen-twirp_csharp="$TWIRP_PLUGIN" \
     "$API_PROTOCOL"/livekit_webhook.proto \
     "$API_PROTOCOL"/livekit_models.proto \
     "$API_PROTOCOL"/livekit_metrics.proto \
-    "$API_PROTOCOL"/livekit_analytics.proto
+    "$API_PROTOCOL"/livekit_analytics.proto \
+    "$API_PROTOCOL"/livekit_phone_number.proto
 
 # Move the code of both calls from the protos' csharp_namespace, "LiveKit.Proto", to
 # "Livekit.Server.Sdk.Dotnet"
