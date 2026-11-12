@@ -25,59 +25,61 @@ namespace Livekit.Server.Sdk.Dotnet {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChxsaXZla2l0X2FnZW50X2Rpc3BhdGNoLnByb3RvEgdsaXZla2l0GhNsaXZl",
-            "a2l0X2FnZW50LnByb3RvGhRsb2dnZXIvb3B0aW9ucy5wcm90byLfAgoaQ3Jl",
+            "a2l0X2FnZW50LnByb3RvGhRsb2dnZXIvb3B0aW9ucy5wcm90byLyAgoaQ3Jl",
             "YXRlQWdlbnREaXNwYXRjaFJlcXVlc3QSEgoKYWdlbnRfbmFtZRgBIAEoCRIM",
             "CgRyb29tGAIgASgJEjYKCG1ldGFkYXRhGAMgASgJQiSyUB48cmVkYWN0ZWQg",
             "KHt7IC5TaXplIH19IGJ5dGVzKT7AUAESMQoOcmVzdGFydF9wb2xpY3kYBCAB",
             "KA4yGS5saXZla2l0LkpvYlJlc3RhcnRQb2xpY3kSEgoKZGVwbG95bWVudBgF",
             "IAEoCRJtCgphdHRyaWJ1dGVzGAYgAygLMjMubGl2ZWtpdC5DcmVhdGVBZ2Vu",
             "dERpc3BhdGNoUmVxdWVzdC5BdHRyaWJ1dGVzRW50cnlCJLJQHjxyZWRhY3Rl",
-            "ZCAoe3sgLlNpemUgfX0gYnl0ZXMpPsBQARoxCg9BdHRyaWJ1dGVzRW50cnkS",
-            "CwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASK/AgoRUm9vbUFnZW50",
-            "RGlzcGF0Y2gSEgoKYWdlbnRfbmFtZRgBIAEoCRI2CghtZXRhZGF0YRgCIAEo",
-            "CUIkslAePHJlZGFjdGVkICh7eyAuU2l6ZSB9fSBieXRlcyk+wFABEjEKDnJl",
-            "c3RhcnRfcG9saWN5GAMgASgOMhkubGl2ZWtpdC5Kb2JSZXN0YXJ0UG9saWN5",
-            "EhIKCmRlcGxveW1lbnQYBCABKAkSZAoKYXR0cmlidXRlcxgFIAMoCzIqLmxp",
-            "dmVraXQuUm9vbUFnZW50RGlzcGF0Y2guQXR0cmlidXRlc0VudHJ5QiSyUB48",
-            "cmVkYWN0ZWQgKHt7IC5TaXplIH19IGJ5dGVzKT7AUAEaMQoPQXR0cmlidXRl",
-            "c0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiTgoaRGVs",
-            "ZXRlQWdlbnREaXNwYXRjaFJlcXVlc3QSIgoLZGlzcGF0Y2hfaWQYASABKAlC",
-            "DbpQCmRpc3BhdGNoSUQSDAoEcm9vbRgCIAEoCSJMChhMaXN0QWdlbnREaXNw",
-            "YXRjaFJlcXVlc3QSIgoLZGlzcGF0Y2hfaWQYASABKAlCDbpQCmRpc3BhdGNo",
-            "SUQSDAoEcm9vbRgCIAEoCSJNChlMaXN0QWdlbnREaXNwYXRjaFJlc3BvbnNl",
-            "EjAKEGFnZW50X2Rpc3BhdGNoZXMYASADKAsyFi5saXZla2l0LkFnZW50RGlz",
-            "cGF0Y2gi/QIKDUFnZW50RGlzcGF0Y2gSCgoCaWQYASABKAkSEgoKYWdlbnRf",
-            "bmFtZRgCIAEoCRIMCgRyb29tGAMgASgJEjYKCG1ldGFkYXRhGAQgASgJQiSy",
-            "UB48cmVkYWN0ZWQgKHt7IC5TaXplIH19IGJ5dGVzKT7AUAESKgoFc3RhdGUY",
-            "BSABKAsyGy5saXZla2l0LkFnZW50RGlzcGF0Y2hTdGF0ZRIxCg5yZXN0YXJ0",
-            "X3BvbGljeRgGIAEoDjIZLmxpdmVraXQuSm9iUmVzdGFydFBvbGljeRISCgpk",
-            "ZXBsb3ltZW50GAcgASgJEmAKCmF0dHJpYnV0ZXMYCCADKAsyJi5saXZla2l0",
-            "LkFnZW50RGlzcGF0Y2guQXR0cmlidXRlc0VudHJ5QiSyUB48cmVkYWN0ZWQg",
-            "KHt7IC5TaXplIH19IGJ5dGVzKT7AUAEaMQoPQXR0cmlidXRlc0VudHJ5EgsK",
-            "A2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiiAEKEkFnZW50RGlzcGF0",
-            "Y2hTdGF0ZRIaCgRqb2JzGAEgAygLMgwubGl2ZWtpdC5Kb2ISEgoKY3JlYXRl",
-            "ZF9hdBgCIAEoAxISCgpkZWxldGVkX2F0GAMgASgDEi4KB3RyaWdnZXIYBCAB",
-            "KA4yHS5saXZla2l0LkFnZW50RGlzcGF0Y2hUcmlnZ2VyKjUKEEpvYlJlc3Rh",
-            "cnRQb2xpY3kSEgoOSlJQX09OX0ZBSUxVUkUQABINCglKUlBfTkVWRVIQASph",
-            "ChRBZ2VudERpc3BhdGNoVHJpZ2dlchITCg9BRFRfVU5TUEVDSUZJRUQQABIM",
-            "CghBRFRfSk9JThABEhAKDEFEVF9ST09NX0FQSRACEhQKEEFEVF9ESVNQQVRD",
-            "SF9BUEkQAzKLAgoUQWdlbnREaXNwYXRjaFNlcnZpY2USTQoOQ3JlYXRlRGlz",
-            "cGF0Y2gSIy5saXZla2l0LkNyZWF0ZUFnZW50RGlzcGF0Y2hSZXF1ZXN0GhYu",
-            "bGl2ZWtpdC5BZ2VudERpc3BhdGNoEk0KDkRlbGV0ZURpc3BhdGNoEiMubGl2",
-            "ZWtpdC5EZWxldGVBZ2VudERpc3BhdGNoUmVxdWVzdBoWLmxpdmVraXQuQWdl",
-            "bnREaXNwYXRjaBJVCgxMaXN0RGlzcGF0Y2gSIS5saXZla2l0Lkxpc3RBZ2Vu",
-            "dERpc3BhdGNoUmVxdWVzdBoiLmxpdmVraXQuTGlzdEFnZW50RGlzcGF0Y2hS",
-            "ZXNwb25zZUJGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9jb2wvbGl2ZWtp",
-            "dKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IGcHJvdG8z"));
+            "ZCAoe3sgLlNpemUgfX0gYnl0ZXMpPsBQARIRCgl0aHJlYWRfaWQYByABKAka",
+            "MQoPQXR0cmlidXRlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEo",
+            "CToCOAEi0gIKEVJvb21BZ2VudERpc3BhdGNoEhIKCmFnZW50X25hbWUYASAB",
+            "KAkSNgoIbWV0YWRhdGEYAiABKAlCJLJQHjxyZWRhY3RlZCAoe3sgLlNpemUg",
+            "fX0gYnl0ZXMpPsBQARIxCg5yZXN0YXJ0X3BvbGljeRgDIAEoDjIZLmxpdmVr",
+            "aXQuSm9iUmVzdGFydFBvbGljeRISCgpkZXBsb3ltZW50GAQgASgJEmQKCmF0",
+            "dHJpYnV0ZXMYBSADKAsyKi5saXZla2l0LlJvb21BZ2VudERpc3BhdGNoLkF0",
+            "dHJpYnV0ZXNFbnRyeUIkslAePHJlZGFjdGVkICh7eyAuU2l6ZSB9fSBieXRl",
+            "cyk+wFABEhEKCXRocmVhZF9pZBgGIAEoCRoxCg9BdHRyaWJ1dGVzRW50cnkS",
+            "CwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJOgI4ASJOChpEZWxldGVBZ2Vu",
+            "dERpc3BhdGNoUmVxdWVzdBIiCgtkaXNwYXRjaF9pZBgBIAEoCUINulAKZGlz",
+            "cGF0Y2hJRBIMCgRyb29tGAIgASgJIkwKGExpc3RBZ2VudERpc3BhdGNoUmVx",
+            "dWVzdBIiCgtkaXNwYXRjaF9pZBgBIAEoCUINulAKZGlzcGF0Y2hJRBIMCgRy",
+            "b29tGAIgASgJIk0KGUxpc3RBZ2VudERpc3BhdGNoUmVzcG9uc2USMAoQYWdl",
+            "bnRfZGlzcGF0Y2hlcxgBIAMoCzIWLmxpdmVraXQuQWdlbnREaXNwYXRjaCKQ",
+            "AwoNQWdlbnREaXNwYXRjaBIKCgJpZBgBIAEoCRISCgphZ2VudF9uYW1lGAIg",
+            "ASgJEgwKBHJvb20YAyABKAkSNgoIbWV0YWRhdGEYBCABKAlCJLJQHjxyZWRh",
+            "Y3RlZCAoe3sgLlNpemUgfX0gYnl0ZXMpPsBQARIqCgVzdGF0ZRgFIAEoCzIb",
+            "LmxpdmVraXQuQWdlbnREaXNwYXRjaFN0YXRlEjEKDnJlc3RhcnRfcG9saWN5",
+            "GAYgASgOMhkubGl2ZWtpdC5Kb2JSZXN0YXJ0UG9saWN5EhIKCmRlcGxveW1l",
+            "bnQYByABKAkSYAoKYXR0cmlidXRlcxgIIAMoCzImLmxpdmVraXQuQWdlbnRE",
+            "aXNwYXRjaC5BdHRyaWJ1dGVzRW50cnlCJLJQHjxyZWRhY3RlZCAoe3sgLlNp",
+            "emUgfX0gYnl0ZXMpPsBQARIRCgl0aHJlYWRfaWQYCSABKAkaMQoPQXR0cmli",
+            "dXRlc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEiiAEK",
+            "EkFnZW50RGlzcGF0Y2hTdGF0ZRIaCgRqb2JzGAEgAygLMgwubGl2ZWtpdC5K",
+            "b2ISEgoKY3JlYXRlZF9hdBgCIAEoAxISCgpkZWxldGVkX2F0GAMgASgDEi4K",
+            "B3RyaWdnZXIYBCABKA4yHS5saXZla2l0LkFnZW50RGlzcGF0Y2hUcmlnZ2Vy",
+            "KjUKEEpvYlJlc3RhcnRQb2xpY3kSEgoOSlJQX09OX0ZBSUxVUkUQABINCglK",
+            "UlBfTkVWRVIQASphChRBZ2VudERpc3BhdGNoVHJpZ2dlchITCg9BRFRfVU5T",
+            "UEVDSUZJRUQQABIMCghBRFRfSk9JThABEhAKDEFEVF9ST09NX0FQSRACEhQK",
+            "EEFEVF9ESVNQQVRDSF9BUEkQAzKLAgoUQWdlbnREaXNwYXRjaFNlcnZpY2US",
+            "TQoOQ3JlYXRlRGlzcGF0Y2gSIy5saXZla2l0LkNyZWF0ZUFnZW50RGlzcGF0",
+            "Y2hSZXF1ZXN0GhYubGl2ZWtpdC5BZ2VudERpc3BhdGNoEk0KDkRlbGV0ZURp",
+            "c3BhdGNoEiMubGl2ZWtpdC5EZWxldGVBZ2VudERpc3BhdGNoUmVxdWVzdBoW",
+            "LmxpdmVraXQuQWdlbnREaXNwYXRjaBJVCgxMaXN0RGlzcGF0Y2gSIS5saXZl",
+            "a2l0Lkxpc3RBZ2VudERpc3BhdGNoUmVxdWVzdBoiLmxpdmVraXQuTGlzdEFn",
+            "ZW50RGlzcGF0Y2hSZXNwb25zZUJGWiNnaXRodWIuY29tL2xpdmVraXQvcHJv",
+            "dG9jb2wvbGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90",
+            "b2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitAgentReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.OptionsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy), typeof(global::Livekit.Server.Sdk.Dotnet.AgentDispatchTrigger), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest.Parser, new[]{ "AgentName", "Room", "Metadata", "RestartPolicy", "Deployment", "Attributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomAgentDispatch), global::Livekit.Server.Sdk.Dotnet.RoomAgentDispatch.Parser, new[]{ "AgentName", "Metadata", "RestartPolicy", "Deployment", "Attributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.CreateAgentDispatchRequest.Parser, new[]{ "AgentName", "Room", "Metadata", "RestartPolicy", "Deployment", "Attributes", "ThreadId" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.RoomAgentDispatch), global::Livekit.Server.Sdk.Dotnet.RoomAgentDispatch.Parser, new[]{ "AgentName", "Metadata", "RestartPolicy", "Deployment", "Attributes", "ThreadId" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.DeleteAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.DeleteAgentDispatchRequest.Parser, new[]{ "DispatchId", "Room" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchRequest), global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchRequest.Parser, new[]{ "DispatchId", "Room" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchResponse), global::Livekit.Server.Sdk.Dotnet.ListAgentDispatchResponse.Parser, new[]{ "AgentDispatches" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AgentDispatch), global::Livekit.Server.Sdk.Dotnet.AgentDispatch.Parser, new[]{ "Id", "AgentName", "Room", "Metadata", "State", "RestartPolicy", "Deployment", "Attributes" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AgentDispatch), global::Livekit.Server.Sdk.Dotnet.AgentDispatch.Parser, new[]{ "Id", "AgentName", "Room", "Metadata", "State", "RestartPolicy", "Deployment", "Attributes", "ThreadId" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::Livekit.Server.Sdk.Dotnet.AgentDispatchState), global::Livekit.Server.Sdk.Dotnet.AgentDispatchState.Parser, new[]{ "Jobs", "CreatedAt", "DeletedAt", "Trigger" }, null, null, null, null)
           }));
     }
@@ -159,6 +161,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       restartPolicy_ = other.restartPolicy_;
       deployment_ = other.deployment_;
       attributes_ = other.attributes_.Clone();
+      threadId_ = other.threadId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -242,6 +245,22 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return attributes_; }
     }
 
+    /// <summary>Field number for the "thread_id" field.</summary>
+    public const int ThreadIdFieldNumber = 7;
+    private string threadId_ = "";
+    /// <summary>
+    /// The agent thread (an AT_ id, see agent/livekit_agent_thread.proto) the dispatched job's
+    /// call reads and writes. Empty means the call keeps no durable thread.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ThreadId {
+      get { return threadId_; }
+      set {
+        threadId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -263,6 +282,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (RestartPolicy != other.RestartPolicy) return false;
       if (Deployment != other.Deployment) return false;
       if (!Attributes.Equals(other.Attributes)) return false;
+      if (ThreadId != other.ThreadId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -276,6 +296,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) hash ^= RestartPolicy.GetHashCode();
       if (Deployment.Length != 0) hash ^= Deployment.GetHashCode();
       hash ^= Attributes.GetHashCode();
+      if (ThreadId.Length != 0) hash ^= ThreadId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -315,6 +336,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteString(Deployment);
       }
       attributes_.WriteTo(output, _map_attributes_codec);
+      if (ThreadId.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(ThreadId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -346,6 +371,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteString(Deployment);
       }
       attributes_.WriteTo(ref output, _map_attributes_codec);
+      if (ThreadId.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(ThreadId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -372,6 +401,9 @@ namespace Livekit.Server.Sdk.Dotnet {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Deployment);
       }
       size += attributes_.CalculateSize(_map_attributes_codec);
+      if (ThreadId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ThreadId);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -400,6 +432,9 @@ namespace Livekit.Server.Sdk.Dotnet {
         Deployment = other.Deployment;
       }
       attributes_.MergeFrom(other.attributes_);
+      if (other.ThreadId.Length != 0) {
+        ThreadId = other.ThreadId;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -443,6 +478,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             attributes_.AddEntriesFrom(input, _map_attributes_codec);
             break;
           }
+          case 58: {
+            ThreadId = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -484,6 +523,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 50: {
             attributes_.AddEntriesFrom(ref input, _map_attributes_codec);
+            break;
+          }
+          case 58: {
+            ThreadId = input.ReadString();
             break;
           }
         }
@@ -533,6 +576,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       restartPolicy_ = other.restartPolicy_;
       deployment_ = other.deployment_;
       attributes_ = other.attributes_.Clone();
+      threadId_ = other.threadId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -604,6 +648,22 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return attributes_; }
     }
 
+    /// <summary>Field number for the "thread_id" field.</summary>
+    public const int ThreadIdFieldNumber = 6;
+    private string threadId_ = "";
+    /// <summary>
+    /// The agent thread (an AT_ id, see agent/livekit_agent_thread.proto) the dispatched job's
+    /// call reads and writes. Empty means the call keeps no durable thread.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ThreadId {
+      get { return threadId_; }
+      set {
+        threadId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -624,6 +684,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (RestartPolicy != other.RestartPolicy) return false;
       if (Deployment != other.Deployment) return false;
       if (!Attributes.Equals(other.Attributes)) return false;
+      if (ThreadId != other.ThreadId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -636,6 +697,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) hash ^= RestartPolicy.GetHashCode();
       if (Deployment.Length != 0) hash ^= Deployment.GetHashCode();
       hash ^= Attributes.GetHashCode();
+      if (ThreadId.Length != 0) hash ^= ThreadId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -671,6 +733,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteString(Deployment);
       }
       attributes_.WriteTo(output, _map_attributes_codec);
+      if (ThreadId.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(ThreadId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -698,6 +764,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteString(Deployment);
       }
       attributes_.WriteTo(ref output, _map_attributes_codec);
+      if (ThreadId.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(ThreadId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -721,6 +791,9 @@ namespace Livekit.Server.Sdk.Dotnet {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Deployment);
       }
       size += attributes_.CalculateSize(_map_attributes_codec);
+      if (ThreadId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ThreadId);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -746,6 +819,9 @@ namespace Livekit.Server.Sdk.Dotnet {
         Deployment = other.Deployment;
       }
       attributes_.MergeFrom(other.attributes_);
+      if (other.ThreadId.Length != 0) {
+        ThreadId = other.ThreadId;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -785,6 +861,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             attributes_.AddEntriesFrom(input, _map_attributes_codec);
             break;
           }
+          case 50: {
+            ThreadId = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -822,6 +902,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 42: {
             attributes_.AddEntriesFrom(ref input, _map_attributes_codec);
+            break;
+          }
+          case 50: {
+            ThreadId = input.ReadString();
             break;
           }
         }
@@ -1537,6 +1621,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       restartPolicy_ = other.restartPolicy_;
       deployment_ = other.deployment_;
       attributes_ = other.attributes_.Clone();
+      threadId_ = other.threadId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1644,6 +1729,22 @@ namespace Livekit.Server.Sdk.Dotnet {
       get { return attributes_; }
     }
 
+    /// <summary>Field number for the "thread_id" field.</summary>
+    public const int ThreadIdFieldNumber = 9;
+    private string threadId_ = "";
+    /// <summary>
+    /// The agent thread (an AT_ id, see agent/livekit_agent_thread.proto) the dispatched job's
+    /// call reads and writes. Empty means the call keeps no durable thread.
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ThreadId {
+      get { return threadId_; }
+      set {
+        threadId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1667,6 +1768,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (RestartPolicy != other.RestartPolicy) return false;
       if (Deployment != other.Deployment) return false;
       if (!Attributes.Equals(other.Attributes)) return false;
+      if (ThreadId != other.ThreadId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1682,6 +1784,7 @@ namespace Livekit.Server.Sdk.Dotnet {
       if (RestartPolicy != global::Livekit.Server.Sdk.Dotnet.JobRestartPolicy.JrpOnFailure) hash ^= RestartPolicy.GetHashCode();
       if (Deployment.Length != 0) hash ^= Deployment.GetHashCode();
       hash ^= Attributes.GetHashCode();
+      if (ThreadId.Length != 0) hash ^= ThreadId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1729,6 +1832,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteString(Deployment);
       }
       attributes_.WriteTo(output, _map_attributes_codec);
+      if (ThreadId.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(ThreadId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1768,6 +1875,10 @@ namespace Livekit.Server.Sdk.Dotnet {
         output.WriteString(Deployment);
       }
       attributes_.WriteTo(ref output, _map_attributes_codec);
+      if (ThreadId.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(ThreadId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1800,6 +1911,9 @@ namespace Livekit.Server.Sdk.Dotnet {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Deployment);
       }
       size += attributes_.CalculateSize(_map_attributes_codec);
+      if (ThreadId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ThreadId);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1837,6 +1951,9 @@ namespace Livekit.Server.Sdk.Dotnet {
         Deployment = other.Deployment;
       }
       attributes_.MergeFrom(other.attributes_);
+      if (other.ThreadId.Length != 0) {
+        ThreadId = other.ThreadId;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1891,6 +2008,10 @@ namespace Livekit.Server.Sdk.Dotnet {
             attributes_.AddEntriesFrom(input, _map_attributes_codec);
             break;
           }
+          case 74: {
+            ThreadId = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -1943,6 +2064,10 @@ namespace Livekit.Server.Sdk.Dotnet {
           }
           case 66: {
             attributes_.AddEntriesFrom(ref input, _map_attributes_codec);
+            break;
+          }
+          case 74: {
+            ThreadId = input.ReadString();
             break;
           }
         }
