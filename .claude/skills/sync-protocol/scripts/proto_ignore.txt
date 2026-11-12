@@ -1,0 +1,12 @@
+# Top-level protobufs/*.proto files that generate_proto.sh intentionally does NOT compile.
+# One file name per line, relative to protocol/protobufs/. Always add a reason, so the next
+# /sync-protocol run knows why. proto_inventory.py reports these as ignored instead of as
+# candidates, and flags an entry that no longer exists or is compiled after all.
+#
+# This only silences the "not compiled" report: a proto that a compiled one imports must be
+# compiled, whatever this file says.
+
+cloud_replay.proto              # livekit.Replay, LiveKit Cloud internal; no reference SDK wraps it
+livekit_agent_simulation.proto  # livekit.AgentSimulation, agent evaluation tooling; only server-sdk-go wraps it, with an AgentGrant this SDK does not have
+livekit_agent_worker.proto      # WorkerInfo only, used by the agent worker protocol, not by any server API
+livekit_agentdb.proto           # AgentDB, LiveKit Cloud internal; declares no service

@@ -11,7 +11,7 @@ Goal: one reviewable change set that moves `protocol` to a new `vX.Y.Z` tag (ups
 Work through the phases in order and stop at the checkpoints to show the user what you found. Don't commit, tag or push: leave the result as uncommitted changes for the maintainer.
 
 Scripts used below live next to this file. Run them from the repo root:
-- `scripts/proto_inventory.py`: which `.proto` files `generate_proto.sh` compiles vs. what the submodule has, including imports that are missing.
+- `scripts/proto_inventory.py`: which `.proto` files `generate_proto.sh` compiles vs. what the submodule has, including imports that are missing. Top-level protos listed in `scripts/proto_ignore.txt` are reported as ignored.
 - `scripts/api_coverage.py [--json]`: proto RPCs vs. generated Twirp routes vs. RPCs wrapped by `*ServiceClient.cs`. RPCs listed in `scripts/coverage_ignore.txt` are reported as ignored.
 
 ## Phase 1: Preflight
@@ -40,7 +40,8 @@ Scripts used below live next to this file. Run them from the repo root:
 1. `python3 .claude/skills/sync-protocol/scripts/proto_inventory.py`
    - **Listed but missing**: upstream deleted or moved a file. Remove or fix it in `generate_proto.sh`.
    - **Imported but not compiled**: add it to the `--csharp_out` list in `generate_proto.sh`, otherwise LivekitApi will not compile.
-   - **Top-level protos not compiled**: report them at the checkpoint. Don't add them on your own.
+   - **Top-level protos not compiled**: report them at the checkpoint. Don't add them on your own. If the user decides one stays out, add it to `scripts/proto_ignore.txt` with a reason comment, so the next sync stays quiet about it.
+   - **Listed in proto_ignore.txt but missing, compiled or imported**: upstream deleted the file, or it is now needed. Remove the entry and report it at the checkpoint.
 2. If a new or changed file declares a public `service` that should be callable from .NET, it also needs to be in the `--twirp_csharp_out` call. Report it at the checkpoint instead of deciding.
 3. Run `./generate_proto.sh`. If it fails, fix the script (proto list, `sed` patches), never the output.
 4. `git diff --stat LivekitApi/proto/` to sanity-check: files that disappear entirely or a huge `Twirp.cs` churn deserve a closer look.
