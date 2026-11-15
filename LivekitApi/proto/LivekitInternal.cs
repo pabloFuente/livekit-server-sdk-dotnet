@@ -119,14 +119,15 @@ namespace Livekit.Server.Sdk.Dotnet {
             "IAEoCRINCgV2YWx1ZRgCIAEoCToCOAEifgoJSUNFQ29uZmlnEjgKFXByZWZl",
             "cmVuY2Vfc3Vic2NyaWJlchgBIAEoDjIZLmxpdmVraXQuSUNFQ2FuZGlkYXRl",
             "VHlwZRI3ChRwcmVmZXJlbmNlX3B1Ymxpc2hlchgCIAEoDjIZLmxpdmVraXQu",
-            "SUNFQ2FuZGlkYXRlVHlwZSp2CghOb2RlVHlwZRIKCgZTRVJWRVIQABIOCgpD",
-            "T05UUk9MTEVSEAESCQoFTUVESUEQAhIICgRUVVJOEAQSCwoHU1dFRVBFUhAF",
-            "EgwKCERJUkVDVE9SEAYSEAoMSE9TVEVEX0FHRU5UEAcSDAoIU0VUVElOR1MQ",
-            "CCpLCglOb2RlU3RhdGUSDwoLU1RBUlRJTkdfVVAQABILCgdTRVJWSU5HEAES",
-            "EQoNU0hVVFRJTkdfRE9XThACEg0KCVNVU1BFTkRFRBADKjoKEElDRUNhbmRp",
-            "ZGF0ZVR5cGUSDAoISUNUX05PTkUQABILCgdJQ1RfVENQEAESCwoHSUNUX1RM",
-            "UxACQkZaI2dpdGh1Yi5jb20vbGl2ZWtpdC9wcm90b2NvbC9saXZla2l0qgIN",
-            "TGl2ZUtpdC5Qcm90b+oCDkxpdmVLaXQ6OlByb3RvYgZwcm90bzM="));
+            "SUNFQ2FuZGlkYXRlVHlwZSqCAQoITm9kZVR5cGUSCgoGU0VSVkVSEAASDgoK",
+            "Q09OVFJPTExFUhABEgkKBU1FRElBEAISCAoEVFVSThAEEgsKB1NXRUVQRVIQ",
+            "BRIMCghESVJFQ1RPUhAGEhAKDEhPU1RFRF9BR0VOVBAHEgwKCFNFVFRJTkdT",
+            "EAgSCgoGU0lHTkFMEAkqSwoJTm9kZVN0YXRlEg8KC1NUQVJUSU5HX1VQEAAS",
+            "CwoHU0VSVklORxABEhEKDVNIVVRUSU5HX0RPV04QAhINCglTVVNQRU5ERUQQ",
+            "Ayo6ChBJQ0VDYW5kaWRhdGVUeXBlEgwKCElDVF9OT05FEAASCwoHSUNUX1RD",
+            "UBABEgsKB0lDVF9UTFMQAkJGWiNnaXRodWIuY29tL2xpdmVraXQvcHJvdG9j",
+            "b2wvbGl2ZWtpdKoCDUxpdmVLaXQuUHJvdG/qAg5MaXZlS2l0OjpQcm90b2IG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Livekit.Server.Sdk.Dotnet.LivekitAgentDispatchReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitEgressReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitModelsReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitRoomReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.LivekitRtcReflection.Descriptor, global::Livekit.Server.Sdk.Dotnet.OptionsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Livekit.Server.Sdk.Dotnet.NodeType), typeof(global::Livekit.Server.Sdk.Dotnet.NodeState), typeof(global::Livekit.Server.Sdk.Dotnet.ICECandidateType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -151,6 +152,7 @@ namespace Livekit.Server.Sdk.Dotnet {
     [pbr::OriginalName("DIRECTOR")] Director = 6,
     [pbr::OriginalName("HOSTED_AGENT")] HostedAgent = 7,
     [pbr::OriginalName("SETTINGS")] Settings = 8,
+    [pbr::OriginalName("SIGNAL")] Signal = 9,
   }
 
   public enum NodeState {
