@@ -29,8 +29,7 @@ namespace LiveKit.Rtc
         public const int FailureTolerance = -1;
 
         /// <summary>
-        /// Default key ring size. Must be greater than zero: a value of 0 makes the FFI
-        /// create an empty key ring, and no frames are ever delivered.
+        /// Default key ring size: 16 keys per participant, at key indices 0 to 15.
         /// </summary>
         public const int KeyRingSize = 16;
     }
@@ -65,8 +64,9 @@ namespace LiveKit.Rtc
         public int FailureTolerance { get; set; } = E2EEDefaults.FailureTolerance;
 
         /// <summary>
-        /// Number of keys kept per participant, addressed by key index. Must be greater than zero. Defaults
-        /// to <see cref="E2EEDefaults.KeyRingSize"/>.
+        /// Number of keys kept per participant, addressed by the key indices 0 to
+        /// <c>KeyRingSize - 1</c>. The native SDK clamps it to the range 1 to 255. Defaults to
+        /// <see cref="E2EEDefaults.KeyRingSize"/>.
         /// </summary>
         public int KeyRingSize { get; set; } = E2EEDefaults.KeyRingSize;
 
@@ -109,8 +109,7 @@ namespace LiveKit.Rtc
                     RatchetSalt = Google.Protobuf.ByteString.CopyFrom(
                         KeyProviderOptions.RatchetSalt ?? E2EEDefaults.RatchetSalt
                     ),
-                    // A key ring size of 0 makes the FFI create an empty key ring, after which
-                    // no frames are ever delivered, so it must always be sent as a positive value.
+                    // Sent as set: the native SDK clamps it to the range 1 to 255
                     KeyRingSize = KeyProviderOptions.KeyRingSize,
                     KeyDerivationFunction = KeyProviderOptions.KeyDerivationFunction,
                 },
@@ -153,10 +152,15 @@ namespace LiveKit.Rtc
         public KeyProviderOptions Options => _options;
 
         /// <summary>
-        /// Sets the shared encryption key.
+        /// Sets the shared encryption key. Only a room connected with
+        /// <see cref="KeyProviderOptions.SharedKey"/> set uses a shared key.
         /// </summary>
         /// <param name="key">The encryption key.</param>
-        /// <param name="keyIndex">The key index.</param>
+        /// <param name="keyIndex">Index of the key in the key ring, from 0 to
+        /// <see cref="KeyProviderOptions.KeyRingSize"/> - 1.</param>
+        /// <exception cref="InvalidOperationException">Thrown when <paramref name="keyIndex"/> is
+        /// outside the key ring, or when the room was connected without
+        /// <see cref="KeyProviderOptions.SharedKey"/>.</exception>
         public void SetSharedKey(byte[] key, int keyIndex = 0)
         {
             if (key == null)
@@ -181,8 +185,10 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Exports the shared encryption key.
         /// </summary>
-        /// <param name="keyIndex">The key index.</param>
-        /// <returns>The exported key.</returns>
+        /// <param name="keyIndex">Index of the key in the key ring, from 0 to
+        /// <see cref="KeyProviderOptions.KeyRingSize"/> - 1.</param>
+        /// <returns>The exported key, or an empty array when that index holds no key or is outside
+        /// the key ring.</returns>
         public byte[] ExportSharedKey(int keyIndex = 0)
         {
             var request = new FfiRequest
@@ -201,8 +207,10 @@ namespace LiveKit.Rtc
         /// <summary>
         /// Ratchets the shared encryption key.
         /// </summary>
-        /// <param name="keyIndex">The key index.</param>
-        /// <returns>The new ratcheted key.</returns>
+        /// <param name="keyIndex">Index of the key in the key ring, from 0 to
+        /// <see cref="KeyProviderOptions.KeyRingSize"/> - 1.</param>
+        /// <returns>The new ratcheted key, or an empty array when that index holds no key or is
+        /// outside the key ring.</returns>
         public byte[] RatchetSharedKey(int keyIndex = 0)
         {
             var request = new FfiRequest
@@ -223,7 +231,10 @@ namespace LiveKit.Rtc
         /// </summary>
         /// <param name="participantIdentity">The participant identity.</param>
         /// <param name="key">The encryption key.</param>
-        /// <param name="keyIndex">The key index.</param>
+        /// <param name="keyIndex">Index of the key in the key ring, from 0 to
+        /// <see cref="KeyProviderOptions.KeyRingSize"/> - 1.</param>
+        /// <exception cref="InvalidOperationException">Thrown when <paramref name="keyIndex"/> is
+        /// outside the key ring.</exception>
         public void SetKey(string participantIdentity, byte[] key, int keyIndex = 0)
         {
             if (string.IsNullOrEmpty(participantIdentity))
@@ -252,8 +263,10 @@ namespace LiveKit.Rtc
         /// Exports the encryption key for a specific participant.
         /// </summary>
         /// <param name="participantIdentity">The participant identity.</param>
-        /// <param name="keyIndex">The key index.</param>
-        /// <returns>The exported key.</returns>
+        /// <param name="keyIndex">Index of the key in the key ring, from 0 to
+        /// <see cref="KeyProviderOptions.KeyRingSize"/> - 1.</param>
+        /// <returns>The exported key, or an empty array when that index holds no key or is outside
+        /// the key ring.</returns>
         public byte[] ExportKey(string participantIdentity, int keyIndex = 0)
         {
             if (string.IsNullOrEmpty(participantIdentity))
@@ -280,8 +293,10 @@ namespace LiveKit.Rtc
         /// Ratchets the encryption key for a specific participant.
         /// </summary>
         /// <param name="participantIdentity">The participant identity.</param>
-        /// <param name="keyIndex">The key index.</param>
-        /// <returns>The new ratcheted key.</returns>
+        /// <param name="keyIndex">Index of the key in the key ring, from 0 to
+        /// <see cref="KeyProviderOptions.KeyRingSize"/> - 1.</param>
+        /// <returns>The new ratcheted key, or an empty array when that index holds no key or is
+        /// outside the key ring.</returns>
         public byte[] RatchetKey(string participantIdentity, int keyIndex = 0)
         {
             if (string.IsNullOrEmpty(participantIdentity))

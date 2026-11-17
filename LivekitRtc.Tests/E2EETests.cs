@@ -1038,6 +1038,64 @@ public class E2EETests : IAsyncLifetime
     }
 
     [Fact]
+    public async Task E2EE_KeyProvider_RejectsKeyIndicesOutsideTheKeyRing()
+    {
+        // The native key provider refuses an index outside 0..KeyRingSize-1 (it used to accept it
+        // silently): a setter throws, a getter returns no key, and the process keeps running
+        var sharedKey = new byte[32];
+        new Random(10).NextBytes(sharedKey);
+        const int keyRingSize = 4;
+        _room1 = new Room();
+        await _room1.ConnectAsync(
+            _fixture.LiveKitUrl,
+            _fixture.CreateToken("e2ee-key-ring", "e2ee-key-ring-room"),
+            new RoomOptions
+            {
+                E2EE = new E2EEOptions
+                {
+                    KeyProviderOptions = new KeyProviderOptions
+                    {
+                        SharedKey = sharedKey,
+                        KeyRingSize = keyRingSize,
+                    },
+                },
+            }
+        );
+        var keyProvider = _room1.E2EEManager!.KeyProvider!;
+        const string identity = "e2ee-remote-participant";
+
+        keyProvider.SetSharedKey(sharedKey, keyIndex: keyRingSize - 1);
+        Assert.Equal(sharedKey, keyProvider.ExportSharedKey(keyIndex: keyRingSize - 1));
+        Assert.Throws<InvalidOperationException>(() =>
+            keyProvider.SetSharedKey(sharedKey, keyIndex: keyRingSize)
+        );
+        Assert.Throws<InvalidOperationException>(() =>
+            keyProvider.SetSharedKey(sharedKey, keyIndex: -1)
+        );
+        Assert.Empty(keyProvider.ExportSharedKey(keyIndex: keyRingSize));
+        Assert.Empty(keyProvider.RatchetSharedKey(keyIndex: keyRingSize));
+
+        keyProvider.SetKey(identity, sharedKey, keyIndex: keyRingSize - 1);
+        Assert.Throws<InvalidOperationException>(() =>
+            keyProvider.SetKey(identity, sharedKey, keyIndex: keyRingSize)
+        );
+        Assert.Empty(keyProvider.ExportKey(identity, keyIndex: keyRingSize));
+        Assert.Empty(keyProvider.RatchetKey(identity, keyIndex: keyRingSize));
+
+        // A room without a shared key has no shared key to set
+        _room2 = new Room();
+        await _room2.ConnectAsync(
+            _fixture.LiveKitUrl,
+            _fixture.CreateToken("e2ee-per-participant", "e2ee-per-participant-room"),
+            new RoomOptions { E2EE = new E2EEOptions() }
+        );
+        var perParticipantKeys = _room2.E2EEManager!.KeyProvider!;
+        Assert.Throws<InvalidOperationException>(() => perParticipantKeys.SetSharedKey(sharedKey));
+        perParticipantKeys.SetKey(identity, sharedKey);
+        Assert.Equal(sharedKey, perParticipantKeys.ExportKey(identity));
+    }
+
+    [Fact]
     public async Task E2EE_CryptorKeyIndexAndManagerEnabled_ReachTheNativeCryptors()
     {
         // GetFrameCryptors reads the key index and enabled state back from the native cryptors

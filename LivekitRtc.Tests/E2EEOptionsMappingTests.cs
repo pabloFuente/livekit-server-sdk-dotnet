@@ -97,12 +97,11 @@ public class E2EEOptionsMappingTests
         var proto = options.ToProto();
 
         Assert.NotNull(proto.Encryption);
-        // A KeyRingSize of 0 creates an empty key ring in the FFI and no frames are delivered at
-        // all, so mapping E2EE without a sane key ring size would just trade one silent failure
-        // for another.
+        // The native SDK clamps a KeyRingSize below 1 to a single key, so the default must be
+        // positive to give the usual ring of keys.
         Assert.True(
             proto.Encryption.KeyProviderOptions.KeyRingSize > 0,
-            "KeyRingSize must be non-zero, otherwise the FFI delivers no frames"
+            "KeyRingSize must be positive, otherwise the key ring holds a single key"
         );
     }
 

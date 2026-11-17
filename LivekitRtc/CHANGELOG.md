@@ -2,6 +2,32 @@
 
 ## Unreleased
 
+- Update rust-sdks to [livekit-ffi/v0.14.0](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.14.0) [PR #185](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/185)
+- Changed with livekit-ffi v0.14.0:
+  - `KeyProvider.SetSharedKey` and `KeyProvider.SetKey` throw `InvalidOperationException` (the native
+    log reads `failed to handle request: InvalidRequest("key index out of bounds")`) for a
+    `keyIndex` outside 0 to `KeyProviderOptions.KeyRingSize` - 1, which they used to accept
+    silently, and `SetSharedKey` also throws in a room connected without
+    `KeyProviderOptions.SharedKey`, where it did nothing. For such an index, `ExportSharedKey`,
+    `RatchetSharedKey`, `ExportKey` and `RatchetKey` return an empty array (`-1` used to address
+    the current key). The native SDK clamps `KeyRingSize` to the range 1 to 255. [PR #185](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/185)
+  - A `PerformRpcAsync` call still waiting when its own room disconnects fails with
+    `RpcError.Code` 1506 and the message `Connection closed`, instead of 1503
+    (`RpcErrorCode.RecipientDisconnected`), which now only means that the destination left.
+    `RpcErrorCode` has no member for 1506 (nor do the Node and Python SDKs): compare `Code` with
+    1506. [PR #185](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/185)
+  - The native SDK logs libwebrtc's warnings and errors at their own level instead of as debug,
+    so stderr now shows libwebrtc errors by default, often many per connection and mostly
+    harmless (`[ERROR libwebrtc] (basic_packet_socket_factory.cc:54): UDP bind failed with error
+    99` for each address it cannot use, for example), and `RUST_LOG=warn` adds its warnings.
+    `RUST_LOG=error,libwebrtc=off` hides them again. [PR #185](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/185)
+  - LiveKit servers see participants of this SDK as the .NET SDK (`ClientInfo.SDK.DOTNET` in the
+    join request) instead of an unknown SDK when they connect over a single peer connection, the
+    default of `RoomOptions.SinglePeerConnection`. [PR #185](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/185)
+  - The native HTTP client no longer follows a redirect from `https` to plain `http`, so its
+    `Authorization` header never reaches a plaintext URL; such a redirect now fails the request. [PR #185](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/185)
+  - Fixed: a disconnected `Room` left its remote participants and their tracks, encrypted ones
+    included, in native memory. [PR #185](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/185)
 - New, as in the Node and Python SDKs:
   - `RoomOptions.RtcConfig`: ICE settings, such as TURN relays only (`IceTransportType.TransportRelay`). [README](README.md#connection-options) [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
   - `RoomOptions.ConnectTimeout`, `RoomOptions.SinglePeerConnection` and `RoomOptions.DataStream` (size limit of incoming streams). [PR #181](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/181)
