@@ -552,9 +552,11 @@ two commits. As with `sync-protocol.yml`, a version whose branch exists is skipp
   never hard-code a version string in code.
 - Publishing happens when the maintainer creates a GitHub release whose tag is `api-X.Y.Z` or
   `rtc-X.Y.Z` (the prefix selects the package). `publish.yml` fails unless `X.Y.Z` is the csproj
-  `<Version>`, then packs, validates, tests, pushes to NuGet, then opens the pull request
-  `Post steps release <tag>` (branch `post-release/<tag>`) that
-  moves the package validation baseline. A ruleset on `main` requires the six checks of
+  `<Version>`, then packs, validates, tests, pushes to NuGet, then (job `post_release`) waits
+  until nuget.org serves the new version and opens the pull request `Post steps release <tag>`
+  (branch `post-release/<tag>`) that moves the package validation baseline. Restore downloads
+  that baseline, so a branch pushed before NuGet indexes the package fails every check that
+  restores (NU1102). A ruleset on `main` requires the six checks of
   `dotnet.yml` (`build`, `RTC tests (linux-arm64)` and the four `RTC native tests (<rid>)`; a
   renamed job or matrix entry must be renamed in the ruleset too) and lets only repository admins
   bypass it (a personal-account repository cannot list GitHub Actions as a
