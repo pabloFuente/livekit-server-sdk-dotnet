@@ -653,6 +653,43 @@ namespace LiveKit.Rtc.Tests
             Log("Null return value handled correctly");
         }
 
+        [Fact]
+        public async Task PerformRpc_CallerDisconnectsDuringCall_FailsWithConnectionClosed()
+        {
+            // The caller's own room closing fails the call at once with 1506 ("Connection
+            // closed"), which RpcErrorCode does not name; RecipientDisconnected (1503) is left for
+            // a destination that leaves
+            const int connectionClosed = 1506;
+            var handlerStarted = new TaskCompletionSource<bool>(
+                TaskCreationOptions.RunContinuationsAsynchronously
+            );
+            _responderParticipant!.RegisterRpcMethod(
+                "slowMethod",
+                async (data) =>
+                {
+                    handlerStarted.TrySetResult(true);
+                    await Task.Delay(TimeSpan.FromSeconds(10));
+                    return "too late";
+                }
+            );
+
+            var call = _callerParticipant!.PerformRpcAsync(
+                _responderIdentity,
+                "slowMethod",
+                "",
+                30.0
+            );
+            await handlerStarted.Task.WaitAsync(TimeSpan.FromSeconds(10));
+            await _callerRoom!.DisconnectAsync();
+
+            var exception = await Assert.ThrowsAsync<RpcError>(() =>
+                call.WaitAsync(TimeSpan.FromSeconds(5))
+            );
+            Assert.Equal(connectionClosed, exception.Code);
+            Assert.Equal("Connection closed", exception.Message);
+            Log($"In-flight call failed with {exception.Code}: {exception.Message}");
+        }
+
         #endregion
 
         #region Edge Case Tests
