@@ -1,6 +1,6 @@
 # Changelog (Release Notes)
 
-## Unreleased
+## 0.1.8
 
 - Update rust-sdks to [livekit-ffi/v0.14.0](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.14.0) [PR #185](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/185)
 - Changed with livekit-ffi v0.14.0:
