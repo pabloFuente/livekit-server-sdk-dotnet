@@ -1,6 +1,6 @@
 # Changelog (Release Notes)
 
-## Unreleased
+## 1.2.7
 
 - Update livekit/protocol to [v1.54.1](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.54.1) ([PR #182](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/182), [PR #184](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/184))
 - New `CreateSIPParticipantRequest.SipSourceCallId` (LiveKit Cloud only), to forward a live inbound call with `SipServiceClient.CreateSIPParticipant` while keeping the original caller's number as the caller ID of the new call. It takes the LiveKit SIP call ID of the inbound call (`SCL_...`, the `SipCallId` of its `SIPParticipantInfo`), not the SIP `Call-ID` header from the provider. When `SipFromHeader` is also set, its user must match the caller's number. [PR #182](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/182)
