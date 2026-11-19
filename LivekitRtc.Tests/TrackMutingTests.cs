@@ -1,5 +1,6 @@
 // author: https://github.com/pabloFuente
 
+using Livekit.Server.Sdk.Dotnet;
 using LiveKit.Rtc;
 using Xunit;
 using Xunit.Abstractions;
@@ -191,5 +192,45 @@ public class TrackMutingTests : IClassFixture<RtcTestFixture>
         await publisherRoom.DisconnectAsync();
         await subscriberRoom.DisconnectAsync();
         Log("Test completed");
+    }
+
+    [Fact]
+    public async Task PublishTrackAsync_WithoutPublishPermission_FailsWithoutWaitingForTimeout()
+    {
+        var token = new AccessToken(RtcTestFixture.API_KEY, RtcTestFixture.API_SECRET)
+            .WithIdentity("no-publish")
+            .WithGrants(
+                new VideoGrants
+                {
+                    RoomJoin = true,
+                    Room = "test-publish-refused-room",
+                    CanPublish = false,
+                }
+            )
+            .ToJwt();
+
+        using var room = new Room();
+        await room.ConnectAsync(_fixture.LiveKitUrl, token);
+
+        using var audioSource = new AudioSource(48000, 1);
+        var audioTrack = LocalAudioTrack.Create("refused-audio", audioSource);
+
+        var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+        var ex = await Assert.ThrowsAsync<RoomException>(() =>
+            room.LocalParticipant!.PublishTrackAsync(audioTrack)
+        );
+        stopwatch.Stop();
+        Log($"PublishTrackAsync failed after {stopwatch.ElapsedMilliseconds} ms: {ex.Message}");
+
+        // The server's refusal fails the publication at once, instead of after the native
+        // 10-second publish timeout
+        Assert.Contains("rejected by the server", ex.Message);
+        Assert.True(
+            stopwatch.Elapsed < TimeSpan.FromSeconds(5),
+            $"PublishTrackAsync took {stopwatch.Elapsed}"
+        );
+        Assert.Empty(room.LocalParticipant!.TrackPublications);
+
+        await room.DisconnectAsync();
     }
 }

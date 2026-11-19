@@ -1,5 +1,28 @@
 # Changelog (Release Notes)
 
+## Unreleased
+
+- Update rust-sdks to [livekit-ffi/v0.15.0](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.15.0) [PR #188](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/188)
+- Changed with livekit-ffi v0.15.0 (no FFI protocol or public API change):
+  - A local track muted with `LocalTrack.Mute()` before or while `PublishTrackAsync` publishes it
+    no longer starts sending media once published. The native SDK used to enable the underlying
+    media track again, although its publication stayed muted for every participant. [PR #188](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/188)
+  - `PublishTrackAsync` throws `RoomException` as soon as the server refuses the track (for a
+    participant without `CanPublish`, for example), with the message `Failed to publish track:
+    room error engine: internal error: track <name> rejected by the server: NOT_ALLOWED: ...`,
+    instead of after the native 10-second publish timeout with `... track publication timed out,
+    no response received from the server`. [PR #188](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/188)
+  - A `LocalDataTrack` that the server refuses to republish after a reconnection is now
+    unpublished: `IsPublished()` returns `false` and `TryPush` throws `PushFrameException`,
+    instead of the track still reporting itself as published. [PR #188](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/188)
+  - Fixed: closing a room left pending publisher negotiations running in native memory, holding
+    their peer connection factory, media threads and encoder resources. [PR #188](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/188)
+  - Fixed: an intermittent process abort on Windows when a native WebRTC call reported an error.
+    [PR #188](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/188)
+  - `VideoStream` no longer makes the native SDK allocate and free a frame-sized buffer for every
+    received frame (4.5 MB for a 1628x1920 I420 frame): the native side reuses up to three
+    conversion buffers per stream. [PR #188](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/188)
+
 ## 0.1.8
 
 - Update rust-sdks to [livekit-ffi/v0.14.0](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.14.0) [PR #185](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/185)
