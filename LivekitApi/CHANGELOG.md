@@ -1,5 +1,9 @@
 # Changelog (Release Notes)
 
+## Unreleased
+
+- Update livekit/protocol to [v1.54.2](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.54.2) [PR #196](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/196)
+
 ## 1.2.7
 
 - Update livekit/protocol to [v1.54.1](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.54.1) ([PR #182](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/182), [PR #184](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/184))
