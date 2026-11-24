@@ -21,7 +21,7 @@
     <!-- Tests -->
     <PackageVersion Include="coverlet.collector" Version="10.1.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.12.0" />
-    <PackageVersion Include="Selenium.WebDriver" Version="4.52.0" />
+    <PackageVersion Include="Selenium.WebDriver" Version="4.53.0" />
     <PackageVersion Include="SSH.NET" Version="2026.0.0" />
     <PackageVersion Include="Testcontainers" Version="4.16.0" />
     <PackageVersion Include="Testcontainers.WebDriver" Version="4.16.0" />
