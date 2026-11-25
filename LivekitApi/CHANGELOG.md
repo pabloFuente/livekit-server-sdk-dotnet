@@ -2,7 +2,8 @@
 
 ## Unreleased
 
-- Update livekit/protocol to [v1.54.2](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.54.2) [PR #196](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/196)
+- Update livekit/protocol to [v1.55.0](https://github.com/livekit/protocol/releases/tag/%40livekit%2Fprotocol%401.55.0) ([PR #196](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/196), [PR #202](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/202))
+- New `ObservabilityGrants.ClientWrite`, written as the `clientWrite` claim of the `observability` grant (`AccessToken.WithObservabilityGrants`) and read back by `TokenVerifier.Verify`: it allows a participant to publish client SDK telemetry only. `ObservabilityGrants.Write` keeps granting every observability route, client telemetry included. [PR #202](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/202)
 
 ## 1.2.7
 
