@@ -43,15 +43,13 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             // es-ES formats 1.5 as "1,5": a fractional exp used to become an invalid claim
             var expiration = DateTime.UtcNow.AddMinutes(30).AddMilliseconds(123);
             var notBefore = DateTime.UtcNow.AddSeconds(-10).AddMilliseconds(456);
-            var jwt = WithCulture(
-                "es-ES",
-                () =>
-                    new AccessToken(TEST_KEY, TEST_SECRET)
-                        .WithIdentity("identity")
-                        .WithGrants(new VideoGrants { Room = "room", RoomJoin = true })
-                        .WithExpiration(expiration)
-                        .WithNotBefore(notBefore)
-                        .ToJwt()
+            var jwt = WithCulture("es-ES", () =>
+                new AccessToken(TEST_KEY, TEST_SECRET)
+                    .WithIdentity("identity")
+                    .WithGrants(new VideoGrants { Room = "room", RoomJoin = true })
+                    .WithExpiration(expiration)
+                    .WithNotBefore(notBefore)
+                    .ToJwt()
             );
 
             var payload = DecodePayload(jwt);
@@ -69,9 +67,8 @@ namespace Livekit.Server.Sdk.Dotnet.Test
             );
 
             // And the token verifies, in the same culture
-            var claims = WithCulture(
-                "es-ES",
-                () => new TokenVerifier(TEST_KEY, TEST_SECRET).Verify(jwt)
+            var claims = WithCulture("es-ES", () =>
+                new TokenVerifier(TEST_KEY, TEST_SECRET).Verify(jwt)
             );
             Assert.Equal("identity", claims.Identity);
             Assert.True(claims.Video.RoomJoin);
@@ -81,13 +78,11 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         [Trait("Category", "Unit")]
         public void ToJwt_FractionalTtl_IsTruncatedToWholeSeconds()
         {
-            var jwt = WithCulture(
-                "de-DE",
-                () =>
-                    new AccessToken(TEST_KEY, TEST_SECRET)
-                        .WithTtl(TimeSpan.FromMilliseconds(90500))
-                        .WithGrants(new VideoGrants())
-                        .ToJwt()
+            var jwt = WithCulture("de-DE", () =>
+                new AccessToken(TEST_KEY, TEST_SECRET)
+                    .WithTtl(TimeSpan.FromMilliseconds(90500))
+                    .WithGrants(new VideoGrants())
+                    .ToJwt()
             );
             var payload = DecodePayload(jwt);
             Assert.Equal(JTokenType.Integer, payload["exp"]!.Type);
@@ -99,14 +94,12 @@ namespace Livekit.Server.Sdk.Dotnet.Test
         public void ToJwt_KindAndGrantKeys_AreLowerCasedInvariantly_UnderTurkishCulture()
         {
             // tr-TR lower-cases "I" to dotless "ı": "Ingress" and "IngressAdmin" used to be mangled
-            var jwt = WithCulture(
-                "tr-TR",
-                () =>
-                    new AccessToken(TEST_KEY, TEST_SECRET)
-                        .WithIdentity("identity")
-                        .WithKind(ParticipantInfo.Types.Kind.Ingress)
-                        .WithGrants(new VideoGrants { IngressAdmin = true })
-                        .ToJwt()
+            var jwt = WithCulture("tr-TR", () =>
+                new AccessToken(TEST_KEY, TEST_SECRET)
+                    .WithIdentity("identity")
+                    .WithKind(ParticipantInfo.Types.Kind.Ingress)
+                    .WithGrants(new VideoGrants { IngressAdmin = true })
+                    .ToJwt()
             );
 
             var payload = DecodePayload(jwt);
@@ -231,6 +224,24 @@ namespace Livekit.Server.Sdk.Dotnet.Test
                     )
                     .Inference
             );
+        }
+
+        [Fact]
+        [Trait("Category", "Unit")]
+        public void ObservabilityGrants_ClientWrite_RoundTrips()
+        {
+            var jwt = new AccessToken(TEST_KEY, TEST_SECRET)
+                .WithIdentity("identity")
+                .WithObservabilityGrants(new ObservabilityGrants { ClientWrite = true })
+                .ToJwt();
+
+            var payload = DecodePayload(jwt);
+            Assert.True(payload["observability"]!["clientWrite"]!.Value<bool>());
+            Assert.False(payload["observability"]!["write"]!.Value<bool>());
+
+            var claims = new TokenVerifier(TEST_KEY, TEST_SECRET).Verify(jwt);
+            Assert.True(claims.Observability!.ClientWrite);
+            Assert.False(claims.Observability.Write);
         }
 
         [Fact]

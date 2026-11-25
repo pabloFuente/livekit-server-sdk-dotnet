@@ -148,9 +148,16 @@ namespace Livekit.Server.Sdk.Dotnet
     public class ObservabilityGrants
     {
         /// <summary>
-        /// Permission to publish observability data.
+        /// Permission to publish observability data on every observability route, client SDK
+        /// telemetry included.
         /// </summary>
         public bool Write { get; set; } = false;
+
+        /// <summary>
+        /// Permission to publish client SDK telemetry only (the <c>clientWrite</c> claim).
+        /// <see cref="Write"/> already includes this access.
+        /// </summary>
+        public bool ClientWrite { get; set; } = false;
     }
 
     /// <summary>
