@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Update rust-sdks to [livekit-ffi/v0.16.0](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.16.0) [PR #205](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/205)
+- Changed with livekit-ffi v0.16.0 (no FFI protocol or public API change):
+  - Opus audio tracks now negotiate NACK, so lost audio packets are retransmitted when RED
+    (redundant encoding) is off: on tracks published with `TrackPublishOptions.Red = false`, and
+    in rooms connected with `RoomOptions.E2EE`, where the native SDK always turns RED off. Without
+    RED, a lost audio packet used to be left to the receiver's loss concealment. [PR #205](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/205)
 - Update rust-sdks to [livekit-ffi/v0.15.0](https://github.com/livekit/rust-sdks/releases/tag/livekit-ffi%2Fv0.15.0) [PR #188](https://github.com/pabloFuente/livekit-server-sdk-dotnet/pull/188)
 - Changed with livekit-ffi v0.15.0 (no FFI protocol or public API change):
   - A local track muted with `LocalTrack.Mute()` before or while `PublishTrackAsync` publishes it
