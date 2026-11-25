@@ -79,6 +79,7 @@ jobs:
         run: dotnet tool restore
 
       - name: Run /sync-protocol
+        id: claude
         uses: anthropics/claude-code-action@cc98b3ae241b0fcfb6a42a2690751afffecb4452 # v1.0.278
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -94,11 +95,13 @@ jobs:
             - Don't stop at the checkpoint. Wrap the new RPCs that the Node or Python reference SDK wraps, and list everything else the checkpoint would ask about as open decisions.
             - Don't commit. The workflow commits the protocol submodule, then generate_proto.sh with LivekitApi/proto, then everything else, and opens the pull request.
             - End each new changelog bullet with [PR #PR_NUMBER](https://github.com/${{ github.repository }}/pull/PR_NUMBER). The workflow fills in the number.
-            - Write the final report to ${{ runner.temp }}/pr-body.md in GitHub Markdown: it becomes the pull request description.
+            - Your first reply without a tool call ends the session: nothing wakes you up afterwards, and whatever still runs in the background is lost. Run every command, tests included, in the foreground, and never end a reply to wait for one.
+            - Before that last reply, write the final report to ${{ runner.temp }}/pr-body.md in GitHub Markdown: it becomes the pull request description.
 
       - name: Commit and open the pull request
         env:
           GH_TOKEN: ${{ github.token }}
+          EXECUTION_FILE: ${{ steps.claude.outputs.execution_file }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -109,8 +112,17 @@ jobs:
           commit "Regenerate proto C# files" generate_proto.sh LivekitApi/proto
           commit "Adapt LivekitApi to livekit/protocol v$VERSION" .
           git push origin "$BRANCH"
-          # Without a pull request the pushed branch would make every later run skip this version
-          [ -s "$RUNNER_TEMP/pr-body.md" ] || echo "Claude wrote no report: see $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > "$RUNNER_TEMP/pr-body.md"
+          # Without a pull request the pushed branch would make every later run skip this version.
+          # Without a report file, Claude's last message (the skill ends with the report) stands in
+          if [ ! -s "$RUNNER_TEMP/pr-body.md" ]; then
+            run="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            last=$(jq -r '[.[] | select(.type == "result")] | last | .result // empty' "$EXECUTION_FILE" 2>/dev/null || true)
+            if [ -n "$last" ]; then
+              printf '> [!NOTE]\n> Claude wrote no report file. This is its last message ([run](%s)).\n\n%s\n' "$run" "$last"
+            else
+              echo "Claude wrote no report: see $run"
+            fi > "$RUNNER_TEMP/pr-body.md"
+          fi
           url=$(gh pr create --head "$BRANCH" --title "Update livekit/protocol to v$VERSION" --body-file "$RUNNER_TEMP/pr-body.md")
           # The changelog links to the pull request, which only has a number now
           sed -i "s/PR_NUMBER/${url##*/}/g" LivekitApi/CHANGELOG.md
